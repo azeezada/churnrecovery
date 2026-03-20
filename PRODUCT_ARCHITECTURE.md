@@ -63,11 +63,13 @@ The ChurnRecovery product consists of three parts, layered on top of the existin
 - App pages: AppLayout with sidebar (set `Component.isAppPage = true`)
 - This avoids React context conflicts between marketing nav and app nav
 
-### 4. In-Memory MVP → D1 Migration Path
-- API routes currently use in-memory Maps for data
-- D1 schema is ready in `/db/schema.sql`
-- Migration: swap Map operations with D1 queries (Cloudflare Workers binding)
-- No structural changes needed — same API contracts
+### 4. D1 Database (Production) + SQLite (Local Dev)
+- **Production:** Cloudflare Pages Functions in `functions/api/` use D1 binding (`env.DB`)
+- **Local dev:** `server/api/` routes use `better-sqlite3` via `lib/db.js`
+- **Schema:** `/db/schema.sql` — run with `wrangler d1 execute churnrecovery-db --file=./db/schema.sql --remote`
+- **D1 database:** `churnrecovery-db` (ID: `5a4c00b9-71e7-4cde-9e03-256fc31be806`)
+- **Binding:** Configured in `wrangler.toml` as `DB`
+- Same API contracts — both layers serve identical endpoints
 
 ### 5. Widget Design
 - Standalone IIFE — no build step for consumers
@@ -93,9 +95,27 @@ STRIPE_WEBHOOK_SECRET=whsec_... (optional)
 ```
 churnrecovery/
 ├── middleware.js                        # Clerk auth middleware
+├── wrangler.toml                       # Cloudflare Pages config + D1 binding
 ├── .env.example                        # Environment variable template
 ├── .env.local                          # Local dev env vars
 ├── db/schema.sql                       # D1 database schema
+├── functions/api/                      # Cloudflare Pages Functions (production)
+│   ├── _shared.js                      # Shared utils (CORS, auth, IDs)
+│   ├── projects.js                     # Project CRUD (D1)
+│   ├── cancel-flow.js                  # Cancel flow config (D1)
+│   ├── events.js                       # Event logging (D1)
+│   ├── analytics.js                    # Analytics aggregation (D1)
+│   ├── stripe-webhook.js              # Stripe webhooks (D1)
+│   └── waitlist/
+│       ├── index.js                    # Waitlist signup (D1)
+│       └── count.js                    # Waitlist count (D1)
+├── server/api/                         # Local dev API routes (better-sqlite3)
+│   ├── projects.js
+│   ├── cancel-flow.js
+│   ├── events.js
+│   ├── analytics.js
+│   └── stripe-webhook.js
+├── lib/db.js                           # Local SQLite DB layer
 ├── components/
 │   └── AppLayout.js                    # Dashboard sidebar layout
 ├── pages/
@@ -107,23 +127,20 @@ churnrecovery/
 │   │   ├── analytics.js                # Analytics dashboard
 │   │   ├── settings.js                 # Project settings
 │   │   └── install.js                  # Widget install guide
-│   └── api/
-│       ├── projects.js                 # Project CRUD
-│       ├── cancel-flow.js              # Cancel flow config
-│       ├── events.js                   # Event logging
-│       ├── analytics.js                # Analytics API
-│       └── stripe-webhook.js           # Stripe webhooks
+│   └── api/ (not used in static export)
 ├── public/
 │   └── widget.js                       # Embeddable cancel flow widget
 └── PRODUCT_ARCHITECTURE.md             # This file
 ```
 
 ## Next Steps (Post-MVP)
-1. Set up Clerk account and get real API keys
-2. Create D1 database and run schema migration
-3. Replace in-memory stores with D1 queries
-4. Deploy to Cloudflare Pages (hybrid mode)
+1. ~~Set up Clerk account and get real API keys~~ ✅ Done
+2. ~~Create D1 database and run schema migration~~ ✅ Done
+3. ~~Replace in-memory stores with D1 queries~~ ✅ Done (Pages Functions)
+4. ~~Deploy to Cloudflare Pages (hybrid mode)~~ ✅ Done
 5. Set up Stripe Connect OAuth flow
 6. Minify widget.js for CDN distribution
 7. Build email templates for dunning sequences
 8. Add real-time analytics with WebSocket updates
+9. Verify Clerk JWT signatures in Pages Functions (currently decodes without verification)
+10. Wire dashboard pages to use API (`fetch('/api/...')`) instead of localStorage
