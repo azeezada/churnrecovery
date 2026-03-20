@@ -1,4 +1,4 @@
-import { jsonResponse, handleCors } from './_shared.js'
+import { jsonResponse, handleCors } from '../_shared.js'
 
 export async function onRequestOptions() {
   return handleCors()

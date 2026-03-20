@@ -1,6 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
+import { getAllCompetitorSlugs } from '../lib/comparisons.js'
 
 const siteUrl = 'https://churnrecovery.com'
 const outDir = path.join(process.cwd(), 'public')
@@ -26,7 +27,7 @@ const staticPages = [
 ]
 
 // Comparison pages
-const competitors = ['churnkey', 'profitwell', 'churnbuster', 'stunning', 'baremetrics']
+const competitors = getAllCompetitorSlugs()
 const comparisonPages = competitors.flatMap(c => [
   { path: `/compare/${c}`, priority: '0.7', changefreq: 'monthly' },
   { path: `/alternatives/${c}`, priority: '0.7', changefreq: 'monthly' },
