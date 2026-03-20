@@ -1,0 +1,74 @@
+import fs from 'fs'
+import path from 'path'
+import matter from 'gray-matter'
+
+const siteUrl = 'https://churnrecovery.com'
+const outDir = path.join(process.cwd(), 'public')
+const postsDir = path.join(process.cwd(), 'src', 'posts')
+
+// Static pages with priorities
+const staticPages = [
+  { path: '/', priority: '1.0', changefreq: 'weekly' },
+  { path: '/features', priority: '0.9', changefreq: 'monthly' },
+  { path: '/docs', priority: '0.9', changefreq: 'monthly' },
+  { path: '/demo', priority: '0.8', changefreq: 'monthly' },
+  { path: '/blog', priority: '0.8', changefreq: 'weekly' },
+  { path: '/templates', priority: '0.8', changefreq: 'monthly' },
+  { path: '/tools/churn-calculator', priority: '0.7', changefreq: 'monthly' },
+  { path: '/styles', priority: '0.3', changefreq: 'monthly' },
+  { path: '/styles/developer', priority: '0.3', changefreq: 'monthly' },
+  { path: '/styles/warm-saas', priority: '0.3', changefreq: 'monthly' },
+  { path: '/styles/data-forward', priority: '0.3', changefreq: 'monthly' },
+]
+
+// Comparison pages
+const competitors = ['churnkey', 'profitwell', 'churnbuster', 'stunning', 'baremetrics']
+const comparisonPages = competitors.flatMap(c => [
+  { path: `/compare/${c}`, priority: '0.7', changefreq: 'monthly' },
+  { path: `/alternatives/${c}`, priority: '0.7', changefreq: 'monthly' },
+])
+
+// Template pages
+const templateSlugs = ['saas-standard', 'high-ticket', 'freemium-upgrade', 'feedback-first', 'ecommerce-subscription', 'aggressive-save']
+const templatePages = templateSlugs.map(slug => ({
+  path: `/templates/${slug}`, priority: '0.7', changefreq: 'monthly',
+}))
+
+// Blog posts
+function getBlogPages() {
+  if (!fs.existsSync(postsDir)) return []
+  const files = fs.readdirSync(postsDir).filter(f => f.endsWith('.md'))
+  return files.map(filename => {
+    const content = fs.readFileSync(path.join(postsDir, filename), 'utf8')
+    const { data } = matter(content)
+    const slug = filename.replace(/\.md$/, '')
+    return {
+      path: `/posts/${slug}`,
+      priority: '0.6',
+      changefreq: 'monthly',
+      lastmod: data.date ? new Date(data.date).toISOString().split('T')[0] : undefined,
+    }
+  })
+}
+
+const today = new Date().toISOString().split('T')[0]
+
+const allPages = [
+  ...staticPages,
+  ...comparisonPages,
+  ...templatePages,
+  ...getBlogPages(),
+]
+
+const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${allPages.map(page => `  <url>
+    <loc>${siteUrl}${page.path}</loc>
+    <lastmod>${page.lastmod || today}</lastmod>
+    <changefreq>${page.changefreq}</changefreq>
+    <priority>${page.priority}</priority>
+  </url>`).join('\n')}
+</urlset>`
+
+fs.writeFileSync(path.join(outDir, 'sitemap.xml'), sitemap)
+console.log(`✓ Generated sitemap.xml with ${allPages.length} URLs`)

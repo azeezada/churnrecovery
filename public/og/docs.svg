@@ -1,0 +1,14 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#191919;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2A2A2A;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="0" y="580" width="1200" height="50" fill="#D97757"/>
+  <text x="80" y="200" font-family="system-ui, -apple-system, sans-serif" font-size="72" font-weight="800" fill="#FFFFFF" letter-spacing="-2">Developer Docs</text>
+  <text x="80" y="270" font-family="Georgia, serif" font-size="28" fill="rgba(255,255,255,0.6)">Integrate in under 10 minutes</text>
+  <text x="80" y="540" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="700" fill="#D97757">churnrecovery.com</text>
+  <text x="1120" y="540" font-family="system-ui, -apple-system, sans-serif" font-size="18" fill="rgba(255,255,255,0.4)" text-anchor="end">Free forever</text>
+</svg>
