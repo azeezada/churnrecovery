@@ -12,13 +12,14 @@ const footerLinks = {
   Resources: [
     { label: 'Blog', href: '/blog' },
     { label: 'Documentation', href: '/docs' },
-    { label: 'Churn Guide', href: '/posts/complete-guide-to-reducing-saas-churn' },
-    { label: 'Cancel Flow Examples', href: '/posts/cancel-flow-examples' },
+    { label: 'Churn Guide', href: '/posts/Ultimate-Guide-SaaS-Churn' },
+    { label: 'Cancel Flow Examples', href: '/posts/Cancel-Flow-Examples' },
   ],
   Compare: [
     { label: 'vs Churnkey', href: '/compare/churnkey' },
-    { label: 'vs Paddle Retain', href: '/compare/paddle-retain' },
-    { label: 'vs Stripe Billing', href: '/compare/stripe-billing' },
+    { label: 'vs ProfitWell', href: '/compare/profitwell' },
+    { label: 'vs Churnbuster', href: '/compare/churnbuster' },
+    { label: 'vs Baremetrics', href: '/compare/baremetrics' },
     { label: 'Alternatives', href: '/alternatives/churnkey' },
   ],
   Company: [
