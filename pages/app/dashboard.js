@@ -73,22 +73,30 @@ function EmptyState({ onCreateProject, creating }) {
         Set up your first cancel flow to start recovering churned customers. It takes less than 5 minutes.
       </p>
       <div style={{ display: 'flex', gap: '12px', justifyContent: 'center' }}>
+        <Link href="/app/onboarding" style={{
+          background: t.accent, color: t.white, padding: '10px 24px',
+          borderRadius: '8px', border: 'none', cursor: 'pointer',
+          fontWeight: 600, fontSize: '0.9rem', textDecoration: 'none',
+          display: 'inline-flex', alignItems: 'center'
+        }}>
+          Start Setup Wizard
+        </Link>
         <button
           onClick={onCreateProject}
           disabled={creating}
           style={{
-            background: t.accent, color: t.white, padding: '10px 24px',
-            borderRadius: '8px', border: 'none', cursor: creating ? 'not-allowed' : 'pointer',
-            fontWeight: 600, fontSize: '0.9rem', opacity: creating ? 0.7 : 1,
+            background: 'transparent', color: t.gray, padding: '10px 24px',
+            borderRadius: '8px', border: `1px solid ${t.border}`, cursor: creating ? 'not-allowed' : 'pointer',
+            fontWeight: 500, fontSize: '0.9rem', opacity: creating ? 0.7 : 1,
           }}
         >
-          {creating ? 'Creating...' : 'Create First Project'}
+          {creating ? 'Creating...' : 'Quick Create'}
         </button>
         <Link href="/app/install" style={{
           padding: '10px 24px', borderRadius: '8px', border: `1px solid ${t.border}`,
           textDecoration: 'none', color: t.gray, fontSize: '0.9rem', fontWeight: 500,
         }}>
-          View Install Guide
+          Install Guide
         </Link>
       </div>
     </div>
