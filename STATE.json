@@ -1,11 +1,11 @@
 {
   "project": "churnrecovery",
-  "status": "complete",
-  "current_phase": 4,
+  "status": "in_progress",
+  "current_phase": 5,
   "current_task": "done",
   "started_at": "2026-03-20T04:20:00Z",
-  "last_updated": "2026-03-20T14:50:00Z",
-  "completed_tasks": ["001", "002", "003", "004", "005", "006", "007", "008", "009", "010", "011", "012", "013", "014", "015", "016", "017", "018"],
+  "last_updated": "2026-03-20T15:47:00Z",
+  "completed_tasks": ["001", "002", "003", "004", "005", "006", "007", "008", "009", "010", "011", "012", "013", "014", "015", "016", "017", "018", "019", "020", "021", "022", "023", "024"],
   "tasks": {
     "001": {
       "name": "Project foundation — install deps, design system, component library",
@@ -168,6 +168,60 @@
       "acceptance": "About page at /about with mission statement, founding story, team placeholder, open-source commitment. Trust-building.",
       "completed_at": "2026-03-20T14:50:00Z",
       "notes": "About page built with mission hero, founding story with timeline, values grid (4 values), team placeholder, open-source commitment section, bottom CTA. Vision score: 7.8/10 desktop + mobile. Build passes."
+    },
+    "019": {
+      "name": "Switch from static export to hybrid mode + Clerk auth setup",
+      "status": "complete",
+      "phase": 5,
+      "files": ["next.config.js", "middleware.js", "pages/_app.js", ".env.example", ".env.local"],
+      "acceptance": "Build passes without output:export. Clerk middleware protects /app/* routes. ClerkProvider wraps app.",
+      "completed_at": "2026-03-20T15:47:00Z",
+      "notes": "Removed output:export. Installed @clerk/nextjs v7. ClerkProvider in _app.js. Middleware protects /app/*. Layout switching via isAppPage flag."
+    },
+    "020": {
+      "name": "Auth pages — sign-in and sign-up with Clerk components",
+      "status": "complete",
+      "phase": 5,
+      "files": ["pages/app/sign-in/[[...index]].js", "pages/app/sign-up/[[...index]].js"],
+      "acceptance": "Sign-in and sign-up pages render Clerk components with ChurnRecovery branding.",
+      "completed_at": "2026-03-20T15:47:00Z",
+      "notes": "Clerk SignIn/SignUp with accent color theming. Redirects to /app/dashboard after auth."
+    },
+    "021": {
+      "name": "Dashboard pages — overview, cancel flow builder, analytics, settings, install",
+      "status": "complete",
+      "phase": 5,
+      "files": ["components/AppLayout.js", "pages/app/dashboard.js", "pages/app/cancel-flow.js", "pages/app/analytics.js", "pages/app/settings.js", "pages/app/install.js"],
+      "acceptance": "5 dashboard pages with sidebar layout. Cancel flow builder has live preview. Analytics has charts. Settings has API key management.",
+      "completed_at": "2026-03-20T15:47:00Z",
+      "notes": "AppLayout with sidebar nav + UserButton. Dashboard: stat cards, recent events, quick actions. Cancel flow: reason editor + live modal preview. Analytics: bar charts, metric cards, event table. Settings: API keys, Stripe connect, webhooks. Install: 3 methods (script/npm/React) with code snippets."
+    },
+    "022": {
+      "name": "API routes — projects, cancel-flow, events, analytics, stripe-webhook",
+      "status": "complete",
+      "phase": 5,
+      "files": ["pages/api/projects.js", "pages/api/cancel-flow.js", "pages/api/events.js", "pages/api/analytics.js", "pages/api/stripe-webhook.js"],
+      "acceptance": "5 API routes. Auth-protected where needed. CORS for widget. Stripe webhook with raw body parsing.",
+      "completed_at": "2026-03-20T15:47:00Z",
+      "notes": "In-memory stores for MVP. cancel-flow and events have CORS for widget access. stripe-webhook disables bodyParser for signature verification. Analytics returns mock data."
+    },
+    "023": {
+      "name": "Embeddable widget (widget.js) — standalone cancel flow modal",
+      "status": "complete",
+      "phase": 5,
+      "files": ["public/widget.js"],
+      "acceptance": "Vanilla JS widget. Reads config from script attributes. 3-step flow. Posts events to API. Auto-binds to data-churnrecovery elements.",
+      "completed_at": "2026-03-20T15:47:00Z",
+      "notes": "Pure vanilla JS IIFE, ~15KB unminified. Self-contained CSS injection. Promise-based showCancelFlow API. Fetches config from /api/cancel-flow. Posts events to /api/events. Auto-binds data-churnrecovery='cancel' elements."
+    },
+    "024": {
+      "name": "D1 schema + product architecture documentation",
+      "status": "complete",
+      "phase": 5,
+      "files": ["db/schema.sql", "PRODUCT_ARCHITECTURE.md"],
+      "acceptance": "Complete D1 schema with indexes. Product architecture doc covering all decisions.",
+      "completed_at": "2026-03-20T15:47:00Z",
+      "notes": "Schema: projects, cancel_flows, cancel_events, failed_payments with proper indexes and foreign keys. Architecture doc covers all 3 product parts + key decisions."
     }
   },
   "notes": [
@@ -176,7 +230,9 @@
     "Vision model feedback key themes: add accent color usage, real value prop, remove placeholder copy, style CTAs, fix article cards.",
     "Tasks 007+008 were both completed in prior session and committed. Vision scores: demo 44/50, calculator 41/50. Both well above 7/10 threshold.",
     "Phase 4 added: pricing page, integrations hub, 2 SEO posts, about page.",
-    "ALL 18 TASKS COMPLETE. Full site built and deployed. 35+ pages, 6 blog posts, 6 integrations, 5 comparisons, 6 templates."
+    "ALL 18 TASKS COMPLETE. Full site built and deployed. 35+ pages, 6 blog posts, 6 integrations, 5 comparisons, 6 templates.",
+    "Phase 5: Product build — auth, dashboard, API routes, widget, D1 schema. Tasks 019-024.",
+    "Build passes with 53 pages + 5 API routes + middleware. Existing marketing site unchanged."
   ],
   "update_log": [
     {
@@ -208,6 +264,12 @@
       "task": "018",
       "action": "complete",
       "summary": "About page committed. All 18 tasks complete. STATE.json reconciled with git history. site is production-ready."
+    },
+    {
+      "timestamp": "2026-03-20T15:47:00Z",
+      "task": "019-024",
+      "action": "complete",
+      "summary": "Phase 5 product build: Clerk auth (v7), 5 dashboard pages with sidebar layout, 5 API routes, embeddable widget.js, D1 schema. Build passes with 53 pages. Marketing site unchanged."
     }
   ]
 }

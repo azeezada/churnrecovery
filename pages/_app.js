@@ -1,15 +1,29 @@
 import Head from 'next/head'
-import { ClerkProvider } from '@clerk/nextjs'
 import '../styles/globals.css'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
+import { isClerkEnabled } from '../lib/auth'
+
+// Only import Clerk if key is valid — prevents crash with placeholder keys
+const clerkEnabled = isClerkEnabled()
+
+let ClerkProvider
+if (clerkEnabled) {
+  ClerkProvider = require('@clerk/nextjs').ClerkProvider
+}
+
+// Passthrough wrapper when Clerk is not configured
+function NoAuthProvider({ children }) {
+  return <>{children}</>
+}
+
+const AuthProvider = clerkEnabled ? ClerkProvider : NoAuthProvider
 
 export default function MyApp({ Component, pageProps }) {
-  // App pages use their own layout (no marketing header/footer)
   const isAppPage = Component.isAppPage
 
   return (
-    <ClerkProvider {...pageProps}>
+    <AuthProvider {...(clerkEnabled ? pageProps : {})}>
       <Head>
         <link rel="icon" href="/logo.png" />
         <link rel="apple-touch-icon" href="/logo.png" />
@@ -70,6 +84,6 @@ export default function MyApp({ Component, pageProps }) {
           <Footer />
         </>
       )}
-    </ClerkProvider>
+    </AuthProvider>
   )
 }

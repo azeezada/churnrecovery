@@ -134,14 +134,35 @@ export default function Header() {
               {link.label}
             </Link>
           ))}
-          <Link href="/#waitlist" onClick={() => setMobileOpen(false)} style={{
-            display: 'block', marginTop: 16,
-            background: t.accent, color: t.white,
-            padding: '12px', borderRadius: 8, fontWeight: 700,
-            textDecoration: 'none', textAlign: 'center', fontSize: 15,
-          }}>
-            Get early access →
-          </Link>
+          {isSignedIn ? (
+            <Link href="/app/dashboard" onClick={() => setMobileOpen(false)} style={{
+              display: 'block', marginTop: 16,
+              background: t.accent, color: t.white,
+              padding: '12px', borderRadius: 8, fontWeight: 700,
+              textDecoration: 'none', textAlign: 'center', fontSize: 15,
+            }}>
+              Dashboard →
+            </Link>
+          ) : (
+            <>
+              <Link href="/app/sign-in" onClick={() => setMobileOpen(false)} style={{
+                display: 'block', padding: '12px 0',
+                borderBottom: `1px solid ${t.border}`,
+                fontSize: 16, fontWeight: 500, color: t.text,
+                textDecoration: 'none',
+              }}>
+                Sign in
+              </Link>
+              <Link href="/app/sign-up" onClick={() => setMobileOpen(false)} style={{
+                display: 'block', marginTop: 16,
+                background: t.accent, color: t.white,
+                padding: '12px', borderRadius: 8, fontWeight: 700,
+                textDecoration: 'none', textAlign: 'center', fontSize: 15,
+              }}>
+                Get started free →
+              </Link>
+            </>
+          )}
         </div>
       )}
 
