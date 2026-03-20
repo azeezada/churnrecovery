@@ -2,10 +2,10 @@
   "project": "churnrecovery",
   "status": "running",
   "current_phase": 2,
-  "current_task": "011",
+  "current_task": "012",
   "started_at": "2026-03-20T04:20:00Z",
   "last_updated": "2026-03-20T05:40:00Z",
-  "completed_tasks": ["001", "002", "003", "004", "005", "006", "007", "008", "009", "010"],
+  "completed_tasks": ["001", "002", "003", "004", "005", "006", "007", "008", "009", "010", "011"],
   "tasks": {
     "001": {
       "name": "Project foundation — install deps, design system, component library",
@@ -99,7 +99,9 @@
     },
     "011": {
       "name": "SEO infrastructure — sitemap, robots.txt, OG images, structured data, GSC verification",
-      "status": "pending",
+      "status": "complete",
+      "completed_at": "2026-03-20T06:25:00Z",
+      "notes": "Sitemap (33 URLs), robots.txt, 8 OG images (SVG), JSON-LD Organization+WebSite, default OG/Twitter meta in _app.js. Build passes.",
       "phase": 2,
       "files": ["pages/_app.js", "public/robots.txt", "lib/sitemap.js", "pages/sitemap.xml.js"],
       "acceptance": "sitemap.xml generates all pages, robots.txt configured, GSC meta tag in head, JSON-LD on all pages, OG meta tags on all pages."

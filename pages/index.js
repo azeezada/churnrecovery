@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import Head from 'next/head'
 import { getAllPosts } from '../lib/posts'
+import WaitlistForm from '../components/WaitlistForm'
 
 // ─── Design tokens inline (avoid import issues in static export) ───────────
 const t = {
@@ -627,58 +628,7 @@ export default function Home({ posts }) {
               reach out with next steps — no spam, no sales pitch, just access.
             </p>
 
-            <form
-              onSubmit={e => {
-                e.preventDefault()
-                const email = e.target.email.value
-                if (email) {
-                  fetch('/api/waitlist', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ email }),
-                  }).catch(() => {})
-                  e.target.reset()
-                  alert('You\'re on the list! We\'ll be in touch.')
-                }
-              }}
-              style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}
-            >
-              <input
-                type="email"
-                name="email"
-                required
-                placeholder="you@company.com"
-                style={{
-                  flex: '1',
-                  minWidth: '220px',
-                  padding: '13px 18px',
-                  borderRadius: '6px',
-                  border: '1px solid #444',
-                  background: '#2a2a2a',
-                  color: t.white,
-                  fontFamily: t.fontSans,
-                  fontSize: '0.95rem',
-                  outline: 'none',
-                }}
-              />
-              <button
-                type="submit"
-                style={{
-                  padding: '13px 28px',
-                  borderRadius: '6px',
-                  background: t.accent,
-                  color: t.white,
-                  fontFamily: t.fontSans,
-                  fontWeight: 600,
-                  fontSize: '0.95rem',
-                  border: 'none',
-                  cursor: 'pointer',
-                  whiteSpace: 'nowrap',
-                }}
-              >
-                Join the waitlist
-              </button>
-            </form>
+            <WaitlistForm source="homepage" dark={true} />
           </div>
         </div>
       </section>

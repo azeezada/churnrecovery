@@ -16,3 +16,12 @@ enabled = true
 head_sampling_rate = 1
 invocation_logs = true
 persist = true
+
+# D1 Database for waitlist + analytics
+# Create with: wrangler d1 create churnrecovery-db
+# Then update the database_id below
+[[d1_databases]]
+binding = "DB"
+database_name = "churnrecovery-db"
+database_id = "TODO_REPLACE_WITH_ACTUAL_DB_ID"
+migrations_dir = "migrations"
