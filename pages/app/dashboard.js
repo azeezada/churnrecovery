@@ -3,6 +3,12 @@ import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import AppLayout from '../../components/AppLayout'
 import { useAuthUser } from '../../lib/useAuthUser'
+import {
+  getProjects,
+  createProject,
+  getEvents,
+  getAnalytics,
+} from '../../lib/localStore'
 
 const t = {
   bg: '#FAF9F5',
@@ -79,28 +85,27 @@ function EmptyState({ onCreateProject, creating }) {
           {creating ? 'Creating...' : 'Create First Project'}
         </button>
         <Link href="/app/install" style={{
-          background: t.white, color: t.text, padding: '10px 24px',
-          borderRadius: '8px', textDecoration: 'none', fontWeight: 600, fontSize: '0.9rem',
-          border: `1px solid ${t.border}`,
+          padding: '10px 24px', borderRadius: '8px', border: `1px solid ${t.border}`,
+          textDecoration: 'none', color: t.gray, fontSize: '0.9rem', fontWeight: 500,
         }}>
-          Install Widget
+          View Install Guide
         </Link>
       </div>
     </div>
   )
 }
 
+const outcomeColors = {
+  saved: { bg: '#EDF7F1', text: '#2D7A4F', label: 'Saved ✓' },
+  paused: { bg: '#EFF6FF', text: '#2563EB', label: 'Paused' },
+  cancelled: { bg: '#FEF2F2', text: '#DC2626', label: 'Cancelled' },
+  downgraded: { bg: '#FFF7ED', text: '#C2410C', label: 'Downgraded' },
+  flow_started: { bg: '#F5F5F5', text: '#666', label: 'Started' },
+}
+
 function RecentEventRow({ event }) {
-  const outcomeColors = {
-    saved: { bg: t.greenLight, text: t.green, label: 'Saved' },
-    cancelled: { bg: t.redLight, text: t.red, label: 'Cancelled' },
-    paused: { bg: t.blueLight, text: t.blue, label: 'Paused' },
-    downgraded: { bg: '#FFF7ED', text: '#EA580C', label: 'Downgraded' },
-    flow_started: { bg: '#F5F3FF', text: '#7C3AED', label: 'Started' },
-  }
   const outcome = outcomeColors[event.outcome] || { bg: '#F5F5F5', text: t.gray, label: event.outcome }
 
-  // Format relative time
   const relativeTime = (created_at) => {
     const diff = Date.now() - new Date(created_at).getTime()
     const mins = Math.floor(diff / 60000)
@@ -145,66 +150,30 @@ export default function DashboardPage() {
   const [analytics, setAnalytics] = useState(null)
   const [loading, setLoading] = useState(true)
   const [creating, setCreating] = useState(false)
-  const [error, setError] = useState(null)
 
-  // Load projects
+  // Load projects from localStore (client-side only)
   useEffect(() => {
-    async function load() {
-      try {
-        const res = await fetch('/api/projects')
-        if (!res.ok) throw new Error('Failed to load projects')
-        const data = await res.json()
-        setProjects(data.projects || [])
-        if (data.projects && data.projects.length > 0) {
-          setActiveProject(data.projects[0])
-        }
-      } catch (err) {
-        setError(err.message)
-      } finally {
-        setLoading(false)
-      }
-    }
-    load()
+    const stored = getProjects()
+    setProjects(stored)
+    if (stored.length > 0) setActiveProject(stored[0])
+    setLoading(false)
   }, [])
 
-  // Load events + analytics when project is selected
+  // Load events + analytics when project changes
   useEffect(() => {
     if (!activeProject) return
-
-    async function loadProjectData() {
-      try {
-        const [eventsRes, analyticsRes] = await Promise.all([
-          fetch(`/api/events?projectId=${activeProject.id}&limit=10`),
-          fetch(`/api/analytics?projectId=${activeProject.id}&days=30`),
-        ])
-        const eventsData = await eventsRes.json()
-        const analyticsData = await analyticsRes.json()
-        setEvents(eventsData.events || [])
-        setAnalytics(analyticsData)
-      } catch (err) {
-        console.error('Failed to load project data:', err)
-      }
-    }
-
-    loadProjectData()
+    const ev = getEvents(activeProject.id, 10)
+    const an = getAnalytics(activeProject.id, 30)
+    setEvents(ev)
+    setAnalytics(an)
   }, [activeProject])
 
-  async function handleCreateProject() {
+  function handleCreateProject() {
     setCreating(true)
-    try {
-      const res = await fetch('/api/projects', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: 'My Project' }),
-      })
-      const project = await res.json()
-      setProjects([project])
-      setActiveProject(project)
-    } catch (err) {
-      setError(err.message)
-    } finally {
-      setCreating(false)
-    }
+    const project = createProject('My Project')
+    setProjects([project])
+    setActiveProject(project)
+    setCreating(false)
   }
 
   const formatCurrency = (cents) => {
@@ -222,12 +191,6 @@ export default function DashboardPage() {
           {isLoaded && user ? `Welcome back, ${user.firstName || user.emailAddresses?.[0]?.emailAddress || 'there'}` : 'Loading..'}. Here&apos;s your churn recovery overview.
         </p>
 
-        {error && (
-          <div style={{ background: t.redLight, border: `1px solid ${t.red}`, borderRadius: '8px', padding: '12px 16px', marginBottom: '24px', color: t.red, fontSize: '0.85rem' }}>
-            {error}
-          </div>
-        )}
-
         {loading ? (
           <div style={{ textAlign: 'center', padding: '60px', color: t.grayLight, fontFamily: t.fontSans }}>
             Loading your dashboard...
@@ -242,7 +205,10 @@ export default function DashboardPage() {
                 <span style={{ fontSize: '0.78rem', color: t.grayLight, fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Project:</span>
                 <select
                   value={activeProject?.id}
-                  onChange={e => setActiveProject(projects.find(p => p.id === e.target.value))}
+                  onChange={e => {
+                    const p = projects.find(p => p.id === e.target.value)
+                    setActiveProject(p)
+                  }}
                   style={{
                     padding: '6px 12px', borderRadius: '6px', border: `1px solid ${t.border}`,
                     fontFamily: t.fontSans, fontSize: '0.85rem', background: t.white, color: t.text,
@@ -251,8 +217,12 @@ export default function DashboardPage() {
                   {projects.map(p => <option key={p.id} value={p.id}>{p.name}</option>)}
                 </select>
                 <button
-                  onClick={handleCreateProject}
-                  disabled={creating}
+                  onClick={() => {
+                    const name = prompt('Project name:')
+                    if (!name) return
+                    const project = createProject(name)
+                    setProjects([...projects, project])
+                  }}
                   style={{
                     padding: '6px 12px', borderRadius: '6px', border: `1px solid ${t.border}`,
                     background: t.white, color: t.text, cursor: 'pointer', fontSize: '0.78rem', fontWeight: 500,

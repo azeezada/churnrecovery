@@ -1,7 +1,15 @@
 import Head from 'next/head'
 import { useState, useEffect } from 'react'
+import { useRouter } from 'next/router'
 import { useAuthUser } from '../../lib/useAuthUser'
 import AppLayout from '../../components/AppLayout'
+import {
+  getProjects,
+  updateProject,
+  deleteProject,
+  getSettings,
+  saveSettings,
+} from '../../lib/localStore'
 
 const t = {
   bg: '#FAF9F5',
@@ -71,61 +79,73 @@ function InputField({ label, value, onChange, type = 'text', placeholder, readOn
 }
 
 export default function SettingsPage() {
+  const router = useRouter()
   const { user } = useAuthUser()
   const [project, setProject] = useState(null)
-  const [projectName, setProjectName] = useState('My SaaS App')
-  const [apiKey, setApiKey] = useState('cr_live_' + 'x'.repeat(24))
+  const [projectName, setProjectName] = useState('')
   const [webhookUrl, setWebhookUrl] = useState('')
-  const [stripeKey, setStripeKey] = useState('')
   const [stripeConnected, setStripeConnected] = useState(false)
+  const [stripeKey, setStripeKey] = useState('')
   const [showApiKey, setShowApiKey] = useState(false)
   const [copied, setCopied] = useState(false)
   const [saving, setSaving] = useState(false)
   const [saveMsg, setSaveMsg] = useState(null)
 
   useEffect(() => {
-    fetch('/api/projects')
-      .then(r => r.json())
-      .then(data => {
-        if (data.projects && data.projects.length > 0) {
-          const p = data.projects[0]
-          setProject(p)
-          setProjectName(p.name || 'My Project')
-          setApiKey(p.api_key || apiKey)
-          setWebhookUrl(p.webhook_url || '')
-          setStripeConnected(!!p.stripe_webhook_secret)
-        }
-      })
-      .catch(() => {})
+    const projects = getProjects()
+    if (projects.length > 0) {
+      const p = projects[0]
+      setProject(p)
+      setProjectName(p.name || 'My Project')
+      const s = getSettings(p.id)
+      setWebhookUrl(s.webhookUrl || '')
+      setStripeConnected(s.stripeConnected || false)
+    }
   }, [])
 
   const copyApiKey = () => {
-    navigator.clipboard.writeText(apiKey)
+    if (!project) return
+    navigator.clipboard.writeText(project.api_key)
     setCopied(true)
     setTimeout(() => setCopied(false), 2000)
   }
 
-  const handleSave = async () => {
+  const handleSave = () => {
     if (!project) return
     setSaving(true)
     setSaveMsg(null)
-    try {
-      const res = await fetch('/api/projects', {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ projectId: project.id, name: projectName, webhook_url: webhookUrl }),
-      })
-      if (res.ok) {
-        setSaveMsg({ type: 'success', text: 'Settings saved!' })
-      } else {
-        setSaveMsg({ type: 'error', text: 'Failed to save.' })
-      }
-    } catch (e) {
-      setSaveMsg({ type: 'error', text: 'Network error.' })
-    } finally {
+    updateProject(project.id, { name: projectName })
+    saveSettings(project.id, { webhookUrl, stripeConnected })
+    setTimeout(() => {
       setSaving(false)
+      setSaveMsg({ type: 'success', text: 'Settings saved!' })
       setTimeout(() => setSaveMsg(null), 3000)
-    }
+    }, 400)
+  }
+
+  const handleStripeConnect = () => {
+    setStripeConnected(true)
+    if (project) saveSettings(project.id, { webhookUrl, stripeConnected: true })
+  }
+
+  const handleDelete = () => {
+    if (!project) return
+    if (!confirm(`Delete project "${project.name}"? This cannot be undone.`)) return
+    deleteProject(project.id)
+    router.push('/app/dashboard')
+  }
+
+  if (!project) {
+    return (
+      <>
+        <Head><title>Settings — ChurnRecovery</title></Head>
+        <AppLayout title="Settings">
+          <div style={{ textAlign: 'center', padding: '80px 40px', color: t.grayLight, fontFamily: t.fontSerif }}>
+            <p>No project found. <a href="/app/dashboard" style={{ color: t.accent }}>Create one →</a></p>
+          </div>
+        </AppLayout>
+      </>
+    )
   }
 
   return (
@@ -162,12 +182,12 @@ export default function SettingsPage() {
               display: 'block', marginBottom: '4px', textTransform: 'uppercase',
               letterSpacing: '0.05em', fontFamily: t.fontSans,
             }}>
-              Live API Key
+              API Key
             </label>
             <div style={{ display: 'flex', gap: '8px' }}>
               <input
                 type={showApiKey ? 'text' : 'password'}
-                value={apiKey}
+                value={project?.api_key || ''}
                 readOnly
                 style={{
                   flex: 1, padding: '10px 14px', borderRadius: '8px',
@@ -206,7 +226,7 @@ export default function SettingsPage() {
             borderLeft: `3px solid #EA580C`, fontSize: '0.8rem', color: t.gray,
             lineHeight: 1.6, fontFamily: t.fontSerif,
           }}>
-            ⚠️ Keep your API key secret. Never expose it in client-side code. Use the SDK&apos;s publishable key for frontend integrations.
+            ⚠️ Keep your API key secret. Never expose it in client-side code. Use the public project ID for frontend integrations.
           </div>
         </Section>
 
@@ -227,7 +247,10 @@ export default function SettingsPage() {
                 </div>
               </div>
               <button
-                onClick={() => setStripeConnected(false)}
+                onClick={() => {
+                  setStripeConnected(false)
+                  if (project) saveSettings(project.id, { webhookUrl, stripeConnected: false })
+                }}
                 style={{
                   marginLeft: 'auto', padding: '6px 14px', borderRadius: '6px',
                   border: `1px solid ${t.border}`, background: t.white,
@@ -248,16 +271,8 @@ export default function SettingsPage() {
                 placeholder="sk_live_..."
                 mono
               />
-              <InputField
-                label="Stripe Webhook Signing Secret"
-                value=""
-                onChange={() => {}}
-                type="password"
-                placeholder="whsec_..."
-                mono
-              />
               <button
-                onClick={() => setStripeConnected(true)}
+                onClick={handleStripeConnect}
                 style={{
                   padding: '10px 24px', borderRadius: '8px',
                   background: '#635BFF', color: t.white, border: 'none',
@@ -280,7 +295,7 @@ export default function SettingsPage() {
             placeholder="https://yourapp.com/webhooks/churnrecovery"
           />
           <div style={{ fontSize: '0.78rem', color: t.grayLight, marginBottom: '12px' }}>
-            Events: cancel_flow.started, cancel_flow.completed, cancel_flow.offer_accepted, winback.reactivated
+            Events: cancel_flow.started, cancel_flow.completed, cancel_flow.offer_accepted
           </div>
           <button
             onClick={handleSave}
@@ -318,6 +333,7 @@ export default function SettingsPage() {
               </div>
             </div>
             <button
+              onClick={handleDelete}
               style={{
                 padding: '8px 16px', borderRadius: '6px',
                 background: t.white, color: t.red,

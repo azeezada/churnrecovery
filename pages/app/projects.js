@@ -2,6 +2,7 @@ import Head from 'next/head'
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import AppLayout from '../../components/AppLayout'
+import { getProjects, createProject, deleteProject } from '../../lib/localStore'
 
 const t = {
   bg: '#FAF9F5',
@@ -24,21 +25,12 @@ function ProjectCard({ project, onDelete }) {
   const [showKey, setShowKey] = useState(false)
   const [copied, setCopied] = useState(false)
 
-  const handleDelete = async () => {
+  const handleDelete = () => {
     if (!confirm(`Delete project "${project.name}"? This cannot be undone.`)) return
     setDeleting(true)
-    try {
-      await fetch('/api/projects', {
-        method: 'DELETE',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ projectId: project.id }),
-      })
-      onDelete(project.id)
-    } catch (e) {
-      alert('Failed to delete project')
-    } finally {
-      setDeleting(false)
-    }
+    deleteProject(project.id)
+    onDelete(project.id)
+    setDeleting(false)
   }
 
   const copyKey = () => {
@@ -171,37 +163,19 @@ export default function ProjectsPage() {
   const [error, setError] = useState(null)
 
   useEffect(() => {
-    fetch('/api/projects')
-      .then(r => r.json())
-      .then(data => {
-        setProjects(data.projects || [])
-        setLoading(false)
-      })
-      .catch(e => {
-        setError(e.message)
-        setLoading(false)
-      })
+    setProjects(getProjects())
+    setLoading(false)
   }, [])
 
-  const handleCreate = async (e) => {
+  const handleCreate = (e) => {
     e.preventDefault()
     if (!newName.trim()) return
     setCreating(true)
-    try {
-      const res = await fetch('/api/projects', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: newName.trim() }),
-      })
-      const project = await res.json()
-      setProjects([...projects, project])
-      setNewName('')
-      setShowForm(false)
-    } catch (e) {
-      setError(e.message)
-    } finally {
-      setCreating(false)
-    }
+    const project = createProject(newName.trim())
+    setProjects(prev => [...prev, project])
+    setNewName('')
+    setShowForm(false)
+    setCreating(false)
   }
 
   const handleDelete = (id) => {

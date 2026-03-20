@@ -1,7 +1,7 @@
 import Head from 'next/head'
-import { useState } from 'react'
-import React from 'react'
+import { useState, useEffect } from 'react'
 import AppLayout from '../../components/AppLayout'
+import { getProjects } from '../../lib/localStore'
 
 const t = {
   bg: '#FAF9F5',
@@ -85,15 +85,9 @@ export default function InstallPage() {
   const [project, setProject] = useState(null)
 
   // Load first project to get real API key
-  React.useEffect(() => {
-    fetch('/api/projects')
-      .then(r => r.json())
-      .then(data => {
-        if (data.projects && data.projects.length > 0) {
-          setProject(data.projects[0])
-        }
-      })
-      .catch(() => {})
+  useEffect(() => {
+    const projects = getProjects()
+    if (projects.length > 0) setProject(projects[0])
   }, [])
 
   const projectId = project?.id || 'proj_YOUR_PROJECT_ID'

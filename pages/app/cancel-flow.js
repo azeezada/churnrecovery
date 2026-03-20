@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import { useState, useEffect } from 'react'
 import AppLayout from '../../components/AppLayout'
+import { getProjects, getCancelFlow, saveCancelFlow } from '../../lib/localStore'
 
 const t = {
   bg: '#FAF9F5',
@@ -376,28 +377,17 @@ export default function CancelFlowPage() {
   const [saving, setSaving] = useState(false)
   const [saved, setSaved] = useState(false)
   const [projectId, setProjectId] = useState(null)
-  const [loadError, setLoadError] = useState(null)
 
-  // Load project + existing flow config
+  // Load project + existing flow config from localStore
   useEffect(() => {
-    async function load() {
-      try {
-        const projRes = await fetch('/api/projects')
-        const projData = await projRes.json()
-        if (!projData.projects || projData.projects.length === 0) return
-        const pid = projData.projects[0].id
-        setProjectId(pid)
-
-        const flowRes = await fetch(`/api/cancel-flow?projectId=${pid}`)
-        const flowData = await flowRes.json()
-        if (flowData && flowData.reasons && flowData.reasons.length > 0) {
-          setReasons(flowData.reasons)
-        }
-      } catch (e) {
-        setLoadError('Failed to load flow config')
-      }
+    const projects = getProjects()
+    if (projects.length === 0) return
+    const pid = projects[0].id
+    setProjectId(pid)
+    const flow = getCancelFlow(pid)
+    if (flow && flow.reasons && flow.reasons.length > 0) {
+      setReasons(flow.reasons)
     }
-    load()
   }, [])
 
   const updateReason = (index, updated) => {
@@ -421,22 +411,14 @@ export default function CancelFlowPage() {
     }])
   }
 
-  const handleSave = async () => {
+  const handleSave = () => {
     setSaving(true)
-    try {
-      const res = await fetch('/api/cancel-flow', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ projectId: projectId || 'default', reasons }),
-      })
-      if (res.ok) {
-        setSaved(true)
-        setTimeout(() => setSaved(false), 3000)
-      }
-    } catch (e) {
-      console.error('Failed to save:', e)
-    }
-    setSaving(false)
+    saveCancelFlow(projectId || 'default', reasons)
+    setTimeout(() => {
+      setSaving(false)
+      setSaved(true)
+      setTimeout(() => setSaved(false), 3000)
+    }, 300)
   }
 
   return (
