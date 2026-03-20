@@ -2,10 +2,10 @@
   "project": "churnrecovery",
   "status": "running",
   "current_phase": 1,
-  "current_task": "002",
+  "current_task": "004",
   "started_at": "2026-03-20T04:20:00Z",
   "last_updated": "2026-03-20T04:35:00Z",
-  "completed_tasks": ["001"],
+  "completed_tasks": ["001", "002", "003"],
   "tasks": {
     "001": {
       "name": "Project foundation — install deps, design system, component library",
@@ -18,17 +18,21 @@
     },
     "002": {
       "name": "Homepage redesign — Option D editorial style with hero, features, social proof, CTA",
-      "status": "pending",
+      "status": "complete",
       "phase": 1,
       "files": ["pages/index.js", "styles/globals.css"],
-      "acceptance": "Homepage renders with editorial layout, hero section, feature highlights, CTA. Vision model score >= 7."
+      "acceptance": "Homepage renders with editorial layout, hero section, feature highlights, CTA. Vision model score >= 7.",
+      "completed_at": "2026-03-20T04:36:00Z",
+      "notes": "Full redesign with hero, stats bar, 6 feature cards, comparison table vs Churnkey, social proof quotes, waitlist CTA, blog section. Build passes."
     },
     "003": {
       "name": "Alternative homepage styles — Options A, B, C on /styles/ pages",
-      "status": "pending",
+      "status": "complete",
       "phase": 1,
       "files": ["pages/styles/index.js", "pages/styles/developer.js", "pages/styles/warm-saas.js", "pages/styles/data-forward.js"],
-      "acceptance": "3 alternative homepage designs accessible at /styles/developer, /styles/warm-saas, /styles/data-forward. Each visually distinct."
+      "acceptance": "3 alternative homepage designs accessible at /styles/developer, /styles/warm-saas, /styles/data-forward. Each visually distinct.",
+      "completed_at": "2026-03-20T04:40:00Z",
+      "notes": "Created style explorer index + 3 alternatives: A=Developer (dark, terminal, code-first), B=Warm SaaS (rounded, friendly, emoji), C=Data-Forward (charts, metrics, analytical). Build passes."
     },
     "004": {
       "name": "Blog system upgrade — tags, pagination, RSS, improved post layout",
