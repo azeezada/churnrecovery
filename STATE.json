@@ -2,10 +2,10 @@
   "project": "churnrecovery",
   "status": "running",
   "current_phase": 2,
-  "current_task": "012",
+  "current_task": "013",
   "started_at": "2026-03-20T04:20:00Z",
   "last_updated": "2026-03-20T05:40:00Z",
-  "completed_tasks": ["001", "002", "003", "004", "005", "006", "007", "008", "009", "010", "011"],
+  "completed_tasks": ["001", "002", "003", "004", "005", "006", "007", "008", "009", "010", "011", "012"],
   "tasks": {
     "001": {
       "name": "Project foundation — install deps, design system, component library",
@@ -108,7 +108,9 @@
     },
     "012": {
       "name": "D1 database setup + waitlist API + waitlist form component",
-      "status": "pending",
+      "status": "complete",
+      "completed_at": "2026-03-20T06:35:00Z",
+      "notes": "D1 migration, Worker API routes, WaitlistForm component with states, integrated into homepage. Build passes.",
       "phase": 3,
       "files": ["wrangler.toml", "workers-site/index.js", "components/WaitlistForm.js"],
       "acceptance": "D1 database created, waitlist table exists, POST /api/waitlist stores emails, WaitlistForm component works on homepage."

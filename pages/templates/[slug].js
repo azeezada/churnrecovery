@@ -41,14 +41,14 @@ function Nav() {
   return (
     <nav style={{
       borderBottom: `1px solid ${t.border}`, background: t.white,
-      padding: '0 40px', height: '60px', display: 'flex',
+      padding: '0 20px', height: '60px', display: 'flex',
       alignItems: 'center', justifyContent: 'space-between',
       position: 'sticky', top: 0, zIndex: 100,
     }}>
       <Link href="/" style={{ fontFamily: t.fontSans, fontWeight: 700, fontSize: '1.1rem', color: t.text, textDecoration: 'none', letterSpacing: '-0.01em' }}>
         ChurnRecovery
       </Link>
-      <div style={{ display: 'flex', gap: '24px', alignItems: 'center' }}>
+      <div className="nav-links" style={{ display: 'flex', gap: '24px', alignItems: 'center' }}>
         <Link href="/features" style={{ color: t.gray, textDecoration: 'none', fontSize: '0.9rem', fontFamily: t.fontSans }}>Features</Link>
         <Link href="/docs" style={{ color: t.gray, textDecoration: 'none', fontSize: '0.9rem', fontFamily: t.fontSans }}>Docs</Link>
         <Link href="/templates" style={{ color: t.accent, textDecoration: 'none', fontSize: '0.9rem', fontFamily: t.fontSans, fontWeight: 600 }}>Templates</Link>
@@ -174,7 +174,7 @@ export default function TemplatePage({ template }) {
 
         {/* Interactive Preview + Code side by side */}
         <section style={{ maxWidth: '1100px', margin: '0 auto', padding: '0 24px 64px' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '32px', alignItems: 'start' }}>
+          <div className="template-detail-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '32px', alignItems: 'start' }}>
             {/* Interactive preview */}
             <div>
               <h2 style={{

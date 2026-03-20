@@ -102,7 +102,7 @@ export default function ComparePage({ competitor }) {
         <nav style={{
           borderBottom: `1px solid ${t.border}`,
           background: t.white,
-          padding: '0 40px',
+          padding: '0 20px',
           height: '60px',
           display: 'flex',
           alignItems: 'center',
@@ -121,7 +121,7 @@ export default function ComparePage({ competitor }) {
           }}>
             ChurnRecovery
           </Link>
-          <div style={{ display: 'flex', gap: '24px', alignItems: 'center' }}>
+          <div className="nav-links" style={{ display: 'flex', gap: '24px', alignItems: 'center' }}>
             <Link href="/blog" style={{ color: t.gray, textDecoration: 'none', fontSize: '0.9rem' }}>Blog</Link>
             <a href="#waitlist" style={{
               background: t.accent,

@@ -93,14 +93,14 @@ function Nav() {
   return (
     <nav style={{
       borderBottom: `1px solid ${t.border}`, background: t.white,
-      padding: '0 40px', height: '60px', display: 'flex',
+      padding: '0 20px', height: '60px', display: 'flex',
       alignItems: 'center', justifyContent: 'space-between',
       position: 'sticky', top: 0, zIndex: 100,
     }}>
       <Link href="/" style={{ fontFamily: t.fontSans, fontWeight: 700, fontSize: '1.1rem', color: t.text, textDecoration: 'none', letterSpacing: '-0.01em' }}>
         ChurnRecovery
       </Link>
-      <div style={{ display: 'flex', gap: '24px', alignItems: 'center' }}>
+      <div className="nav-links" style={{ display: 'flex', gap: '24px', alignItems: 'center' }}>
         <Link href="/features" style={{ color: t.gray, textDecoration: 'none', fontSize: '0.9rem', fontFamily: t.fontSans }}>Features</Link>
         <Link href="/docs" style={{ color: t.accent, textDecoration: 'none', fontSize: '0.9rem', fontFamily: t.fontSans, fontWeight: 600 }}>Docs</Link>
         <Link href="/demo" style={{ color: t.gray, textDecoration: 'none', fontSize: '0.9rem', fontFamily: t.fontSans }}>Demo</Link>
@@ -152,7 +152,7 @@ export default function DocsPage() {
 
         <div style={{ display: 'flex', maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
           {/* Sidebar */}
-          <aside style={{
+          <aside className="docs-sidebar" style={{
             width: '220px', flexShrink: 0, padding: '32px 0',
             position: 'sticky', top: '60px', height: 'calc(100vh - 60px)',
             overflowY: 'auto', borderRight: `1px solid ${t.border}`,
@@ -180,7 +180,7 @@ export default function DocsPage() {
           </aside>
 
           {/* Main content */}
-          <main style={{ flex: 1, padding: '40px 0 80px 48px', maxWidth: '780px' }}>
+          <main className="docs-main" style={{ flex: 1, padding: '40px 0 80px 48px', maxWidth: '780px' }}>
             {/* Quick Start */}
             <section id="quickstart" style={{ marginBottom: '64px' }}>
               <h1 style={{
@@ -288,7 +288,7 @@ pnpm add @churnrecovery/sdk`}
               <h3 style={{ fontFamily: t.fontSans, fontSize: '1rem', fontWeight: 700, color: t.text, margin: '0 0 12px' }}>
                 How it works
               </h3>
-              <div style={{
+              <div className="cancel-flow-steps" style={{
                 display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '12px',
                 marginBottom: '28px',
               }}>

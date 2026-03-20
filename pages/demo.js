@@ -59,7 +59,7 @@ export default function DemoPage() {
         <nav style={{
           borderBottom: `1px solid ${t.border}`,
           background: t.white,
-          padding: '0 40px',
+          padding: '0 20px',
           height: '60px',
           display: 'flex',
           alignItems: 'center',
@@ -78,7 +78,7 @@ export default function DemoPage() {
           }}>
             ChurnRecovery
           </Link>
-          <div style={{ display: 'flex', gap: '24px', alignItems: 'center' }}>
+          <div className="nav-links" style={{ display: 'flex', gap: '24px', alignItems: 'center' }}>
             <Link href="/blog" style={{ color: t.gray, textDecoration: 'none', fontSize: '0.9rem' }}>Blog</Link>
             <Link href="/compare/churnkey" style={{ color: t.gray, textDecoration: 'none', fontSize: '0.9rem' }}>Compare</Link>
             <a href="https://tally.so/r/churnrecovery" style={{

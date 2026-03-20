@@ -141,7 +141,7 @@ function Nav() {
     <nav style={{
       borderBottom: `1px solid ${t.border}`,
       background: t.white,
-      padding: '0 40px',
+      padding: '0 20px',
       height: '60px',
       display: 'flex',
       alignItems: 'center',
@@ -153,7 +153,7 @@ function Nav() {
       <Link href="/" style={{ fontFamily: t.fontSans, fontWeight: 700, fontSize: '1.1rem', color: t.text, textDecoration: 'none', letterSpacing: '-0.01em' }}>
         ChurnRecovery
       </Link>
-      <div style={{ display: 'flex', gap: '24px', alignItems: 'center' }}>
+      <div className="nav-links" style={{ display: 'flex', gap: '24px', alignItems: 'center' }}>
         <Link href="/features" style={{ color: t.accent, textDecoration: 'none', fontSize: '0.9rem', fontFamily: t.fontSans, fontWeight: 600 }}>Features</Link>
         <Link href="/docs" style={{ color: t.gray, textDecoration: 'none', fontSize: '0.9rem', fontFamily: t.fontSans }}>Docs</Link>
         <Link href="/demo" style={{ color: t.gray, textDecoration: 'none', fontSize: '0.9rem', fontFamily: t.fontSans }}>Demo</Link>
@@ -273,7 +273,7 @@ export default function FeaturesPage() {
               {/* Feature grid */}
               <div style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fill, minmax(480px, 1fr))',
+                gridTemplateColumns: 'repeat(auto-fill, minmax(min(480px, 100%), 1fr))',
                 gap: '24px',
               }}>
                 {category.items.map(feature => (

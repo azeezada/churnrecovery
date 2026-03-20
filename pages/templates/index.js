@@ -30,14 +30,14 @@ function Nav() {
   return (
     <nav style={{
       borderBottom: `1px solid ${t.border}`, background: t.white,
-      padding: '0 40px', height: '60px', display: 'flex',
+      padding: '0 20px', height: '60px', display: 'flex',
       alignItems: 'center', justifyContent: 'space-between',
       position: 'sticky', top: 0, zIndex: 100,
     }}>
       <Link href="/" style={{ fontFamily: t.fontSans, fontWeight: 700, fontSize: '1.1rem', color: t.text, textDecoration: 'none', letterSpacing: '-0.01em' }}>
         ChurnRecovery
       </Link>
-      <div style={{ display: 'flex', gap: '24px', alignItems: 'center' }}>
+      <div className="nav-links" style={{ display: 'flex', gap: '24px', alignItems: 'center' }}>
         <Link href="/features" style={{ color: t.gray, textDecoration: 'none', fontSize: '0.9rem', fontFamily: t.fontSans }}>Features</Link>
         <Link href="/docs" style={{ color: t.gray, textDecoration: 'none', fontSize: '0.9rem', fontFamily: t.fontSans }}>Docs</Link>
         <Link href="/templates" style={{ color: t.accent, textDecoration: 'none', fontSize: '0.9rem', fontFamily: t.fontSans, fontWeight: 600 }}>Templates</Link>
@@ -109,7 +109,7 @@ export default function TemplatesGallery() {
 
         {/* Templates Grid */}
         <section style={{ maxWidth: '1100px', margin: '0 auto', padding: '0 24px 80px' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))', gap: '24px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(340px, 100%), 1fr))', gap: '24px' }}>
             {templates.map(tmpl => {
               const catColor = categoryColors[tmpl.category] || { bg: '#F0EBE5', text: t.accent }
               return (

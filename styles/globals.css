@@ -141,3 +141,66 @@ body {
 .article-body a:hover {
   color: var(--color-anthropic-accent); /* Hover uses the brand orange */
 }
+
+/* ── MOBILE RESPONSIVENESS ─────────────────────────────────── */
+
+/* Hide elements on mobile */
+@media (max-width: 768px) {
+  /* Docs sidebar hidden on mobile */
+  .docs-sidebar {
+    display: none !important;
+  }
+
+  .docs-main {
+    padding-left: 0 !important;
+  }
+
+  /* Nav responsive */
+  .nav-links {
+    display: none !important;
+  }
+
+  .nav-mobile-cta {
+    display: flex !important;
+  }
+
+  /* Template detail 2-col → 1-col */
+  .template-detail-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Cancel flow steps → 2-col on mobile */
+  .cancel-flow-steps {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* Feature grid → single column on mobile */
+  .feature-grid-wide {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* API endpoints table - scroll horizontally */
+  .api-table {
+    overflow-x: auto;
+  }
+
+  /* Reason-offer mapping table */
+  .reason-offer-grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  .reason-offer-headline {
+    display: none !important;
+  }
+
+  /* Comparison page tables */
+  .comparison-table {
+    overflow-x: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .cancel-flow-steps {
+    grid-template-columns: 1fr !important;
+  }
+}

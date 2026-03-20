@@ -63,7 +63,7 @@ export default function ChurnCalculatorPage() {
         <nav style={{
           borderBottom: `1px solid ${t.border}`,
           background: t.white,
-          padding: '0 40px',
+          padding: '0 20px',
           height: '60px',
           display: 'flex',
           alignItems: 'center',
@@ -82,7 +82,7 @@ export default function ChurnCalculatorPage() {
           }}>
             ChurnRecovery
           </Link>
-          <div style={{ display: 'flex', gap: '24px', alignItems: 'center' }}>
+          <div className="nav-links" style={{ display: 'flex', gap: '24px', alignItems: 'center' }}>
             <Link href="/demo" style={{ color: t.gray, textDecoration: 'none', fontSize: '0.9rem' }}>Demo</Link>
             <Link href="/blog" style={{ color: t.gray, textDecoration: 'none', fontSize: '0.9rem' }}>Blog</Link>
             <a href="https://tally.so/r/churnrecovery" style={{
