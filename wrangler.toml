@@ -1,12 +1,8 @@
 name = "churnrecovery"
 pages_build_output_dir = "./out"
 compatibility_date = "2025-12-10"
-compatibility_flags = ["nodejs_compat"]
-account_id = "8e09fc813792bf92a0427a673224e37f"
 
-[observability]
-[observability.logs]
-enabled = true
-head_sampling_rate = 1
-invocation_logs = true
-persist = true
+[[d1_databases]]
+binding = "DB"
+database_name = "churnrecovery-db"
+database_id = "5a4c00b9-71e7-4cde-9e03-256fc31be806"
