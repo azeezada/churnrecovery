@@ -1,0 +1,29 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#FAF9F5"/>
+  <rect x="0" y="0" width="1200" height="8" fill="#D97757"/>
+  <!-- Left accent bar -->
+  <rect x="80" y="80" width="6" height="120" rx="3" fill="#D97757"/>
+  <!-- Main headline -->
+  <text x="112" y="155" font-family="Georgia, serif" font-size="72" font-weight="700" fill="#191919">$0 / month</text>
+  <text x="112" y="230" font-family="Georgia, serif" font-size="42" fill="#666666">Free forever. No catch.</text>
+  <!-- Feature pills -->
+  <rect x="112" y="280" width="220" height="44" rx="22" fill="#EDF7F1"/>
+  <text x="222" y="308" font-family="Arial, sans-serif" font-size="16" fill="#2D7A4F" text-anchor="middle" font-weight="600">✓ Cancel Flows</text>
+  <rect x="348" y="280" width="250" height="44" rx="22" fill="#EDF7F1"/>
+  <text x="473" y="308" font-family="Arial, sans-serif" font-size="16" fill="#2D7A4F" text-anchor="middle" font-weight="600">✓ Payment Recovery</text>
+  <rect x="614" y="280" width="200" height="44" rx="22" fill="#EDF7F1"/>
+  <text x="714" y="308" font-family="Arial, sans-serif" font-size="16" fill="#2D7A4F" text-anchor="middle" font-weight="600">✓ Analytics</text>
+  <rect x="112" y="340" width="210" height="44" rx="22" fill="#EDF7F1"/>
+  <text x="217" y="368" font-family="Arial, sans-serif" font-size="16" fill="#2D7A4F" text-anchor="middle" font-weight="600">✓ Integrations</text>
+  <rect x="338" y="340" width="240" height="44" rx="22" fill="#EDF7F1"/>
+  <text x="458" y="368" font-family="Arial, sans-serif" font-size="16" fill="#2D7A4F" text-anchor="middle" font-weight="600">✓ Unlimited users</text>
+  <!-- Right comparison -->
+  <rect x="820" y="100" width="300" height="200" rx="16" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="2"/>
+  <text x="970" y="150" font-family="Arial, sans-serif" font-size="14" fill="#999999" text-anchor="middle">Competitors charge:</text>
+  <text x="970" y="210" font-family="Arial, sans-serif" font-size="36" font-weight="700" fill="#999999" text-anchor="middle" text-decoration="line-through">$250–$825/mo</text>
+  <text x="970" y="265" font-family="Arial, sans-serif" font-size="20" fill="#D97757" text-anchor="middle" font-weight="700">We charge: $0</text>
+  <!-- Brand -->
+  <rect x="80" y="490" width="200" height="60" rx="8" fill="#D97757"/>
+  <text x="180" y="528" font-family="Arial, sans-serif" font-size="20" fill="#FFFFFF" text-anchor="middle" font-weight="700">churnrecovery.com</text>
+  <text x="112" y="600" font-family="Arial, sans-serif" font-size="18" fill="#999999">Free churn recovery for SaaS — forever</text>
+</svg>
