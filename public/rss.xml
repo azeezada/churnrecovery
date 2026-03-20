@@ -5,8 +5,31 @@
     <link>https://churnrecovery.com/blog</link>
     <description>Insights on churn recovery, payment failures, and SaaS retention</description>
     <language>en-us</language>
-    <lastBuildDate>Fri, 20 Mar 2026 06:09:30 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 20 Mar 2026 10:15:59 GMT</lastBuildDate>
     <atom:link href="https://churnrecovery.com/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title><![CDATA[B2B SaaS Churn Benchmarks 2025: What's a Good Churn Rate?]]></title>
+      <link>https://churnrecovery.com/posts/B2B-SaaS-Churn-Benchmarks-2025</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/B2B-SaaS-Churn-Benchmarks-2025</guid>
+      <description><![CDATA[How does your churn rate compare to other B2B SaaS companies? We break down the 2025 benchmarks by ARR tier, market segment, and product category — and show you what the top performers do differently.]]></description>
+      <pubDate>Fri, 20 Mar 2026 00:00:00 GMT</pubDate>
+      <category>churn</category>
+      <category>benchmarks</category>
+      <category>b2b</category>
+      <category>saas</category>
+      <category>metrics</category>
+    </item>
+    <item>
+      <title><![CDATA[SaaS Pricing Psychology: Why Your Pricing Page Is Losing You Customers]]></title>
+      <link>https://churnrecovery.com/posts/SaaS-Pricing-Psychology</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/SaaS-Pricing-Psychology</guid>
+      <description><![CDATA[The gap between what you charge and what customers perceive as fair is where churn is born. Here's the psychology behind SaaS pricing — and how to fix it before customers cancel.]]></description>
+      <pubDate>Fri, 20 Mar 2026 00:00:00 GMT</pubDate>
+      <category>pricing</category>
+      <category>churn</category>
+      <category>psychology</category>
+      <category>saas</category>
+    </item>
     <item>
       <title><![CDATA[Payment Failure Recovery: A Technical Playbook]]></title>
       <link>https://churnrecovery.com/posts/Payment-Failure-Recovery</link>
