@@ -1,9 +1,9 @@
 /**
- * Minimal Next.js config for static export
+ * Next.js config — hybrid mode (SSR + static)
+ * Removed output: 'export' to enable API routes and server-side auth
  */
 const nextConfig = {
   reactStrictMode: true,
-  output: 'export',
   images: {
     unoptimized: true
   }

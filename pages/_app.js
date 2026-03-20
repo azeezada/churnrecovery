@@ -1,11 +1,15 @@
 import Head from 'next/head'
+import { ClerkProvider } from '@clerk/nextjs'
 import '../styles/globals.css'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 
 export default function MyApp({ Component, pageProps }) {
+  // App pages use their own layout (no marketing header/footer)
+  const isAppPage = Component.isAppPage
+
   return (
-    <>
+    <ClerkProvider {...pageProps}>
       <Head>
         <link rel="icon" href="/logo.png" />
         <link rel="apple-touch-icon" href="/logo.png" />
@@ -57,9 +61,15 @@ export default function MyApp({ Component, pageProps }) {
           }}
         />
       </Head>
-      <Header />
-      <Component {...pageProps} />
-      <Footer />
-    </>
+      {isAppPage ? (
+        <Component {...pageProps} />
+      ) : (
+        <>
+          <Header />
+          <Component {...pageProps} />
+          <Footer />
+        </>
+      )}
+    </ClerkProvider>
   )
 }

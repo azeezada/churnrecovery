@@ -4,10 +4,11 @@ import { tokens } from '../lib/design-tokens'
 const footerLinks = {
   Product: [
     { label: 'Features', href: '/features' },
+    { label: 'Integrations', href: '/integrations' },
     { label: 'Cancel Flow Demo', href: '/demo' },
     { label: 'Churn Calculator', href: '/tools/churn-calculator' },
     { label: 'Templates', href: '/templates' },
-    { label: 'Pricing', href: '/#pricing' },
+    { label: 'Pricing', href: '/pricing' },
   ],
   Resources: [
     { label: 'Blog', href: '/blog' },
@@ -158,6 +159,7 @@ export default function Footer() {
           </p>
           <div style={{ display: 'flex', gap: '24px' }}>
             {[
+              { label: 'Design Exploration', href: '/styles' },
               { label: 'Privacy', href: '/privacy' },
               { label: 'Terms', href: '/terms' },
               { label: 'RSS', href: '/rss.xml' },

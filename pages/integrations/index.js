@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import { integrations } from '../../lib/integrations'
+import { getAllIntegrations } from '../../lib/integrations'
 
 const t = {
   bg: '#FAF9F5',
@@ -17,237 +17,354 @@ const t = {
   fontSerif: '"Merriweather", serif',
 }
 
+const difficultyColor = {
+  Easy: { bg: '#EDF7F1', color: '#2D7A4F' },
+  Medium: { bg: '#FEF9EC', color: '#856404' },
+  Advanced: { bg: '#FFF0EC', color: '#C4603D' },
+}
+
 export default function IntegrationsIndex() {
-  const processors = integrations.filter(i => i.category === 'Payment Processor')
-  const management = integrations.filter(i => i.category === 'Subscription Management')
+  const integrationList = getAllIntegrations()
 
   return (
-    <div style={{ background: t.bg, minHeight: '100vh', fontFamily: t.fontSans }}>
+    <>
       <Head>
-        <title>Integrations — ChurnRecovery Works With Every Payment Stack</title>
-        <meta name="description" content="ChurnRecovery integrates with Stripe, Paddle, Braintree, Chargebee, Recurly, and Lemon Squeezy. Free churn recovery for every payment processor." />
-        <meta property="og:title" content="ChurnRecovery Integrations — Stripe, Paddle, Braintree & More" />
-        <meta property="og:description" content="Free churn recovery that works with your existing payment stack. Stripe, Paddle, Braintree, Chargebee, Recurly, Lemon Squeezy." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://churnrecovery.com/integrations" />
+        <title>Integrations — ChurnRecovery works with Stripe, Paddle, Braintree & more</title>
+        <meta name="description" content="ChurnRecovery integrates natively with Stripe, Paddle, Braintree, Chargebee, Recurly, and any custom billing system. Free cancel flows for every payment processor." />
+        <meta property="og:title" content="Integrations — ChurnRecovery" />
+        <meta property="og:description" content="Native integrations with every major payment processor. Set up cancel flows and payment recovery in minutes." />
         <meta property="og:image" content="https://churnrecovery.com/og/integrations.svg" />
+        <meta property="og:url" content="https://churnrecovery.com/integrations" />
         <meta name="twitter:card" content="summary_large_image" />
         <link rel="canonical" href="https://churnrecovery.com/integrations" />
       </Head>
 
-      {/* Hero */}
-      <div style={{ borderBottom: `1px solid ${t.border}`, background: t.white }}>
-        <div style={{ maxWidth: 1100, margin: '0 auto', padding: '72px 32px 64px', textAlign: 'center' }}>
-          <div style={{
-            display: 'inline-block', background: t.greenLight, color: t.green,
-            borderRadius: 20, padding: '6px 16px', fontSize: 13, fontWeight: 600,
-            marginBottom: 20, letterSpacing: '0.02em'
-          }}>
-            Works with your stack
-          </div>
-          <h1 style={{ fontFamily: t.fontSerif, fontSize: 'clamp(32px, 5vw, 52px)', fontWeight: 700, color: t.text, margin: '0 0 20px', lineHeight: 1.15 }}>
-            Every payment processor.<br />
-            <span style={{ color: t.accent }}>One churn recovery tool.</span>
-          </h1>
-          <p style={{ fontSize: 19, color: t.gray, maxWidth: 560, margin: '0 auto 40px', lineHeight: 1.65, fontFamily: t.fontSerif }}>
-            ChurnRecovery integrates with Stripe, Paddle, Braintree, Chargebee, Recurly, and Lemon Squeezy — at no cost, with full cancel flow and payment recovery features.
-          </p>
-          {/* Logo strip */}
-          <div style={{
-            display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)',
-            borderTop: `1px solid ${t.border}`, borderBottom: `1px solid ${t.border}`,
-            margin: '0 auto', maxWidth: 720, width: '100%'
-          }} className="logo-strip">
-            {integrations.map((integration, i) => (
-              <Link key={integration.slug} href={`/integrations/${integration.slug}`} style={{
-                display: 'flex', alignItems: 'center', gap: 10, padding: '16px 20px',
-                textDecoration: 'none', color: t.text, fontWeight: 600, fontSize: 15,
-                borderRight: i % 3 < 2 ? `1px solid ${t.border}` : 'none',
-                borderBottom: i < 3 ? `1px solid ${t.border}` : 'none',
-                transition: 'background 0.15s',
-              }}
-              onMouseEnter={e => e.currentTarget.style.background = '#F0EDE8'}
-              onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
-              >
-                <span style={{ fontSize: 22 }}>{integration.logo}</span>
-                {integration.name}
-              </Link>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Payment Processors */}
-      <div style={{ maxWidth: 1100, margin: '64px auto 0', padding: '0 32px' }}>
-        <h2 style={{ fontFamily: t.fontSerif, fontSize: 26, color: t.text, marginBottom: 8 }}>
-          Payment Processors
-        </h2>
-        <p style={{ color: t.gray, marginBottom: 36, fontSize: 15 }}>
-          Direct billing integrations with native webhook support.
-        </p>
-        <div className="integrations-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: 24 }}>
-          {processors.map(integration => (
-            <IntegrationCard key={integration.slug} integration={integration} />
-          ))}
-        </div>
-      </div>
-
-      {/* Subscription Management */}
-      <div style={{ maxWidth: 1100, margin: '56px auto 0', padding: '0 32px' }}>
-        <h2 style={{ fontFamily: t.fontSerif, fontSize: 26, color: t.text, marginBottom: 8 }}>
-          Subscription Management Platforms
-        </h2>
-        <p style={{ color: t.gray, marginBottom: 36, fontSize: 15 }}>
-          Full-stack billing platforms with subscription lifecycle management.
-        </p>
-        <div className="integrations-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: 24 }}>
-          {management.map(integration => (
-            <IntegrationCard key={integration.slug} integration={integration} />
-          ))}
-        </div>
-      </div>
-
-      {/* Custom/Webhook */}
-      <div style={{ maxWidth: 1100, margin: '56px auto 0', padding: '0 32px' }}>
+      <div style={{ background: t.bg, minHeight: '100vh' }}>
+        {/* Hero */}
         <div style={{
-          background: t.white, border: `1px solid ${t.border}`, borderRadius: 12,
-          padding: '40px 40px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 40,
-          alignItems: 'center'
-        }} className="custom-grid">
-          <div>
-            <div style={{ fontSize: 36, marginBottom: 16 }}>🔌</div>
-            <h3 style={{ fontFamily: t.fontSerif, fontSize: 22, color: t.text, marginBottom: 12 }}>
-              Using something else?
-            </h3>
-            <p style={{ color: t.gray, fontSize: 15, lineHeight: 1.7, marginBottom: 20 }}>
-              ChurnRecovery works with any subscription billing system through our generic webhook API. If your platform can send webhook events, we can intercept cancellations and recover failed payments.
-            </p>
-            <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 10 }}>
-              {['Generic webhook endpoint', 'REST API for subscription actions', 'JavaScript SDK for custom flows', 'Works with any backend language'].map(item => (
-                <li key={item} style={{ display: 'flex', alignItems: 'center', gap: 10, fontSize: 15, color: t.text }}>
-                  <span style={{ color: t.green, fontWeight: 700 }}>✓</span>
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div style={{ background: '#1A1A1A', borderRadius: 8, padding: '24px', overflow: 'auto' }}>
-            <pre style={{ color: '#E5E5E5', fontSize: 13, margin: 0, fontFamily: 'monospace', lineHeight: 1.6 }}>{`// Any billing platform via webhooks
-const churnrecovery = require('@churnrecovery/node')
-
-app.post('/webhooks/billing', (req, res) => {
-  // Forward the event to ChurnRecovery
-  const event = churnrecovery.parseEvent(req.body)
-  
-  if (event.type === 'subscription.cancelled') {
-    // ChurnRecovery handles the rest
-    churnrecovery.handleCancellation(event)
-  }
-  
-  res.sendStatus(200)
-})`}</pre>
-          </div>
-        </div>
-      </div>
-
-      {/* CTA */}
-      <div style={{ maxWidth: 1100, margin: '64px auto', padding: '0 32px' }}>
-        <div style={{
-          background: t.text, borderRadius: 16, padding: '56px 40px',
-          textAlign: 'center', color: t.white
+          borderBottom: `1px solid ${t.border}`,
+          padding: '80px 24px 64px',
+          textAlign: 'center',
         }}>
-          <h2 style={{ fontFamily: t.fontSerif, fontSize: 'clamp(26px, 4vw, 38px)', fontWeight: 700, marginBottom: 16 }}>
-            Start recovering churn — free
-          </h2>
-          <p style={{ fontSize: 17, color: 'rgba(255,255,255,0.7)', marginBottom: 36, maxWidth: 500, margin: '0 auto 36px', fontFamily: t.fontSerif }}>
-            No monthly fees. No per-recovery charges. Works with your existing payment stack.
+          <div style={{ maxWidth: '720px', margin: '0 auto' }}>
+            <div style={{
+              display: 'inline-block',
+              background: t.greenLight,
+              color: t.green,
+              fontFamily: t.fontSans,
+              fontSize: '0.8rem',
+              fontWeight: 700,
+              letterSpacing: '0.08em',
+              textTransform: 'uppercase',
+              padding: '6px 14px',
+              borderRadius: '20px',
+              marginBottom: '24px',
+            }}>
+              Works with your stack
+            </div>
+            <h1 style={{
+              fontFamily: t.fontSans,
+              fontSize: 'clamp(2rem, 5vw, 3rem)',
+              fontWeight: 800,
+              color: t.text,
+              margin: '0 0 20px',
+              lineHeight: 1.15,
+            }}>
+              Integrates with every major<br />payment processor
+            </h1>
+            <p style={{
+              fontFamily: t.fontSerif,
+              fontSize: '1.15rem',
+              color: t.gray,
+              lineHeight: 1.7,
+              margin: '0 0 36px',
+            }}>
+              Whether you're on Stripe, Paddle, Braintree, or a custom billing system,
+              ChurnRecovery gives you cancel flows and payment recovery — completely free.
+            </p>
+            <div className="hero-ctas" style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
+              <Link href="/#waitlist" style={{
+                display: 'inline-block',
+                background: t.accent,
+                color: t.white,
+                fontFamily: t.fontSans,
+                fontWeight: 700,
+                fontSize: '0.95rem',
+                padding: '14px 28px',
+                borderRadius: '8px',
+                textDecoration: 'none',
+              }}>
+                Get early access — it's free
+              </Link>
+              <Link href="/docs" style={{
+                display: 'inline-block',
+                background: 'transparent',
+                color: t.text,
+                fontFamily: t.fontSans,
+                fontWeight: 600,
+                fontSize: '0.95rem',
+                padding: '14px 28px',
+                borderRadius: '8px',
+                textDecoration: 'none',
+                border: `1px solid ${t.border}`,
+              }}>
+                View docs
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        {/* Integration cards grid */}
+        <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '64px 24px' }}>
+          <h2 style={{
+            fontFamily: t.fontSans,
+            fontSize: '1.4rem',
+            fontWeight: 700,
+            color: t.text,
+            margin: '0 0 8px',
+          }}>All integrations</h2>
+          <p style={{
+            fontFamily: t.fontSerif,
+            fontSize: '1rem',
+            color: t.gray,
+            margin: '0 0 40px',
+            lineHeight: 1.6,
+          }}>
+            Click any integration to see code snippets, setup guides, and use cases.
           </p>
-          <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
+
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',
+            gap: '24px',
+          }}>
+            {integrationList.map((integration) => {
+              const diff = difficultyColor[integration.difficulty] || difficultyColor.Medium
+              return (
+                <Link
+                  key={integration.slug}
+                  href={`/integrations/${integration.slug}`}
+                  style={{ textDecoration: 'none' }}
+                >
+                  <div style={{
+                    background: t.white,
+                    border: `1px solid ${t.border}`,
+                    borderRadius: '12px',
+                    padding: '28px',
+                    transition: 'box-shadow 0.2s, border-color 0.2s',
+                    cursor: 'pointer',
+                  }}
+                    onMouseEnter={e => {
+                      e.currentTarget.style.boxShadow = '0 4px 20px rgba(0,0,0,0.08)'
+                      e.currentTarget.style.borderColor = t.accent
+                    }}
+                    onMouseLeave={e => {
+                      e.currentTarget.style.boxShadow = 'none'
+                      e.currentTarget.style.borderColor = t.border
+                    }}
+                  >
+                    {/* Header */}
+                    <div style={{ display: 'flex', alignItems: 'flex-start', gap: '16px', marginBottom: '16px' }}>
+                      <div style={{
+                        width: '52px',
+                        height: '52px',
+                        borderRadius: '12px',
+                        background: integration.color + '18',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        fontSize: '1.6rem',
+                        flexShrink: 0,
+                      }}>
+                        {integration.logo}
+                      </div>
+                      <div style={{ flex: 1 }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px', flexWrap: 'wrap' }}>
+                          <h3 style={{
+                            fontFamily: t.fontSans,
+                            fontSize: '1.1rem',
+                            fontWeight: 700,
+                            color: t.text,
+                            margin: 0,
+                          }}>{integration.name}</h3>
+                          <span style={{
+                            background: diff.bg,
+                            color: diff.color,
+                            fontFamily: t.fontSans,
+                            fontSize: '0.7rem',
+                            fontWeight: 700,
+                            padding: '2px 8px',
+                            borderRadius: '10px',
+                            letterSpacing: '0.03em',
+                          }}>{integration.difficulty}</span>
+                        </div>
+                        <p style={{
+                          fontFamily: t.fontSans,
+                          fontSize: '0.85rem',
+                          color: t.grayLight,
+                          margin: 0,
+                        }}>{integration.tagline}</p>
+                      </div>
+                    </div>
+
+                    <p style={{
+                      fontFamily: t.fontSerif,
+                      fontSize: '0.9rem',
+                      color: t.gray,
+                      lineHeight: 1.65,
+                      margin: '0 0 20px',
+                    }}>
+                      {integration.description.substring(0, 130)}…
+                    </p>
+
+                    {/* Stats row */}
+                    <div style={{
+                      display: 'flex',
+                      gap: '16px',
+                      paddingTop: '16px',
+                      borderTop: `1px solid ${t.border}`,
+                    }}>
+                      <div>
+                        <div style={{ fontFamily: t.fontSans, fontSize: '0.7rem', color: t.grayLight, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '2px' }}>Setup</div>
+                        <div style={{ fontFamily: t.fontSans, fontSize: '0.9rem', fontWeight: 700, color: t.text }}>{integration.setupTime}</div>
+                      </div>
+                      <div>
+                        <div style={{ fontFamily: t.fontSans, fontSize: '0.7rem', color: t.grayLight, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '2px' }}>Avg save rate</div>
+                        <div style={{ fontFamily: t.fontSans, fontSize: '0.9rem', fontWeight: 700, color: t.green }}>{integration.stats.avgSaveRate}</div>
+                      </div>
+                      <div style={{ marginLeft: 'auto' }}>
+                        <span style={{
+                          fontFamily: t.fontSans,
+                          fontSize: '0.85rem',
+                          fontWeight: 600,
+                          color: t.accent,
+                        }}>View guide →</span>
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              )
+            })}
+          </div>
+
+          {/* How it works section */}
+          <div style={{
+            marginTop: '80px',
+            padding: '48px',
+            background: t.white,
+            border: `1px solid ${t.border}`,
+            borderRadius: '16px',
+          }}>
+            <h2 style={{
+              fontFamily: t.fontSans,
+              fontSize: '1.5rem',
+              fontWeight: 700,
+              color: t.text,
+              margin: '0 0 8px',
+              textAlign: 'center',
+            }}>How ChurnRecovery integrates</h2>
+            <p style={{
+              fontFamily: t.fontSerif,
+              fontSize: '1rem',
+              color: t.gray,
+              textAlign: 'center',
+              margin: '0 0 40px',
+              lineHeight: 1.7,
+            }}>
+              The same three-step pattern works across all payment processors.
+            </p>
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+              gap: '32px',
+            }}>
+              {[
+                { step: '01', title: 'Connect your processor', desc: 'Add your API keys and configure a webhook endpoint. Takes 5–45 minutes depending on the processor.' },
+                { step: '02', title: 'Intercept cancellations', desc: 'When a customer triggers cancellation, ChurnRecovery shows a smart cancel flow with targeted offers before it\'s final.' },
+                { step: '03', title: 'Recover revenue automatically', desc: 'Accepted offers are applied via the processor\'s API. Analytics track your save rate and revenue recovered.' },
+              ].map(({ step, title, desc }) => (
+                <div key={step} style={{ textAlign: 'center' }}>
+                  <div style={{
+                    width: '48px',
+                    height: '48px',
+                    borderRadius: '12px',
+                    background: t.accent + '18',
+                    color: t.accent,
+                    fontFamily: t.fontSans,
+                    fontWeight: 800,
+                    fontSize: '1rem',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    margin: '0 auto 16px',
+                  }}>{step}</div>
+                  <h3 style={{
+                    fontFamily: t.fontSans,
+                    fontSize: '1.05rem',
+                    fontWeight: 700,
+                    color: t.text,
+                    margin: '0 0 8px',
+                  }}>{title}</h3>
+                  <p style={{
+                    fontFamily: t.fontSerif,
+                    fontSize: '0.9rem',
+                    color: t.gray,
+                    lineHeight: 1.65,
+                    margin: 0,
+                  }}>{desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* CTA */}
+          <div style={{
+            marginTop: '64px',
+            textAlign: 'center',
+            padding: '64px 24px',
+            background: t.text,
+            borderRadius: '16px',
+          }}>
+            <h2 style={{
+              fontFamily: t.fontSans,
+              fontSize: '1.8rem',
+              fontWeight: 800,
+              color: t.white,
+              margin: '0 0 16px',
+            }}>Start recovering revenue today</h2>
+            <p style={{
+              fontFamily: t.fontSerif,
+              fontSize: '1.05rem',
+              color: 'rgba(255,255,255,0.7)',
+              margin: '0 0 32px',
+              lineHeight: 1.7,
+            }}>
+              Free for all payment processors. No credit card required. No monthly fee — ever.
+            </p>
             <Link href="/#waitlist" style={{
-              background: t.accent, color: t.white, padding: '14px 32px',
-              borderRadius: 8, fontWeight: 700, textDecoration: 'none', fontSize: 16
+              display: 'inline-block',
+              background: t.accent,
+              color: t.white,
+              fontFamily: t.fontSans,
+              fontWeight: 700,
+              fontSize: '1rem',
+              padding: '16px 36px',
+              borderRadius: '8px',
+              textDecoration: 'none',
             }}>
-              Get early access →
+              Get early access — it's free
             </Link>
-            <Link href="/docs" style={{
-              background: 'rgba(255,255,255,0.1)', color: t.white, padding: '14px 32px',
-              borderRadius: 8, fontWeight: 600, textDecoration: 'none', fontSize: 16,
-              border: '1px solid rgba(255,255,255,0.2)'
-            }}>
-              View integration docs
-            </Link>
           </div>
         </div>
-      </div>
 
-      <style>{`
-        @media (max-width: 768px) {
-          .integrations-grid { grid-template-columns: 1fr !important; }
-          .custom-grid { grid-template-columns: 1fr !important; }
-        }
-        @media (max-width: 540px) {
-          .logo-strip { grid-template-columns: repeat(2, 1fr) !important; }
-          .logo-strip a { justify-content: center !important; }
-        }
-        * { box-sizing: border-box; }
-      `}</style>
-    </div>
-  )
-}
-
-function IntegrationCard({ integration }) {
-  return (
-    <Link href={`/integrations/${integration.slug}`} style={{ textDecoration: 'none' }}>
-      <div style={{
-        background: t.white, border: `1px solid ${t.border}`, borderRadius: 12,
-        padding: '28px', cursor: 'pointer', transition: 'border-color 0.15s, box-shadow 0.15s',
-        height: '100%', display: 'flex', flexDirection: 'column'
-      }}
-      onMouseEnter={e => {
-        e.currentTarget.style.borderColor = integration.color
-        e.currentTarget.style.boxShadow = '0 4px 16px rgba(0,0,0,0.08)'
-      }}
-      onMouseLeave={e => {
-        e.currentTarget.style.borderColor = t.border
-        e.currentTarget.style.boxShadow = 'none'
-      }}
-      >
-        <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: 16 }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-            <div style={{
-              width: 48, height: 48, borderRadius: 10,
-              background: integration.colorLight,
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              fontSize: 24
-            }}>
-              {integration.logo}
-            </div>
-            <div>
-              <div style={{ fontWeight: 700, fontSize: 17, color: t.text }}>{integration.name}</div>
-              <div style={{ fontSize: 12, color: t.grayLight, marginTop: 2 }}>{integration.category}</div>
-            </div>
-          </div>
-          {integration.popularity === 'Most popular' && (
-            <div style={{
-              background: t.greenLight, color: t.green, borderRadius: 20,
-              padding: '3px 10px', fontSize: 11, fontWeight: 700
-            }}>
-              ⭐ Most popular
-            </div>
-          )}
-        </div>
-        <p style={{ fontSize: 14, color: t.gray, lineHeight: 1.6, margin: '0 0 20px', fontFamily: t.fontSerif, flexGrow: 1 }}>
-          {integration.tagline}
-        </p>
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-          <div style={{ fontSize: 13, color: t.grayLight }}>
-            ⏱ Setup: <span style={{ color: t.text, fontWeight: 600 }}>{integration.setupTime}</span>
-          </div>
-          <span style={{ fontSize: 13, color: integration.color, fontWeight: 600 }}>
-            View guide →
-          </span>
-        </div>
+        <style jsx global>{`
+          @media (max-width: 640px) {
+            .integrations-grid { grid-template-columns: 1fr !important; }
+            .hero-ctas { flex-direction: column !important; align-items: stretch !important; width: 100%; max-width: 320px; margin: 0 auto; }
+            .hero-ctas a { text-align: center; }
+          }
+        `}</style>
       </div>
-    </Link>
+    </>
   )
 }

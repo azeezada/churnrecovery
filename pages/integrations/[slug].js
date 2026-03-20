@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import { integrations, getIntegration, getAllIntegrationSlugs } from '../../lib/integrations'
+import { getIntegration, getAllIntegrationSlugs } from '../../lib/integrations'
 
 const t = {
   bg: '#FAF9F5',
@@ -13,326 +13,479 @@ const t = {
   white: '#FFFFFF',
   green: '#2D7A4F',
   greenLight: '#EDF7F1',
+  codeBackground: '#1A1A2E',
   fontSans: '"Instrument Sans", sans-serif',
   fontSerif: '"Merriweather", serif',
+  fontMono: '"Fira Code", "Fira Mono", monospace',
 }
 
-export default function IntegrationPage({ integration }) {
-  if (!integration) return null
-
-  const others = integrations.filter(i => i.slug !== integration.slug).slice(0, 3)
-
+function CodeBlock({ code, language, title }) {
   return (
-    <div style={{ background: t.bg, minHeight: '100vh', fontFamily: t.fontSans }}>
-      <Head>
-        <title>ChurnRecovery + {integration.name} Integration — Free Churn Recovery</title>
-        <meta name="description" content={`Integrate ChurnRecovery with ${integration.name} in ${integration.setupTime}. Free cancel flow interception and payment recovery for ${integration.name} subscriptions.`} />
-        <meta property="og:title" content={`ChurnRecovery + ${integration.name} Integration`} />
-        <meta property="og:description" content={`Free churn recovery for ${integration.name} — cancel flows, dunning, analytics.`} />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={`https://churnrecovery.com/integrations/${integration.slug}`} />
-        <meta property="og:image" content="https://churnrecovery.com/og/integrations.svg" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <link rel="canonical" href={`https://churnrecovery.com/integrations/${integration.slug}`} />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "HowTo",
-          "name": `How to integrate ChurnRecovery with ${integration.name}`,
-          "description": `Set up ChurnRecovery churn recovery for ${integration.name} subscriptions`,
-          "estimatedCost": { "@type": "MonetaryAmount", "currency": "USD", "value": "0" },
-          "totalTime": `PT${integration.setupTime.replace(' minutes', 'M').replace(' hour', 'H').replace('s', '')}`,
-        })}} />
-      </Head>
-
-      {/* Breadcrumb */}
-      <div style={{ borderBottom: `1px solid ${t.border}`, background: t.white }}>
-        <div style={{ maxWidth: 1100, margin: '0 auto', padding: '12px 32px' }}>
-          <nav style={{ fontSize: 13, color: t.grayLight }}>
-            <Link href="/" style={{ color: t.grayLight, textDecoration: 'none' }}>Home</Link>
-            {' / '}
-            <Link href="/integrations" style={{ color: t.grayLight, textDecoration: 'none' }}>Integrations</Link>
-            {' / '}
-            <span style={{ color: t.text }}>{integration.name}</span>
-          </nav>
+    <div style={{ marginBottom: '24px', borderRadius: '10px', overflow: 'hidden', border: `1px solid ${t.border}` }}>
+      {title && (
+        <div style={{
+          background: '#F0EFE9',
+          padding: '10px 16px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          borderBottom: `1px solid ${t.border}`,
+        }}>
+          <span style={{ fontFamily: t.fontSans, fontSize: '0.82rem', fontWeight: 600, color: t.gray }}>{title}</span>
+          <span style={{
+            fontFamily: t.fontSans,
+            fontSize: '0.72rem',
+            color: t.grayLight,
+            background: t.border,
+            padding: '2px 8px',
+            borderRadius: '4px',
+            textTransform: 'uppercase',
+            letterSpacing: '0.05em',
+          }}>{language}</span>
         </div>
-      </div>
-
-      {/* Hero */}
-      <div style={{ background: t.white, borderBottom: `1px solid ${t.border}` }}>
-        <div style={{ maxWidth: 1100, margin: '0 auto', padding: '56px 32px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 20, marginBottom: 24 }}>
-            <div style={{
-              width: 64, height: 64, borderRadius: 14,
-              background: integration.colorLight,
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              fontSize: 32, flexShrink: 0,
-              border: `2px solid ${integration.color}20`
-            }}>
-              {integration.logo}
-            </div>
-            <div>
-              <div style={{ fontSize: 13, color: t.grayLight, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 4 }}>
-                Integration Guide
-              </div>
-              <h1 style={{ fontFamily: t.fontSerif, fontSize: 'clamp(26px, 4vw, 40px)', fontWeight: 700, color: t.text, margin: 0, lineHeight: 1.2 }}>
-                ChurnRecovery + {integration.name}
-              </h1>
-            </div>
-          </div>
-          <p style={{ fontSize: 18, color: t.gray, maxWidth: 640, margin: '0 0 32px', lineHeight: 1.7, fontFamily: t.fontSerif }}>
-            {integration.description}
-          </p>
-          <div className="meta-bar" style={{ display: 'flex', gap: 16, flexWrap: 'wrap', alignItems: 'center' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 14 }}>
-              <span style={{ color: t.green }}>⏱</span>
-              <span style={{ color: t.gray }}>Setup time:</span>
-              <strong style={{ color: t.text }}>{integration.setupTime}</strong>
-            </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 14 }}>
-              <span>📦</span>
-              <span style={{ color: t.gray }}>Category:</span>
-              <strong style={{ color: t.text }}>{integration.category}</strong>
-            </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 14 }}>
-              <span>💰</span>
-              <span style={{ color: t.gray }}>Cost:</span>
-              <strong style={{ color: t.green }}>Free</strong>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Main content */}
-      <div style={{ maxWidth: 1100, margin: '0 auto', padding: '64px 32px 0' }}>
-        <div className="integration-layout" style={{ display: 'grid', gridTemplateColumns: '1fr 380px', gap: 48, alignItems: 'start' }}>
-
-          {/* Left — main content */}
-          <div>
-            {/* What's supported */}
-            <section style={{ marginBottom: 48 }}>
-              <h2 style={{ fontFamily: t.fontSerif, fontSize: 22, color: t.text, marginBottom: 24 }}>
-                What's included
-              </h2>
-              <div className="feature-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
-                {integration.features.map(feature => (
-                  <div key={feature.name} style={{
-                    display: 'flex', alignItems: 'center', gap: 10,
-                    background: t.white, border: `1px solid ${t.border}`,
-                    borderRadius: 8, padding: '12px 16px', fontSize: 14
-                  }}>
-                    <span style={{ color: feature.supported ? t.green : '#CCC', fontWeight: 700, fontSize: 16 }}>
-                      {feature.supported ? '✓' : '✕'}
-                    </span>
-                    <span style={{ color: feature.supported ? t.text : t.grayLight }}>
-                      {feature.name}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </section>
-
-            {/* Highlights */}
-            <section style={{ marginBottom: 48 }}>
-              <h2 style={{ fontFamily: t.fontSerif, fontSize: 22, color: t.text, marginBottom: 20 }}>
-                Integration highlights
-              </h2>
-              <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 12 }}>
-                {integration.highlights.map(highlight => (
-                  <li key={highlight} style={{ display: 'flex', alignItems: 'flex-start', gap: 12, fontSize: 15, color: t.text }}>
-                    <span style={{
-                      width: 22, height: 22, borderRadius: '50%',
-                      background: integration.colorLight, color: integration.color,
-                      display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      fontSize: 12, fontWeight: 700, flexShrink: 0, marginTop: 1
-                    }}>✓</span>
-                    {highlight}
-                  </li>
-                ))}
-              </ul>
-            </section>
-
-            {/* Code example */}
-            <section style={{ marginBottom: 48 }}>
-              <h2 style={{ fontFamily: t.fontSerif, fontSize: 22, color: t.text, marginBottom: 16 }}>
-                Quick start
-              </h2>
-              <p style={{ color: t.gray, fontSize: 14, lineHeight: 1.65, marginBottom: 20, fontFamily: t.fontSerif }}>
-                Get ChurnRecovery running with {integration.name} in {integration.setupTime}. Copy the snippet below and replace the placeholder values with your credentials.
-              </p>
-              <div style={{ background: '#1A1A1A', borderRadius: 10, overflow: 'hidden' }}>
-                <div style={{ background: '#2A2A2A', padding: '10px 16px', display: 'flex', alignItems: 'center', gap: 8 }}>
-                  <div style={{ display: 'flex', gap: 6 }}>
-                    {['#FF5F57', '#FEBC2E', '#28C840'].map(c => (
-                      <div key={c} style={{ width: 12, height: 12, borderRadius: '50%', background: c }} />
-                    ))}
-                  </div>
-                  <span style={{ color: '#888', fontSize: 12, marginLeft: 8 }}>
-                    {integration.name.toLowerCase()}-integration.js
-                  </span>
-                </div>
-                <pre style={{ color: '#E5E5E5', fontSize: 13, margin: 0, padding: '24px', fontFamily: 'monospace', lineHeight: 1.65, overflowX: 'auto' }}>
-                  {integration.codeExample}
-                </pre>
-              </div>
-            </section>
-
-            {/* SEO content */}
-            <section style={{ marginBottom: 48 }}>
-              <h2 style={{ fontFamily: t.fontSerif, fontSize: 22, color: t.text, marginBottom: 16 }}>
-                About {integration.name}
-              </h2>
-              <p style={{ color: t.gray, fontSize: 15, lineHeight: 1.75, fontFamily: t.fontSerif }}>
-                {integration.seoContent}
-              </p>
-              <p style={{ color: t.gray, fontSize: 15, lineHeight: 1.75, fontFamily: t.fontSerif, marginTop: 16 }}>
-                ChurnRecovery is free churn recovery software that works alongside {integration.name} to reduce voluntary churn (cancel flows) and involuntary churn (failed payments). Unlike Churnkey ($250–$825/month) or ProfitWell Retain ($149–$499/month), ChurnRecovery has zero monthly fees — making it ideal for bootstrapped SaaS companies and teams looking to maximize their LTV without additional tooling costs.
-              </p>
-            </section>
-          </div>
-
-          {/* Right — sidebar */}
-          <div className="integration-sidebar" style={{ minWidth: 0, overflow: 'hidden' }}>
-            {/* CTA card */}
-            <div style={{
-              background: t.accent, borderRadius: 12, padding: '28px',
-              color: t.white, marginBottom: 24, boxSizing: 'border-box',
-              overflow: 'hidden', wordBreak: 'break-word', maxWidth: '100%',
-              width: '100%'
-            }}>
-              <div style={{ fontSize: 22, marginBottom: 12 }}>🚀</div>
-              <h3 style={{ fontSize: 18, fontWeight: 700, marginBottom: 10 }}>
-                Start free today
-              </h3>
-              <p style={{ fontSize: 14, opacity: 0.9, marginBottom: 20, lineHeight: 1.6, fontFamily: t.fontSerif }}>
-                Add ChurnRecovery to your {integration.name} stack. Free forever, no credit card required.
-              </p>
-              <Link href="/#waitlist" style={{
-                display: 'block', background: t.white, color: t.accent,
-                padding: '12px 20px', borderRadius: 8, fontWeight: 700,
-                textDecoration: 'none', fontSize: 15, textAlign: 'center'
-              }}>
-                Get early access →
-              </Link>
-            </div>
-
-            {/* Quick facts */}
-            <div style={{
-              background: t.white, border: `1px solid ${t.border}`,
-              borderRadius: 12, padding: '24px', marginBottom: 24
-            }}>
-              <h4 style={{ fontSize: 14, fontWeight: 700, color: t.grayLight, letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 16 }}>
-                Quick facts
-              </h4>
-              {[
-                { label: 'Setup time', value: integration.setupTime },
-                { label: 'Pricing', value: 'Free' },
-                { label: 'Cancel flows', value: 'Included' },
-                { label: 'Dunning', value: 'Included' },
-                { label: 'Analytics', value: 'Included' },
-              ].map(fact => (
-                <div key={fact.label} style={{
-                  display: 'flex', justifyContent: 'space-between',
-                  padding: '10px 0', borderBottom: `1px solid ${t.border}`,
-                  fontSize: 14
-                }}>
-                  <span style={{ color: t.gray }}>{fact.label}</span>
-                  <span style={{ fontWeight: 600, color: fact.value === 'Free' || fact.value === 'Included' ? t.green : t.text }}>{fact.value}</span>
-                </div>
-              ))}
-            </div>
-
-            {/* Docs link */}
-            <div style={{
-              background: t.white, border: `1px solid ${t.border}`,
-              borderRadius: 12, padding: '24px'
-            }}>
-              <h4 style={{ fontSize: 14, fontWeight: 700, color: t.grayLight, letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 16 }}>
-                Resources
-              </h4>
-              {[
-                { label: '📚 Full documentation', href: '/docs' },
-                { label: '🎮 Interactive demo', href: '/demo' },
-                { label: '🧮 Churn calculator', href: '/tools/churn-calculator' },
-                { label: '📦 All integrations', href: '/integrations' },
-              ].map(link => (
-                <Link key={link.href} href={link.href} style={{
-                  display: 'block', padding: '10px 0',
-                  borderBottom: `1px solid ${t.border}`,
-                  textDecoration: 'none', color: t.text, fontSize: 14,
-                  transition: 'color 0.15s'
-                }}
-                onMouseEnter={e => e.currentTarget.style.color = t.accent}
-                onMouseLeave={e => e.currentTarget.style.color = t.text}
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Other integrations */}
-      <div style={{ maxWidth: 1100, margin: '64px auto', padding: '0 32px' }}>
-        <h2 style={{ fontFamily: t.fontSerif, fontSize: 24, color: t.text, marginBottom: 24 }}>
-          Other integrations
-        </h2>
-        <div className="integrations-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: 20 }}>
-          {others.map(other => (
-            <Link key={other.slug} href={`/integrations/${other.slug}`} style={{ textDecoration: 'none' }}>
-              <div style={{
-                background: t.white, border: `1px solid ${t.border}`, borderRadius: 10,
-                padding: '20px', display: 'flex', alignItems: 'center', gap: 14,
-                transition: 'border-color 0.15s', cursor: 'pointer'
-              }}
-              onMouseEnter={e => e.currentTarget.style.borderColor = other.color}
-              onMouseLeave={e => e.currentTarget.style.borderColor = t.border}
-              >
-                <div style={{
-                  width: 44, height: 44, borderRadius: 10,
-                  background: other.colorLight,
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  fontSize: 22, flexShrink: 0
-                }}>
-                  {other.logo}
-                </div>
-                <div>
-                  <div style={{ fontWeight: 700, fontSize: 15, color: t.text }}>{other.name}</div>
-                  <div style={{ fontSize: 13, color: t.grayLight, marginTop: 2 }}>Setup: {other.setupTime}</div>
-                </div>
-                <span style={{ marginLeft: 'auto', color: t.grayLight, fontSize: 18 }}>→</span>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </div>
-
-      <style>{`
-        @media (max-width: 900px) {
-          .integration-layout { grid-template-columns: 1fr !important; }
-          .integration-sidebar { order: -1; }
-        }
-        @media (max-width: 600px) {
-          .integrations-grid { grid-template-columns: 1fr !important; }
-          .feature-grid { grid-template-columns: 1fr !important; }
-          .meta-bar { flex-direction: column !important; align-items: flex-start !important; gap: 10px !important; }
-        }
-        .integration-sidebar > div { max-width: 100%; overflow: hidden; }
-        * { box-sizing: border-box; }
-        html, body { overflow-x: hidden; }
-      `}</style>
+      )}
+      <pre style={{
+        background: t.codeBackground,
+        margin: 0,
+        padding: '20px',
+        overflowX: 'auto',
+        fontFamily: t.fontMono,
+        fontSize: '0.85rem',
+        lineHeight: 1.7,
+        color: '#E8E8F0',
+      }}>
+        <code>{code}</code>
+      </pre>
     </div>
   )
 }
 
+export default function IntegrationPage({ integration }) {
+  if (!integration) return <div>Integration not found</div>
+
+  return (
+    <>
+      <Head>
+        <title>{integration.name} Integration — ChurnRecovery</title>
+        <meta name="description" content={`Add cancel flows and payment recovery to your ${integration.name} billing in ${integration.setupTime}. Free forever. Code snippets and full setup guide included.`} />
+        <meta property="og:title" content={`${integration.name} Integration — ChurnRecovery`} />
+        <meta property="og:description" content={`Free cancel flows for ${integration.name}. Setup in ${integration.setupTime}.`} />
+        <meta property="og:image" content="https://churnrecovery.com/og/integrations.svg" />
+        <meta property="og:url" content={`https://churnrecovery.com/integrations/${integration.slug}`} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <link rel="canonical" href={`https://churnrecovery.com/integrations/${integration.slug}`} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'TechArticle',
+              name: `${integration.name} Integration Guide — ChurnRecovery`,
+              description: `How to integrate ChurnRecovery with ${integration.name} for cancel flows and payment recovery`,
+              url: `https://churnrecovery.com/integrations/${integration.slug}`,
+            })
+          }}
+        />
+      </Head>
+
+      <div style={{ background: t.bg, minHeight: '100vh' }}>
+        {/* Breadcrumb */}
+        <div style={{
+          borderBottom: `1px solid ${t.border}`,
+          padding: '16px 24px',
+        }}>
+          <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
+            <nav style={{ fontFamily: t.fontSans, fontSize: '0.85rem', color: t.grayLight }}>
+              <Link href="/" style={{ color: t.grayLight, textDecoration: 'none' }}>Home</Link>
+              <span style={{ margin: '0 8px' }}>›</span>
+              <Link href="/integrations" style={{ color: t.grayLight, textDecoration: 'none' }}>Integrations</Link>
+              <span style={{ margin: '0 8px' }}>›</span>
+              <span style={{ color: t.text, fontWeight: 600 }}>{integration.name}</span>
+            </nav>
+          </div>
+        </div>
+
+        {/* Hero */}
+        <div style={{
+          borderBottom: `1px solid ${t.border}`,
+          padding: '60px 24px 48px',
+        }}>
+          <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
+            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '24px', flexWrap: 'wrap' }}>
+              <div style={{
+                width: '72px',
+                height: '72px',
+                borderRadius: '16px',
+                background: integration.color + '18',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontSize: '2.2rem',
+                flexShrink: 0,
+              }}>
+                {integration.logo}
+              </div>
+              <div style={{ flex: 1 }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '8px', flexWrap: 'wrap' }}>
+                  <h1 style={{
+                    fontFamily: t.fontSans,
+                    fontSize: 'clamp(1.8rem, 4vw, 2.4rem)',
+                    fontWeight: 800,
+                    color: t.text,
+                    margin: 0,
+                  }}>
+                    ChurnRecovery + {integration.name}
+                  </h1>
+                </div>
+                <p className="integration-description" style={{
+                  fontFamily: t.fontSerif,
+                  fontSize: '1.1rem',
+                  color: t.gray,
+                  lineHeight: 1.7,
+                  margin: '0 0 24px',
+                  maxWidth: '700px',
+                }}>
+                  {integration.description}
+                </p>
+                {/* Quick stats */}
+                <div className="integration-stats-bar" style={{ display: 'flex', gap: '32px', flexWrap: 'wrap' }}>
+                  {[
+                    { label: 'Setup time', value: integration.setupTime },
+                    { label: 'Difficulty', value: integration.difficulty },
+                    { label: 'Avg save rate', value: integration.stats.avgSaveRate, highlight: true },
+                    { label: 'Price', value: 'Free' },
+                  ].map(({ label, value, highlight }) => (
+                    <div key={label}>
+                      <div style={{ fontFamily: t.fontSans, fontSize: '0.72rem', color: t.grayLight, textTransform: 'uppercase', letterSpacing: '0.07em', marginBottom: '4px' }}>{label}</div>
+                      <div style={{
+                        fontFamily: t.fontSans,
+                        fontSize: '1.05rem',
+                        fontWeight: 700,
+                        color: highlight ? t.green : t.text,
+                      }}>{value}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Main content */}
+        <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '48px 24px' }}>
+          <div className="integration-layout" style={{ display: 'grid', gridTemplateColumns: '1fr 320px', gap: '48px', alignItems: 'start' }}>
+            {/* Left: main content */}
+            <div>
+              {/* Overview */}
+              <section style={{ marginBottom: '48px' }}>
+                <h2 style={{ fontFamily: t.fontSans, fontSize: '1.4rem', fontWeight: 700, color: t.text, margin: '0 0 16px' }}>
+                  Overview
+                </h2>
+                {integration.longDescription.split('\n\n').map((para, i) => (
+                  <p key={i} style={{
+                    fontFamily: t.fontSerif,
+                    fontSize: '1rem',
+                    color: t.gray,
+                    lineHeight: 1.8,
+                    margin: '0 0 16px',
+                  }}>{para}</p>
+                ))}
+              </section>
+
+              {/* Features */}
+              <section style={{ marginBottom: '48px' }}>
+                <h2 style={{ fontFamily: t.fontSans, fontSize: '1.4rem', fontWeight: 700, color: t.text, margin: '0 0 20px' }}>
+                  What's included
+                </h2>
+                <div style={{
+                  background: t.white,
+                  border: `1px solid ${t.border}`,
+                  borderRadius: '12px',
+                  padding: '24px',
+                }}>
+                  <ul style={{ margin: 0, padding: 0, listStyle: 'none' }}>
+                    {integration.features.map((feature, i) => (
+                      <li key={i} style={{
+                        display: 'flex',
+                        alignItems: 'flex-start',
+                        gap: '12px',
+                        padding: i > 0 ? '12px 0 0' : '0',
+                        marginTop: i > 0 ? '12px' : 0,
+                        borderTop: i > 0 ? `1px solid ${t.border}` : 'none',
+                      }}>
+                        <span style={{
+                          color: t.green,
+                          fontWeight: 700,
+                          fontSize: '1rem',
+                          flexShrink: 0,
+                          marginTop: '2px',
+                        }}>✓</span>
+                        <span style={{ fontFamily: t.fontSans, fontSize: '0.95rem', color: t.text, lineHeight: 1.5 }}>
+                          {feature}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </section>
+
+              {/* Use cases */}
+              <section style={{ marginBottom: '48px' }}>
+                <h2 style={{ fontFamily: t.fontSans, fontSize: '1.4rem', fontWeight: 700, color: t.text, margin: '0 0 20px' }}>
+                  Use cases
+                </h2>
+                <div style={{
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))',
+                  gap: '16px',
+                }}>
+                  {integration.useCases.map((uc, i) => (
+                    <div key={i} style={{
+                      background: t.white,
+                      border: `1px solid ${t.border}`,
+                      borderRadius: '10px',
+                      padding: '20px',
+                    }}>
+                      <h3 style={{
+                        fontFamily: t.fontSans,
+                        fontSize: '0.95rem',
+                        fontWeight: 700,
+                        color: t.text,
+                        margin: '0 0 8px',
+                      }}>{uc.title}</h3>
+                      <p style={{
+                        fontFamily: t.fontSerif,
+                        fontSize: '0.88rem',
+                        color: t.gray,
+                        lineHeight: 1.6,
+                        margin: 0,
+                      }}>{uc.desc}</p>
+                    </div>
+                  ))}
+                </div>
+              </section>
+
+              {/* Code snippets */}
+              <section style={{ marginBottom: '48px' }}>
+                <h2 style={{ fontFamily: t.fontSans, fontSize: '1.4rem', fontWeight: 700, color: t.text, margin: '0 0 8px' }}>
+                  Code examples
+                </h2>
+                <p style={{
+                  fontFamily: t.fontSerif,
+                  fontSize: '0.95rem',
+                  color: t.gray,
+                  margin: '0 0 24px',
+                  lineHeight: 1.7,
+                }}>
+                  Real code for your {integration.name} integration. Copy and customize.
+                </p>
+                {integration.codeSnippets.map((snippet, i) => (
+                  <CodeBlock key={i} {...snippet} />
+                ))}
+              </section>
+            </div>
+
+            {/* Right sidebar */}
+            <div style={{ position: 'sticky', top: '24px' }}>
+              {/* Setup steps */}
+              <div style={{
+                background: t.white,
+                border: `1px solid ${t.border}`,
+                borderRadius: '12px',
+                padding: '24px',
+                marginBottom: '20px',
+              }}>
+                <h3 style={{
+                  fontFamily: t.fontSans,
+                  fontSize: '1rem',
+                  fontWeight: 700,
+                  color: t.text,
+                  margin: '0 0 16px',
+                }}>Setup checklist</h3>
+                <ol style={{ margin: 0, padding: 0, listStyle: 'none', counterReset: 'steps' }}>
+                  {integration.setupSteps.map((step, i) => (
+                    <li key={i} style={{
+                      display: 'flex',
+                      alignItems: 'flex-start',
+                      gap: '12px',
+                      padding: i > 0 ? '12px 0 0' : '0',
+                      marginTop: i > 0 ? '12px' : 0,
+                      borderTop: i > 0 ? `1px solid ${t.border}` : 'none',
+                    }}>
+                      <span style={{
+                        width: '22px',
+                        height: '22px',
+                        borderRadius: '50%',
+                        background: t.accent + '18',
+                        color: t.accent,
+                        fontFamily: t.fontSans,
+                        fontSize: '0.75rem',
+                        fontWeight: 800,
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        flexShrink: 0,
+                        marginTop: '1px',
+                      }}>{i + 1}</span>
+                      <span style={{ fontFamily: t.fontSans, fontSize: '0.88rem', color: t.text, lineHeight: 1.5 }}>
+                        {step}
+                      </span>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+
+              {/* CTA card */}
+              <div style={{
+                background: t.text,
+                borderRadius: '12px',
+                padding: '24px',
+                marginBottom: '20px',
+                textAlign: 'center',
+              }}>
+                <div style={{ fontSize: '2rem', marginBottom: '12px' }}>🚀</div>
+                <h3 style={{
+                  fontFamily: t.fontSans,
+                  fontSize: '1rem',
+                  fontWeight: 700,
+                  color: t.white,
+                  margin: '0 0 8px',
+                }}>Ready to get started?</h3>
+                <p style={{
+                  fontFamily: t.fontSerif,
+                  fontSize: '0.88rem',
+                  color: 'rgba(255,255,255,0.7)',
+                  margin: '0 0 16px',
+                  lineHeight: 1.6,
+                }}>Free forever. No credit card. Set up in {integration.setupTime}.</p>
+                <Link href="/#waitlist" style={{
+                  display: 'block',
+                  background: t.accent,
+                  color: t.white,
+                  fontFamily: t.fontSans,
+                  fontWeight: 700,
+                  fontSize: '0.9rem',
+                  padding: '12px 20px',
+                  borderRadius: '8px',
+                  textDecoration: 'none',
+                  textAlign: 'center',
+                }}>
+                  Get early access →
+                </Link>
+              </div>
+
+              {/* Other integrations */}
+              <div style={{
+                background: t.white,
+                border: `1px solid ${t.border}`,
+                borderRadius: '12px',
+                padding: '20px',
+              }}>
+                <h3 style={{
+                  fontFamily: t.fontSans,
+                  fontSize: '0.9rem',
+                  fontWeight: 700,
+                  color: t.text,
+                  margin: '0 0 12px',
+                }}>Other integrations</h3>
+                {['stripe', 'paddle', 'braintree', 'chargebee', 'recurly', 'custom']
+                  .filter(s => s !== integration.slug)
+                  .slice(0, 4)
+                  .map(slug => (
+                    <Link key={slug} href={`/integrations/${slug}`} style={{
+                      display: 'block',
+                      fontFamily: t.fontSans,
+                      fontSize: '0.88rem',
+                      color: t.accent,
+                      textDecoration: 'none',
+                      padding: '6px 0',
+                      borderBottom: `1px solid ${t.border}`,
+                    }}>
+                      {slug.charAt(0).toUpperCase() + slug.slice(1)} integration →
+                    </Link>
+                  ))
+                }
+                <Link href="/integrations" style={{
+                  display: 'block',
+                  fontFamily: t.fontSans,
+                  fontSize: '0.85rem',
+                  color: t.grayLight,
+                  textDecoration: 'none',
+                  paddingTop: '8px',
+                }}>
+                  View all integrations →
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom CTA */}
+        <div style={{
+          background: t.greenLight,
+          borderTop: `1px solid #C8EBD8`,
+          padding: '48px 24px',
+          textAlign: 'center',
+        }}>
+          <div style={{ maxWidth: '600px', margin: '0 auto' }}>
+            <h2 style={{
+              fontFamily: t.fontSans,
+              fontSize: '1.6rem',
+              fontWeight: 700,
+              color: t.text,
+              margin: '0 0 12px',
+            }}>
+              Stop losing customers you could keep
+            </h2>
+            <p style={{
+              fontFamily: t.fontSerif,
+              fontSize: '1rem',
+              color: t.gray,
+              lineHeight: 1.7,
+              margin: '0 0 28px',
+            }}>
+              Most SaaS companies recover 20–30% of would-be churners with cancel flows.
+              ChurnRecovery makes this free for {integration.name} users.
+            </p>
+            <Link href="/#waitlist" style={{
+              display: 'inline-block',
+              background: t.accent,
+              color: t.white,
+              fontFamily: t.fontSans,
+              fontWeight: 700,
+              fontSize: '1rem',
+              padding: '14px 32px',
+              borderRadius: '8px',
+              textDecoration: 'none',
+            }}>
+              Get early access — it's free
+            </Link>
+          </div>
+        </div>
+
+        <style jsx global>{`
+          @media (max-width: 768px) {
+            .integration-layout { grid-template-columns: 1fr !important; }
+            .integration-stats-bar { flex-wrap: wrap; gap: 16px !important; }
+            .integration-description { display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+          }
+        `}</style>
+      </div>
+    </>
+  )
+}
+
 export async function getStaticPaths() {
+  const slugs = getAllIntegrationSlugs()
   return {
-    paths: getAllIntegrationSlugs(),
+    paths: slugs.map(slug => ({ params: { slug } })),
     fallback: false,
   }
 }
 
 export async function getStaticProps({ params }) {
   const integration = getIntegration(params.slug)
-  return { props: { integration: integration || null } }
+  return {
+    props: { integration: integration || null },
+  }
 }

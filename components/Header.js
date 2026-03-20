@@ -14,6 +14,7 @@ const t = {
 const navLinks = [
   { href: '/features', label: 'Features' },
   { href: '/pricing', label: 'Pricing' },
+  { href: '/integrations', label: 'Integrations' },
   { href: '/demo', label: 'Demo' },
   { href: '/docs', label: 'Docs' },
   { href: '/blog', label: 'Blog' },
@@ -62,8 +63,18 @@ export default function Header() {
           ))}
         </nav>
 
-        {/* CTA + mobile toggle */}
+        {/* CTA + contact + mobile toggle */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+          <a href="mailto:hello@churnrecovery.com" style={{
+            color: t.gray, textDecoration: 'none', fontSize: 14,
+            fontWeight: 500, padding: '8px 12px', borderRadius: 6,
+            transition: 'color 0.15s',
+          }} 
+          onMouseEnter={e => { e.currentTarget.style.color = t.text }}
+          onMouseLeave={e => { e.currentTarget.style.color = t.gray }}
+          className="header-chat">
+            Let's chat
+          </a>
           <Link href="/#waitlist" style={{
             background: t.accent, color: t.white, padding: '8px 18px',
             borderRadius: 7, fontWeight: 600, textDecoration: 'none', fontSize: 14,

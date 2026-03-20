@@ -9,6 +9,7 @@
     "lint": "echo \"No lint configured\""
   },
   "dependencies": {
+    "@clerk/nextjs": "^7.0.6",
     "@cloudflare/kv-asset-handler": "^0.1.2",
     "@tailwindcss/postcss": "^4.1.17",
     "gray-matter": "^4.0.3",

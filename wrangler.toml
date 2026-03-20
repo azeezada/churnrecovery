@@ -23,5 +23,5 @@ persist = true
 [[d1_databases]]
 binding = "DB"
 database_name = "churnrecovery-db"
-database_id = "TODO_REPLACE_WITH_ACTUAL_DB_ID"
+database_id = "PLACEHOLDER_NEEDS_REPLACEMENT_AFTER_DB_CREATION"
 migrations_dir = "migrations"
