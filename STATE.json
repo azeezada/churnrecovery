@@ -2,10 +2,10 @@
   "project": "churnrecovery",
   "status": "running",
   "current_phase": 1,
-  "current_task": "005",
+  "current_task": "006",
   "started_at": "2026-03-20T04:20:00Z",
   "last_updated": "2026-03-20T04:35:00Z",
-  "completed_tasks": ["001", "002", "003", "004"],
+  "completed_tasks": ["001", "002", "003", "004", "005"],
   "tasks": {
     "001": {
       "name": "Project foundation — install deps, design system, component library",
@@ -45,10 +45,12 @@
     },
     "005": {
       "name": "SEO blog posts — 4 high-quality posts for content pillars",
-      "status": "pending",
+      "status": "complete",
       "phase": 1,
-      "files": ["src/posts/"],
-      "acceptance": "4 new markdown posts: churn guide, cancel flow examples, involuntary churn, why-free. Each 1500+ words with proper frontmatter."
+      "files": ["src/posts/Ultimate-Guide-SaaS-Churn.md", "src/posts/Cancel-Flow-Examples.md", "src/posts/Involuntary-Churn-Recovery.md", "src/posts/Why-Churn-Recovery-Is-Free.md"],
+      "acceptance": "4 new markdown posts: churn guide, cancel flow examples, involuntary churn, why-free. Each 1500+ words with proper frontmatter.",
+      "completed_at": "2026-03-20T04:55:00Z",
+      "notes": "4 SEO posts created: Ultimate Guide (1850w), Cancel Flow Examples (2325w), Involuntary Churn (2344w), Why Free (1936w). All have tags, excerpts, proper frontmatter. Build passes, RSS updated."
     },
     "006": {
       "name": "Comparison pages — programmatic /compare/ and /alternatives/ pages",

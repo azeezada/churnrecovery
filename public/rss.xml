@@ -5,7 +5,7 @@
     <link>https://churnrecovery.com/blog</link>
     <description>Insights on churn recovery, payment failures, and SaaS retention</description>
     <language>en-us</language>
-    <lastBuildDate>Fri, 20 Mar 2026 04:43:11 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 20 Mar 2026 04:49:15 GMT</lastBuildDate>
     <atom:link href="https://churnrecovery.com/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title><![CDATA[Payment Failure Recovery: A Technical Playbook]]></title>
@@ -16,6 +16,46 @@
       <category>dunning</category>
       <category>payment-recovery</category>
       <category>technical</category>
+    </item>
+    <item>
+      <title><![CDATA[The Ultimate Guide to SaaS Churn: Causes, Metrics, and Recovery Strategies]]></title>
+      <link>https://churnrecovery.com/posts/Ultimate-Guide-SaaS-Churn</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/Ultimate-Guide-SaaS-Churn</guid>
+      <description><![CDATA[Everything you need to know about measuring, understanding, and reducing churn in your SaaS business — from basic metrics to advanced recovery tactics.]]></description>
+      <pubDate>Wed, 18 Mar 2026 00:00:00 GMT</pubDate>
+      <category>churn</category>
+      <category>strategy</category>
+      <category>guide</category>
+    </item>
+    <item>
+      <title><![CDATA[7 Cancel Flow Examples That Actually Save Customers (With Code)]]></title>
+      <link>https://churnrecovery.com/posts/Cancel-Flow-Examples</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/Cancel-Flow-Examples</guid>
+      <description><![CDATA[Real cancel flow patterns from successful SaaS companies, with implementation examples you can steal for your own product.]]></description>
+      <pubDate>Mon, 16 Mar 2026 00:00:00 GMT</pubDate>
+      <category>cancel-flows</category>
+      <category>retention</category>
+      <category>examples</category>
+    </item>
+    <item>
+      <title><![CDATA[Involuntary Churn: The Revenue Leak You're Probably Ignoring]]></title>
+      <link>https://churnrecovery.com/posts/Involuntary-Churn-Recovery</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/Involuntary-Churn-Recovery</guid>
+      <description><![CDATA[Failed payments cause 20-40% of all SaaS churn. Here's exactly how to build a dunning system that recovers most of it.]]></description>
+      <pubDate>Sat, 14 Mar 2026 00:00:00 GMT</pubDate>
+      <category>dunning</category>
+      <category>payment-recovery</category>
+      <category>involuntary-churn</category>
+    </item>
+    <item>
+      <title><![CDATA[Why ChurnRecovery Is Free (And How We Plan to Stay That Way)]]></title>
+      <link>https://churnrecovery.com/posts/Why-Churn-Recovery-Is-Free</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/Why-Churn-Recovery-Is-Free</guid>
+      <description><![CDATA[The business model behind giving away churn recovery tooling for free. No, it's not a bait-and-switch. Here's exactly how it works.]]></description>
+      <pubDate>Thu, 12 Mar 2026 00:00:00 GMT</pubDate>
+      <category>churnrecovery</category>
+      <category>open-source</category>
+      <category>business-model</category>
     </item>
     <item>
       <title><![CDATA[Subscription Revenue: Protecting the Asset]]></title>
