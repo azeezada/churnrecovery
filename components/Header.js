@@ -67,16 +67,6 @@ export default function Header() {
 
         {/* CTA + contact + mobile toggle */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-          <a href="mailto:hello@churnrecovery.com" style={{
-            color: t.gray, textDecoration: 'none', fontSize: 14,
-            fontWeight: 500, padding: '8px 12px', borderRadius: 6,
-            transition: 'color 0.15s',
-          }} 
-          onMouseEnter={e => { e.currentTarget.style.color = t.text }}
-          onMouseLeave={e => { e.currentTarget.style.color = t.gray }}
-          className="header-chat">
-            Let's chat
-          </a>
           {isSignedIn ? (
             <Link href="/app/dashboard" style={{
               background: t.accent, color: t.white, padding: '8px 18px',
