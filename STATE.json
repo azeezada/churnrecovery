@@ -2,17 +2,19 @@
   "project": "churnrecovery",
   "status": "running",
   "current_phase": 1,
-  "current_task": "001",
+  "current_task": "002",
   "started_at": "2026-03-20T04:20:00Z",
-  "last_updated": "2026-03-20T04:20:00Z",
-  "completed_tasks": [],
+  "last_updated": "2026-03-20T04:35:00Z",
+  "completed_tasks": ["001"],
   "tasks": {
     "001": {
       "name": "Project foundation — install deps, design system, component library",
-      "status": "pending",
+      "status": "complete",
       "phase": 1,
       "files": ["package.json", "styles/globals.css", "lib/design-tokens.js", "components/Footer.js"],
-      "acceptance": "npm run build passes, design tokens defined, Footer component created, Playwright installed"
+      "acceptance": "npm run build passes, design tokens defined, Footer component created, Playwright installed",
+      "completed_at": "2026-03-20T04:35:00Z",
+      "notes": "Build passes. design-tokens.js created with full token set. Footer.js with 4-column link grid + copyright. Playwright installed with Chromium. GSC meta tag added to _app.js. Vision score of homepage: 4.8/10 — to be fixed in task 002."
     },
     "002": {
       "name": "Homepage redesign — Option D editorial style with hero, features, social proof, CTA",
@@ -106,6 +108,17 @@
       "acceptance": "Navigation links work across all pages. Footer has sitemap links. 404 page styled. All internal links valid."
     }
   },
-  "notes": [],
-  "update_log": []
+  "notes": [
+    "Task 001: Homepage vision score is 4.8/10 — main issues: no accent color usage, placeholder copy, weak value prop, no CTA. Task 002 will fix all of these.",
+    "Task 001: Footer uses onMouseEnter/Leave for hover states — works but may need styled-jsx or CSS modules in future for cleaner approach.",
+    "Vision model feedback key themes: add accent color usage, real value prop, remove placeholder copy, style CTAs, fix article cards."
+  ],
+  "update_log": [
+    {
+      "timestamp": "2026-03-20T04:35:00Z",
+      "task": "001",
+      "action": "complete",
+      "summary": "Created lib/design-tokens.js, components/Footer.js, updated _app.js with Footer + GSC meta tag, installed Playwright + Chromium. Build passes. Committed."
+    }
+  ]
 }
