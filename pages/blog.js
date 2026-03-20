@@ -1,5 +1,7 @@
 import Link from 'next/link'
 import Head from 'next/head'
+import { useState, useEffect } from 'react'
+import { useRouter } from 'next/router'
 import { getAllPosts, getAllTags, getReadingTime } from '../lib/posts'
 import fs from 'fs'
 import path from 'path'
@@ -19,10 +21,11 @@ const t = {
 
 const POSTS_PER_PAGE = 6
 
-function TagPill({ tag, active, href }) {
+function TagPill({ tag, active, onClick }) {
   return (
-    <Link href={href} style={{ textDecoration: 'none' }}>
-      <span style={{
+    <span
+      onClick={onClick}
+      style={{
         display: 'inline-block',
         fontFamily: t.fontSans,
         fontSize: '0.8rem',
@@ -35,7 +38,6 @@ function TagPill({ tag, active, href }) {
         cursor: 'pointer',
         transition: 'all 0.15s',
       }}>{tag}</span>
-    </Link>
   )
 }
 
@@ -138,7 +140,22 @@ function PostCard({ post, readingTime, featured }) {
   )
 }
 
-export default function Blog({ posts, tags, currentTag, currentPage, totalPages }) {
+export default function Blog({ posts: allPosts, tags }) {
+  const router = useRouter()
+  const [activeTag, setActiveTag] = useState(null)
+
+  // Read tag from URL query param (client-side, for static export compatibility)
+  useEffect(() => {
+    const tag = router.query.tag || null
+    setActiveTag(tag)
+  }, [router.query.tag])
+
+  // Filter posts by active tag
+  const posts = activeTag
+    ? allPosts.filter(p => p.tags && p.tags.includes(activeTag))
+    : allPosts
+
+  const currentTag = activeTag
   const title = currentTag
     ? `#${currentTag} — ChurnRecovery Blog`
     : 'Blog — ChurnRecovery'
@@ -257,13 +274,17 @@ export default function Blog({ posts, tags, currentTag, currentPage, totalPages 
             {/* Tags filter */}
             {tags.length > 0 && (
               <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', alignItems: 'center' }}>
-                <TagPill tag="All posts" active={!currentTag} href="/blog" />
+                <TagPill
+                  tag="All posts"
+                  active={!currentTag}
+                  onClick={() => router.push('/blog', undefined, { shallow: true })}
+                />
                 {tags.map(tag => (
                   <TagPill
                     key={tag}
                     tag={`#${tag}`}
                     active={currentTag === tag}
-                    href={`/blog?tag=${tag}`}
+                    onClick={() => router.push(`/blog?tag=${tag}`, undefined, { shallow: true })}
                   />
                 ))}
               </div>
@@ -290,66 +311,26 @@ export default function Blog({ posts, tags, currentTag, currentPage, totalPages 
             ) : (
               <>
                 {/* Featured post (first) */}
-                {currentPage === 1 && posts[0] && (
+                {posts[0] && (
                   <div style={{ marginBottom: '24px' }}>
                     <PostCard post={posts[0]} featured={true} />
                   </div>
                 )}
 
                 {/* Grid for remaining */}
-                <div style={{
-                  display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',
-                  gap: '20px',
-                }}>
-                  {(currentPage === 1 ? posts.slice(1) : posts).map(post => (
-                    <PostCard key={post.slug} post={post} />
-                  ))}
-                </div>
-
-                {/* Pagination */}
-                {totalPages > 1 && (
+                {posts.length > 1 && (
                   <div style={{
-                    display: 'flex',
-                    justifyContent: 'center',
-                    gap: '8px',
-                    marginTop: '48px',
-                    alignItems: 'center',
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',
+                    gap: '20px',
                   }}>
-                    {currentPage > 1 && (
-                      <Link href={`/blog?page=${currentPage - 1}${currentTag ? `&tag=${currentTag}` : ''}`} style={{
-                        fontFamily: t.fontSans,
-                        fontSize: '0.9rem',
-                        color: t.accent,
-                        textDecoration: 'none',
-                        padding: '8px 16px',
-                        border: `1px solid ${t.border}`,
-                        borderRadius: '8px',
-                        background: t.white,
-                      }}>← Previous</Link>
-                    )}
-
-                    <span style={{
-                      fontFamily: t.fontSans,
-                      fontSize: '0.9rem',
-                      color: t.gray,
-                      padding: '8px 12px',
-                    }}>Page {currentPage} of {totalPages}</span>
-
-                    {currentPage < totalPages && (
-                      <Link href={`/blog?page=${currentPage + 1}${currentTag ? `&tag=${currentTag}` : ''}`} style={{
-                        fontFamily: t.fontSans,
-                        fontSize: '0.9rem',
-                        color: t.accent,
-                        textDecoration: 'none',
-                        padding: '8px 16px',
-                        border: `1px solid ${t.border}`,
-                        borderRadius: '8px',
-                        background: t.white,
-                      }}>Next →</Link>
-                    )}
+                    {posts.slice(1).map(post => (
+                      <PostCard key={post.slug} post={post} />
+                    ))}
                   </div>
                 )}
+
+                {/* Static export: no pagination needed for current post count */}
               </>
             )}
           </div>
@@ -379,9 +360,9 @@ export async function getStaticProps() {
     props: {
       posts: postsWithReadTime,
       tags: allTags,
-      currentTag: null,
-      currentPage: 1,
-      totalPages: Math.ceil(postsWithReadTime.length / POSTS_PER_PAGE),
     },
   }
 }
+
+// Note: Tag filtering happens client-side via URL params since this is a static export.
+// The page reads window.location.search on mount for tag filtering.
