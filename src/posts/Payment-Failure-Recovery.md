@@ -2,6 +2,7 @@
 title: "Payment Failure Recovery: A Technical Playbook"
 date: "2026-03-19"
 excerpt: "How to build a dunning system that actually recovers failed payments and keeps revenue flowing."
+tags: ["dunning", "payment-recovery", "technical"]
 ---
 
 # Payment Failure Recovery: A Technical Playbook

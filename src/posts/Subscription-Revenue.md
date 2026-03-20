@@ -2,6 +2,7 @@
 title: "Subscription Revenue: Protecting the Asset"
 date: "2025-12-10"
 excerpt: "A guide to managing Intentional vs. Unintentional Churn in subscription models."
+tags: ["churn", "retention", "strategy"]
 ---
 
 # Subscription Revenue: Protecting the Asset (Intentional vs. Unintentional Churn)

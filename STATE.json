@@ -2,10 +2,10 @@
   "project": "churnrecovery",
   "status": "running",
   "current_phase": 1,
-  "current_task": "004",
+  "current_task": "005",
   "started_at": "2026-03-20T04:20:00Z",
   "last_updated": "2026-03-20T04:35:00Z",
-  "completed_tasks": ["001", "002", "003"],
+  "completed_tasks": ["001", "002", "003", "004"],
   "tasks": {
     "001": {
       "name": "Project foundation — install deps, design system, component library",
@@ -36,10 +36,12 @@
     },
     "004": {
       "name": "Blog system upgrade — tags, pagination, RSS, improved post layout",
-      "status": "pending",
+      "status": "complete",
       "phase": 1,
-      "files": ["pages/index.js", "pages/posts/[slug].js", "lib/posts.js", "pages/blog.js"],
-      "acceptance": "Blog listing page at /blog, posts have tags, RSS feed at /rss.xml, improved typography"
+      "files": ["pages/blog.js", "pages/posts/[slug].js", "lib/posts.js", "scripts/generate-rss.mjs"],
+      "acceptance": "Blog listing page at /blog, posts have tags, RSS feed at /rss.xml, improved typography",
+      "completed_at": "2026-03-20T04:45:00Z",
+      "notes": "Blog listing with featured post, tag pills, reading time. Post pages with OG tags, tags, related posts, reading time. RSS generated at build time. Tags added to existing posts."
     },
     "005": {
       "name": "SEO blog posts — 4 high-quality posts for content pillars",
