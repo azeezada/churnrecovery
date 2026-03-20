@@ -1,7 +1,11 @@
-import { getAuth } from '@clerk/nextjs/server'
-
-// In-memory store for MVP — will be replaced with D1
-const projects = new Map()
+import { getServerAuth } from '../../lib/server-auth'
+import {
+  getProjectsByUser,
+  getProjectById,
+  createProject,
+  updateProject,
+  deleteProject,
+} from '../../lib/db'
 
 function generateId() {
   return 'proj_' + Math.random().toString(36).substring(2, 14)
@@ -12,58 +16,42 @@ function generateApiKey() {
 }
 
 export default async function handler(req, res) {
-  const { userId } = getAuth(req)
-  
+  const { userId } = getServerAuth(req)
+
   if (!userId) {
     return res.status(401).json({ error: 'Unauthorized' })
   }
 
   if (req.method === 'GET') {
-    // List projects for user
-    const userProjects = []
-    for (const [id, project] of projects) {
-      if (project.userId === userId) {
-        userProjects.push({ id, ...project })
-      }
-    }
-    return res.status(200).json({ projects: userProjects })
+    const projects = getProjectsByUser(userId)
+    return res.status(200).json({ projects })
   }
 
   if (req.method === 'POST') {
-    // Create project
     const { name } = req.body || {}
     const id = generateId()
-    const project = {
-      userId,
-      name: name || 'My Project',
-      apiKey: generateApiKey(),
-      stripeWebhookSecret: null,
-      createdAt: new Date().toISOString(),
-    }
-    projects.set(id, project)
-    return res.status(201).json({ id, ...project })
+    const apiKey = generateApiKey()
+    const project = createProject({ id, userId, name: name || 'My Project', apiKey })
+    return res.status(201).json(project)
   }
 
   if (req.method === 'PUT') {
-    // Update project
-    const { projectId, name, stripeWebhookSecret } = req.body || {}
-    const project = projects.get(projectId)
-    if (!project || project.userId !== userId) {
+    const { projectId, name, stripe_secret_key, stripe_webhook_secret, webhook_url } = req.body || {}
+    const project = getProjectById(projectId)
+    if (!project || project.user_id !== userId) {
       return res.status(404).json({ error: 'Project not found' })
     }
-    if (name) project.name = name
-    if (stripeWebhookSecret) project.stripeWebhookSecret = stripeWebhookSecret
-    projects.set(projectId, project)
-    return res.status(200).json({ id: projectId, ...project })
+    const updated = updateProject(projectId, { name, stripe_secret_key, stripe_webhook_secret, webhook_url })
+    return res.status(200).json(updated)
   }
 
   if (req.method === 'DELETE') {
     const { projectId } = req.body || {}
-    const project = projects.get(projectId)
-    if (!project || project.userId !== userId) {
+    const project = getProjectById(projectId)
+    if (!project || project.user_id !== userId) {
       return res.status(404).json({ error: 'Project not found' })
     }
-    projects.delete(projectId)
+    deleteProject(projectId)
     return res.status(200).json({ deleted: true })
   }
 

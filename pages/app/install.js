@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import { useState } from 'react'
+import React from 'react'
 import AppLayout from '../../components/AppLayout'
 
 const t = {
@@ -81,8 +82,22 @@ function Step({ number, title, children }) {
 
 export default function InstallPage() {
   const [method, setMethod] = useState('script')
-  const projectId = 'proj_a1b2c3d4e5f6'
-  const apiKey = 'cr_live_' + 'x'.repeat(16)
+  const [project, setProject] = useState(null)
+
+  // Load first project to get real API key
+  React.useEffect(() => {
+    fetch('/api/projects')
+      .then(r => r.json())
+      .then(data => {
+        if (data.projects && data.projects.length > 0) {
+          setProject(data.projects[0])
+        }
+      })
+      .catch(() => {})
+  }, [])
+
+  const projectId = project?.id || 'proj_YOUR_PROJECT_ID'
+  const apiKey = project?.api_key || 'cr_live_YOUR_API_KEY'
 
   return (
     <>

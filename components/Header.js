@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { useState } from 'react'
-import { useUser } from '@clerk/nextjs'
+import { useAuthUser } from '../lib/useAuthUser'
 
 const t = {
   bg: '#FAF9F5',
@@ -23,7 +23,7 @@ const navLinks = [
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false)
-  const { isSignedIn } = useUser()
+  const { isSignedIn } = useAuthUser()
 
   return (
     <header style={{

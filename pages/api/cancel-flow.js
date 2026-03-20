@@ -1,7 +1,5 @@
-import { getAuth } from '@clerk/nextjs/server'
-
-// In-memory store for MVP — will be replaced with D1
-const cancelFlows = new Map()
+import { getServerAuth } from '../../lib/server-auth'
+import { getCancelFlowByProject, upsertCancelFlow, getProjectByApiKey } from '../../lib/db'
 
 const defaultFlow = {
   reasons: [
@@ -15,44 +13,60 @@ const defaultFlow = {
   active: true,
 }
 
+function setCorsHeaders(res) {
+  res.setHeader('Access-Control-Allow-Origin', '*')
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-API-Key')
+}
+
 export default async function handler(req, res) {
-  // GET: Public endpoint for widget to fetch flow config (no auth needed)
+  // OPTIONS: CORS preflight
+  if (req.method === 'OPTIONS') {
+    setCorsHeaders(res)
+    return res.status(200).end()
+  }
+
+  // GET: Public endpoint for widget to fetch flow config
   if (req.method === 'GET') {
-    const { projectId } = req.query
-    if (!projectId) {
-      return res.status(400).json({ error: 'projectId required' })
+    setCorsHeaders(res)
+    const { projectId, apiKey } = req.query
+
+    let resolvedProjectId = projectId
+
+    // Allow lookup by API key (for widget)
+    if (!resolvedProjectId && apiKey) {
+      const project = getProjectByApiKey(apiKey)
+      if (!project) return res.status(404).json({ error: 'Project not found' })
+      resolvedProjectId = project.id
     }
-    const flow = cancelFlows.get(projectId) || defaultFlow
-    // Set CORS headers for widget access
-    res.setHeader('Access-Control-Allow-Origin', '*')
-    res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS')
-    return res.status(200).json(flow)
+
+    if (!resolvedProjectId) {
+      return res.status(400).json({ error: 'projectId or apiKey required' })
+    }
+
+    const flow = getCancelFlowByProject(resolvedProjectId)
+    return res.status(200).json(flow || defaultFlow)
   }
 
   // POST: Save flow config (auth required)
   if (req.method === 'POST') {
-    const { userId } = getAuth(req)
+    const { userId } = getServerAuth(req)
     if (!userId) {
       return res.status(401).json({ error: 'Unauthorized' })
     }
 
     const { projectId, reasons } = req.body || {}
-    const flow = {
+    if (!projectId) {
+      return res.status(400).json({ error: 'projectId required' })
+    }
+
+    const config = {
       reasons: reasons || defaultFlow.reasons,
       active: true,
       updatedAt: new Date().toISOString(),
-      updatedBy: userId,
     }
-    cancelFlows.set(projectId || 'default', flow)
-    return res.status(200).json({ saved: true, flow })
-  }
-
-  // OPTIONS: CORS preflight
-  if (req.method === 'OPTIONS') {
-    res.setHeader('Access-Control-Allow-Origin', '*')
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization')
-    return res.status(200).end()
+    const saved = upsertCancelFlow({ projectId, config })
+    return res.status(200).json({ saved: true, flow: saved })
   }
 
   res.setHeader('Allow', 'GET, POST, OPTIONS')

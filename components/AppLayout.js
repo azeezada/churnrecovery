@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { UserButton } from '@clerk/nextjs'
+import { isClerkEnabled } from '../lib/auth'
 
 const t = {
   bg: '#FAF9F5',
@@ -21,6 +21,41 @@ const navItems = [
   { href: '/app/install', label: 'Install Widget', icon: '📦' },
   { href: '/app/settings', label: 'Settings', icon: '⚙️' },
 ]
+
+function UserArea() {
+  if (isClerkEnabled()) {
+    const { UserButton } = require('@clerk/nextjs')
+    return (
+      <div style={{
+        padding: '16px 20px',
+        borderTop: `1px solid ${t.border}`,
+        display: 'flex',
+        alignItems: 'center',
+        gap: '12px',
+      }}>
+        <UserButton afterSignOutUrl="/" />
+        <span style={{ fontSize: '0.82rem', color: t.gray }}>Account</span>
+      </div>
+    )
+  }
+  return (
+    <div style={{
+      padding: '16px 20px',
+      borderTop: `1px solid ${t.border}`,
+      display: 'flex',
+      alignItems: 'center',
+      gap: '10px',
+    }}>
+      <div style={{
+        width: '28px', height: '28px', borderRadius: '50%',
+        background: t.accent, color: '#fff',
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        fontSize: '0.75rem', fontWeight: 700,
+      }}>D</div>
+      <span style={{ fontSize: '0.82rem', color: t.gray }}>Demo Mode</span>
+    </div>
+  )
+}
 
 export default function AppLayout({ children, title }) {
   const router = useRouter()
@@ -88,16 +123,7 @@ export default function AppLayout({ children, title }) {
         </nav>
 
         {/* User */}
-        <div style={{
-          padding: '16px 20px',
-          borderTop: `1px solid ${t.border}`,
-          display: 'flex',
-          alignItems: 'center',
-          gap: '12px',
-        }}>
-          <UserButton afterSignOutUrl="/" />
-          <span style={{ fontSize: '0.82rem', color: t.gray }}>Account</span>
-        </div>
+        <UserArea />
       </aside>
 
       {/* Main content */}

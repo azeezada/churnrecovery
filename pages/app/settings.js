@@ -1,6 +1,6 @@
 import Head from 'next/head'
-import { useState } from 'react'
-import { useUser } from '@clerk/nextjs'
+import { useState, useEffect } from 'react'
+import { useAuthUser } from '../../lib/useAuthUser'
 import AppLayout from '../../components/AppLayout'
 
 const t = {
@@ -71,19 +71,61 @@ function InputField({ label, value, onChange, type = 'text', placeholder, readOn
 }
 
 export default function SettingsPage() {
-  const { user } = useUser()
+  const { user } = useAuthUser()
+  const [project, setProject] = useState(null)
   const [projectName, setProjectName] = useState('My SaaS App')
-  const [apiKey] = useState('cr_live_' + 'x'.repeat(24))
+  const [apiKey, setApiKey] = useState('cr_live_' + 'x'.repeat(24))
   const [webhookUrl, setWebhookUrl] = useState('')
   const [stripeKey, setStripeKey] = useState('')
   const [stripeConnected, setStripeConnected] = useState(false)
   const [showApiKey, setShowApiKey] = useState(false)
   const [copied, setCopied] = useState(false)
+  const [saving, setSaving] = useState(false)
+  const [saveMsg, setSaveMsg] = useState(null)
+
+  useEffect(() => {
+    fetch('/api/projects')
+      .then(r => r.json())
+      .then(data => {
+        if (data.projects && data.projects.length > 0) {
+          const p = data.projects[0]
+          setProject(p)
+          setProjectName(p.name || 'My Project')
+          setApiKey(p.api_key || apiKey)
+          setWebhookUrl(p.webhook_url || '')
+          setStripeConnected(!!p.stripe_webhook_secret)
+        }
+      })
+      .catch(() => {})
+  }, [])
 
   const copyApiKey = () => {
     navigator.clipboard.writeText(apiKey)
     setCopied(true)
     setTimeout(() => setCopied(false), 2000)
+  }
+
+  const handleSave = async () => {
+    if (!project) return
+    setSaving(true)
+    setSaveMsg(null)
+    try {
+      const res = await fetch('/api/projects', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ projectId: project.id, name: projectName, webhook_url: webhookUrl }),
+      })
+      if (res.ok) {
+        setSaveMsg({ type: 'success', text: 'Settings saved!' })
+      } else {
+        setSaveMsg({ type: 'error', text: 'Failed to save.' })
+      }
+    } catch (e) {
+      setSaveMsg({ type: 'error', text: 'Network error.' })
+    } finally {
+      setSaving(false)
+      setTimeout(() => setSaveMsg(null), 3000)
+    }
   }
 
   return (
@@ -106,7 +148,7 @@ export default function SettingsPage() {
           />
           <InputField
             label="Project ID"
-            value="proj_a1b2c3d4e5f6"
+            value={project?.id || '—'}
             readOnly
             mono
           />
@@ -241,15 +283,27 @@ export default function SettingsPage() {
             Events: cancel_flow.started, cancel_flow.completed, cancel_flow.offer_accepted, winback.reactivated
           </div>
           <button
+            onClick={handleSave}
+            disabled={saving}
             style={{
               padding: '10px 20px', borderRadius: '8px',
               background: t.accent, color: t.white, border: 'none',
-              cursor: 'pointer', fontWeight: 600, fontSize: '0.85rem',
-              fontFamily: t.fontSans,
+              cursor: saving ? 'not-allowed' : 'pointer', fontWeight: 600, fontSize: '0.85rem',
+              fontFamily: t.fontSans, opacity: saving ? 0.7 : 1,
             }}
           >
-            Save Webhook
+            {saving ? 'Saving...' : 'Save Settings'}
           </button>
+          {saveMsg && (
+            <div style={{
+              marginTop: '12px', padding: '8px 12px', borderRadius: '6px',
+              background: saveMsg.type === 'success' ? t.greenLight : '#FEF2F2',
+              color: saveMsg.type === 'success' ? t.green : t.red,
+              fontSize: '0.82rem', fontFamily: t.fontSans,
+            }}>
+              {saveMsg.text}
+            </div>
+          )}
         </Section>
 
         {/* Danger Zone */}
