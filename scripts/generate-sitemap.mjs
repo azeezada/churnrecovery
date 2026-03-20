@@ -19,6 +19,8 @@ const staticPages = [
   { path: '/styles/developer', priority: '0.3', changefreq: 'monthly' },
   { path: '/styles/warm-saas', priority: '0.3', changefreq: 'monthly' },
   { path: '/styles/data-forward', priority: '0.3', changefreq: 'monthly' },
+  { path: '/app/sign-in', priority: '0.5', changefreq: 'monthly' },
+  { path: '/app/sign-up', priority: '0.5', changefreq: 'monthly' },
 ]
 
 // Comparison pages

@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { useState } from 'react'
+import { useUser } from '@clerk/nextjs'
 
 const t = {
   bg: '#FAF9F5',
@@ -22,6 +23,7 @@ const navLinks = [
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false)
+  const { isSignedIn } = useUser()
 
   return (
     <header style={{
@@ -75,13 +77,31 @@ export default function Header() {
           className="header-chat">
             Let's chat
           </a>
-          <Link href="/#waitlist" style={{
-            background: t.accent, color: t.white, padding: '8px 18px',
-            borderRadius: 7, fontWeight: 600, textDecoration: 'none', fontSize: 14,
-            whiteSpace: 'nowrap',
-          }} className="header-cta">
-            Get early access
-          </Link>
+          {isSignedIn ? (
+            <Link href="/app/dashboard" style={{
+              background: t.accent, color: t.white, padding: '8px 18px',
+              borderRadius: 7, fontWeight: 600, textDecoration: 'none', fontSize: 14,
+              whiteSpace: 'nowrap',
+            }} className="header-cta">
+              Dashboard
+            </Link>
+          ) : (
+            <>
+              <Link href="/app/sign-in" style={{
+                color: t.gray, textDecoration: 'none', fontSize: 14,
+                fontWeight: 500, padding: '8px 12px',
+              }} className="header-signin">
+                Sign in
+              </Link>
+              <Link href="/app/sign-up" style={{
+                background: t.accent, color: t.white, padding: '8px 18px',
+                borderRadius: 7, fontWeight: 600, textDecoration: 'none', fontSize: 14,
+                whiteSpace: 'nowrap',
+              }} className="header-cta">
+                Get started free
+              </Link>
+            </>
+          )}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
             className="mobile-menu-btn"
