@@ -1,11 +1,11 @@
 {
   "project": "churnrecovery",
   "status": "complete",
-  "current_phase": 2,
+  "current_phase": 4,
   "current_task": "done",
   "started_at": "2026-03-20T04:20:00Z",
-  "last_updated": "2026-03-20T05:40:00Z",
-  "completed_tasks": ["001", "002", "003", "004", "005", "006", "007", "008", "009", "010", "011", "012", "013", "014"],
+  "last_updated": "2026-03-20T14:50:00Z",
+  "completed_tasks": ["001", "002", "003", "004", "005", "006", "007", "008", "009", "010", "011", "012", "013", "014", "015", "016", "017", "018"],
   "tasks": {
     "001": {
       "name": "Project foundation — install deps, design system, component library",
@@ -48,7 +48,7 @@
       "status": "complete",
       "phase": 1,
       "files": ["src/posts/Ultimate-Guide-SaaS-Churn.md", "src/posts/Cancel-Flow-Examples.md", "src/posts/Involuntary-Churn-Recovery.md", "src/posts/Why-Churn-Recovery-Is-Free.md"],
-      "acceptance": "4 new markdown posts: churn guide, cancel flow examples, involuntary churn, why-free. Each 1500+ words with proper frontmatter.",
+      "acceptance": "4 new markdown posts: churn guide, cancel flows, involuntary churn, why-free. Each 1500+ words with proper frontmatter.",
       "completed_at": "2026-03-20T04:55:00Z",
       "notes": "4 SEO posts created: Ultimate Guide (1850w), Cancel Flow Examples (2325w), Involuntary Churn (2344w), Why Free (1936w). All have tags, excerpts, proper frontmatter. Build passes, RSS updated."
     },
@@ -132,13 +132,51 @@
       "phase": 3,
       "files": ["components/Header.js", "components/Footer.js", "pages/404.js"],
       "acceptance": "Navigation links work across all pages. Footer has sitemap links. 404 page styled. All internal links valid."
+    },
+    "015": {
+      "name": "Pricing page — clear free positioning with trust-building feature breakdown",
+      "status": "complete",
+      "phase": 4,
+      "files": ["pages/pricing.js", "public/og/pricing.svg", "components/Header.js"],
+      "acceptance": "Pricing page at /pricing clearly explains the free model, lists all features, has FAQ, integrates waitlist CTA. Vision model score >= 7.",
+      "completed_at": "2026-03-20T08:58:00Z",
+      "notes": "Pricing page built with $0 hero, feature grid (6 categories), competitor comparison table, 8-question FAQ, bottom CTA. Vision scores: desktop 8/10, mobile 7/10. Header.js upgraded. Build passes. Committed."
+    },
+    "016": {
+      "name": "Integrations page — /integrations with Stripe, Paddle, Braintree, Chargebee deep-dives",
+      "status": "complete",
+      "phase": 4,
+      "files": ["pages/integrations/index.js", "pages/integrations/[slug].js", "lib/integrations.js"],
+      "acceptance": "Integration hub at /integrations with 6+ payment processors. Each has /integrations/[slug] with code snippets, SEO content.",
+      "completed_at": "2026-03-20T10:00:00Z",
+      "notes": "6 integrations: Stripe, Paddle, Braintree, Chargebee, Recurly, Custom Billing. Each has full deep-dive page with code snippets, features, use cases, setup guide. Build passes. Committed in cdf70b1."
+    },
+    "017": {
+      "name": "2 more SEO blog posts — SaaS pricing psychology + B2B churn benchmarks",
+      "status": "complete",
+      "phase": 4,
+      "files": ["src/posts/SaaS-Pricing-Psychology.md", "src/posts/B2B-SaaS-Churn-Benchmarks-2025.md"],
+      "acceptance": "2 new markdown posts, 1500+ words each, with proper frontmatter. Build passes with RSS + sitemap updated.",
+      "completed_at": "2026-03-20T10:30:00Z",
+      "notes": "SaaS Pricing Psychology (1700w) and B2B Churn Benchmarks 2025 (1900w). Both have tags, excerpts, proper frontmatter. Build passes. Committed in d74ea11."
+    },
+    "018": {
+      "name": "About / company page — mission, founding story, open-source commitment",
+      "status": "complete",
+      "phase": 4,
+      "files": ["pages/about.js"],
+      "acceptance": "About page at /about with mission statement, founding story, team placeholder, open-source commitment. Trust-building.",
+      "completed_at": "2026-03-20T14:50:00Z",
+      "notes": "About page built with mission hero, founding story with timeline, values grid (4 values), team placeholder, open-source commitment section, bottom CTA. Vision score: 7.8/10 desktop + mobile. Build passes."
     }
   },
   "notes": [
     "Task 001: Homepage vision score is 4.8/10 — main issues: no accent color usage, placeholder copy, weak value prop, no CTA. Task 002 will fix all of these.",
     "Task 001: Footer uses onMouseEnter/Leave for hover states — works but may need styled-jsx or CSS modules in future for cleaner approach.",
     "Vision model feedback key themes: add accent color usage, real value prop, remove placeholder copy, style CTAs, fix article cards.",
-    "Tasks 007+008 were both completed in prior session and committed. Vision scores: demo 44/50, calculator 41/50. Both well above 7/10 threshold."
+    "Tasks 007+008 were both completed in prior session and committed. Vision scores: demo 44/50, calculator 41/50. Both well above 7/10 threshold.",
+    "Phase 4 added: pricing page, integrations hub, 2 SEO posts, about page.",
+    "ALL 18 TASKS COMPLETE. Full site built and deployed. 35+ pages, 6 blog posts, 6 integrations, 5 comparisons, 6 templates."
   ],
   "update_log": [
     {
@@ -158,6 +196,18 @@
       "task": "007+008",
       "action": "verified_complete",
       "summary": "Tasks 007 and 008 were completed in prior session (commit a4c17de). Verified via screenshots: demo 44/50 (8.8/10), calculator 41/50 (8.2/10). Both pass quality bar. STATE.json advanced to task 009."
+    },
+    {
+      "timestamp": "2026-03-20T06:45:00Z",
+      "task": "phase4_planning",
+      "action": "planned",
+      "summary": "All 14 tasks complete. Phase 4 defined: pricing page (015), integrations hub (016), 2 SEO posts (017), about page (018). Starting task 015."
+    },
+    {
+      "timestamp": "2026-03-20T14:50:00Z",
+      "task": "018",
+      "action": "complete",
+      "summary": "About page committed. All 18 tasks complete. STATE.json reconciled with git history. site is production-ready."
     }
   ]
 }
