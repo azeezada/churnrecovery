@@ -1,0 +1,11 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#FAF9F5"/>
+  <rect x="0" y="0" width="6" height="630" fill="#D97757"/>
+  <text x="80" y="100" font-family="Georgia, serif" font-size="18" fill="#999999" letter-spacing="3">CHURNRECOVERY</text>
+  <text x="80" y="220" font-family="Georgia, serif" font-size="72" font-weight="800" fill="#191919">Use Cases</text>
+  <text x="80" y="300" font-family="Georgia, serif" font-size="32" fill="#666666">Churn recovery for every SaaS vertical</text>
+  <text x="80" y="400" font-family="Georgia, serif" font-size="24" fill="#D97757">🏢 B2B SaaS  ⚡ Dev Tools  📰 Media  📦 E-commerce</text>
+  <text x="80" y="450" font-family="Georgia, serif" font-size="24" fill="#D97757">👔 Agencies  💳 Fintech</text>
+  <rect x="80" y="510" width="200" height="52" rx="8" fill="#D97757"/>
+  <text x="180" y="542" font-family="Georgia, serif" font-size="18" fill="white" text-anchor="middle" font-weight="600">Free to use</text>
+</svg>

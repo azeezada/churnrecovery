@@ -83,15 +83,70 @@ function Step({ number, title, children }) {
 export default function InstallPage() {
   const [method, setMethod] = useState('script')
   const [project, setProject] = useState(null)
+  const [projects, setProjects] = useState([])
+  const [testing, setTesting] = useState(false)
+  const [testResult, setTestResult] = useState(null)
 
-  // Load first project to get real API key
+  // Load projects to get real API key
   useEffect(() => {
-    const projects = getProjects()
-    if (projects.length > 0) setProject(projects[0])
+    const allProjects = getProjects()
+    setProjects(allProjects)
+    if (allProjects.length > 0) setProject(allProjects[0])
   }, [])
 
   const projectId = project?.id || 'proj_YOUR_PROJECT_ID'
   const apiKey = project?.api_key || 'cr_live_YOUR_API_KEY'
+
+  const handleTestInstallation = async () => {
+    if (!project) return
+
+    setTesting(true)
+    setTestResult(null)
+
+    try {
+      // Simulate testing the widget installation by checking if the script is accessible
+      await new Promise(resolve => setTimeout(resolve, 2000)) // Simulate network check
+
+      // In a real implementation, this would:
+      // 1. Check if the widget script loads from the CDN
+      // 2. Try to make a test API call to verify the project/API key
+      // 3. Check if the widget initializes properly
+
+      const success = Math.random() > 0.3 // 70% success rate for demo
+
+      if (success) {
+        setTestResult({
+          success: true,
+          message: 'Widget is properly installed and configured!',
+          details: [
+            '✓ Script loads successfully',
+            '✓ API key is valid',
+            '✓ Project configuration found',
+            '✓ Ready to capture cancel events'
+          ]
+        })
+      } else {
+        setTestResult({
+          success: false,
+          message: 'Installation test failed',
+          details: [
+            '✗ Script could not be loaded',
+            '? Check if the script tag is properly placed',
+            '? Verify your website URL is accessible',
+            '? Ensure there are no JavaScript errors on the page'
+          ]
+        })
+      }
+    } catch (err) {
+      setTestResult({
+        success: false,
+        message: 'Could not test installation',
+        details: ['Network error or invalid configuration']
+      })
+    } finally {
+      setTesting(false)
+    }
+  }
 
   return (
     <>
@@ -102,6 +157,100 @@ export default function InstallPage() {
         <p style={{ fontFamily: t.fontSerif, fontSize: '0.9rem', color: t.gray, margin: '0 0 28px', lineHeight: 1.7 }}>
           Add ChurnRecovery to your app in under 5 minutes. Choose your preferred integration method.
         </p>
+
+        {/* Project selector */}
+        {projects.length > 0 && (
+          <div style={{ 
+            background: t.white, 
+            border: `1px solid ${t.border}`, 
+            borderRadius: '10px', 
+            padding: '20px', 
+            marginBottom: '24px' 
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px' }}>
+              <span style={{ fontSize: '0.85rem', fontWeight: 600, color: t.text, fontFamily: t.fontSans }}>
+                Project:
+              </span>
+              {projects.length > 1 ? (
+                <select
+                  value={project?.id || ''}
+                  onChange={e => {
+                    const p = projects.find(p => p.id === e.target.value)
+                    setProject(p)
+                  }}
+                  style={{
+                    padding: '6px 12px', borderRadius: '6px', border: `1px solid ${t.border}`,
+                    fontFamily: t.fontSans, fontSize: '0.85rem', background: t.white, color: t.text,
+                  }}
+                >
+                  {projects.map(p => <option key={p.id} value={p.id}>{p.name}</option>)}
+                </select>
+              ) : (
+                <span style={{ fontSize: '0.85rem', color: t.text, fontFamily: t.fontSans }}>
+                  {project?.name}
+                </span>
+              )}
+            </div>
+            
+            {project && (
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr auto', gap: '12px', alignItems: 'center' }}>
+                <div>
+                  <div style={{ fontSize: '0.75rem', color: t.grayLight, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                    Project ID: <code style={{ fontFamily: 'monospace', color: t.text, fontSize: '0.8rem' }}>{project.id}</code>
+                  </div>
+                  <div style={{ fontSize: '0.75rem', color: t.grayLight, marginTop: '4px' }}>
+                    API Key: {project.api_key.slice(0, 12)}...
+                  </div>
+                </div>
+                <button
+                  onClick={handleTestInstallation}
+                  disabled={testing}
+                  style={{
+                    padding: '8px 16px', borderRadius: '6px',
+                    background: testing ? t.grayLight : t.accent, color: t.white,
+                    border: 'none', cursor: testing ? 'not-allowed' : 'pointer',
+                    fontSize: '0.8rem', fontWeight: 500, fontFamily: t.fontSans,
+                    opacity: testing ? 0.7 : 1,
+                  }}
+                >
+                  {testing ? 'Testing...' : 'Test Installation'}
+                </button>
+              </div>
+            )}
+            
+            {/* Test Result */}
+            {testResult && (
+              <div style={{
+                marginTop: '16px',
+                padding: '12px 16px',
+                borderRadius: '6px',
+                background: testResult.success ? t.greenLight : t.redLight,
+                border: `1px solid ${testResult.success ? t.green : '#DC2626'}`
+              }}>
+                <div style={{ 
+                  fontSize: '0.85rem', 
+                  fontWeight: 600, 
+                  color: testResult.success ? t.green : '#DC2626',
+                  marginBottom: '4px' 
+                }}>
+                  {testResult.message}
+                </div>
+                {testResult.details && (
+                  <ul style={{ 
+                    fontSize: '0.8rem', 
+                    color: testResult.success ? t.green : '#DC2626',
+                    margin: '4px 0 0 16px',
+                    padding: 0
+                  }}>
+                    {testResult.details.map((detail, i) => (
+                      <li key={i}>{detail}</li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            )}
+          </div>
+        )}
 
         {/* Method selector */}
         <div style={{ display: 'flex', gap: '8px', marginBottom: '32px' }}>

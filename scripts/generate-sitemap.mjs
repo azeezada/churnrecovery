@@ -21,6 +21,8 @@ const staticPages = [
   { path: '/styles/data-forward', priority: '0.3', changefreq: 'monthly' },
   { path: '/app/sign-in', priority: '0.5', changefreq: 'monthly' },
   { path: '/app/sign-up', priority: '0.5', changefreq: 'monthly' },
+  { path: '/use-cases', priority: '0.9', changefreq: 'monthly' },
+  { path: '/changelog', priority: '0.7', changefreq: 'weekly' },
 ]
 
 // Comparison pages
@@ -34,6 +36,12 @@ const comparisonPages = competitors.flatMap(c => [
 const templateSlugs = ['saas-standard', 'high-ticket', 'freemium-upgrade', 'feedback-first', 'ecommerce-subscription', 'aggressive-save']
 const templatePages = templateSlugs.map(slug => ({
   path: `/templates/${slug}`, priority: '0.7', changefreq: 'monthly',
+}))
+
+// Use case pages
+const useCaseSlugs = ['b2b-saas', 'developer-tools', 'media-subscriptions', 'ecommerce-subscriptions', 'professional-services', 'fintech']
+const useCasePages = useCaseSlugs.map(slug => ({
+  path: `/use-cases/${slug}`, priority: '0.8', changefreq: 'monthly',
 }))
 
 // Blog posts
@@ -59,6 +67,7 @@ const allPages = [
   ...staticPages,
   ...comparisonPages,
   ...templatePages,
+  ...useCasePages,
   ...getBlogPages(),
 ]
 

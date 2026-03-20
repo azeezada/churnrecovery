@@ -1,0 +1,6 @@
+**clerk**
+publishable key: pk_test_c2V0LWpheWJpcmQtODMuY2xlcmsuYWNjb3VudHMuZGV2JA
+secret key: sk_test_iBEX3UiQGdllelQoTppjMqw0wjOJhmRlwSEljTiq0P
+
+**cloudfare token name: churn-recovery-deploy**
+cfut_hdShyU98O5bpfpmE9idpwlehNOVXSpo9SDoyGAjmae93c1d8

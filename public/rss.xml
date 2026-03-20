@@ -5,7 +5,7 @@
     <link>https://churnrecovery.com/blog</link>
     <description>Insights on churn recovery, payment failures, and SaaS retention</description>
     <language>en-us</language>
-    <lastBuildDate>Fri, 20 Mar 2026 18:50:45 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 20 Mar 2026 21:53:35 GMT</lastBuildDate>
     <atom:link href="https://churnrecovery.com/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title><![CDATA[B2B SaaS Churn Benchmarks 2025: What's a Good Churn Rate?]]></title>
@@ -18,6 +18,28 @@
       <category>b2b</category>
       <category>saas</category>
       <category>metrics</category>
+    </item>
+    <item>
+      <title><![CDATA[Churnkey Pricing 2026: Is It Worth $250/Month?]]></title>
+      <link>https://churnrecovery.com/posts/Churnkey-Pricing-2026-Is-It-Worth-250-Month</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/Churnkey-Pricing-2026-Is-It-Worth-250-Month</guid>
+      <description><![CDATA[]]></description>
+      <pubDate>Fri, 20 Mar 2026 00:00:00 GMT</pubDate>
+      <category>churnkey pricing</category>
+      <category>churnkey cost</category>
+      <category>churn prevention</category>
+      <category>SaaS tools comparison</category>
+    </item>
+    <item>
+      <title><![CDATA[How to Build a Cancel Flow That Saves 30% of Churning Customers]]></title>
+      <link>https://churnrecovery.com/posts/How-to-Build-Cancel-Flow-That-Saves-30-Percent-Churning-Customers</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/How-to-Build-Cancel-Flow-That-Saves-30-Percent-Churning-Customers</guid>
+      <description><![CDATA[]]></description>
+      <pubDate>Fri, 20 Mar 2026 00:00:00 GMT</pubDate>
+      <category>cancel flow</category>
+      <category>churn recovery</category>
+      <category>retention</category>
+      <category>SaaS</category>
     </item>
     <item>
       <title><![CDATA[SaaS Pricing Psychology: Why Your Pricing Page Is Losing You Customers]]></title>

@@ -79,6 +79,18 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://churnrecovery.com/use-cases</loc>
+    <lastmod>2026-03-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://churnrecovery.com/changelog</loc>
+    <lastmod>2026-03-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://churnrecovery.com/compare/churnkey</loc>
     <lastmod>2026-03-20</lastmod>
     <changefreq>monthly</changefreq>
@@ -175,6 +187,42 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://churnrecovery.com/use-cases/b2b-saas</loc>
+    <lastmod>2026-03-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://churnrecovery.com/use-cases/developer-tools</loc>
+    <lastmod>2026-03-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://churnrecovery.com/use-cases/media-subscriptions</loc>
+    <lastmod>2026-03-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://churnrecovery.com/use-cases/ecommerce-subscriptions</loc>
+    <lastmod>2026-03-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://churnrecovery.com/use-cases/professional-services</loc>
+    <lastmod>2026-03-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://churnrecovery.com/use-cases/fintech</loc>
+    <lastmod>2026-03-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://churnrecovery.com/posts/B2B-SaaS-Churn-Benchmarks-2025</loc>
     <lastmod>2026-03-20</lastmod>
     <changefreq>monthly</changefreq>
@@ -183,6 +231,18 @@
   <url>
     <loc>https://churnrecovery.com/posts/Cancel-Flow-Examples</loc>
     <lastmod>2026-03-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://churnrecovery.com/posts/Churnkey-Pricing-2026-Is-It-Worth-250-Month</loc>
+    <lastmod>2026-03-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://churnrecovery.com/posts/How-to-Build-Cancel-Flow-That-Saves-30-Percent-Churning-Customers</loc>
+    <lastmod>2026-03-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

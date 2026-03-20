@@ -13,6 +13,8 @@ const footerLinks = {
   Resources: [
     { label: 'Blog', href: '/blog' },
     { label: 'Documentation', href: '/docs' },
+    { label: 'Use Cases', href: '/use-cases' },
+    { label: 'Changelog', href: '/changelog' },
     { label: 'Churn Guide', href: '/posts/Ultimate-Guide-SaaS-Churn' },
     { label: 'Cancel Flow Examples', href: '/posts/Cancel-Flow-Examples' },
   ],
@@ -24,7 +26,8 @@ const footerLinks = {
     { label: 'Alternatives', href: '/alternatives/churnkey' },
   ],
   Company: [
-    { label: 'About', href: '/#about' },
+    { label: 'About', href: '/about' },
+    { label: 'Changelog', href: '/changelog' },
     { label: 'GitHub', href: 'https://github.com/churnrecovery', target: '_blank' },
     { label: 'Contact', href: 'mailto:hello@churnrecovery.com' },
   ],
