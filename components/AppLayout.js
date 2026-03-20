@@ -20,6 +20,7 @@ const navItems = [
   { href: '/app/projects', label: 'Projects', icon: '📂' },
   { href: '/app/cancel-flow', label: 'Cancel Flow', icon: '🚪' },
   { href: '/app/analytics', label: 'Analytics', icon: '📈' },
+  { href: '/app/recovery', label: 'Payment Recovery', icon: '💳' },
   { href: '/app/install', label: 'Install Widget', icon: '📦' },
   { href: '/app/settings', label: 'Settings', icon: '⚙️' },
 ]
