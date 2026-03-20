@@ -16,6 +16,7 @@ const t = {
 
 const navItems = [
   { href: '/app/dashboard', label: 'Dashboard', icon: '📊' },
+  { href: '/app/projects', label: 'Projects', icon: '📂' },
   { href: '/app/cancel-flow', label: 'Cancel Flow', icon: '🚪' },
   { href: '/app/analytics', label: 'Analytics', icon: '📈' },
   { href: '/app/install', label: 'Install Widget', icon: '📦' },

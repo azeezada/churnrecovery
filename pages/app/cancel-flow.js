@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import AppLayout from '../../components/AppLayout'
 
 const t = {
@@ -375,6 +375,30 @@ export default function CancelFlowPage() {
   const [reasons, setReasons] = useState(defaultReasons)
   const [saving, setSaving] = useState(false)
   const [saved, setSaved] = useState(false)
+  const [projectId, setProjectId] = useState(null)
+  const [loadError, setLoadError] = useState(null)
+
+  // Load project + existing flow config
+  useEffect(() => {
+    async function load() {
+      try {
+        const projRes = await fetch('/api/projects')
+        const projData = await projRes.json()
+        if (!projData.projects || projData.projects.length === 0) return
+        const pid = projData.projects[0].id
+        setProjectId(pid)
+
+        const flowRes = await fetch(`/api/cancel-flow?projectId=${pid}`)
+        const flowData = await flowRes.json()
+        if (flowData && flowData.reasons && flowData.reasons.length > 0) {
+          setReasons(flowData.reasons)
+        }
+      } catch (e) {
+        setLoadError('Failed to load flow config')
+      }
+    }
+    load()
+  }, [])
 
   const updateReason = (index, updated) => {
     const next = [...reasons]
@@ -403,7 +427,7 @@ export default function CancelFlowPage() {
       const res = await fetch('/api/cancel-flow', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ reasons }),
+        body: JSON.stringify({ projectId: projectId || 'default', reasons }),
       })
       if (res.ok) {
         setSaved(true)
