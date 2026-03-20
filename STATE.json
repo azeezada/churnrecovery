@@ -1,0 +1,111 @@
+{
+  "project": "churnrecovery",
+  "status": "running",
+  "current_phase": 1,
+  "current_task": "001",
+  "started_at": "2026-03-20T04:20:00Z",
+  "last_updated": "2026-03-20T04:20:00Z",
+  "completed_tasks": [],
+  "tasks": {
+    "001": {
+      "name": "Project foundation — install deps, design system, component library",
+      "status": "pending",
+      "phase": 1,
+      "files": ["package.json", "styles/globals.css", "lib/design-tokens.js", "components/Footer.js"],
+      "acceptance": "npm run build passes, design tokens defined, Footer component created, Playwright installed"
+    },
+    "002": {
+      "name": "Homepage redesign — Option D editorial style with hero, features, social proof, CTA",
+      "status": "pending",
+      "phase": 1,
+      "files": ["pages/index.js", "styles/globals.css"],
+      "acceptance": "Homepage renders with editorial layout, hero section, feature highlights, CTA. Vision model score >= 7."
+    },
+    "003": {
+      "name": "Alternative homepage styles — Options A, B, C on /styles/ pages",
+      "status": "pending",
+      "phase": 1,
+      "files": ["pages/styles/index.js", "pages/styles/developer.js", "pages/styles/warm-saas.js", "pages/styles/data-forward.js"],
+      "acceptance": "3 alternative homepage designs accessible at /styles/developer, /styles/warm-saas, /styles/data-forward. Each visually distinct."
+    },
+    "004": {
+      "name": "Blog system upgrade — tags, pagination, RSS, improved post layout",
+      "status": "pending",
+      "phase": 1,
+      "files": ["pages/index.js", "pages/posts/[slug].js", "lib/posts.js", "pages/blog.js"],
+      "acceptance": "Blog listing page at /blog, posts have tags, RSS feed at /rss.xml, improved typography"
+    },
+    "005": {
+      "name": "SEO blog posts — 4 high-quality posts for content pillars",
+      "status": "pending",
+      "phase": 1,
+      "files": ["src/posts/"],
+      "acceptance": "4 new markdown posts: churn guide, cancel flow examples, involuntary churn, why-free. Each 1500+ words with proper frontmatter."
+    },
+    "006": {
+      "name": "Comparison pages — programmatic /compare/ and /alternatives/ pages",
+      "status": "pending",
+      "phase": 2,
+      "files": ["pages/compare/[slug].js", "pages/alternatives/[slug].js", "lib/comparisons.js"],
+      "acceptance": "5+ comparison pages render with honest feature matrices, pricing comparisons, CTAs. SEO-optimized."
+    },
+    "007": {
+      "name": "Interactive cancel flow demo widget",
+      "status": "pending",
+      "phase": 2,
+      "files": ["components/CancelFlowDemo.js", "pages/demo.js"],
+      "acceptance": "Interactive demo at /demo showing a cancel flow in action. User can click through steps. Looks professional."
+    },
+    "008": {
+      "name": "Churn calculator tool",
+      "status": "pending",
+      "phase": 2,
+      "files": ["components/ChurnCalculator.js", "pages/tools/churn-calculator.js"],
+      "acceptance": "Interactive calculator at /tools/churn-calculator. User inputs MRR + churn rate, sees potential savings. Shareable."
+    },
+    "009": {
+      "name": "Features page + developer docs page",
+      "status": "pending",
+      "phase": 2,
+      "files": ["pages/features.js", "pages/docs.js"],
+      "acceptance": "Features page with detailed feature descriptions. Docs page with code examples, integration guide."
+    },
+    "010": {
+      "name": "Cancel flow templates gallery",
+      "status": "pending",
+      "phase": 2,
+      "files": ["pages/templates/index.js", "pages/templates/[slug].js", "lib/templates.js"],
+      "acceptance": "Template gallery at /templates with 5+ cancel flow templates. Each template has preview + code snippet."
+    },
+    "011": {
+      "name": "SEO infrastructure — sitemap, robots.txt, OG images, structured data, GSC verification",
+      "status": "pending",
+      "phase": 2,
+      "files": ["pages/_app.js", "public/robots.txt", "lib/sitemap.js", "pages/sitemap.xml.js"],
+      "acceptance": "sitemap.xml generates all pages, robots.txt configured, GSC meta tag in head, JSON-LD on all pages, OG meta tags on all pages."
+    },
+    "012": {
+      "name": "D1 database setup + waitlist API + waitlist form component",
+      "status": "pending",
+      "phase": 3,
+      "files": ["wrangler.toml", "workers-site/index.js", "components/WaitlistForm.js"],
+      "acceptance": "D1 database created, waitlist table exists, POST /api/waitlist stores emails, WaitlistForm component works on homepage."
+    },
+    "013": {
+      "name": "Mobile responsiveness pass + visual QA",
+      "status": "pending",
+      "phase": 3,
+      "files": ["styles/globals.css"],
+      "acceptance": "All pages look good at 390px, 768px, 1440px. Vision model scores >= 7 on all pages at all breakpoints."
+    },
+    "014": {
+      "name": "Final polish — navigation, footer links, 404 page, loading states, favicon",
+      "status": "pending",
+      "phase": 3,
+      "files": ["components/Header.js", "components/Footer.js", "pages/404.js"],
+      "acceptance": "Navigation links work across all pages. Footer has sitemap links. 404 page styled. All internal links valid."
+    }
+  },
+  "notes": [],
+  "update_log": []
+}
