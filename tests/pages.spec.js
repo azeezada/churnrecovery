@@ -93,6 +93,7 @@ const pages = {
   tools: [
     ['/tools/churn-calculator', 'Churn Calculator'],
     ['/tools/roi-calculator', 'ROI Calculator'],
+    ['/tools/churn-rate-calculator', 'Churn Rate Calculator'],
   ],
   for: [
     ['/for/substack', 'Substack'],

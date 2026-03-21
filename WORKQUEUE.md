@@ -55,15 +55,15 @@ Low-code/no-code business owners: newsletter creators, coaches, online course se
 
 ### New P2/P3 Tasks — Growth Opportunities (Added 2026-03-21)
 
-- [ ] **P2: Churn rate calculator landing page** — Interactive tool at `/tools/churn-calculator` already exists, but there's no SEO-optimized landing page driving traffic to it. Create a dedicated page with "membership site churn rate calculator" as target keyword, embed the tool, and add educational content around it. High-intent search traffic (people calculating churn are already in pain-aware mode).
+- [✅] **P2: Churn rate calculator landing page** — DONE 2026-03-21. `/tools/churn-rate-calculator` deployed (HTTP 200). Full SEO meta, embedded ChurnCalculator, educational benchmarks by membership type, 5-step reduction guide, 7-question FAQ with JSON-LD FAQPage schema, WebApplication schema, waitlist CTAs. Added to sitemap.
 
 - [✅] **P2: Email nurture sequence for waitlist signups** — DONE 2026-03-21. 5-email drip at docs/email-nurture-sequence.md: platform-personalized welcome (Substack/Kajabi/Beehiiv), math email (Day 3 → ROI calculator), cancel flow walkthrough (Day 7 → /demo), "it's really free" objection handling (Day 14), urgency + first-500 perks (Day 21). Full subject lines, preview text, body, CTAs.
 
-- [ ] **P2: Creator landing pages: Memberful, Stan Store, Payhip** — Already identified in docs/next-for-pages-plan.md. Priority: Memberful first (Stripe-required, strong brand alignment), then Stan Store (80k creators), then Payhip. All three have audiences that match our ICP and don't have dedicated landing pages yet.
+- [✅] **P2: Creator landing pages: Memberful, Stan Store, Payhip** — DONE 2026-03-21. /for/memberful (indigo, premium membership), /for/stan-store (pink, 80k+ creators), /for/payhip (teal, indie sellers). All HTTP 200 verified. Tags: memberful-creator, stan-store-creator, payhip-seller.
 
 - [✅] **P3: "Churn Recovery Playbook" lead magnet PDF** — DONE 2026-03-21. Landing page at /resources/churn-recovery-playbook (live, HTTP 200). Content at docs/churn-recovery-playbook-content.md (~2,000 words, 5 sections). "Free Playbook" link added to footer Resources column. WaitlistForm source=playbook for ConvertKit tagging.
 
-- [ ] **P3: Schema markup (FAQ + HowTo) for all blog posts** — Our blog posts answer specific questions but don't have structured data. Adding FAQ schema to posts like "Why Subscribers Cancel" and HowTo schema to posts like "How to Reduce Churn" could unlock Google rich results, increasing CTR from search without changing rankings. Low effort, asymmetric upside.
+- [✅] **P3: Schema markup (FAQ + HowTo) for all blog posts** — DONE 2026-03-21. lib/post-schemas.js with FAQPage (why-subscribers-cancel: 7 Q&As, membership-site-churn-rate: 5 Q&As) + HowTo schemas (reduce-churn-online-course-business: 5 steps, kajabi-cancel-flow: bonus). Dynamic FAQPage schema on all /compare/[slug] pages. Confirmed live in HTML. 134 tests pass.
 
 ## UX Research Opportunities
 - ✅ **User interview plan** — Newsletter creators, course sellers, small SaaS founders currently paying for churn tools — docs/user-interview-plan.md (2026-03-21)
