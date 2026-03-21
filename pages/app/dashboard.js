@@ -9,6 +9,7 @@ import {
   getEvents,
   getAnalytics,
 } from '../../lib/localStore'
+import { apiFetch } from '../../lib/useApi'
 
 const t = {
   bg: '#FAF9F5',
@@ -28,6 +29,20 @@ const t = {
   fontSerif: '"Merriweather", serif',
 }
 
+function Skeleton({ width = '100%', height = '1rem', style = {} }) {
+  return (
+    <div style={{
+      background: 'linear-gradient(90deg, #E5E5E5 25%, #EBEBEB 50%, #E5E5E5 75%)',
+      backgroundSize: '200% 100%',
+      animation: 'shimmer 1.5s infinite',
+      borderRadius: '4px',
+      width,
+      height,
+      ...style,
+    }} />
+  )
+}
+
 function StatCard({ label, value, change, changeLabel, color, loading }) {
   const isPositive = change >= 0
   return (
@@ -41,7 +56,7 @@ function StatCard({ label, value, change, changeLabel, color, loading }) {
         {label}
       </div>
       {loading ? (
-        <div style={{ height: '2rem', background: t.border, borderRadius: '4px', width: '60%', marginBottom: '4px' }} />
+        <Skeleton height='2rem' width='60%' style={{ marginBottom: '4px' }} />
       ) : (
         <div style={{ fontSize: '2rem', fontWeight: 800, color: color || t.text, letterSpacing: '-0.04em', marginBottom: '4px' }}>
           {value}
@@ -157,31 +172,96 @@ export default function DashboardPage() {
   const [events, setEvents] = useState([])
   const [analytics, setAnalytics] = useState(null)
   const [loading, setLoading] = useState(true)
+  const [analyticsLoading, setAnalyticsLoading] = useState(false)
   const [creating, setCreating] = useState(false)
+  const [usingRealData, setUsingRealData] = useState(false)
 
-  // Load projects from localStore (client-side only)
+  // Load projects — try real API first, fall back to localStore
   useEffect(() => {
-    const stored = getProjects()
-    setProjects(stored)
-    if (stored.length > 0) setActiveProject(stored[0])
-    setLoading(false)
+    async function loadProjects() {
+      setLoading(true)
+      try {
+        const data = await apiFetch('/api/projects')
+        if (data.projects && data.projects.length > 0) {
+          setProjects(data.projects)
+          setActiveProject(data.projects[0])
+          setUsingRealData(true)
+        } else {
+          // No real projects — fall back to localStore
+          const stored = getProjects()
+          setProjects(stored)
+          if (stored.length > 0) setActiveProject(stored[0])
+          setUsingRealData(false)
+        }
+      } catch {
+        // API unavailable — fall back to localStore
+        const stored = getProjects()
+        setProjects(stored)
+        if (stored.length > 0) setActiveProject(stored[0])
+        setUsingRealData(false)
+      } finally {
+        setLoading(false)
+      }
+    }
+    loadProjects()
   }, [])
 
   // Load events + analytics when project changes
   useEffect(() => {
     if (!activeProject) return
-    const ev = getEvents(activeProject.id, 10)
-    const an = getAnalytics(activeProject.id, 30)
-    setEvents(ev)
-    setAnalytics(an)
-  }, [activeProject])
 
-  function handleCreateProject() {
+    async function loadAnalytics() {
+      setAnalyticsLoading(true)
+      if (usingRealData) {
+        try {
+          const [analyticsData, eventsData] = await Promise.all([
+            apiFetch(`/api/analytics?projectId=${activeProject.id}&days=30`),
+            apiFetch(`/api/events?projectId=${activeProject.id}&limit=10`),
+          ])
+          setAnalytics(analyticsData)
+          setEvents(eventsData.events || [])
+        } catch {
+          // Fall back to localStore on error
+          const ev = getEvents(activeProject.id, 10)
+          const an = getAnalytics(activeProject.id, 30)
+          setEvents(ev)
+          setAnalytics(an)
+        }
+      } else {
+        const ev = getEvents(activeProject.id, 10)
+        const an = getAnalytics(activeProject.id, 30)
+        setEvents(ev)
+        setAnalytics(an)
+      }
+      setAnalyticsLoading(false)
+    }
+
+    loadAnalytics()
+  }, [activeProject, usingRealData])
+
+  async function handleCreateProject() {
     setCreating(true)
-    const project = createProject('My Project')
-    setProjects([project])
-    setActiveProject(project)
-    setCreating(false)
+    try {
+      if (usingRealData) {
+        const project = await apiFetch('/api/projects', {
+          method: 'POST',
+          body: { name: 'My Project' },
+        })
+        setProjects([project])
+        setActiveProject(project)
+      } else {
+        const project = createProject('My Project')
+        setProjects([project])
+        setActiveProject(project)
+      }
+    } catch {
+      // Fall back to localStore on API error
+      const project = createProject('My Project')
+      setProjects([project])
+      setActiveProject(project)
+    } finally {
+      setCreating(false)
+    }
   }
 
   const formatCurrency = (cents) => {
@@ -194,52 +274,88 @@ export default function DashboardPage() {
       <Head>
         <title>Dashboard — ChurnRecovery</title>
       </Head>
+      <style>{`
+        @keyframes shimmer {
+          0% { background-position: 200% 0; }
+          100% { background-position: -200% 0; }
+        }
+      `}</style>
       <AppLayout title="Dashboard">
         <p style={{ fontFamily: t.fontSerif, fontSize: '0.9rem', color: t.gray, margin: '0 0 32px', lineHeight: 1.7 }}>
           {isLoaded && user ? `Welcome back, ${user.firstName || user.emailAddresses?.[0]?.emailAddress || 'there'}` : 'Loading..'}. Here&apos;s your churn recovery overview.
         </p>
 
         {loading ? (
-          <div style={{ textAlign: 'center', padding: '60px', color: t.grayLight, fontFamily: t.fontSans }}>
-            Loading your dashboard...
+          <div>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '16px', marginBottom: '32px' }}>
+              {[...Array(4)].map((_, i) => (
+                <div key={i} style={{ background: t.white, border: `1px solid ${t.border}`, borderRadius: '12px', padding: '24px' }}>
+                  <Skeleton height='0.78rem' width='60%' style={{ marginBottom: '12px' }} />
+                  <Skeleton height='2rem' width='45%' />
+                </div>
+              ))}
+            </div>
+            <div style={{ textAlign: 'center', padding: '60px', color: t.grayLight, fontFamily: t.fontSans }}>
+              Loading your dashboard...
+            </div>
           </div>
         ) : !activeProject ? (
           <EmptyState onCreateProject={handleCreateProject} creating={creating} />
         ) : (
           <>
-            {/* Project selector bar */}
-            {projects.length > 0 && (
-              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '24px' }}>
-                <span style={{ fontSize: '0.78rem', color: t.grayLight, fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Project:</span>
-                <select
-                  value={activeProject?.id}
-                  onChange={e => {
-                    const p = projects.find(p => p.id === e.target.value)
-                    setActiveProject(p)
-                  }}
-                  style={{
-                    padding: '6px 12px', borderRadius: '6px', border: `1px solid ${t.border}`,
-                    fontFamily: t.fontSans, fontSize: '0.85rem', background: t.white, color: t.text,
-                  }}
-                >
-                  {projects.map(p => <option key={p.id} value={p.id}>{p.name}</option>)}
-                </select>
-                <button
-                  onClick={() => {
-                    const name = prompt('Project name:')
-                    if (!name) return
+            {/* Data source + project selector bar */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '24px' }}>
+              {usingRealData && (
+                <span style={{
+                  fontSize: '0.7rem', fontWeight: 600, padding: '3px 8px',
+                  borderRadius: '10px', background: '#EDF7F1', color: '#2D7A4F',
+                }}>● Live</span>
+              )}
+              <span style={{ fontSize: '0.78rem', color: t.grayLight, fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Project:</span>
+              <select
+                value={activeProject?.id}
+                onChange={e => {
+                  const p = projects.find(p => p.id === e.target.value)
+                  setActiveProject(p)
+                }}
+                style={{
+                  padding: '6px 12px', borderRadius: '6px', border: `1px solid ${t.border}`,
+                  fontFamily: t.fontSans, fontSize: '0.85rem', background: t.white, color: t.text,
+                }}
+              >
+                {projects.map(p => <option key={p.id} value={p.id}>{p.name}</option>)}
+              </select>
+              <button
+                onClick={async () => {
+                  const name = prompt('Project name:')
+                  if (!name) return
+                  setCreating(true)
+                  try {
+                    if (usingRealData) {
+                      const project = await apiFetch('/api/projects', {
+                        method: 'POST',
+                        body: { name },
+                      })
+                      setProjects([...projects, project])
+                    } else {
+                      const project = createProject(name)
+                      setProjects([...projects, project])
+                    }
+                  } catch {
                     const project = createProject(name)
                     setProjects([...projects, project])
-                  }}
-                  style={{
-                    padding: '6px 12px', borderRadius: '6px', border: `1px solid ${t.border}`,
-                    background: t.white, color: t.text, cursor: 'pointer', fontSize: '0.78rem', fontWeight: 500,
-                  }}
-                >
-                  + New Project
-                </button>
-              </div>
-            )}
+                  } finally {
+                    setCreating(false)
+                  }
+                }}
+                style={{
+                  padding: '6px 12px', borderRadius: '6px', border: `1px solid ${t.border}`,
+                  background: t.white, color: t.text, cursor: 'pointer', fontSize: '0.78rem', fontWeight: 500,
+                }}
+              >
+                + New Project
+              </button>
+            </div>
 
             {/* Stats Grid */}
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '16px', marginBottom: '32px' }}>
@@ -247,20 +363,24 @@ export default function DashboardPage() {
                 label="Save Rate"
                 value={analytics ? `${analytics.saveRate}%` : '—'}
                 color={t.green}
+                loading={analyticsLoading}
               />
               <StatCard
                 label="Revenue Saved"
                 value={analytics ? formatCurrency(analytics.revenueSavedCents) : '—'}
                 color={t.accent}
+                loading={analyticsLoading}
               />
               <StatCard
                 label="Cancel Events"
                 value={analytics ? analytics.totalEvents.toLocaleString() : '—'}
+                loading={analyticsLoading}
               />
               <StatCard
                 label="Saves (30d)"
                 value={analytics ? analytics.savedEvents.toLocaleString() : '—'}
                 color={t.green}
+                loading={analyticsLoading}
               />
             </div>
 
@@ -279,7 +399,22 @@ export default function DashboardPage() {
                     View all →
                   </Link>
                 </div>
-                {events.length === 0 ? (
+                {analyticsLoading ? (
+                  <div>
+                    {[...Array(5)].map((_, i) => (
+                      <div key={i} style={{ display: 'flex', justifyContent: 'space-between', padding: '12px 0', borderBottom: `1px solid ${t.border}` }}>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                          <Skeleton width='140px' height='0.88rem' />
+                          <Skeleton width='100px' height='0.75rem' />
+                        </div>
+                        <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+                          <Skeleton width='60px' height='1.2rem' style={{ borderRadius: '20px' }} />
+                          <Skeleton width='50px' height='0.75rem' />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                ) : events.length === 0 ? (
                   <div style={{ textAlign: 'center', padding: '32px 0', color: t.grayLight, fontSize: '0.85rem', fontFamily: t.fontSerif }}>
                     No events yet. Install the widget to start tracking.{' '}
                     <Link href="/app/install" style={{ color: t.accent }}>Get the code →</Link>

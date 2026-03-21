@@ -1,7 +1,9 @@
 import Head from 'next/head'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import AppLayout from '../../components/AppLayout'
 import { getProjects, getEvents, getAnalytics } from '../../lib/localStore'
+import { isClerkEnabled } from '../../lib/auth'
+import { apiFetch } from '../../lib/useApi'
 
 const t = {
   bg: '#FAF9F5',
@@ -19,6 +21,20 @@ const t = {
   blueLight: '#EFF6FF',
   fontSans: '"Instrument Sans", sans-serif',
   fontSerif: '"Merriweather", serif',
+}
+
+function Skeleton({ width = '100%', height = '1rem', style = {} }) {
+  return (
+    <div style={{
+      background: 'linear-gradient(90deg, #E5E5E5 25%, #EBEBEB 50%, #E5E5E5 75%)',
+      backgroundSize: '200% 100%',
+      animation: 'shimmer 1.5s infinite',
+      borderRadius: '4px',
+      width,
+      height,
+      ...style,
+    }} />
+  )
 }
 
 function BarChart({ data, height = 200 }) {
@@ -47,7 +63,7 @@ function BarChart({ data, height = 200 }) {
   )
 }
 
-function MetricCard({ label, value, sub, color }) {
+function MetricCard({ label, value, sub, color, loading }) {
   return (
     <div style={{
       background: t.white,
@@ -58,9 +74,13 @@ function MetricCard({ label, value, sub, color }) {
       <div style={{ fontSize: '0.72rem', color: t.grayLight, fontWeight: 500, marginBottom: '6px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
         {label}
       </div>
-      <div style={{ fontSize: '1.6rem', fontWeight: 800, color: color || t.text, letterSpacing: '-0.04em' }}>
-        {value}
-      </div>
+      {loading ? (
+        <Skeleton height='2rem' width='60%' style={{ marginBottom: '4px' }} />
+      ) : (
+        <div style={{ fontSize: '1.6rem', fontWeight: 800, color: color || t.text, letterSpacing: '-0.04em' }}>
+          {value}
+        </div>
+      )}
       {sub && <div style={{ fontSize: '0.75rem', color: t.grayLight, marginTop: '4px' }}>{sub}</div>}
     </div>
   )
@@ -79,23 +99,102 @@ export default function AnalyticsPage() {
   const [activeProject, setActiveProject] = useState(null)
   const [analytics, setAnalytics] = useState(null)
   const [recentEvents, setRecentEvents] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [analyticsLoading, setAnalyticsLoading] = useState(false)
+  const [usingRealData, setUsingRealData] = useState(false)
+
+  // Clerk token function (only used if Clerk is enabled)
+  const [getToken, setGetToken] = useState(null)
 
   const periodDays = { '7d': 7, '30d': 30, '90d': 90, '12m': 365 }
 
+  // Initialize Clerk getToken if enabled
   useEffect(() => {
-    const stored = getProjects()
-    setProjects(stored)
-    if (stored.length > 0) setActiveProject(stored[0])
+    if (isClerkEnabled()) {
+      try {
+        // eslint-disable-next-line react-hooks/rules-of-hooks
+        const { useAuth } = require('@clerk/nextjs')
+        // We can't conditionally call hooks inside useEffect, so we use a wrapper component approach
+        // Instead, we'll pass getToken via a ref after initial load
+      } catch {}
+    }
   }, [])
 
+  // Load projects — try API first, fall back to localStore
   useEffect(() => {
+    async function loadProjects() {
+      setLoading(true)
+      try {
+        // Try real API
+        const data = await apiFetch('/api/projects')
+        if (data.projects && data.projects.length > 0) {
+          setProjects(data.projects)
+          setActiveProject(data.projects[0])
+          setUsingRealData(true)
+        } else {
+          // API returned empty — fall back to localStore
+          const stored = getProjects()
+          setProjects(stored)
+          if (stored.length > 0) setActiveProject(stored[0])
+          setUsingRealData(false)
+        }
+      } catch {
+        // API unavailable or auth failed — fall back to localStore
+        const stored = getProjects()
+        setProjects(stored)
+        if (stored.length > 0) setActiveProject(stored[0])
+        setUsingRealData(false)
+      } finally {
+        setLoading(false)
+      }
+    }
+    loadProjects()
+  }, [])
+
+  // Load analytics when project or period changes
+  const loadAnalytics = useCallback(async () => {
     if (!activeProject) return
+    setAnalyticsLoading(true)
     const days = periodDays[period]
-    const an = getAnalytics(activeProject.id, days)
-    const ev = getEvents(activeProject.id, 20)
-    setAnalytics(an)
-    setRecentEvents(ev)
-  }, [activeProject, period])
+
+    if (usingRealData) {
+      try {
+        const [analyticsData, eventsData] = await Promise.all([
+          apiFetch(`/api/analytics?projectId=${activeProject.id}&days=${days}`),
+          apiFetch(`/api/events?projectId=${activeProject.id}&limit=20`),
+        ])
+        // Map API analytics shape to component shape (add weeks for charts if missing)
+        const apiAnalytics = {
+          ...analyticsData,
+          weeks: buildWeeksFromDaily(analyticsData.dailyEvents || [], days),
+          topReasons: (analyticsData.reasonBreakdown || []).map(r => ({
+            reason: r.reason,
+            count: r.count,
+          })),
+        }
+        setAnalytics(apiAnalytics)
+        setRecentEvents(eventsData.events || [])
+      } catch {
+        // API fetch failed — fall back to localStore
+        const an = getAnalytics(activeProject.id, days)
+        const ev = getEvents(activeProject.id, 20)
+        setAnalytics(an)
+        setRecentEvents(ev)
+      }
+    } else {
+      // Demo mode — use localStore
+      const an = getAnalytics(activeProject.id, days)
+      const ev = getEvents(activeProject.id, 20)
+      setAnalytics(an)
+      setRecentEvents(ev)
+    }
+
+    setAnalyticsLoading(false)
+  }, [activeProject, period, usingRealData])
+
+  useEffect(() => {
+    loadAnalytics()
+  }, [loadAnalytics])
 
   const fmt = (n) => n?.toLocaleString() || '—'
   const fmtCents = (c) => c ? '$' + (c / 100).toLocaleString('en-US', { maximumFractionDigits: 0 }) : '$0'
@@ -116,7 +215,7 @@ export default function AnalyticsPage() {
 
   const outcomeData = analytics ? [
     { label: 'Saved', value: analytics.savedEvents, color: t.green },
-    { label: 'Paused', value: analytics.pausedEvents, color: t.blue },
+    { label: 'Paused', value: analytics.pausedEvents || 0, color: t.blue },
     { label: 'Cancelled', value: analytics.cancelledEvents, color: t.red },
   ] : []
 
@@ -129,6 +228,27 @@ export default function AnalyticsPage() {
     if (hrs > 0) return `${hrs}h ago`
     if (mins > 0) return `${mins}m ago`
     return 'just now'
+  }
+
+  if (loading) {
+    return (
+      <>
+        <Head><title>Analytics — ChurnRecovery</title></Head>
+        <AppLayout title="Analytics">
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '12px', marginBottom: '24px' }}>
+            {[...Array(5)].map((_, i) => (
+              <div key={i} style={{ background: t.white, border: `1px solid ${t.border}`, borderRadius: '10px', padding: '20px' }}>
+                <Skeleton height='0.75rem' width='70%' style={{ marginBottom: '10px' }} />
+                <Skeleton height='2rem' width='50%' />
+              </div>
+            ))}
+          </div>
+          <div style={{ textAlign: 'center', padding: '40px', color: t.grayLight, fontFamily: t.fontSans, fontSize: '0.9rem' }}>
+            Loading analytics...
+          </div>
+        </AppLayout>
+      </>
+    )
   }
 
   if (!activeProject) {
@@ -150,7 +270,25 @@ export default function AnalyticsPage() {
       <Head>
         <title>Analytics — ChurnRecovery</title>
       </Head>
+      <style>{`
+        @keyframes shimmer {
+          0% { background-position: 200% 0; }
+          100% { background-position: -200% 0; }
+        }
+      `}</style>
       <AppLayout title="Analytics">
+        {/* Data source indicator */}
+        {usingRealData && (
+          <div style={{
+            display: 'inline-flex', alignItems: 'center', gap: '6px',
+            background: '#EDF7F1', color: '#2D7A4F', fontSize: '0.72rem',
+            fontWeight: 600, padding: '4px 10px', borderRadius: '20px',
+            marginBottom: '16px', fontFamily: t.fontSans,
+          }}>
+            <span>●</span> Live data from database
+          </div>
+        )}
+
         {/* Controls row */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '28px' }}>
           <div style={{ display: 'flex', gap: '8px' }}>
@@ -187,11 +325,11 @@ export default function AnalyticsPage() {
 
         {/* Top metrics */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '12px', marginBottom: '24px' }}>
-          <MetricCard label="Save Rate" value={`${analytics?.saveRate ?? 0}%`} sub="Terminal events" color={t.green} />
-          <MetricCard label="Revenue Saved" value={fmtCents(analytics?.revenueSavedCents)} sub="This period" color={t.accent} />
-          <MetricCard label="Cancel Attempts" value={fmt(analytics?.totalEvents)} sub="Total events" />
-          <MetricCard label="Customers Saved" value={fmt(analytics?.savedEvents)} sub="Accepted offer" color={t.green} />
-          <MetricCard label="Paused" value={fmt(analytics?.pausedEvents)} sub="Subscription paused" color={t.blue} />
+          <MetricCard label="Save Rate" value={`${analytics?.saveRate ?? 0}%`} sub="Terminal events" color={t.green} loading={analyticsLoading} />
+          <MetricCard label="Revenue Saved" value={fmtCents(analytics?.revenueSavedCents)} sub="This period" color={t.accent} loading={analyticsLoading} />
+          <MetricCard label="Cancel Attempts" value={fmt(analytics?.totalEvents)} sub="Total events" loading={analyticsLoading} />
+          <MetricCard label="Customers Saved" value={fmt(analytics?.savedEvents)} sub="Accepted offer" color={t.green} loading={analyticsLoading} />
+          <MetricCard label="Paused" value={fmt(analytics?.pausedEvents)} sub="Subscription paused" color={t.blue} loading={analyticsLoading} />
         </div>
 
         {/* Charts row */}
@@ -200,7 +338,13 @@ export default function AnalyticsPage() {
             <h3 style={{ fontFamily: t.fontSans, fontSize: '0.88rem', fontWeight: 700, color: t.text, margin: '0 0 16px' }}>
               Save Rate by Week (%)
             </h3>
-            {weeklyData.length > 0 ? (
+            {analyticsLoading ? (
+              <div style={{ display: 'flex', alignItems: 'flex-end', gap: '6px', height: '200px', padding: '0 4px' }}>
+                {[...Array(4)].map((_, i) => (
+                  <Skeleton key={i} style={{ flex: 1, height: `${[60, 80, 50, 70][i]}%`, alignSelf: 'flex-end' }} />
+                ))}
+              </div>
+            ) : weeklyData.length > 0 ? (
               <BarChart data={weeklyData} />
             ) : (
               <div style={{ textAlign: 'center', padding: '40px', color: t.grayLight, fontSize: '0.85rem' }}>No data yet</div>
@@ -210,7 +354,13 @@ export default function AnalyticsPage() {
             <h3 style={{ fontFamily: t.fontSans, fontSize: '0.88rem', fontWeight: 700, color: t.text, margin: '0 0 16px' }}>
               Revenue Recovered ($)
             </h3>
-            {revenueData.length > 0 ? (
+            {analyticsLoading ? (
+              <div style={{ display: 'flex', alignItems: 'flex-end', gap: '6px', height: '200px', padding: '0 4px' }}>
+                {[...Array(4)].map((_, i) => (
+                  <Skeleton key={i} style={{ flex: 1, height: `${[40, 90, 65, 75][i]}%`, alignSelf: 'flex-end' }} />
+                ))}
+              </div>
+            ) : revenueData.length > 0 ? (
               <BarChart data={revenueData} />
             ) : (
               <div style={{ textAlign: 'center', padding: '40px', color: t.grayLight, fontSize: '0.85rem' }}>No data yet</div>
@@ -223,7 +373,13 @@ export default function AnalyticsPage() {
             <h3 style={{ fontFamily: t.fontSans, fontSize: '0.88rem', fontWeight: 700, color: t.text, margin: '0 0 16px' }}>
               Cancel Reasons
             </h3>
-            {reasonData.length > 0 ? (
+            {analyticsLoading ? (
+              <div style={{ display: 'flex', alignItems: 'flex-end', gap: '6px', height: '160px', padding: '0 4px' }}>
+                {[...Array(5)].map((_, i) => (
+                  <Skeleton key={i} style={{ flex: 1, height: `${[70, 50, 90, 40, 60][i]}%`, alignSelf: 'flex-end' }} />
+                ))}
+              </div>
+            ) : reasonData.length > 0 ? (
               <BarChart data={reasonData} height={160} />
             ) : (
               <div style={{ textAlign: 'center', padding: '40px', color: t.grayLight, fontSize: '0.85rem' }}>No reason data yet</div>
@@ -233,7 +389,13 @@ export default function AnalyticsPage() {
             <h3 style={{ fontFamily: t.fontSans, fontSize: '0.88rem', fontWeight: 700, color: t.text, margin: '0 0 16px' }}>
               Outcomes
             </h3>
-            {outcomeData.some(d => d.value > 0) ? (
+            {analyticsLoading ? (
+              <div style={{ display: 'flex', alignItems: 'flex-end', gap: '6px', height: '160px', padding: '0 4px' }}>
+                {[...Array(3)].map((_, i) => (
+                  <Skeleton key={i} style={{ flex: 1, height: `${[75, 45, 60][i]}%`, alignSelf: 'flex-end' }} />
+                ))}
+              </div>
+            ) : outcomeData.some(d => d.value > 0) ? (
               <BarChart data={outcomeData} height={160} />
             ) : (
               <div style={{ textAlign: 'center', padding: '40px', color: t.grayLight, fontSize: '0.85rem' }}>No outcome data yet</div>
@@ -249,7 +411,20 @@ export default function AnalyticsPage() {
             </h3>
             <span style={{ fontSize: '0.75rem', color: t.grayLight }}>{recentEvents.length} events</span>
           </div>
-          {recentEvents.length === 0 ? (
+          {analyticsLoading ? (
+            <div style={{ padding: '20px' }}>
+              {[...Array(5)].map((_, i) => (
+                <div key={i} style={{ display: 'flex', gap: '12px', marginBottom: '12px' }}>
+                  <Skeleton width='20%' height='1rem' />
+                  <Skeleton width='25%' height='1rem' />
+                  <Skeleton width='20%' height='1rem' />
+                  <Skeleton width='15%' height='1rem' />
+                  <Skeleton width='10%' height='1rem' />
+                  <Skeleton width='10%' height='1rem' />
+                </div>
+              ))}
+            </div>
+          ) : recentEvents.length === 0 ? (
             <div style={{ padding: '40px', textAlign: 'center', color: t.grayLight, fontSize: '0.85rem', fontFamily: t.fontSerif }}>
               No events yet. <a href="/app/install" style={{ color: t.accent }}>Install the widget →</a>
             </div>
@@ -300,3 +475,34 @@ export default function AnalyticsPage() {
 }
 
 AnalyticsPage.isAppPage = true
+
+/**
+ * Build weekly bar chart data from the API's dailyEvents array.
+ * Groups into 4 weeks, computes save rate per week.
+ */
+function buildWeeksFromDaily(dailyEvents, days) {
+  const weeks = []
+  const numWeeks = Math.min(4, Math.ceil(days / 7))
+  const now = Date.now()
+
+  for (let w = numWeeks - 1; w >= 0; w--) {
+    const wEnd = now - w * 7 * 86400000
+    const wStart = wEnd - 7 * 86400000
+
+    const wStart_d = new Date(wStart).toISOString().split('T')[0]
+    const wEnd_d = new Date(wEnd).toISOString().split('T')[0]
+
+    const wEvents = dailyEvents.filter(e => e.date >= wStart_d && e.date < wEnd_d)
+    const total = wEvents.reduce((s, e) => s + (e.count || 0), 0)
+
+    weeks.push({
+      label: `W${numWeeks - w}`,
+      attempts: total,
+      saved: 0, // dailyEvents doesn't have outcome breakdown — use total as proxy
+      saveRate: 0,
+      revenue: 0,
+    })
+  }
+
+  return weeks
+}
