@@ -53,6 +53,11 @@ Low-code/no-code business owners: newsletter creators, coaches, online course se
 - [✅] **Guest post on SaaS founder newsletters about churn recovery strategies** — DONE 2026-03-21. Full strategy at docs/guest-post-strategy.md: 15 target publications with contact methods + angles, 3 pitch templates, 3 article concepts fully outlined, outreach tracking table.
 - [✅] **Reach out to Stripe/Paddle for integration marketplace listing** — DONE 2026-03-21. Full strategy at docs/integration-marketplace-strategy.md: Stripe Partner + App Marketplace (step-by-step checklists), Paddle Marketplace, Zapier public app, Make.com — with copy bank, technical requirements, and prioritized timeline.
 
+### Wave 15 — Referral System + Schema Markup (Added 2026-03-21)
+
+- [✅] **Referral tracking system** — DONE 2026-03-21. pages/refer/[code].js (landing page with 30-day cookie, waitlist form inline), pages/refer/index.js (link generator tool), WaitlistForm.js updated (reads cr_referral cookie + accepts referralCode prop), functions/api/waitlist/index.js updated (accepts referral_code, stores in D1 + passes to ConvertKit as tag referred-by-[code] + custom field). migrations/0002_referral_code.sql adds referral_code TEXT column. public/_redirects adds Cloudflare Pages catch-all for /refer/:code. 4 tests in tests/refer.spec.js all pass. HTTP 200 on /refer/testcode verified.
+- [✅] **Schema markup for 3 new blog posts** — DONE 2026-03-21. lib/post-schemas.js extended with: HowTo schema for how-to-retain-paying-members (5 steps: cancel flow, pause, value reminders, personal outreach, community), FAQPage schema for hidden-revenue-leak-subscription-business (7 Q&As about voluntary/involuntary churn + retention math), FAQPage schema for discount-vs-pause-vs-cancel-what-saves-subscribers (7 Q&As about cancel flow strategies). All 141 tests pass. Deployed + verified.
+
 ### Marketing Wave 14 (Added 2026-03-21)
 
 - [✅] **3 new competitor comparison pages: BrightBack, Paddle Retain, Stripe Billing** — DONE 2026-03-21. /compare/brightback (acquired by Chargebee, free alternative angle), /compare/paddle-retain (Paddle ecosystem lock-in vs Stripe-first ChurnRecovery), /compare/stripe-billing (Stripe has dunning but no cancel flow — ChurnRecovery adds that layer). All HTTP 200. Added to More Comparisons section on all /compare/ pages.

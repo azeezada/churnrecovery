@@ -1,5 +1,19 @@
 # Orchestrator Log
 
+## 2026-03-21 — Wave 15: Referral System + Schema Markup (cr-code-referral-schema subagent)
+
+- **[REFER-1] pages/refer/[code].js** — Referral landing page. Sets `cr_referral` cookie (30-day expiry via `document.cookie`), shows "You've been invited to ChurnRecovery" title, inline WaitlistForm with referralCode prop pre-filled. Generic message for unknown codes; CODE_NAMES map for named codes. HTTP 200 via Cloudflare _redirects catch-all.
+- **[REFER-2] pages/refer/index.js** — Referral link generator tool (no auth). Slugify input → shows `https://churnrecovery.com/refer/[slug]`. Copy to clipboard button. Dawood's tool for generating shareable links.
+- **[REFER-3] components/WaitlistForm.js** — Added `getReferralCookie()` helper + `cookieReferral` state. On mount, reads `cr_referral` cookie. `referralCode` prop accepted. Form submission now includes `referral_code` in body (prop takes precedence over cookie).
+- **[REFER-4] functions/api/waitlist/index.js** — Accepts `referral_code` from request body. Stores in D1 using `referral_code` column (with fallback to `source|ref:code` if column missing). Passes to ConvertKit as tag `referred-by-[code]` + custom field `referral_code`.
+- **[REFER-5] migrations/0002_referral_code.sql** — Adds `referral_code TEXT DEFAULT NULL` column to waitlist table + index.
+- **[REFER-6] public/_redirects** — Cloudflare Pages rule: `/refer/:code → /refer/[code] 200` so any referral URL serves the static shell.
+- **[SCHEMA-1] how-to-retain-paying-members** — HowTo schema, 5 steps: cancel flow, pause offer, value reminders, personal outreach, community building.
+- **[SCHEMA-2] hidden-revenue-leak-subscription-business** — FAQPage schema, 7 Q&As: hidden leak, why unnoticed, voluntary churn, involuntary churn, acquisition vs retention cost, 3 numbers to track, diagnosis.
+- **[SCHEMA-3] discount-vs-pause-vs-cancel-what-saves-subscribers** — FAQPage schema, 7 Q&As: discount vs pause, discount save rate, pause save rate, when to let cancel, discount risks, cancel flow sequence, return rate.
+- **[TESTS] tests/refer.spec.js** — 4 Playwright tests: title, invitation content, waitlist form hydration, link generator. All pass.
+- **Build**: All 141 tests pass. Deployed to https://0c4b8f4f.churnrecovery.pages.dev. `/refer/testcode` HTTP 200, `/posts/how-to-retain-paying-members` HTTP 200.
+
 ## 2026-03-21 — Content Wave 12 (cr-content-wave12 subagent)
 
 - **[BLOG-12a] /posts/how-to-retain-paying-members** — ~1,200 words, targets "how to retain paying members", 7 practical tactics (cancel flow, pause, value reminders, community, outreach, discounts, onboarding), CTAs to /demo + /tools/churn-rate-calculator, HTTP 200 verified.
@@ -368,3 +382,32 @@
 - **[DEPLOY]** `https://d4505704.churnrecovery.pages.dev` — HTTP 200 ✅
 - **[LIVE]** `https://churnrecovery.com/` — HTTP 200 ✅
 - **[COMMIT]** `9f515ac` — "fix: mobile P1/P2 UX improvements from audit"
+
+## 2026-03-21 — Marketing Wave 14 (cr-marketing-wave13 subagent)
+
+### Task: 3 New Comparison Pages + SEO Analysis + Press Kit
+
+**Status:** ✅ Complete
+
+**Comparison pages added to lib/comparisons.js:**
+- `brightback` — Acquired by Chargebee, now priced at $299–$999+/mo; ChurnRecovery is the free standalone alternative it used to be
+- `paddle-retain` — Paddle-only ecosystem lock-in; Stripe users cannot use it; ChurnRecovery works with all Stripe-connected tools
+- `stripe-billing` — Stripe has smart payment retries (dunning) but zero cancel flow capability; ChurnRecovery adds the save flow layer on top
+
+**Pages verified HTTP 200:**
+- https://churnrecovery.com/compare/brightback ✅
+- https://churnrecovery.com/compare/paddle-retain ✅
+- https://churnrecovery.com/compare/stripe-billing ✅
+- https://churnrecovery.com/press ✅
+
+**Docs created:**
+- `docs/seo-content-gap-analysis.md` — 35+ keyword opportunities across 5 categories; Churnkey + ProsperStack content gap analysis; 10-post priority calendar
+- `docs/press-kit.md` — One-liner, 3-para about, founder bio, key stats, brand colors, 3 pre-approved quotes, media contact
+
+**Other changes:**
+- `pages/press.js` — Full press page with founder quotes, brand assets, product screenshots reference, featured-in placeholder, media contact CTA
+- `components/Footer.js` — Added "Press" link to Company section
+- `WORKQUEUE.md` — Wave 14 tasks marked complete
+- Build passes, 134 tests pass (5 pre-existing failures unrelated to this work)
+- Deployed + verified live build fingerprint on churnrecovery.com
+- Commit: `37fda2f` — "marketing: 3 new compare pages + SEO gap analysis + press kit"
