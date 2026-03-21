@@ -1,7 +1,7 @@
 /**
  * ChurnRecovery Widget v1.0.0
  * Embeddable cancel flow widget — pure vanilla JS, no dependencies
- * Usage: <script src="https://cdn.churnrecovery.com/widget.js" data-project="PROJECT_ID" async></script>
+ * Usage: <script src="https://churnrecovery.com/widget.js" data-project="PROJECT_ID" async></script>
  */
 (function() {
   'use strict';

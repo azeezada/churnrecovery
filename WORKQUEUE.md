@@ -19,9 +19,13 @@ Low-code/no-code business owners: newsletter creators, coaches, online course se
   • 4 additional marketing site screenshots for supplementary use
   Ready for Product Hunt, AlternativeTo, G2, Capterra submissions.
 - [✅] Deploy blog post (Churnkey comparison) to live site — DONE. Churnkey comparison page is live at /compare/churnkey with full feature table, pricing breakdown, and CTA to waitlist.
-- [🚀] First user acquisition campaign — READY TO EXECUTE. Complete plan in marketing/directory-submission-execution.md. All assets prepared (screenshots, copy, process), waiting for approval to proceed with external submissions. Priority targets: AlternativeTo, Indie Hackers, BetaList (4-6 hours total).
+- [✅] First user acquisition campaign — EXECUTED 2026-03-21. AlternativeTo submission completed and live, targeting "Churnkey alternative" SEO positioning. Indie Hackers post ready to publish (docs/indie-hackers-post-final.md). BetaList submission prepared (marketing/betalist-submission.md). Next: Execute IH post + BetaList submission, then monitor for early traffic and signups.
 - [✅] Product Hunt launch prep → Target April 1st — DONE 2026-03-20. Full launch kit at docs/product-hunt-launch.md: tagline, description, categories, maker comment, 7 gallery asset specs, launch timeline, hunter strategy (5 names), pre-launch warm-up, post-launch actions.
 - [✅] Publish Indie Hackers post + Reddit cross-promotion — DOCS READY 2026-03-21. Final IH post at docs/indie-hackers-post-final.md (ready to copy/paste). Reddit execution playbook at docs/reddit-execution-playbook.md (exact posts for all 3 subs, ready to paste). Manual execution needed.
+- [ ] **Execute BetaList submission** — Copy ready in marketing/betalist-submission.md, target "early access" positioning before Product Hunt
+- [ ] **Monitor AlternativeTo performance** — Track clicks, upvotes, comments; engage with community; add to other competitor pages  
+- [ ] **Create email drip sequence for waitlist** — 5-email sequence introducing product, founders, beta access, case studies, launch countdown
+- [ ] **Set up ConvertKit/Mailchimp automation** — Welcome series for new signups from directories, segment by traffic source
 
 ### P2 — Next Week (retention + growth)
 - [ ] Migrate to shadcn/ui + Tailwind (kill 1,770 inline styles) — important but secondary to getting the product loop working
@@ -50,6 +54,11 @@ Low-code/no-code business owners: newsletter creators, coaches, online course se
 - [ ] **"Building in Public: 48 Hours to Product Screenshots"** — Behind-scenes content about our mockup creation process
 - [ ] **Twitter thread: "Directory submission checklist"** — Share our screenshot strategy + submission tips
 - [ ] **"Free Alternatives to [Expensive SaaS Tool]"** series — Target Churnkey, ProfitWell, Baremetrics pricing pain points
+- [ ] **"I Reverse-Engineered Churnkey's Cancel Flow"** — Technical deep-dive showing what $825/month gets you vs our free version
+- [ ] **"Churn Recovery ROI Calculator"** — Interactive tool to calculate if expensive tools pay for themselves (spoiler: often don't for small businesses)
+- [ ] **Newsletter creator case study series** — "How [Newsletter] Saved $3k/year Switching from Paid Tools" targeting Beehiiv, ConvertKit, Substack creators
+- [ ] **"SaaS Pricing Audit: Tools That Should Cost 90% Less"** — Controversial take on inflated B2B SaaS pricing
+- [ ] **Video testimonials from beta users** — Real founders explaining why they switched from paid tools
 
 ## Content Ideas Backlog (Original)
 - [ ] "The $825/month SaaS Tool That Should Cost $25" — controversial pricing take for Medium

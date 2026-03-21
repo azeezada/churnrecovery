@@ -367,7 +367,7 @@ function Step3({ formData, onNext, onBack }) {
   const handleCopy = () => {
     if (!project) return
     const code = `<script
-  src="https://cdn.churnrecovery.com/widget.js"
+  src="https://churnrecovery.com/widget.js"
   data-project="${project.id}"
   data-api-key="${project.api_key}"
   async
@@ -436,7 +436,7 @@ function Step3({ formData, onNext, onBack }) {
             color: t.codeText
           }}>
             <code>{`<script
-  src="https://cdn.churnrecovery.com/widget.js"
+  src="https://churnrecovery.com/widget.js"
   data-project="${project.id}"
   data-api-key="${project.api_key}"
   async

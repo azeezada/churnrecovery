@@ -1,7 +1,8 @@
 import Head from 'next/head'
 import { useState, useEffect } from 'react'
+import Link from 'next/link'
 import AppLayout from '../../components/AppLayout'
-import { getProjects } from '../../lib/localStore'
+import { getProjects, createProject } from '../../lib/localStore'
 
 const t = {
   bg: '#FAF9F5',
@@ -80,18 +81,66 @@ function Step({ number, title, children }) {
   )
 }
 
+function NoProjectState() {
+  const [creating, setCreating] = useState(false)
+
+  const handleCreate = () => {
+    setCreating(true)
+    createProject('My Project')
+    window.location.reload()
+  }
+
+  return (
+    <div style={{
+      background: '#fff', border: `2px dashed ${t.border}`, borderRadius: '12px',
+      padding: '60px 40px', textAlign: 'center', marginBottom: '32px',
+    }}>
+      <div style={{ fontSize: '3rem', marginBottom: '16px' }}>📦</div>
+      <h2 style={{ fontFamily: t.fontSans, fontSize: '1.3rem', fontWeight: 700, color: t.text, margin: '0 0 8px' }}>
+        Set Up Your First Project
+      </h2>
+      <p style={{ fontFamily: t.fontSerif, fontSize: '0.9rem', color: t.gray, lineHeight: 1.7, margin: '0 0 24px', maxWidth: '420px', marginLeft: 'auto', marginRight: 'auto' }}>
+        Before you can install the widget, you need to create a project. This takes less than 2 minutes with our setup wizard.
+      </p>
+      <div style={{ display: 'flex', gap: '12px', justifyContent: 'center' }}>
+        <Link href="/app/onboarding" style={{
+          background: t.accent, color: '#fff', padding: '12px 28px',
+          borderRadius: '8px', textDecoration: 'none', fontWeight: 600, fontSize: '0.9rem',
+          fontFamily: t.fontSans, display: 'inline-flex', alignItems: 'center',
+        }}>
+          🚀 Start Setup Wizard
+        </Link>
+        <button
+          onClick={handleCreate}
+          disabled={creating}
+          style={{
+            padding: '12px 24px', borderRadius: '8px', border: `1px solid ${t.border}`,
+            background: '#fff', color: t.gray, cursor: creating ? 'not-allowed' : 'pointer',
+            fontWeight: 500, fontSize: '0.9rem', fontFamily: t.fontSans,
+            opacity: creating ? 0.7 : 1,
+          }}
+        >
+          {creating ? 'Creating...' : 'Quick Create Project'}
+        </button>
+      </div>
+    </div>
+  )
+}
+
 export default function InstallPage() {
   const [method, setMethod] = useState('script')
   const [project, setProject] = useState(null)
   const [projects, setProjects] = useState([])
   const [testing, setTesting] = useState(false)
   const [testResult, setTestResult] = useState(null)
+  const [loaded, setLoaded] = useState(false)
 
   // Load projects to get real API key
   useEffect(() => {
     const allProjects = getProjects()
     setProjects(allProjects)
     if (allProjects.length > 0) setProject(allProjects[0])
+    setLoaded(true)
   }, [])
 
   const projectId = project?.id || 'proj_YOUR_PROJECT_ID'
@@ -157,6 +206,9 @@ export default function InstallPage() {
         <p style={{ fontFamily: t.fontSerif, fontSize: '0.9rem', color: t.gray, margin: '0 0 28px', lineHeight: 1.7 }}>
           Add ChurnRecovery to your app in under 5 minutes. Choose your preferred integration method.
         </p>
+
+        {/* Empty state — no project yet */}
+        {loaded && projects.length === 0 && <NoProjectState />}
 
         {/* Project selector */}
         {projects.length > 0 && (
@@ -282,13 +334,16 @@ export default function InstallPage() {
         {/* Script tag method */}
         {method === 'script' && (
           <>
-            <Step number="1" title="Add the script tag">
-              <p style={{ fontSize: '0.85rem', color: t.gray, margin: '0 0 12px', lineHeight: 1.6 }}>
-                Add this snippet before the closing <code style={{ background: 'rgba(0,0,0,0.06)', padding: '2px 6px', borderRadius: '3px' }}>&lt;/body&gt;</code> tag on every page of your app.
+            <Step number="1" title="Add the script tag to your website">
+              <p style={{ fontSize: '0.85rem', color: t.gray, margin: '0 0 8px', lineHeight: 1.6 }}>
+                Copy the code below and paste it into your website&apos;s HTML, just before the <code style={{ background: 'rgba(0,0,0,0.06)', padding: '2px 6px', borderRadius: '3px' }}>&lt;/body&gt;</code> tag. If you use WordPress, Webflow, or Squarespace, paste it in the &ldquo;Custom Code&rdquo; or &ldquo;Footer Scripts&rdquo; section.
               </p>
-              <CodeBlock title="HTML" language="html">
+              <p style={{ fontSize: '0.8rem', color: t.grayLight, margin: '0 0 12px', lineHeight: 1.5 }}>
+                ✨ Your project ID and API key are already filled in below — just copy and paste!
+              </p>
+              <CodeBlock title="HTML — paste this into your website" language="html">
 {`<script
-  src="https://cdn.churnrecovery.com/widget.js"
+  src="https://churnrecovery.com/widget.js"
   data-project="${projectId}"
   data-api-key="${apiKey}"
   async
@@ -296,9 +351,9 @@ export default function InstallPage() {
               </CodeBlock>
             </Step>
 
-            <Step number="2" title="Trigger the cancel flow">
+            <Step number="2" title="Show the cancel flow when someone clicks &quot;Cancel&quot;">
               <p style={{ fontSize: '0.85rem', color: t.gray, margin: '0 0 12px', lineHeight: 1.6 }}>
-                Call <code style={{ background: 'rgba(0,0,0,0.06)', padding: '2px 6px', borderRadius: '3px' }}>ChurnRecovery.showCancelFlow()</code> when a user clicks your cancel button.
+                Find the &ldquo;Cancel subscription&rdquo; button on your settings page and call <code style={{ background: 'rgba(0,0,0,0.06)', padding: '2px 6px', borderRadius: '3px' }}>ChurnRecovery.showCancelFlow()</code> when it&apos;s clicked. Your developer can do this in minutes.
               </p>
               <CodeBlock title="JavaScript" language="javascript">
 {`document.getElementById('cancel-btn').addEventListener('click', async () => {
@@ -319,13 +374,16 @@ export default function InstallPage() {
               </CodeBlock>
             </Step>
 
-            <Step number="3" title="You're done!">
+            <Step number="3" title="You're done — watch it work! 🎉">
               <div style={{
                 padding: '16px 20px', borderRadius: '8px', background: t.greenLight,
                 borderLeft: `3px solid ${t.green}`, fontSize: '0.85rem', color: t.text,
                 lineHeight: 1.6,
               }}>
-                💡 That&apos;s it! The widget handles the cancel flow UI, reason collection, offer presentation, and event logging automatically.
+                <strong>That&apos;s it!</strong> When someone clicks &ldquo;Cancel,&rdquo; they&apos;ll see a beautiful popup asking why they&apos;re leaving — with a tailored offer to stay. No technical knowledge needed on your end. ChurnRecovery handles all the UI, data collection, and analytics automatically.
+              </div>
+              <div style={{ marginTop: '12px', padding: '12px 16px', borderRadius: '8px', background: t.blueLight, border: `1px solid #BFDBFE`, fontSize: '0.82rem', color: '#1D4ED8', lineHeight: 1.6 }}>
+                💡 <strong>Not a developer?</strong> Just send this page link to your developer — everything they need is here. Takes about 15 minutes to integrate.
               </div>
             </Step>
           </>

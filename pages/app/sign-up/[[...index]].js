@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import dynamic from 'next/dynamic'
 import { isClerkEnabled } from '../../../lib/auth'
 
 const t = {
@@ -9,6 +10,12 @@ const t = {
   border: '#E5E5E5',
   fontSans: '"Instrument Sans", sans-serif',
 }
+
+// Dynamic import so Clerk only loads client-side (safe for static export)
+const ClerkSignUp = dynamic(
+  () => import('@clerk/nextjs').then(mod => mod.SignUp),
+  { ssr: false }
+)
 
 function DemoSignUp() {
   return (
@@ -61,7 +68,6 @@ export default function SignUpPage() {
     )
   }
 
-  const { SignUp } = require('@clerk/nextjs')
   return (
     <>
       <Head>
@@ -76,7 +82,7 @@ export default function SignUpPage() {
         <a href="/" style={{ fontWeight: 800, fontSize: '1.4rem', color: t.text, textDecoration: 'none', marginBottom: '32px', letterSpacing: '-0.03em' }}>
           ChurnRecovery
         </a>
-        <SignUp
+        <ClerkSignUp
           path="/app/sign-up"
           routing="path"
           signInUrl="/app/sign-in"

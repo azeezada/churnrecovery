@@ -1,18 +1,15 @@
 import { NextResponse } from 'next/server'
 
 /**
- * Middleware — currently a passthrough.
- * 
- * Clerk auth middleware is disabled because placeholder API keys are configured.
- * When real Clerk keys are set (pk_test_xxx / pk_live_xxx), replace this file with:
+ * Middleware — Clerk auth when keys are configured, passthrough otherwise.
  *
- *   import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server'
- *   const isProtectedRoute = createRouteMatcher(['/app(.*)'])
- *   export default clerkMiddleware(async (auth, req) => {
- *     if (isProtectedRoute(req)) await auth.protect()
- *   })
+ * With static export (output: 'export'), middleware runs at the CDN edge
+ * but cannot do server-side redirects for auth. The client-side Clerk
+ * components handle auth UI (sign-in/sign-up forms and user state).
  *
- * For now, /app/* routes use client-side demo auth (see lib/auth.js).
+ * For Cloudflare Pages static deployments, auth is enforced client-side
+ * via the Clerk JS SDK. Dashboard pages will redirect unauthenticated
+ * users to /app/sign-in automatically via Clerk's client-side logic.
  */
 
 export default function middleware() {
