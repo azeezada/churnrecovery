@@ -5,7 +5,7 @@
     <link>https://churnrecovery.com/blog</link>
     <description>Insights on churn recovery, payment failures, and SaaS retention</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 21 Mar 2026 04:25:26 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 21 Mar 2026 04:47:58 GMT</lastBuildDate>
     <atom:link href="https://churnrecovery.com/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title><![CDATA[The $50,000/Year SaaS Tool Stack Audit]]></title>
@@ -32,6 +32,19 @@
       <category>pricing</category>
     </item>
     <item>
+      <title><![CDATA[How I'm Building ChurnRecovery Without Spending a Dollar on Marketing]]></title>
+      <link>https://churnrecovery.com/posts/building-churnrecovery-without-spending-marketing</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/building-churnrecovery-without-spending-marketing</guid>
+      <description><![CDATA[]]></description>
+      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
+      <category>building in public</category>
+      <category>bootstrapped</category>
+      <category>marketing</category>
+      <category>churn</category>
+      <category>saas</category>
+      <category>growth</category>
+    </item>
+    <item>
       <title><![CDATA[Building in Public: How We Created 5 Product Screenshots in 48 Hours]]></title>
       <link>https://churnrecovery.com/posts/building-in-public-48-hours-product-screenshots</link>
       <guid isPermaLink="true">https://churnrecovery.com/posts/building-in-public-48-hours-product-screenshots</guid>
@@ -43,6 +56,19 @@
       <category>mockups</category>
       <category>screenshots</category>
       <category>saas</category>
+    </item>
+    <item>
+      <title><![CDATA[Chargebee Retain vs Churnkey vs ChurnRecovery: Which Cancel Flow Tool Is Right for You?]]></title>
+      <link>https://churnrecovery.com/posts/chargebee-retain-vs-churnkey-vs-churnrecovery</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/chargebee-retain-vs-churnkey-vs-churnrecovery</guid>
+      <description><![CDATA[Comparing the three main cancel flow tools in 2026: Chargebee Retain for enterprises, Churnkey for mid-market, and ChurnRecovery for small businesses that want results without the $250-$825/month price tag.]]></description>
+      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
+      <category>chargebee retain</category>
+      <category>churnkey</category>
+      <category>churn recovery</category>
+      <category>cancel flow</category>
+      <category>SaaS tools comparison</category>
+      <category>subscription business</category>
     </item>
     <item>
       <title><![CDATA[Free Alternatives to Churnkey, ProfitWell, and Baremetrics]]></title>

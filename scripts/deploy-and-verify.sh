@@ -13,13 +13,18 @@ set -euo pipefail
 PROJECT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$PROJECT_DIR"
 
+# Step 0: Clear build artifacts to ensure a clean build
+echo "🧹 Clearing build artifacts (.next, out, .vercel/output)..."
+rm -rf .next out .vercel/output
+echo "✅ Build artifacts cleared"
+
 CF_TOKEN="${CLOUDFLARE_API_TOKEN:-cfut_JHB9pErghw6tFgkwxG1xVfV2yg5bvxVsuKw1kun5a58ef0d6}"
 CF_ACCOUNT="${CLOUDFLARE_ACCOUNT_ID:-8e09fc813792bf92a0427a673224e37f}"
 CF_ZONE="${CLOUDFLARE_ZONE_ID:-05c71901ffce261e25cb9a0b71279e0a}"
 PROJECT_NAME="churnrecovery"
 CUSTOM_DOMAIN="churnrecovery.com"
 
-# Step 1: Generate unique build fingerprint
+# Step 1: Generate unique build fingerprint (was Step 1, now after cache-clear)
 BUILD_ID="build-$(date +%s)-$(openssl rand -hex 4)"
 echo "🔖 Build fingerprint: $BUILD_ID"
 

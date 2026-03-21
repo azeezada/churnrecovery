@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
+import { useABTest } from '../lib/useABTest'
 
 const t = {
   bg: '#FAF9F5',
@@ -27,7 +28,14 @@ function validateEmail(email) {
   return null
 }
 
+/*
+ * A/B TEST: CTA button copy — "Join Waitlist" (A) vs "Get Early Access Free" (B)
+ * Variant assigned via useABTest hook (localStorage key: cr_ab_cta).
+ * Variant is sent in the form submission body so we can track conversion rate per variant.
+ * See lib/useABTest.js for full details on hypothesis, measurement, and winner criteria.
+ */
 export default function WaitlistForm({ source = 'homepage', dark = false, compact = false }) {
+  const { variant: abVariant, cta: abCta } = useABTest()
   const [email, setEmail] = useState('')
   const [status, setStatus] = useState('idle') // idle | loading | success | duplicate | error
   const [count, setCount] = useState(null)
@@ -74,7 +82,7 @@ export default function WaitlistForm({ source = 'homepage', dark = false, compac
       const res = await fetch('/api/waitlist', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: email.trim(), source }),
+        body: JSON.stringify({ email: email.trim(), source, variant: abVariant }),
       })
 
       const data = await res.json()
@@ -196,7 +204,7 @@ export default function WaitlistForm({ source = 'homepage', dark = false, compac
             transition: 'background 0.15s',
           }}
         >
-          {status === 'loading' ? 'Joining...' : 'Join Waitlist'}
+          {status === 'loading' ? 'Joining...' : abCta}
         </button>
       </form>
 
