@@ -72,6 +72,7 @@ Low-code/no-code business owners: newsletter creators, coaches, online course se
 - ✅ G2 + Capterra profile guides (2026-03-21)
 - ✅ More comparison pages (ProsperStack, Chargebee) (2026-03-21)
 - ✅ 3 blog posts published (2026-03-21)
+- ✅ 3 blog posts + internal linking audit/fixes (2026-03-21) — cancel flow explainer, Churnkey alternatives, coaching churn; 5 internal links added; docs/internal-linking-audit.md created
 - ✅ Mobile nav fix (2026-03-21)
 - ✅ Email validation on waitlist form
 - ✅ Deploy pipeline fix (static export restored)

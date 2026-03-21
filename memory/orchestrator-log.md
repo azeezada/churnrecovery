@@ -261,3 +261,11 @@
 - **[GHOST-LP]** `/for/ghost` — Dark minimal, Ghost+Stripe native angle, "pay what you can" discount, `ghost-publisher` tag. HTTP 200 ✅
 - All 3 added to sitemap.xml | Build: 102 pages ✅ | Tests: 133/133 ✅ | Deployed + cache purged | Pushed to main
 - WORKQUEUE.md: ✅ creator landing pages added and marked done
+
+## 2026-03-21 — Wave 9, CONTENT worker (cr-content-wave8)
+
+- **[INTERNAL-LINKS]** `docs/internal-linking-audit.md` created. Added 5 high-impact internal links: Churnkey reverse-engineer post → /compare/churnkey, why-churnkey-costs post → /compare/churnkey, Kajabi tutorial → /for/kajabi, Ghost/Substack/Beehiiv post → /for/ghost+/for/substack+/for/beehiiv, cancellation emails post → /demo
+- **[BLOG-1]** `/posts/what-is-a-cancel-flow` — Beginner explainer, 15-25% save rate stat, CTA to /demo. HTTP 200 ✅
+- **[BLOG-2]** `/posts/churnkey-alternatives-ranked` — 5 tools ranked, ChurnRecovery #1 (free). HTTP 200 ✅
+- **[BLOG-3]** `/posts/coaching-business-churn` — 5 reasons coaches lose clients, cancel flow for coaches, CTA to /for/kajabi. HTTP 200 ✅
+- Build: 106 static pages (31 posts) ✅ | Deployed + cache purged | Pushed to main | WORKQUEUE.md ✅
