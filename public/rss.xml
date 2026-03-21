@@ -5,7 +5,7 @@
     <link>https://churnrecovery.com/blog</link>
     <description>Insights on churn recovery, payment failures, and SaaS retention</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 21 Mar 2026 03:44:29 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 21 Mar 2026 03:45:59 GMT</lastBuildDate>
     <atom:link href="https://churnrecovery.com/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title><![CDATA[ChurnRecovery vs Churnkey: The Complete Comparison Guide (2026)]]></title>
@@ -18,6 +18,17 @@
       <category>SaaS tools comparison</category>
       <category>open-source</category>
       <category>pricing</category>
+    </item>
+    <item>
+      <title><![CDATA[I Analyzed 50+ SaaS Pricing Pages — Here's What I Found]]></title>
+      <link>https://churnrecovery.com/posts/i-analyzed-50-saas-pricing-pages</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/i-analyzed-50-saas-pricing-pages</guid>
+      <description><![CDATA[I spent two weeks clicking through pricing pages so you don't have to. Price anchoring, fake urgency, free tier traps, per-seat chaos — here's what's actually going on.]]></description>
+      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
+      <category>pricing</category>
+      <category>saas</category>
+      <category>analysis</category>
+      <category>business</category>
     </item>
     <item>
       <title><![CDATA[The $825/Month SaaS Tool That Should Cost $25]]></title>
