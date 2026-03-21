@@ -213,3 +213,11 @@
 - **[AB-TEST] Homepage CTA A/B test** — Created `lib/useABTest.js` (localStorage-based 50/50 split, SSR-safe). Updated `WaitlistForm.js` to show "Join Waitlist" (A) or "Get Early Access Free" (B). Variant tracked in form submission body for conversion analysis.
 - Build: ✅ | Tests: 133/133 ✅ | Deployed + cache purged | Pushed to main
 - WORKQUEUE.md: both tasks marked ✅
+
+## 2026-03-21 — Wave 6, CONTENT worker (cr-content-wave6)
+
+- **[BLOG-1] Comparison SEO post** — `/posts/chargebee-retain-vs-churnkey-vs-churnrecovery` (~1,200 words). Feature/price table, who-should-use-each, CTA. HTTP 200 ✅
+- **[BLOG-2] Founder voice post** — `/posts/cancellation-emails-that-win-back-subscribers` (~1,100 words). 5 email types with full copy-paste templates (pause, discount, feature reminder, check-in, exit survey). HTTP 200 ✅
+- **[CASE-STUDY-TEMPLATE]** — `docs/case-study-template.md` created. Fillable sections for switching story, results table, testimonial.
+- Build: 90 static pages ✅ | Deployed + cache purged | Pushed to main
+- WORKQUEUE.md: ✅ updated

@@ -26,12 +26,12 @@ Low-code/no-code business owners: newsletter creators, coaches, online course se
 
 ### P3 — Ongoing (continuous improvement)
 - [✅] 2 blog posts per week (comparison pages, content marketing) — DONE 2026-03-21. Published: "Chargebee Retain vs Churnkey vs ChurnRecovery" + "5 Cancellation Emails That Win Back Subscribers"
-- [ ] Monitor Google Search Console for indexing
+- [✅] Monitor Google Search Console for indexing — DONE 2026-03-21. Full guide at docs/google-search-console-monitoring.md: sitemap submission, coverage errors, weekly checklist, CTR monitoring, query analysis.
 - [ ] Collect real testimonials from early users
 - [x] Error handling + rate limiting improvements
 - [x] E2E test coverage for new features
 - [ ] Track directory submission ROI (signups per platform)
-- [ ] Community engagement in SaaS founder groups
+- [✅] Community engagement in SaaS founder groups — DONE 2026-03-21. Full playbook at docs/community-engagement-playbook.md: 15 communities, weekly content calendar, 10 comment templates, 5 post templates, engagement rules, tracking spreadsheet, UTM strategy.
 - [ ] Video testimonials from beta users
 
 ## Content Ideas Backlog
