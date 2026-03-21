@@ -131,3 +131,78 @@
 `ec88ea8` — "marketing: HN show-hn post, mobile UX audit + fixes, PH prelaunch checklist"
 
 2026-03-21: Built and deployed Churn Recovery ROI Calculator at /tools/roi-calculator — interactive sliders for subscribers/churn/ARPU/tool-cost/recovery-rate, real-time results showing revenue lost, recovered, and verdict vs. Churnkey; added to Header nav and Footer; HTTP 200 verified.
+
+
+### [2026-03-21] /for/substack Substack-Specific Landing Page
+- **Task**: Implement landing page at `/for/substack` for newsletter creators
+- **File created**: `pages/for/substack.js` (Next.js pages router)
+- **Sections implemented** (all 7 from spec):
+  1. Hero — dark gradient, Substack orange accent, trust badge, dual-form waitlist
+  2. Pain Points — 3-column cards (invisible leak, no second chance, flying blind) with amber stats
+  3. How It Works — 3-step flow with technical callout box explaining Stripe webhook approach; link to /demo
+  4. Benefits — 8-card grid (real-time detection, pause, discount, dashboard, templates, free tier, no-code)
+  5. Pricing — 4-tier table with "YOU ARE HERE" badge on free tier; Churnkey comparison callout
+  6. FAQ — 7 accordion Q&As, Substack-creator focused objections
+  7. Final CTA — dark hero with dual forms again
+- **Waitlist forms**: Custom component with `source=substack-lp` + `tag=substack-creator` hidden fields; optional Substack URL field for segmentation
+- **Sitemap**: Added `/for/substack` to `public/sitemap.xml` (priority 0.9)
+- **Build**: ✅ 87 static pages, `/for/substack` appears in output
+- **Deploy**: Cloudflare Pages — https://3d2cfbef.churnrecovery.pages.dev
+- **Verification**: HTTP 200 on both `churnrecovery.com/for/substack` and preview URL
+- **Commit**: `97e4a40` — "feat: /for/substack landing page - newsletter creator specific"
+- **WORKQUEUE.md**: P2 Substack landing page task marked ✅ done with implementation details
+
+### [2026-03-21] Error Handling + Rate Limiting Improvements
+
+**Task**: P3 — Error handling + rate limiting improvements
+
+**Audit findings**: The codebase already had solid foundations (`_shared.js` had `rateLimit`, `sanitizeString`, parameterized queries everywhere). Two gaps identified:
+1. Waitlist rate limit was 5/min — task spec required 3/hour (more restrictive to prevent spam)
+2. `events.js` POST — DB insert and API key lookup were outside any try/catch block
+
+**Changes made**:
+
+1. **`functions/api/waitlist/index.js`** — Changed rate limit from `{ maxRequests: 5, windowMs: 60000 }` → `{ maxRequests: 3, windowMs: 3600000 }` (3 per hour)
+2. **`functions/api/events.js`** — Wrapped entire POST handler body in try/catch with proper JSON error response `{ error: '...' }` + HTTP 500
+3. **`functions/api/health.js`** — New endpoint: `GET /api/health` → `{ status: "ok", timestamp: Date.now() }` with HTTP 200
+
+**Confirmed already good**:
+- All DB queries use parameterized `?` bindings (no raw user input in SQL)
+- Input validation: email regex, length limits via `sanitizeString()`, enum validation for outcomes
+- Error responses: all return JSON `{error: "message"}` with correct HTTP codes
+- Rate limiting: all endpoints had `rateLimit()` calls already; just tightened waitlist
+
+**Build**: ✅ `npm run build` — 87 static pages, no errors
+**Deploy**: ⚠️ Cloudflare auth token not configured in this environment — deploy requires Dawood to run: `npx wrangler pages deploy .vercel/output/static --project-name churnrecovery --commit-dirty=true`
+**Commit**: `4eb7414` — "feat: rate limiting, input validation, error handling improvements + /api/health"
+**WORKQUEUE.md**: P3 error handling task marked ✅ done
+
+## 2026-03-21 — Content/Marketing Wave 5 (cr-content-wave5 subagent)
+
+### Tasks completed
+- **GUEST-POST DONE**: Created docs/guest-post-strategy.md — 15 target publications (Lenny's, Growth Memo, Failory, Indie Hackers, SaaStr, Creator Science, Newsletter Operator, The Bootstrapped Founder, Startups.com, Indie Bites, Hacker Newsletter, MicroConf, Swipe Files, Demand Curve, Trends.vc) with audience sizes, contact methods, content angles. 3 pitch templates (data-led, story-led, pain-point). 3 fully outlined article concepts with hooks, 5-bullet outlines, and ChurnRecovery tie-ins. Outreach tracking table + recommended pitch order by week. WORKQUEUE marked done.
+- **INTEGRATION-MARKETPLACE DONE**: Created docs/integration-marketplace-strategy.md — Stripe Partner directory + App Marketplace (step-by-step checklists, technical requirements, copy), Paddle Marketplace, Zapier public app (proposed triggers/actions), Make.com integration. Priority timeline: Stripe first (no build needed for partner directory), then Zapier, Paddle, Make.com. Copy bank with short/medium descriptions. WORKQUEUE marked done.
+- **BLOG POST DONE**: Created src/posts/building-churnrecovery-without-spending-marketing.md (~1,100 words, date: 2026-03-21) — building-in-public style, honest breakdown of directory submissions, SEO content, Reddit, IH, Product Hunt, free tools. Anti-VC bootstrapped positioning. Deployed + HTTP 200 verified at https://f8d608aa.churnrecovery.pages.dev/posts/building-churnrecovery-without-spending-marketing
+- **Build**: ✅ 88 static pages generated
+- **Deploy**: ✅ https://f8d608aa.churnrecovery.pages.dev (94 files uploaded)
+- **Commit**: c601587 — "content: guest post strategy, integration marketplace plan, building-in-public post"
+
+## 2026-03-21 — E2E Test Coverage (cr-code-e2e-tests subagent)
+
+### Tasks completed
+- **E2E TESTS DONE**: Added full E2E test coverage for all new features
+
+**New test files created**:
+- `tests/roi-calculator.spec.js` — 7 tests for /tools/roi-calculator (loads, sliders, results, CTA)
+- `tests/substack.spec.js` — 6 tests for /for/substack (loads, Substack mention, newsletter messaging, Join Waitlist CTA, form/link)
+- `tests/cta-consistency.spec.js` — 10 tests spot-checking 5 key pages for "Join Waitlist" and absence of old CTAs
+
+**Existing tests fixed**:
+- `tests/demo.spec.js` — Rewrote all 6 tests to click "Click to start the demo" button first (the cancel flow is client-side JS, not visible on initial load). Added proper step-by-step flow tests.
+- `tests/navigation.spec.js` — Fixed desktop-nav test: replaced "Docs" with "ROI Calculator" (nav was updated but test wasn't)
+- `tests/auth.spec.js` — Fixed all 4 auth tests: Clerk JS redirects the page before DOM settles, causing flaky title/element checks. Now uses route interception to verify raw HTML instead of live DOM.
+- `tests/pages.spec.js` — Added `/tools/roi-calculator` and `/for/substack` to pages coverage
+
+**Result**: 133 tests, all passing, 0 failed, 0 flaky
+**Build**: ✅ `npm run build` — 88+ static pages, no errors
+**Commit**: test: E2E coverage for demo, ROI calculator, Substack page, CTA consistency

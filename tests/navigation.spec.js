@@ -7,7 +7,7 @@ test.describe('header navigation', () => {
     { text: 'Pricing', path: '/pricing' },
     { text: 'Integrations', path: '/integrations' },
     { text: 'Demo', path: '/demo' },
-    { text: 'Docs', path: '/docs' },
+    { text: 'ROI Calculator', path: '/tools/roi-calculator' },
     { text: 'Blog', path: '/blog' },
   ];
 
