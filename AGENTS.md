@@ -6,6 +6,7 @@ Every agent working on this project MUST follow these steps. No exceptions.
 1. Read `STATE.json` to understand current project state
 2. Read `PRODUCT_ARCHITECTURE.md` for architecture decisions
 3. Check what tests exist: `ls tests/`
+4. **Clear stale build cache**: `rm -rf .next` before building (stale `.next` causes ENOENT rename errors during static export)
 
 ## After Every Code Change
 ```bash
@@ -43,8 +44,11 @@ git push origin main
 - You synthesize results and do the final deploy + verify
 
 ## Known Issues
-- **Test runner hangs**: `npm test` starts `serve` in background via `pretest` but never kills it. Tests may hang indefinitely. Workaround: run `npx serve out -p 3050 -L &` manually, run `npx playwright test`, then kill serve. Or add a timeout.
+- **Test runner hangs**: `npm test` starts `serve` in background via `pretest` but never kills it. Tests may hang indefinitely. Workaround: run `npx serve out -p 3050 -L &` manually, run `npx playwright test`, then kill serve. Or add a timeout. UPDATE: pretest script removed, Playwright webServer config handles lifecycle now. 105 tests run in ~12s.
 - **1,770 inline styles**: Migration to shadcn/ui + Tailwind is planned but not done yet. Use design tokens from `lib/design-tokens.js` for now.
+- **Stale `.next` cache**: If build fails with ENOENT rename errors, run `rm -rf .next` and rebuild. This happens when pages are added/moved between builds.
+- **2 flaky Clerk tests**: `auth.spec.js` Clerk preload link tests are known-flaky (103/105 pass). Not a blocker.
+- **Concurrent WORKQUEUE edits**: Multiple agents editing WORKQUEUE.md simultaneously causes edit failures. Agents should retry once on edit failure, or use append-only updates.
 
 ## Do NOT
 - Skip tests ("I'll test later" = never)

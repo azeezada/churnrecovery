@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "node scripts/generate-og-images.mjs && next build && node scripts/generate-rss.mjs && node scripts/generate-sitemap.mjs",
+    "build": "rm -rf .next && node scripts/generate-og-images.mjs && next build && node scripts/generate-rss.mjs && node scripts/generate-sitemap.mjs",
     "start": "next start",
     "lint": "echo \"No lint configured\"",
     "postbuild": "bash scripts/fix-catchall.sh",

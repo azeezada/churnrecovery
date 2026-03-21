@@ -6,99 +6,78 @@ Low-code/no-code business owners: newsletter creators, coaches, online course se
 ## Priority Tiers
 
 ### P0 — Do Now (blocks user acquisition)
-- [✅] Homepage UX overhaul for business owners — DONE. Rewrote entire homepage for non-technical audience (newsletter creators, coaches, course sellers). Benefits-first language, "How it works" 3-step, "Who it's for" section, FAQ, visual price comparison. Deployed 2026-03-21.
-- ✅ Make sign-up → dashboard → install widget flow work end-to-end (core product loop must work before marketing push)
-- [✅] Fix test runner — `npm test` hangs because `serve` background process never terminates. Add cleanup/timeout. DONE: Removed orphan `pretest` script; Playwright webServer config manages lifecycle. 105 tests pass cleanly in ~12s.
+- [ ] **Execute manual marketing submissions** — IH post (docs/indie-hackers-post-final.md), BetaList (marketing/betalist-submission.md), Reddit posts (docs/reddit-execution-playbook.md) are ALL written and ready. Dawood needs to paste and publish. This is the #1 blocker to getting first users. MANUAL ACTION REQUIRED.
+- [ ] **Fix stale build cache issue** — `.next` cache corruption causes ENOENT errors. Add `rm -rf .next` to build script in package.json so agents don't hit this.
+- [ ] **Set up ConvertKit/Mailchimp automation** — Welcome series for new signups from directories, segment by traffic source. Email drip content ready at docs/waitlist-email-drip.md.
 
 ### P1 — This Week (gets first user)
-- [✅] Take actual product screenshots (specs in docs/) — DONE. Created 5 high-quality product mockup screenshots:
-  • product-dashboard-improved.png — Main dashboard with metrics, charts, recent saves feed
-  • product-flow-builder.png — Cancel flow configuration with live preview  
-  • product-email-sequences.png — Email automation sequences builder
-  • product-integrations.png — Payment processor + webhook integrations
-  • 4 additional marketing site screenshots for supplementary use
-  Ready for Product Hunt, AlternativeTo, G2, Capterra submissions.
-- [x] **URGENT: Add product screenshots to homepage** — Current hero has NO visual proof. Users can't see the actual product. Add dashboard screenshot above fold + cancel flow preview in "How it works" section. Critical conversion blocker. ✅ DONE: homepage-hero.png in hero with browser chrome mockup; flow-builder/dashboard/email screenshots in How It Works steps.
-- [✅] Deploy blog post (Churnkey comparison) to live site — DONE. Churnkey comparison page is live at /compare/churnkey with full feature table, pricing breakdown, and CTA to waitlist.
-- [✅] First user acquisition campaign — EXECUTED 2026-03-21. AlternativeTo submission completed and live, targeting "Churnkey alternative" SEO positioning. Indie Hackers post ready to publish (docs/indie-hackers-post-final.md). BetaList submission prepared (marketing/betalist-submission.md). Next: Execute IH post + BetaList submission, then monitor for early traffic and signups.
-- [✅] Product Hunt launch prep → Target April 1st — DONE 2026-03-20. Full launch kit at docs/product-hunt-launch.md: tagline, description, categories, maker comment, 7 gallery asset specs, launch timeline, hunter strategy (5 names), pre-launch warm-up, post-launch actions.
-- [✅] Publish Indie Hackers post + Reddit cross-promotion — DOCS READY 2026-03-21. Final IH post at docs/indie-hackers-post-final.md (ready to copy/paste). Reddit execution playbook at docs/reddit-execution-playbook.md (exact posts for all 3 subs, ready to paste). Manual execution needed.
-- [✅] **Execute BetaList submission** — DONE 2026-03-21. Step-by-step execution guide at docs/betalist-execution-guide.md. Includes exact copy for all fields, timing strategy (March 15-18 for April 1 PH), landing page optimization, subscriber engagement templates, and PH launch email.
-- [✅] **Monitor AlternativeTo performance** — DONE 2026-03-21. Full monitoring strategy at docs/alternativeto-monitoring.md. Weekly checklist, comment response templates, competitor page expansion plan (ProfitWell, Baremetrics, Paddle, Chargebee, Stripe), UTM tracking setup.
-- [✅] **Create email drip sequence for waitlist** — DONE 2026-03-21. 5-email sequence at docs/waitlist-email-drip.md. Covers welcome, churn cost numbers, product mechanics, case study, and beta CTA. A/B subject lines + implementation notes for ConvertKit/Loops.
-- [✅] **Set up ConvertKit/Mailchimp automation** — DONE 2026-03-21. Full setup guide at docs/email-automation-setup.md. ConvertKit + Mailchimp step-by-step, UTM→tag segmentation for all 5 sources, API integration code, troubleshooting guide.
+- [ ] **Monitor AlternativeTo performance** — Track clicks, upvotes, comments; engage with community; add to other competitor pages
+- [ ] **CTA clarity audit** — "Get started free" vs "Join waitlist" confusion. Streamline messaging across all pages.
+- [ ] **Interactive demo** — Replace generic "Demo" with actual cancel flow preview (reduce friction before email capture)
+- [ ] **Hacker News "Show HN" post** — After Reddit/IH validation, write and post
+- [ ] **Product Hunt launch (April 1st target)** — Launch kit ready at docs/product-hunt-launch.md. Execute pre-launch warm-up starting ~March 25.
 
 ### P2 — Next Week (retention + growth)
-- [x] **Fix mobile navigation** — Hamburger menu button exists but menu doesn't appear. Mobile UX completely broken. ✅ DONE: Fixed header overflow, mobile menu positioned absolutely, header-signin hidden on mobile, hamburger shows correctly.
-- [✅] **CTA clarity audit** — "Get started free" vs "Join waitlist" confusion. Streamline messaging. DONE: CTA unified to "Join Waitlist" across all pages — Header, pricing, features, compare, alternatives, templates, docs, demo, integrations, use-cases, changelog, tools all updated. All tally.so links replaced with /#waitlist anchor.
-- [ ] **Interactive demo** — Replace generic "Demo" with actual cancel flow preview (reduce friction before email capture)
 - [ ] **Customer logo wall** — Get permission to display actual company logos for trust signals
-- [ ] Migrate to shadcn/ui + Tailwind (kill 1,770 inline styles) — important but secondary to getting the product loop working
-- [x] Dunning email sequences (Resend/SendGrid integration) ✅
-- [✅] Real analytics in dashboard (replace mock data) — DONE 2026-03-21. Wired analytics.js + dashboard.js to /api/analytics and /api/events. Falls back to localStore. Skeleton loading states added.
-- [ ] Widget CDN (minify, serve from cdn.churnrecovery.com)
-- [✅] Stripe webhook signature verification — DONE (already implemented in stripe-webhook.js, verified). Uses STRIPE_WEBHOOK_SECRET env var, 401 on invalid, warns if missing.
-- [x] More comparison pages for long-tail SEO
-- [✅] G2 + Capterra business profiles with review collection strategy — DONE 2026-03-21. Full setup guides at docs/g2-capterra-profiles.md: G2 (Churn Management category), Capterra (Customer Retention), AlternativeTo (already live), review collection email templates, incentive strategy, tracking table.
+- [ ] **Migrate to shadcn/ui + Tailwind** — Kill 1,770 inline styles. Important for maintainability but secondary to user acquisition.
+- [ ] **Widget CDN** — Minify, serve from cdn.churnrecovery.com
+- [ ] **A/B test homepage CTA copy** — Test different conversion approaches
+- [ ] **Substack-specific landing page** — "Free Churn Recovery for Newsletter Creators" — high-value niche targeting
 
 ### P3 — Ongoing (continuous improvement)
-- [ ] 2 blog posts per week
+- [ ] 2 blog posts per week (comparison pages, content marketing)
 - [ ] Monitor Google Search Console for indexing
-- [ ] A/B test homepage CTA copy
 - [ ] Collect real testimonials from early users
-- [ ] Error handling + rate limiting
+- [ ] Error handling + rate limiting improvements
 - [ ] E2E test coverage for new features
 - [ ] Track directory submission ROI (signups per platform)
 - [ ] Community engagement in SaaS founder groups
-- [✅] Execute Reddit posts (r/SideProject, r/entrepreneur, r/startups) — PLAYBOOKS READY 2026-03-21. Exact post copy for all 3 subs at docs/reddit-execution-playbook.md. Directory submission guide at docs/directory-submission-execution.md. Launch day checklist at docs/launch-day-social-checklist.md.
-- [ ] Hacker News "Show HN" post (after Reddit validation)
+- [ ] Video testimonials from beta users
 
 ## Content Ideas Backlog
-- [✅] **"Why Churnkey Costs $250/Month and We're Free"** — DONE 2026-03-21. Published at /posts/why-churnkey-costs-250-month-and-we-are-free. ~1100 words, non-technical audience, explains enterprise pricing logic and why ChurnRecovery is free.
 - [ ] **Screenshot guide series** — "5 SaaS Dashboard Screenshots That Convert" using our mockups as examples
-- [ ] **"Building in Public: 48 Hours to Product Screenshots"** — Behind-scenes content about our mockup creation process
-- [ ] **Twitter thread: "Directory submission checklist"** — Share our screenshot strategy + submission tips
-- [ ] **"Free Alternatives to [Expensive SaaS Tool]"** series — Target Churnkey, ProfitWell, Baremetrics pricing pain points
-- [✅] **"I Reverse-Engineered Churnkey's Cancel Flow"** — DONE 2026-03-21. Published at /posts/i-reverse-engineered-churnkey-cancel-flow. ~1200 words, founder voice, feature-by-feature comparison with honest take on when Churnkey is worth it.
-- [ ] **"Churn Recovery ROI Calculator"** — Interactive tool to calculate if expensive tools pay for themselves (spoiler: often don't for small businesses)
-- [✅] **"The Newsletter Creator's Guide to Reducing Churn"** — DONE 2026-03-21. Published at /posts/newsletter-creator-guide-reducing-churn. ~1100 words, 6 tactics (pause option, win-back email, downsell tier, exit surveys, reminder-of-value emails, cancel flow automation), targets Beehiiv/ConvertKit/Substack users.
-- [ ] **"SaaS Pricing Audit: Tools That Should Cost 90% Less"** — Controversial take on inflated B2B SaaS pricing
-- [ ] **Video testimonials from beta users** — Real founders explaining why they switched from paid tools
-
-## UX Research Opportunities (NEW)
-- [ ] **User interview plan** — Newsletter creators, course sellers, small SaaS founders currently paying for churn tools
-- [ ] **A/B test hero with product screenshot** — vs. current text-only approach
-- [ ] **Substack-specific landing page** — "Free Churn Recovery for Newsletter Creators"  
-- [ ] **Mobile UX audit** — Complete responsive design review
-- [ ] **Progressive disclosure test** — Let users explore demo before email capture
-- [ ] **Trust signals optimization** — Customer logos vs. testimonial quotes effectiveness
-
-## Content Ideas Backlog (Original)
-- [✅] "The $825/month SaaS Tool That Should Cost $25" — DONE 2026-03-21. Published at /posts/saas-tool-pricing-take. 900 words, non-technical audience, links to ChurnRecovery throughout.
+- [ ] **"Building in Public: 48 Hours to Product Screenshots"** — Behind-scenes content
+- [ ] **Twitter thread: "Directory submission checklist"** — Share strategy + tips
+- [ ] **"Free Alternatives to [Expensive SaaS Tool]"** series — Target Churnkey, ProfitWell, Baremetrics pricing pain
+- [ ] **"I Reverse-Engineered Churnkey's Cancel Flow"** — Technical deep-dive
+- [ ] **"Churn Recovery ROI Calculator"** — Interactive tool
+- [ ] **Newsletter creator case study series** — Targeting Beehiiv, ConvertKit, Substack creators
+- [ ] **"SaaS Pricing Audit: Tools That Should Cost 90% Less"** — Controversial take
 - [ ] Case study template: "How [Company] Saved $4,800/year by Switching from Churnkey"
-- [✅] "I Analyzed 50+ SaaS Pricing Pages - Here's What I Found" — DONE 2026-03-21. Published at /posts/i-analyzed-50-saas-pricing-pages. 6 pricing patterns, natural ChurnRecovery mention, ~1400 words.
-- [ ] "The $50,000/Year SaaS Tool Stack Audit" — controversial cost analysis
-- [ ] Twitter thread series: Real-time building in public updates
-- [ ] "Free SaaS Tools That Replace $100k+/Year Software" — broader market positioning
+- [ ] "The $50,000/Year SaaS Tool Stack Audit" — broader market positioning
 - [ ] Guest post on SaaS founder newsletters about churn recovery strategies
-- [ ] Twitter thread series: "Things that shouldn't cost $800/month"
 - [ ] Reach out to Stripe/Paddle for integration marketplace listing
 
+## UX Research Opportunities
+- [ ] **User interview plan** — Newsletter creators, course sellers, small SaaS founders currently paying for churn tools
+- [ ] **Progressive disclosure test** — Let users explore demo before email capture
+- [ ] **Trust signals optimization** — Customer logos vs. testimonial quotes effectiveness
+- [ ] **Mobile UX full audit** — Complete responsive design review
+
 ## Completed (archive)
-- ✅ Email validation on waitlist form (regex, inline errors, aria attrs, focus)
+- ✅ Homepage UX overhaul for business owners (2026-03-21)
+- ✅ Sign-up → dashboard → install widget flow (2026-03-21)
+- ✅ Fix test runner (2026-03-21)
+- ✅ Product screenshots created + added to homepage (2026-03-21)
+- ✅ Churnkey comparison page live at /compare/churnkey (2026-03-21)
+- ✅ AlternativeTo submission live (2026-03-21)
+- ✅ IH post + Reddit playbooks written (2026-03-21)
+- ✅ Product Hunt launch kit (2026-03-20)
+- ✅ Email drip sequence written (2026-03-21)
+- ✅ Dunning email sequences with Resend (2026-03-21)
+- ✅ Real analytics in dashboard (2026-03-21)
+- ✅ Stripe webhook signature verification (2026-03-21)
+- ✅ G2 + Capterra profile guides (2026-03-21)
+- ✅ More comparison pages (ProsperStack, Chargebee) (2026-03-21)
+- ✅ 3 blog posts published (2026-03-21)
+- ✅ Mobile nav fix (2026-03-21)
+- ✅ Email validation on waitlist form
 - ✅ Deploy pipeline fix (static export restored)
-- ✅ Security audit (task 025)
+- ✅ Security audit
 - ✅ Directory submission plan + checklist
-- ✅ Indie Hackers post written
-- ✅ Screenshot requirements documented
-- ✅ Reddit content strategy created
-- ✅ Churnkey comparison content written
-- ✅ AlternativeTo submission content ready
-- ✅ UTM tracking strategy documented
-- ✅ Migration guide included in comparison post
+- ✅ UTM tracking strategy
 
 ## Meta Tasks (self-improvement)
-- [ ] Review agent performance — what keeps failing?
-- [ ] Update AGENTS.md with lessons learned
-- [ ] Review Dawood's messages — what did he have to tell me that I should have known?
-- [ ] Improve deploy-and-verify pipeline
+- [x] Review agent performance — concurrent edit failures documented in AGENTS.md
+- [x] Update AGENTS.md with stale cache fix + known issues
+- [ ] Improve deploy-and-verify pipeline (add cache-clear step)
