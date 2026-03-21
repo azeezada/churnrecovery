@@ -5,8 +5,20 @@
     <link>https://churnrecovery.com/blog</link>
     <description>Insights on churn recovery, payment failures, and SaaS retention</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 21 Mar 2026 04:10:55 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 21 Mar 2026 04:15:21 GMT</lastBuildDate>
     <atom:link href="https://churnrecovery.com/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title><![CDATA[The $50,000/Year SaaS Tool Stack Audit]]></title>
+      <link>https://churnrecovery.com/posts/50000-year-saas-tool-stack-audit</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/50000-year-saas-tool-stack-audit</guid>
+      <description><![CDATA[Most SaaS founders have no idea what their tool stack actually costs. Here's a line-by-line breakdown — and why the number is probably worse than you think.]]></description>
+      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
+      <category>SaaS pricing</category>
+      <category>SaaS tools</category>
+      <category>cost reduction</category>
+      <category>startup costs</category>
+      <category>churn recovery</category>
+    </item>
     <item>
       <title><![CDATA[ChurnRecovery vs Churnkey: The Complete Comparison Guide (2026)]]></title>
       <link>https://churnrecovery.com/posts/ChurnRecovery-vs-Churnkey-Complete-Comparison</link>

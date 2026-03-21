@@ -7,12 +7,12 @@ Low-code/no-code business owners: newsletter creators, coaches, online course se
 
 ### P0 — Do Now (blocks user acquisition)
 - [ ] **Execute manual marketing submissions** — IH post (docs/indie-hackers-post-final.md), BetaList (marketing/betalist-submission.md), Reddit posts (docs/reddit-execution-playbook.md) are ALL written and ready. Dawood needs to paste and publish. This is the #1 blocker to getting first users. MANUAL ACTION REQUIRED.
-- [ ] **Fix stale build cache issue** — `.next` cache corruption causes ENOENT errors. Add `rm -rf .next` to build script in package.json so agents don't hit this.
+- [✅] **Fix stale build cache issue** — DONE 2026-03-21. Build script now clears `.next`, `out`, and `.vercel/output` before every build.
 - [ ] **Set up ConvertKit/Mailchimp automation** — Welcome series for new signups from directories, segment by traffic source. Email drip content ready at docs/waitlist-email-drip.md.
 
 ### P1 — This Week (gets first user)
 - [ ] **Monitor AlternativeTo performance** — Track clicks, upvotes, comments; engage with community; add to other competitor pages
-- [ ] **CTA clarity audit** — "Get started free" vs "Join waitlist" confusion. Streamline messaging across all pages.
+- [✅] **CTA clarity audit** — DONE 2026-03-21. Unified all CTAs to "Join Waitlist" across 13+ pages. Replaced all tally.so links with /#waitlist anchor.
 - [✅] **Interactive demo** — Replace generic "Demo" with actual cancel flow preview (reduce friction before email capture)
 - [ ] **Hacker News "Show HN" post** — After Reddit/IH validation, write and post
 - [ ] **Product Hunt launch (April 1st target)** — Launch kit ready at docs/product-hunt-launch.md. Execute pre-launch warm-up starting ~March 25.
@@ -50,7 +50,7 @@ Low-code/no-code business owners: newsletter creators, coaches, online course se
 
 ## UX Research Opportunities
 - ✅ **User interview plan** — Newsletter creators, course sellers, small SaaS founders currently paying for churn tools — docs/user-interview-plan.md (2026-03-21)
-- [ ] **Progressive disclosure test** — Let users explore demo before email capture
+- [✅] **Progressive disclosure test** — DONE 2026-03-21. Demo at /demo requires no email/login. Added "Try the interactive demo first →" link in waitlist section on homepage.
 - ✅ **Trust signals optimization** — Customer logos vs. testimonial quotes effectiveness — docs/trust-signals-strategy.md (2026-03-21)
 - [ ] **Mobile UX full audit** — Complete responsive design review
 

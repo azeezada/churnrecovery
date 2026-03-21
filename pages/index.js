@@ -1021,6 +1021,25 @@ export default function Home({ posts }) {
             </p>
 
             <WaitlistForm source="homepage" dark={true} />
+
+            <p style={{
+              fontFamily: t.fontSans,
+              fontSize: '0.85rem',
+              color: '#888888',
+              marginTop: '16px',
+            }}>
+              Not ready to sign up?{' '}
+              <Link
+                href="/demo"
+                style={{
+                  color: t.accent,
+                  textDecoration: 'none',
+                  fontWeight: 500,
+                }}
+              >
+                Try the interactive demo first →
+              </Link>
+            </p>
           </div>
         </div>
       </section>
