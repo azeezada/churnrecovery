@@ -11,39 +11,18 @@ import {
   saveSettings,
 } from '../../lib/localStore'
 
-const t = {
-  bg: '#FAF9F5',
-  text: '#191919',
-  gray: '#666666',
-  grayLight: '#999999',
-  accent: '#D97757',
-  border: '#E5E5E5',
-  white: '#FFFFFF',
-  green: '#2D7A4F',
-  greenLight: '#EDF7F1',
-  red: '#DC2626',
-  fontSans: '"Instrument Sans", sans-serif',
-  fontSerif: '"Merriweather", serif',
-}
-
 function Section({ title, description, children }) {
   return (
-    <div style={{
-      background: t.white,
-      border: `1px solid ${t.border}`,
-      borderRadius: '12px',
-      marginBottom: '20px',
-      overflow: 'hidden',
-    }}>
-      <div style={{ padding: '20px 24px', borderBottom: `1px solid ${t.border}` }}>
-        <h2 style={{ fontFamily: t.fontSans, fontSize: '1rem', fontWeight: 700, color: t.text, margin: '0 0 4px' }}>
+    <div className="bg-brand-white border border-brand-border rounded-xl mb-5 overflow-hidden">
+      <div className="px-6 py-5 border-b border-brand-border">
+        <h2 className="font-sans text-base font-bold text-brand-text mb-1">
           {title}
         </h2>
         {description && (
-          <p style={{ fontSize: '0.82rem', color: t.grayLight, margin: 0 }}>{description}</p>
+          <p className="text-[0.82rem] text-brand-gray-light m-0">{description}</p>
         )}
       </div>
-      <div style={{ padding: '20px 24px' }}>
+      <div className="px-6 py-5">
         {children}
       </div>
     </div>
@@ -52,12 +31,8 @@ function Section({ title, description, children }) {
 
 function InputField({ label, value, onChange, type = 'text', placeholder, readOnly, mono }) {
   return (
-    <div style={{ marginBottom: '16px' }}>
-      <label style={{
-        fontSize: '0.75rem', color: t.grayLight, fontWeight: 500,
-        display: 'block', marginBottom: '4px', textTransform: 'uppercase',
-        letterSpacing: '0.05em', fontFamily: t.fontSans,
-      }}>
+    <div className="mb-4">
+      <label className="text-[0.75rem] text-brand-gray-light font-medium block mb-1 uppercase tracking-[0.05em] font-sans">
         {label}
       </label>
       <input
@@ -66,13 +41,9 @@ function InputField({ label, value, onChange, type = 'text', placeholder, readOn
         onChange={onChange}
         placeholder={placeholder}
         readOnly={readOnly}
-        style={{
-          width: '100%', padding: '10px 14px', borderRadius: '8px',
-          border: `1px solid ${t.border}`, fontSize: '0.88rem',
-          fontFamily: mono ? 'monospace' : t.fontSans,
-          color: t.text, background: readOnly ? '#F5F4F0' : t.white,
-          outline: 'none', boxSizing: 'border-box',
-        }}
+        className={`w-full px-3.5 py-2.5 rounded-lg border border-brand-border text-[0.88rem] text-brand-text outline-none box-border ${
+          mono ? 'font-mono' : 'font-sans'
+        } ${readOnly ? 'bg-[#F5F4F0]' : 'bg-brand-white'}`}
       />
     </div>
   )
@@ -140,8 +111,8 @@ export default function SettingsPage() {
       <>
         <Head><title>Settings — ChurnRecovery</title></Head>
         <AppLayout title="Settings">
-          <div style={{ textAlign: 'center', padding: '80px 40px', color: t.grayLight, fontFamily: t.fontSerif }}>
-            <p>No project found. <a href="/app/dashboard" style={{ color: t.accent }}>Create one →</a></p>
+          <div className="text-center py-20 px-10 text-brand-gray-light font-serif">
+            <p>No project found. <a href="/app/dashboard" className="text-brand-accent">Create one →</a></p>
           </div>
         </AppLayout>
       </>
@@ -154,7 +125,7 @@ export default function SettingsPage() {
         <title>Settings — ChurnRecovery</title>
       </Head>
       <AppLayout title="Settings">
-        <p style={{ fontFamily: t.fontSerif, fontSize: '0.9rem', color: t.gray, margin: '0 0 28px', lineHeight: 1.7 }}>
+        <p className="font-serif text-[0.9rem] text-brand-gray mb-7 leading-[1.7]">
           Manage your project settings, API keys, and integrations.
         </p>
 
@@ -176,56 +147,36 @@ export default function SettingsPage() {
 
         {/* API Keys */}
         <Section title="API Keys" description="Use these keys to authenticate SDK and API requests">
-          <div style={{ marginBottom: '16px' }}>
-            <label style={{
-              fontSize: '0.75rem', color: t.grayLight, fontWeight: 500,
-              display: 'block', marginBottom: '4px', textTransform: 'uppercase',
-              letterSpacing: '0.05em', fontFamily: t.fontSans,
-            }}>
+          <div className="mb-4">
+            <label className="text-[0.75rem] text-brand-gray-light font-medium block mb-1 uppercase tracking-[0.05em] font-sans">
               API Key
             </label>
-            <div style={{ display: 'flex', gap: '8px' }}>
+            <div className="flex gap-2">
               <input
                 type={showApiKey ? 'text' : 'password'}
                 value={project?.api_key || ''}
                 readOnly
-                style={{
-                  flex: 1, padding: '10px 14px', borderRadius: '8px',
-                  border: `1px solid ${t.border}`, fontSize: '0.88rem',
-                  fontFamily: 'monospace', color: t.text, background: '#F5F4F0',
-                  outline: 'none', boxSizing: 'border-box',
-                }}
+                className="flex-1 px-3.5 py-2.5 rounded-lg border border-brand-border text-[0.88rem] font-mono text-brand-text bg-[#F5F4F0] outline-none box-border"
               />
               <button
                 onClick={() => setShowApiKey(!showApiKey)}
-                style={{
-                  padding: '10px 14px', borderRadius: '8px',
-                  border: `1px solid ${t.border}`, background: t.white,
-                  cursor: 'pointer', fontSize: '0.82rem', fontFamily: t.fontSans,
-                  color: t.gray,
-                }}
+                className="px-3.5 py-2.5 rounded-lg border border-brand-border bg-brand-white cursor-pointer text-[0.82rem] font-sans text-brand-gray"
               >
                 {showApiKey ? '🙈 Hide' : '👁 Show'}
               </button>
               <button
                 onClick={copyApiKey}
-                style={{
-                  padding: '10px 14px', borderRadius: '8px',
-                  border: `1px solid ${t.border}`,
-                  background: copied ? t.greenLight : t.white,
-                  cursor: 'pointer', fontSize: '0.82rem', fontFamily: t.fontSans,
-                  color: copied ? t.green : t.gray,
-                }}
+                className={`px-3.5 py-2.5 rounded-lg border border-brand-border cursor-pointer text-[0.82rem] font-sans ${
+                  copied
+                    ? 'bg-brand-green-light text-brand-green'
+                    : 'bg-brand-white text-brand-gray'
+                }`}
               >
                 {copied ? '✓ Copied' : '📋 Copy'}
               </button>
             </div>
           </div>
-          <div style={{
-            padding: '12px 16px', borderRadius: '8px', background: '#FFF7ED',
-            borderLeft: `3px solid #EA580C`, fontSize: '0.8rem', color: t.gray,
-            lineHeight: 1.6, fontFamily: t.fontSerif,
-          }}>
+          <div className="px-4 py-3 rounded-lg bg-[#FFF7ED] border-l-[3px] border-l-brand-orange text-[0.8rem] text-brand-gray leading-[1.6] font-serif">
             ⚠️ Keep your API key secret. Never expose it in client-side code. Use the public project ID for frontend integrations.
           </div>
         </Section>
@@ -233,16 +184,13 @@ export default function SettingsPage() {
         {/* Stripe */}
         <Section title="Stripe Integration" description="Connect Stripe to auto-apply discount and pause offers">
           {stripeConnected ? (
-            <div style={{
-              display: 'flex', alignItems: 'center', gap: '12px',
-              padding: '16px', borderRadius: '8px', background: t.greenLight,
-            }}>
-              <span style={{ fontSize: '1.2rem' }}>✅</span>
+            <div className="flex items-center gap-3 p-4 rounded-lg bg-brand-green-light">
+              <span className="text-[1.2rem]">✅</span>
               <div>
-                <div style={{ fontSize: '0.88rem', fontWeight: 600, color: t.green }}>
+                <div className="text-[0.88rem] font-semibold text-brand-green">
                   Stripe Connected
                 </div>
-                <div style={{ fontSize: '0.78rem', color: t.gray }}>
+                <div className="text-[0.78rem] text-brand-gray">
                   Offers will be automatically applied to Stripe subscriptions.
                 </div>
               </div>
@@ -251,12 +199,7 @@ export default function SettingsPage() {
                   setStripeConnected(false)
                   if (project) saveSettings(project.id, { webhookUrl, stripeConnected: false })
                 }}
-                style={{
-                  marginLeft: 'auto', padding: '6px 14px', borderRadius: '6px',
-                  border: `1px solid ${t.border}`, background: t.white,
-                  cursor: 'pointer', fontSize: '0.78rem', color: t.red,
-                  fontFamily: t.fontSans,
-                }}
+                className="ml-auto px-3.5 py-1.5 rounded-md border border-brand-border bg-brand-white cursor-pointer text-[0.78rem] text-brand-red font-sans"
               >
                 Disconnect
               </button>
@@ -273,12 +216,7 @@ export default function SettingsPage() {
               />
               <button
                 onClick={handleStripeConnect}
-                style={{
-                  padding: '10px 24px', borderRadius: '8px',
-                  background: '#635BFF', color: t.white, border: 'none',
-                  cursor: 'pointer', fontWeight: 600, fontSize: '0.88rem',
-                  fontFamily: t.fontSans, display: 'flex', alignItems: 'center', gap: '8px',
-                }}
+                className="px-6 py-2.5 rounded-lg bg-[#635BFF] text-brand-white border-none cursor-pointer font-semibold text-[0.88rem] font-sans flex items-center gap-2"
               >
                 💳 Connect Stripe
               </button>
@@ -294,28 +232,24 @@ export default function SettingsPage() {
             onChange={(e) => setWebhookUrl(e.target.value)}
             placeholder="https://yourapp.com/webhooks/churnrecovery"
           />
-          <div style={{ fontSize: '0.78rem', color: t.grayLight, marginBottom: '12px' }}>
+          <div className="text-[0.78rem] text-brand-gray-light mb-3">
             Events: cancel_flow.started, cancel_flow.completed, cancel_flow.offer_accepted
           </div>
           <button
             onClick={handleSave}
             disabled={saving}
-            style={{
-              padding: '10px 20px', borderRadius: '8px',
-              background: t.accent, color: t.white, border: 'none',
-              cursor: saving ? 'not-allowed' : 'pointer', fontWeight: 600, fontSize: '0.85rem',
-              fontFamily: t.fontSans, opacity: saving ? 0.7 : 1,
-            }}
+            className={`px-5 py-2.5 rounded-lg bg-brand-accent text-brand-white border-none font-semibold text-[0.85rem] font-sans ${
+              saving ? 'cursor-not-allowed opacity-70' : 'cursor-pointer opacity-100'
+            }`}
           >
             {saving ? 'Saving...' : 'Save Settings'}
           </button>
           {saveMsg && (
-            <div style={{
-              marginTop: '12px', padding: '8px 12px', borderRadius: '6px',
-              background: saveMsg.type === 'success' ? t.greenLight : '#FEF2F2',
-              color: saveMsg.type === 'success' ? t.green : t.red,
-              fontSize: '0.82rem', fontFamily: t.fontSans,
-            }}>
+            <div className={`mt-3 px-3 py-2 rounded-md text-[0.82rem] font-sans ${
+              saveMsg.type === 'success'
+                ? 'bg-brand-green-light text-brand-green'
+                : 'bg-[#FEF2F2] text-brand-red'
+            }`}>
               {saveMsg.text}
             </div>
           )}
@@ -323,24 +257,18 @@ export default function SettingsPage() {
 
         {/* Danger Zone */}
         <Section title="Danger Zone" description="Irreversible actions">
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <div className="flex justify-between items-center">
             <div>
-              <div style={{ fontSize: '0.88rem', fontWeight: 500, color: t.text, marginBottom: '4px' }}>
+              <div className="text-[0.88rem] font-medium text-brand-text mb-1">
                 Delete Project
               </div>
-              <div style={{ fontSize: '0.78rem', color: t.grayLight }}>
+              <div className="text-[0.78rem] text-brand-gray-light">
                 Permanently delete this project and all associated data.
               </div>
             </div>
             <button
               onClick={handleDelete}
-              style={{
-                padding: '8px 16px', borderRadius: '6px',
-                background: t.white, color: t.red,
-                border: `1px solid ${t.red}`,
-                cursor: 'pointer', fontWeight: 600, fontSize: '0.82rem',
-                fontFamily: t.fontSans,
-              }}
+              className="px-4 py-2 rounded-md bg-brand-white border border-brand-red text-brand-red cursor-pointer font-semibold text-[0.82rem] font-sans"
             >
               Delete Project
             </button>

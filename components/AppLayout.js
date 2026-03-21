@@ -2,18 +2,6 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { isClerkEnabled } from '../lib/auth'
 
-const t = {
-  bg: '#FAF9F5',
-  text: '#191919',
-  gray: '#666666',
-  grayLight: '#999999',
-  accent: '#D97757',
-  accentHover: '#C4603D',
-  border: '#E5E5E5',
-  white: '#FFFFFF',
-  fontSans: '"Instrument Sans", sans-serif',
-}
-
 const navItems = [
   { href: '/app/dashboard', label: 'Dashboard', icon: '📊' },
   { href: '/app/onboarding', label: 'Setup Wizard', icon: '🚀' },
@@ -29,33 +17,16 @@ function UserArea() {
   if (isClerkEnabled()) {
     const { UserButton } = require('@clerk/nextjs')
     return (
-      <div style={{
-        padding: '16px 20px',
-        borderTop: `1px solid ${t.border}`,
-        display: 'flex',
-        alignItems: 'center',
-        gap: '12px',
-      }}>
+      <div className="px-5 py-4 border-t border-brand-border flex items-center gap-3">
         <UserButton afterSignOutUrl="/" />
-        <span style={{ fontSize: '0.82rem', color: t.gray }}>Account</span>
+        <span className="text-[0.82rem] text-brand-gray">Account</span>
       </div>
     )
   }
   return (
-    <div style={{
-      padding: '16px 20px',
-      borderTop: `1px solid ${t.border}`,
-      display: 'flex',
-      alignItems: 'center',
-      gap: '10px',
-    }}>
-      <div style={{
-        width: '28px', height: '28px', borderRadius: '50%',
-        background: t.accent, color: '#fff',
-        display: 'flex', alignItems: 'center', justifyContent: 'center',
-        fontSize: '0.75rem', fontWeight: 700,
-      }}>D</div>
-      <span style={{ fontSize: '0.82rem', color: t.gray }}>Demo Mode</span>
+    <div className="px-5 py-4 border-t border-brand-border flex items-center gap-2.5">
+      <div className="w-7 h-7 rounded-full bg-brand-accent text-white flex items-center justify-center text-xs font-bold">D</div>
+      <span className="text-[0.82rem] text-brand-gray">Demo Mode</span>
     </div>
   )
 }
@@ -64,61 +35,31 @@ export default function AppLayout({ children, title }) {
   const router = useRouter()
 
   return (
-    <div style={{ display: 'flex', minHeight: '100vh', background: '#F5F4F0', fontFamily: t.fontSans }}>
+    <div className="flex min-h-screen bg-[#F5F4F0] font-sans">
       {/* Sidebar */}
-      <aside style={{
-        width: '240px',
-        background: t.white,
-        borderRight: `1px solid ${t.border}`,
-        display: 'flex',
-        flexDirection: 'column',
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        bottom: 0,
-        zIndex: 100,
-      }}>
+      <aside className="w-[240px] bg-brand-white border-r border-brand-border flex flex-col fixed top-0 left-0 bottom-0 z-[100]">
         {/* Logo */}
-        <div style={{
-          padding: '20px 20px 16px',
-          borderBottom: `1px solid ${t.border}`,
-        }}>
-          <Link href="/" style={{
-            fontFamily: t.fontSans,
-            fontWeight: 800,
-            fontSize: '1.1rem',
-            color: t.text,
-            textDecoration: 'none',
-            letterSpacing: '-0.03em',
-          }}>
+        <div className="px-5 pt-5 pb-4 border-b border-brand-border">
+          <Link href="/" className="font-sans font-[800] text-[1.1rem] text-brand-text no-underline tracking-[-0.03em]">
             ChurnRecovery
           </Link>
         </div>
 
         {/* Nav */}
-        <nav style={{ padding: '12px 8px', flex: 1 }}>
+        <nav className="px-2 py-3 flex-1">
           {navItems.map(item => {
             const isActive = router.pathname === item.href
             return (
               <Link
                 key={item.href}
                 href={item.href}
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '10px',
-                  padding: '10px 12px',
-                  borderRadius: '8px',
-                  textDecoration: 'none',
-                  fontSize: '0.88rem',
-                  fontWeight: isActive ? 600 : 400,
-                  color: isActive ? t.accent : t.gray,
-                  background: isActive ? '#FDF4EF' : 'transparent',
-                  marginBottom: '2px',
-                  transition: 'all 0.15s',
-                }}
+                className={`flex items-center gap-2.5 px-3 py-2.5 rounded-lg no-underline text-[0.88rem] mb-0.5 transition-all duration-150 ${
+                  isActive
+                    ? 'font-semibold text-brand-accent bg-[#FDF4EF]'
+                    : 'font-normal text-brand-gray bg-transparent'
+                }`}
               >
-                <span style={{ fontSize: '1rem' }}>{item.icon}</span>
+                <span className="text-base">{item.icon}</span>
                 {item.label}
               </Link>
             )
@@ -130,16 +71,9 @@ export default function AppLayout({ children, title }) {
       </aside>
 
       {/* Main content */}
-      <main style={{ marginLeft: '240px', flex: 1, padding: '32px 40px', maxWidth: '1100px' }}>
+      <main className="ml-[240px] flex-1 px-10 py-8 max-w-[1100px]">
         {title && (
-          <h1 style={{
-            fontFamily: t.fontSans,
-            fontSize: '1.6rem',
-            fontWeight: 800,
-            color: t.text,
-            letterSpacing: '-0.04em',
-            margin: '0 0 8px',
-          }}>
+          <h1 className="font-sans text-[1.6rem] font-[800] text-brand-text tracking-[-0.04em] mb-2 mt-0">
             {title}
           </h1>
         )}

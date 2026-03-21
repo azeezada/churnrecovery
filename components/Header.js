@@ -2,16 +2,6 @@ import Link from 'next/link'
 import { useState } from 'react'
 import { useAuthUser } from '../lib/useAuthUser'
 
-const t = {
-  bg: '#FAF9F5',
-  text: '#191919',
-  gray: '#666666',
-  accent: '#D97757',
-  border: '#E5E5E5',
-  white: '#FFFFFF',
-  fontSans: '"Instrument Sans", sans-serif',
-}
-
 const navLinks = [
   { href: '/features', label: 'Features' },
   { href: '/pricing', label: 'Pricing' },
@@ -26,40 +16,21 @@ export default function Header() {
   const { isSignedIn } = useAuthUser()
 
   return (
-    <header style={{
-      position: 'fixed', top: 0, left: 0, right: 0,
-      background: t.bg, zIndex: 1000,
-      borderBottom: `1px solid ${t.border}`,
-      fontFamily: t.fontSans,
-      overflow: 'visible',
-    }}>
-      <div style={{
-        maxWidth: 1200, margin: '0 auto',
-        padding: '0 24px', height: 60,
-        display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-      }}>
+    <header className="fixed top-0 left-0 right-0 bg-brand-bg z-[1000] border-b border-brand-border font-sans overflow-visible">
+      <div className="max-w-[1200px] mx-auto px-6 h-[60px] flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
-          <div style={{
-            width: 28, height: 28, borderRadius: 6,
-            background: t.accent, display: 'flex', alignItems: 'center', justifyContent: 'center',
-            color: t.white, fontWeight: 800, fontSize: 14, flexShrink: 0,
-          }}>C</div>
-          <span style={{ fontSize: 15, fontWeight: 600, color: t.text, letterSpacing: '-0.01em' }}>
+        <Link href="/" className="flex items-center gap-2.5 no-underline">
+          <div className="w-7 h-7 rounded-[6px] bg-brand-accent flex items-center justify-center text-brand-white font-[800] text-sm shrink-0">C</div>
+          <span className="text-[15px] font-semibold text-brand-text tracking-[-0.01em]">
             ChurnRecovery
           </span>
         </Link>
 
         {/* Desktop nav */}
-        <nav style={{ display: 'flex', alignItems: 'center', gap: 4 }} className="desktop-nav">
+        <nav className="flex items-center gap-1 desktop-nav">
           {navLinks.map(link => (
-            <Link key={link.href} href={link.href} style={{
-              fontSize: 14, fontWeight: 500, color: t.gray,
-              textDecoration: 'none', padding: '6px 12px', borderRadius: 6,
-              transition: 'color 0.15s, background 0.15s',
-            }}
-            onMouseEnter={e => { e.currentTarget.style.color = t.text; e.currentTarget.style.background = t.border; }}
-            onMouseLeave={e => { e.currentTarget.style.color = t.gray; e.currentTarget.style.background = 'transparent'; }}
+            <Link key={link.href} href={link.href}
+              className="text-sm font-medium text-brand-gray no-underline px-3 py-1.5 rounded-[6px] transition-[color,background] duration-150 hover:text-brand-text hover:bg-brand-border"
             >
               {link.label}
             </Link>
@@ -67,39 +38,24 @@ export default function Header() {
         </nav>
 
         {/* CTA + contact + mobile toggle */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+        <div className="flex items-center gap-2">
           {isSignedIn ? (
-            <Link href="/app/dashboard" style={{
-              background: t.accent, color: t.white, padding: '8px 18px',
-              borderRadius: 7, fontWeight: 600, textDecoration: 'none', fontSize: 14,
-              whiteSpace: 'nowrap',
-            }} className="header-cta">
+            <Link href="/app/dashboard" className="bg-brand-accent text-brand-white px-[18px] py-2 rounded-[7px] font-semibold no-underline text-sm whitespace-nowrap header-cta">
               Dashboard
             </Link>
           ) : (
             <>
-              <Link href="/app/sign-in" style={{
-                color: t.gray, textDecoration: 'none', fontSize: 14,
-                fontWeight: 500, padding: '8px 12px',
-              }} className="header-signin">
+              <Link href="/app/sign-in" className="text-brand-gray no-underline text-sm font-medium px-3 py-2 header-signin">
                 Sign in
               </Link>
-              <Link href="/#waitlist" style={{
-                background: t.accent, color: t.white, padding: '8px 18px',
-                borderRadius: 7, fontWeight: 600, textDecoration: 'none', fontSize: 14,
-                whiteSpace: 'nowrap',
-              }} className="header-cta">
+              <Link href="/#waitlist" className="bg-brand-accent text-brand-white px-[18px] py-2 rounded-[7px] font-semibold no-underline text-sm whitespace-nowrap header-cta">
                 Join Waitlist
               </Link>
             </>
           )}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="mobile-menu-btn"
-            style={{
-              display: 'none', background: 'none', border: 'none',
-              cursor: 'pointer', padding: 8, color: t.text, fontSize: 20,
-            }}
+            className="mobile-menu-btn hidden bg-transparent border-none cursor-pointer p-2 text-brand-text text-xl"
           >
             {mobileOpen ? '✕' : '☰'}
           </button>
@@ -108,48 +64,28 @@ export default function Header() {
 
       {/* Mobile dropdown */}
       {mobileOpen && (
-        <div className="mobile-nav" style={{
-          background: t.bg, borderTop: `1px solid ${t.border}`,
-          padding: '12px 24px 20px',
-        }}>
+        <div className="mobile-nav bg-brand-bg border-t border-brand-border px-6 pt-3 pb-5">
           {navLinks.map(link => (
             <Link key={link.href} href={link.href}
               onClick={() => setMobileOpen(false)}
-              style={{
-                display: 'block', padding: '12px 0',
-                borderBottom: `1px solid ${t.border}`,
-                fontSize: 16, fontWeight: 500, color: t.text,
-                textDecoration: 'none',
-              }}
+              className="block py-3 border-b border-brand-border text-base font-medium text-brand-text no-underline"
             >
               {link.label}
             </Link>
           ))}
           {isSignedIn ? (
-            <Link href="/app/dashboard" onClick={() => setMobileOpen(false)} style={{
-              display: 'block', marginTop: 16,
-              background: t.accent, color: t.white,
-              padding: '12px', borderRadius: 8, fontWeight: 700,
-              textDecoration: 'none', textAlign: 'center', fontSize: 15,
-            }}>
+            <Link href="/app/dashboard" onClick={() => setMobileOpen(false)}
+              className="block mt-4 bg-brand-accent text-brand-white p-3 rounded-lg font-bold no-underline text-center text-[15px]">
               Dashboard →
             </Link>
           ) : (
             <>
-              <Link href="/app/sign-in" onClick={() => setMobileOpen(false)} style={{
-                display: 'block', padding: '12px 0',
-                borderBottom: `1px solid ${t.border}`,
-                fontSize: 16, fontWeight: 500, color: t.text,
-                textDecoration: 'none',
-              }}>
+              <Link href="/app/sign-in" onClick={() => setMobileOpen(false)}
+                className="block py-3 border-b border-brand-border text-base font-medium text-brand-text no-underline">
                 Sign in
               </Link>
-              <Link href="/#waitlist" onClick={() => setMobileOpen(false)} style={{
-                display: 'block', marginTop: 16,
-                background: t.accent, color: t.white,
-                padding: '12px', borderRadius: 8, fontWeight: 700,
-                textDecoration: 'none', textAlign: 'center', fontSize: 15,
-              }}>
+              <Link href="/#waitlist" onClick={() => setMobileOpen(false)}
+                className="block mt-4 bg-brand-accent text-brand-white p-3 rounded-lg font-bold no-underline text-center text-[15px]">
                 Join Waitlist →
               </Link>
             </>

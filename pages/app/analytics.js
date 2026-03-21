@@ -5,56 +5,39 @@ import { getProjects, getEvents, getAnalytics } from '../../lib/localStore'
 import { isClerkEnabled } from '../../lib/auth'
 import { apiFetch } from '../../lib/useApi'
 
-const t = {
-  bg: '#FAF9F5',
-  text: '#191919',
-  gray: '#666666',
-  grayLight: '#999999',
-  accent: '#D97757',
-  border: '#E5E5E5',
-  white: '#FFFFFF',
-  green: '#2D7A4F',
-  greenLight: '#EDF7F1',
-  red: '#DC2626',
-  redLight: '#FEF2F2',
-  blue: '#2563EB',
-  blueLight: '#EFF6FF',
-  fontSans: '"Instrument Sans", sans-serif',
-  fontSerif: '"Merriweather", serif',
-}
-
-function Skeleton({ width = '100%', height = '1rem', style = {} }) {
+function Skeleton({ width = '100%', height = '1rem', className = '', style = {} }) {
   return (
-    <div style={{
-      background: 'linear-gradient(90deg, #E5E5E5 25%, #EBEBEB 50%, #E5E5E5 75%)',
-      backgroundSize: '200% 100%',
-      animation: 'shimmer 1.5s infinite',
-      borderRadius: '4px',
-      width,
-      height,
-      ...style,
-    }} />
+    <div
+      className={`rounded ${className}`}
+      style={{
+        background: 'linear-gradient(90deg, #E5E5E5 25%, #EBEBEB 50%, #E5E5E5 75%)',
+        backgroundSize: '200% 100%',
+        animation: 'shimmer 1.5s infinite',
+        width,
+        height,
+        ...style,
+      }}
+    />
   )
 }
 
 function BarChart({ data, height = 200 }) {
   const max = Math.max(...data.map(d => d.value), 1)
   return (
-    <div style={{ display: 'flex', alignItems: 'flex-end', gap: '6px', height, padding: '0 4px' }}>
+    <div className="flex items-end gap-[6px] px-1" style={{ height }}>
       {data.map((d, i) => (
-        <div key={i} style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '4px' }}>
-          <span style={{ fontSize: '0.65rem', color: t.grayLight, fontWeight: 500 }}>
+        <div key={i} className="flex-1 flex flex-col items-center gap-1">
+          <span className="text-[0.65rem] text-brand-gray-light font-medium">
             {d.value}
           </span>
-          <div style={{
-            width: '100%',
-            height: `${(d.value / max) * (height - 40)}px`,
-            background: d.color || t.accent,
-            borderRadius: '4px 4px 0 0',
-            minHeight: '4px',
-            transition: 'height 0.3s',
-          }} />
-          <span style={{ fontSize: '0.65rem', color: t.grayLight }}>
+          <div
+            className="w-full rounded-t min-h-[4px] transition-[height] duration-300"
+            style={{
+              height: `${(d.value / max) * (height - 40)}px`,
+              background: d.color || '#D97757',
+            }}
+          />
+          <span className="text-[0.65rem] text-brand-gray-light">
             {d.label}
           </span>
         </div>
@@ -65,32 +48,32 @@ function BarChart({ data, height = 200 }) {
 
 function MetricCard({ label, value, sub, color, loading }) {
   return (
-    <div style={{
-      background: t.white,
-      border: `1px solid ${t.border}`,
-      borderRadius: '10px',
-      padding: '20px',
-    }}>
-      <div style={{ fontSize: '0.72rem', color: t.grayLight, fontWeight: 500, marginBottom: '6px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+    <div className="bg-brand-white border border-brand-border rounded-[10px] p-5">
+      <div className="text-[0.72rem] text-brand-gray-light font-medium mb-[6px] uppercase tracking-[0.05em]">
         {label}
       </div>
       {loading ? (
-        <Skeleton height='2rem' width='60%' style={{ marginBottom: '4px' }} />
+        <Skeleton height='2rem' width='60%' className="mb-1" />
       ) : (
-        <div style={{ fontSize: '1.6rem', fontWeight: 800, color: color || t.text, letterSpacing: '-0.04em' }}>
+        <div className={`text-[1.6rem] font-[800] tracking-[-0.04em] ${
+          color === '#2D7A4F' ? 'text-brand-green'
+          : color === '#D97757' ? 'text-brand-accent'
+          : color === '#2563EB' ? 'text-brand-blue'
+          : 'text-brand-text'
+        }`}>
           {value}
         </div>
       )}
-      {sub && <div style={{ fontSize: '0.75rem', color: t.grayLight, marginTop: '4px' }}>{sub}</div>}
+      {sub && <div className="text-[0.75rem] text-brand-gray-light mt-1">{sub}</div>}
     </div>
   )
 }
 
 const outcomeColors = {
-  saved: { bg: '#EDF7F1', text: '#2D7A4F' },
-  paused: { bg: '#EFF6FF', text: '#2563EB' },
-  cancelled: { bg: '#FEF2F2', text: '#DC2626' },
-  downgraded: { bg: '#FFF7ED', text: '#C2410C' },
+  saved: { bg: 'bg-brand-green-light', text: 'text-brand-green' },
+  paused: { bg: 'bg-brand-blue-light', text: 'text-brand-blue' },
+  cancelled: { bg: 'bg-[#FEF2F2]', text: 'text-brand-red' },
+  downgraded: { bg: 'bg-[#FFF7ED]', text: 'text-[#C2410C]' },
 }
 
 export default function AnalyticsPage() {
@@ -200,23 +183,23 @@ export default function AnalyticsPage() {
   const fmtCents = (c) => c ? '$' + (c / 100).toLocaleString('en-US', { maximumFractionDigits: 0 }) : '$0'
 
   const weeklyData = analytics?.weeks?.map(w => ({
-    label: w.label, value: w.saveRate, color: t.accent,
+    label: w.label, value: w.saveRate, color: '#D97757',
   })) || []
 
   const revenueData = analytics?.weeks?.map(w => ({
-    label: w.label, value: Math.round(w.revenue), color: t.green,
+    label: w.label, value: Math.round(w.revenue), color: '#2D7A4F',
   })) || []
 
   const reasonData = (analytics?.topReasons || []).slice(0, 5).map((r, i) => ({
     label: r.reason.split(' ')[0],
     value: r.count,
-    color: [t.accent, t.blue, '#6B4FA0', t.green, t.grayLight][i],
+    color: ['#D97757', '#2563EB', '#6B4FA0', '#2D7A4F', '#999999'][i],
   }))
 
   const outcomeData = analytics ? [
-    { label: 'Saved', value: analytics.savedEvents, color: t.green },
-    { label: 'Paused', value: analytics.pausedEvents || 0, color: t.blue },
-    { label: 'Cancelled', value: analytics.cancelledEvents, color: t.red },
+    { label: 'Saved', value: analytics.savedEvents, color: '#2D7A4F' },
+    { label: 'Paused', value: analytics.pausedEvents || 0, color: '#2563EB' },
+    { label: 'Cancelled', value: analytics.cancelledEvents, color: '#DC2626' },
   ] : []
 
   const relativeTime = (ts) => {
@@ -235,15 +218,15 @@ export default function AnalyticsPage() {
       <>
         <Head><title>Analytics — ChurnRecovery</title></Head>
         <AppLayout title="Analytics">
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '12px', marginBottom: '24px' }}>
+          <div className="grid grid-cols-5 gap-3 mb-6">
             {[...Array(5)].map((_, i) => (
-              <div key={i} style={{ background: t.white, border: `1px solid ${t.border}`, borderRadius: '10px', padding: '20px' }}>
-                <Skeleton height='0.75rem' width='70%' style={{ marginBottom: '10px' }} />
+              <div key={i} className="bg-brand-white border border-brand-border rounded-[10px] p-5">
+                <Skeleton height='0.75rem' width='70%' className="mb-[10px]" />
                 <Skeleton height='2rem' width='50%' />
               </div>
             ))}
           </div>
-          <div style={{ textAlign: 'center', padding: '40px', color: t.grayLight, fontFamily: t.fontSans, fontSize: '0.9rem' }}>
+          <div className="text-center p-10 text-brand-gray-light font-sans text-[0.9rem]">
             Loading analytics...
           </div>
         </AppLayout>
@@ -256,9 +239,9 @@ export default function AnalyticsPage() {
       <>
         <Head><title>Analytics — ChurnRecovery</title></Head>
         <AppLayout title="Analytics">
-          <div style={{ textAlign: 'center', padding: '80px 40px', color: t.grayLight, fontFamily: t.fontSerif }}>
-            <div style={{ fontSize: '3rem', marginBottom: '16px' }}>📊</div>
-            <p>No projects yet. <a href="/app/dashboard" style={{ color: t.accent }}>Create one →</a></p>
+          <div className="text-center py-20 px-10 text-brand-gray-light font-serif">
+            <div className="text-[3rem] mb-4">📊</div>
+            <p>No projects yet. <a href="/app/dashboard" className="text-brand-accent">Create one →</a></p>
           </div>
         </AppLayout>
       </>
@@ -279,31 +262,23 @@ export default function AnalyticsPage() {
       <AppLayout title="Analytics">
         {/* Data source indicator */}
         {usingRealData && (
-          <div style={{
-            display: 'inline-flex', alignItems: 'center', gap: '6px',
-            background: '#EDF7F1', color: '#2D7A4F', fontSize: '0.72rem',
-            fontWeight: 600, padding: '4px 10px', borderRadius: '20px',
-            marginBottom: '16px', fontFamily: t.fontSans,
-          }}>
+          <div className="inline-flex items-center gap-[6px] bg-brand-green-light text-brand-green text-[0.72rem] font-semibold px-[10px] py-1 rounded-[20px] mb-4 font-sans">
             <span>●</span> Live data from database
           </div>
         )}
 
         {/* Controls row */}
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '28px' }}>
-          <div style={{ display: 'flex', gap: '8px' }}>
+        <div className="flex justify-between items-center mb-7">
+          <div className="flex gap-2">
             {['7d', '30d', '90d', '12m'].map(p => (
               <button
                 key={p}
                 onClick={() => setPeriod(p)}
-                style={{
-                  padding: '6px 16px', borderRadius: '6px', fontSize: '0.8rem',
-                  fontFamily: t.fontSans, fontWeight: period === p ? 600 : 400,
-                  background: period === p ? t.accent : t.white,
-                  color: period === p ? t.white : t.gray,
-                  border: `1px solid ${period === p ? t.accent : t.border}`,
-                  cursor: 'pointer',
-                }}
+                className={`px-4 py-[6px] rounded-md text-[0.8rem] font-sans cursor-pointer border ${
+                  period === p
+                    ? 'font-semibold bg-brand-accent text-brand-white border-brand-accent'
+                    : 'font-normal bg-brand-white text-brand-gray border-brand-border'
+                }`}
               >
                 {p}
               </button>
@@ -313,10 +288,7 @@ export default function AnalyticsPage() {
             <select
               value={activeProject?.id}
               onChange={e => setActiveProject(projects.find(p => p.id === e.target.value))}
-              style={{
-                padding: '6px 12px', borderRadius: '6px', border: `1px solid ${t.border}`,
-                fontFamily: t.fontSans, fontSize: '0.85rem', background: t.white, color: t.text,
-              }}
+              className="px-3 py-[6px] rounded-md border border-brand-border font-sans text-[0.85rem] bg-brand-white text-brand-text"
             >
               {projects.map(p => <option key={p.id} value={p.id}>{p.name}</option>)}
             </select>
@@ -324,97 +296,97 @@ export default function AnalyticsPage() {
         </div>
 
         {/* Top metrics */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '12px', marginBottom: '24px' }}>
-          <MetricCard label="Save Rate" value={`${analytics?.saveRate ?? 0}%`} sub="Terminal events" color={t.green} loading={analyticsLoading} />
-          <MetricCard label="Revenue Saved" value={fmtCents(analytics?.revenueSavedCents)} sub="This period" color={t.accent} loading={analyticsLoading} />
+        <div className="grid grid-cols-5 gap-3 mb-6">
+          <MetricCard label="Save Rate" value={`${analytics?.saveRate ?? 0}%`} sub="Terminal events" color="#2D7A4F" loading={analyticsLoading} />
+          <MetricCard label="Revenue Saved" value={fmtCents(analytics?.revenueSavedCents)} sub="This period" color="#D97757" loading={analyticsLoading} />
           <MetricCard label="Cancel Attempts" value={fmt(analytics?.totalEvents)} sub="Total events" loading={analyticsLoading} />
-          <MetricCard label="Customers Saved" value={fmt(analytics?.savedEvents)} sub="Accepted offer" color={t.green} loading={analyticsLoading} />
-          <MetricCard label="Paused" value={fmt(analytics?.pausedEvents)} sub="Subscription paused" color={t.blue} loading={analyticsLoading} />
+          <MetricCard label="Customers Saved" value={fmt(analytics?.savedEvents)} sub="Accepted offer" color="#2D7A4F" loading={analyticsLoading} />
+          <MetricCard label="Paused" value={fmt(analytics?.pausedEvents)} sub="Subscription paused" color="#2563EB" loading={analyticsLoading} />
         </div>
 
         {/* Charts row */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '24px' }}>
-          <div style={{ background: t.white, border: `1px solid ${t.border}`, borderRadius: '12px', padding: '20px' }}>
-            <h3 style={{ fontFamily: t.fontSans, fontSize: '0.88rem', fontWeight: 700, color: t.text, margin: '0 0 16px' }}>
+        <div className="grid grid-cols-2 gap-4 mb-6">
+          <div className="bg-brand-white border border-brand-border rounded-xl p-5">
+            <h3 className="font-sans text-[0.88rem] font-bold text-brand-text m-0 mb-4">
               Save Rate by Week (%)
             </h3>
             {analyticsLoading ? (
-              <div style={{ display: 'flex', alignItems: 'flex-end', gap: '6px', height: '200px', padding: '0 4px' }}>
+              <div className="flex items-end gap-[6px] h-[200px] px-1">
                 {[...Array(4)].map((_, i) => (
-                  <Skeleton key={i} style={{ flex: 1, height: `${[60, 80, 50, 70][i]}%`, alignSelf: 'flex-end' }} />
+                  <Skeleton key={i} className="flex-1 self-end" style={{ height: `${[60, 80, 50, 70][i]}%` }} />
                 ))}
               </div>
             ) : weeklyData.length > 0 ? (
               <BarChart data={weeklyData} />
             ) : (
-              <div style={{ textAlign: 'center', padding: '40px', color: t.grayLight, fontSize: '0.85rem' }}>No data yet</div>
+              <div className="text-center p-10 text-brand-gray-light text-[0.85rem]">No data yet</div>
             )}
           </div>
-          <div style={{ background: t.white, border: `1px solid ${t.border}`, borderRadius: '12px', padding: '20px' }}>
-            <h3 style={{ fontFamily: t.fontSans, fontSize: '0.88rem', fontWeight: 700, color: t.text, margin: '0 0 16px' }}>
+          <div className="bg-brand-white border border-brand-border rounded-xl p-5">
+            <h3 className="font-sans text-[0.88rem] font-bold text-brand-text m-0 mb-4">
               Revenue Recovered ($)
             </h3>
             {analyticsLoading ? (
-              <div style={{ display: 'flex', alignItems: 'flex-end', gap: '6px', height: '200px', padding: '0 4px' }}>
+              <div className="flex items-end gap-[6px] h-[200px] px-1">
                 {[...Array(4)].map((_, i) => (
-                  <Skeleton key={i} style={{ flex: 1, height: `${[40, 90, 65, 75][i]}%`, alignSelf: 'flex-end' }} />
+                  <Skeleton key={i} className="flex-1 self-end" style={{ height: `${[40, 90, 65, 75][i]}%` }} />
                 ))}
               </div>
             ) : revenueData.length > 0 ? (
               <BarChart data={revenueData} />
             ) : (
-              <div style={{ textAlign: 'center', padding: '40px', color: t.grayLight, fontSize: '0.85rem' }}>No data yet</div>
+              <div className="text-center p-10 text-brand-gray-light text-[0.85rem]">No data yet</div>
             )}
           </div>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '24px' }}>
-          <div style={{ background: t.white, border: `1px solid ${t.border}`, borderRadius: '12px', padding: '20px' }}>
-            <h3 style={{ fontFamily: t.fontSans, fontSize: '0.88rem', fontWeight: 700, color: t.text, margin: '0 0 16px' }}>
+        <div className="grid grid-cols-2 gap-4 mb-6">
+          <div className="bg-brand-white border border-brand-border rounded-xl p-5">
+            <h3 className="font-sans text-[0.88rem] font-bold text-brand-text m-0 mb-4">
               Cancel Reasons
             </h3>
             {analyticsLoading ? (
-              <div style={{ display: 'flex', alignItems: 'flex-end', gap: '6px', height: '160px', padding: '0 4px' }}>
+              <div className="flex items-end gap-[6px] h-[160px] px-1">
                 {[...Array(5)].map((_, i) => (
-                  <Skeleton key={i} style={{ flex: 1, height: `${[70, 50, 90, 40, 60][i]}%`, alignSelf: 'flex-end' }} />
+                  <Skeleton key={i} className="flex-1 self-end" style={{ height: `${[70, 50, 90, 40, 60][i]}%` }} />
                 ))}
               </div>
             ) : reasonData.length > 0 ? (
               <BarChart data={reasonData} height={160} />
             ) : (
-              <div style={{ textAlign: 'center', padding: '40px', color: t.grayLight, fontSize: '0.85rem' }}>No reason data yet</div>
+              <div className="text-center p-10 text-brand-gray-light text-[0.85rem]">No reason data yet</div>
             )}
           </div>
-          <div style={{ background: t.white, border: `1px solid ${t.border}`, borderRadius: '12px', padding: '20px' }}>
-            <h3 style={{ fontFamily: t.fontSans, fontSize: '0.88rem', fontWeight: 700, color: t.text, margin: '0 0 16px' }}>
+          <div className="bg-brand-white border border-brand-border rounded-xl p-5">
+            <h3 className="font-sans text-[0.88rem] font-bold text-brand-text m-0 mb-4">
               Outcomes
             </h3>
             {analyticsLoading ? (
-              <div style={{ display: 'flex', alignItems: 'flex-end', gap: '6px', height: '160px', padding: '0 4px' }}>
+              <div className="flex items-end gap-[6px] h-[160px] px-1">
                 {[...Array(3)].map((_, i) => (
-                  <Skeleton key={i} style={{ flex: 1, height: `${[75, 45, 60][i]}%`, alignSelf: 'flex-end' }} />
+                  <Skeleton key={i} className="flex-1 self-end" style={{ height: `${[75, 45, 60][i]}%` }} />
                 ))}
               </div>
             ) : outcomeData.some(d => d.value > 0) ? (
               <BarChart data={outcomeData} height={160} />
             ) : (
-              <div style={{ textAlign: 'center', padding: '40px', color: t.grayLight, fontSize: '0.85rem' }}>No outcome data yet</div>
+              <div className="text-center p-10 text-brand-gray-light text-[0.85rem]">No outcome data yet</div>
             )}
           </div>
         </div>
 
         {/* Events table */}
-        <div style={{ background: t.white, border: `1px solid ${t.border}`, borderRadius: '12px', overflow: 'hidden' }}>
-          <div style={{ padding: '16px 20px', borderBottom: `1px solid ${t.border}`, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <h3 style={{ fontFamily: t.fontSans, fontSize: '0.88rem', fontWeight: 700, color: t.text, margin: 0 }}>
+        <div className="bg-brand-white border border-brand-border rounded-xl overflow-hidden">
+          <div className="px-5 py-4 border-b border-brand-border flex justify-between items-center">
+            <h3 className="font-sans text-[0.88rem] font-bold text-brand-text m-0">
               Recent Cancel Events
             </h3>
-            <span style={{ fontSize: '0.75rem', color: t.grayLight }}>{recentEvents.length} events</span>
+            <span className="text-[0.75rem] text-brand-gray-light">{recentEvents.length} events</span>
           </div>
           {analyticsLoading ? (
-            <div style={{ padding: '20px' }}>
+            <div className="p-5">
               {[...Array(5)].map((_, i) => (
-                <div key={i} style={{ display: 'flex', gap: '12px', marginBottom: '12px' }}>
+                <div key={i} className="flex gap-3 mb-3">
                   <Skeleton width='20%' height='1rem' />
                   <Skeleton width='25%' height='1rem' />
                   <Skeleton width='20%' height='1rem' />
@@ -425,42 +397,36 @@ export default function AnalyticsPage() {
               ))}
             </div>
           ) : recentEvents.length === 0 ? (
-            <div style={{ padding: '40px', textAlign: 'center', color: t.grayLight, fontSize: '0.85rem', fontFamily: t.fontSerif }}>
-              No events yet. <a href="/app/install" style={{ color: t.accent }}>Install the widget →</a>
+            <div className="p-10 text-center text-brand-gray-light text-[0.85rem] font-serif">
+              No events yet. <a href="/app/install" className="text-brand-accent">Install the widget →</a>
             </div>
           ) : (
-            <div style={{ overflowX: 'auto' }}>
-              <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.82rem', fontFamily: t.fontSans }}>
+            <div className="overflow-x-auto">
+              <table className="w-full border-collapse text-[0.82rem] font-sans">
                 <thead>
-                  <tr style={{ background: '#FAFAF8' }}>
+                  <tr className="bg-[#FAFAF8]">
                     {['Customer', 'Reason', 'Offer', 'Outcome', 'MRR', 'Time'].map(h => (
-                      <th key={h} style={{
-                        padding: '10px 16px', textAlign: 'left', fontWeight: 600,
-                        color: t.grayLight, fontSize: '0.72rem', textTransform: 'uppercase',
-                        letterSpacing: '0.05em', borderBottom: `1px solid ${t.border}`,
-                      }}>{h}</th>
+                      <th key={h} className="px-4 py-[10px] text-left font-semibold text-brand-gray-light text-[0.72rem] uppercase tracking-[0.05em] border-b border-brand-border">{h}</th>
                     ))}
                   </tr>
                 </thead>
                 <tbody>
                   {recentEvents.map((e, i) => {
-                    const oc = outcomeColors[e.outcome] || { bg: '#F5F5F5', text: t.gray }
+                    const oc = outcomeColors[e.outcome] || { bg: 'bg-[#F5F5F5]', text: 'text-brand-gray' }
                     return (
-                      <tr key={e.id || i} style={{ borderBottom: `1px solid ${t.border}` }}>
-                        <td style={{ padding: '10px 16px', color: t.text, fontWeight: 500 }}>{e.customer_id || 'Anonymous'}</td>
-                        <td style={{ padding: '10px 16px', color: t.gray }}>{e.reason || '—'}</td>
-                        <td style={{ padding: '10px 16px', color: t.gray }}>{e.offer_shown || '—'}</td>
-                        <td style={{ padding: '10px 16px' }}>
-                          <span style={{
-                            fontSize: '0.72rem', fontWeight: 600, padding: '2px 8px',
-                            borderRadius: '12px', background: oc.bg, color: oc.text,
-                            textTransform: 'capitalize',
-                          }}>{e.outcome}</span>
+                      <tr key={e.id || i} className="border-b border-brand-border">
+                        <td className="px-4 py-[10px] text-brand-text font-medium">{e.customer_id || 'Anonymous'}</td>
+                        <td className="px-4 py-[10px] text-brand-gray">{e.reason || '—'}</td>
+                        <td className="px-4 py-[10px] text-brand-gray">{e.offer_shown || '—'}</td>
+                        <td className="px-4 py-[10px]">
+                          <span
+                            className={`text-[0.72rem] font-semibold px-2 py-[2px] rounded-xl capitalize ${oc.bg} ${oc.text}`}
+                          >{e.outcome}</span>
                         </td>
-                        <td style={{ padding: '10px 16px', color: t.text, fontWeight: 500 }}>
+                        <td className="px-4 py-[10px] text-brand-text font-medium">
                           {e.mrr_cents ? `$${(e.mrr_cents / 100).toFixed(0)}` : '—'}
                         </td>
-                        <td style={{ padding: '10px 16px', color: t.grayLight }}>{relativeTime(e.created_at)}</td>
+                        <td className="px-4 py-[10px] text-brand-gray-light">{relativeTime(e.created_at)}</td>
                       </tr>
                     )
                   })}

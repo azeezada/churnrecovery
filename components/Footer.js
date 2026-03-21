@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import { tokens } from '../lib/design-tokens'
 
 const footerLinks = {
   Product: [
@@ -42,65 +41,26 @@ export default function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer style={{
-      borderTop: `1px solid ${tokens.colors.border}`,
-      background: tokens.colors.bg,
-      marginTop: '80px',
-    }}>
-      <div style={{
-        maxWidth: tokens.layout.containerMax,
-        margin: '0 auto',
-        padding: `64px ${tokens.layout.containerPadding} 40px`,
-      }}>
+    <footer className="border-t border-brand-border bg-brand-bg mt-20">
+      <div className="max-w-[1200px] mx-auto px-6 pt-16 pb-10">
         {/* Top row: brand + links grid */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: '1fr',
-          gap: '48px',
-          marginBottom: '48px',
-        }}
-          className="footer-grid"
-        >
+        <div className="grid grid-cols-1 gap-12 mb-12 footer-grid">
           {/* Brand column */}
           <div>
-            <Link href="/" style={{ textDecoration: 'none' }}>
-              <span style={{
-                fontFamily: tokens.fonts.sans,
-                fontWeight: tokens.fontWeights.semibold,
-                fontSize: tokens.fontSizes.lg,
-                color: tokens.colors.text,
-                letterSpacing: tokens.letterSpacings.snug,
-              }}>
+            <Link href="/" className="no-underline">
+              <span className="font-sans font-semibold text-lg text-brand-text tracking-[-0.02em]">
                 ChurnRecovery
               </span>
             </Link>
-            <p style={{
-              fontFamily: tokens.fonts.serif,
-              fontSize: tokens.fontSizes.sm,
-              color: tokens.colors.gray,
-              marginTop: '12px',
-              lineHeight: tokens.lineHeights.relaxed,
-              maxWidth: '240px',
-            }}>
+            <p className="font-serif text-sm text-brand-gray mt-3 leading-relaxed max-w-[240px]">
               Free churn recovery for SaaS. Stop losing customers to failed payments and cancel flows.
             </p>
-            <div style={{ marginTop: '20px', display: 'flex', gap: '12px' }}>
+            <div className="mt-5 flex gap-3">
               <a
                 href="https://github.com/churnrecovery"
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{
-                  fontFamily: tokens.fonts.sans,
-                  fontSize: tokens.fontSizes.sm,
-                  color: tokens.colors.gray,
-                  textDecoration: 'none',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '6px',
-                  transition: `color ${tokens.transitions.base}`,
-                }}
-                onMouseEnter={e => e.currentTarget.style.color = tokens.colors.text}
-                onMouseLeave={e => e.currentTarget.style.color = tokens.colors.gray}
+                className="font-sans text-sm text-brand-gray no-underline flex items-center gap-1.5 transition-colors duration-200 hover:text-brand-text"
               >
                 <GitHubIcon />
                 GitHub
@@ -111,32 +71,16 @@ export default function Footer() {
           {/* Links columns */}
           {Object.entries(footerLinks).map(([section, links]) => (
             <div key={section}>
-              <h4 style={{
-                fontFamily: tokens.fonts.sans,
-                fontWeight: tokens.fontWeights.semibold,
-                fontSize: tokens.fontSizes.xs,
-                letterSpacing: tokens.letterSpacings.wider,
-                textTransform: 'uppercase',
-                color: tokens.colors.text,
-                margin: '0 0 16px 0',
-              }}>
+              <h4 className="font-sans font-semibold text-xs tracking-[0.08em] uppercase text-brand-text mb-4 mt-0">
                 {section}
               </h4>
-              <ul style={{ listStyle: 'none', margin: 0, padding: 0, display: 'flex', flexDirection: 'column', gap: '10px' }}>
+              <ul className="list-none m-0 p-0 flex flex-col gap-2.5">
                 {links.map(link => (
                   <li key={link.href}>
                     <Link
                       href={link.href}
                       target={link.target}
-                      style={{
-                        fontFamily: tokens.fonts.sans,
-                        fontSize: tokens.fontSizes.sm,
-                        color: tokens.colors.gray,
-                        textDecoration: 'none',
-                        transition: `color ${tokens.transitions.base}`,
-                      }}
-                      onMouseEnter={e => e.currentTarget.style.color = tokens.colors.text}
-                      onMouseLeave={e => e.currentTarget.style.color = tokens.colors.gray}
+                      className="font-sans text-sm text-brand-gray no-underline transition-colors duration-200 hover:text-brand-text"
                     >
                       {link.label}
                     </Link>
@@ -148,24 +92,11 @@ export default function Footer() {
         </div>
 
         {/* Bottom row: copyright + legal */}
-        <div style={{
-          borderTop: `1px solid ${tokens.colors.border}`,
-          paddingTop: '24px',
-          display: 'flex',
-          flexWrap: 'wrap',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          gap: '16px',
-        }}>
-          <p style={{
-            fontFamily: tokens.fonts.sans,
-            fontSize: tokens.fontSizes.xs,
-            color: tokens.colors.grayLight,
-            margin: 0,
-          }}>
+        <div className="border-t border-brand-border pt-6 flex flex-wrap justify-between items-center gap-4">
+          <p className="font-sans text-xs text-brand-gray-light m-0">
             © {currentYear} ChurnRecovery. Free forever. Open source.
           </p>
-          <div style={{ display: 'flex', gap: '24px' }}>
+          <div className="flex gap-6">
             {[
               { label: 'Design Exploration', href: '/styles' },
               { label: 'Privacy', href: '/privacy' },
@@ -175,15 +106,7 @@ export default function Footer() {
               <Link
                 key={link.href}
                 href={link.href}
-                style={{
-                  fontFamily: tokens.fonts.sans,
-                  fontSize: tokens.fontSizes.xs,
-                  color: tokens.colors.grayLight,
-                  textDecoration: 'none',
-                  transition: `color ${tokens.transitions.base}`,
-                }}
-                onMouseEnter={e => e.currentTarget.style.color = tokens.colors.text}
-                onMouseLeave={e => e.currentTarget.style.color = tokens.colors.grayLight}
+                className="font-sans text-xs text-brand-gray-light no-underline transition-colors duration-200 hover:text-brand-text"
               >
                 {link.label}
               </Link>

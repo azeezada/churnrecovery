@@ -1,24 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { useABTest } from '../lib/useABTest'
 
-const t = {
-  bg: '#FAF9F5',
-  text: '#191919',
-  gray: '#666666',
-  grayLight: '#999999',
-  accent: '#D97757',
-  accentHover: '#C4603D',
-  border: '#E5E5E5',
-  white: '#FFFFFF',
-  green: '#2D7A4F',
-  greenLight: '#EDF7F1',
-  red: '#DC2626',
-  redLight: '#FEF2F2',
-  redBorder: '#FECACA',
-  fontSans: '"Instrument Sans", sans-serif',
-  fontSerif: '"Merriweather", serif',
-}
-
 // RFC 5322-ish email validation — covers real-world emails without being overly strict
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/
 
@@ -122,45 +104,34 @@ export default function WaitlistForm({ source = 'homepage', dark = false, compac
   }
 
   const hasValidationError = touched && validationError
-  const bgColor = dark ? 'rgba(255,255,255,0.08)' : t.white
-  const borderColor = hasValidationError
-    ? (dark ? '#F87171' : t.red)
-    : (dark ? 'rgba(255,255,255,0.15)' : t.border)
-  const textColor = dark ? t.white : t.text
-  const subtextColor = dark ? 'rgba(255,255,255,0.6)' : t.gray
   const errorId = `waitlist-error-${source}`
+
+  // Dynamic class helpers for dark/compact/error states
+  const subtextColor = dark ? 'text-[rgba(255,255,255,0.6)]' : 'text-brand-gray'
+  const errorColor = dark ? 'text-[#F87171]' : 'text-brand-red'
+
+  const inputBorderBg = hasValidationError
+    ? (dark ? 'border-[#F87171] bg-[rgba(220,38,38,0.1)]' : 'border-brand-red bg-[#FEF2F2]')
+    : (dark ? 'border-[rgba(255,255,255,0.15)] bg-[rgba(255,255,255,0.08)]' : 'border-brand-border bg-brand-white')
 
   if (status === 'success' || status === 'duplicate') {
     return (
-      <div style={{
-        textAlign: 'center',
-        padding: compact ? '16px' : '24px',
-        borderRadius: '10px',
-        background: dark ? 'rgba(45, 122, 79, 0.15)' : t.greenLight,
-        border: `1px solid ${dark ? 'rgba(45, 122, 79, 0.3)' : '#C6E6D4'}`,
-      }}>
-        <div style={{ fontSize: '1.5rem', marginBottom: '8px' }}>
+      <div className={`text-center ${compact ? 'p-4' : 'p-6'} rounded-[10px] ${
+        dark ? 'bg-[rgba(45,122,79,0.15)] border border-[rgba(45,122,79,0.3)]' : 'bg-brand-green-light border border-[#C6E6D4]'
+      }`}>
+        <div className="text-2xl mb-2">
           {status === 'duplicate' ? '👋' : '🎉'}
         </div>
-        <p style={{
-          fontFamily: t.fontSans, fontSize: '0.95rem', fontWeight: 600,
-          color: dark ? t.white : t.text, margin: '0 0 4px',
-        }}>
+        <p className={`font-sans text-[0.95rem] font-semibold mb-1 mt-0 ${dark ? 'text-brand-white' : 'text-brand-text'}`}>
           {status === 'duplicate' ? "You're already on the list!" : "You're in!"}
         </p>
-        <p style={{
-          fontFamily: t.fontSerif, fontSize: '0.82rem',
-          color: subtextColor, margin: 0,
-        }}>
+        <p className={`font-serif text-[0.82rem] m-0 ${subtextColor}`}>
           {status === 'duplicate'
             ? "We've got your email — we'll reach out soon."
             : "We'll email you when we're ready to launch."}
         </p>
         {count && (
-          <p style={{
-            fontFamily: t.fontSans, fontSize: '0.75rem',
-            color: subtextColor, margin: '8px 0 0', opacity: 0.8,
-          }}>
+          <p className={`font-sans text-xs mt-2 mb-0 opacity-80 ${subtextColor}`}>
             {count.toLocaleString()} {count === 1 ? 'person' : 'people'} on the waitlist
           </p>
         )}
@@ -170,10 +141,7 @@ export default function WaitlistForm({ source = 'homepage', dark = false, compac
 
   return (
     <div>
-      <form onSubmit={handleSubmit} style={{
-        display: 'flex', gap: '8px',
-        flexDirection: compact ? 'column' : 'row',
-      }}>
+      <form onSubmit={handleSubmit} className={`flex gap-2 ${compact ? 'flex-col' : 'flex-row'}`}>
         <input
           ref={inputRef}
           type="email"
@@ -192,36 +160,14 @@ export default function WaitlistForm({ source = 'homepage', dark = false, compac
           aria-label="Email address"
           aria-invalid={hasValidationError ? 'true' : 'false'}
           aria-describedby={hasValidationError ? errorId : undefined}
-          style={{
-            flex: 1,
-            padding: compact ? '10px 14px' : '12px 16px',
-            borderRadius: '8px',
-            border: `1px solid ${borderColor}`,
-            background: hasValidationError ? (dark ? 'rgba(220,38,38,0.1)' : t.redLight) : bgColor,
-            fontFamily: t.fontSans,
-            fontSize: '0.9rem',
-            color: textColor,
-            outline: 'none',
-            minWidth: compact ? '100%' : '240px',
-            transition: 'border-color 0.15s, background 0.15s',
-          }}
+          className={`flex-1 ${compact ? 'px-3.5 py-2.5 min-w-full' : 'px-4 py-3 min-w-[240px]'} rounded-lg border font-sans text-[0.9rem] outline-none transition-[border-color,background] duration-150 ${inputBorderBg} ${dark ? 'text-brand-white' : 'text-brand-text'}`}
         />
         <button
           type="submit"
           disabled={status === 'loading'}
-          style={{
-            padding: compact ? '10px 20px' : '12px 24px',
-            borderRadius: '8px',
-            border: 'none',
-            background: status === 'loading' ? t.grayLight : t.accent,
-            color: t.white,
-            fontFamily: t.fontSans,
-            fontWeight: 700,
-            fontSize: '0.9rem',
-            cursor: status === 'loading' ? 'not-allowed' : 'pointer',
-            whiteSpace: 'nowrap',
-            transition: 'background 0.15s',
-          }}
+          className={`${compact ? 'px-5 py-2.5' : 'px-6 py-3'} rounded-lg border-none font-sans font-bold text-[0.9rem] text-brand-white whitespace-nowrap transition-[background] duration-150 ${
+            status === 'loading' ? 'bg-brand-gray-light cursor-not-allowed' : 'bg-brand-accent cursor-pointer'
+          }`}
         >
           {status === 'loading' ? 'Joining...' : abCta}
         </button>
@@ -231,10 +177,7 @@ export default function WaitlistForm({ source = 'homepage', dark = false, compac
         <p
           id={errorId}
           role="alert"
-          style={{
-            fontFamily: t.fontSans, fontSize: '0.8rem', color: dark ? '#F87171' : t.red,
-            margin: '8px 0 0', display: 'flex', alignItems: 'center', gap: '4px',
-          }}
+          className={`font-sans text-[0.8rem] ${errorColor} mt-2 mb-0 flex items-center gap-1`}
         >
           <span aria-hidden="true">⚠</span> {validationError}
         </p>
@@ -243,30 +186,19 @@ export default function WaitlistForm({ source = 'homepage', dark = false, compac
       {status === 'error' && (
         <p
           role="alert"
-          style={{
-            fontFamily: t.fontSans, fontSize: '0.8rem', color: dark ? '#F87171' : t.red,
-            margin: '8px 0 0', display: 'flex', alignItems: 'center', gap: '4px',
-          }}
+          className={`font-sans text-[0.8rem] ${errorColor} mt-2 mb-0 flex items-center gap-1`}
         >
           <span aria-hidden="true">⚠</span> {errorMessage}
         </p>
       )}
 
-      <div style={{
-        display: 'flex', gap: '16px', alignItems: 'center',
-        marginTop: '10px', flexWrap: 'wrap',
-      }}>
-        <span style={{
-          fontFamily: t.fontSans, fontSize: '0.75rem', color: subtextColor,
-        }}>
+      <div className="flex gap-4 items-center mt-2.5 flex-wrap">
+        <span className={`font-sans text-xs ${subtextColor}`}>
           Free forever · No credit card required
         </span>
         {count && (
-          <span style={{
-            fontFamily: t.fontSans, fontSize: '0.75rem', color: subtextColor,
-            display: 'flex', alignItems: 'center', gap: '4px',
-          }}>
-            <span style={{ color: t.green }}>●</span>
+          <span className={`font-sans text-xs ${subtextColor} flex items-center gap-1`}>
+            <span className="text-brand-green">●</span>
             {count.toLocaleString()} on the waitlist
           </span>
         )}

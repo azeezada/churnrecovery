@@ -11,59 +11,41 @@ import {
 } from '../../lib/localStore'
 import { apiFetch } from '../../lib/useApi'
 
-const t = {
-  bg: '#FAF9F5',
-  text: '#191919',
-  gray: '#666666',
-  grayLight: '#999999',
-  accent: '#D97757',
-  border: '#E5E5E5',
-  white: '#FFFFFF',
-  green: '#2D7A4F',
-  greenLight: '#EDF7F1',
-  red: '#DC2626',
-  redLight: '#FEF2F2',
-  blue: '#2563EB',
-  blueLight: '#EFF6FF',
-  fontSans: '"Instrument Sans", sans-serif',
-  fontSerif: '"Merriweather", serif',
-}
-
-function Skeleton({ width = '100%', height = '1rem', style = {} }) {
+function Skeleton({ width = '100%', height = '1rem', className = '', style = {} }) {
   return (
-    <div style={{
-      background: 'linear-gradient(90deg, #E5E5E5 25%, #EBEBEB 50%, #E5E5E5 75%)',
-      backgroundSize: '200% 100%',
-      animation: 'shimmer 1.5s infinite',
-      borderRadius: '4px',
-      width,
-      height,
-      ...style,
-    }} />
+    <div
+      className={`rounded ${className}`}
+      style={{
+        background: 'linear-gradient(90deg, #E5E5E5 25%, #EBEBEB 50%, #E5E5E5 75%)',
+        backgroundSize: '200% 100%',
+        animation: 'shimmer 1.5s infinite',
+        width,
+        height,
+        ...style,
+      }}
+    />
   )
 }
 
 function StatCard({ label, value, change, changeLabel, color, loading }) {
   const isPositive = change >= 0
+  const colorClass = color === '#2D7A4F' ? 'text-brand-green'
+    : color === '#D97757' ? 'text-brand-accent'
+    : 'text-brand-text'
   return (
-    <div style={{
-      background: t.white,
-      border: `1px solid ${t.border}`,
-      borderRadius: '12px',
-      padding: '24px',
-    }}>
-      <div style={{ fontSize: '0.78rem', color: t.grayLight, fontWeight: 500, marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+    <div className="bg-brand-white border border-brand-border rounded-xl p-6">
+      <div className="text-[0.78rem] text-brand-gray-light font-medium mb-2 uppercase tracking-[0.05em]">
         {label}
       </div>
       {loading ? (
-        <Skeleton height='2rem' width='60%' style={{ marginBottom: '4px' }} />
+        <Skeleton height='2rem' width='60%' className="mb-1" />
       ) : (
-        <div style={{ fontSize: '2rem', fontWeight: 800, color: color || t.text, letterSpacing: '-0.04em', marginBottom: '4px' }}>
+        <div className={`text-[2rem] font-[800] tracking-[-0.04em] mb-1 ${color ? colorClass : 'text-brand-text'}`}>
           {value}
         </div>
       )}
       {change !== undefined && !loading && (
-        <div style={{ fontSize: '0.78rem', color: isPositive ? t.green : t.red, fontWeight: 500 }}>
+        <div className={`text-[0.78rem] font-medium ${isPositive ? 'text-brand-green' : 'text-brand-red'}`}>
           {isPositive ? '↑' : '↓'} {Math.abs(change)}% {changeLabel || 'vs last month'}
         </div>
       )}
@@ -73,44 +55,26 @@ function StatCard({ label, value, change, changeLabel, color, loading }) {
 
 function EmptyState({ onCreateProject, creating }) {
   return (
-    <div style={{
-      background: t.white,
-      border: `2px dashed ${t.border}`,
-      borderRadius: '12px',
-      padding: '60px 40px',
-      textAlign: 'center',
-    }}>
-      <div style={{ fontSize: '3rem', marginBottom: '16px' }}>🚀</div>
-      <h2 style={{ fontFamily: t.fontSans, fontSize: '1.3rem', fontWeight: 700, color: t.text, margin: '0 0 8px' }}>
+    <div className="bg-brand-white border-2 border-dashed border-brand-border rounded-xl py-[60px] px-[40px] text-center">
+      <div className="text-[3rem] mb-4">🚀</div>
+      <h2 className="font-sans text-[1.3rem] font-bold text-brand-text m-0 mb-2">
         Welcome to ChurnRecovery
       </h2>
-      <p style={{ fontFamily: t.fontSerif, fontSize: '0.9rem', color: t.gray, lineHeight: 1.7, margin: '0 0 24px', maxWidth: '420px', marginLeft: 'auto', marginRight: 'auto' }}>
+      <p className="font-serif text-[0.9rem] text-brand-gray leading-[1.7] m-0 mb-6 max-w-[420px] mx-auto">
         Set up your first cancel flow to start recovering churned customers. It takes less than 5 minutes.
       </p>
-      <div style={{ display: 'flex', gap: '12px', justifyContent: 'center' }}>
-        <Link href="/app/onboarding" style={{
-          background: t.accent, color: t.white, padding: '10px 24px',
-          borderRadius: '8px', border: 'none', cursor: 'pointer',
-          fontWeight: 600, fontSize: '0.9rem', textDecoration: 'none',
-          display: 'inline-flex', alignItems: 'center'
-        }}>
+      <div className="flex gap-3 justify-center">
+        <Link href="/app/onboarding" className="bg-brand-accent text-brand-white py-[10px] px-6 rounded-lg border-none cursor-pointer font-semibold text-[0.9rem] no-underline inline-flex items-center">
           Start Setup Wizard
         </Link>
         <button
           onClick={onCreateProject}
           disabled={creating}
-          style={{
-            background: 'transparent', color: t.gray, padding: '10px 24px',
-            borderRadius: '8px', border: `1px solid ${t.border}`, cursor: creating ? 'not-allowed' : 'pointer',
-            fontWeight: 500, fontSize: '0.9rem', opacity: creating ? 0.7 : 1,
-          }}
+          className={`bg-transparent text-brand-gray py-[10px] px-6 rounded-lg border border-brand-border font-medium text-[0.9rem] ${creating ? 'cursor-not-allowed opacity-70' : 'cursor-pointer opacity-100'}`}
         >
           {creating ? 'Creating...' : 'Quick Create'}
         </button>
-        <Link href="/app/install" style={{
-          padding: '10px 24px', borderRadius: '8px', border: `1px solid ${t.border}`,
-          textDecoration: 'none', color: t.gray, fontSize: '0.9rem', fontWeight: 500,
-        }}>
+        <Link href="/app/install" className="py-[10px] px-6 rounded-lg border border-brand-border no-underline text-brand-gray text-[0.9rem] font-medium">
           Install Guide
         </Link>
       </div>
@@ -127,7 +91,7 @@ const outcomeColors = {
 }
 
 function RecentEventRow({ event }) {
-  const outcome = outcomeColors[event.outcome] || { bg: '#F5F5F5', text: t.gray, label: event.outcome }
+  const outcome = outcomeColors[event.outcome] || { bg: '#F5F5F5', text: '#666', label: event.outcome }
 
   const relativeTime = (created_at) => {
     const diff = Date.now() - new Date(created_at).getTime()
@@ -141,25 +105,21 @@ function RecentEventRow({ event }) {
   }
 
   return (
-    <div style={{
-      display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-      padding: '12px 0',
-      borderBottom: `1px solid ${t.border}`,
-    }}>
+    <div className="flex items-center justify-between py-3 border-b border-brand-border">
       <div>
-        <div style={{ fontSize: '0.88rem', fontWeight: 500, color: t.text }}>
+        <div className="text-[0.88rem] font-medium text-brand-text">
           {event.customer_id || 'Anonymous'}
         </div>
-        <div style={{ fontSize: '0.78rem', color: t.grayLight }}>{event.reason || '—'}</div>
+        <div className="text-[0.78rem] text-brand-gray-light">{event.reason || '—'}</div>
       </div>
-      <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-        <span style={{
-          fontSize: '0.72rem', fontWeight: 600, padding: '3px 10px', borderRadius: '20px',
-          background: outcome.bg, color: outcome.text,
-        }}>
+      <div className="flex items-center gap-3">
+        <span
+          className="text-[0.72rem] font-semibold py-[3px] px-[10px] rounded-[20px]"
+          style={{ background: outcome.bg, color: outcome.text }}
+        >
           {outcome.label}
         </span>
-        <span style={{ fontSize: '0.75rem', color: t.grayLight }}>{relativeTime(event.created_at)}</span>
+        <span className="text-[0.75rem] text-brand-gray-light">{relativeTime(event.created_at)}</span>
       </div>
     </div>
   )
@@ -281,21 +241,21 @@ export default function DashboardPage() {
         }
       `}</style>
       <AppLayout title="Dashboard">
-        <p style={{ fontFamily: t.fontSerif, fontSize: '0.9rem', color: t.gray, margin: '0 0 32px', lineHeight: 1.7 }}>
+        <p className="font-serif text-[0.9rem] text-brand-gray m-0 mb-8 leading-[1.7]">
           {isLoaded && user ? `Welcome back, ${user.firstName || user.emailAddresses?.[0]?.emailAddress || 'there'}` : 'Loading..'}. Here&apos;s your churn recovery overview.
         </p>
 
         {loading ? (
           <div>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '16px', marginBottom: '32px' }}>
+            <div className="grid grid-cols-4 gap-4 mb-8">
               {[...Array(4)].map((_, i) => (
-                <div key={i} style={{ background: t.white, border: `1px solid ${t.border}`, borderRadius: '12px', padding: '24px' }}>
-                  <Skeleton height='0.78rem' width='60%' style={{ marginBottom: '12px' }} />
+                <div key={i} className="bg-brand-white border border-brand-border rounded-xl p-6">
+                  <Skeleton height='0.78rem' width='60%' className="mb-3" />
                   <Skeleton height='2rem' width='45%' />
                 </div>
               ))}
             </div>
-            <div style={{ textAlign: 'center', padding: '60px', color: t.grayLight, fontFamily: t.fontSans }}>
+            <div className="text-center p-[60px] text-brand-gray-light font-sans">
               Loading your dashboard...
             </div>
           </div>
@@ -304,24 +264,18 @@ export default function DashboardPage() {
         ) : (
           <>
             {/* Data source + project selector bar */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '24px' }}>
+            <div className="flex items-center gap-3 mb-6">
               {usingRealData && (
-                <span style={{
-                  fontSize: '0.7rem', fontWeight: 600, padding: '3px 8px',
-                  borderRadius: '10px', background: '#EDF7F1', color: '#2D7A4F',
-                }}>● Live</span>
+                <span className="text-[0.7rem] font-semibold py-[3px] px-2 rounded-[10px] bg-[#EDF7F1] text-[#2D7A4F]">● Live</span>
               )}
-              <span style={{ fontSize: '0.78rem', color: t.grayLight, fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Project:</span>
+              <span className="text-[0.78rem] text-brand-gray-light font-medium uppercase tracking-[0.05em]">Project:</span>
               <select
                 value={activeProject?.id}
                 onChange={e => {
                   const p = projects.find(p => p.id === e.target.value)
                   setActiveProject(p)
                 }}
-                style={{
-                  padding: '6px 12px', borderRadius: '6px', border: `1px solid ${t.border}`,
-                  fontFamily: t.fontSans, fontSize: '0.85rem', background: t.white, color: t.text,
-                }}
+                className="py-1.5 px-3 rounded-md border border-brand-border font-sans text-[0.85rem] bg-brand-white text-brand-text"
               >
                 {projects.map(p => <option key={p.id} value={p.id}>{p.name}</option>)}
               </select>
@@ -348,27 +302,24 @@ export default function DashboardPage() {
                     setCreating(false)
                   }
                 }}
-                style={{
-                  padding: '6px 12px', borderRadius: '6px', border: `1px solid ${t.border}`,
-                  background: t.white, color: t.text, cursor: 'pointer', fontSize: '0.78rem', fontWeight: 500,
-                }}
+                className="py-1.5 px-3 rounded-md border border-brand-border bg-brand-white text-brand-text cursor-pointer text-[0.78rem] font-medium"
               >
                 + New Project
               </button>
             </div>
 
             {/* Stats Grid */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '16px', marginBottom: '32px' }}>
+            <div className="grid grid-cols-4 gap-4 mb-8">
               <StatCard
                 label="Save Rate"
                 value={analytics ? `${analytics.saveRate}%` : '—'}
-                color={t.green}
+                color="#2D7A4F"
                 loading={analyticsLoading}
               />
               <StatCard
                 label="Revenue Saved"
                 value={analytics ? formatCurrency(analytics.revenueSavedCents) : '—'}
-                color={t.accent}
+                color="#D97757"
                 loading={analyticsLoading}
               />
               <StatCard
@@ -379,45 +330,42 @@ export default function DashboardPage() {
               <StatCard
                 label="Saves (30d)"
                 value={analytics ? analytics.savedEvents.toLocaleString() : '—'}
-                color={t.green}
+                color="#2D7A4F"
                 loading={analyticsLoading}
               />
             </div>
 
             {/* Two Column: Recent Events + Quick Actions */}
-            <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '24px' }}>
+            <div className="grid grid-cols-[2fr_1fr] gap-6">
               {/* Recent Events */}
-              <div style={{
-                background: t.white, border: `1px solid ${t.border}`,
-                borderRadius: '12px', padding: '24px',
-              }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
-                  <h2 style={{ fontFamily: t.fontSans, fontSize: '1rem', fontWeight: 700, color: t.text, margin: 0 }}>
+              <div className="bg-brand-white border border-brand-border rounded-xl p-6">
+                <div className="flex justify-between items-center mb-4">
+                  <h2 className="font-sans text-[1rem] font-bold text-brand-text m-0">
                     Recent Events
                   </h2>
-                  <Link href="/app/analytics" style={{ fontSize: '0.78rem', color: t.accent, textDecoration: 'none', fontWeight: 500 }}>
+                  <Link href="/app/analytics" className="text-[0.78rem] text-brand-accent no-underline font-medium">
                     View all →
                   </Link>
                 </div>
                 {analyticsLoading ? (
                   <div>
                     {[...Array(5)].map((_, i) => (
-                      <div key={i} style={{ display: 'flex', justifyContent: 'space-between', padding: '12px 0', borderBottom: `1px solid ${t.border}` }}>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                      <div key={i} className="flex justify-between py-3 border-b border-brand-border">
+                        <div className="flex flex-col gap-1.5">
                           <Skeleton width='140px' height='0.88rem' />
                           <Skeleton width='100px' height='0.75rem' />
                         </div>
-                        <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
-                          <Skeleton width='60px' height='1.2rem' style={{ borderRadius: '20px' }} />
+                        <div className="flex gap-2 items-center">
+                          <Skeleton width='60px' height='1.2rem' className="rounded-[20px]" />
                           <Skeleton width='50px' height='0.75rem' />
                         </div>
                       </div>
                     ))}
                   </div>
                 ) : events.length === 0 ? (
-                  <div style={{ textAlign: 'center', padding: '32px 0', color: t.grayLight, fontSize: '0.85rem', fontFamily: t.fontSerif }}>
+                  <div className="text-center py-8 text-brand-gray-light text-[0.85rem] font-serif">
                     No events yet. Install the widget to start tracking.{' '}
-                    <Link href="/app/install" style={{ color: t.accent }}>Get the code →</Link>
+                    <Link href="/app/install" className="text-brand-accent">Get the code →</Link>
                   </div>
                 ) : (
                   events.map((event, i) => <RecentEventRow key={event.id || i} event={event} />)
@@ -425,14 +373,11 @@ export default function DashboardPage() {
               </div>
 
               {/* Quick Actions */}
-              <div style={{
-                background: t.white, border: `1px solid ${t.border}`,
-                borderRadius: '12px', padding: '24px',
-              }}>
-                <h2 style={{ fontFamily: t.fontSans, fontSize: '1rem', fontWeight: 700, color: t.text, margin: '0 0 16px' }}>
+              <div className="bg-brand-white border border-brand-border rounded-xl p-6">
+                <h2 className="font-sans text-[1rem] font-bold text-brand-text m-0 mb-4">
                   Quick Actions
                 </h2>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                <div className="flex flex-col gap-2">
                   {[
                     { href: '/app/cancel-flow', icon: '🚪', label: 'Edit Cancel Flow' },
                     { href: '/app/install', icon: '📦', label: 'Get Install Code' },
@@ -443,12 +388,7 @@ export default function DashboardPage() {
                     <Link
                       key={action.href}
                       href={action.href}
-                      style={{
-                        display: 'flex', alignItems: 'center', gap: '10px',
-                        padding: '10px 12px', borderRadius: '8px',
-                        textDecoration: 'none', fontSize: '0.85rem',
-                        color: t.text, border: `1px solid ${t.border}`,
-                      }}
+                      className="flex items-center gap-[10px] py-[10px] px-3 rounded-lg no-underline text-[0.85rem] text-brand-text border border-brand-border"
                     >
                       <span>{action.icon}</span>
                       {action.label}
@@ -458,14 +398,11 @@ export default function DashboardPage() {
 
                 {/* API Key */}
                 {activeProject && (
-                  <div style={{ marginTop: '20px', padding: '16px', background: t.bg, borderRadius: '8px' }}>
-                    <div style={{ fontSize: '0.72rem', fontWeight: 600, color: t.grayLight, textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '6px' }}>
+                  <div className="mt-5 p-4 bg-brand-bg rounded-lg">
+                    <div className="text-[0.72rem] font-semibold text-brand-gray-light uppercase tracking-[0.05em] mb-1.5">
                       API Key
                     </div>
-                    <code style={{
-                      fontSize: '0.7rem', color: t.text, wordBreak: 'break-all',
-                      fontFamily: 'monospace', lineHeight: 1.5,
-                    }}>
+                    <code className="text-[0.7rem] text-brand-text break-all font-mono leading-[1.5]">
                       {activeProject.api_key}
                     </code>
                   </div>

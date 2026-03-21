@@ -4,22 +4,6 @@ import Link from 'next/link'
 import AppLayout from '../../components/AppLayout'
 import { getProjects, createProject } from '../../lib/localStore'
 
-const t = {
-  bg: '#FAF9F5',
-  text: '#191919',
-  gray: '#666666',
-  grayLight: '#999999',
-  accent: '#D97757',
-  border: '#E5E5E5',
-  white: '#FFFFFF',
-  green: '#2D7A4F',
-  greenLight: '#EDF7F1',
-  fontSans: '"Instrument Sans", sans-serif',
-  fontSerif: '"Merriweather", serif',
-  codeBg: '#1E1E2E',
-  codeText: '#CDD6F4',
-}
-
 function CodeBlock({ title, language, children, onCopy }) {
   const [copied, setCopied] = useState(false)
 
@@ -30,28 +14,17 @@ function CodeBlock({ title, language, children, onCopy }) {
   }
 
   return (
-    <div style={{ borderRadius: '10px', overflow: 'hidden', marginBottom: '20px', border: '1px solid rgba(255,255,255,0.05)' }}>
-      <div style={{
-        background: '#181825', padding: '10px 16px',
-        display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-      }}>
-        <span style={{ fontFamily: 'monospace', fontSize: '0.78rem', color: '#6C7086' }}>{title}</span>
+    <div className="rounded-[10px] overflow-hidden mb-5 border border-white/5">
+      <div className="bg-[#181825] px-4 py-2.5 flex items-center justify-between">
+        <span className="font-mono text-[0.78rem] text-[#6C7086]">{title}</span>
         <button
           onClick={handleCopy}
-          style={{
-            fontSize: '0.7rem', fontFamily: t.fontSans, color: copied ? t.green : '#6C7086',
-            background: 'none', border: 'none', cursor: 'pointer',
-          }}
+          className={`text-[0.7rem] font-sans border-none cursor-pointer bg-transparent ${copied ? 'text-brand-green' : 'text-[#6C7086]'}`}
         >
           {copied ? '✓ Copied' : '📋 Copy'}
         </button>
       </div>
-      <pre style={{
-        background: t.codeBg, padding: '20px', margin: 0,
-        overflowX: 'auto', fontSize: '0.82rem', lineHeight: 1.7,
-        fontFamily: '"SF Mono", "Fira Code", monospace',
-        color: t.codeText,
-      }}>
+      <pre className="bg-[#1E1E2E] p-5 m-0 overflow-x-auto text-[0.82rem] leading-[1.7] font-[&quot;SF_Mono&quot;,&quot;Fira_Code&quot;,monospace] text-[#CDD6F4]">
         <code>{children}</code>
       </pre>
     </div>
@@ -60,21 +33,16 @@ function CodeBlock({ title, language, children, onCopy }) {
 
 function Step({ number, title, children }) {
   return (
-    <div style={{ marginBottom: '32px' }}>
-      <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px' }}>
-        <div style={{
-          width: '28px', height: '28px', borderRadius: '50%',
-          background: t.accent, color: t.white, display: 'flex',
-          alignItems: 'center', justifyContent: 'center',
-          fontSize: '0.8rem', fontWeight: 700, flexShrink: 0,
-        }}>
+    <div className="mb-8">
+      <div className="flex items-center gap-3 mb-3">
+        <div className="w-7 h-7 rounded-full bg-brand-accent text-brand-white flex items-center justify-center text-[0.8rem] font-bold shrink-0">
           {number}
         </div>
-        <h3 style={{ fontFamily: t.fontSans, fontSize: '1rem', fontWeight: 700, color: t.text, margin: 0 }}>
+        <h3 className="font-sans text-base font-bold text-brand-text m-0">
           {title}
         </h3>
       </div>
-      <div style={{ paddingLeft: '40px' }}>
+      <div className="pl-10">
         {children}
       </div>
     </div>
@@ -91,34 +59,22 @@ function NoProjectState() {
   }
 
   return (
-    <div style={{
-      background: '#fff', border: `2px dashed ${t.border}`, borderRadius: '12px',
-      padding: '60px 40px', textAlign: 'center', marginBottom: '32px',
-    }}>
-      <div style={{ fontSize: '3rem', marginBottom: '16px' }}>📦</div>
-      <h2 style={{ fontFamily: t.fontSans, fontSize: '1.3rem', fontWeight: 700, color: t.text, margin: '0 0 8px' }}>
+    <div className="bg-brand-white border-2 border-dashed border-brand-border rounded-xl px-10 py-15 text-center mb-8">
+      <div className="text-5xl mb-4">📦</div>
+      <h2 className="font-sans text-[1.3rem] font-bold text-brand-text mb-2 mt-0">
         Set Up Your First Project
       </h2>
-      <p style={{ fontFamily: t.fontSerif, fontSize: '0.9rem', color: t.gray, lineHeight: 1.7, margin: '0 0 24px', maxWidth: '420px', marginLeft: 'auto', marginRight: 'auto' }}>
+      <p className="font-serif text-[0.9rem] text-brand-gray leading-[1.7] mb-6 mt-0 max-w-[420px] mx-auto">
         Before you can install the widget, you need to create a project. This takes less than 2 minutes with our setup wizard.
       </p>
-      <div style={{ display: 'flex', gap: '12px', justifyContent: 'center' }}>
-        <Link href="/app/onboarding" style={{
-          background: t.accent, color: '#fff', padding: '12px 28px',
-          borderRadius: '8px', textDecoration: 'none', fontWeight: 600, fontSize: '0.9rem',
-          fontFamily: t.fontSans, display: 'inline-flex', alignItems: 'center',
-        }}>
+      <div className="flex gap-3 justify-center">
+        <Link href="/app/onboarding" className="bg-brand-accent text-brand-white px-7 py-3 rounded-lg no-underline font-semibold text-[0.9rem] font-sans inline-flex items-center">
           🚀 Start Setup Wizard
         </Link>
         <button
           onClick={handleCreate}
           disabled={creating}
-          style={{
-            padding: '12px 24px', borderRadius: '8px', border: `1px solid ${t.border}`,
-            background: '#fff', color: t.gray, cursor: creating ? 'not-allowed' : 'pointer',
-            fontWeight: 500, fontSize: '0.9rem', fontFamily: t.fontSans,
-            opacity: creating ? 0.7 : 1,
-          }}
+          className={`px-6 py-3 rounded-lg border border-brand-border bg-brand-white text-brand-gray font-medium text-[0.9rem] font-sans ${creating ? 'cursor-not-allowed opacity-70' : 'cursor-pointer opacity-100'}`}
         >
           {creating ? 'Creating...' : 'Quick Create Project'}
         </button>
@@ -203,7 +159,7 @@ export default function InstallPage() {
         <title>Install Widget — ChurnRecovery</title>
       </Head>
       <AppLayout title="Install Widget">
-        <p style={{ fontFamily: t.fontSerif, fontSize: '0.9rem', color: t.gray, margin: '0 0 28px', lineHeight: 1.7 }}>
+        <p className="font-serif text-[0.9rem] text-brand-gray mb-7 mt-0 leading-[1.7]">
           Add ChurnRecovery to your app in under 5 minutes. Choose your preferred integration method.
         </p>
 
@@ -212,15 +168,9 @@ export default function InstallPage() {
 
         {/* Project selector */}
         {projects.length > 0 && (
-          <div style={{ 
-            background: t.white, 
-            border: `1px solid ${t.border}`, 
-            borderRadius: '10px', 
-            padding: '20px', 
-            marginBottom: '24px' 
-          }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px' }}>
-              <span style={{ fontSize: '0.85rem', fontWeight: 600, color: t.text, fontFamily: t.fontSans }}>
+          <div className="bg-brand-white border border-brand-border rounded-[10px] p-5 mb-6">
+            <div className="flex items-center gap-3 mb-3">
+              <span className="text-[0.85rem] font-semibold text-brand-text font-sans">
                 Project:
               </span>
               {projects.length > 1 ? (
@@ -230,70 +180,45 @@ export default function InstallPage() {
                     const p = projects.find(p => p.id === e.target.value)
                     setProject(p)
                   }}
-                  style={{
-                    padding: '6px 12px', borderRadius: '6px', border: `1px solid ${t.border}`,
-                    fontFamily: t.fontSans, fontSize: '0.85rem', background: t.white, color: t.text,
-                  }}
+                  className="px-3 py-1.5 rounded-[6px] border border-brand-border font-sans text-[0.85rem] bg-brand-white text-brand-text"
                 >
                   {projects.map(p => <option key={p.id} value={p.id}>{p.name}</option>)}
                 </select>
               ) : (
-                <span style={{ fontSize: '0.85rem', color: t.text, fontFamily: t.fontSans }}>
+                <span className="text-[0.85rem] text-brand-text font-sans">
                   {project?.name}
                 </span>
               )}
             </div>
-            
+
             {project && (
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr auto', gap: '12px', alignItems: 'center' }}>
+              <div className="grid grid-cols-[1fr_auto] gap-3 items-center">
                 <div>
-                  <div style={{ fontSize: '0.75rem', color: t.grayLight, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                    Project ID: <code style={{ fontFamily: 'monospace', color: t.text, fontSize: '0.8rem' }}>{project.id}</code>
+                  <div className="text-xs text-brand-gray-light font-semibold uppercase tracking-wide">
+                    Project ID: <code className="font-mono text-brand-text text-[0.8rem]">{project.id}</code>
                   </div>
-                  <div style={{ fontSize: '0.75rem', color: t.grayLight, marginTop: '4px' }}>
+                  <div className="text-xs text-brand-gray-light mt-1">
                     API Key: {project.api_key.slice(0, 12)}...
                   </div>
                 </div>
                 <button
                   onClick={handleTestInstallation}
                   disabled={testing}
-                  style={{
-                    padding: '8px 16px', borderRadius: '6px',
-                    background: testing ? t.grayLight : t.accent, color: t.white,
-                    border: 'none', cursor: testing ? 'not-allowed' : 'pointer',
-                    fontSize: '0.8rem', fontWeight: 500, fontFamily: t.fontSans,
-                    opacity: testing ? 0.7 : 1,
-                  }}
+                  className={`px-4 py-2 rounded-[6px] text-brand-white border-none text-[0.8rem] font-medium font-sans ${testing ? 'bg-brand-gray-light cursor-not-allowed opacity-70' : 'bg-brand-accent cursor-pointer opacity-100'}`}
                 >
                   {testing ? 'Testing...' : 'Test Installation'}
                 </button>
               </div>
             )}
-            
+
             {/* Test Result */}
             {testResult && (
-              <div style={{
-                marginTop: '16px',
-                padding: '12px 16px',
-                borderRadius: '6px',
-                background: testResult.success ? t.greenLight : t.redLight,
-                border: `1px solid ${testResult.success ? t.green : '#DC2626'}`
-              }}>
-                <div style={{ 
-                  fontSize: '0.85rem', 
-                  fontWeight: 600, 
-                  color: testResult.success ? t.green : '#DC2626',
-                  marginBottom: '4px' 
-                }}>
+              <div className={`mt-4 px-4 py-3 rounded-[6px] ${testResult.success ? 'bg-brand-green-light border border-brand-green' : 'bg-red-50 border border-brand-red'}`}>
+                <div className={`text-[0.85rem] font-semibold mb-1 ${testResult.success ? 'text-brand-green' : 'text-brand-red'}`}>
                   {testResult.message}
                 </div>
                 {testResult.details && (
-                  <ul style={{ 
-                    fontSize: '0.8rem', 
-                    color: testResult.success ? t.green : '#DC2626',
-                    margin: '4px 0 0 16px',
-                    padding: 0
-                  }}>
+                  <ul className={`text-[0.8rem] mt-1 mb-0 ml-4 p-0 ${testResult.success ? 'text-brand-green' : 'text-brand-red'}`}>
                     {testResult.details.map((detail, i) => (
                       <li key={i}>{detail}</li>
                     ))}
@@ -305,7 +230,7 @@ export default function InstallPage() {
         )}
 
         {/* Method selector */}
-        <div style={{ display: 'flex', gap: '8px', marginBottom: '32px' }}>
+        <div className="flex gap-2 mb-8">
           {[
             { id: 'script', label: '📜 Script Tag', desc: 'Simplest — no build step' },
             { id: 'npm', label: '📦 npm Package', desc: 'For modern JS apps' },
@@ -314,17 +239,12 @@ export default function InstallPage() {
             <button
               key={m.id}
               onClick={() => setMethod(m.id)}
-              style={{
-                flex: 1, padding: '14px 16px', borderRadius: '10px',
-                border: `2px solid ${method === m.id ? t.accent : t.border}`,
-                background: method === m.id ? '#FDF4EF' : t.white,
-                cursor: 'pointer', textAlign: 'left',
-              }}
+              className={`flex-1 px-4 py-3.5 rounded-[10px] border-2 cursor-pointer text-left ${method === m.id ? 'border-brand-accent bg-[#FDF4EF]' : 'border-brand-border bg-brand-white'}`}
             >
-              <div style={{ fontSize: '0.88rem', fontWeight: 600, color: t.text, fontFamily: t.fontSans }}>
+              <div className="text-[0.88rem] font-semibold text-brand-text font-sans">
                 {m.label}
               </div>
-              <div style={{ fontSize: '0.75rem', color: t.grayLight, marginTop: '2px' }}>
+              <div className="text-xs text-brand-gray-light mt-0.5">
                 {m.desc}
               </div>
             </button>
@@ -335,10 +255,10 @@ export default function InstallPage() {
         {method === 'script' && (
           <>
             <Step number="1" title="Add the script tag to your website">
-              <p style={{ fontSize: '0.85rem', color: t.gray, margin: '0 0 8px', lineHeight: 1.6 }}>
-                Copy the code below and paste it into your website&apos;s HTML, just before the <code style={{ background: 'rgba(0,0,0,0.06)', padding: '2px 6px', borderRadius: '3px' }}>&lt;/body&gt;</code> tag. If you use WordPress, Webflow, or Squarespace, paste it in the &ldquo;Custom Code&rdquo; or &ldquo;Footer Scripts&rdquo; section.
+              <p className="text-[0.85rem] text-brand-gray mb-2 mt-0 leading-[1.6]">
+                Copy the code below and paste it into your website&apos;s HTML, just before the <code className="bg-black/5 px-1.5 rounded-sm">&lt;/body&gt;</code> tag. If you use WordPress, Webflow, or Squarespace, paste it in the &ldquo;Custom Code&rdquo; or &ldquo;Footer Scripts&rdquo; section.
               </p>
-              <p style={{ fontSize: '0.8rem', color: t.grayLight, margin: '0 0 12px', lineHeight: 1.5 }}>
+              <p className="text-[0.8rem] text-brand-gray-light mb-3 mt-0 leading-[1.5]">
                 ✨ Your project ID and API key are already filled in below — just copy and paste!
               </p>
               <CodeBlock title="HTML — paste this into your website" language="html">
@@ -352,8 +272,8 @@ export default function InstallPage() {
             </Step>
 
             <Step number="2" title="Show the cancel flow when someone clicks &quot;Cancel&quot;">
-              <p style={{ fontSize: '0.85rem', color: t.gray, margin: '0 0 12px', lineHeight: 1.6 }}>
-                Find the &ldquo;Cancel subscription&rdquo; button on your settings page and call <code style={{ background: 'rgba(0,0,0,0.06)', padding: '2px 6px', borderRadius: '3px' }}>ChurnRecovery.showCancelFlow()</code> when it&apos;s clicked. Your developer can do this in minutes.
+              <p className="text-[0.85rem] text-brand-gray mb-3 mt-0 leading-[1.6]">
+                Find the &ldquo;Cancel subscription&rdquo; button on your settings page and call <code className="bg-black/5 px-1.5 rounded-sm">ChurnRecovery.showCancelFlow()</code> when it&apos;s clicked. Your developer can do this in minutes.
               </p>
               <CodeBlock title="JavaScript" language="javascript">
 {`document.getElementById('cancel-btn').addEventListener('click', async () => {
@@ -375,14 +295,10 @@ export default function InstallPage() {
             </Step>
 
             <Step number="3" title="You're done — watch it work! 🎉">
-              <div style={{
-                padding: '16px 20px', borderRadius: '8px', background: t.greenLight,
-                borderLeft: `3px solid ${t.green}`, fontSize: '0.85rem', color: t.text,
-                lineHeight: 1.6,
-              }}>
+              <div className="px-5 py-4 rounded-lg bg-brand-green-light border-l-[3px] border-brand-green text-[0.85rem] text-brand-text leading-[1.6]">
                 <strong>That&apos;s it!</strong> When someone clicks &ldquo;Cancel,&rdquo; they&apos;ll see a beautiful popup asking why they&apos;re leaving — with a tailored offer to stay. No technical knowledge needed on your end. ChurnRecovery handles all the UI, data collection, and analytics automatically.
               </div>
-              <div style={{ marginTop: '12px', padding: '12px 16px', borderRadius: '8px', background: t.blueLight, border: `1px solid #BFDBFE`, fontSize: '0.82rem', color: '#1D4ED8', lineHeight: 1.6 }}>
+              <div className="mt-3 px-4 py-3 rounded-lg bg-brand-blue-light border border-[#BFDBFE] text-[0.82rem] text-[#1D4ED8] leading-[1.6]">
                 💡 <strong>Not a developer?</strong> Just send this page link to your developer — everything they need is here. Takes about 15 minutes to integrate.
               </div>
             </Step>
@@ -478,33 +394,18 @@ function SubscriptionSettings({ user }) {
         )}
 
         {/* Verification */}
-        <div style={{
-          background: t.white,
-          border: `1px solid ${t.border}`,
-          borderRadius: '12px',
-          padding: '24px',
-          marginTop: '12px',
-        }}>
-          <h3 style={{ fontFamily: t.fontSans, fontSize: '0.95rem', fontWeight: 700, color: t.text, margin: '0 0 12px' }}>
+        <div className="bg-brand-white border border-brand-border rounded-xl p-6 mt-3">
+          <h3 className="font-sans text-[0.95rem] font-bold text-brand-text mb-3 mt-0">
             ✅ Verify Installation
           </h3>
-          <p style={{ fontSize: '0.85rem', color: t.gray, margin: '0 0 16px', lineHeight: 1.6 }}>
+          <p className="text-[0.85rem] text-brand-gray mb-4 mt-0 leading-[1.6]">
             After installing, trigger a test cancel flow. You should see the modal appear with your configured reasons and offers. Events will appear in your Analytics tab within seconds.
           </p>
-          <div style={{ display: 'flex', gap: '12px' }}>
-            <a href="/app/analytics" style={{
-              padding: '8px 18px', borderRadius: '6px',
-              background: t.accent, color: t.white, textDecoration: 'none',
-              fontSize: '0.82rem', fontWeight: 600, fontFamily: t.fontSans,
-            }}>
+          <div className="flex gap-3">
+            <a href="/app/analytics" className="px-[18px] py-2 rounded-[6px] bg-brand-accent text-brand-white no-underline text-[0.82rem] font-semibold font-sans">
               Check Analytics
             </a>
-            <a href="/docs" style={{
-              padding: '8px 18px', borderRadius: '6px',
-              background: t.white, color: t.text, textDecoration: 'none',
-              fontSize: '0.82rem', fontWeight: 500, fontFamily: t.fontSans,
-              border: `1px solid ${t.border}`,
-            }}>
+            <a href="/docs" className="px-[18px] py-2 rounded-[6px] bg-brand-white text-brand-text no-underline text-[0.82rem] font-medium font-sans border border-brand-border">
               Full Documentation →
             </a>
           </div>
