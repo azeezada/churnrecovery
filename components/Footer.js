@@ -30,6 +30,7 @@ const footerLinks = {
   Company: [
     { label: 'About', href: '/about' },
     { label: 'Press', href: '/press' },
+    { label: 'Social Proof', href: '/social-proof' },
     { label: 'Changelog', href: '/changelog' },
     { label: 'Status', href: '/status' },
     { label: 'GitHub', href: 'https://github.com/churnrecovery', target: '_blank' },
