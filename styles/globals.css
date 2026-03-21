@@ -322,7 +322,7 @@ body {
 .btn-accent {
   font-family: var(--font-sans);
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 1rem;
   background: var(--color-brand-accent);
   color: var(--color-brand-white);
   padding: 13px 28px;
@@ -333,6 +333,7 @@ body {
   transition: background 0.2s;
   border: none;
   cursor: pointer;
+  min-height: 44px;
 }
 .btn-accent:hover {
   background: var(--color-brand-accent-hover);
@@ -359,7 +360,7 @@ body {
 .btn-outline {
   font-family: var(--font-sans);
   font-weight: 500;
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: var(--color-brand-text);
   padding: 13px 24px;
   border-radius: 6px;
@@ -368,6 +369,7 @@ body {
   background: var(--color-brand-white);
   display: inline-block;
   transition: border-color 0.2s;
+  min-height: 44px;
 }
 .btn-outline:hover {
   border-color: var(--color-brand-text);
@@ -391,5 +393,23 @@ input[type="email"] {
 @media (max-width: 400px) {
   .blog-grid {
     grid-template-columns: 1fr !important;
+  }
+}
+
+/* ── Enhanced mobile responsiveness for homepage (2026-03-21) ─────────────── */
+@media (max-width: 640px) {
+  /* Better text contrast on mobile - use darker colors for better readability */
+  .text-brand-gray {
+    color: #4a4a4a !important;
+  }
+  
+  .text-brand-gray-light {
+    color: #666666 !important;
+  }
+  
+  /* Update footer tap targets to meet WCAG standards */
+  footer li a {
+    min-height: 44px !important;
+    line-height: 44px !important;
   }
 }

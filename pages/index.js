@@ -9,14 +9,14 @@ function Step({ number, title, description, screenshot, screenshotAlt }) {
   return (
     <div className="grid grid-cols-1 gap-6 step-card">
       <div className="flex gap-5 items-start">
-        <div className="w-[44px] h-[44px] rounded-full bg-brand-accent/[0.08] border-2 border-brand-accent flex items-center justify-center font-sans font-bold text-[1.1rem] text-brand-accent shrink-0">
+        <div className="w-[44px] h-[44px] rounded-full bg-brand-accent/[0.08] border-2 border-brand-accent flex items-center justify-center font-sans font-bold text-lg text-brand-accent shrink-0">
           {number}
         </div>
         <div>
-          <h3 className="font-sans text-[1.1rem] font-semibold text-brand-text m-0 mb-1.5">
+          <h3 className="font-sans text-lg font-semibold text-brand-text m-0 mb-1.5">
             {title}
           </h3>
-          <p className="font-sans text-[0.95rem] text-brand-gray m-0 leading-[1.6]">
+          <p className="font-sans text-base text-gray-700 m-0 leading-[1.6]">
             {description}
           </p>
         </div>
@@ -37,12 +37,12 @@ function Step({ number, title, description, screenshot, screenshotAlt }) {
 // ─── Benefit Card ─────────────────────────────────────────────────────────
 function BenefitCard({ emoji, title, description }) {
   return (
-    <div className="p-7 border border-brand-border rounded-xl bg-brand-white">
+    <div className="p-6 sm:p-7 border border-brand-border rounded-xl bg-brand-white">
       <div className="text-[2rem] mb-3.5">{emoji}</div>
-      <h3 className="font-sans text-[1.05rem] font-semibold text-brand-text m-0 mb-2">
+      <h3 className="font-sans text-lg font-semibold text-brand-text m-0 mb-2">
         {title}
       </h3>
-      <p className="font-sans text-[0.93rem] text-brand-gray m-0 leading-[1.6]">
+      <p className="font-sans text-base text-gray-700 m-0 leading-[1.6]">
         {description}
       </p>
     </div>
@@ -52,11 +52,11 @@ function BenefitCard({ emoji, title, description }) {
 // ─── Testimonial ──────────────────────────────────────────────────────────
 function Testimonial({ text, author, role }) {
   return (
-    <figure className="m-0 py-7 px-8 border-l-[3px] border-brand-accent bg-brand-white rounded-r-xl">
-      <blockquote className="font-serif text-[1.05rem] text-brand-text m-0 mb-4 leading-[1.7] italic">
+    <figure className="m-0 py-7 px-6 sm:px-8 border-l-[3px] border-brand-accent bg-brand-white rounded-r-xl">
+      <blockquote className="font-serif text-lg text-brand-text m-0 mb-4 leading-[1.7] italic">
         &ldquo;{text}&rdquo;
       </blockquote>
-      <figcaption className="font-sans text-[0.85rem] text-brand-gray not-italic">
+      <figcaption className="font-sans text-base text-gray-600 not-italic">
         <strong className="text-brand-text font-semibold">{author}</strong>
         {role && <span> · {role}</span>}
       </figcaption>
@@ -71,14 +71,14 @@ function PostCard({ post }) {
     : null
 
   return (
-    <article className="home-post-card grid grid-cols-[120px_1fr] gap-6 items-baseline pb-7 border-b border-brand-border">
+    <article className="home-post-card grid grid-cols-[120px_1fr] sm:gap-6 gap-3 items-baseline pb-7 border-b border-brand-border">
       {formattedDate && (
-        <time className="font-sans text-[0.8rem] text-brand-gray-light font-medium tracking-[0.02em]">
+        <time className="font-sans text-sm text-gray-500 font-medium tracking-[0.02em]">
           {formattedDate}
         </time>
       )}
       <div>
-        <h3 className="font-sans text-[1.15rem] font-semibold m-0 mb-2 tracking-[-0.01em] leading-[1.3]">
+        <h3 className="font-sans text-lg font-semibold m-0 mb-2 tracking-[-0.01em] leading-[1.3]">
           <Link
             href={`/posts/${post.slug}`}
             className="link-hover-accent"
@@ -87,13 +87,13 @@ function PostCard({ post }) {
           </Link>
         </h3>
         {post.excerpt && (
-          <p className="font-serif text-[0.95rem] text-brand-gray m-0 mb-3 leading-[1.6]">
+          <p className="font-serif text-base text-gray-700 m-0 mb-3 leading-[1.6]">
             {post.excerpt}
           </p>
         )}
         <Link
           href={`/posts/${post.slug}`}
-          className="link-hover-underline font-sans text-[0.85rem] text-brand-accent font-medium"
+          className="link-hover-underline font-sans text-base text-brand-accent font-medium min-h-[44px] inline-flex items-center"
         >
           Read more →
         </Link>
@@ -121,11 +121,11 @@ export default function Home({ posts }) {
 
       {/* ── HERO ─────────────────────────────────────────────────────────── */}
       <section className="bg-brand-bg border-b border-brand-border pt-[100px]">
-        <div className="max-w-[1200px] mx-auto px-6 pt-[80px] pb-[72px]">
+        <div className="max-w-[1200px] mx-auto px-5 sm:px-6 lg:px-8 pt-[80px] pb-[72px]">
           {/* Eyebrow */}
           <div className="inline-flex items-center gap-2 bg-brand-accent/[0.09] border border-brand-accent/25 rounded-full py-[5px] px-3.5 mb-8">
             <span className="w-1.5 h-1.5 rounded-full bg-brand-accent inline-block" />
-            <span className="font-sans text-[0.78rem] font-semibold text-brand-accent tracking-[0.06em] uppercase">
+            <span className="font-sans text-[0.8rem] sm:text-[0.78rem] font-semibold text-brand-accent tracking-[0.06em] uppercase">
               Free Forever · No Per-Recovery Fees
             </span>
           </div>
@@ -137,7 +137,7 @@ export default function Home({ posts }) {
           </h1>
 
           {/* Subheadline */}
-          <p className="font-sans text-[clamp(1.1rem,2.5vw,1.35rem)] text-brand-gray m-0 mb-10 max-w-[600px] leading-[1.55]">
+          <p className="font-sans text-[clamp(1.15rem,2.5vw,1.35rem)] text-gray-700 m-0 mb-10 max-w-[600px] leading-[1.55]">
             Every month, subscribers cancel and payments fail — silently costing you
             thousands. ChurnRecovery catches them before they&apos;re gone, wins them back
             automatically, and it&apos;s <strong className="text-brand-text">completely free</strong>.
@@ -145,29 +145,29 @@ export default function Home({ posts }) {
 
           {/* CTAs */}
           <div className="flex gap-3 flex-wrap items-center">
-            <a href="#waitlist" className="btn-accent">
+            <a href="#waitlist" className="btn-accent min-h-[44px] flex items-center">
               Start Saving Subscribers →
             </a>
-            <Link href="/demo" className="btn-outline">
+            <Link href="/demo" className="btn-outline min-h-[44px] flex items-center">
               See how it works
             </Link>
           </div>
 
           {/* Micro-line */}
-          <p className="font-sans text-[0.8rem] text-brand-gray-light mt-5 mb-0">
+          <p className="font-sans text-base text-gray-600 mt-5 mb-0">
             Works with newsletters, courses, coaching, memberships — any subscription business.
           </p>
         </div>
 
         {/* ── Hero Product Screenshot ─────────────────────────────────── */}
-        <div className="max-w-[1100px] mx-auto px-6 pb-[72px]">
+        <div className="max-w-[1100px] mx-auto px-5 sm:px-6 lg:px-8 pb-[72px]">
           <div className="rounded-2xl overflow-hidden border border-brand-border shadow-[0_8px_40px_rgba(0,0,0,0.10),0_2px_8px_rgba(0,0,0,0.06)] bg-brand-white">
             {/* Browser chrome mockup */}
             <div className="bg-[#F0EFE9] border-b border-brand-border py-2.5 px-4 flex items-center gap-2">
               <span className="browser-dot bg-[#FF5F57]" />
               <span className="browser-dot bg-[#FEBC2E]" />
               <span className="browser-dot bg-[#28C840]" />
-              <span className="flex-1 bg-brand-white rounded-[6px] py-1 px-3 text-[0.75rem] text-brand-gray font-sans ml-2">
+              <span className="flex-1 bg-brand-white rounded-[6px] py-1 px-3 text-sm text-gray-600 font-sans ml-2">
                 app.churnrecovery.com/dashboard
               </span>
             </div>
@@ -177,7 +177,7 @@ export default function Home({ posts }) {
               className="w-full h-auto block"
             />
           </div>
-          <p className="font-sans text-[0.82rem] text-brand-gray-light text-center mt-3.5">
+          <p className="font-sans text-sm text-gray-600 text-center mt-3.5">
             The ChurnRecovery dashboard — see recovered revenue, cancel reasons, and active flows at a glance.
           </p>
         </div>
@@ -193,20 +193,20 @@ export default function Home({ posts }) {
 
       {/* ── THE PROBLEM ──────────────────────────────────────────────────── */}
       <section className="border-b border-brand-border bg-brand-white">
-        <div className="max-w-[1200px] mx-auto px-6 py-[72px]">
+        <div className="max-w-[1200px] mx-auto px-5 sm:px-6 lg:px-8 py-[72px]">
           <div className="max-w-[700px] mx-auto text-center">
             <span className="eyebrow text-brand-accent">The problem nobody talks about</span>
             <h2 className="section-heading text-brand-text mt-3 mb-5 mx-0">
               You&apos;re losing money every single month — and you might not even know it
             </h2>
-            <p className="font-sans text-[1.05rem] text-brand-gray leading-[1.7] m-0 mb-10">
+            <p className="font-sans text-lg text-gray-700 leading-[1.7] m-0 mb-10">
               Credit cards expire. Banks decline charges. Subscribers forget to update their payment details.
               Others hit &ldquo;cancel&rdquo; on a bad day — even though they&apos;d stay if you offered a pause or a discount.
               These aren&apos;t lost causes. They&apos;re <strong className="text-brand-text">recoverable revenue</strong>.
             </p>
           </div>
 
-          <div className="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-8 max-w-[900px] mx-auto text-center">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-6 max-w-[900px] mx-auto text-center">
             {[
               { number: '5–10%', label: 'of payments fail every month' },
               { number: '~70%', label: 'of failed payments can be recovered' },
@@ -216,7 +216,7 @@ export default function Home({ posts }) {
                 <div className="font-sans text-[2.2rem] font-semibold text-brand-accent tracking-[-0.03em] leading-none">
                   {stat.number}
                 </div>
-                <div className="font-sans text-[0.88rem] text-brand-gray mt-2 leading-[1.4]">
+                <div className="font-sans text-base text-gray-600 mt-2 leading-[1.4]">
                   {stat.label}
                 </div>
               </div>
@@ -227,7 +227,7 @@ export default function Home({ posts }) {
 
       {/* ── WHAT IT DOES (benefits, not features) ────────────────────────── */}
       <section className="bg-brand-bg border-b border-brand-border">
-        <div className="max-w-[1200px] mx-auto px-6 py-[72px]">
+        <div className="max-w-[1200px] mx-auto px-5 sm:px-6 lg:px-8 py-[72px]">
           <div className="mb-12">
             <span className="eyebrow text-brand-accent">What ChurnRecovery does for you</span>
             <h2 className="section-heading text-brand-text mt-3 m-0">
@@ -235,7 +235,7 @@ export default function Home({ posts }) {
             </h2>
           </div>
 
-          <div className="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             <BenefitCard
               emoji="🛑"
               title="Save subscribers who try to cancel"
@@ -272,7 +272,7 @@ export default function Home({ posts }) {
 
       {/* ── HOW IT WORKS ─────────────────────────────────────────────────── */}
       <section className="bg-brand-white border-b border-brand-border">
-        <div className="max-w-[800px] mx-auto px-6 py-[72px]">
+        <div className="max-w-[800px] mx-auto px-5 sm:px-6 lg:px-8 py-[72px]">
           <div className="mb-12 text-center">
             <span className="eyebrow text-brand-accent">How it works</span>
             <h2 className="section-heading text-brand-text mt-3 m-0">
@@ -307,7 +307,7 @@ export default function Home({ posts }) {
           <div className="text-center mt-12">
             <Link
               href="/demo"
-              className="link-hover-underline font-sans font-semibold text-[0.95rem] text-brand-accent"
+              className="link-hover-underline font-sans font-semibold text-base text-brand-accent min-h-[44px] inline-flex items-center"
             >
               See a live demo of the cancel flow →
             </Link>
@@ -317,7 +317,7 @@ export default function Home({ posts }) {
 
       {/* ── WHO IT'S FOR ─────────────────────────────────────────────────── */}
       <section className="bg-brand-bg border-b border-brand-border">
-        <div className="max-w-[1200px] mx-auto px-6 py-[72px]">
+        <div className="max-w-[1200px] mx-auto px-5 sm:px-6 lg:px-8 py-[72px]">
           <div className="mb-12 text-center">
             <span className="eyebrow text-brand-accent">Built for subscription businesses</span>
             <h2 className="section-heading text-brand-text mt-3 m-0">
@@ -325,7 +325,7 @@ export default function Home({ posts }) {
             </h2>
           </div>
 
-          <div className="grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {[
               {
                 emoji: '📧',
@@ -353,7 +353,7 @@ export default function Home({ posts }) {
                 <h3 className="font-sans text-base font-semibold text-brand-text m-0 mb-1.5">
                   {item.title}
                 </h3>
-                <p className="font-sans text-[0.9rem] text-brand-gray m-0 leading-[1.6]">
+                <p className="font-sans text-base text-gray-700 m-0 leading-[1.6]">
                   {item.desc}
                 </p>
               </div>
@@ -364,12 +364,12 @@ export default function Home({ posts }) {
 
       {/* ── COST COMPARISON ──────────────────────────────────────────────── */}
       <section className="bg-brand-white border-b border-brand-border">
-        <div className="max-w-[800px] mx-auto px-6 py-[72px] text-center">
+        <div className="max-w-[800px] mx-auto px-5 sm:px-6 lg:px-8 py-[72px] text-center">
           <span className="eyebrow text-brand-accent">The price difference</span>
           <h2 className="section-heading text-brand-text mt-3 mb-5 mx-0">
             Other churn tools cost $250–$825/month. We cost $0.
           </h2>
-          <p className="font-sans text-[1.05rem] text-brand-gray leading-[1.7] m-0 mb-10 max-w-[600px] mx-auto">
+          <p className="font-sans text-lg text-gray-700 leading-[1.7] m-0 mb-10 max-w-[600px] mx-auto">
             Tools like Churnkey, ProfitWell, and Churnbuster charge hundreds per month.
             That&apos;s money that eats into the very revenue they&apos;re supposed to recover.
             ChurnRecovery gives you the same features — cancel flows, payment recovery,
@@ -377,49 +377,49 @@ export default function Home({ posts }) {
           </p>
 
           {/* Side by side price cards */}
-          <div className="grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-5 max-w-[600px] mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-[600px] mx-auto">
             <div className="py-8 px-6 rounded-xl border-2 border-brand-accent bg-brand-white">
-              <div className="font-sans text-[0.8rem] font-semibold text-brand-accent tracking-[0.06em] uppercase mb-2">
+              <div className="font-sans text-sm font-semibold text-brand-accent tracking-[0.06em] uppercase mb-2">
                 ChurnRecovery
               </div>
               <div className="font-sans text-[3rem] font-bold text-brand-text tracking-[-0.03em]">
                 $0
               </div>
-              <div className="font-sans text-[0.85rem] text-brand-gray mt-1">
+              <div className="font-sans text-base text-gray-600 mt-1">
                 per month, forever
               </div>
-              <div className="font-sans text-[0.82rem] text-brand-green font-semibold mt-3">
+              <div className="font-sans text-sm text-brand-green font-semibold mt-3">
                 ✓ All features included
               </div>
             </div>
             <div className="py-8 px-6 rounded-xl border border-brand-border bg-[#fafafa]">
-              <div className="font-sans text-[0.8rem] font-semibold text-brand-gray-light tracking-[0.06em] uppercase mb-2">
+              <div className="font-sans text-sm font-semibold text-gray-500 tracking-[0.06em] uppercase mb-2">
                 Other tools
               </div>
-              <div className="font-sans text-[3rem] font-bold text-brand-gray tracking-[-0.03em] line-through decoration-brand-red">
+              <div className="font-sans text-[3rem] font-bold text-gray-600 tracking-[-0.03em] line-through decoration-brand-red">
                 $500
               </div>
-              <div className="font-sans text-[0.85rem] text-brand-gray-light mt-1">
+              <div className="font-sans text-base text-gray-500 mt-1">
                 average per month
               </div>
-              <div className="font-sans text-[0.82rem] text-brand-red font-semibold mt-3">
+              <div className="font-sans text-sm text-brand-red font-semibold mt-3">
                 = $6,000/year you could save
               </div>
             </div>
           </div>
 
-          <p className="font-sans text-[0.8rem] text-brand-gray-light mt-4">
-            <Link href="/compare/churnkey" className="text-brand-accent">See detailed comparison →</Link>
+          <p className="font-sans text-sm text-gray-600 mt-4">
+            <Link href="/compare/churnkey" className="text-brand-accent min-h-[44px] inline-flex items-center">See detailed comparison →</Link>
           </p>
         </div>
       </section>
 
       {/* ── SOCIAL PROOF ─────────────────────────────────────────────────── */}
       <section className="bg-brand-bg border-b border-brand-border">
-        <div className="max-w-[1200px] mx-auto px-6 py-[72px]">
+        <div className="max-w-[1200px] mx-auto px-5 sm:px-6 lg:px-8 py-[72px]">
           <span className="eyebrow text-brand-accent block mb-3">What business owners are saying</span>
 
-          <div className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-5 mt-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 mt-8">
             <Testimonial
               text="We were paying $400/month for churn recovery on a $12k business. That's insane. So glad there's a free option that actually works."
               author="Marc K."
@@ -441,7 +441,7 @@ export default function Home({ posts }) {
 
       {/* ── FAQ ───────────────────────────────────────────────────────────── */}
       <section className="bg-brand-white border-b border-brand-border">
-        <div className="max-w-[700px] mx-auto px-6 py-[72px]">
+        <div className="max-w-[700px] mx-auto px-5 sm:px-6 lg:px-8 py-[72px]">
           <div className="mb-10 text-center">
             <span className="eyebrow text-brand-accent">Common questions</span>
             <h2 className="font-sans text-[clamp(1.4rem,3vw,1.8rem)] font-semibold text-brand-text tracking-[-0.02em] mt-3 m-0">
@@ -472,10 +472,10 @@ export default function Home({ posts }) {
             },
           ].map((faq, i) => (
             <div key={i} className="py-6 border-b border-brand-border">
-              <h3 className="font-sans text-base font-semibold text-brand-text m-0 mb-2">
+              <h3 className="font-sans text-lg font-semibold text-brand-text m-0 mb-2">
                 {faq.q}
               </h3>
-              <p className="font-sans text-[0.93rem] text-brand-gray m-0 leading-[1.65]">
+              <p className="font-sans text-base text-gray-700 m-0 leading-[1.65]">
                 {faq.a}
               </p>
             </div>
@@ -485,24 +485,24 @@ export default function Home({ posts }) {
 
       {/* ── WAITLIST / CTA ───────────────────────────────────────────────── */}
       <section id="waitlist" className="bg-brand-text border-b border-brand-border">
-        <div className="max-w-[1200px] mx-auto px-6 py-[80px] grid grid-cols-1 gap-10">
+        <div className="max-w-[1200px] mx-auto px-5 sm:px-6 lg:px-8 py-[80px] grid grid-cols-1 gap-10">
           <div className="max-w-[560px]">
             <h2 className="font-sans text-[clamp(1.8rem,4vw,2.75rem)] font-semibold text-brand-white tracking-[-0.03em] m-0 mb-4 leading-[1.1]">
               Stop losing subscribers.<br />
               <span className="text-brand-accent">Start recovering revenue.</span>
             </h2>
-            <p className="font-sans text-base text-[#aaaaaa] m-0 mb-8 leading-[1.6]">
+            <p className="font-sans text-lg text-[#aaaaaa] m-0 mb-8 leading-[1.6]">
               Join the waitlist and we&apos;ll set you up — no credit card, no sales calls,
               no surprises. Just a simple tool that saves your subscribers.
             </p>
 
             <WaitlistForm source="homepage" dark={true} />
 
-            <p className="font-sans text-[0.85rem] text-[#888888] mt-4">
+            <p className="font-sans text-base text-[#888888] mt-4">
               Not ready to sign up?{' '}
               <Link
                 href="/demo"
-                className="text-brand-accent no-underline font-medium"
+                className="text-brand-accent no-underline font-medium min-h-[44px] inline-flex items-center"
               >
                 Try the interactive demo first →
               </Link>
@@ -514,7 +514,7 @@ export default function Home({ posts }) {
       {/* ── BLOG ─────────────────────────────────────────────────────────── */}
       {posts.length > 0 && (
         <section className="bg-brand-bg">
-          <div className="max-w-[1200px] mx-auto px-6 py-[72px]">
+          <div className="max-w-[1200px] mx-auto px-5 sm:px-6 lg:px-8 py-[72px]">
             <div className="flex justify-between items-baseline mb-10">
               <div>
                 <span className="eyebrow text-brand-accent block mb-2">From the blog</span>
@@ -524,7 +524,7 @@ export default function Home({ posts }) {
               </div>
               <Link
                 href="/blog"
-                className="link-hover-underline font-sans text-[0.85rem] text-brand-accent font-medium"
+                className="link-hover-underline font-sans text-base text-brand-accent font-medium min-h-[44px] flex items-center"
               >
                 All posts →
               </Link>
