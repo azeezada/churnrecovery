@@ -191,6 +191,12 @@ export default function ComparePage({ competitor }) {
             .compare-nav-text { display: none !important; }
             .compare-nav-links { gap: 8px !important; }
           }
+          /* P1: Verdict cards stack on mobile */
+          @media (max-width: 480px) {
+            .compare-verdict-grid {
+              grid-template-columns: 1fr !important;
+            }
+          }
         `}</style>
 
         {/* Breadcrumb */}
@@ -243,7 +249,7 @@ export default function ComparePage({ competitor }) {
           </p>
 
           {/* Quick verdict cards */}
-          <div style={{
+          <div className="compare-verdict-grid" style={{
             display: 'grid',
             gridTemplateColumns: '1fr 1fr',
             gap: '16px',

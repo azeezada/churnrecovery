@@ -5,7 +5,7 @@
     <link>https://churnrecovery.com/blog</link>
     <description>Insights on churn recovery, payment failures, and SaaS retention</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 21 Mar 2026 06:10:25 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 21 Mar 2026 06:48:00 GMT</lastBuildDate>
     <atom:link href="https://churnrecovery.com/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title><![CDATA[The $50,000/Year SaaS Tool Stack Audit]]></title>
@@ -107,6 +107,19 @@
       <category>retention</category>
     </item>
     <item>
+      <title><![CDATA[Discount vs. Pause vs. Cancel: What Actually Saves Subscribers?]]></title>
+      <link>https://churnrecovery.com/posts/discount-vs-pause-vs-cancel-what-saves-subscribers</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/discount-vs-pause-vs-cancel-what-saves-subscribers</guid>
+      <description><![CDATA[]]></description>
+      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
+      <category>cancel flow</category>
+      <category>churn</category>
+      <category>subscription</category>
+      <category>retention</category>
+      <category>discount</category>
+      <category>pause</category>
+    </item>
+    <item>
       <title><![CDATA[Free Alternatives to Churnkey, ProfitWell, and Baremetrics]]></title>
       <link>https://churnrecovery.com/posts/free-alternatives-churnkey-profitwell-baremetrics</link>
       <guid isPermaLink="true">https://churnrecovery.com/posts/free-alternatives-churnkey-profitwell-baremetrics</guid>
@@ -129,6 +142,31 @@
       <category>beehiiv</category>
       <category>newsletter</category>
       <category>paid subscribers</category>
+    </item>
+    <item>
+      <title><![CDATA[The Hidden Revenue Leak in Your Subscription Business (And How to Fix It)]]></title>
+      <link>https://churnrecovery.com/posts/hidden-revenue-leak-subscription-business</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/hidden-revenue-leak-subscription-business</guid>
+      <description><![CDATA[]]></description>
+      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
+      <category>subscription</category>
+      <category>revenue</category>
+      <category>churn</category>
+      <category>cancel flow</category>
+      <category>dunning</category>
+      <category>small business</category>
+    </item>
+    <item>
+      <title><![CDATA[How to Keep More Paying Members: A Practical Guide for Membership Sites]]></title>
+      <link>https://churnrecovery.com/posts/how-to-retain-paying-members</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/how-to-retain-paying-members</guid>
+      <description><![CDATA[]]></description>
+      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
+      <category>membership</category>
+      <category>retention</category>
+      <category>churn</category>
+      <category>subscribers</category>
+      <category>cancel flow</category>
     </item>
     <item>
       <title><![CDATA[I Analyzed 50+ SaaS Pricing Pages — Here's What I Found]]></title>
