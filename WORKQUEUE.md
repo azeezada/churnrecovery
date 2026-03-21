@@ -38,8 +38,8 @@ Low-code/no-code business owners: newsletter creators, coaches, online course se
 - [ ] Real analytics in dashboard (replace mock data)
 - [ ] Widget CDN (minify, serve from cdn.churnrecovery.com)
 - [ ] Stripe webhook signature verification
-- [ ] More comparison pages for long-tail SEO
-- [ ] G2 + Capterra business profiles with review collection strategy
+- [x] More comparison pages for long-tail SEO
+- [✅] G2 + Capterra business profiles with review collection strategy — DONE 2026-03-21. Full setup guides at docs/g2-capterra-profiles.md: G2 (Churn Management category), Capterra (Customer Retention), AlternativeTo (already live), review collection email templates, incentive strategy, tracking table.
 
 ### P3 — Ongoing (continuous improvement)
 - [ ] 2 blog posts per week
@@ -74,7 +74,7 @@ Low-code/no-code business owners: newsletter creators, coaches, online course se
 - [ ] **Trust signals optimization** — Customer logos vs. testimonial quotes effectiveness
 
 ## Content Ideas Backlog (Original)
-- [ ] "The $825/month SaaS Tool That Should Cost $25" — controversial pricing take for Medium
+- [✅] "The $825/month SaaS Tool That Should Cost $25" — DONE 2026-03-21. Published at /posts/saas-tool-pricing-take. 900 words, non-technical audience, links to ChurnRecovery throughout.
 - [ ] Case study template: "How [Company] Saved $4,800/year by Switching from Churnkey"
 - [ ] "I Analyzed 50+ SaaS Pricing Pages - Here's What I Found" — industry data angle
 - [ ] "The $50,000/Year SaaS Tool Stack Audit" — controversial cost analysis

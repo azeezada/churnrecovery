@@ -32,3 +32,4 @@
 - CODE-3: Stripe webhook signature verification + real analytics in dashboard
 - CONTENT-2: More comparison pages for long-tail SEO
 - MARKETING-3: G2 + Capterra business profiles setup
+- MARKETING-3 DONE: G2/Capterra profile setup guides created at docs/g2-capterra-profiles.md (step-by-step instructions, product descriptions, review collection email templates, incentive strategy, tracking table). Blog post 'The $825/month SaaS Tool That Should Cost $25' written and deployed live at https://churnrecovery.com/posts/saas-tool-pricing-take (900 words, non-technical audience, links to ChurnRecovery). Build passed, cache purged, WORKQUEUE.md updated.

@@ -5,7 +5,7 @@
     <link>https://churnrecovery.com/blog</link>
     <description>Insights on churn recovery, payment failures, and SaaS retention</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 21 Mar 2026 03:33:42 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 21 Mar 2026 03:36:20 GMT</lastBuildDate>
     <atom:link href="https://churnrecovery.com/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title><![CDATA[ChurnRecovery vs Churnkey: The Complete Comparison Guide (2026)]]></title>
@@ -18,6 +18,17 @@
       <category>SaaS tools comparison</category>
       <category>open-source</category>
       <category>pricing</category>
+    </item>
+    <item>
+      <title><![CDATA[The $825/Month SaaS Tool That Should Cost $25]]></title>
+      <link>https://churnrecovery.com/posts/saas-tool-pricing-take</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/saas-tool-pricing-take</guid>
+      <description><![CDATA[Someone is charging $825/month to send a few emails and show a popup when customers try to cancel. Here's why that price exists — and why you don't have to pay it.]]></description>
+      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
+      <category>pricing</category>
+      <category>saas-tools</category>
+      <category>churn</category>
+      <category>business</category>
     </item>
     <item>
       <title><![CDATA[B2B SaaS Churn Benchmarks 2025: What's a Good Churn Rate?]]></title>
