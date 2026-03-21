@@ -46,6 +46,16 @@ const useCasePages = useCaseSlugs.map(slug => ({
   path: `/use-cases/${slug}`, priority: '0.8', changefreq: 'monthly',
 }))
 
+// Platform-specific landing pages (/for/*)
+const forPageSlugs = [
+  'kajabi', 'teachable', 'ghost', 'convertkit', 'substack',
+  'beehiiv', 'memberful', 'stan-store', 'payhip', 'podia',
+  'thinkific', 'circle', 'patreon', 'wix', 'wordpress',
+]
+const forPages = forPageSlugs.map(slug => ({
+  path: `/for/${slug}`, priority: '0.8', changefreq: 'monthly',
+}))
+
 // Blog posts
 function getBlogPages() {
   if (!fs.existsSync(postsDir)) return []
@@ -70,6 +80,7 @@ const allPages = [
   ...comparisonPages,
   ...templatePages,
   ...useCasePages,
+  ...forPages,
   ...getBlogPages(),
 ]
 

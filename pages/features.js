@@ -359,7 +359,7 @@ export default function FeaturesPage() {
                 Everything, at a glance
               </h2>
             </div>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: '8px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(260px, 100%), 1fr))', gap: '8px' }}>
               {[
                 'Cancel flow modal', 'Reason picker', 'Discount offers', 'Pause offers',
                 'Human escalation', 'Feedback collection', 'A/B testing', 'Save rate analytics',

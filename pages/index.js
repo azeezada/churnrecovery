@@ -4,76 +4,29 @@ import { getAllPosts } from '../lib/posts'
 import WaitlistForm from '../components/WaitlistForm'
 import LogoWall from '../components/LogoWall'
 
-// ─── Design tokens ─────────────────────────────────────────────────────────
-const t = {
-  bg: '#FAF9F5',
-  text: '#191919',
-  gray: '#666666',
-  grayLight: '#999999',
-  accent: '#D97757',
-  accentHover: '#C4603D',
-  border: '#E5E5E5',
-  white: '#FFFFFF',
-  fontSans: '"Instrument Sans", sans-serif',
-  fontSerif: '"Merriweather", serif',
-}
-
 // ─── How It Works Step ────────────────────────────────────────────────────
 function Step({ number, title, description, screenshot, screenshotAlt }) {
   return (
-    <div style={{
-      display: 'grid',
-      gridTemplateColumns: '1fr',
-      gap: '24px',
-    }} className="step-card">
-      <div style={{
-        display: 'flex',
-        gap: '20px',
-        alignItems: 'flex-start',
-      }}>
-        <div style={{
-          width: '44px',
-          height: '44px',
-          borderRadius: '50%',
-          background: `${t.accent}15`,
-          border: `2px solid ${t.accent}`,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          fontFamily: t.fontSans,
-          fontWeight: 700,
-          fontSize: '1.1rem',
-          color: t.accent,
-          flexShrink: 0,
-        }}>{number}</div>
+    <div className="grid grid-cols-1 gap-6 step-card">
+      <div className="flex gap-5 items-start">
+        <div className="w-[44px] h-[44px] rounded-full bg-brand-accent/[0.08] border-2 border-brand-accent flex items-center justify-center font-sans font-bold text-[1.1rem] text-brand-accent shrink-0">
+          {number}
+        </div>
         <div>
-          <h3 style={{
-            fontFamily: t.fontSans,
-            fontSize: '1.1rem',
-            fontWeight: 600,
-            color: t.text,
-            margin: '0 0 6px 0',
-          }}>{title}</h3>
-          <p style={{
-            fontFamily: t.fontSans,
-            fontSize: '0.95rem',
-            color: t.gray,
-            margin: 0,
-            lineHeight: 1.6,
-          }}>{description}</p>
+          <h3 className="font-sans text-[1.1rem] font-semibold text-brand-text m-0 mb-1.5">
+            {title}
+          </h3>
+          <p className="font-sans text-[0.95rem] text-brand-gray m-0 leading-[1.6]">
+            {description}
+          </p>
         </div>
       </div>
       {screenshot && (
-        <div style={{
-          borderRadius: '12px',
-          overflow: 'hidden',
-          border: `1px solid ${t.border}`,
-          boxShadow: '0 4px 16px rgba(0,0,0,0.07)',
-        }}>
+        <div className="rounded-xl overflow-hidden border border-brand-border shadow-[0_4px_16px_rgba(0,0,0,0.07)]">
           <img
             src={screenshot}
             alt={screenshotAlt}
-            style={{ width: '100%', height: 'auto', display: 'block' }}
+            className="w-full h-auto block"
           />
         </div>
       )}
@@ -84,30 +37,14 @@ function Step({ number, title, description, screenshot, screenshotAlt }) {
 // ─── Benefit Card ─────────────────────────────────────────────────────────
 function BenefitCard({ emoji, title, description }) {
   return (
-    <div style={{
-      padding: '28px',
-      border: `1px solid ${t.border}`,
-      borderRadius: '12px',
-      background: t.white,
-    }}>
-      <div style={{
-        fontSize: '2rem',
-        marginBottom: '14px',
-      }}>{emoji}</div>
-      <h3 style={{
-        fontFamily: t.fontSans,
-        fontSize: '1.05rem',
-        fontWeight: 600,
-        color: t.text,
-        margin: '0 0 8px 0',
-      }}>{title}</h3>
-      <p style={{
-        fontFamily: t.fontSans,
-        fontSize: '0.93rem',
-        color: t.gray,
-        margin: 0,
-        lineHeight: 1.6,
-      }}>{description}</p>
+    <div className="p-7 border border-brand-border rounded-xl bg-brand-white">
+      <div className="text-[2rem] mb-3.5">{emoji}</div>
+      <h3 className="font-sans text-[1.05rem] font-semibold text-brand-text m-0 mb-2">
+        {title}
+      </h3>
+      <p className="font-sans text-[0.93rem] text-brand-gray m-0 leading-[1.6]">
+        {description}
+      </p>
     </div>
   )
 }
@@ -115,28 +52,12 @@ function BenefitCard({ emoji, title, description }) {
 // ─── Testimonial ──────────────────────────────────────────────────────────
 function Testimonial({ text, author, role }) {
   return (
-    <figure style={{
-      margin: 0,
-      padding: '28px 32px',
-      borderLeft: `3px solid ${t.accent}`,
-      background: t.white,
-      borderRadius: '0 12px 12px 0',
-    }}>
-      <blockquote style={{
-        fontFamily: t.fontSerif,
-        fontSize: '1.05rem',
-        color: t.text,
-        margin: '0 0 16px 0',
-        lineHeight: 1.7,
-        fontStyle: 'italic',
-      }}>"{text}"</blockquote>
-      <figcaption style={{
-        fontFamily: t.fontSans,
-        fontSize: '0.85rem',
-        color: t.gray,
-        fontStyle: 'normal',
-      }}>
-        <strong style={{ color: t.text, fontWeight: 600 }}>{author}</strong>
+    <figure className="m-0 py-7 px-8 border-l-[3px] border-brand-accent bg-brand-white rounded-r-xl">
+      <blockquote className="font-serif text-[1.05rem] text-brand-text m-0 mb-4 leading-[1.7] italic">
+        &ldquo;{text}&rdquo;
+      </blockquote>
+      <figcaption className="font-sans text-[0.85rem] text-brand-gray not-italic">
+        <strong className="text-brand-text font-semibold">{author}</strong>
         {role && <span> · {role}</span>}
       </figcaption>
     </figure>
@@ -150,63 +71,29 @@ function PostCard({ post }) {
     : null
 
   return (
-    <article className="home-post-card" style={{
-      display: 'grid',
-      gridTemplateColumns: '120px 1fr',
-      gap: '24px',
-      alignItems: 'baseline',
-      paddingBottom: '28px',
-      borderBottom: `1px solid ${t.border}`,
-    }}>
+    <article className="home-post-card grid grid-cols-[120px_1fr] gap-6 items-baseline pb-7 border-b border-brand-border">
       {formattedDate && (
-        <time style={{
-          fontFamily: t.fontSans,
-          fontSize: '0.8rem',
-          color: t.grayLight,
-          fontWeight: 500,
-          letterSpacing: '0.02em',
-        }}>
+        <time className="font-sans text-[0.8rem] text-brand-gray-light font-medium tracking-[0.02em]">
           {formattedDate}
         </time>
       )}
       <div>
-        <h3 style={{
-          fontFamily: t.fontSans,
-          fontSize: '1.15rem',
-          fontWeight: 600,
-          margin: '0 0 8px 0',
-          letterSpacing: '-0.01em',
-          lineHeight: 1.3,
-        }}>
+        <h3 className="font-sans text-[1.15rem] font-semibold m-0 mb-2 tracking-[-0.01em] leading-[1.3]">
           <Link
             href={`/posts/${post.slug}`}
-            style={{ color: t.text, textDecoration: 'none' }}
-            onMouseEnter={e => e.currentTarget.style.color = t.accent}
-            onMouseLeave={e => e.currentTarget.style.color = t.text}
+            className="link-hover-accent"
           >
             {post.title}
           </Link>
         </h3>
         {post.excerpt && (
-          <p style={{
-            fontFamily: t.fontSerif,
-            fontSize: '0.95rem',
-            color: t.gray,
-            margin: '0 0 12px 0',
-            lineHeight: 1.6,
-          }}>{post.excerpt}</p>
+          <p className="font-serif text-[0.95rem] text-brand-gray m-0 mb-3 leading-[1.6]">
+            {post.excerpt}
+          </p>
         )}
         <Link
           href={`/posts/${post.slug}`}
-          style={{
-            fontFamily: t.fontSans,
-            fontSize: '0.85rem',
-            color: t.accent,
-            textDecoration: 'none',
-            fontWeight: 500,
-          }}
-          onMouseEnter={e => e.currentTarget.style.textDecoration = 'underline'}
-          onMouseLeave={e => e.currentTarget.style.textDecoration = 'none'}
+          className="link-hover-underline font-sans text-[0.85rem] text-brand-accent font-medium"
         >
           Read more →
         </Link>
@@ -233,175 +120,64 @@ export default function Home({ posts }) {
       </Head>
 
       {/* ── HERO ─────────────────────────────────────────────────────────── */}
-      <section style={{
-        background: t.bg,
-        borderBottom: `1px solid ${t.border}`,
-        paddingTop: '100px',
-      }}>
-        <div style={{
-          maxWidth: '1200px',
-          margin: '0 auto',
-          padding: '80px 24px 72px',
-        }}>
+      <section className="bg-brand-bg border-b border-brand-border pt-[100px]">
+        <div className="max-w-[1200px] mx-auto px-6 pt-[80px] pb-[72px]">
           {/* Eyebrow */}
-          <div style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '8px',
-            background: `${t.accent}18`,
-            border: `1px solid ${t.accent}40`,
-            borderRadius: '100px',
-            padding: '5px 14px',
-            marginBottom: '32px',
-          }}>
-            <span style={{
-              width: '6px', height: '6px',
-              borderRadius: '50%',
-              background: t.accent,
-              display: 'inline-block',
-            }} />
-            <span style={{
-              fontFamily: t.fontSans,
-              fontSize: '0.78rem',
-              fontWeight: 600,
-              color: t.accent,
-              letterSpacing: '0.06em',
-              textTransform: 'uppercase',
-            }}>Free Forever · No Per-Recovery Fees</span>
+          <div className="inline-flex items-center gap-2 bg-brand-accent/[0.09] border border-brand-accent/25 rounded-full py-[5px] px-3.5 mb-8">
+            <span className="w-1.5 h-1.5 rounded-full bg-brand-accent inline-block" />
+            <span className="font-sans text-[0.78rem] font-semibold text-brand-accent tracking-[0.06em] uppercase">
+              Free Forever · No Per-Recovery Fees
+            </span>
           </div>
 
           {/* Headline */}
-          <h1 style={{
-            fontFamily: t.fontSans,
-            fontSize: 'clamp(2.5rem, 6vw, 4.5rem)',
-            fontWeight: 600,
-            color: t.text,
-            letterSpacing: '-0.03em',
-            lineHeight: 1.05,
-            margin: '0 0 24px 0',
-            maxWidth: '760px',
-          }}>
+          <h1 className="hero-heading text-brand-text m-0 mb-6 max-w-[760px]">
             Your subscribers are leaving.<br />
-            <span style={{ color: t.accent }}>Most would stay if you asked.</span>
+            <span className="text-brand-accent">Most would stay if you asked.</span>
           </h1>
 
           {/* Subheadline */}
-          <p style={{
-            fontFamily: t.fontSans,
-            fontSize: 'clamp(1.1rem, 2.5vw, 1.35rem)',
-            color: t.gray,
-            margin: '0 0 40px 0',
-            maxWidth: '600px',
-            lineHeight: 1.55,
-            fontWeight: 400,
-          }}>
+          <p className="font-sans text-[clamp(1.1rem,2.5vw,1.35rem)] text-brand-gray m-0 mb-10 max-w-[600px] leading-[1.55]">
             Every month, subscribers cancel and payments fail — silently costing you
-            thousands. ChurnRecovery catches them before they're gone, wins them back
-            automatically, and it's <strong style={{ color: t.text }}>completely free</strong>.
+            thousands. ChurnRecovery catches them before they&apos;re gone, wins them back
+            automatically, and it&apos;s <strong className="text-brand-text">completely free</strong>.
           </p>
 
           {/* CTAs */}
-          <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', alignItems: 'center' }}>
-            <a
-              href="#waitlist"
-              style={{
-                fontFamily: t.fontSans,
-                fontWeight: 600,
-                fontSize: '0.95rem',
-                background: t.accent,
-                color: t.white,
-                padding: '13px 28px',
-                borderRadius: '6px',
-                textDecoration: 'none',
-                letterSpacing: '-0.01em',
-                display: 'inline-block',
-                transition: 'background 0.2s',
-              }}
-              onMouseEnter={e => e.currentTarget.style.background = t.accentHover}
-              onMouseLeave={e => e.currentTarget.style.background = t.accent}
-            >
+          <div className="flex gap-3 flex-wrap items-center">
+            <a href="#waitlist" className="btn-accent">
               Start Saving Subscribers →
             </a>
-            <Link
-              href="/demo"
-              style={{
-                fontFamily: t.fontSans,
-                fontWeight: 500,
-                fontSize: '0.95rem',
-                color: t.text,
-                padding: '13px 24px',
-                borderRadius: '6px',
-                textDecoration: 'none',
-                border: `1px solid ${t.border}`,
-                background: t.white,
-                display: 'inline-block',
-              }}
-              onMouseEnter={e => e.currentTarget.style.borderColor = t.text}
-              onMouseLeave={e => e.currentTarget.style.borderColor = t.border}
-            >
+            <Link href="/demo" className="btn-outline">
               See how it works
             </Link>
           </div>
 
           {/* Micro-line */}
-          <p style={{
-            fontFamily: t.fontSans,
-            fontSize: '0.8rem',
-            color: t.grayLight,
-            marginTop: '20px',
-            marginBottom: 0,
-          }}>
+          <p className="font-sans text-[0.8rem] text-brand-gray-light mt-5 mb-0">
             Works with newsletters, courses, coaching, memberships — any subscription business.
           </p>
         </div>
 
         {/* ── Hero Product Screenshot ─────────────────────────────────── */}
-        <div style={{
-          maxWidth: '1100px',
-          margin: '0 auto',
-          padding: '0 24px 72px',
-        }}>
-          <div style={{
-            borderRadius: '16px',
-            overflow: 'hidden',
-            border: `1px solid ${t.border}`,
-            boxShadow: '0 8px 40px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.06)',
-            background: t.white,
-          }}>
+        <div className="max-w-[1100px] mx-auto px-6 pb-[72px]">
+          <div className="rounded-2xl overflow-hidden border border-brand-border shadow-[0_8px_40px_rgba(0,0,0,0.10),0_2px_8px_rgba(0,0,0,0.06)] bg-brand-white">
             {/* Browser chrome mockup */}
-            <div style={{
-              background: '#F0EFE9',
-              borderBottom: `1px solid ${t.border}`,
-              padding: '10px 16px',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '8px',
-            }}>
-              <span style={{ width: 12, height: 12, borderRadius: '50%', background: '#FF5F57', display: 'inline-block' }} />
-              <span style={{ width: 12, height: 12, borderRadius: '50%', background: '#FEBC2E', display: 'inline-block' }} />
-              <span style={{ width: 12, height: 12, borderRadius: '50%', background: '#28C840', display: 'inline-block' }} />
-              <span style={{
-                flex: 1, background: t.white, borderRadius: 6, padding: '4px 12px',
-                fontSize: '0.75rem', color: t.gray, fontFamily: t.fontSans, marginLeft: 8,
-              }}>app.churnrecovery.com/dashboard</span>
+            <div className="bg-[#F0EFE9] border-b border-brand-border py-2.5 px-4 flex items-center gap-2">
+              <span className="browser-dot bg-[#FF5F57]" />
+              <span className="browser-dot bg-[#FEBC2E]" />
+              <span className="browser-dot bg-[#28C840]" />
+              <span className="flex-1 bg-brand-white rounded-[6px] py-1 px-3 text-[0.75rem] text-brand-gray font-sans ml-2">
+                app.churnrecovery.com/dashboard
+              </span>
             </div>
             <img
               src="/screenshots/homepage-hero.png"
               alt="ChurnRecovery dashboard showing recovered revenue, active cancel flows, and subscriber analytics — all in one place"
-              style={{
-                width: '100%',
-                height: 'auto',
-                display: 'block',
-              }}
+              className="w-full h-auto block"
             />
           </div>
-          <p style={{
-            fontFamily: t.fontSans,
-            fontSize: '0.82rem',
-            color: t.grayLight,
-            textAlign: 'center',
-            marginTop: '14px',
-          }}>
+          <p className="font-sans text-[0.82rem] text-brand-gray-light text-center mt-3.5">
             The ChurnRecovery dashboard — see recovered revenue, cancel reasons, and active flows at a glance.
           </p>
         </div>
@@ -416,77 +192,33 @@ export default function Home({ posts }) {
       <LogoWall logos={[]} showPlaceholders={false} />
 
       {/* ── THE PROBLEM ──────────────────────────────────────────────────── */}
-      <section style={{
-        borderBottom: `1px solid ${t.border}`,
-        background: t.white,
-      }}>
-        <div style={{
-          maxWidth: '1200px',
-          margin: '0 auto',
-          padding: '72px 24px',
-        }}>
-          <div style={{ maxWidth: '700px', margin: '0 auto', textAlign: 'center' }}>
-            <span style={{
-              fontFamily: t.fontSans,
-              fontSize: '0.75rem',
-              fontWeight: 600,
-              color: t.accent,
-              letterSpacing: '0.08em',
-              textTransform: 'uppercase',
-            }}>The problem nobody talks about</span>
-            <h2 style={{
-              fontFamily: t.fontSans,
-              fontSize: 'clamp(1.6rem, 3.5vw, 2.25rem)',
-              fontWeight: 600,
-              color: t.text,
-              letterSpacing: '-0.02em',
-              margin: '12px 0 20px 0',
-              lineHeight: 1.2,
-            }}>
-              You're losing money every single month — and you might not even know it
+      <section className="border-b border-brand-border bg-brand-white">
+        <div className="max-w-[1200px] mx-auto px-6 py-[72px]">
+          <div className="max-w-[700px] mx-auto text-center">
+            <span className="eyebrow text-brand-accent">The problem nobody talks about</span>
+            <h2 className="section-heading text-brand-text mt-3 mb-5 mx-0">
+              You&apos;re losing money every single month — and you might not even know it
             </h2>
-            <p style={{
-              fontFamily: t.fontSans,
-              fontSize: '1.05rem',
-              color: t.gray,
-              lineHeight: 1.7,
-              margin: '0 0 40px 0',
-            }}>
-              Credit cards expire. Banks decline charges. Subscribers forget to update their payment details. 
-              Others hit "cancel" on a bad day — even though they'd stay if you offered a pause or a discount. 
-              These aren't lost causes. They're <strong style={{ color: t.text }}>recoverable revenue</strong>.
+            <p className="font-sans text-[1.05rem] text-brand-gray leading-[1.7] m-0 mb-10">
+              Credit cards expire. Banks decline charges. Subscribers forget to update their payment details.
+              Others hit &ldquo;cancel&rdquo; on a bad day — even though they&apos;d stay if you offered a pause or a discount.
+              These aren&apos;t lost causes. They&apos;re <strong className="text-brand-text">recoverable revenue</strong>.
             </p>
           </div>
 
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-            gap: '32px',
-            maxWidth: '900px',
-            margin: '0 auto',
-            textAlign: 'center',
-          }}>
+          <div className="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-8 max-w-[900px] mx-auto text-center">
             {[
               { number: '5–10%', label: 'of payments fail every month' },
               { number: '~70%', label: 'of failed payments can be recovered' },
               { number: '20–40%', label: 'of cancels can be saved with the right offer' },
             ].map((stat, i) => (
               <div key={i}>
-                <div style={{
-                  fontFamily: t.fontSans,
-                  fontSize: '2.2rem',
-                  fontWeight: 600,
-                  color: t.accent,
-                  letterSpacing: '-0.03em',
-                  lineHeight: 1,
-                }}>{stat.number}</div>
-                <div style={{
-                  fontFamily: t.fontSans,
-                  fontSize: '0.88rem',
-                  color: t.gray,
-                  marginTop: '8px',
-                  lineHeight: 1.4,
-                }}>{stat.label}</div>
+                <div className="font-sans text-[2.2rem] font-semibold text-brand-accent tracking-[-0.03em] leading-none">
+                  {stat.number}
+                </div>
+                <div className="font-sans text-[0.88rem] text-brand-gray mt-2 leading-[1.4]">
+                  {stat.label}
+                </div>
               </div>
             ))}
           </div>
@@ -494,42 +226,16 @@ export default function Home({ posts }) {
       </section>
 
       {/* ── WHAT IT DOES (benefits, not features) ────────────────────────── */}
-      <section style={{
-        background: t.bg,
-        borderBottom: `1px solid ${t.border}`,
-      }}>
-        <div style={{
-          maxWidth: '1200px',
-          margin: '0 auto',
-          padding: '72px 24px',
-        }}>
-          <div style={{ marginBottom: '48px' }}>
-            <span style={{
-              fontFamily: t.fontSans,
-              fontSize: '0.75rem',
-              fontWeight: 600,
-              color: t.accent,
-              letterSpacing: '0.08em',
-              textTransform: 'uppercase',
-            }}>What ChurnRecovery does for you</span>
-            <h2 style={{
-              fontFamily: t.fontSans,
-              fontSize: 'clamp(1.6rem, 3.5vw, 2.25rem)',
-              fontWeight: 600,
-              color: t.text,
-              letterSpacing: '-0.02em',
-              margin: '12px 0 0 0',
-              lineHeight: 1.2,
-            }}>
+      <section className="bg-brand-bg border-b border-brand-border">
+        <div className="max-w-[1200px] mx-auto px-6 py-[72px]">
+          <div className="mb-12">
+            <span className="eyebrow text-brand-accent">What ChurnRecovery does for you</span>
+            <h2 className="section-heading text-brand-text mt-3 m-0">
               Keep more subscribers without more work
             </h2>
           </div>
 
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-            gap: '20px',
-          }}>
+          <div className="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-5">
             <BenefitCard
               emoji="🛑"
               title="Save subscribers who try to cancel"
@@ -565,42 +271,16 @@ export default function Home({ posts }) {
       </section>
 
       {/* ── HOW IT WORKS ─────────────────────────────────────────────────── */}
-      <section style={{
-        background: t.white,
-        borderBottom: `1px solid ${t.border}`,
-      }}>
-        <div style={{
-          maxWidth: '800px',
-          margin: '0 auto',
-          padding: '72px 24px',
-        }}>
-          <div style={{ marginBottom: '48px', textAlign: 'center' }}>
-            <span style={{
-              fontFamily: t.fontSans,
-              fontSize: '0.75rem',
-              fontWeight: 600,
-              color: t.accent,
-              letterSpacing: '0.08em',
-              textTransform: 'uppercase',
-            }}>How it works</span>
-            <h2 style={{
-              fontFamily: t.fontSans,
-              fontSize: 'clamp(1.6rem, 3.5vw, 2.25rem)',
-              fontWeight: 600,
-              color: t.text,
-              letterSpacing: '-0.02em',
-              margin: '12px 0 0 0',
-              lineHeight: 1.2,
-            }}>
+      <section className="bg-brand-white border-b border-brand-border">
+        <div className="max-w-[800px] mx-auto px-6 py-[72px]">
+          <div className="mb-12 text-center">
+            <span className="eyebrow text-brand-accent">How it works</span>
+            <h2 className="section-heading text-brand-text mt-3 m-0">
               Three steps. Five minutes. More revenue.
             </h2>
           </div>
 
-          <div style={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '48px',
-          }}>
+          <div className="flex flex-col gap-12">
             <Step
               number="1"
               title="Connect your payment provider"
@@ -624,18 +304,10 @@ export default function Home({ posts }) {
             />
           </div>
 
-          <div style={{ textAlign: 'center', marginTop: '48px' }}>
+          <div className="text-center mt-12">
             <Link
               href="/demo"
-              style={{
-                fontFamily: t.fontSans,
-                fontWeight: 600,
-                fontSize: '0.95rem',
-                color: t.accent,
-                textDecoration: 'none',
-              }}
-              onMouseEnter={e => e.currentTarget.style.textDecoration = 'underline'}
-              onMouseLeave={e => e.currentTarget.style.textDecoration = 'none'}
+              className="link-hover-underline font-sans font-semibold text-[0.95rem] text-brand-accent"
             >
               See a live demo of the cancel flow →
             </Link>
@@ -644,42 +316,16 @@ export default function Home({ posts }) {
       </section>
 
       {/* ── WHO IT'S FOR ─────────────────────────────────────────────────── */}
-      <section style={{
-        background: t.bg,
-        borderBottom: `1px solid ${t.border}`,
-      }}>
-        <div style={{
-          maxWidth: '1200px',
-          margin: '0 auto',
-          padding: '72px 24px',
-        }}>
-          <div style={{ marginBottom: '48px', textAlign: 'center' }}>
-            <span style={{
-              fontFamily: t.fontSans,
-              fontSize: '0.75rem',
-              fontWeight: 600,
-              color: t.accent,
-              letterSpacing: '0.08em',
-              textTransform: 'uppercase',
-            }}>Built for subscription businesses</span>
-            <h2 style={{
-              fontFamily: t.fontSans,
-              fontSize: 'clamp(1.6rem, 3.5vw, 2.25rem)',
-              fontWeight: 600,
-              color: t.text,
-              letterSpacing: '-0.02em',
-              margin: '12px 0 0 0',
-              lineHeight: 1.2,
-            }}>
+      <section className="bg-brand-bg border-b border-brand-border">
+        <div className="max-w-[1200px] mx-auto px-6 py-[72px]">
+          <div className="mb-12 text-center">
+            <span className="eyebrow text-brand-accent">Built for subscription businesses</span>
+            <h2 className="section-heading text-brand-text mt-3 m-0">
               Perfect for creators, coaches, and small businesses
             </h2>
           </div>
 
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
-            gap: '20px',
-          }}>
+          <div className="grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-5">
             {[
               {
                 emoji: '📧',
@@ -702,27 +348,14 @@ export default function Home({ posts }) {
                 desc: "Whether it's a community, a box, or a service — ChurnRecovery works with any recurring billing."
               },
             ].map((item, i) => (
-              <div key={i} style={{
-                padding: '24px',
-                border: `1px solid ${t.border}`,
-                borderRadius: '12px',
-                background: t.white,
-              }}>
-                <div style={{ fontSize: '1.8rem', marginBottom: '12px' }}>{item.emoji}</div>
-                <h3 style={{
-                  fontFamily: t.fontSans,
-                  fontSize: '1rem',
-                  fontWeight: 600,
-                  color: t.text,
-                  margin: '0 0 6px 0',
-                }}>{item.title}</h3>
-                <p style={{
-                  fontFamily: t.fontSans,
-                  fontSize: '0.9rem',
-                  color: t.gray,
-                  margin: 0,
-                  lineHeight: 1.6,
-                }}>{item.desc}</p>
+              <div key={i} className="p-6 border border-brand-border rounded-xl bg-brand-white">
+                <div className="text-[1.8rem] mb-3">{item.emoji}</div>
+                <h3 className="font-sans text-base font-semibold text-brand-text m-0 mb-1.5">
+                  {item.title}
+                </h3>
+                <p className="font-sans text-[0.9rem] text-brand-gray m-0 leading-[1.6]">
+                  {item.desc}
+                </p>
               </div>
             ))}
           </div>
@@ -730,173 +363,63 @@ export default function Home({ posts }) {
       </section>
 
       {/* ── COST COMPARISON ──────────────────────────────────────────────── */}
-      <section style={{
-        background: t.white,
-        borderBottom: `1px solid ${t.border}`,
-      }}>
-        <div style={{
-          maxWidth: '800px',
-          margin: '0 auto',
-          padding: '72px 24px',
-          textAlign: 'center',
-        }}>
-          <span style={{
-            fontFamily: t.fontSans,
-            fontSize: '0.75rem',
-            fontWeight: 600,
-            color: t.accent,
-            letterSpacing: '0.08em',
-            textTransform: 'uppercase',
-          }}>The price difference</span>
-          <h2 style={{
-            fontFamily: t.fontSans,
-            fontSize: 'clamp(1.6rem, 3.5vw, 2.25rem)',
-            fontWeight: 600,
-            color: t.text,
-            letterSpacing: '-0.02em',
-            margin: '12px 0 20px 0',
-            lineHeight: 1.2,
-          }}>
+      <section className="bg-brand-white border-b border-brand-border">
+        <div className="max-w-[800px] mx-auto px-6 py-[72px] text-center">
+          <span className="eyebrow text-brand-accent">The price difference</span>
+          <h2 className="section-heading text-brand-text mt-3 mb-5 mx-0">
             Other churn tools cost $250–$825/month. We cost $0.
           </h2>
-          <p style={{
-            fontFamily: t.fontSans,
-            fontSize: '1.05rem',
-            color: t.gray,
-            lineHeight: 1.7,
-            margin: '0 0 40px 0',
-            maxWidth: '600px',
-            marginLeft: 'auto',
-            marginRight: 'auto',
-          }}>
-            Tools like Churnkey, ProfitWell, and Churnbuster charge hundreds per month. 
-            That's money that eats into the very revenue they're supposed to recover. 
-            ChurnRecovery gives you the same features — cancel flows, payment recovery, 
+          <p className="font-sans text-[1.05rem] text-brand-gray leading-[1.7] m-0 mb-10 max-w-[600px] mx-auto">
+            Tools like Churnkey, ProfitWell, and Churnbuster charge hundreds per month.
+            That&apos;s money that eats into the very revenue they&apos;re supposed to recover.
+            ChurnRecovery gives you the same features — cancel flows, payment recovery,
             analytics — for free.
           </p>
 
           {/* Side by side price cards */}
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
-            gap: '20px',
-            maxWidth: '600px',
-            margin: '0 auto',
-          }}>
-            <div style={{
-              padding: '32px 24px',
-              borderRadius: '12px',
-              border: `2px solid ${t.accent}`,
-              background: t.white,
-            }}>
-              <div style={{
-                fontFamily: t.fontSans,
-                fontSize: '0.8rem',
-                fontWeight: 600,
-                color: t.accent,
-                letterSpacing: '0.06em',
-                textTransform: 'uppercase',
-                marginBottom: '8px',
-              }}>ChurnRecovery</div>
-              <div style={{
-                fontFamily: t.fontSans,
-                fontSize: '3rem',
-                fontWeight: 700,
-                color: t.text,
-                letterSpacing: '-0.03em',
-              }}>$0</div>
-              <div style={{
-                fontFamily: t.fontSans,
-                fontSize: '0.85rem',
-                color: t.gray,
-                marginTop: '4px',
-              }}>per month, forever</div>
-              <div style={{
-                fontFamily: t.fontSans,
-                fontSize: '0.82rem',
-                color: '#2D7A4F',
-                fontWeight: 600,
-                marginTop: '12px',
-              }}>✓ All features included</div>
+          <div className="grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-5 max-w-[600px] mx-auto">
+            <div className="py-8 px-6 rounded-xl border-2 border-brand-accent bg-brand-white">
+              <div className="font-sans text-[0.8rem] font-semibold text-brand-accent tracking-[0.06em] uppercase mb-2">
+                ChurnRecovery
+              </div>
+              <div className="font-sans text-[3rem] font-bold text-brand-text tracking-[-0.03em]">
+                $0
+              </div>
+              <div className="font-sans text-[0.85rem] text-brand-gray mt-1">
+                per month, forever
+              </div>
+              <div className="font-sans text-[0.82rem] text-brand-green font-semibold mt-3">
+                ✓ All features included
+              </div>
             </div>
-            <div style={{
-              padding: '32px 24px',
-              borderRadius: '12px',
-              border: `1px solid ${t.border}`,
-              background: '#fafafa',
-            }}>
-              <div style={{
-                fontFamily: t.fontSans,
-                fontSize: '0.8rem',
-                fontWeight: 600,
-                color: t.grayLight,
-                letterSpacing: '0.06em',
-                textTransform: 'uppercase',
-                marginBottom: '8px',
-              }}>Other tools</div>
-              <div style={{
-                fontFamily: t.fontSans,
-                fontSize: '3rem',
-                fontWeight: 700,
-                color: t.gray,
-                letterSpacing: '-0.03em',
-                textDecoration: 'line-through',
-                textDecorationColor: '#DC2626',
-              }}>$500</div>
-              <div style={{
-                fontFamily: t.fontSans,
-                fontSize: '0.85rem',
-                color: t.grayLight,
-                marginTop: '4px',
-              }}>average per month</div>
-              <div style={{
-                fontFamily: t.fontSans,
-                fontSize: '0.82rem',
-                color: '#DC2626',
-                fontWeight: 600,
-                marginTop: '12px',
-              }}>= $6,000/year you could save</div>
+            <div className="py-8 px-6 rounded-xl border border-brand-border bg-[#fafafa]">
+              <div className="font-sans text-[0.8rem] font-semibold text-brand-gray-light tracking-[0.06em] uppercase mb-2">
+                Other tools
+              </div>
+              <div className="font-sans text-[3rem] font-bold text-brand-gray tracking-[-0.03em] line-through decoration-brand-red">
+                $500
+              </div>
+              <div className="font-sans text-[0.85rem] text-brand-gray-light mt-1">
+                average per month
+              </div>
+              <div className="font-sans text-[0.82rem] text-brand-red font-semibold mt-3">
+                = $6,000/year you could save
+              </div>
             </div>
           </div>
 
-          <p style={{
-            fontFamily: t.fontSans,
-            fontSize: '0.8rem',
-            color: t.grayLight,
-            marginTop: '16px',
-          }}>
-            <Link href="/compare/churnkey" style={{ color: t.accent }}>See detailed comparison →</Link>
+          <p className="font-sans text-[0.8rem] text-brand-gray-light mt-4">
+            <Link href="/compare/churnkey" className="text-brand-accent">See detailed comparison →</Link>
           </p>
         </div>
       </section>
 
       {/* ── SOCIAL PROOF ─────────────────────────────────────────────────── */}
-      <section style={{
-        background: t.bg,
-        borderBottom: `1px solid ${t.border}`,
-      }}>
-        <div style={{
-          maxWidth: '1200px',
-          margin: '0 auto',
-          padding: '72px 24px',
-        }}>
-          <span style={{
-            fontFamily: t.fontSans,
-            fontSize: '0.75rem',
-            fontWeight: 600,
-            color: t.accent,
-            letterSpacing: '0.08em',
-            textTransform: 'uppercase',
-            display: 'block',
-            marginBottom: '12px',
-          }}>What business owners are saying</span>
+      <section className="bg-brand-bg border-b border-brand-border">
+        <div className="max-w-[1200px] mx-auto px-6 py-[72px]">
+          <span className="eyebrow text-brand-accent block mb-3">What business owners are saying</span>
 
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-            gap: '20px',
-            marginTop: '32px',
-          }}>
+          <div className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-5 mt-8">
             <Testimonial
               text="We were paying $400/month for churn recovery on a $12k business. That's insane. So glad there's a free option that actually works."
               author="Marc K."
@@ -917,33 +440,12 @@ export default function Home({ posts }) {
       </section>
 
       {/* ── FAQ ───────────────────────────────────────────────────────────── */}
-      <section style={{
-        background: t.white,
-        borderBottom: `1px solid ${t.border}`,
-      }}>
-        <div style={{
-          maxWidth: '700px',
-          margin: '0 auto',
-          padding: '72px 24px',
-        }}>
-          <div style={{ marginBottom: '40px', textAlign: 'center' }}>
-            <span style={{
-              fontFamily: t.fontSans,
-              fontSize: '0.75rem',
-              fontWeight: 600,
-              color: t.accent,
-              letterSpacing: '0.08em',
-              textTransform: 'uppercase',
-            }}>Common questions</span>
-            <h2 style={{
-              fontFamily: t.fontSans,
-              fontSize: 'clamp(1.4rem, 3vw, 1.8rem)',
-              fontWeight: 600,
-              color: t.text,
-              letterSpacing: '-0.02em',
-              margin: '12px 0 0 0',
-            }}>
-              You're probably wondering...
+      <section className="bg-brand-white border-b border-brand-border">
+        <div className="max-w-[700px] mx-auto px-6 py-[72px]">
+          <div className="mb-10 text-center">
+            <span className="eyebrow text-brand-accent">Common questions</span>
+            <h2 className="font-sans text-[clamp(1.4rem,3vw,1.8rem)] font-semibold text-brand-text tracking-[-0.02em] mt-3 m-0">
+              You&apos;re probably wondering...
             </h2>
           </div>
 
@@ -969,82 +471,38 @@ export default function Home({ posts }) {
               a: 'We integrate with any platform that uses Stripe or another supported payment processor under the hood. If your subscribers pay through Stripe (most do), it works.'
             },
           ].map((faq, i) => (
-            <div key={i} style={{
-              padding: '24px 0',
-              borderBottom: `1px solid ${t.border}`,
-            }}>
-              <h3 style={{
-                fontFamily: t.fontSans,
-                fontSize: '1rem',
-                fontWeight: 600,
-                color: t.text,
-                margin: '0 0 8px 0',
-              }}>{faq.q}</h3>
-              <p style={{
-                fontFamily: t.fontSans,
-                fontSize: '0.93rem',
-                color: t.gray,
-                margin: 0,
-                lineHeight: 1.65,
-              }}>{faq.a}</p>
+            <div key={i} className="py-6 border-b border-brand-border">
+              <h3 className="font-sans text-base font-semibold text-brand-text m-0 mb-2">
+                {faq.q}
+              </h3>
+              <p className="font-sans text-[0.93rem] text-brand-gray m-0 leading-[1.65]">
+                {faq.a}
+              </p>
             </div>
           ))}
         </div>
       </section>
 
       {/* ── WAITLIST / CTA ───────────────────────────────────────────────── */}
-      <section id="waitlist" style={{
-        background: t.text,
-        borderBottom: `1px solid ${t.border}`,
-      }}>
-        <div style={{
-          maxWidth: '1200px',
-          margin: '0 auto',
-          padding: '80px 24px',
-          display: 'grid',
-          gridTemplateColumns: '1fr',
-          gap: '40px',
-        }}>
-          <div style={{ maxWidth: '560px' }}>
-            <h2 style={{
-              fontFamily: t.fontSans,
-              fontSize: 'clamp(1.8rem, 4vw, 2.75rem)',
-              fontWeight: 600,
-              color: t.white,
-              letterSpacing: '-0.03em',
-              margin: '0 0 16px 0',
-              lineHeight: 1.1,
-            }}>
+      <section id="waitlist" className="bg-brand-text border-b border-brand-border">
+        <div className="max-w-[1200px] mx-auto px-6 py-[80px] grid grid-cols-1 gap-10">
+          <div className="max-w-[560px]">
+            <h2 className="font-sans text-[clamp(1.8rem,4vw,2.75rem)] font-semibold text-brand-white tracking-[-0.03em] m-0 mb-4 leading-[1.1]">
               Stop losing subscribers.<br />
-              <span style={{ color: t.accent }}>Start recovering revenue.</span>
+              <span className="text-brand-accent">Start recovering revenue.</span>
             </h2>
-            <p style={{
-              fontFamily: t.fontSans,
-              fontSize: '1rem',
-              color: '#aaaaaa',
-              margin: '0 0 32px 0',
-              lineHeight: 1.6,
-            }}>
-              Join the waitlist and we'll set you up — no credit card, no sales calls, 
+            <p className="font-sans text-base text-[#aaaaaa] m-0 mb-8 leading-[1.6]">
+              Join the waitlist and we&apos;ll set you up — no credit card, no sales calls,
               no surprises. Just a simple tool that saves your subscribers.
             </p>
 
             <WaitlistForm source="homepage" dark={true} />
 
-            <p style={{
-              fontFamily: t.fontSans,
-              fontSize: '0.85rem',
-              color: '#888888',
-              marginTop: '16px',
-            }}>
+            <p className="font-sans text-[0.85rem] text-[#888888] mt-4">
               Not ready to sign up?{' '}
               <Link
                 href="/demo"
-                style={{
-                  color: t.accent,
-                  textDecoration: 'none',
-                  fontWeight: 500,
-                }}
+                className="text-brand-accent no-underline font-medium"
               >
                 Try the interactive demo first →
               </Link>
@@ -1055,55 +513,24 @@ export default function Home({ posts }) {
 
       {/* ── BLOG ─────────────────────────────────────────────────────────── */}
       {posts.length > 0 && (
-        <section style={{ background: t.bg }}>
-          <div style={{
-            maxWidth: '1200px',
-            margin: '0 auto',
-            padding: '72px 24px',
-          }}>
-            <div style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'baseline',
-              marginBottom: '40px',
-            }}>
+        <section className="bg-brand-bg">
+          <div className="max-w-[1200px] mx-auto px-6 py-[72px]">
+            <div className="flex justify-between items-baseline mb-10">
               <div>
-                <span style={{
-                  fontFamily: t.fontSans,
-                  fontSize: '0.75rem',
-                  fontWeight: 600,
-                  color: t.accent,
-                  letterSpacing: '0.08em',
-                  textTransform: 'uppercase',
-                  display: 'block',
-                  marginBottom: '8px',
-                }}>From the blog</span>
-                <h2 style={{
-                  fontFamily: t.fontSans,
-                  fontSize: '1.75rem',
-                  fontWeight: 600,
-                  color: t.text,
-                  letterSpacing: '-0.02em',
-                  margin: 0,
-                }}>Tips to keep more subscribers</h2>
+                <span className="eyebrow text-brand-accent block mb-2">From the blog</span>
+                <h2 className="font-sans text-[1.75rem] font-semibold text-brand-text tracking-[-0.02em] m-0">
+                  Tips to keep more subscribers
+                </h2>
               </div>
               <Link
                 href="/blog"
-                style={{
-                  fontFamily: t.fontSans,
-                  fontSize: '0.85rem',
-                  color: t.accent,
-                  textDecoration: 'none',
-                  fontWeight: 500,
-                }}
-                onMouseEnter={e => e.currentTarget.style.textDecoration = 'underline'}
-                onMouseLeave={e => e.currentTarget.style.textDecoration = 'none'}
+                className="link-hover-underline font-sans text-[0.85rem] text-brand-accent font-medium"
               >
                 All posts →
               </Link>
             </div>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '28px' }}>
+            <div className="flex flex-col gap-7">
               {posts.slice(0, 3).map(post => (
                 <PostCard key={post.slug} post={post} />
               ))}

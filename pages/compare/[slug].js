@@ -361,9 +361,11 @@ export default function ComparePage({ competitor }) {
             border: `1px solid ${t.border}`,
             borderRadius: '12px',
             overflow: 'hidden',
+            overflowX: 'auto',
+            WebkitOverflowScrolling: 'touch',
             background: t.white,
           }}>
-            <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+            <table style={{ width: '100%', minWidth: '500px', borderCollapse: 'collapse' }}>
               <thead>
                 <tr style={{ background: '#F5F4F0', borderBottom: `2px solid ${t.border}` }}>
                   <th style={{

@@ -4,26 +4,6 @@ import { useState, useEffect } from 'react'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 
-const t = {
-  bg: '#FAF9F5',
-  text: '#191919',
-  gray: '#666666',
-  grayLight: '#999999',
-  accent: '#7C3AED',
-  accentHover: '#6D28D9',
-  accentBg: '#F5F3FF',
-  border: '#E5E5E5',
-  white: '#FFFFFF',
-  green: '#2D7A4F',
-  greenBg: '#EDF7F1',
-  red: '#DC2626',
-  orange: '#EA580C',
-  amber: '#D97706',
-  thinkificPurple: '#7C3AED',
-  fontSans: '"Instrument Sans", sans-serif',
-  fontSerif: '"Merriweather", serif',
-}
-
 function ThinkificWaitlistForm({ dark = false }) {
   const [email, setEmail] = useState('')
   const [thinkificUrl, setThinkificUrl] = useState('')
@@ -73,31 +53,30 @@ function ThinkificWaitlistForm({ dark = false }) {
     }
   }
 
-  const bgColor = dark ? 'rgba(255,255,255,0.08)' : t.white
-  const borderColor = dark ? 'rgba(255,255,255,0.15)' : t.border
-  const textColor = dark ? t.white : t.text
-  const subtextColor = dark ? 'rgba(255,255,255,0.6)' : t.gray
+  const bgColor = dark ? 'rgba(255,255,255,0.08)' : '#FFFFFF'
+  const borderColor = dark ? 'rgba(255,255,255,0.15)' : '#E5E5E5'
+  const textColor = dark ? '#FFFFFF' : '#191919'
+  const subtextColor = dark ? 'rgba(255,255,255,0.6)' : '#666666'
 
   if (status === 'success' || status === 'duplicate') {
     return (
       <div style={{
-        textAlign: 'center', padding: '24px', borderRadius: '12px',
-        background: dark ? 'rgba(45,122,79,0.15)' : t.greenBg,
+        background: dark ? 'rgba(45,122,79,0.15)' : undefined,
         border: `1px solid ${dark ? 'rgba(45,122,79,0.3)' : '#C6E6D4'}`,
-      }}>
-        <div style={{ fontSize: '2rem', marginBottom: '8px' }}>
+      }} className={`text-center p-6 rounded-xl ${!dark ? 'bg-brand-green-light' : ''}`}>
+        <div className="text-[2rem] mb-2">
           {status === 'duplicate' ? '👋' : '🎉'}
         </div>
-        <p style={{ fontFamily: t.fontSans, fontWeight: 700, fontSize: '1rem', color: dark ? t.white : t.text, margin: '0 0 6px' }}>
+        <p className="font-sans font-bold text-base m-0 mb-1.5" style={{ color: dark ? '#FFFFFF' : '#191919' }}>
           {status === 'duplicate' ? "You're already on the list!" : "You're in! We'll be in touch soon."}
         </p>
-        <p style={{ fontFamily: t.fontSerif, fontSize: '0.85rem', color: subtextColor, margin: 0 }}>
+        <p className="font-serif text-[0.85rem] m-0" style={{ color: subtextColor }}>
           {status === 'duplicate'
             ? "We've got your email — we'll reach out when we launch."
             : "Free beta access for Thinkific creators. We'll email you when we're ready."}
         </p>
         {count && (
-          <p style={{ fontFamily: t.fontSans, fontSize: '0.75rem', color: subtextColor, margin: '10px 0 0' }}>
+          <p className="font-sans text-[0.75rem] mt-2.5 m-0" style={{ color: subtextColor }}>
             Join {count.toLocaleString()} creators on the waitlist
           </p>
         )}
@@ -107,7 +86,7 @@ function ThinkificWaitlistForm({ dark = false }) {
 
   return (
     <div>
-      <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+      <form onSubmit={handleSubmit} className="flex flex-col gap-2.5">
         <input
           type="email"
           value={email}
@@ -116,11 +95,10 @@ function ThinkificWaitlistForm({ dark = false }) {
           required
           autoComplete="email"
           aria-label="Email address"
+          className="py-[13px] px-4 rounded-lg font-sans text-[0.95rem] outline-none"
           style={{
-            padding: '13px 16px', borderRadius: '8px',
-            border: `1px solid ${error ? t.red : borderColor}`,
-            background: bgColor, fontFamily: t.fontSans,
-            fontSize: '0.95rem', color: textColor, outline: 'none',
+            border: `1px solid ${error ? '#DC2626' : borderColor}`,
+            background: bgColor, color: textColor,
           }}
         />
         <input
@@ -129,22 +107,19 @@ function ThinkificWaitlistForm({ dark = false }) {
           onChange={e => setThinkificUrl(e.target.value)}
           placeholder="your-school.thinkific.com (optional)"
           aria-label="Thinkific school URL"
+          className="py-[13px] px-4 rounded-lg font-sans text-[0.95rem] outline-none"
           style={{
-            padding: '13px 16px', borderRadius: '8px',
             border: `1px solid ${borderColor}`,
-            background: bgColor, fontFamily: t.fontSans,
-            fontSize: '0.95rem', color: textColor, outline: 'none',
+            background: bgColor, color: textColor,
           }}
         />
         <button
           type="submit"
           disabled={status === 'loading'}
+          className="py-3.5 px-7 rounded-lg border-none font-sans font-bold text-base text-brand-white transition-[background] duration-150"
           style={{
-            padding: '14px 28px', borderRadius: '8px', border: 'none',
-            background: status === 'loading' ? t.grayLight : t.accent,
-            color: t.white, fontFamily: t.fontSans, fontWeight: 700,
-            fontSize: '1rem', cursor: status === 'loading' ? 'not-allowed' : 'pointer',
-            transition: 'background 0.15s',
+            background: status === 'loading' ? '#999999' : '#7C3AED',
+            cursor: status === 'loading' ? 'not-allowed' : 'pointer',
           }}
         >
           {status === 'loading' ? 'Joining...' : 'Protect My Course Revenue →'}
@@ -153,20 +128,20 @@ function ThinkificWaitlistForm({ dark = false }) {
         <input type="hidden" name="tag" value="thinkific-creator" />
       </form>
       {error && (
-        <p style={{ fontFamily: t.fontSans, fontSize: '0.8rem', color: t.red, margin: '8px 0 0' }}>
+        <p className="font-sans text-[0.8rem] text-brand-red mt-2 m-0">
           ⚠ {error}
         </p>
       )}
-      <div style={{ display: 'flex', gap: '16px', marginTop: '12px', flexWrap: 'wrap' }}>
-        <span style={{ fontFamily: t.fontSans, fontSize: '0.78rem', color: subtextColor }}>
+      <div className="flex gap-4 mt-3 flex-wrap">
+        <span className="font-sans text-[0.78rem]" style={{ color: subtextColor }}>
           🆓 Free during beta
         </span>
-        <span style={{ fontFamily: t.fontSans, fontSize: '0.78rem', color: subtextColor }}>
+        <span className="font-sans text-[0.78rem]" style={{ color: subtextColor }}>
           🔒 No credit card required
         </span>
         {count && (
-          <span style={{ fontFamily: t.fontSans, fontSize: '0.78rem', color: subtextColor }}>
-            <span style={{ color: t.green }}>●</span> {count.toLocaleString()} on waitlist
+          <span className="font-sans text-[0.78rem]" style={{ color: subtextColor }}>
+            <span className="text-brand-green">●</span> {count.toLocaleString()} on waitlist
           </span>
         )}
       </div>
@@ -176,26 +151,22 @@ function ThinkificWaitlistForm({ dark = false }) {
 
 function PainCard({ icon, title, stat, statLabel, description }) {
   return (
-    <div style={{
-      background: t.white, border: `1px solid ${t.border}`,
-      borderRadius: '12px', padding: '28px 24px',
-      borderTop: `3px solid ${t.amber}`,
-    }}>
-      <div style={{ fontSize: '2rem', marginBottom: '12px' }}>{icon}</div>
-      <h3 style={{ fontFamily: t.fontSans, fontSize: '1rem', fontWeight: 700, color: t.text, margin: '0 0 8px' }}>
+    <div className="bg-brand-white border border-brand-border rounded-xl py-7 px-6 border-t-[3px] border-t-brand-amber">
+      <div className="text-[2rem] mb-3">{icon}</div>
+      <h3 className="font-sans text-base font-bold text-brand-text m-0 mb-2">
         {title}
       </h3>
       {stat && (
-        <div style={{ fontFamily: t.fontSans, fontWeight: 800, fontSize: '2rem', color: t.amber, margin: '4px 0' }}>
+        <div className="font-sans font-extrabold text-[2rem] text-brand-amber my-1">
           {stat}
         </div>
       )}
       {statLabel && (
-        <div style={{ fontFamily: t.fontSans, fontSize: '0.8rem', color: t.orange, marginBottom: '8px' }}>
+        <div className="font-sans text-[0.8rem] text-brand-orange mb-2">
           {statLabel}
         </div>
       )}
-      <p style={{ fontFamily: t.fontSerif, fontSize: '0.88rem', color: t.gray, margin: 0, lineHeight: 1.6 }}>
+      <p className="font-serif text-[0.88rem] text-brand-gray m-0 leading-[1.6]">
         {description}
       </p>
     </div>
@@ -204,34 +175,23 @@ function PainCard({ icon, title, stat, statLabel, description }) {
 
 function HowStep({ number, icon, title, description, callout }) {
   return (
-    <div style={{
-      background: t.white, border: `1px solid ${t.border}`,
-      borderRadius: '12px', padding: '28px 24px',
-    }}>
-      <div style={{ display: 'flex', gap: '16px', alignItems: 'flex-start', marginBottom: '16px' }}>
-        <div style={{
-          width: '48px', height: '48px', borderRadius: '50%',
-          background: t.accentBg, border: `2px solid ${t.accent}`,
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-          fontFamily: t.fontSans, fontWeight: 800, fontSize: '1.1rem',
-          color: t.accent, flexShrink: 0,
-        }}>{number}</div>
+    <div className="bg-brand-white border border-brand-border rounded-xl py-7 px-6">
+      <div className="flex gap-4 items-start mb-4">
+        <div className="w-12 h-12 rounded-full bg-brand-purple-light border-2 border-brand-purple flex items-center justify-center font-sans font-extrabold text-[1.1rem] text-brand-purple shrink-0">
+          {number}
+        </div>
         <div>
-          <div style={{ fontSize: '1.6rem', marginBottom: '4px' }}>{icon}</div>
-          <h3 style={{ fontFamily: t.fontSans, fontSize: '1.05rem', fontWeight: 700, color: t.text, margin: 0 }}>
+          <div className="text-[1.6rem] mb-1">{icon}</div>
+          <h3 className="font-sans text-[1.05rem] font-bold text-brand-text m-0">
             {title}
           </h3>
         </div>
       </div>
-      <p style={{ fontFamily: t.fontSerif, fontSize: '0.9rem', color: t.gray, margin: '0 0 12px', lineHeight: 1.7 }}>
+      <p className="font-serif text-[0.9rem] text-brand-gray m-0 mb-3 leading-[1.7]">
         {description}
       </p>
       {callout && (
-        <div style={{
-          background: t.accentBg, border: `1px solid ${t.accent}30`,
-          borderRadius: '8px', padding: '10px 14px',
-          fontFamily: t.fontSans, fontSize: '0.8rem', color: t.accent,
-        }}>
+        <div className="bg-brand-purple-light border border-brand-purple/20 rounded-lg py-2.5 px-3.5 font-sans text-[0.8rem] text-brand-purple">
           {callout}
         </div>
       )}
@@ -241,17 +201,13 @@ function HowStep({ number, icon, title, description, callout }) {
 
 function BenefitCard({ icon, title, description }) {
   return (
-    <div style={{
-      display: 'flex', gap: '14px', alignItems: 'flex-start',
-      background: t.white, border: `1px solid ${t.border}`,
-      borderRadius: '10px', padding: '20px',
-    }}>
-      <span style={{ fontSize: '1.4rem', flexShrink: 0 }}>{icon}</span>
+    <div className="flex gap-3.5 items-start bg-brand-white border border-brand-border rounded-[10px] p-5">
+      <span className="text-[1.4rem] shrink-0">{icon}</span>
       <div>
-        <h4 style={{ fontFamily: t.fontSans, fontSize: '0.92rem', fontWeight: 700, color: t.text, margin: '0 0 4px' }}>
+        <h4 className="font-sans text-[0.92rem] font-bold text-brand-text m-0 mb-1">
           {title}
         </h4>
-        <p style={{ fontFamily: t.fontSerif, fontSize: '0.82rem', color: t.gray, margin: 0, lineHeight: 1.55 }}>
+        <p className="font-serif text-[0.82rem] text-brand-gray m-0 leading-[1.55]">
           {description}
         </p>
       </div>
@@ -262,28 +218,21 @@ function BenefitCard({ icon, title, description }) {
 function FAQItem({ q, a }) {
   const [open, setOpen] = useState(false)
   return (
-    <div style={{
-      border: `1px solid ${t.border}`, borderRadius: '10px',
-      overflow: 'hidden', marginBottom: '8px',
-    }}>
+    <div className="border border-brand-border rounded-[10px] overflow-hidden mb-2">
       <button
         onClick={() => setOpen(!open)}
-        style={{
-          width: '100%', background: t.white, border: 'none', cursor: 'pointer',
-          padding: '16px 20px', display: 'flex', justifyContent: 'space-between',
-          alignItems: 'center', gap: '12px', textAlign: 'left',
-        }}
+        className="w-full bg-brand-white border-none cursor-pointer py-4 px-5 flex justify-between items-center gap-3 text-left"
       >
-        <span style={{ fontFamily: t.fontSans, fontWeight: 600, fontSize: '0.93rem', color: t.text }}>
+        <span className="font-sans font-semibold text-[0.93rem] text-brand-text">
           {q}
         </span>
-        <span style={{ color: t.accent, fontSize: '1.2rem', fontWeight: 700, flexShrink: 0 }}>
+        <span className="text-brand-purple text-[1.2rem] font-bold shrink-0">
           {open ? '−' : '+'}
         </span>
       </button>
       {open && (
-        <div style={{ padding: '0 20px 16px', background: t.bg }}>
-          <p style={{ fontFamily: t.fontSerif, fontSize: '0.88rem', color: t.gray, margin: 0, lineHeight: 1.7 }}>
+        <div className="px-5 pb-4 bg-brand-bg">
+          <p className="font-serif text-[0.88rem] text-brand-gray m-0 leading-[1.7]">
             {a}
           </p>
         </div>
@@ -310,69 +259,42 @@ export default function ThinkificLandingPage() {
 
       <Header />
 
-      <main style={{ fontFamily: t.fontSans, background: t.bg, paddingTop: '60px' }}>
+      <main className="font-sans bg-brand-bg pt-[60px]">
 
         {/* ─── HERO ─────────────────────────────────────────────────────── */}
-        <section style={{
-          background: 'linear-gradient(135deg, #1A0A3E 0%, #2D1A5E 50%, #1A0A3E 100%)',
-          padding: '80px 24px 100px',
-          position: 'relative', overflow: 'hidden',
-        }}>
-          <div style={{
-            position: 'absolute', top: '-80px', right: '-80px',
-            width: '400px', height: '400px', borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(124,58,237,0.2) 0%, transparent 70%)',
-            pointerEvents: 'none',
-          }} />
+        <section className="py-[80px] px-6 pb-[100px] relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #1A0A3E 0%, #2D1A5E 50%, #1A0A3E 100%)' }}>
+          <div className="absolute -top-[80px] -right-[80px] w-[400px] h-[400px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(124,58,237,0.2) 0%, transparent 70%)' }} />
 
-          <div style={{ maxWidth: '720px', margin: '0 auto', textAlign: 'center', position: 'relative', zIndex: 1 }}>
-            <div style={{
-              display: 'inline-flex', alignItems: 'center', gap: '6px',
-              background: 'rgba(124,58,237,0.2)', border: '1px solid rgba(124,58,237,0.4)',
-              borderRadius: '100px', padding: '6px 16px',
-              fontFamily: t.fontSans, fontSize: '0.78rem', fontWeight: 600,
-              color: '#C4B5FD', marginBottom: '28px',
-            }}>
+          <div className="max-w-[720px] mx-auto text-center relative z-[1]">
+            <div className="inline-flex items-center gap-1.5 bg-[rgba(124,58,237,0.2)] border border-[rgba(124,58,237,0.4)] rounded-full py-1.5 px-4 font-sans text-[0.78rem] font-semibold text-[#C4B5FD] mb-7">
               <span>✓</span> Built for Thinkific Creators · Free During Beta
             </div>
 
-            <h1 style={{
-              fontFamily: t.fontSans, fontWeight: 800,
-              fontSize: 'clamp(2.2rem, 5vw, 3.5rem)',
-              color: t.white, margin: '0 0 20px', lineHeight: 1.15,
-              letterSpacing: '-0.02em',
-            }}>
+            <h1 className="lp-hero-heading text-brand-white m-0 mb-5">
               Stop Losing Thinkific<br />
-              <span style={{ color: '#C4B5FD' }}>Subscription Students at the Cancel Button</span>
+              <span className="text-[#C4B5FD]">Subscription Students at the Cancel Button</span>
             </h1>
 
-            <p style={{
-              fontFamily: t.fontSerif, fontSize: 'clamp(1rem, 2.5vw, 1.2rem)',
-              color: 'rgba(255,255,255,0.75)', margin: '0 0 40px', lineHeight: 1.7,
-              maxWidth: '600px', marginLeft: 'auto', marginRight: 'auto',
-            }}>
+            <p className="font-serif text-[clamp(1rem,2.5vw,1.2rem)] text-white/75 m-0 mb-10 leading-[1.7] max-w-[600px] mx-auto">
               Students who paid for your course bundle or membership cancel without warning — and without giving you a chance to save them.
               ChurnRecovery works natively with Thinkific&apos;s Stripe payments to intercept at the exact moment of cancel.
             </p>
 
-            <div style={{ maxWidth: '480px', margin: '0 auto 24px' }}>
+            <div className="max-w-[480px] mx-auto mb-6">
               <ThinkificWaitlistForm dark={true} />
             </div>
 
-            <div style={{ display: 'flex', gap: '20px', justifyContent: 'center', flexWrap: 'wrap' }}>
-              <span style={{ fontFamily: t.fontSans, fontSize: '0.8rem', color: 'rgba(255,255,255,0.5)' }}>
+            <div className="flex gap-5 justify-center flex-wrap">
+              <span className="font-sans text-[0.8rem] text-white/50">
                 🆓 Free forever under $1k/month MRR
               </span>
-              <span style={{ fontFamily: t.fontSans, fontSize: '0.8rem', color: 'rgba(255,255,255,0.5)' }}>
+              <span className="font-sans text-[0.8rem] text-white/50">
                 ⚡ Works natively with Thinkific
               </span>
             </div>
 
-            <div style={{ marginTop: '20px' }}>
-              <Link href="/demo" style={{
-                fontFamily: t.fontSans, fontSize: '0.9rem', color: 'rgba(255,255,255,0.6)',
-                textDecoration: 'none', borderBottom: '1px solid rgba(255,255,255,0.3)',
-              }}>
+            <div className="mt-5">
+              <Link href="/demo" className="font-sans text-[0.9rem] text-white/60 no-underline border-b border-white/30">
                 See how it works ↓
               </Link>
             </div>
@@ -380,29 +302,21 @@ export default function ThinkificLandingPage() {
         </section>
 
         {/* ─── PAIN POINTS ─────────────────────────────────────────────── */}
-        <section style={{ padding: '80px 24px', background: t.bg }}>
-          <div style={{ maxWidth: '1080px', margin: '0 auto' }}>
-            <div style={{ textAlign: 'center', marginBottom: '48px' }}>
-              <div style={{
-                fontFamily: t.fontSans, fontSize: '0.75rem', fontWeight: 700,
-                color: t.orange, textTransform: 'uppercase', letterSpacing: '0.08em',
-                marginBottom: '12px',
-              }}>The Course Creator Blind Spot</div>
-              <h2 style={{
-                fontFamily: t.fontSans, fontWeight: 800, fontSize: 'clamp(1.8rem, 4vw, 2.5rem)',
-                color: t.text, margin: '0 0 16px', letterSpacing: '-0.02em',
-              }}>
+        <section className="py-[80px] px-6 bg-brand-bg">
+          <div className="max-w-[1080px] mx-auto">
+            <div className="text-center mb-12">
+              <div className="font-sans text-[0.75rem] font-bold text-brand-orange uppercase tracking-[0.08em] mb-3">
+                The Course Creator Blind Spot
+              </div>
+              <h2 className="section-heading-lg text-brand-text m-0 mb-4">
                 Your Best Students Are Canceling<br />Without Saying Goodbye
               </h2>
-              <p style={{
-                fontFamily: t.fontSerif, fontSize: '1rem', color: t.gray,
-                maxWidth: '540px', margin: '0 auto', lineHeight: 1.7,
-              }}>
+              <p className="font-serif text-base text-brand-gray max-w-[540px] mx-auto leading-[1.7] m-0">
                 Thinkific tells you when a subscription ends. It doesn&apos;t tell you <em>why</em> — and it gives you no way to intervene.
               </p>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
+            <div className="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-5">
               <PainCard
                 icon="📚"
                 title="Students Ghost Without Warning"
@@ -425,29 +339,21 @@ export default function ThinkificLandingPage() {
         </section>
 
         {/* ─── HOW IT WORKS ────────────────────────────────────────────── */}
-        <section id="how-it-works" style={{ padding: '80px 24px', background: t.white }}>
-          <div style={{ maxWidth: '1080px', margin: '0 auto' }}>
-            <div style={{ textAlign: 'center', marginBottom: '48px' }}>
-              <div style={{
-                fontFamily: t.fontSans, fontSize: '0.75rem', fontWeight: 700,
-                color: t.accent, textTransform: 'uppercase', letterSpacing: '0.08em',
-                marginBottom: '12px',
-              }}>Native Thinkific Integration</div>
-              <h2 style={{
-                fontFamily: t.fontSans, fontWeight: 800, fontSize: 'clamp(1.8rem, 4vw, 2.5rem)',
-                color: t.text, margin: '0 0 16px', letterSpacing: '-0.02em',
-              }}>
+        <section id="how-it-works" className="py-[80px] px-6 bg-brand-white">
+          <div className="max-w-[1080px] mx-auto">
+            <div className="text-center mb-12">
+              <div className="font-sans text-[0.75rem] font-bold text-brand-purple uppercase tracking-[0.08em] mb-3">
+                Native Thinkific Integration
+              </div>
+              <h2 className="section-heading-lg text-brand-text m-0 mb-4">
                 Thinkific Uses Stripe. So Does ChurnRecovery.
               </h2>
-              <p style={{
-                fontFamily: t.fontSerif, fontSize: '1rem', color: t.gray,
-                maxWidth: '480px', margin: '0 auto', lineHeight: 1.7,
-              }}>
+              <p className="font-serif text-base text-brand-gray max-w-[480px] mx-auto leading-[1.7] m-0">
                 No custom code. No Thinkific API needed. We intercept at the Stripe layer — where cancellations actually happen.
               </p>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '20px' }}>
+            <div className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-5">
               <HowStep
                 number="1"
                 icon="🔗"
@@ -470,39 +376,23 @@ export default function ThinkificLandingPage() {
               />
             </div>
 
-            <div style={{
-              marginTop: '32px',
-              background: t.accentBg,
-              border: `1px solid ${t.accent}30`,
-              borderLeft: `4px solid ${t.accent}`,
-              borderRadius: '10px', padding: '20px 24px',
-              maxWidth: '680px', margin: '32px auto 0',
-            }}>
-              <p style={{ fontFamily: t.fontSans, fontWeight: 700, color: t.text, margin: '0 0 8px', fontSize: '0.95rem' }}>
+            <div className="mt-8 bg-brand-purple-light border border-brand-purple/20 border-l-4 border-l-brand-purple rounded-[10px] py-5 px-6 max-w-[680px] mx-auto">
+              <p className="font-sans font-bold text-brand-text m-0 mb-2 text-[0.95rem]">
                 &ldquo;Thinkific already has subscription management...&rdquo;
               </p>
-              <p style={{ fontFamily: t.fontSerif, fontSize: '0.88rem', color: t.gray, margin: '0 0 10px', lineHeight: 1.7 }}>
+              <p className="font-serif text-[0.88rem] text-brand-gray m-0 mb-2.5 leading-[1.7]">
                 Thinkific manages subscriptions — but it has no cancel flow. There&apos;s no pause option, no exit survey, no intervention moment. ChurnRecovery adds that missing layer between &quot;I&apos;m thinking about canceling&quot; and &quot;I&apos;m gone.&quot;
               </p>
-              <Link href="/docs" style={{
-                fontFamily: t.fontSans, fontSize: '0.82rem', color: t.accent,
-                textDecoration: 'none', fontWeight: 600,
-              }}>
+              <Link href="/docs" className="font-sans text-[0.82rem] text-brand-purple no-underline font-semibold">
                 Read the technical integration docs →
               </Link>
             </div>
 
-            <div style={{ textAlign: 'center', marginTop: '40px' }}>
-              <Link href="/demo" style={{
-                display: 'inline-flex', alignItems: 'center', gap: '8px',
-                background: t.accentBg, border: `1px solid ${t.accent}40`,
-                borderRadius: '10px', padding: '14px 28px',
-                fontFamily: t.fontSans, fontWeight: 700, color: t.accent,
-                textDecoration: 'none', fontSize: '0.95rem',
-              }}>
+            <div className="text-center mt-10">
+              <Link href="/demo" className="inline-flex items-center gap-2 bg-brand-purple-light border border-brand-purple/25 rounded-[10px] py-3.5 px-7 font-sans font-bold text-brand-purple no-underline text-[0.95rem]">
                 🎮 Try the Interactive Demo
               </Link>
-              <p style={{ fontFamily: t.fontSans, fontSize: '0.78rem', color: t.grayLight, marginTop: '8px' }}>
+              <p className="font-sans text-[0.78rem] text-brand-gray-light mt-2">
                 See a live cancel flow — no signup required
               </p>
             </div>
@@ -510,136 +400,71 @@ export default function ThinkificLandingPage() {
         </section>
 
         {/* ─── BENEFITS ────────────────────────────────────────────────── */}
-        <section style={{ padding: '80px 24px', background: t.bg }}>
-          <div style={{ maxWidth: '1080px', margin: '0 auto' }}>
-            <div style={{ textAlign: 'center', marginBottom: '48px' }}>
-              <div style={{
-                fontFamily: t.fontSans, fontSize: '0.75rem', fontWeight: 700,
-                color: t.accent, textTransform: 'uppercase', letterSpacing: '0.08em',
-                marginBottom: '12px',
-              }}>What You Get</div>
-              <h2 style={{
-                fontFamily: t.fontSans, fontWeight: 800, fontSize: 'clamp(1.8rem, 4vw, 2.5rem)',
-                color: t.text, margin: 0, letterSpacing: '-0.02em',
-              }}>
+        <section className="py-[80px] px-6 bg-brand-bg">
+          <div className="max-w-[1080px] mx-auto">
+            <div className="text-center mb-12">
+              <div className="font-sans text-[0.75rem] font-bold text-brand-purple uppercase tracking-[0.08em] mb-3">
+                What You Get
+              </div>
+              <h2 className="section-heading-lg text-brand-text m-0">
                 Everything a Thinkific Creator Needs to Reduce Churn
               </h2>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '14px' }}>
-              <BenefitCard
-                icon="⚡"
-                title="Real-Time Cancel Detection"
-                description="Stop finding out about cancellations in your Stripe dashboard the next day. Know the moment it starts."
-              />
-              <BenefitCard
-                icon="⏸"
-                title="Subscription Pause Option"
-                description="Students who cancel because they're overwhelmed often just need a break. A 30-day pause keeps them from leaving permanently."
-              />
-              <BenefitCard
-                icon="💬"
-                title="Personalized Win-Back Messages"
-                description="A message in your voice, not corporate software language. Students feel heard, not trapped."
-              />
-              <BenefitCard
-                icon="📉"
-                title="Automated Discount Offers"
-                description="One-time discount at the cancel moment. Keep students at a lower price — better than zero."
-              />
-              <BenefitCard
-                icon="📊"
-                title="Revenue Recovery Dashboard"
-                description="Track exactly how many students you saved and how much revenue was recovered. See what messages work best."
-              />
-              <BenefitCard
-                icon="🎓"
-                title="Course Creator Templates"
-                description="Pre-written messages for subscription courses and membership programs. Warm, personal, effective — and customizable."
-              />
-              <BenefitCard
-                icon="🆓"
-                title="Free Under $1k/Month MRR"
-                description="Building your subscription course business? Free until $1k/month. No credit card, no trial expiration."
-              />
-              <BenefitCard
-                icon="🔒"
-                title="No Code Setup"
-                description="Connect Stripe, write your message, go live. No developer. No API calls. Step-by-step guide included."
-              />
+            <div className="grid grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-3.5">
+              <BenefitCard icon="⚡" title="Real-Time Cancel Detection" description="Stop finding out about cancellations in your Stripe dashboard the next day. Know the moment it starts." />
+              <BenefitCard icon="⏸" title="Subscription Pause Option" description="Students who cancel because they're overwhelmed often just need a break. A 30-day pause keeps them from leaving permanently." />
+              <BenefitCard icon="💬" title="Personalized Win-Back Messages" description="A message in your voice, not corporate software language. Students feel heard, not trapped." />
+              <BenefitCard icon="📉" title="Automated Discount Offers" description="One-time discount at the cancel moment. Keep students at a lower price — better than zero." />
+              <BenefitCard icon="📊" title="Revenue Recovery Dashboard" description="Track exactly how many students you saved and how much revenue was recovered. See what messages work best." />
+              <BenefitCard icon="🎓" title="Course Creator Templates" description="Pre-written messages for subscription courses and membership programs. Warm, personal, effective — and customizable." />
+              <BenefitCard icon="🆓" title="Free Under $1k/Month MRR" description="Building your subscription course business? Free until $1k/month. No credit card, no trial expiration." />
+              <BenefitCard icon="🔒" title="No Code Setup" description="Connect Stripe, write your message, go live. No developer. No API calls. Step-by-step guide included." />
             </div>
           </div>
         </section>
 
         {/* ─── PRICING ─────────────────────────────────────────────────── */}
-        <section style={{ padding: '80px 24px', background: t.white }}>
-          <div style={{ maxWidth: '680px', margin: '0 auto', textAlign: 'center' }}>
-            <h2 style={{
-              fontFamily: t.fontSans, fontWeight: 800,
-              fontSize: 'clamp(1.8rem, 4vw, 2.5rem)',
-              color: t.text, margin: '0 0 20px', letterSpacing: '-0.02em',
-            }}>
+        <section className="py-[80px] px-6 bg-brand-white">
+          <div className="max-w-[680px] mx-auto text-center">
+            <h2 className="section-heading-lg text-brand-text m-0 mb-5">
               Built for Course Creators — Not Enterprise SaaS
             </h2>
-            <p style={{
-              fontFamily: t.fontSerif, fontSize: '1rem', color: t.gray,
-              lineHeight: 1.7, margin: '0 0 32px',
-            }}>
+            <p className="font-serif text-base text-brand-gray leading-[1.7] m-0 mb-8">
               Free while you grow. Scales affordably when you do.
             </p>
 
-            <div style={{
-              display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)',
-              gap: '12px', marginBottom: '28px',
-            }}>
+            <div className="grid grid-cols-2 gap-3 mb-7">
               {[
                 { tier: 'Starter', price: '$0/month', range: 'Under $1k MRR', highlight: true },
                 { tier: 'Growth', price: '$29/month', range: 'Up to $5k MRR' },
                 { tier: 'Pro', price: '$79/month', range: 'Up to $20k MRR' },
                 { tier: 'Enterprise', price: 'Custom', range: 'Above $20k MRR' },
               ].map(({ tier, price, range, highlight }) => (
-                <div key={tier} style={{
-                  background: highlight ? t.accentBg : t.bg,
-                  border: `1px solid ${highlight ? t.accent : t.border}`,
-                  borderRadius: '10px', padding: '18px',
-                  position: 'relative',
-                }}>
+                <div key={tier} className={`rounded-[10px] p-[18px] relative ${highlight ? 'bg-brand-purple-light border border-brand-purple' : 'bg-brand-bg border border-brand-border'}`}>
                   {highlight && (
-                    <div style={{
-                      position: 'absolute', top: '-10px', left: '50%',
-                      transform: 'translateX(-50%)',
-                      background: t.accent, color: t.white,
-                      fontFamily: t.fontSans, fontSize: '0.7rem', fontWeight: 700,
-                      padding: '3px 10px', borderRadius: '100px',
-                    }}>START HERE FREE</div>
+                    <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-brand-purple text-brand-white font-sans text-[0.7rem] font-bold py-[3px] px-2.5 rounded-full">
+                      START HERE FREE
+                    </div>
                   )}
-                  <div style={{ fontFamily: t.fontSans, fontWeight: 700, color: t.text, fontSize: '0.9rem' }}>{tier}</div>
-                  <div style={{ fontFamily: t.fontSans, fontWeight: 800, color: highlight ? t.accent : t.text, fontSize: '1.4rem', margin: '4px 0' }}>{price}</div>
-                  <div style={{ fontFamily: t.fontSerif, fontSize: '0.78rem', color: t.gray }}>{range}</div>
+                  <div className="font-sans font-bold text-brand-text text-[0.9rem]">{tier}</div>
+                  <div className={`font-sans font-extrabold text-[1.4rem] my-1 ${highlight ? 'text-brand-purple' : 'text-brand-text'}`}>{price}</div>
+                  <div className="font-serif text-[0.78rem] text-brand-gray">{range}</div>
                 </div>
               ))}
             </div>
 
-            <div style={{
-              background: t.greenBg, border: '1px solid #C6E6D4',
-              borderRadius: '10px', padding: '14px 20px',
-              fontFamily: t.fontSans, fontSize: '0.88rem', color: t.green,
-              marginBottom: '24px',
-            }}>
+            <div className="bg-brand-green-light border border-[#C6E6D4] rounded-[10px] py-3.5 px-5 font-sans text-[0.88rem] text-brand-green mb-6">
               Enterprise churn tools start at $400–$800/month. ChurnRecovery starts at $0. The math is easy. 😊
             </div>
           </div>
         </section>
 
         {/* ─── FAQ ─────────────────────────────────────────────────────── */}
-        <section style={{ padding: '80px 24px', background: t.bg }}>
-          <div style={{ maxWidth: '720px', margin: '0 auto' }}>
-            <div style={{ textAlign: 'center', marginBottom: '40px' }}>
-              <h2 style={{
-                fontFamily: t.fontSans, fontWeight: 800,
-                fontSize: 'clamp(1.8rem, 4vw, 2.5rem)',
-                color: t.text, margin: 0, letterSpacing: '-0.02em',
-              }}>
+        <section className="py-[80px] px-6 bg-brand-bg">
+          <div className="max-w-[720px] mx-auto">
+            <div className="text-center mb-10">
+              <h2 className="section-heading-lg text-brand-text m-0">
                 Questions From Thinkific Creators
               </h2>
             </div>
@@ -680,41 +505,24 @@ export default function ThinkificLandingPage() {
         </section>
 
         {/* ─── FINAL CTA ───────────────────────────────────────────────── */}
-        <section style={{
-          background: 'linear-gradient(135deg, #1A0A3E 0%, #2D1A5E 100%)',
-          padding: '80px 24px',
-        }}>
-          <div style={{ maxWidth: '600px', margin: '0 auto', textAlign: 'center' }}>
-            <h2 style={{
-              fontFamily: t.fontSans, fontWeight: 800,
-              fontSize: 'clamp(1.8rem, 4vw, 2.6rem)',
-              color: t.white, margin: '0 0 20px', lineHeight: 1.2,
-              letterSpacing: '-0.02em',
-            }}>
+        <section className="py-[80px] px-6" style={{ background: 'linear-gradient(135deg, #1A0A3E 0%, #2D1A5E 100%)' }}>
+          <div className="max-w-[600px] mx-auto text-center">
+            <h2 className="font-sans font-extrabold text-[clamp(1.8rem,4vw,2.6rem)] text-brand-white m-0 mb-5 leading-[1.2] tracking-[-0.02em]">
               A Thinkific Student Is<br />Canceling Right Now.
-              <br /><span style={{ color: '#C4B5FD' }}>Will You Be There to Stop It?</span>
+              <br /><span className="text-[#C4B5FD]">Will You Be There to Stop It?</span>
             </h2>
-            <p style={{
-              fontFamily: t.fontSerif, fontSize: '1rem',
-              color: 'rgba(255,255,255,0.7)', margin: '0 0 36px', lineHeight: 1.7,
-            }}>
+            <p className="font-serif text-base text-white/70 m-0 mb-9 leading-[1.7]">
               Join the waitlist. Free beta access for Thinkific course creators — no credit card required.
             </p>
 
-            <div style={{ maxWidth: '480px', margin: '0 auto' }}>
+            <div className="max-w-[480px] mx-auto">
               <ThinkificWaitlistForm dark={true} />
             </div>
 
-            <div style={{ display: 'flex', gap: '24px', justifyContent: 'center', marginTop: '24px', flexWrap: 'wrap' }}>
-              <span style={{ fontFamily: t.fontSans, fontSize: '0.78rem', color: 'rgba(255,255,255,0.45)' }}>
-                Free during beta
-              </span>
-              <span style={{ fontFamily: t.fontSans, fontSize: '0.78rem', color: 'rgba(255,255,255,0.45)' }}>
-                Cancel anytime
-              </span>
-              <span style={{ fontFamily: t.fontSans, fontSize: '0.78rem', color: 'rgba(255,255,255,0.45)' }}>
-                No spam, ever
-              </span>
+            <div className="flex gap-6 justify-center mt-6 flex-wrap">
+              <span className="font-sans text-[0.78rem] text-white/45">Free during beta</span>
+              <span className="font-sans text-[0.78rem] text-white/45">Cancel anytime</span>
+              <span className="font-sans text-[0.78rem] text-white/45">No spam, ever</span>
             </div>
           </div>
         </section>

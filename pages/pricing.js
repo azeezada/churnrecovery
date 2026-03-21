@@ -94,7 +94,7 @@ export default function Pricing() {
 
       {/* Hero */}
       <div style={{ borderBottom: `1px solid ${t.border}`, background: t.white }}>
-        <div style={{ maxWidth: 1100, margin: '0 auto', padding: '72px 32px 64px', textAlign: 'center' }}>
+        <div className="pricing-hero" style={{ maxWidth: 1100, margin: '0 auto', padding: '72px 32px 64px', textAlign: 'center' }}>
           <div style={{
             display: 'inline-block', background: t.greenLight, color: t.green,
             borderRadius: 20, padding: '6px 16px', fontSize: 13, fontWeight: 600,
@@ -155,7 +155,7 @@ export default function Pricing() {
           </div>
 
           {/* Feature grid */}
-          <div style={{ padding: '40px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 40 }}>
+          <div className="pricing-feature-grid" style={{ padding: '40px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))', gap: 40 }}>
             {features.map(cat => (
               <div key={cat.category}>
                 <h3 style={{ fontSize: 13, fontWeight: 700, color: t.grayLight, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 16 }}>
@@ -174,7 +174,7 @@ export default function Pricing() {
           </div>
 
           {/* CTA strip */}
-          <div style={{ background: '#F5F5F0', borderTop: `1px solid ${t.border}`, padding: '24px 40px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16 }}>
+          <div className="pricing-cta-strip" style={{ background: '#F5F5F0', borderTop: `1px solid ${t.border}`, padding: '24px 40px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16 }}>
             <div style={{ fontSize: 15, color: t.gray }}>
               No credit card. No contracts. Start recovering churn in hours.
             </div>
@@ -296,6 +296,12 @@ export default function Pricing() {
         }
         @media (max-width: 600px) {
           table th:nth-child(5), table td:nth-child(5) { display: none; }
+        }
+        /* P1-4: Reduce hero padding on small screens */
+        @media (max-width: 480px) {
+          .pricing-hero { padding: 48px 20px 40px !important; }
+          .pricing-feature-grid { padding: 24px !important; gap: 24px !important; }
+          .pricing-cta-strip { padding: 16px 20px !important; }
         }
       `}</style>
     </div>

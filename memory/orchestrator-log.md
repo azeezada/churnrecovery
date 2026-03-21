@@ -342,3 +342,21 @@
 - **[TWITTER-THREADS]** Created `docs/twitter-thread-templates.md` — 5 ready-to-post threads: (1) cancel flow math with ROI calculator CTA, (2) Churnkey pricing transparency, (3) 20-cancel-flow analysis with 4 patterns, (4) straight churn math for subscription businesses, (5) building-in-public IH thread. Each numbered with char counts and posting tips.
 - **[REFERRAL-STRATEGY]** Created `docs/referral-affiliate-strategy.md` — 3-part strategy: referral program using Pro early access + feature votes instead of cash commissions; 4 affiliate/partnership channels (newsletter sponsorships, podcast pitches, content swaps, integration co-marketing); first 10 partner categories with outreach email templates per segment.
 - **[LAUNCH-EMAIL]** Created `docs/launch-announcement-email.md` — 5 subject line A/B variants, plain-text + HTML versions in founder voice, 2-step install instructions, no-risk framing, 7-day follow-up sequence for non-openers; ConvertKit personalization tokens included.
+
+## 2026-03-21 — Mobile P1/P2 UX Fixes (cr-code-mobile-p1-fixes subagent)
+
+- **[P1-1]** `pages/pricing.js` — Feature grid `minmax(280px, 1fr)` → `minmax(min(280px, 100%), 1fr)` — prevents overflow below 360px
+- **[P1-2]** `components/CancelFlowDemo.js` — Modal gets `maxHeight: 85vh + overflowY: auto + WebkitOverflowScrolling: touch`; reason buttons & primary action buttons get `minHeight: 44px` (WCAG tap target)
+- **[P1-3]** `pages/demo.js` — Code block container gets `overflowX: auto + WebkitOverflowScrolling: touch + maxWidth: 100%`; `<pre>` also gets same
+- **[P1-4]** `pages/pricing.js` — Added `pricing-hero` className + CSS to reduce padding to 48px 20px on mobile; same for feature grid and CTA strip
+- **[P1-5]** `pages/features.js` — Detail list grid `minmax(260px, 1fr)` → `minmax(min(260px, 100%), 1fr)`
+- **[P1-6]** `styles/globals.css` — Article prose mobile: img max-width:100%, pre overflow-x:auto, table display:block scrollable
+- **[P1-7]** `styles/globals.css` — Footer link tap targets: `display:block; min-height:36px; line-height:36px` on mobile
+- **[P1-9]** `pages/compare/[slug].js` — Feature table wrapper gets `overflowX:auto`, table gets `minWidth:500px`; verdict cards collapse to 1-col at 480px
+- **[P2-2]** `styles/globals.css` — `.nav-link-item` helper class for 44px tap targets
+- **[P2-5]** `pages/_app.js` — Google Fonts moved from CSS @import to `<link rel="preconnect">` + `<link rel="stylesheet">` in Head for faster mobile load
+- **[BUILD]** `npm run build` ✅ passes (121 static pages)
+- **[TESTS]** 137 tests run, 136 passed, 1 flaky (pre-existing A/B test timing issue, passed on retry)
+- **[DEPLOY]** `https://d4505704.churnrecovery.pages.dev` — HTTP 200 ✅
+- **[LIVE]** `https://churnrecovery.com/` — HTTP 200 ✅
+- **[COMMIT]** `9f515ac` — "fix: mobile P1/P2 UX improvements from audit"

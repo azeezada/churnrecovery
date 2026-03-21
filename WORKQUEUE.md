@@ -76,6 +76,7 @@ Low-code/no-code business owners: newsletter creators, coaches, online course se
 - [✅] **Progressive disclosure test** — DONE 2026-03-21. Demo at /demo requires no email/login. Added "Try the interactive demo first →" link in waitlist section on homepage.
 - ✅ **Trust signals optimization** — Customer logos vs. testimonial quotes effectiveness — docs/trust-signals-strategy.md (2026-03-21)
 - [✅] **Mobile UX full audit** — Complete responsive design review. P0 issues fixed, P1/P2 documented at docs/mobile-ux-audit.md (2026-03-21)
+- [✅] **Mobile P1/P2 UX fixes applied** — 2026-03-21. P1-1 (pricing grid minmax fix), P1-2 (CancelFlowDemo modal max-height + tap targets), P1-3 (demo code block overflow), P1-4 (pricing hero mobile padding), P1-5 (features grid fix), P1-6 (article prose mobile safety), P1-7 (footer tap targets), P1-9 (compare table min-width 500px), P2-2 (nav tap targets), P2-5 (Google Fonts preconnect). All 137 tests pass. Deployed + HTTP 200 verified.
 
 ## Completed (archive)
 - ✅ Homepage UX overhaul for business owners (2026-03-21)

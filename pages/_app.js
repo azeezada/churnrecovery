@@ -29,6 +29,12 @@ export default function MyApp({ Component, pageProps }) {
         <link rel="apple-touch-icon" href="/logo.png" />
 
         {/* Preconnect to external domains for faster resource loading */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Merriweather:wght@300;400;700&display=swap"
+        />
         <link rel="preconnect" href="https://clerk.churnrecovery.com" />
         <link rel="preconnect" href="https://accounts.churnrecovery.com" />
         <link rel="preconnect" href="https://js.stripe.com" />

@@ -380,7 +380,10 @@ export default function DemoPage() {
               background: '#0D0D1A',
               borderRadius: '12px',
               overflow: 'hidden',
+              overflowX: 'auto',
+              WebkitOverflowScrolling: 'touch',
               border: '1px solid rgba(255,255,255,0.1)',
+              maxWidth: '100%',
             }}>
               <div style={{
                 background: 'rgba(255,255,255,0.05)',
@@ -407,6 +410,9 @@ export default function DemoPage() {
                   lineHeight: 1.7,
                   color: '#E8E8E8',
                   overflow: 'auto',
+                  overflowX: 'auto',
+                  WebkitOverflowScrolling: 'touch',
+                  maxWidth: '100%',
                 }}>
 {`// 1. Add the snippet to your cancel button handler
 import { ChurnRecovery } from '@churnrecovery/js'
