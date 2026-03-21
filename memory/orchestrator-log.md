@@ -1,5 +1,37 @@
 # Orchestrator Log
 
+## 2026-03-21 — UX Research Batch (cr-ux-research subagent)
+
+- **[UX-1] Substack Landing Page** — Created `docs/substack-landing-page.md` (333 lines)
+  - Full `/for/substack` page copy: hero, pain points (3-card layout), how-it-works (3-step Stripe webhook explanation), 8 benefits, social proof (pre-launch + post-launch variants), pricing callout, 7-question FAQ, final CTA
+  - Developer component spec included: route, form config (hidden tags), SEO metadata, target keywords, analytics events
+  - Waitlist tag: `substack-lp` + `substack-creator` for segmentation
+  - Status: ✅ committed
+
+- **[UX-2] User Interview Plan** — Created `docs/user-interview-plan.md` (302 lines)
+  - 5 personas: newsletter creator, course seller, small SaaS founder, coach, subscription box owner
+  - Outreach channels per persona: subreddits, Facebook groups, IH, Twitter searches, Cratejoy, BetaList
+  - 15-question structured screener (3 hard-filter criteria)
+  - Full 30-min interview script with warm-up, tool discovery, pain points, volume/impact, pricing sensitivity sections
+  - Incentive options: $25 Amazon card (cold) vs. 6 months free (warm) — hybrid recommended
+  - Synthesis template: per-interview template + 5-interview pattern analysis + 10-interview decision report
+  - Timeline: 5-week rollout plan
+  - Status: ✅ committed
+
+- **[UX-3] Trust Signals Strategy** — Created `docs/trust-signals-strategy.md` (266 lines)
+  - Priority matrix: founder story #1, waitlist count #2, technical transparency #3
+  - Core narrative: "$825/month for Churnkey → built ChurnRecovery" — specific, verifiable, emotionally resonant
+  - 7 zero-user social proof alternatives: waitlist count, community discussions, comparison authority, pricing contrast, technical transparency, beta access numbers, building-in-public timeline
+  - Beta testimonial email template + "what makes a great testimonial" guide
+  - A/B test plan: 3 tests (founder story vs. waitlist count, logo wall vs. quotes vs. stats, guarantee vs. no guarantee)
+  - 3 homepage trust section copy variants ready to use
+  - Pre-launch checklist: week 1/2/3 actions
+  - Status: ✅ committed
+
+- WORKQUEUE.md: ✅ 3 tasks marked complete (Substack landing page, User interview plan, Trust signals optimization)
+- Commit: `c0fd847` — "ux: substack landing page copy, user interview plan, trust signals strategy"
+
+
 ## 2026-03-21
 
 - Orchestrator started. Reviewed WORKQUEUE.md.
@@ -56,3 +88,4 @@
   2. docs/betalist-execution-guide.md — BetaList field-by-field submission guide with exact copy from marketing/betalist-submission.md, timing strategy (2-3 weeks before PH = March 15-18), landing page optimization, post-submission engagement, PH launch email template
   3. docs/alternativeto-monitoring.md — Weekly monitoring checklist, 6 copy-paste response templates for common questions, competitor page expansion plan (ProfitWell, Baremetrics, Paddle, Chargebee, Stripe, Brightback, Recurly), UTM tracking + monthly reporting
   - WORKQUEUE.md: All 3 P1 tasks marked [✅]
+- [2026-03-21] Interactive cancel flow demo built: 4-step sequential flow (cancel intent → pause offer → discount offer → exit survey) with fake SaaS dashboard background, no login required, CTA after demo; deployed to https://churnrecovery.pages.dev/demo (HTTP 200 ✓)
