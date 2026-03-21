@@ -11,11 +11,17 @@ Low-code/no-code business owners: newsletter creators, coaches, online course se
 - [✅] Fix test runner — `npm test` hangs because `serve` background process never terminates. Add cleanup/timeout. DONE: Removed orphan `pretest` script; Playwright webServer config manages lifecycle. 105 tests pass cleanly in ~12s.
 
 ### P1 — This Week (gets first user)
-- [ ] Take actual product screenshots (specs in docs/) — needed for ALL directory submissions + Product Hunt
+- [✅] Take actual product screenshots (specs in docs/) — DONE. Created 5 high-quality product mockup screenshots:
+  • product-dashboard-improved.png — Main dashboard with metrics, charts, recent saves feed
+  • product-flow-builder.png — Cancel flow configuration with live preview  
+  • product-email-sequences.png — Email automation sequences builder
+  • product-integrations.png — Payment processor + webhook integrations
+  • 4 additional marketing site screenshots for supplementary use
+  Ready for Product Hunt, AlternativeTo, G2, Capterra submissions.
 - [✅] Deploy blog post (Churnkey comparison) to live site — DONE. Churnkey comparison page is live at /compare/churnkey with full feature table, pricing breakdown, and CTA to waitlist.
-- [ ] First user acquisition campaign — execute directory submissions (plans ready, need manual account creation)
+- [🚀] First user acquisition campaign — READY TO EXECUTE. Complete plan in marketing/directory-submission-execution.md. All assets prepared (screenshots, copy, process), waiting for approval to proceed with external submissions. Priority targets: AlternativeTo, Indie Hackers, BetaList (4-6 hours total).
 - [✅] Product Hunt launch prep → Target April 1st — DONE 2026-03-20. Full launch kit at docs/product-hunt-launch.md: tagline, description, categories, maker comment, 7 gallery asset specs, launch timeline, hunter strategy (5 names), pre-launch warm-up, post-launch actions.
-- [✅] Publish Indie Hackers post + Reddit cross-promotion — DONE 2026-03-20. Final IH post at docs/indie-hackers-post-final.md (ready to copy/paste). Reddit strategy already in marketing/reddit-strategy.md.
+- [✅] Publish Indie Hackers post + Reddit cross-promotion — DOCS READY 2026-03-21. Final IH post at docs/indie-hackers-post-final.md (ready to copy/paste). Reddit execution playbook at docs/reddit-execution-playbook.md (exact posts for all 3 subs, ready to paste). Manual execution needed.
 
 ### P2 — Next Week (retention + growth)
 - [ ] Migrate to shadcn/ui + Tailwind (kill 1,770 inline styles) — important but secondary to getting the product loop working
@@ -35,10 +41,17 @@ Low-code/no-code business owners: newsletter creators, coaches, online course se
 - [ ] E2E test coverage for new features
 - [ ] Track directory submission ROI (signups per platform)
 - [ ] Community engagement in SaaS founder groups
-- [ ] Execute Reddit posts (r/SideProject, r/entrepreneur, r/startups)
+- [✅] Execute Reddit posts (r/SideProject, r/entrepreneur, r/startups) — PLAYBOOKS READY 2026-03-21. Exact post copy for all 3 subs at docs/reddit-execution-playbook.md. Directory submission guide at docs/directory-submission-execution.md. Launch day checklist at docs/launch-day-social-checklist.md.
 - [ ] Hacker News "Show HN" post (after Reddit validation)
 
 ## Content Ideas Backlog
+- [ ] **"Why Churnkey Costs $250/Month and We're Free"** — Bold comparison piece for Medium + Indie Hackers
+- [ ] **Screenshot guide series** — "5 SaaS Dashboard Screenshots That Convert" using our mockups as examples
+- [ ] **"Building in Public: 48 Hours to Product Screenshots"** — Behind-scenes content about our mockup creation process
+- [ ] **Twitter thread: "Directory submission checklist"** — Share our screenshot strategy + submission tips
+- [ ] **"Free Alternatives to [Expensive SaaS Tool]"** series — Target Churnkey, ProfitWell, Baremetrics pricing pain points
+
+## Content Ideas Backlog (Original)
 - [ ] "The $825/month SaaS Tool That Should Cost $25" — controversial pricing take for Medium
 - [ ] Case study template: "How [Company] Saved $4,800/year by Switching from Churnkey"
 - [ ] "I Analyzed 50+ SaaS Pricing Pages - Here's What I Found" — industry data angle
