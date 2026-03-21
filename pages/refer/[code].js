@@ -3,17 +3,6 @@ import { useRouter } from 'next/router'
 import Head from 'next/head'
 import WaitlistForm from '../../components/WaitlistForm'
 
-const t = {
-  bg: '#FAF9F5',
-  text: '#191919',
-  gray: '#666666',
-  accent: '#D97757',
-  border: '#E5E5E5',
-  white: '#FFFFFF',
-  fontSans: '"Instrument Sans", sans-serif',
-  fontSerif: '"Merriweather", serif',
-}
-
 // Map known referral codes to display names
 const CODE_NAMES = {
   dawood: 'Dawood',
@@ -58,131 +47,57 @@ export default function ReferralPage() {
         <meta name="robots" content="noindex" />
       </Head>
 
-      <div style={{
-        minHeight: '100vh',
-        background: t.bg,
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: '40px 20px',
-        fontFamily: t.fontSans,
-      }}>
+      <div className="min-h-screen bg-brand-bg flex flex-col items-center justify-center p-[40px_20px] font-sans">
         {/* Logo */}
-        <div style={{ marginBottom: '32px', textAlign: 'center' }}>
-          <a href="/" style={{ textDecoration: 'none' }}>
-            <span style={{
-              fontFamily: t.fontSans,
-              fontWeight: 800,
-              fontSize: '1.4rem',
-              color: t.accent,
-              letterSpacing: '-0.02em',
-            }}>
+        <div className="mb-8 text-center">
+          <a href="/" className="no-underline">
+            <span className="font-sans font-extrabold text-[1.4rem] text-brand-accent tracking-[-0.02em]">
               ChurnRecovery
             </span>
           </a>
         </div>
 
         {/* Card */}
-        <div style={{
-          background: t.white,
-          border: `1px solid ${t.border}`,
-          borderRadius: '16px',
-          padding: '48px 40px',
-          maxWidth: '520px',
-          width: '100%',
-          boxShadow: '0 4px 24px rgba(0,0,0,0.06)',
-          textAlign: 'center',
-        }}>
+        <div className="bg-brand-white border border-brand-border rounded-2xl p-[48px_40px] max-w-[520px] w-full shadow-[0_4px_24px_rgba(0,0,0,0.06)] text-center">
           {/* Emoji */}
-          <div style={{ fontSize: '2.5rem', marginBottom: '16px' }}>🎉</div>
+          <div className="text-[2.5rem] mb-4">🎉</div>
 
-          <h1 style={{
-            fontFamily: t.fontSans,
-            fontSize: '1.5rem',
-            fontWeight: 700,
-            color: t.text,
-            margin: '0 0 12px',
-            lineHeight: 1.3,
-          }}>
+          <h1 className="font-sans text-2xl font-bold text-brand-text mb-3 leading-[1.3]">
             You've been invited to ChurnRecovery
           </h1>
 
-          <p style={{
-            fontFamily: t.fontSerif,
-            fontSize: '1rem',
-            color: t.gray,
-            lineHeight: 1.7,
-            margin: '0 0 32px',
-          }}>
+          <p className="font-serif text-base text-brand-gray leading-[1.7] mb-8">
             {inviterText} Join the waitlist and we'll give you{' '}
-            <strong style={{ color: t.accent }}>Founding Member perks</strong>{' '}
+            <strong className="text-brand-accent">Founding Member perks</strong>{' '}
             when we launch.
           </p>
 
           {/* Referral code badge */}
           {code && (
-            <div style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '6px',
-              background: '#FFF5F0',
-              border: '1px solid #FDDDD4',
-              borderRadius: '20px',
-              padding: '6px 14px',
-              marginBottom: '28px',
-              fontSize: '0.78rem',
-              color: t.accent,
-              fontFamily: t.fontSans,
-              fontWeight: 600,
-            }}>
+            <div className="inline-flex items-center gap-[6px] bg-[#FFF5F0] border border-[#FDDDD4] rounded-[20px] px-[14px] py-[6px] mb-7 text-[0.78rem] text-brand-accent font-sans font-semibold">
               <span>🔗</span>
               Referred by: {code}
             </div>
           )}
 
           {/* Waitlist form */}
-          <div style={{ textAlign: 'left' }}>
+          <div className="text-left">
             <WaitlistForm source="referral" referralCode={code} />
           </div>
 
           {/* Perks list */}
-          <div style={{
-            marginTop: '28px',
-            paddingTop: '24px',
-            borderTop: `1px solid ${t.border}`,
-          }}>
-            <p style={{
-              fontFamily: t.fontSans,
-              fontSize: '0.8rem',
-              fontWeight: 600,
-              color: t.text,
-              margin: '0 0 12px',
-              textTransform: 'uppercase',
-              letterSpacing: '0.05em',
-            }}>
+          <div className="mt-7 pt-6 border-t border-brand-border">
+            <p className="font-sans text-[0.8rem] font-semibold text-brand-text mb-3 uppercase tracking-[0.05em]">
               Founding Member perks
             </p>
-            <ul style={{
-              listStyle: 'none',
-              padding: 0,
-              margin: 0,
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '8px',
-            }}>
+            <ul className="list-none p-0 m-0 flex flex-col gap-2">
               {[
                 '✓ Free forever plan — no credit card ever',
                 '✓ Priority access before public launch',
                 '✓ Direct line to the founder',
                 '✓ Shape the product with your feedback',
               ].map((perk, i) => (
-                <li key={i} style={{
-                  fontFamily: t.fontSerif,
-                  fontSize: '0.85rem',
-                  color: t.gray,
-                  textAlign: 'left',
-                }}>
+                <li key={i} className="font-serif text-[0.85rem] text-brand-gray text-left">
                   {perk}
                 </li>
               ))}
@@ -191,15 +106,9 @@ export default function ReferralPage() {
         </div>
 
         {/* Footer */}
-        <p style={{
-          marginTop: '24px',
-          fontFamily: t.fontSans,
-          fontSize: '0.75rem',
-          color: '#999',
-          textAlign: 'center',
-        }}>
+        <p className="mt-6 font-sans text-[0.75rem] text-[#999] text-center">
           ChurnRecovery helps subscription businesses save canceling members — for free.{' '}
-          <a href="/" style={{ color: t.accent, textDecoration: 'none' }}>Learn more →</a>
+          <a href="/" className="text-brand-accent no-underline">Learn more →</a>
         </p>
       </div>
     </>

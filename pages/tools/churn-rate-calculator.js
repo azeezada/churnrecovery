@@ -130,7 +130,7 @@ export default function ChurnRateCalculatorPage() {
           <div className="inline-block bg-[#F0EBE5] text-[#D97757] px-[14px] py-1 rounded-[4px] text-[0.72rem] font-bold uppercase tracking-[0.08em] mb-5">
             Free Membership Tool
           </div>
-          <h1 className="font-sans font-extrabold text-[#191919] tracking-[-0.04em] mb-4 leading-[1.15]" style={{ fontSize: 'clamp(1.8rem, 5vw, 2.8rem)' }}>
+          <h1 className="font-sans font-extrabold text-[#191919] tracking-[-0.04em] mb-4 leading-[1.15] text-[clamp(1.8rem,5vw,2.8rem)]">
             Membership Site Churn Rate Calculator
           </h1>
           <p className="font-serif text-[1.1rem] text-[#666] leading-[1.7] max-w-[560px] mx-auto mb-3">
@@ -152,7 +152,7 @@ export default function ChurnRateCalculatorPage() {
             <p className="font-sans text-[0.75rem] font-bold uppercase tracking-[0.08em] text-[#D97757] mb-3">
               Stop the bleed
             </p>
-            <h2 className="font-sans font-bold text-[#191919] tracking-[-0.03em] mb-[14px] leading-[1.2]" style={{ fontSize: 'clamp(1.3rem, 3vw, 1.8rem)' }}>
+            <h2 className="font-sans font-bold text-[#191919] tracking-[-0.03em] mb-[14px] leading-[1.2] text-[clamp(1.3rem,3vw,1.8rem)]">
               Now that you know your churn cost — do something about it
             </h2>
             <p className="font-serif text-[0.95rem] text-[#666] leading-[1.7] mb-7">
@@ -169,7 +169,7 @@ export default function ChurnRateCalculatorPage() {
 
         {/* What is churn rate */}
         <section className="max-w-[760px] mx-auto pt-[72px] px-6 pb-12">
-          <h2 className="font-sans font-bold text-[#191919] tracking-[-0.03em] mb-5" style={{ fontSize: 'clamp(1.3rem, 3vw, 1.8rem)' }}>
+          <h2 className="font-sans font-bold text-[#191919] tracking-[-0.03em] mb-5 text-[clamp(1.3rem,3vw,1.8rem)]">
             What is churn rate? And how do you calculate it?
           </h2>
           <div className="font-serif text-[0.95rem] text-[#666] leading-[1.8]">
@@ -199,7 +199,7 @@ export default function ChurnRateCalculatorPage() {
         {/* Benchmarks by industry */}
         <section className="bg-white border-t border-b border-[#E5E5E5] py-[72px] px-6">
           <div className="max-w-[760px] mx-auto">
-            <h2 className="font-sans font-bold text-[#191919] tracking-[-0.03em] mb-3" style={{ fontSize: 'clamp(1.3rem, 3vw, 1.8rem)' }}>
+            <h2 className="font-sans font-bold text-[#191919] tracking-[-0.03em] mb-3 text-[clamp(1.3rem,3vw,1.8rem)]">
               What's a good churn rate? Benchmarks by membership type
             </h2>
             <p className="font-serif text-[0.95rem] text-[#666] leading-[1.7] mb-9">
@@ -247,7 +247,7 @@ export default function ChurnRateCalculatorPage() {
 
         {/* How to reduce churn */}
         <section className="max-w-[760px] mx-auto py-[72px] px-6">
-          <h2 className="font-sans font-bold text-[#191919] tracking-[-0.03em] mb-4" style={{ fontSize: 'clamp(1.3rem, 3vw, 1.8rem)' }}>
+          <h2 className="font-sans font-bold text-[#191919] tracking-[-0.03em] mb-4 text-[clamp(1.3rem,3vw,1.8rem)]">
             How to reduce churn on your membership site
           </h2>
           <p className="font-serif text-[0.95rem] text-[#666] leading-[1.7] mb-9">
@@ -302,7 +302,7 @@ export default function ChurnRateCalculatorPage() {
         {/* When to use section */}
         <section className="bg-white border-t border-b border-[#E5E5E5] py-[72px] px-6">
           <div className="max-w-[760px] mx-auto">
-            <h2 className="font-sans font-bold text-[#191919] tracking-[-0.03em] mb-5" style={{ fontSize: 'clamp(1.3rem, 3vw, 1.8rem)' }}>
+            <h2 className="font-sans font-bold text-[#191919] tracking-[-0.03em] mb-5 text-[clamp(1.3rem,3vw,1.8rem)]">
               When to use a membership site churn rate calculator
             </h2>
             <p className="font-serif text-[0.95rem] text-[#666] leading-[1.7] mb-7">
@@ -332,7 +332,7 @@ export default function ChurnRateCalculatorPage() {
 
         {/* Stats */}
         <section className="max-w-[760px] mx-auto py-[72px] px-6">
-          <h2 className="font-sans font-bold text-[#191919] tracking-[-0.03em] mb-10 text-center" style={{ fontSize: 'clamp(1.2rem, 3vw, 1.6rem)' }}>
+          <h2 className="font-sans font-bold text-[#191919] tracking-[-0.03em] mb-10 text-center text-[clamp(1.2rem,3vw,1.6rem)]">
             The numbers behind membership site retention
           </h2>
           <div className="grid grid-cols-[repeat(auto-fill,minmax(220px,1fr))] gap-5">
@@ -376,7 +376,7 @@ export default function ChurnRateCalculatorPage() {
         {/* FAQ */}
         <section className="bg-white border-t border-b border-[#E5E5E5] py-[72px] px-6">
           <div className="max-w-[760px] mx-auto">
-            <h2 className="font-sans font-bold text-[#191919] tracking-[-0.03em] mb-10" style={{ fontSize: 'clamp(1.3rem, 3vw, 1.7rem)' }}>
+            <h2 className="font-sans font-bold text-[#191919] tracking-[-0.03em] mb-10 text-[clamp(1.3rem,3vw,1.7rem)]">
               Frequently asked questions
             </h2>
             <div className="flex flex-col gap-7">
@@ -417,7 +417,7 @@ export default function ChurnRateCalculatorPage() {
 
         {/* Bottom CTA */}
         <section className="bg-[#191919] py-20 px-6 text-center">
-          <h2 className="font-sans font-bold text-white tracking-[-0.03em] mb-4" style={{ fontSize: 'clamp(1.5rem, 4vw, 2.2rem)' }}>
+          <h2 className="font-sans font-bold text-white tracking-[-0.03em] mb-4 text-[clamp(1.5rem,4vw,2.2rem)]">
             Ready to stop losing members?
           </h2>
           <p className="font-serif text-base text-white/70 mb-8 max-w-[460px] mx-auto leading-[1.7]">

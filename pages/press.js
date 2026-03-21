@@ -58,7 +58,7 @@ export default function PressPage() {
           <div className="inline-block bg-[#F5F0FF] text-[#7C3AED] px-3 py-1 rounded text-xs font-bold uppercase tracking-[0.08em] mb-5">
             Press &amp; Media
           </div>
-          <h1 className="font-[Instrument_Sans,sans-serif] font-bold text-[#191919] leading-[1.15] tracking-[-0.03em] m-0 mb-5" style={{ fontSize: 'clamp(1.8rem, 5vw, 2.8rem)' }}>
+          <h1 className="font-[Instrument_Sans,sans-serif] font-bold text-[#191919] leading-[1.15] tracking-[-0.03em] m-0 mb-5 text-[clamp(1.8rem,5vw,2.8rem)]">
             ChurnRecovery Press Kit
           </h1>
           <p className="font-[Merriweather,serif] text-[1.1rem] text-[#666666] leading-[1.7] max-w-[640px] m-0 mb-8">
@@ -79,7 +79,7 @@ export default function PressPage() {
         {/* One-liner */}
         <section className="bg-[#191919] px-6 py-10">
           <div className="max-w-[860px] mx-auto">
-            <p className="font-[Merriweather,serif] text-white italic leading-relaxed m-0 text-center" style={{ fontSize: 'clamp(1.1rem, 3vw, 1.5rem)' }}>
+            <p className="font-[Merriweather,serif] text-white italic leading-relaxed m-0 text-center text-[clamp(1.1rem,3vw,1.5rem)]">
               "ChurnRecovery is the free, open-source churn recovery platform that intercepts subscription cancellations with smart save flows — built for newsletter creators, coaches, and subscription businesses who can't afford Churnkey."
             </p>
           </div>
@@ -256,7 +256,7 @@ export default function PressPage() {
 
         {/* Contact CTA */}
         <section className="px-6 py-20 text-center bg-[#191919]">
-          <h2 className="font-[Instrument_Sans,sans-serif] font-bold text-white tracking-[-0.03em] m-0 mb-4" style={{ fontSize: 'clamp(1.5rem, 4vw, 2rem)' }}>
+          <h2 className="font-[Instrument_Sans,sans-serif] font-bold text-white tracking-[-0.03em] m-0 mb-4 text-[clamp(1.5rem,4vw,2rem)]">
             Writing about ChurnRecovery?
           </h2>
           <p className="font-[Merriweather,serif] text-base text-[rgba(255,255,255,0.7)] m-0 mb-8 max-w-[460px] mx-auto leading-[1.7]">

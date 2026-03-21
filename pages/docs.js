@@ -22,7 +22,7 @@ function CodeBlock({ language, title, children }) {
       {title && (
         <div className="bg-[#181825] px-4 py-2.5 flex items-center justify-between">
           <span className="font-mono text-[0.78rem] text-[#6C7086]">{title}</span>
-          <span className="text-[0.65rem] font-['Instrument_Sans',sans-serif] text-[#6C7086] uppercase tracking-[0.08em]">{language}</span>
+          <span className="text-[0.65rem] font-sans text-[#6C7086] uppercase tracking-[0.08em]">{language}</span>
         </div>
       )}
       <pre className="bg-[#1E1E2E] p-5 m-0 overflow-x-auto text-[0.85rem] leading-[1.7] font-mono text-[#CDD6F4]">
@@ -45,23 +45,23 @@ function Callout({ type = 'info', children }) {
       style={{ background: s.bg, borderLeft: `3px solid ${s.border}` }}
     >
       <span className="text-base shrink-0">{s.icon}</span>
-      <div className="font-['Merriweather',serif] text-[0.88rem] text-[#191919] leading-[1.7]">{children}</div>
+      <div className="font-serif text-[0.88rem] text-brand-text leading-[1.7]">{children}</div>
     </div>
   )
 }
 
 function Nav() {
   return (
-    <nav className="border-b border-[#E5E5E5] bg-white px-5 h-[60px] flex items-center justify-between sticky top-0 z-[100]">
-      <Link href="/" className="font-['Instrument_Sans',sans-serif] font-bold text-[1.1rem] text-[#191919] no-underline tracking-[-0.01em]">
+    <nav className="border-b border-brand-border bg-white px-5 h-[60px] flex items-center justify-between sticky top-0 z-[100]">
+      <Link href="/" className="font-sans font-bold text-[1.1rem] text-brand-text no-underline tracking-[-0.01em]">
         ChurnRecovery
       </Link>
       <div className="nav-links flex gap-6 items-center">
-        <Link href="/features" className="text-[#666666] no-underline text-[0.9rem] font-['Instrument_Sans',sans-serif]">Features</Link>
-        <Link href="/docs" className="text-[#D97757] no-underline text-[0.9rem] font-['Instrument_Sans',sans-serif] font-semibold">Docs</Link>
-        <Link href="/demo" className="text-[#666666] no-underline text-[0.9rem] font-['Instrument_Sans',sans-serif]">Demo</Link>
-        <Link href="/blog" className="text-[#666666] no-underline text-[0.9rem] font-['Instrument_Sans',sans-serif]">Blog</Link>
-        <a href="/#waitlist" className="bg-[#D97757] text-white px-[18px] py-2 rounded-md no-underline text-[0.85rem] font-semibold font-['Instrument_Sans',sans-serif]">Join Waitlist</a>
+        <Link href="/features" className="text-brand-gray no-underline text-[0.9rem] font-sans">Features</Link>
+        <Link href="/docs" className="text-brand-accent no-underline text-[0.9rem] font-sans font-semibold">Docs</Link>
+        <Link href="/demo" className="text-brand-gray no-underline text-[0.9rem] font-sans">Demo</Link>
+        <Link href="/blog" className="text-brand-gray no-underline text-[0.9rem] font-sans">Blog</Link>
+        <a href="/#waitlist" className="bg-brand-accent text-white px-[18px] py-2 rounded-md no-underline text-[0.85rem] font-semibold font-sans">Join Waitlist</a>
       </div>
     </nav>
   )
@@ -100,23 +100,22 @@ export default function DocsPage() {
         />
       </Head>
 
-      <div className="bg-[#FAF9F5] min-h-screen font-['Instrument_Sans',sans-serif]">
+      <div className="bg-brand-bg min-h-screen font-sans">
         <Nav />
 
         <div className="flex max-w-[1200px] mx-auto px-6">
           {/* Sidebar */}
-          <aside className="docs-sidebar w-[220px] shrink-0 py-8 sticky top-[60px] h-[calc(100vh-60px)] overflow-y-auto border-r border-[#E5E5E5] flex flex-col gap-0.5">
+          <aside className="docs-sidebar w-[220px] shrink-0 py-8 sticky top-[60px] h-[calc(100vh-60px)] overflow-y-auto border-r border-brand-border flex flex-col gap-0.5">
             {sections.map(s => (
               <a
                 key={s.id}
                 href={`#${s.id}`}
                 onClick={() => setActiveSection(s.id)}
-                className="flex items-center gap-2 px-4 py-2 rounded-md no-underline text-[0.85rem] transition-all duration-150"
-                style={{
-                  fontWeight: activeSection === s.id ? 600 : 400,
-                  color: activeSection === s.id ? '#D97757' : '#666666',
-                  background: activeSection === s.id ? '#FDF4EF' : 'transparent',
-                }}
+                className={`flex items-center gap-2 px-4 py-2 rounded-md no-underline text-[0.85rem] transition-all duration-150 ${
+                  activeSection === s.id
+                    ? 'font-semibold text-brand-accent bg-[#FDF4EF]'
+                    : 'font-normal text-brand-gray bg-transparent'
+                }`}
               >
                 <span className="text-[0.8rem]">{s.icon}</span>
                 {s.label}
@@ -128,10 +127,10 @@ export default function DocsPage() {
           <main className="docs-main flex-1 pt-10 pb-20 pl-12 max-w-[780px]">
             {/* Quick Start */}
             <section id="quickstart" className="mb-16">
-              <h1 className="font-['Instrument_Sans',sans-serif] text-[clamp(1.8rem,4vw,2.5rem)] font-extrabold text-[#191919] tracking-[-0.04em] mb-3 mt-0 leading-[1.1]">
+              <h1 className="font-sans text-[clamp(1.8rem,4vw,2.5rem)] font-extrabold text-brand-text tracking-[-0.04em] mb-3 mt-0 leading-[1.1]">
                 Developer Documentation
               </h1>
-              <p className="font-['Merriweather',serif] text-[1.1rem] text-[#666666] leading-[1.7] mt-0 mb-8">
+              <p className="font-serif text-[1.1rem] text-brand-gray leading-[1.7] mt-0 mb-8">
                 Get ChurnRecovery running in your app in under 10 minutes. One package, two function calls, zero backend work.
               </p>
 
@@ -139,7 +138,7 @@ export default function DocsPage() {
                 <strong>Fastest path:</strong> Install the SDK, initialize with your API key, and call <code className="bg-black/[0.06] px-1.5 py-0.5 rounded text-[0.82rem]">showCancelFlow()</code> when a user clicks your cancel button. That&apos;s it.
               </Callout>
 
-              <h2 className="font-['Instrument_Sans',sans-serif] text-[1.3rem] font-bold text-[#191919] mt-0 mb-4 tracking-[-0.02em]">
+              <h2 className="font-sans text-[1.3rem] font-bold text-brand-text mt-0 mb-4 tracking-[-0.02em]">
                 ⚡ 3-Minute Integration
               </h2>
 
@@ -175,21 +174,21 @@ document.getElementById('cancel-btn').addEventListener('click', async () => {
 })`}
               </CodeBlock>
 
-              <p className="font-['Merriweather',serif] text-[0.9rem] text-[#666666] leading-[1.7] mt-0 mb-6">
+              <p className="font-serif text-[0.9rem] text-brand-gray leading-[1.7] mt-0 mb-6">
                 That&apos;s the entire integration. ChurnRecovery handles the cancel flow UI, reason collection, offer presentation, and analytics — all from that single <code className="bg-black/[0.06] px-1.5 py-0.5 rounded text-[0.82rem]">showCancelFlow()</code> call.
               </p>
             </section>
 
             {/* Installation */}
             <section id="installation" className="mb-16">
-              <h2 className="font-['Instrument_Sans',sans-serif] text-[1.5rem] font-bold text-[#191919] mt-0 mb-2 tracking-[-0.03em]">
+              <h2 className="font-sans text-2xl font-bold text-brand-text mt-0 mb-2 tracking-[-0.03em]">
                 📦 Installation
               </h2>
-              <p className="font-['Merriweather',serif] text-[0.9rem] text-[#666666] leading-[1.7] mt-0 mb-6">
+              <p className="font-serif text-[0.9rem] text-brand-gray leading-[1.7] mt-0 mb-6">
                 Choose your preferred method. The npm package includes TypeScript types and tree-shakes to ~8KB gzipped.
               </p>
 
-              <h3 className="font-['Instrument_Sans',sans-serif] text-base font-bold text-[#191919] mt-0 mb-3">
+              <h3 className="font-sans text-base font-bold text-brand-text mt-0 mb-3">
                 npm / yarn / pnpm
               </h3>
               <CodeBlock language="bash" title="Package manager">
@@ -203,7 +202,7 @@ yarn add @churnrecovery/sdk
 pnpm add @churnrecovery/sdk`}
               </CodeBlock>
 
-              <h3 className="font-['Instrument_Sans',sans-serif] text-base font-bold text-[#191919] mt-0 mb-3">
+              <h3 className="font-sans text-base font-bold text-brand-text mt-0 mb-3">
                 CDN Script Tag
               </h3>
               <CodeBlock language="html" title="Script tag (no build step)">
@@ -220,14 +219,14 @@ pnpm add @churnrecovery/sdk`}
 
             {/* Cancel Flow */}
             <section id="cancel-flow" className="mb-16">
-              <h2 className="font-['Instrument_Sans',sans-serif] text-[1.5rem] font-bold text-[#191919] mt-0 mb-2 tracking-[-0.03em]">
+              <h2 className="font-sans text-2xl font-bold text-brand-text mt-0 mb-2 tracking-[-0.03em]">
                 🚪 Cancel Flow
               </h2>
-              <p className="font-['Merriweather',serif] text-[0.9rem] text-[#666666] leading-[1.7] mt-0 mb-6">
+              <p className="font-serif text-[0.9rem] text-brand-gray leading-[1.7] mt-0 mb-6">
                 The cancel flow is the core of ChurnRecovery. It intercepts the cancel action, collects the reason, presents a personalized retention offer, and reports the outcome.
               </p>
 
-              <h3 className="font-['Instrument_Sans',sans-serif] text-base font-bold text-[#191919] mt-0 mb-3">
+              <h3 className="font-sans text-base font-bold text-brand-text mt-0 mb-3">
                 How it works
               </h3>
               <div className="cancel-flow-steps grid grid-cols-4 gap-3 mb-7">
@@ -237,15 +236,15 @@ pnpm add @churnrecovery/sdk`}
                   { step: '3', label: 'Smart offer', desc: 'Personalized offer based on the reason' },
                   { step: '4', label: 'Outcome', desc: 'Customer saved or cancellation confirmed' },
                 ].map(s => (
-                  <div key={s.step} className="p-4 rounded-lg bg-white border border-[#E5E5E5] text-center">
-                    <div className="w-7 h-7 rounded-full bg-[#D97757] text-white flex items-center justify-center text-[0.8rem] font-bold mx-auto mb-2.5">{s.step}</div>
-                    <div className="font-['Instrument_Sans',sans-serif] text-[0.82rem] font-semibold text-[#191919] mb-1">{s.label}</div>
-                    <div className="font-['Instrument_Sans',sans-serif] text-[0.75rem] text-[#666666]">{s.desc}</div>
+                  <div key={s.step} className="p-4 rounded-lg bg-white border border-brand-border text-center">
+                    <div className="w-7 h-7 rounded-full bg-brand-accent text-white flex items-center justify-center text-[0.8rem] font-bold mx-auto mb-2.5">{s.step}</div>
+                    <div className="font-sans text-[0.82rem] font-semibold text-brand-text mb-1">{s.label}</div>
+                    <div className="font-sans text-[0.75rem] text-brand-gray">{s.desc}</div>
                   </div>
                 ))}
               </div>
 
-              <h3 className="font-['Instrument_Sans',sans-serif] text-base font-bold text-[#191919] mt-0 mb-3">
+              <h3 className="font-sans text-base font-bold text-brand-text mt-0 mb-3">
                 showCancelFlow() Options
               </h3>
               <CodeBlock language="typescript" title="Full options interface">
@@ -285,7 +284,7 @@ interface CancelFlowResult {
 }`}
               </CodeBlock>
 
-              <h3 className="font-['Instrument_Sans',sans-serif] text-base font-bold text-[#191919] mt-0 mb-3">
+              <h3 className="font-sans text-base font-bold text-brand-text mt-0 mb-3">
                 Custom cancel reasons
               </h3>
               <CodeBlock language="javascript" title="Custom reasons + offer routing">
@@ -330,10 +329,10 @@ interface CancelFlowResult {
 
             {/* Configuration */}
             <section id="configuration" className="mb-16">
-              <h2 className="font-['Instrument_Sans',sans-serif] text-[1.5rem] font-bold text-[#191919] mt-0 mb-2 tracking-[-0.03em]">
+              <h2 className="font-sans text-2xl font-bold text-brand-text mt-0 mb-2 tracking-[-0.03em]">
                 ⚙️ Configuration
               </h2>
-              <p className="font-['Merriweather',serif] text-[0.9rem] text-[#666666] leading-[1.7] mt-0 mb-6">
+              <p className="font-serif text-[0.9rem] text-brand-gray leading-[1.7] mt-0 mb-6">
                 Configure ChurnRecovery globally at initialization or per cancel flow call.
               </p>
 
@@ -368,7 +367,7 @@ interface CancelFlowResult {
 })`}
               </CodeBlock>
 
-              <h3 className="font-['Instrument_Sans',sans-serif] text-base font-bold text-[#191919] mt-0 mb-3">
+              <h3 className="font-sans text-base font-bold text-brand-text mt-0 mb-3">
                 Environment variables
               </h3>
               <CodeBlock language="bash" title=".env">
@@ -385,10 +384,10 @@ CHURNRECOVERY_WEBHOOK_SECRET=whsec_xxx`}
 
             {/* Offer Types */}
             <section id="offers" className="mb-16">
-              <h2 className="font-['Instrument_Sans',sans-serif] text-[1.5rem] font-bold text-[#191919] mt-0 mb-2 tracking-[-0.03em]">
+              <h2 className="font-sans text-2xl font-bold text-brand-text mt-0 mb-2 tracking-[-0.03em]">
                 🎁 Offer Types
               </h2>
-              <p className="font-['Merriweather',serif] text-[0.9rem] text-[#666666] leading-[1.7] mt-0 mb-6">
+              <p className="font-serif text-[0.9rem] text-brand-gray leading-[1.7] mt-0 mb-6">
                 Four built-in offer types handle the vast majority of cancel scenarios.
               </p>
 
@@ -399,12 +398,12 @@ CHURNRECOVERY_WEBHOOK_SECRET=whsec_xxx`}
                   { type: 'Human Escalation', icon: '💬', desc: 'Route the customer to live chat or support. Best for complex cases or enterprise accounts.', code: `{ type: 'human', url: '/support/chat', message: 'Talk to us first' }` },
                   { type: 'Feedback Only', icon: '📝', desc: 'Just collect the feedback, no counter-offer. Best for customers you know won\'t stay.', code: `{ type: 'feedback', prompt: 'Any feedback for us?' }` },
                 ].map(o => (
-                  <div key={o.type} className="border border-[#E5E5E5] rounded-[10px] p-6 bg-white">
+                  <div key={o.type} className="border border-brand-border rounded-[10px] p-6 bg-white">
                     <div className="flex items-center gap-2.5 mb-2">
                       <span className="text-[1.2rem]">{o.icon}</span>
-                      <h3 className="font-['Instrument_Sans',sans-serif] text-base font-bold text-[#191919] m-0">{o.type}</h3>
+                      <h3 className="font-sans text-base font-bold text-brand-text m-0">{o.type}</h3>
                     </div>
-                    <p className="font-['Merriweather',serif] text-[0.85rem] text-[#666666] leading-[1.7] mt-0 mb-3">{o.desc}</p>
+                    <p className="font-serif text-[0.85rem] text-brand-gray leading-[1.7] mt-0 mb-3">{o.desc}</p>
                     <code className="block bg-[#1E1E2E] text-[#CDD6F4] px-3.5 py-2.5 rounded-md text-[0.8rem] font-mono overflow-x-auto">{o.code}</code>
                   </div>
                 ))}
@@ -417,10 +416,10 @@ CHURNRECOVERY_WEBHOOK_SECRET=whsec_xxx`}
 
             {/* Analytics */}
             <section id="analytics" className="mb-16">
-              <h2 className="font-['Instrument_Sans',sans-serif] text-[1.5rem] font-bold text-[#191919] mt-0 mb-2 tracking-[-0.03em]">
+              <h2 className="font-sans text-2xl font-bold text-brand-text mt-0 mb-2 tracking-[-0.03em]">
                 📊 Analytics API
               </h2>
-              <p className="font-['Merriweather',serif] text-[0.9rem] text-[#666666] leading-[1.7] mt-0 mb-6">
+              <p className="font-serif text-[0.9rem] text-brand-gray leading-[1.7] mt-0 mb-6">
                 Query your churn recovery data programmatically.
               </p>
 
@@ -449,17 +448,17 @@ const reasons = await cr.analytics.getChurnReasons({
 
             {/* Webhooks */}
             <section id="webhooks" className="mb-16">
-              <h2 className="font-['Instrument_Sans',sans-serif] text-[1.5rem] font-bold text-[#191919] mt-0 mb-2 tracking-[-0.03em]">
+              <h2 className="font-sans text-2xl font-bold text-brand-text mt-0 mb-2 tracking-[-0.03em]">
                 🔗 Webhooks
               </h2>
-              <p className="font-['Merriweather',serif] text-[0.9rem] text-[#666666] leading-[1.7] mt-0 mb-6">
+              <p className="font-serif text-[0.9rem] text-brand-gray leading-[1.7] mt-0 mb-6">
                 Receive real-time notifications when customers interact with the cancel flow.
               </p>
 
-              <h3 className="font-['Instrument_Sans',sans-serif] text-base font-bold text-[#191919] mt-0 mb-3">
+              <h3 className="font-sans text-base font-bold text-brand-text mt-0 mb-3">
                 Events
               </h3>
-              <div className="border border-[#E5E5E5] rounded-[10px] overflow-hidden mb-6">
+              <div className="border border-brand-border rounded-[10px] overflow-hidden mb-6">
                 {[
                   { event: 'cancel_flow.started', desc: 'Customer opened the cancel flow' },
                   { event: 'cancel_flow.reason_selected', desc: 'Customer selected a cancel reason' },
@@ -471,14 +470,10 @@ const reasons = await cr.analytics.getChurnReasons({
                 ].map((e, i) => (
                   <div
                     key={e.event}
-                    className="flex items-center gap-4 px-4 py-3"
-                    style={{
-                      borderBottom: i < 6 ? '1px solid #E5E5E5' : 'none',
-                      background: i % 2 === 0 ? '#FFFFFF' : '#FAF9F5',
-                    }}
+                    className={`flex items-center gap-4 px-4 py-3 ${i < 6 ? 'border-b border-brand-border' : ''} ${i % 2 === 0 ? 'bg-white' : 'bg-brand-bg'}`}
                   >
-                    <code className="font-mono text-[0.8rem] text-[#D97757] bg-[#FDF4EF] px-2 py-[3px] rounded whitespace-nowrap">{e.event}</code>
-                    <span className="font-['Instrument_Sans',sans-serif] text-[0.83rem] text-[#666666]">{e.desc}</span>
+                    <code className="font-mono text-[0.8rem] text-brand-accent bg-[#FDF4EF] px-2 py-[3px] rounded whitespace-nowrap">{e.event}</code>
+                    <span className="font-sans text-[0.83rem] text-brand-gray">{e.desc}</span>
                   </div>
                 ))}
               </div>
@@ -511,10 +506,10 @@ app.post('/webhooks/churnrecovery', (req, res) => {
 
             {/* REST API */}
             <section id="rest-api" className="mb-16">
-              <h2 className="font-['Instrument_Sans',sans-serif] text-[1.5rem] font-bold text-[#191919] mt-0 mb-2 tracking-[-0.03em]">
+              <h2 className="font-sans text-2xl font-bold text-brand-text mt-0 mb-2 tracking-[-0.03em]">
                 🌐 REST API
               </h2>
-              <p className="font-['Merriweather',serif] text-[0.9rem] text-[#666666] leading-[1.7] mt-0 mb-6">
+              <p className="font-serif text-[0.9rem] text-brand-gray leading-[1.7] mt-0 mb-6">
                 Full REST API for server-side integrations. All endpoints are versioned and return JSON.
               </p>
 
@@ -522,7 +517,7 @@ app.post('/webhooks/churnrecovery', (req, res) => {
 {`https://api.churnrecovery.com/v1`}
               </CodeBlock>
 
-              <h3 className="font-['Instrument_Sans',sans-serif] text-base font-bold text-[#191919] mt-0 mb-3">
+              <h3 className="font-sans text-base font-bold text-brand-text mt-0 mb-3">
                 Authentication
               </h3>
               <CodeBlock language="bash" title="API key header">
@@ -531,10 +526,10 @@ app.post('/webhooks/churnrecovery', (req, res) => {
   -H "Content-Type: application/json"`}
               </CodeBlock>
 
-              <h3 className="font-['Instrument_Sans',sans-serif] text-base font-bold text-[#191919] mt-0 mb-3">
+              <h3 className="font-sans text-base font-bold text-brand-text mt-0 mb-3">
                 Key Endpoints
               </h3>
-              <div className="border border-[#E5E5E5] rounded-[10px] overflow-hidden mb-6">
+              <div className="border border-brand-border rounded-[10px] overflow-hidden mb-6">
                 {[
                   { method: 'GET', path: '/v1/analytics/save-rate', desc: 'Get save rate statistics' },
                   { method: 'GET', path: '/v1/analytics/revenue', desc: 'Revenue recovered data' },
@@ -548,21 +543,17 @@ app.post('/webhooks/churnrecovery', (req, res) => {
                 ].map((e, i) => (
                   <div
                     key={e.path + e.method}
-                    className="flex items-center gap-3 px-4 py-2.5"
-                    style={{
-                      borderBottom: i < 8 ? '1px solid #E5E5E5' : 'none',
-                      background: i % 2 === 0 ? '#FFFFFF' : '#FAF9F5',
-                    }}
+                    className={`flex items-center gap-3 px-4 py-2.5 ${i < 8 ? 'border-b border-brand-border' : ''} ${i % 2 === 0 ? 'bg-white' : 'bg-brand-bg'}`}
                   >
                     <span
-                      className="font-mono text-[0.72rem] font-bold px-2 py-0.5 rounded min-w-[40px] text-center"
-                      style={{
-                        background: e.method === 'GET' ? '#EDF7F1' : e.method === 'POST' ? '#EFF6FF' : '#F5F0FF',
-                        color: e.method === 'GET' ? '#2D7A4F' : e.method === 'POST' ? '#2563EB' : '#6B4FA0',
-                      }}
+                      className={`font-mono text-[0.72rem] font-bold px-2 py-0.5 rounded min-w-[40px] text-center ${
+                        e.method === 'GET' ? 'bg-brand-green-light text-brand-green'
+                        : e.method === 'POST' ? 'bg-brand-blue-light text-brand-blue'
+                        : 'bg-brand-purple-light text-brand-purple'
+                      }`}
                     >{e.method}</span>
-                    <code className="font-mono text-[0.82rem] text-[#191919]">{e.path}</code>
-                    <span className="font-['Instrument_Sans',sans-serif] text-[0.8rem] text-[#999999] ml-auto">{e.desc}</span>
+                    <code className="font-mono text-[0.82rem] text-brand-text">{e.path}</code>
+                    <span className="font-sans text-[0.8rem] text-brand-gray-light ml-auto">{e.desc}</span>
                   </div>
                 ))}
               </div>
@@ -570,10 +561,10 @@ app.post('/webhooks/churnrecovery', (req, res) => {
 
             {/* Stripe */}
             <section id="stripe" className="mb-16">
-              <h2 className="font-['Instrument_Sans',sans-serif] text-[1.5rem] font-bold text-[#191919] mt-0 mb-2 tracking-[-0.03em]">
+              <h2 className="font-sans text-2xl font-bold text-brand-text mt-0 mb-2 tracking-[-0.03em]">
                 💳 Stripe Integration
               </h2>
-              <p className="font-['Merriweather',serif] text-[0.9rem] text-[#666666] leading-[1.7] mt-0 mb-6">
+              <p className="font-serif text-[0.9rem] text-brand-gray leading-[1.7] mt-0 mb-6">
                 Connect Stripe in 30 seconds. ChurnRecovery reads your plans, customers, and subscriptions — and automatically applies retention offers (discounts, pauses) directly in Stripe.
               </p>
 
@@ -616,10 +607,10 @@ app.post('/webhooks/stripe', async (req, res) => {
 
             {/* React SDK */}
             <section id="react" className="mb-16">
-              <h2 className="font-['Instrument_Sans',sans-serif] text-[1.5rem] font-bold text-[#191919] mt-0 mb-2 tracking-[-0.03em]">
+              <h2 className="font-sans text-2xl font-bold text-brand-text mt-0 mb-2 tracking-[-0.03em]">
                 ⚛️ React SDK
               </h2>
-              <p className="font-['Merriweather',serif] text-[0.9rem] text-[#666666] leading-[1.7] mt-0 mb-6">
+              <p className="font-serif text-[0.9rem] text-brand-gray leading-[1.7] mt-0 mb-6">
                 First-class React support with hooks and components.
               </p>
 
@@ -682,7 +673,7 @@ function SubscriptionSettings({ user }) {
 
             {/* FAQ */}
             <section id="faq" className="mb-16">
-              <h2 className="font-['Instrument_Sans',sans-serif] text-[1.5rem] font-bold text-[#191919] mt-0 mb-2 tracking-[-0.03em]">
+              <h2 className="font-sans text-2xl font-bold text-brand-text mt-0 mb-2 tracking-[-0.03em]">
                 ❓ Frequently Asked Questions
               </h2>
 
@@ -695,27 +686,27 @@ function SubscriptionSettings({ user }) {
                   { q: 'Can I customize the cancel flow UI?', a: 'Fully. Pass a theme object with your brand colors, fonts, logo, and border radius. For deeper customization, use the headless mode — we handle the logic, you handle the UI.' },
                   { q: 'What about GDPR?', a: 'ChurnRecovery is GDPR-compliant. We process data as your data processor, store minimal customer data, and provide full data export and deletion APIs. We don\'t sell data. Period.' },
                 ].map(faq => (
-                  <div key={faq.q} className="px-6 py-5 border border-[#E5E5E5] rounded-[10px] bg-white">
-                    <h3 className="font-['Instrument_Sans',sans-serif] text-[0.95rem] font-bold text-[#191919] mt-0 mb-2">{faq.q}</h3>
-                    <p className="font-['Merriweather',serif] text-[0.85rem] text-[#666666] leading-[1.7] m-0">{faq.a}</p>
+                  <div key={faq.q} className="px-6 py-5 border border-brand-border rounded-[10px] bg-white">
+                    <h3 className="font-sans text-[0.95rem] font-bold text-brand-text mt-0 mb-2">{faq.q}</h3>
+                    <p className="font-serif text-[0.85rem] text-brand-gray leading-[1.7] m-0">{faq.a}</p>
                   </div>
                 ))}
               </div>
             </section>
 
             {/* Bottom CTA */}
-            <section className="bg-[#191919] rounded-xl p-10 text-center">
-              <h2 className="font-['Instrument_Sans',sans-serif] text-[1.4rem] font-bold text-white tracking-[-0.03em] mt-0 mb-3">
+            <section className="bg-brand-text rounded-xl p-10 text-center">
+              <h2 className="font-sans text-[1.4rem] font-bold text-white tracking-[-0.03em] mt-0 mb-3">
                 Ready to integrate?
               </h2>
-              <p className="font-['Merriweather',serif] text-[0.9rem] text-white/65 mt-0 mb-6 leading-[1.7]">
+              <p className="font-serif text-[0.9rem] text-white/65 mt-0 mb-6 leading-[1.7]">
                 Join the waitlist to get your API key. Most teams are live in under an hour.
               </p>
               <div className="flex gap-3 justify-center flex-wrap">
-                <a href="https://tally.so/r/churnrecovery" className="inline-block bg-[#D97757] text-white px-7 py-3 rounded-lg font-['Instrument_Sans',sans-serif] font-bold text-[0.95rem] no-underline">
+                <a href="https://tally.so/r/churnrecovery" className="inline-block bg-brand-accent text-white px-7 py-3 rounded-lg font-sans font-bold text-[0.95rem] no-underline">
                   Get API Key — Free
                 </a>
-                <Link href="/demo" className="inline-block bg-transparent text-white/70 px-7 py-3 rounded-lg font-['Instrument_Sans',sans-serif] font-semibold text-[0.95rem] no-underline border border-white/20">
+                <Link href="/demo" className="inline-block bg-transparent text-white/70 px-7 py-3 rounded-lg font-sans font-semibold text-[0.95rem] no-underline border border-white/20">
                   Try the Demo →
                 </Link>
               </div>

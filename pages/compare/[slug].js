@@ -155,7 +155,7 @@ export default function ComparePage({ competitor }) {
           <div className="inline-block bg-[#F0EBE5] text-[#D97757] px-3 py-1 rounded text-xs font-bold uppercase tracking-[0.08em] mb-5">
             Comparison
           </div>
-          <h1 className="font-[Instrument_Sans,sans-serif] font-bold text-[#191919] leading-[1.2] tracking-[-0.03em] m-0 mb-5" style={{ fontSize: 'clamp(1.8rem, 5vw, 2.8rem)' }}>
+          <h1 className="font-[Instrument_Sans,sans-serif] font-bold text-[#191919] leading-[1.2] tracking-[-0.03em] m-0 mb-5 text-[clamp(1.8rem,5vw,2.8rem)]">
             ChurnRecovery vs {competitor.name}
           </h1>
           <p className="font-[Merriweather,serif] text-[1.1rem] text-[#666666] leading-[1.7] m-0 mb-10 max-w-[620px]">
@@ -344,7 +344,7 @@ export default function ComparePage({ competitor }) {
 
         {/* CTA */}
         <section id="waitlist" className="bg-[#191919] px-6 py-20 text-center">
-          <h2 className="font-[Instrument_Sans,sans-serif] font-bold text-white tracking-[-0.03em] m-0 mb-4" style={{ fontSize: 'clamp(1.5rem, 4vw, 2.2rem)' }}>
+          <h2 className="font-[Instrument_Sans,sans-serif] font-bold text-white tracking-[-0.03em] m-0 mb-4 text-[clamp(1.5rem,4vw,2.2rem)]">
             Stop paying for churn recovery.
           </h2>
           <p className="font-[Merriweather,serif] text-base text-[rgba(255,255,255,0.7)] m-0 mb-8 max-w-[460px] mx-auto leading-[1.7]">

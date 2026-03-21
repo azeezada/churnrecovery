@@ -1,23 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
 
-const t = {
-  bg: '#FAF9F5',
-  text: '#191919',
-  gray: '#666666',
-  grayLight: '#999999',
-  accent: '#D97757',
-  accentHover: '#C4603D',
-  border: '#E5E5E5',
-  white: '#FFFFFF',
-  green: '#2D7A4F',
-  greenLight: '#EDF7F1',
-  blue: '#2563EB',
-  blueLight: '#EFF6FF',
-  fontSans: '"Instrument Sans", sans-serif',
-  fontSerif: '"Merriweather", serif',
-}
-
 const features = [
   { category: 'Cancel Flow Engine', items: ['Drag-and-drop flow builder', 'Reason-based dynamic offers', 'Pause / downgrade / discount offers', 'Custom branding & white-label', 'A/B test multiple flows'] },
   { category: 'Payment Recovery', items: ['Smart retry scheduling', 'Automated dunning email sequences', 'In-app payment update prompts', 'Card updater (Stripe Radar)', '90-day recovery window'] },
@@ -71,7 +54,7 @@ const faqs = [
 
 export default function Pricing() {
   return (
-    <div style={{ background: t.bg, minHeight: '100vh', fontFamily: t.fontSans }}>
+    <div className="bg-brand-bg min-h-screen font-sans">
       <Head>
         <title>Pricing — ChurnRecovery is Free Forever | No Monthly Fees</title>
         <meta name="description" content="ChurnRecovery is completely free. Cancel flows, payment recovery, analytics, and integrations at $0/month — no catch, no per-recovery fees, no revenue share." />
@@ -93,34 +76,23 @@ export default function Pricing() {
       </Head>
 
       {/* Hero */}
-      <div style={{ borderBottom: `1px solid ${t.border}`, background: t.white }}>
-        <div className="pricing-hero" style={{ maxWidth: 1100, margin: '0 auto', padding: '72px 32px 64px', textAlign: 'center' }}>
-          <div style={{
-            display: 'inline-block', background: t.greenLight, color: t.green,
-            borderRadius: 20, padding: '6px 16px', fontSize: 13, fontWeight: 600,
-            marginBottom: 20, letterSpacing: '0.02em'
-          }}>
+      <div className="border-b border-brand-border bg-brand-white">
+        <div className="pricing-hero max-w-[1100px] mx-auto px-8 pt-[72px] pb-16 text-center">
+          <div className="inline-block bg-brand-green-light text-brand-green rounded-[20px] px-4 py-1.5 text-[13px] font-semibold mb-5 tracking-[0.02em]">
             ✓ Always free — no credit card required
           </div>
-          <h1 style={{ fontFamily: t.fontSerif, fontSize: 'clamp(36px, 6vw, 58px)', fontWeight: 700, color: t.text, margin: '0 0 20px', lineHeight: 1.1 }}>
+          <h1 className="font-serif text-[clamp(36px,6vw,58px)] font-bold text-brand-text mb-5 leading-[1.1]">
             Simple pricing.<br />
-            <span style={{ color: t.accent }}>It's free.</span>
+            <span className="text-brand-accent">It's free.</span>
           </h1>
-          <p style={{ fontSize: 20, color: t.gray, maxWidth: 560, margin: '0 auto 36px', lineHeight: 1.6, fontFamily: t.fontSerif }}>
+          <p className="text-[20px] text-brand-gray max-w-[560px] mx-auto mb-9 leading-relaxed font-serif">
             Every feature, every integration, unlimited customers. No monthly fees, no per-recovery charges, no revenue share.
           </p>
-          <div className="pricing-hero-btns" style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link href="/#waitlist" style={{
-              background: t.accent, color: t.white, padding: '14px 32px',
-              borderRadius: 8, fontWeight: 700, textDecoration: 'none', fontSize: 16
-            }}>
+          <div className="pricing-hero-btns flex gap-3 justify-center flex-wrap">
+            <Link href="/#waitlist" className="bg-brand-accent text-brand-white px-8 py-3.5 rounded-lg font-bold no-underline text-base">
               Join Waitlist →
             </Link>
-            <Link href="/demo" style={{
-              background: t.white, color: t.text, padding: '14px 32px',
-              borderRadius: 8, fontWeight: 600, textDecoration: 'none', fontSize: 16,
-              border: `2px solid ${t.border}`
-            }}>
+            <Link href="/demo" className="bg-brand-white text-brand-text px-8 py-3.5 rounded-lg font-semibold no-underline text-base border-2 border-brand-border">
               See live demo
             </Link>
           </div>
@@ -128,43 +100,40 @@ export default function Pricing() {
       </div>
 
       {/* Pricing card */}
-      <div className="pricing-card-wrap" style={{ maxWidth: 1100, margin: '0 auto', padding: '64px 32px 0' }}>
-        <div style={{
-          background: t.white, borderRadius: 16, border: `2px solid ${t.accent}`,
-          overflow: 'hidden', boxShadow: '0 8px 32px rgba(0,0,0,0.08)'
-        }}>
+      <div className="pricing-card-wrap max-w-[1100px] mx-auto px-8 pt-16">
+        <div className="bg-brand-white rounded-2xl border-2 border-brand-accent overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.08)]">
           {/* Card header */}
-          <div style={{ background: t.accent, padding: '32px 40px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 20 }}>
+          <div className="bg-brand-accent px-10 py-8 flex items-center justify-between flex-wrap gap-5">
             <div>
-              <div style={{ color: 'rgba(255,255,255,0.8)', fontSize: 13, fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 8 }}>
+              <div className="text-white/80 text-[13px] font-semibold tracking-[0.1em] uppercase mb-2">
                 ChurnRecovery
               </div>
-              <div style={{ display: 'flex', alignItems: 'baseline', gap: 8 }}>
-                <span style={{ color: t.white, fontSize: 56, fontWeight: 800, lineHeight: 1 }}>$0</span>
-                <span style={{ color: 'rgba(255,255,255,0.8)', fontSize: 18 }}>/month</span>
+              <div className="flex items-baseline gap-2">
+                <span className="text-brand-white text-[56px] font-extrabold leading-none">$0</span>
+                <span className="text-white/80 text-lg">/month</span>
               </div>
-              <div style={{ color: 'rgba(255,255,255,0.9)', fontSize: 15, marginTop: 8 }}>
+              <div className="text-white/90 text-[15px] mt-2">
                 Forever. No hidden fees.
               </div>
             </div>
-            <div style={{ textAlign: 'right' }}>
-              <div style={{ color: t.white, fontSize: 14, marginBottom: 4 }}>Compare to Churnkey:</div>
-              <div style={{ color: 'rgba(255,255,255,0.7)', fontSize: 24, fontWeight: 700, textDecoration: 'line-through' }}>$3,000–$9,900/yr</div>
-              <div style={{ color: t.white, fontSize: 14, marginTop: 4 }}>You save thousands every year</div>
+            <div className="text-right">
+              <div className="text-brand-white text-sm mb-1">Compare to Churnkey:</div>
+              <div className="text-white/70 text-2xl font-bold line-through">$3,000–$9,900/yr</div>
+              <div className="text-brand-white text-sm mt-1">You save thousands every year</div>
             </div>
           </div>
 
           {/* Feature grid */}
-          <div className="pricing-feature-grid" style={{ padding: '40px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))', gap: 40 }}>
+          <div className="pricing-feature-grid p-10 grid grid-cols-[repeat(auto-fit,minmax(min(280px,100%),1fr))] gap-10">
             {features.map(cat => (
               <div key={cat.category}>
-                <h3 style={{ fontSize: 13, fontWeight: 700, color: t.grayLight, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 16 }}>
+                <h3 className="text-[13px] font-bold text-brand-gray-light tracking-[0.1em] uppercase mb-4">
                   {cat.category}
                 </h3>
-                <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 10 }}>
+                <ul className="list-none p-0 m-0 flex flex-col gap-2.5">
                   {cat.items.map(item => (
-                    <li key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: 10, fontSize: 15, color: t.text }}>
-                      <span style={{ color: t.green, fontWeight: 700, flexShrink: 0, marginTop: 1 }}>✓</span>
+                    <li key={item} className="flex items-start gap-2.5 text-[15px] text-brand-text">
+                      <span className="text-brand-green font-bold shrink-0 mt-px">✓</span>
                       {item}
                     </li>
                   ))}
@@ -174,14 +143,11 @@ export default function Pricing() {
           </div>
 
           {/* CTA strip */}
-          <div className="pricing-cta-strip" style={{ background: '#F5F5F0', borderTop: `1px solid ${t.border}`, padding: '24px 40px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16 }}>
-            <div style={{ fontSize: 15, color: t.gray }}>
+          <div className="pricing-cta-strip bg-[#F5F5F0] border-t border-brand-border px-10 py-6 flex items-center justify-between flex-wrap gap-4">
+            <div className="text-[15px] text-brand-gray">
               No credit card. No contracts. Start recovering churn in hours.
             </div>
-            <Link href="/#waitlist" style={{
-              background: t.accent, color: t.white, padding: '12px 28px',
-              borderRadius: 8, fontWeight: 700, textDecoration: 'none', fontSize: 15
-            }}>
+            <Link href="/#waitlist" className="bg-brand-accent text-brand-white px-7 py-3 rounded-lg font-bold no-underline text-[15px]">
               Join the waitlist →
             </Link>
           </div>
@@ -189,95 +155,78 @@ export default function Pricing() {
       </div>
 
       {/* Comparison table */}
-      <div style={{ maxWidth: 1100, margin: '64px auto 0', padding: '0 32px' }}>
-        <h2 style={{ fontFamily: t.fontSerif, fontSize: 28, color: t.text, marginBottom: 8, textAlign: 'center' }}>
+      <div className="max-w-[1100px] mx-auto mt-16 px-8">
+        <h2 className="font-serif text-[28px] text-brand-text mb-2 text-center">
           How we stack up
         </h2>
-        <p style={{ color: t.gray, textAlign: 'center', marginBottom: 36, fontSize: 16 }}>
+        <p className="text-brand-gray text-center mb-9 text-base">
           Same features. Zero monthly cost.
         </p>
-        <div style={{ background: t.white, borderRadius: 12, border: `1px solid ${t.border}`, overflow: 'hidden', overflowX: 'auto', WebkitOverflowScrolling: 'touch' }}>
-          <table style={{ width: '100%', minWidth: '480px', borderCollapse: 'collapse', fontSize: 15 }}>
+        <div className="bg-brand-white rounded-xl border border-brand-border overflow-hidden overflow-x-auto [-webkit-overflow-scrolling:touch]">
+          <table className="w-full min-w-[480px] border-collapse text-[15px]">
             <thead>
-              <tr style={{ borderBottom: `2px solid ${t.border}` }}>
-                <th style={{ padding: '16px 24px', textAlign: 'left', color: t.gray, fontWeight: 600, width: '25%' }}>Platform</th>
-                <th style={{ padding: '16px 24px', textAlign: 'center', color: t.gray, fontWeight: 600 }}>Monthly Cost</th>
-                <th style={{ padding: '16px 24px', textAlign: 'center', color: t.gray, fontWeight: 600 }}>Users</th>
-                <th style={{ padding: '16px 24px', textAlign: 'center', color: t.gray, fontWeight: 600 }}>Integrations</th>
-                <th style={{ padding: '16px 24px', textAlign: 'center', color: t.gray, fontWeight: 600 }}>Support</th>
+              <tr className="border-b-2 border-brand-border">
+                <th className="px-6 py-4 text-left text-brand-gray font-semibold w-1/4">Platform</th>
+                <th className="px-6 py-4 text-center text-brand-gray font-semibold">Monthly Cost</th>
+                <th className="px-6 py-4 text-center text-brand-gray font-semibold">Users</th>
+                <th className="px-6 py-4 text-center text-brand-gray font-semibold">Integrations</th>
+                <th className="px-6 py-4 text-center text-brand-gray font-semibold">Support</th>
               </tr>
             </thead>
             <tbody>
               {comparisons.map((row, i) => (
-                <tr key={row.name} style={{
-                  borderBottom: i < comparisons.length - 1 ? `1px solid ${t.border}` : 'none',
-                  background: row.highlight ? '#FFF8F5' : 'transparent'
-                }}>
-                  <td style={{ padding: '16px 24px', fontWeight: row.highlight ? 700 : 400, color: row.highlight ? t.accent : t.text }}>
+                <tr key={row.name} className={`${i < comparisons.length - 1 ? 'border-b border-brand-border' : ''} ${row.highlight ? 'bg-[#FFF8F5]' : ''}`}>
+                  <td className={`px-6 py-4 ${row.highlight ? 'font-bold text-brand-accent' : 'text-brand-text'}`}>
                     {row.highlight ? '⭐ ' : ''}{row.name}
                   </td>
-                  <td style={{ padding: '16px 24px', textAlign: 'center', fontWeight: row.highlight ? 700 : 400, color: row.highlight ? t.green : t.text }}>
+                  <td className={`px-6 py-4 text-center ${row.highlight ? 'font-bold text-brand-green' : 'text-brand-text'}`}>
                     {row.price}
                   </td>
-                  <td style={{ padding: '16px 24px', textAlign: 'center', color: t.gray }}>{row.users}</td>
-                  <td style={{ padding: '16px 24px', textAlign: 'center', color: t.gray }}>{row.integrations}</td>
-                  <td style={{ padding: '16px 24px', textAlign: 'center', color: t.gray }}>{row.support}</td>
+                  <td className="px-6 py-4 text-center text-brand-gray">{row.users}</td>
+                  <td className="px-6 py-4 text-center text-brand-gray">{row.integrations}</td>
+                  <td className="px-6 py-4 text-center text-brand-gray">{row.support}</td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
-        <p style={{ fontSize: 13, color: t.grayLight, textAlign: 'center', marginTop: 12 }}>
+        <p className="text-[13px] text-brand-gray-light text-center mt-3">
           Pricing sourced from competitor websites as of March 2026. Actual pricing may vary.
         </p>
       </div>
 
       {/* FAQ */}
-      <div style={{ maxWidth: 800, margin: '64px auto 0', padding: '0 32px' }}>
-        <h2 style={{ fontFamily: t.fontSerif, fontSize: 28, color: t.text, marginBottom: 8, textAlign: 'center' }}>
+      <div className="max-w-[800px] mx-auto mt-16 px-8">
+        <h2 className="font-serif text-[28px] text-brand-text mb-2 text-center">
           Frequently asked questions
         </h2>
-        <p style={{ color: t.gray, textAlign: 'center', marginBottom: 48, fontSize: 16 }}>
+        <p className="text-brand-gray text-center mb-12 text-base">
           Still skeptical? We get it.
         </p>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
+        <div className="flex flex-col">
           {faqs.map((faq, i) => (
-            <div key={i} style={{
-              borderTop: `1px solid ${t.border}`,
-              padding: '28px 0',
-              borderBottom: i === faqs.length - 1 ? `1px solid ${t.border}` : 'none'
-            }}>
-              <h3 style={{ fontSize: 17, fontWeight: 700, color: t.text, marginBottom: 12 }}>{faq.q}</h3>
-              <p style={{ fontSize: 15, color: t.gray, lineHeight: 1.7, margin: 0, fontFamily: t.fontSerif }}>{faq.a}</p>
+            <div key={i} className={`border-t border-brand-border py-7 ${i === faqs.length - 1 ? 'border-b border-brand-border' : ''}`}>
+              <h3 className="text-[17px] font-bold text-brand-text mb-3">{faq.q}</h3>
+              <p className="text-[15px] text-brand-gray leading-[1.7] m-0 font-serif">{faq.a}</p>
             </div>
           ))}
         </div>
       </div>
 
       {/* Bottom CTA */}
-      <div style={{ maxWidth: 1100, margin: '64px auto', padding: '0 32px' }}>
-        <div style={{
-          background: t.text, borderRadius: 16, padding: '56px 40px',
-          textAlign: 'center', color: t.white
-        }}>
-          <h2 style={{ fontFamily: t.fontSerif, fontSize: 'clamp(28px, 4vw, 42px)', fontWeight: 700, marginBottom: 16 }}>
+      <div className="max-w-[1100px] mx-auto my-16 px-8">
+        <div className="bg-brand-text rounded-2xl px-10 py-14 text-center text-brand-white">
+          <h2 className="font-serif text-[clamp(28px,4vw,42px)] font-bold mb-4">
             Start recovering churn today — for free
           </h2>
-          <p style={{ fontSize: 18, color: 'rgba(255,255,255,0.7)', marginBottom: 36, maxWidth: 520, margin: '0 auto 36px', fontFamily: t.fontSerif }}>
+          <p className="text-lg text-white/70 max-w-[520px] mx-auto mb-9 font-serif">
             Join the waitlist. Be among the first to try ChurnRecovery when we launch.
           </p>
-          <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link href="/#waitlist" style={{
-              background: t.accent, color: t.white, padding: '14px 32px',
-              borderRadius: 8, fontWeight: 700, textDecoration: 'none', fontSize: 16
-            }}>
+          <div className="flex gap-3 justify-center flex-wrap">
+            <Link href="/#waitlist" className="bg-brand-accent text-brand-white px-8 py-3.5 rounded-lg font-bold no-underline text-base">
               Join Waitlist →
             </Link>
-            <Link href="/tools/churn-calculator" style={{
-              background: 'rgba(255,255,255,0.1)', color: t.white, padding: '14px 32px',
-              borderRadius: 8, fontWeight: 600, textDecoration: 'none', fontSize: 16,
-              border: '1px solid rgba(255,255,255,0.2)'
-            }}>
+            <Link href="/tools/churn-calculator" className="bg-white/10 text-brand-white px-8 py-3.5 rounded-lg font-semibold no-underline text-base border border-white/20">
               Calculate your savings
             </Link>
           </div>
@@ -288,16 +237,13 @@ export default function Pricing() {
         @media (max-width: 768px) {
           table th:nth-child(3), table td:nth-child(3),
           table th:nth-child(4), table td:nth-child(4) { display: none; }
-          /* tighten hero spacing on mobile */
           .pricing-hero-btns { flex-direction: column !important; }
           .pricing-hero-btns a { text-align: center !important; width: 100% !important; }
-          /* reduce gap between hero and pricing card */
           .pricing-card-wrap { padding-top: 32px !important; }
         }
         @media (max-width: 600px) {
           table th:nth-child(5), table td:nth-child(5) { display: none; }
         }
-        /* P1-4: Reduce hero padding on small screens */
         @media (max-width: 480px) {
           .pricing-hero { padding: 48px 20px 40px !important; }
           .pricing-feature-grid { padding: 24px !important; gap: 24px !important; }

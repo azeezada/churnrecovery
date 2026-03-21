@@ -80,7 +80,7 @@ export default function AboutPage() {
           <div className="inline-block bg-[#EDF7F1] text-[#2D7A4F] rounded-[20px] px-[16px] py-[6px] text-[13px] font-semibold mb-[24px] tracking-[0.02em]">
             Our mission
           </div>
-          <h1 className="font-[Merriweather,serif] font-bold text-[#191919] mb-[24px] leading-[1.2]" style={{ fontSize: 'clamp(32px, 5vw, 48px)' }}>
+          <h1 className="font-[Merriweather,serif] font-bold text-[#191919] mb-[24px] leading-[1.2] text-[clamp(32px,5vw,48px)]">
             Churn recovery should be free.<br />
             <span className="text-[#D97757]">We built it that way.</span>
           </h1>
@@ -141,7 +141,7 @@ export default function AboutPage() {
           <div className="absolute left-0 top-[8px] bottom-[8px] w-[2px] bg-[#E5E5E5] rounded-[1px]" />
           {timeline.map((item, i) => (
             <div key={i} className="relative pl-[32px] mb-[40px]">
-              <div className="absolute left-[-6px] top-[4px] w-[14px] h-[14px] rounded-full bg-[#D97757]" style={{ border: '2px solid #FAF9F5', boxShadow: '0 0 0 2px #D97757' }} />
+              <div className="absolute left-[-6px] top-[4px] w-[14px] h-[14px] rounded-full bg-[#D97757] border-2 border-[#FAF9F5] shadow-[0_0_0_2px_#D97757]" />
               <div className="text-[13px] text-[#D97757] font-bold mb-[6px] tracking-[0.04em]">
                 {item.date}
               </div>
@@ -219,7 +219,7 @@ export default function AboutPage() {
           ChurnRecovery is built by a small team of founders who've shipped SaaS products and lived the churn problem firsthand. We're not a VC-backed company with a retention sales team — we're builders who got frustrated with expensive tooling and decided to fix it.
         </p>
         <div className="bg-[#FFFFFF] border border-[#E5E5E5] rounded-[12px] p-[32px] flex items-center gap-[24px] founder-card">
-          <div className="w-[72px] h-[72px] rounded-full flex items-center justify-center text-[28px] text-[#FFFFFF] font-bold shrink-0" style={{ background: 'linear-gradient(135deg, #D97757, #C4603D)' }}>
+          <div className="w-[72px] h-[72px] rounded-full flex items-center justify-center text-[28px] text-[#FFFFFF] font-bold shrink-0 bg-gradient-to-br from-[#D97757] to-[#C4603D]">
             🛠
           </div>
           <div>
@@ -262,7 +262,7 @@ export default function AboutPage() {
       {/* CTA */}
       <div className="max-w-[800px] mx-auto mt-[72px] mb-[80px] px-[32px]">
         <div className="bg-[#D97757] rounded-[16px] px-[40px] py-[56px] text-center text-[#FFFFFF]">
-          <h2 className="font-[Merriweather,serif] font-bold mb-[16px]" style={{ fontSize: 'clamp(24px, 4vw, 34px)' }}>
+          <h2 className="font-[Merriweather,serif] font-bold mb-[16px] text-[clamp(24px,4vw,34px)]">
             Join us in fixing churn
           </h2>
           <p className="text-[16px] text-[rgba(255,255,255,0.85)] mb-[32px] max-w-[480px] mx-auto font-[Merriweather,serif] leading-[1.7]">

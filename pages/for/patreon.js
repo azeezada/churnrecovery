@@ -262,8 +262,8 @@ export default function PatreonLandingPage() {
       <main className="font-sans bg-brand-bg pt-[60px]">
 
         {/* ─── HERO ─────────────────────────────────────────────────────── */}
-        <section className="py-[80px] px-6 pb-[100px] relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #1A0000 0%, #2E0507 50%, #1A0000 100%)' }}>
-          <div className="absolute -top-[80px] -right-[80px] w-[400px] h-[400px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(255,66,77,0.18) 0%, transparent 70%)' }} />
+        <section className="py-[80px] px-6 pb-[100px] relative overflow-hidden bg-[linear-gradient(135deg,#1A0000_0%,#2E0507_50%,#1A0000_100%)]">
+          <div className="absolute -top-[80px] -right-[80px] w-[400px] h-[400px] rounded-full pointer-events-none bg-[radial-gradient(circle,rgba(255,66,77,0.18)_0%,transparent_70%)]" />
 
           <div className="max-w-[720px] mx-auto text-center relative z-[1]">
             <div className="inline-flex items-center gap-1.5 bg-[rgba(255,66,77,0.2)] border border-[rgba(255,66,77,0.4)] rounded-full py-1.5 px-4 font-sans text-[0.78rem] font-semibold text-[#FCA5A5] mb-7">
@@ -531,7 +531,7 @@ export default function PatreonLandingPage() {
         </section>
 
         {/* ─── FINAL CTA ───────────────────────────────────────────────── */}
-        <section className="py-[80px] px-6" style={{ background: 'linear-gradient(135deg, #1A0000 0%, #2E0507 100%)' }}>
+        <section className="py-[80px] px-6 bg-[linear-gradient(135deg,#1A0000_0%,#2E0507_100%)]">
           <div className="max-w-[600px] mx-auto text-center">
             <h2 className="font-sans font-extrabold text-[clamp(1.8rem,4vw,2.6rem)] text-brand-white m-0 mb-5 leading-[1.2] tracking-[-0.02em]">
               Own Your Subscriber Relationships.<br />Control the Cancel Flow.

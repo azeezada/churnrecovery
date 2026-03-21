@@ -12,19 +12,7 @@
  * When logos have no src (placeholder mode), show greyed-out industry type labels.
  */
 
-const t = {
-  bg: '#FAF9F5',
-  text: '#191919',
-  gray: '#666666',
-  grayLight: '#C0C0C0',
-  accent: '#D97757',
-  border: '#E5E5E5',
-  white: '#FFFFFF',
-  fontSans: '"Instrument Sans", sans-serif',
-}
-
 // Placeholder slots shown before real logos come in
-// Remove these once you have 3+ real logos
 const PLACEHOLDER_SLOTS = [
   { type: 'Newsletter Creator' },
   { type: 'Course Seller' },
@@ -37,30 +25,9 @@ function PlaceholderLogo({ type }) {
   return (
     <div
       title={`Spot reserved for a ${type}`}
-      style={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        width: '140px',
-        height: '48px',
-        borderRadius: '8px',
-        border: `1.5px dashed ${t.grayLight}`,
-        background: t.white,
-        padding: '0 16px',
-      }}
+      className="flex items-center justify-center w-[140px] h-12 rounded-lg border-[1.5px] border-dashed border-[#C0C0C0] bg-brand-white px-4"
     >
-      <span
-        style={{
-          fontFamily: t.fontSans,
-          fontSize: '0.72rem',
-          fontWeight: 600,
-          color: t.grayLight,
-          letterSpacing: '0.04em',
-          textTransform: 'uppercase',
-          textAlign: 'center',
-          lineHeight: 1.3,
-        }}
-      >
+      <span className="font-sans text-[0.72rem] font-semibold text-[#C0C0C0] tracking-[0.04em] uppercase text-center leading-tight">
         {type}
       </span>
     </div>
@@ -72,17 +39,7 @@ function RealLogo({ name, src, href }) {
     <img
       src={src}
       alt={`${name} logo`}
-      style={{
-        maxHeight: '40px',
-        maxWidth: '140px',
-        width: 'auto',
-        display: 'block',
-        filter: 'grayscale(100%) opacity(0.6)',
-        transition: 'filter 0.2s ease',
-        objectFit: 'contain',
-      }}
-      onMouseEnter={(e) => (e.currentTarget.style.filter = 'grayscale(0%) opacity(1)')}
-      onMouseLeave={(e) => (e.currentTarget.style.filter = 'grayscale(100%) opacity(0.6)')}
+      className="max-h-10 max-w-[140px] w-auto block object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-[filter,opacity] duration-200"
     />
   )
 
@@ -93,7 +50,7 @@ function RealLogo({ name, src, href }) {
         target="_blank"
         rel="noopener noreferrer"
         aria-label={`Visit ${name}`}
-        style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+        className="flex items-center justify-center"
       >
         {img}
       </a>
@@ -101,92 +58,38 @@ function RealLogo({ name, src, href }) {
   }
 
   return (
-    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+    <div className="flex items-center justify-center">
       {img}
     </div>
   )
 }
 
-/**
- * LogoWall
- *
- * @param {Object[]} logos - Array of real logo objects. If empty, renders nothing.
- * @param {boolean}  showPlaceholders - If true AND logos is empty, show placeholder slots
- *                                      (useful during development / pre-launch)
- */
 export default function LogoWall({ logos = [], showPlaceholders = false }) {
   const hasRealLogos = logos && logos.length > 0
 
-  // If no real logos and placeholders disabled → render nothing
   if (!hasRealLogos && !showPlaceholders) return null
 
   const items = hasRealLogos ? logos : PLACEHOLDER_SLOTS
 
   return (
-    <section
-      aria-label="Trusted by"
-      style={{
-        background: t.bg,
-        borderBottom: `1px solid ${t.border}`,
-      }}
-    >
-      <div
-        style={{
-          maxWidth: '1200px',
-          margin: '0 auto',
-          padding: '48px 24px',
-          textAlign: 'center',
-        }}
-      >
-        {/* Label */}
-        <p
-          style={{
-            fontFamily: t.fontSans,
-            fontSize: '0.75rem',
-            fontWeight: 600,
-            color: t.gray,
-            letterSpacing: '0.08em',
-            textTransform: 'uppercase',
-            marginBottom: '28px',
-          }}
-        >
+    <section aria-label="Trusted by" className="bg-brand-bg border-b border-brand-border">
+      <div className="max-w-[1200px] mx-auto px-6 py-12 text-center">
+        <p className="font-sans text-[0.75rem] font-semibold text-brand-gray tracking-[0.08em] uppercase mb-7">
           {hasRealLogos ? 'Trusted by' : 'Built for businesses like yours'}
         </p>
 
-        {/* Logo grid */}
-        <div
-          style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: '24px 40px',
-          }}
-        >
+        <div className="flex flex-wrap items-center justify-center gap-y-6 gap-x-10">
           {hasRealLogos
             ? items.map((logo, i) => (
-                <RealLogo
-                  key={i}
-                  name={logo.name}
-                  src={logo.src}
-                  href={logo.href}
-                />
+                <RealLogo key={i} name={logo.name} src={logo.src} href={logo.href} />
               ))
             : PLACEHOLDER_SLOTS.map((slot, i) => (
                 <PlaceholderLogo key={i} type={slot.type} />
               ))}
         </div>
 
-        {/* Sub-label (placeholder mode only) */}
         {!hasRealLogos && (
-          <p
-            style={{
-              fontFamily: t.fontSans,
-              fontSize: '0.82rem',
-              color: t.gray,
-              marginTop: '20px',
-            }}
-          >
+          <p className="font-sans text-[0.82rem] text-brand-gray mt-5">
             Join the waitlist — your logo could be here soon.
           </p>
         )}

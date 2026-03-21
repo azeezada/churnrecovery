@@ -3,32 +3,13 @@ import Link from 'next/link'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 
-const t = {
-  bg: '#FAF9F5',
-  text: '#191919',
-  gray: '#666666',
-  grayLight: '#999999',
-  accent: '#D97757',
-  accentBg: '#FDF4F0',
-  border: '#E5E5E5',
-  white: '#FFFFFF',
-  green: '#2D7A4F',
-  greenBg: '#EDF7F1',
-  blue: '#2563EB',
-  blueBg: '#EFF6FF',
-  purple: '#7C3AED',
-  purpleBg: '#F5F3FF',
-  fontSans: '"Instrument Sans", sans-serif',
-  fontSerif: '"Merriweather", serif',
-}
-
 const changelog = [
   {
     version: '0.9.0',
     date: 'March 20, 2026',
     label: 'Latest',
-    labelColor: t.green,
-    labelBg: t.greenBg,
+    labelColor: '#2D7A4F',
+    labelBg: '#EDF7F1',
     headline: 'Full product launch — dashboard, widget, and API',
     summary: 'ChurnRecovery is now a complete product. After months of building, we\'re opening access to the full platform — including the dashboard, embeddable widget, and REST API.',
     changes: [
@@ -58,8 +39,8 @@ const changelog = [
     version: '0.8.0',
     date: 'March 15, 2026',
     label: 'Beta',
-    labelColor: t.blue,
-    labelBg: t.blueBg,
+    labelColor: '#2563EB',
+    labelBg: '#EFF6FF',
     headline: 'Interactive demo and tools',
     summary: 'Added an interactive cancel flow demo and churn calculator to help prospects understand ChurnRecovery before signing up.',
     changes: [
@@ -86,8 +67,8 @@ const changelog = [
     version: '0.7.0',
     date: 'March 10, 2026',
     label: 'Alpha',
-    labelColor: t.purple,
-    labelBg: t.purpleBg,
+    labelColor: '#7C3AED',
+    labelBg: '#F5F3FF',
     headline: 'Blog, docs, and content foundation',
     summary: 'Built the content engine — blog with RSS, developer docs, and SEO-optimized posts targeting key churn recovery keywords.',
     changes: [
@@ -115,8 +96,8 @@ const changelog = [
     version: '0.6.0',
     date: 'March 5, 2026',
     label: 'Alpha',
-    labelColor: t.purple,
-    labelBg: t.purpleBg,
+    labelColor: '#7C3AED',
+    labelBg: '#F5F3FF',
     headline: 'Cloudflare D1 + waitlist API',
     summary: 'Added the data persistence layer — Cloudflare D1 database and a waitlist API for early access sign-ups.',
     changes: [
@@ -142,7 +123,7 @@ const changelog = [
     version: '0.5.0',
     date: 'February 28, 2026',
     label: 'Pre-launch',
-    labelColor: t.gray,
+    labelColor: '#666666',
     labelBg: '#F5F5F5',
     headline: 'Project foundation and design system',
     summary: 'Kicked off the project. Established the tech stack, design system, and component library.',
@@ -162,39 +143,21 @@ const changelog = [
 ]
 
 const typeConfig = {
-  new: { label: 'New', color: t.green, bg: t.greenBg },
-  improved: { label: 'Improved', color: t.blue, bg: t.blueBg },
-  fixed: { label: 'Fixed', color: t.accent, bg: t.accentBg },
+  new: { label: 'New', color: '#2D7A4F', bg: '#EDF7F1' },
+  improved: { label: 'Improved', color: '#2563EB', bg: '#EFF6FF' },
+  fixed: { label: 'Fixed', color: '#D97757', bg: '#FDF4F0' },
 }
 
 function ChangeSection({ type, items }) {
   const cfg = typeConfig[type] || typeConfig.new
   return (
-    <div style={{ marginBottom: '20px' }}>
-      <div style={{
-        display: 'inline-block',
-        background: cfg.bg,
-        color: cfg.color,
-        fontFamily: t.fontSans,
-        fontWeight: 600,
-        fontSize: '0.72rem',
-        letterSpacing: '0.06em',
-        textTransform: 'uppercase',
-        padding: '3px 10px',
-        borderRadius: '20px',
-        marginBottom: '10px',
-      }}>
+    <div className="mb-5">
+      <div className="inline-block font-sans font-semibold text-[0.72rem] tracking-[0.06em] uppercase px-[10px] py-[3px] rounded-[20px] mb-[10px]" style={{ background: cfg.bg, color: cfg.color }}>
         {cfg.label}
       </div>
-      <ul style={{ margin: 0, padding: '0 0 0 20px' }}>
+      <ul className="m-0 pl-5">
         {items.map((item, i) => (
-          <li key={i} style={{
-            fontFamily: t.fontSerif,
-            fontSize: '0.9rem',
-            color: t.gray,
-            lineHeight: 1.8,
-            marginBottom: '2px',
-          }}>
+          <li key={i} className="font-serif text-[0.9rem] text-brand-gray leading-[1.8] mb-[2px]">
             {item}
           </li>
         ))}
@@ -205,69 +168,26 @@ function ChangeSection({ type, items }) {
 
 function ChangelogEntry({ entry }) {
   return (
-    <div style={{
-      display: 'grid',
-      gridTemplateColumns: '200px 1fr',
-      gap: '48px',
-      paddingBottom: '60px',
-      borderBottom: `1px solid ${t.border}`,
-    }}
-    className="changelog-entry"
-    >
+    <div className="grid grid-cols-[200px_1fr] gap-12 pb-[60px] border-b border-brand-border changelog-entry">
       {/* Left sidebar — version info */}
-      <div style={{ paddingTop: '4px' }}>
-        <div style={{
-          display: 'inline-block',
-          background: entry.labelBg,
-          color: entry.labelColor,
-          fontFamily: t.fontSans,
-          fontWeight: 600,
-          fontSize: '0.72rem',
-          letterSpacing: '0.06em',
-          textTransform: 'uppercase',
-          padding: '3px 10px',
-          borderRadius: '20px',
-          marginBottom: '8px',
-        }}>
+      <div className="pt-1">
+        <div className="inline-block font-sans font-semibold text-[0.72rem] tracking-[0.06em] uppercase px-[10px] py-[3px] rounded-[20px] mb-2" style={{ background: entry.labelBg, color: entry.labelColor }}>
           {entry.label}
         </div>
-        <div style={{
-          fontFamily: t.fontSans,
-          fontWeight: 800,
-          fontSize: '1.1rem',
-          color: t.text,
-          marginBottom: '4px',
-        }}>
+        <div className="font-sans font-extrabold text-[1.1rem] text-brand-text mb-1">
           v{entry.version}
         </div>
-        <div style={{
-          fontFamily: t.fontSerif,
-          fontSize: '0.8rem',
-          color: t.grayLight,
-        }}>
+        <div className="font-serif text-[0.8rem] text-brand-gray-light">
           {entry.date}
         </div>
       </div>
 
       {/* Right — changes */}
       <div>
-        <h3 style={{
-          fontFamily: t.fontSans,
-          fontWeight: 700,
-          fontSize: '1.2rem',
-          color: t.text,
-          margin: '0 0 12px',
-          letterSpacing: '-0.02em',
-        }}>
+        <h3 className="font-sans font-bold text-[1.2rem] text-brand-text mb-3 tracking-[-0.02em]">
           {entry.headline}
         </h3>
-        <p style={{
-          fontFamily: t.fontSerif,
-          fontSize: '0.93rem',
-          color: t.gray,
-          lineHeight: 1.8,
-          margin: '0 0 24px',
-        }}>
+        <p className="font-serif text-[0.93rem] text-brand-gray leading-[1.8] mb-6">
           {entry.summary}
         </p>
         {entry.changes.map((section, i) => (
@@ -291,119 +211,49 @@ export default function ChangelogPage() {
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <Header />
-      <main style={{ background: t.bg, minHeight: '100vh' }}>
+      <main className="bg-brand-bg min-h-screen">
 
         {/* Hero */}
-        <section style={{ maxWidth: '900px', margin: '0 auto', padding: '72px 24px 56px' }}>
-          <div style={{
-            display: 'inline-block',
-            background: t.accentBg,
-            color: t.accent,
-            fontFamily: t.fontSans,
-            fontWeight: 600,
-            fontSize: '0.78rem',
-            letterSpacing: '0.08em',
-            textTransform: 'uppercase',
-            padding: '6px 14px',
-            borderRadius: '20px',
-            marginBottom: '24px',
-          }}>
+        <section className="max-w-[900px] mx-auto pt-[72px] px-6 pb-14">
+          <div className="inline-block bg-[#FDF4F0] text-brand-accent font-sans font-semibold text-[0.78rem] tracking-[0.08em] uppercase px-[14px] py-[6px] rounded-[20px] mb-6">
             Changelog
           </div>
-          <h1 style={{
-            fontFamily: t.fontSans,
-            fontWeight: 800,
-            fontSize: 'clamp(1.8rem, 4vw, 2.6rem)',
-            color: t.text,
-            margin: '0 0 16px',
-            letterSpacing: '-0.03em',
-            lineHeight: 1.15,
-          }}>
+          <h1 className="font-sans font-extrabold text-[clamp(1.8rem,4vw,2.6rem)] text-brand-text mb-4 tracking-[-0.03em] leading-[1.15]">
             What's new in ChurnRecovery
           </h1>
-          <p style={{
-            fontFamily: t.fontSerif,
-            fontSize: '1.05rem',
-            color: t.gray,
-            lineHeight: 1.8,
-            margin: '0 0 28px',
-            maxWidth: '600px',
-          }}>
+          <p className="font-serif text-[1.05rem] text-brand-gray leading-[1.8] mb-7 max-w-[600px]">
             Follow our development as we build the free alternative to Churnkey.
             New features, improvements, and fixes — all documented here.
           </p>
-          <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
-            <a href="https://github.com/churnrecovery/churnrecovery" target="_blank" rel="noopener noreferrer" style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '8px',
-              fontFamily: t.fontSans,
-              fontSize: '0.85rem',
-              color: t.gray,
-              textDecoration: 'none',
-              border: `1px solid ${t.border}`,
-              background: t.white,
-              padding: '8px 16px',
-              borderRadius: '8px',
-              fontWeight: 500,
-            }}>
+          <div className="flex gap-4 flex-wrap">
+            <a href="https://github.com/churnrecovery/churnrecovery" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 font-sans text-[0.85rem] text-brand-gray no-underline border border-brand-border bg-brand-white px-4 py-2 rounded-lg font-medium">
               ⭐ Star on GitHub
             </a>
-            <a href="/rss.xml" style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '8px',
-              fontFamily: t.fontSans,
-              fontSize: '0.85rem',
-              color: t.gray,
-              textDecoration: 'none',
-              border: `1px solid ${t.border}`,
-              background: t.white,
-              padding: '8px 16px',
-              borderRadius: '8px',
-              fontWeight: 500,
-            }}>
+            <a href="/rss.xml" className="inline-flex items-center gap-2 font-sans text-[0.85rem] text-brand-gray no-underline border border-brand-border bg-brand-white px-4 py-2 rounded-lg font-medium">
               📡 RSS Feed
             </a>
           </div>
         </section>
 
         {/* Changelog entries */}
-        <section style={{ maxWidth: '900px', margin: '0 auto', padding: '0 24px 80px' }}>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '60px' }}>
+        <section className="max-w-[900px] mx-auto px-6 pb-20">
+          <div className="flex flex-col gap-[60px]">
             {changelog.map((entry, i) => (
               <ChangelogEntry key={i} entry={entry} />
             ))}
           </div>
 
           {/* Footer note */}
-          <div style={{
-            marginTop: '60px',
-            padding: '24px',
-            background: t.white,
-            border: `1px solid ${t.border}`,
-            borderRadius: '10px',
-            textAlign: 'center',
-          }}>
-            <div style={{ fontFamily: t.fontSans, fontWeight: 600, fontSize: '0.9rem', color: t.text, marginBottom: '8px' }}>
+          <div className="mt-[60px] p-6 bg-brand-white border border-brand-border rounded-[10px] text-center">
+            <div className="font-sans font-semibold text-[0.9rem] text-brand-text mb-2">
               Building in public
             </div>
-            <p style={{ fontFamily: t.fontSerif, fontSize: '0.85rem', color: t.gray, lineHeight: 1.7, margin: '0 0 16px' }}>
+            <p className="font-serif text-[0.85rem] text-brand-gray leading-[1.7] mb-4">
               ChurnRecovery is built in public. Follow the{' '}
-              <Link href="/blog" style={{ color: t.accent, textDecoration: 'none' }}>blog</Link>{' '}
+              <Link href="/blog" className="text-brand-accent no-underline">blog</Link>{' '}
               for deeper dives into our decisions and technical choices.
             </p>
-            <Link href="/app/sign-up" style={{
-              display: 'inline-block',
-              background: t.accent,
-              color: t.white,
-              padding: '10px 24px',
-              borderRadius: '8px',
-              textDecoration: 'none',
-              fontFamily: t.fontSans,
-              fontWeight: 600,
-              fontSize: '0.9rem',
-            }}>
+            <Link href="/app/sign-up" className="inline-block bg-brand-accent text-brand-white px-6 py-[10px] rounded-lg no-underline font-sans font-semibold text-[0.9rem]">
               Join Waitlist — It's Free
             </Link>
           </div>

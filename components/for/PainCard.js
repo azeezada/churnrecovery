@@ -8,7 +8,6 @@
  *   statLabel   {string}  (optional) Small label under the stat
  *   description {string}  Body copy
  *   accentColor {string}  (optional) Color for the top border + stat. Defaults to amber.
- *   theme       {object}  (optional) Partial theme override. Merged with defaults.
  */
 export default function PainCard({
   icon,
@@ -17,58 +16,26 @@ export default function PainCard({
   statLabel,
   description,
   accentColor,
-  theme = {},
 }) {
-  const t = {
-    bg: '#FAF9F5',
-    text: '#191919',
-    gray: '#666666',
-    border: '#E5E5E5',
-    white: '#FFFFFF',
-    amber: '#D97706',
-    orange: '#EA580C',
-    fontSans: '"Instrument Sans", sans-serif',
-    fontSerif: '"Merriweather", serif',
-    ...theme,
-  }
-
-  const accent = accentColor || t.amber
+  const accent = accentColor || '#D97706'
 
   return (
-    <div style={{
-      background: t.white,
-      border: `1px solid ${t.border}`,
-      borderRadius: '12px',
-      padding: '28px 24px',
-      borderTop: `3px solid ${accent}`,
-    }}>
-      <div style={{ fontSize: '2rem', marginBottom: '12px' }}>{icon}</div>
-      <h3 style={{
-        fontFamily: t.fontSans, fontSize: '1rem', fontWeight: 700,
-        color: t.text, margin: '0 0 8px',
-      }}>
+    <div className="bg-brand-white border border-brand-border rounded-xl px-6 py-7" style={{ borderTop: `3px solid ${accent}` }}>
+      <div className="text-[2rem] mb-3">{icon}</div>
+      <h3 className="font-sans text-base font-bold text-brand-text mb-2">
         {title}
       </h3>
       {stat && (
-        <div style={{
-          fontFamily: t.fontSans, fontWeight: 800,
-          fontSize: '2rem', color: accent, margin: '4px 0',
-        }}>
+        <div className="font-sans font-extrabold text-[2rem] my-1" style={{ color: accent }}>
           {stat}
         </div>
       )}
       {statLabel && (
-        <div style={{
-          fontFamily: t.fontSans, fontSize: '0.8rem',
-          color: t.orange, marginBottom: '8px',
-        }}>
+        <div className="font-sans text-[0.8rem] text-brand-orange mb-2">
           {statLabel}
         </div>
       )}
-      <p style={{
-        fontFamily: t.fontSerif, fontSize: '0.88rem',
-        color: t.gray, margin: 0, lineHeight: 1.6,
-      }}>
+      <p className="font-serif text-[0.88rem] text-brand-gray m-0 leading-relaxed">
         {description}
       </p>
     </div>

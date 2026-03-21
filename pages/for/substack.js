@@ -269,9 +269,9 @@ export default function SubstackLandingPage() {
       <main className="font-sans bg-brand-bg pt-[60px]">
 
         {/* ─── SECTION 1: HERO ─────────────────────────────────────────── */}
-        <section className="py-[80px] px-6 pb-[100px] relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #1A0A00 0%, #2D1200 50%, #1A0A00 100%)' }}>
+        <section className="py-[80px] px-6 pb-[100px] relative overflow-hidden bg-[linear-gradient(135deg,#1A0A00_0%,#2D1200_50%,#1A0A00_100%)]">
           {/* Substack orange glow */}
-          <div className="absolute -top-[80px] -right-[80px] w-[400px] h-[400px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(255,103,25,0.12) 0%, transparent 70%)' }} />
+          <div className="absolute -top-[80px] -right-[80px] w-[400px] h-[400px] rounded-full pointer-events-none bg-[radial-gradient(circle,rgba(255,103,25,0.12)_0%,transparent_70%)]" />
 
           <div className="max-w-[720px] mx-auto text-center relative z-[1]">
             {/* Trust badge */}
@@ -518,7 +518,7 @@ export default function SubstackLandingPage() {
         </section>
 
         {/* ─── SECTION 7: FINAL CTA ────────────────────────────────────── */}
-        <section className="py-[80px] px-6" style={{ background: 'linear-gradient(135deg, #1A0A00 0%, #2D1200 100%)' }}>
+        <section className="py-[80px] px-6 bg-[linear-gradient(135deg,#1A0A00_0%,#2D1200_100%)]">
           <div className="max-w-[600px] mx-auto text-center">
             <h2 className="font-sans font-extrabold text-[clamp(1.8rem,4vw,2.6rem)] text-brand-white m-0 mb-5 leading-[1.2] tracking-[-0.02em]">
               Your Next Cancellation<br />Is Happening Right Now.

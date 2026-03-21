@@ -8,45 +8,25 @@ const ClerkSignIn = dynamic(
   { ssr: false }
 )
 
-const t = {
-  bg: '#FAF9F5',
-  text: '#191919',
-  accent: '#D97757',
-  gray: '#666666',
-  border: '#E5E5E5',
-  fontSans: '"Instrument Sans", sans-serif',
-}
-
 function DemoSignIn() {
   return (
-    <div style={{
-      minHeight: '100vh', background: t.bg,
-      display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-      fontFamily: t.fontSans, padding: '40px 20px',
-    }}>
-      <a href="/" style={{ fontWeight: 800, fontSize: '1.4rem', color: t.text, textDecoration: 'none', marginBottom: '32px', letterSpacing: '-0.03em' }}>
+    <div className="min-h-screen bg-brand-bg flex flex-col items-center justify-center font-sans px-5 py-10">
+      <a href="/" className="font-[800] text-[1.4rem] text-brand-text no-underline mb-8 tracking-[-0.03em]">
         ChurnRecovery
       </a>
-      <div style={{
-        background: '#fff', border: `1px solid ${t.border}`, borderRadius: '16px',
-        padding: '40px', maxWidth: '400px', width: '100%', textAlign: 'center',
-      }}>
-        <div style={{ fontSize: '2rem', marginBottom: '16px' }}>🔑</div>
-        <h1 style={{ fontSize: '1.3rem', fontWeight: 700, color: t.text, margin: '0 0 12px', letterSpacing: '-0.03em' }}>
+      <div className="bg-white border border-brand-border rounded-2xl p-10 max-w-[400px] w-full text-center">
+        <div className="text-[2rem] mb-4">🔑</div>
+        <h1 className="text-[1.3rem] font-bold text-brand-text m-0 mb-3 tracking-[-0.03em]">
           Authentication Not Configured
         </h1>
-        <p style={{ fontSize: '0.88rem', color: t.gray, lineHeight: 1.6, margin: '0 0 24px' }}>
-          To enable sign-in, add your Clerk publishable key to <code style={{ background: '#f5f5f5', padding: '2px 6px', borderRadius: '4px' }}>.env.local</code>.
+        <p className="text-[0.88rem] text-brand-gray leading-[1.6] m-0 mb-6">
+          To enable sign-in, add your Clerk publishable key to <code className="bg-[#f5f5f5] px-1.5 py-[2px] rounded">. env.local</code>.
         </p>
-        <a href="https://clerk.com" target="_blank" rel="noopener noreferrer" style={{
-          display: 'inline-block', background: t.accent, color: '#fff', padding: '10px 20px',
-          borderRadius: '8px', textDecoration: 'none', fontSize: '0.88rem', fontWeight: 600,
-          marginBottom: '16px',
-        }}>
+        <a href="https://clerk.com" target="_blank" rel="noopener noreferrer" className="inline-block bg-brand-accent text-white px-5 py-[10px] rounded-lg no-underline text-[0.88rem] font-semibold mb-4">
           Get Clerk Keys (Free)
         </a>
         <br />
-        <a href="/app/dashboard" style={{ fontSize: '0.82rem', color: t.accent, textDecoration: 'none' }}>
+        <a href="/app/dashboard" className="text-[0.82rem] text-brand-accent no-underline">
           → Continue in demo mode
         </a>
       </div>
@@ -74,12 +54,8 @@ export default function SignInPage() {
         <title>Sign In — ChurnRecovery</title>
         <meta name="description" content="Sign in to your ChurnRecovery dashboard to manage cancel flows, view analytics, and recover churned customers." />
       </Head>
-      <div style={{
-        minHeight: '100vh', background: t.bg,
-        display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-        fontFamily: t.fontSans, padding: '40px 20px',
-      }}>
-        <a href="/" style={{ fontWeight: 800, fontSize: '1.4rem', color: t.text, textDecoration: 'none', marginBottom: '32px', letterSpacing: '-0.03em' }}>
+      <div className="min-h-screen bg-brand-bg flex flex-col items-center justify-center font-sans px-5 py-10">
+        <a href="/" className="font-[800] text-[1.4rem] text-brand-text no-underline mb-8 tracking-[-0.03em]">
           ChurnRecovery
         </a>
         <ClerkSignIn
@@ -87,7 +63,7 @@ export default function SignInPage() {
           routing="path"
           signUpUrl="/app/sign-up"
           afterSignInUrl="/app/dashboard"
-          appearance={{ variables: { colorPrimary: t.accent, fontFamily: t.fontSans } }}
+          appearance={{ variables: { colorPrimary: '#D97757', fontFamily: '"Instrument Sans", sans-serif' } }}
         />
       </div>
     </>

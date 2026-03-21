@@ -159,8 +159,7 @@ export default function PayhipLandingPage() {
 
         {/* ─── HERO ─────────────────────────────────────────────────────── */}
         <section
-          style={{ background: 'linear-gradient(135deg, #071a12 0%, #0d2e1e 50%, #071a12 100%)' }}
-          className="py-20 px-6 pb-[100px] relative overflow-hidden"
+          className="bg-[linear-gradient(135deg,#071a12_0%,#0d2e1e_50%,#071a12_100%)] py-20 px-6 pb-[100px] relative overflow-hidden"
         >
           <div
             style={{ background: `radial-gradient(circle, ${ACCENT_DARK_BG} 0%, transparent 70%)` }}
@@ -473,8 +472,7 @@ export default function PayhipLandingPage() {
 
         {/* ─── FINAL CTA ────────────────────────────────────────────────── */}
         <section
-          style={{ background: 'linear-gradient(135deg, #071a12 0%, #0d2e1e 100%)' }}
-          className="py-20 px-6"
+          className="bg-[linear-gradient(135deg,#071a12_0%,#0d2e1e_100%)] py-20 px-6"
         >
           <div className="max-w-[600px] mx-auto text-center">
             <h2 className="font-sans font-extrabold text-[clamp(1.8rem,4vw,2.6rem)] text-white m-0 mb-5 leading-[1.2] tracking-[-0.02em]">

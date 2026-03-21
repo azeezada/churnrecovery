@@ -2,23 +2,6 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { useState, useCallback } from 'react'
 
-const t = {
-  bg: '#FAF9F5',
-  text: '#191919',
-  gray: '#666666',
-  grayLight: '#999999',
-  accent: '#D97757',
-  accentHover: '#C4603D',
-  border: '#E5E5E5',
-  white: '#FFFFFF',
-  green: '#2D7A4F',
-  greenLight: '#EDF7F1',
-  red: '#DC2626',
-  redLight: '#FEF2F2',
-  fontSans: '"Instrument Sans", sans-serif',
-  fontSerif: '"Merriweather", serif',
-}
-
 function fmt(n) {
   return Math.round(n).toLocaleString('en-US')
 }
@@ -30,16 +13,11 @@ function fmtDollar(n) {
 
 function InputRow({ label, value, onChange, min, max, step, prefix, suffix, helpText }) {
   return (
-    <div style={{ marginBottom: '28px' }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '8px' }}>
-        <label style={{
-          fontFamily: t.fontSans,
-          fontSize: '0.9rem',
-          fontWeight: 600,
-          color: t.text,
-        }}>{label}</label>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-          {prefix && <span style={{ fontFamily: t.fontSans, fontSize: '1rem', fontWeight: 700, color: t.accent }}>{prefix}</span>}
+    <div className="mb-7">
+      <div className="flex justify-between items-baseline mb-2">
+        <label className="font-sans text-[0.9rem] font-semibold text-brand-text">{label}</label>
+        <div className="flex items-center gap-1">
+          {prefix && <span className="font-sans text-base font-bold text-brand-accent">{prefix}</span>}
           <input
             type="number"
             value={value}
@@ -47,21 +25,9 @@ function InputRow({ label, value, onChange, min, max, step, prefix, suffix, help
             max={max}
             step={step}
             onChange={e => onChange(parseFloat(e.target.value) || 0)}
-            style={{
-              fontFamily: t.fontSans,
-              fontSize: '1rem',
-              fontWeight: 700,
-              color: t.accent,
-              background: 'transparent',
-              border: 'none',
-              borderBottom: `2px solid ${t.accent}`,
-              outline: 'none',
-              width: '90px',
-              textAlign: 'right',
-              padding: '2px 0',
-            }}
+            className="font-sans text-base font-bold text-brand-accent bg-transparent border-0 border-b-2 border-brand-accent outline-none w-[90px] text-right py-[2px]"
           />
-          {suffix && <span style={{ fontFamily: t.fontSans, fontSize: '1rem', fontWeight: 700, color: t.accent }}>{suffix}</span>}
+          {suffix && <span className="font-sans text-base font-bold text-brand-accent">{suffix}</span>}
         </div>
       </div>
       <input
@@ -71,16 +37,10 @@ function InputRow({ label, value, onChange, min, max, step, prefix, suffix, help
         step={step}
         value={value}
         onChange={e => onChange(parseFloat(e.target.value))}
-        style={{ width: '100%', accentColor: t.accent, cursor: 'pointer' }}
+        className="w-full accent-brand-accent cursor-pointer"
       />
       {helpText && (
-        <p style={{
-          fontFamily: t.fontSans,
-          fontSize: '0.78rem',
-          color: t.grayLight,
-          margin: '6px 0 0',
-          lineHeight: 1.5,
-        }}>{helpText}</p>
+        <p className="font-sans text-[0.78rem] text-brand-gray-light mt-[6px] leading-[1.5]">{helpText}</p>
       )}
     </div>
   )
@@ -88,39 +48,11 @@ function InputRow({ label, value, onChange, min, max, step, prefix, suffix, help
 
 function ResultCard({ label, value, sub, highlight, positive }) {
   return (
-    <div style={{
-      padding: '24px',
-      borderRadius: '12px',
-      border: highlight ? `2px solid ${t.accent}` : `1px solid ${t.border}`,
-      background: highlight ? `${t.accent}08` : t.white,
-      flex: 1,
-      minWidth: '160px',
-    }}>
-      <div style={{
-        fontFamily: t.fontSans,
-        fontSize: '0.75rem',
-        fontWeight: 600,
-        color: highlight ? t.accent : t.grayLight,
-        textTransform: 'uppercase',
-        letterSpacing: '0.06em',
-        marginBottom: '8px',
-      }}>{label}</div>
-      <div style={{
-        fontFamily: t.fontSans,
-        fontSize: 'clamp(1.6rem, 4vw, 2.4rem)',
-        fontWeight: 800,
-        color: positive === false ? t.red : positive === true ? t.green : highlight ? t.accent : t.text,
-        letterSpacing: '-0.04em',
-        lineHeight: 1,
-      }}>{value}</div>
+    <div className={`p-6 rounded-xl flex-1 min-w-[160px] ${highlight ? 'border-2 border-brand-accent bg-[#D9775708]' : 'border border-brand-border bg-brand-white'}`}>
+      <div className={`font-sans text-[0.75rem] font-semibold uppercase tracking-[0.06em] mb-2 ${highlight ? 'text-brand-accent' : 'text-brand-gray-light'}`}>{label}</div>
+      <div className={`font-sans text-[clamp(1.6rem,4vw,2.4rem)] font-extrabold tracking-[-0.04em] leading-none ${positive === false ? 'text-brand-red' : positive === true ? 'text-brand-green' : highlight ? 'text-brand-accent' : 'text-brand-text'}`}>{value}</div>
       {sub && (
-        <div style={{
-          fontFamily: t.fontSans,
-          fontSize: '0.78rem',
-          color: t.gray,
-          marginTop: '6px',
-          lineHeight: 1.4,
-        }}>{sub}</div>
+        <div className="font-sans text-[0.78rem] text-brand-gray mt-[6px] leading-[1.4]">{sub}</div>
       )}
     </div>
   )
@@ -173,118 +105,43 @@ export default function ROICalculatorPage() {
         <link rel="canonical" href="https://churnrecovery.com/tools/roi-calculator" />
       </Head>
 
-      <div style={{ background: t.bg, minHeight: '100vh', fontFamily: t.fontSans }}>
+      <div className="bg-brand-bg min-h-screen font-sans">
         {/* Nav */}
-        <nav style={{
-          borderBottom: `1px solid ${t.border}`,
-          background: t.white,
-          padding: '0 20px',
-          height: '60px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          position: 'sticky',
-          top: 0,
-          zIndex: 100,
-        }}>
-          <Link href="/" style={{
-            fontFamily: t.fontSans,
-            fontWeight: 700,
-            fontSize: '1.1rem',
-            color: t.text,
-            textDecoration: 'none',
-            letterSpacing: '-0.01em',
-          }}>
+        <nav className="border-b border-brand-border bg-brand-white px-5 h-[60px] flex items-center justify-between sticky top-0 z-[100]">
+          <Link href="/" className="font-sans font-bold text-[1.1rem] text-brand-text no-underline tracking-[-0.01em]">
             ChurnRecovery
           </Link>
-          <div style={{ display: 'flex', gap: '24px', alignItems: 'center' }}>
-            <Link href="/tools/churn-calculator" style={{ color: t.gray, textDecoration: 'none', fontSize: '0.9rem' }}>Churn Calculator</Link>
-            <Link href="/demo" style={{ color: t.gray, textDecoration: 'none', fontSize: '0.9rem' }}>Demo</Link>
-            <a href="/#waitlist" style={{
-              background: t.accent,
-              color: t.white,
-              padding: '8px 18px',
-              borderRadius: '6px',
-              textDecoration: 'none',
-              fontSize: '0.85rem',
-              fontWeight: 600,
-            }}>Join Waitlist</a>
+          <div className="flex gap-6 items-center">
+            <Link href="/tools/churn-calculator" className="text-brand-gray no-underline text-[0.9rem]">Churn Calculator</Link>
+            <Link href="/demo" className="text-brand-gray no-underline text-[0.9rem]">Demo</Link>
+            <a href="/#waitlist" className="bg-brand-accent text-brand-white px-[18px] py-2 rounded-[6px] no-underline text-[0.85rem] font-semibold">Join Waitlist</a>
           </div>
         </nav>
 
         {/* Hero */}
-        <section style={{ maxWidth: '760px', margin: '0 auto', padding: '60px 24px 48px', textAlign: 'center' }}>
-          <div style={{
-            display: 'inline-block',
-            background: '#F0EBE5',
-            color: t.accent,
-            padding: '4px 14px',
-            borderRadius: '4px',
-            fontSize: '0.72rem',
-            fontWeight: 700,
-            textTransform: 'uppercase',
-            letterSpacing: '0.08em',
-            marginBottom: '20px',
-          }}>
+        <section className="max-w-[760px] mx-auto pt-[60px] px-6 pb-12 text-center">
+          <div className="inline-block bg-[#F0EBE5] text-brand-accent px-[14px] py-1 rounded text-[0.72rem] font-bold uppercase tracking-[0.08em] mb-5">
             Free Tool
           </div>
-          <h1 style={{
-            fontFamily: t.fontSans,
-            fontSize: 'clamp(1.8rem, 5vw, 2.8rem)',
-            fontWeight: 800,
-            color: t.text,
-            letterSpacing: '-0.04em',
-            margin: '0 0 16px',
-            lineHeight: 1.15,
-          }}>
+          <h1 className="font-sans text-[clamp(1.8rem,5vw,2.8rem)] font-extrabold text-brand-text tracking-[-0.04em] mb-4 leading-[1.15]">
             Does your churn tool actually pay for itself?
           </h1>
-          <p style={{
-            fontFamily: t.fontSerif,
-            fontSize: '1.1rem',
-            color: t.gray,
-            lineHeight: 1.7,
-            maxWidth: '540px',
-            margin: '0 auto 16px',
-          }}>
-            Small businesses often pay $250/month for tools that recover $180/month in revenue. 
+          <p className="font-serif text-[1.1rem] text-brand-gray leading-[1.7] max-w-[540px] mx-auto mb-4">
+            Small businesses often pay $250/month for tools that recover $180/month in revenue.
             Plug in your numbers and find out if you're coming out ahead — or getting ripped off.
           </p>
-          <p style={{
-            fontFamily: t.fontSans,
-            fontSize: '0.82rem',
-            color: t.grayLight,
-          }}>
+          <p className="font-sans text-[0.82rem] text-brand-gray-light">
             Takes 30 seconds. Updates in real time.
           </p>
         </section>
 
         {/* Calculator */}
-        <section style={{ maxWidth: '900px', margin: '0 auto', padding: '0 24px 80px' }}>
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: '1fr 1fr',
-            gap: '32px',
-          }} className="calculator-grid">
+        <section className="max-w-[900px] mx-auto px-6 pb-20">
+          <div className="grid grid-cols-2 gap-8 calculator-grid">
 
             {/* Inputs */}
-            <div style={{
-              background: t.white,
-              borderRadius: '16px',
-              border: `1px solid ${t.border}`,
-              padding: '32px',
-            }}>
-              <h2 style={{
-                fontFamily: t.fontSans,
-                fontSize: '1rem',
-                fontWeight: 700,
-                color: t.text,
-                margin: '0 0 28px',
-                textTransform: 'uppercase',
-                letterSpacing: '0.06em',
-                fontSize: '0.78rem',
-                color: t.grayLight,
-              }}>Your Numbers</h2>
+            <div className="bg-brand-white rounded-2xl border border-brand-border p-8">
+              <h2 className="font-sans text-[0.78rem] font-bold text-brand-gray-light uppercase tracking-[0.06em] mb-7">Your Numbers</h2>
 
               <InputRow
                 label="Monthly subscribers / customers"
@@ -343,25 +200,12 @@ export default function ROICalculatorPage() {
             </div>
 
             {/* Results */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+            <div className="flex flex-col gap-4">
 
               {/* The problem */}
-              <div style={{
-                background: t.redLight,
-                borderRadius: '16px',
-                border: `1px solid #FECACA`,
-                padding: '24px',
-              }}>
-                <h2 style={{
-                  fontFamily: t.fontSans,
-                  fontSize: '0.78rem',
-                  fontWeight: 700,
-                  color: t.red,
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.06em',
-                  margin: '0 0 16px',
-                }}>Without a cancel flow</h2>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
+              <div className="bg-[#FEF2F2] rounded-2xl border border-[#FECACA] p-6">
+                <h2 className="font-sans text-[0.78rem] font-bold text-brand-red uppercase tracking-[0.06em] mb-4">Without a cancel flow</h2>
+                <div className="flex flex-wrap gap-3">
                   <ResultCard
                     label="Subscribers lost / month"
                     value={fmt(subscribersLost)}
@@ -378,22 +222,9 @@ export default function ROICalculatorPage() {
               </div>
 
               {/* ChurnRecovery results */}
-              <div style={{
-                background: t.greenLight,
-                borderRadius: '16px',
-                border: `1px solid #A7F3D0`,
-                padding: '24px',
-              }}>
-                <h2 style={{
-                  fontFamily: t.fontSans,
-                  fontSize: '0.78rem',
-                  fontWeight: 700,
-                  color: t.green,
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.06em',
-                  margin: '0 0 16px',
-                }}>With ChurnRecovery (free)</h2>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
+              <div className="bg-brand-green-light rounded-2xl border border-[#A7F3D0] p-6">
+                <h2 className="font-sans text-[0.78rem] font-bold text-brand-green uppercase tracking-[0.06em] mb-4">With ChurnRecovery (free)</h2>
+                <div className="flex flex-wrap gap-3">
                   <ResultCard
                     label="Revenue recovered / month"
                     value={fmtDollar(revenueRecoveredMonthly)}
@@ -411,49 +242,19 @@ export default function ROICalculatorPage() {
               </div>
 
               {/* Vs Churnkey */}
-              <div style={{
-                background: netVsChurnkeyAnnual > 0 ? `${t.accent}08` : '#FFF',
-                borderRadius: '16px',
-                border: `2px solid ${t.accent}`,
-                padding: '24px',
-              }}>
-                <h2 style={{
-                  fontFamily: t.fontSans,
-                  fontSize: '0.78rem',
-                  fontWeight: 700,
-                  color: t.accent,
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.06em',
-                  margin: '0 0 8px',
-                }}>vs. Churnkey at $250/month</h2>
-                <p style={{
-                  fontFamily: t.fontSans,
-                  fontSize: '0.8rem',
-                  color: t.gray,
-                  margin: '0 0 16px',
-                }}>
-                  Churnkey costs ${fmt(250 * 12)}/year. 
+              <div className="rounded-2xl border-2 border-brand-accent p-6" style={{ background: netVsChurnkeyAnnual > 0 ? '#D9775708' : '#FFF' }}>
+                <h2 className="font-sans text-[0.78rem] font-bold text-brand-accent uppercase tracking-[0.06em] mb-2">vs. Churnkey at $250/month</h2>
+                <p className="font-sans text-[0.8rem] text-brand-gray mb-4">
+                  Churnkey costs ${fmt(250 * 12)}/year.
                   {toolCost > 0 && ` You're currently paying $${fmt(toolCost * 12)}/year on tools.`}
                   {' '}ChurnRecovery costs $0.
                 </p>
 
-                <div style={{ marginBottom: '16px' }}>
-                  <div style={{
-                    fontFamily: t.fontSans,
-                    fontSize: 'clamp(2rem, 6vw, 3rem)',
-                    fontWeight: 800,
-                    color: netVsChurnkeyAnnual > 0 ? t.green : t.red,
-                    letterSpacing: '-0.04em',
-                    lineHeight: 1,
-                  }}>
+                <div className="mb-4">
+                  <div className="font-sans text-[clamp(2rem,6vw,3rem)] font-extrabold tracking-[-0.04em] leading-none" style={{ color: netVsChurnkeyAnnual > 0 ? '#2D7A4F' : '#DC2626' }}>
                     {netVsChurnkeyAnnual > 0 ? '+' : ''}{fmtDollar(Math.abs(netVsChurnkeyAnnual))}/yr
                   </div>
-                  <div style={{
-                    fontFamily: t.fontSans,
-                    fontSize: '0.85rem',
-                    color: t.gray,
-                    marginTop: '4px',
-                  }}>
+                  <div className="font-sans text-[0.85rem] text-brand-gray mt-1">
                     {netVsChurnkeyAnnual > 0
                       ? 'more money in your pocket vs. Churnkey'
                       : 'Churnkey costs more than it recovers at your scale'}
@@ -461,26 +262,12 @@ export default function ROICalculatorPage() {
                 </div>
 
                 {/* Verdict */}
-                <div style={{
-                  background: netVsChurnkeyAnnual > 0 ? t.green : t.red,
-                  color: t.white,
-                  borderRadius: '8px',
-                  padding: '12px 16px',
-                  fontFamily: t.fontSans,
-                  fontSize: '0.88rem',
-                  fontWeight: 700,
-                  lineHeight: 1.4,
-                }}>
+                <div className="text-brand-white rounded-lg px-4 py-3 font-sans text-[0.88rem] font-bold leading-[1.4]" style={{ background: netVsChurnkeyAnnual > 0 ? '#2D7A4F' : '#DC2626' }}>
                   {verdict}
                 </div>
 
                 {toolCost > 0 && (
-                  <p style={{
-                    fontFamily: t.fontSans,
-                    fontSize: '0.78rem',
-                    color: t.gray,
-                    margin: '12px 0 0',
-                  }}>
+                  <p className="font-sans text-[0.78rem] text-brand-gray mt-3">
                     Switching to ChurnRecovery also saves you ${fmt(toolCost * 12)}/yr in tool costs.
                     Combined: {fmtDollar(netVsCurrentToolAnnual)}/year better off.
                   </p>
@@ -491,58 +278,23 @@ export default function ROICalculatorPage() {
           </div>
 
           {/* CTA */}
-          <div style={{
-            background: t.text,
-            borderRadius: '16px',
-            padding: '48px 40px',
-            textAlign: 'center',
-            marginTop: '32px',
-          }}>
-            <h2 style={{
-              fontFamily: t.fontSans,
-              fontSize: 'clamp(1.4rem, 3.5vw, 2rem)',
-              fontWeight: 800,
-              color: t.white,
-              letterSpacing: '-0.03em',
-              margin: '0 0 12px',
-            }}>
+          <div className="bg-brand-text rounded-2xl pt-12 px-10 pb-12 text-center mt-8">
+            <h2 className="font-sans text-[clamp(1.4rem,3.5vw,2rem)] font-extrabold text-brand-white tracking-[-0.03em] mb-3">
               Start recovering subscribers free
             </h2>
-            <p style={{
-              fontFamily: t.fontSerif,
-              fontSize: '1rem',
-              color: 'rgba(255,255,255,0.65)',
-              margin: '0 0 28px',
-              lineHeight: 1.7,
-            }}>
+            <p className="font-serif text-base text-[rgba(255,255,255,0.65)] mb-7 leading-[1.7]">
               No monthly fee. No per-subscriber charges. No hidden costs.
               Just a cancel flow that saves subscribers — and keeps 100% of recovered revenue in your pocket.
             </p>
             <a
               href="https://tally.so/r/churnrecovery"
-              style={{
-                display: 'inline-block',
-                background: t.accent,
-                color: t.white,
-                padding: '15px 36px',
-                borderRadius: '8px',
-                fontFamily: t.fontSans,
-                fontWeight: 700,
-                fontSize: '1rem',
-                textDecoration: 'none',
-                letterSpacing: '-0.01em',
-              }}
+              className="inline-block bg-brand-accent text-brand-white px-9 py-[15px] rounded-lg font-sans font-bold text-base no-underline tracking-[-0.01em]"
             >
               Join Waitlist — Free →
             </a>
-            <p style={{
-              fontFamily: t.fontSans,
-              fontSize: '0.78rem',
-              color: 'rgba(255,255,255,0.4)',
-              marginTop: '16px',
-            }}>
+            <p className="font-sans text-[0.78rem] text-[rgba(255,255,255,0.4)] mt-4">
               Already using a churn tool?{' '}
-              <Link href="/compare/churnkey" style={{ color: t.accent, textDecoration: 'none' }}>
+              <Link href="/compare/churnkey" className="text-brand-accent no-underline">
                 See how we compare →
               </Link>
             </p>
@@ -550,72 +302,35 @@ export default function ROICalculatorPage() {
         </section>
 
         {/* Explainer section */}
-        <section style={{
-          background: t.white,
-          borderTop: `1px solid ${t.border}`,
-          borderBottom: `1px solid ${t.border}`,
-          padding: '72px 24px',
-        }}>
-          <div style={{ maxWidth: '760px', margin: '0 auto' }}>
-            <h2 style={{
-              fontFamily: t.fontSans,
-              fontSize: 'clamp(1.3rem, 3vw, 1.8rem)',
-              fontWeight: 700,
-              color: t.text,
-              letterSpacing: '-0.03em',
-              marginBottom: '16px',
-            }}>
+        <section className="bg-brand-white border-t border-b border-brand-border py-[72px] px-6">
+          <div className="max-w-[760px] mx-auto">
+            <h2 className="font-sans text-[clamp(1.3rem,3vw,1.8rem)] font-bold text-brand-text tracking-[-0.03em] mb-4">
               Why small businesses lose money on churn tools
             </h2>
-            <p style={{
-              fontFamily: t.fontSerif,
-              fontSize: '1rem',
-              color: t.gray,
-              lineHeight: 1.8,
-              marginBottom: '32px',
-            }}>
-              The math is brutal for small subscription businesses. A newsletter creator with 300 paid subscribers 
-              at $15/month and 5% churn loses about $225/month to voluntary churn. If a cancel-flow tool 
-              recovers 15% of that, they get back ~$34/month. But if the tool costs $250/month... 
-              <strong style={{ color: t.text }}> they're paying $216/month to recover $34.</strong>
+            <p className="font-serif text-base text-brand-gray leading-[1.8] mb-8">
+              The math is brutal for small subscription businesses. A newsletter creator with 300 paid subscribers
+              at $15/month and 5% churn loses about $225/month to voluntary churn. If a cancel-flow tool
+              recovers 15% of that, they get back ~$34/month. But if the tool costs $250/month...
+              <strong className="text-brand-text"> they're paying $216/month to recover $34.</strong>
             </p>
-            <p style={{
-              fontFamily: t.fontSerif,
-              fontSize: '1rem',
-              color: t.gray,
-              lineHeight: 1.8,
-              marginBottom: '32px',
-            }}>
-              This is the business model of enterprise churn tools sold down-market. They price for 
-              million-dollar MRR companies, and smaller businesses pay the same rate while recovering 
+            <p className="font-serif text-base text-brand-gray leading-[1.8] mb-8">
+              This is the business model of enterprise churn tools sold down-market. They price for
+              million-dollar MRR companies, and smaller businesses pay the same rate while recovering
               a tiny fraction of what the tool costs.
             </p>
-            <p style={{
-              fontFamily: t.fontSerif,
-              fontSize: '1rem',
-              color: t.gray,
-              lineHeight: 1.8,
-              marginBottom: '0',
-            }}>
-              ChurnRecovery is free because we believe the tool should serve the business — 
+            <p className="font-serif text-base text-brand-gray leading-[1.8]">
+              ChurnRecovery is free because we believe the tool should serve the business —
               not the other way around. Every dollar you recover stays with you.
             </p>
           </div>
         </section>
 
         {/* Related links */}
-        <section style={{ maxWidth: '760px', margin: '0 auto', padding: '64px 24px' }}>
-          <h2 style={{
-            fontFamily: t.fontSans,
-            fontSize: '1.1rem',
-            fontWeight: 700,
-            color: t.text,
-            letterSpacing: '-0.02em',
-            marginBottom: '20px',
-          }}>
+        <section className="max-w-[760px] mx-auto py-16 px-6">
+          <h2 className="font-sans text-[1.1rem] font-bold text-brand-text tracking-[-0.02em] mb-5">
             More tools & resources
           </h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '12px' }}>
+          <div className="grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-3">
             {[
               { href: '/tools/churn-calculator', label: '→ Churn Revenue Calculator' },
               { href: '/demo', label: '→ See the cancel flow demo' },
@@ -623,17 +338,7 @@ export default function ROICalculatorPage() {
               { href: '/pricing', label: '→ See our pricing (it\'s $0)' },
               { href: '/posts/Ultimate-Guide-SaaS-Churn', label: '→ Ultimate churn guide' },
             ].map(link => (
-              <Link key={link.href} href={link.href} style={{
-                display: 'block',
-                padding: '12px 16px',
-                border: `1px solid ${t.border}`,
-                borderRadius: '8px',
-                fontFamily: t.fontSans,
-                fontSize: '0.85rem',
-                color: t.text,
-                textDecoration: 'none',
-                fontWeight: 500,
-              }}>
+              <Link key={link.href} href={link.href} className="block py-3 px-4 border border-brand-border rounded-lg font-sans text-[0.85rem] text-brand-text no-underline font-medium">
                 {link.label}
               </Link>
             ))}

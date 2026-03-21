@@ -6,52 +6,21 @@ import { getAllPosts, getAllTags, getReadingTime } from '../lib/posts'
 import fs from 'fs'
 import path from 'path'
 
-const t = {
-  bg: '#FAF9F5',
-  text: '#191919',
-  gray: '#666666',
-  grayLight: '#999999',
-  accent: '#D97757',
-  accentHover: '#C4603D',
-  border: '#E5E5E5',
-  white: '#FFFFFF',
-  fontSans: '"Instrument Sans", sans-serif',
-  fontSerif: '"Merriweather", serif',
-}
-
 const POSTS_PER_PAGE = 6
 
 function TagPill({ tag, active, onClick }) {
   return (
     <span
       onClick={onClick}
-      style={{
-        display: 'inline-block',
-        fontFamily: t.fontSans,
-        fontSize: '0.8rem',
-        fontWeight: 500,
-        color: active ? '#fff' : t.gray,
-        background: active ? t.accent : t.white,
-        border: `1px solid ${active ? t.accent : t.border}`,
-        padding: '5px 14px',
-        borderRadius: '100px',
-        cursor: 'pointer',
-        transition: 'all 0.15s',
-      }}>{tag}</span>
+      className={`inline-block font-sans text-[0.8rem] font-medium px-[14px] py-[5px] rounded-full cursor-pointer transition-all duration-150 ${active ? 'text-white bg-brand-accent border border-brand-accent' : 'text-brand-gray bg-brand-white border border-brand-border'}`}
+    >{tag}</span>
   )
 }
 
 function PostCard({ post, readingTime, featured }) {
   return (
-    <Link href={`/posts/${post.slug}`} style={{ textDecoration: 'none', color: 'inherit' }}>
-      <article style={{
-        background: t.white,
-        border: `1px solid ${t.border}`,
-        borderRadius: '12px',
-        padding: featured ? '36px' : '28px',
-        cursor: 'pointer',
-        transition: 'box-shadow 0.2s, transform 0.2s',
-      }}
+    <Link href={`/posts/${post.slug}`} className="no-underline text-inherit">
+      <article className={`bg-brand-white border border-brand-border rounded-xl cursor-pointer transition-[box-shadow,transform] duration-200 ${featured ? 'p-9' : 'p-7'}`}
         onMouseEnter={e => {
           e.currentTarget.style.boxShadow = '0 4px 20px rgba(0,0,0,0.08)'
           e.currentTarget.style.transform = 'translateY(-2px)'
@@ -63,55 +32,22 @@ function PostCard({ post, readingTime, featured }) {
       >
         {/* Tags */}
         {post.tags && post.tags.length > 0 && (
-          <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap', marginBottom: '14px' }}>
+          <div className="flex gap-[6px] flex-wrap mb-[14px]">
             {post.tags.map(tag => (
-              <span key={tag} style={{
-                fontFamily: t.fontSans,
-                fontSize: '0.72rem',
-                fontWeight: 600,
-                color: t.accent,
-                background: `${t.accent}15`,
-                padding: '3px 10px',
-                borderRadius: '100px',
-                letterSpacing: '0.03em',
-                textTransform: 'uppercase',
-              }}>{tag}</span>
+              <span key={tag} className="font-sans text-[0.72rem] font-semibold text-brand-accent bg-[#D9775715] px-[10px] py-[3px] rounded-full tracking-[0.03em] uppercase">{tag}</span>
             ))}
           </div>
         )}
 
-        <h2 style={{
-          fontFamily: t.fontSans,
-          fontSize: featured ? '1.6rem' : '1.2rem',
-          fontWeight: 700,
-          color: t.text,
-          letterSpacing: '-0.02em',
-          margin: '0 0 12px 0',
-          lineHeight: 1.25,
-        }}>{post.title}</h2>
+        <h2 className={`font-sans font-bold text-brand-text tracking-[-0.02em] mb-3 leading-[1.25] ${featured ? 'text-[1.6rem]' : 'text-[1.2rem]'}`}>{post.title}</h2>
 
         {post.excerpt && (
-          <p style={{
-            fontFamily: t.fontSerif,
-            fontSize: '0.92rem',
-            color: t.gray,
-            margin: '0 0 20px 0',
-            lineHeight: 1.65,
-          }}>{post.excerpt}</p>
+          <p className="font-serif text-[0.92rem] text-brand-gray mb-5 leading-[1.65]">{post.excerpt}</p>
         )}
 
-        <div style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: '12px',
-          flexWrap: 'wrap',
-        }}>
+        <div className="flex items-center gap-3 flex-wrap">
           {post.date && (
-            <span style={{
-              fontFamily: t.fontSans,
-              fontSize: '0.8rem',
-              color: t.grayLight,
-            }}>
+            <span className="font-sans text-[0.8rem] text-brand-gray-light">
               {new Date(post.date).toLocaleDateString('en-US', {
                 year: 'numeric', month: 'long', day: 'numeric'
               })}
@@ -119,21 +55,11 @@ function PostCard({ post, readingTime, featured }) {
           )}
           {readingTime && (
             <>
-              <span style={{ color: t.border }}>·</span>
-              <span style={{
-                fontFamily: t.fontSans,
-                fontSize: '0.8rem',
-                color: t.grayLight,
-              }}>{readingTime}</span>
+              <span className="text-brand-border">·</span>
+              <span className="font-sans text-[0.8rem] text-brand-gray-light">{readingTime}</span>
             </>
           )}
-          <span style={{
-            fontFamily: t.fontSans,
-            fontSize: '0.85rem',
-            color: t.accent,
-            fontWeight: 500,
-            marginLeft: 'auto',
-          }}>Read →</span>
+          <span className="font-sans text-[0.85rem] text-brand-accent font-medium ml-auto">Read →</span>
         </div>
       </article>
     </Link>
@@ -173,59 +99,19 @@ export default function Blog({ posts: allPosts, tags }) {
         <link rel="alternate" type="application/rss+xml" title="ChurnRecovery Blog" href="/rss.xml" />
       </Head>
 
-      <div style={{ background: t.bg, minHeight: '100vh' }}>
+      <div className="bg-brand-bg min-h-screen">
         {/* Nav */}
-        <nav style={{
-          position: 'sticky',
-          top: 0,
-          zIndex: 100,
-          background: `${t.bg}EE`,
-          backdropFilter: 'blur(12px)',
-          borderBottom: `1px solid ${t.border}`,
-        }}>
-          <div style={{
-            maxWidth: '1100px',
-            margin: '0 auto',
-            padding: '0 24px',
-            height: '60px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-          }}>
-            <Link href="/" style={{ textDecoration: 'none' }}>
-              <span style={{
-                fontFamily: t.fontSans,
-                fontSize: '1.1rem',
-                fontWeight: 700,
-                color: t.text,
-                letterSpacing: '-0.02em',
-              }}>ChurnRecovery</span>
+        <nav className="sticky top-0 z-[100] bg-[#FAF9F5EE] backdrop-blur-[12px] border-b border-brand-border">
+          <div className="max-w-[1100px] mx-auto px-6 h-[60px] flex items-center justify-between">
+            <Link href="/" className="no-underline">
+              <span className="font-sans text-[1.1rem] font-bold text-brand-text tracking-[-0.02em]">ChurnRecovery</span>
             </Link>
-            <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
-              <Link href="/blog" style={{
-                fontFamily: t.fontSans,
-                fontSize: '0.9rem',
-                color: t.accent,
-                textDecoration: 'none',
-                fontWeight: 600,
-              }}>Blog</Link>
-              <Link href="/" style={{
-                fontFamily: t.fontSans,
-                fontSize: '0.9rem',
-                color: t.gray,
-                textDecoration: 'none',
-              }}>Home</Link>
-              <Link href="/rss.xml" style={{
-                fontFamily: t.fontSans,
-                fontSize: '0.85rem',
-                color: t.gray,
-                textDecoration: 'none',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '4px',
-              }}>
+            <div className="flex gap-5 items-center">
+              <Link href="/blog" className="font-sans text-[0.9rem] text-brand-accent no-underline font-semibold">Blog</Link>
+              <Link href="/" className="font-sans text-[0.9rem] text-brand-gray no-underline">Home</Link>
+              <Link href="/rss.xml" className="font-sans text-[0.85rem] text-brand-gray no-underline flex items-center gap-1">
                 <span>RSS</span>
-                <span style={{ fontSize: '0.8em' }}>🔗</span>
+                <span className="text-[0.8em]">🔗</span>
               </Link>
             </div>
           </div>
@@ -233,47 +119,19 @@ export default function Blog({ posts: allPosts, tags }) {
 
         {/* Header */}
         <section>
-          <div style={{
-            maxWidth: '1100px',
-            margin: '0 auto',
-            padding: '64px 24px 40px',
-          }}>
-            <span style={{
-              fontFamily: t.fontSans,
-              fontSize: '0.75rem',
-              fontWeight: 700,
-              color: t.accent,
-              letterSpacing: '0.08em',
-              textTransform: 'uppercase',
-              display: 'block',
-              marginBottom: '12px',
-            }}>The ChurnRecovery Blog</span>
-            <h1 style={{
-              fontFamily: t.fontSans,
-              fontSize: 'clamp(2rem, 4vw, 3rem)',
-              fontWeight: 700,
-              color: t.text,
-              letterSpacing: '-0.03em',
-              margin: '0 0 16px 0',
-              lineHeight: 1.1,
-            }}>
+          <div className="max-w-[1100px] mx-auto pt-16 px-6 pb-10">
+            <span className="font-sans text-[0.75rem] font-bold text-brand-accent tracking-[0.08em] uppercase block mb-3">The ChurnRecovery Blog</span>
+            <h1 className="font-sans text-[clamp(2rem,4vw,3rem)] font-bold text-brand-text tracking-[-0.03em] mb-4 leading-[1.1]">
               {currentTag ? `Posts tagged #${currentTag}` : 'Insights on churn recovery'}
             </h1>
-            <p style={{
-              fontFamily: t.fontSerif,
-              fontSize: '1.05rem',
-              color: t.gray,
-              margin: '0 0 36px 0',
-              maxWidth: '560px',
-              lineHeight: 1.65,
-            }}>
+            <p className="font-serif text-[1.05rem] text-brand-gray mb-9 max-w-[560px] leading-[1.65]">
               Practical guides on reducing churn, recovering failed payments, and building
               retention systems that actually work.
             </p>
 
             {/* Tags filter */}
             {tags.length > 0 && (
-              <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', alignItems: 'center' }}>
+              <div className="flex gap-2 flex-wrap items-center">
                 <TagPill
                   tag="All posts"
                   active={!currentTag}
@@ -294,36 +152,23 @@ export default function Blog({ posts: allPosts, tags }) {
 
         {/* Posts */}
         <section>
-          <div style={{
-            maxWidth: '1100px',
-            margin: '0 auto',
-            padding: '0 24px 80px',
-          }}>
+          <div className="max-w-[1100px] mx-auto px-6 pb-20">
             {posts.length === 0 ? (
-              <div style={{
-                textAlign: 'center',
-                padding: '80px 24px',
-                color: t.gray,
-                fontFamily: t.fontSans,
-              }}>
+              <div className="text-center py-20 px-6 text-brand-gray font-sans">
                 No posts found{currentTag ? ` for #${currentTag}` : ''}.
               </div>
             ) : (
               <>
                 {/* Featured post (first) */}
                 {posts[0] && (
-                  <div style={{ marginBottom: '24px' }}>
+                  <div className="mb-6">
                     <PostCard post={posts[0]} featured={true} />
                   </div>
                 )}
 
                 {/* Grid for remaining */}
                 {posts.length > 1 && (
-                  <div style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',
-                    gap: '20px',
-                  }}>
+                  <div className="grid grid-cols-[repeat(auto-fill,minmax(320px,1fr))] gap-5">
                     {posts.slice(1).map(post => (
                       <PostCard key={post.slug} post={post} />
                     ))}

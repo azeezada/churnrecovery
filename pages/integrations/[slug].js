@@ -2,58 +2,16 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { getIntegration, getAllIntegrationSlugs } from '../../lib/integrations'
 
-const t = {
-  bg: '#FAF9F5',
-  text: '#191919',
-  gray: '#666666',
-  grayLight: '#999999',
-  accent: '#D97757',
-  accentHover: '#C4603D',
-  border: '#E5E5E5',
-  white: '#FFFFFF',
-  green: '#2D7A4F',
-  greenLight: '#EDF7F1',
-  codeBackground: '#1A1A2E',
-  fontSans: '"Instrument Sans", sans-serif',
-  fontSerif: '"Merriweather", serif',
-  fontMono: '"Fira Code", "Fira Mono", monospace',
-}
-
 function CodeBlock({ code, language, title }) {
   return (
-    <div style={{ marginBottom: '24px', borderRadius: '10px', overflow: 'hidden', border: `1px solid ${t.border}` }}>
+    <div className="mb-6 rounded-[10px] overflow-hidden border border-brand-border">
       {title && (
-        <div style={{
-          background: '#F0EFE9',
-          padding: '10px 16px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          borderBottom: `1px solid ${t.border}`,
-        }}>
-          <span style={{ fontFamily: t.fontSans, fontSize: '0.82rem', fontWeight: 600, color: t.gray }}>{title}</span>
-          <span style={{
-            fontFamily: t.fontSans,
-            fontSize: '0.72rem',
-            color: t.grayLight,
-            background: t.border,
-            padding: '2px 8px',
-            borderRadius: '4px',
-            textTransform: 'uppercase',
-            letterSpacing: '0.05em',
-          }}>{language}</span>
+        <div className="bg-[#F0EFE9] px-4 py-[10px] flex items-center justify-between border-b border-brand-border">
+          <span className="font-sans text-[0.82rem] font-semibold text-brand-gray">{title}</span>
+          <span className="font-sans text-[0.72rem] text-brand-gray-light bg-brand-border px-2 py-[2px] rounded uppercase tracking-[0.05em]">{language}</span>
         </div>
       )}
-      <pre style={{
-        background: t.codeBackground,
-        margin: 0,
-        padding: '20px',
-        overflowX: 'auto',
-        fontFamily: t.fontMono,
-        fontSize: '0.85rem',
-        lineHeight: 1.7,
-        color: '#E8E8F0',
-      }}>
+      <pre className="bg-[#1A1A2E] m-0 p-5 overflow-x-auto font-mono text-[0.85rem] leading-[1.7] text-[#E8E8F0]">
         <code>{code}</code>
       </pre>
     </div>
@@ -88,67 +46,41 @@ export default function IntegrationPage({ integration }) {
         />
       </Head>
 
-      <div style={{ background: t.bg, minHeight: '100vh' }}>
+      <div className="bg-brand-bg min-h-screen">
         {/* Breadcrumb */}
-        <div style={{
-          borderBottom: `1px solid ${t.border}`,
-          padding: '16px 24px',
-        }}>
-          <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
-            <nav style={{ fontFamily: t.fontSans, fontSize: '0.85rem', color: t.grayLight }}>
-              <Link href="/" style={{ color: t.grayLight, textDecoration: 'none' }}>Home</Link>
-              <span style={{ margin: '0 8px' }}>›</span>
-              <Link href="/integrations" style={{ color: t.grayLight, textDecoration: 'none' }}>Integrations</Link>
-              <span style={{ margin: '0 8px' }}>›</span>
-              <span style={{ color: t.text, fontWeight: 600 }}>{integration.name}</span>
+        <div className="border-b border-brand-border px-6 py-4">
+          <div className="max-w-[1100px] mx-auto">
+            <nav className="font-sans text-[0.85rem] text-brand-gray-light">
+              <Link href="/" className="text-brand-gray-light no-underline">Home</Link>
+              <span className="mx-2">›</span>
+              <Link href="/integrations" className="text-brand-gray-light no-underline">Integrations</Link>
+              <span className="mx-2">›</span>
+              <span className="text-brand-text font-semibold">{integration.name}</span>
             </nav>
           </div>
         </div>
 
         {/* Hero */}
-        <div style={{
-          borderBottom: `1px solid ${t.border}`,
-          padding: '60px 24px 48px',
-        }}>
-          <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
-            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '24px', flexWrap: 'wrap' }}>
-              <div style={{
-                width: '72px',
-                height: '72px',
-                borderRadius: '16px',
-                background: integration.color + '18',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontSize: '2.2rem',
-                flexShrink: 0,
-              }}>
+        <div className="border-b border-brand-border pt-[60px] pb-12 px-6">
+          <div className="max-w-[1100px] mx-auto">
+            <div className="flex items-start gap-6 flex-wrap">
+              <div
+                className="w-[72px] h-[72px] rounded-2xl flex items-center justify-center text-[2.2rem] shrink-0"
+                style={{ background: integration.color + '18' }}
+              >
                 {integration.logo}
               </div>
-              <div style={{ flex: 1 }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '8px', flexWrap: 'wrap' }}>
-                  <h1 style={{
-                    fontFamily: t.fontSans,
-                    fontSize: 'clamp(1.8rem, 4vw, 2.4rem)',
-                    fontWeight: 800,
-                    color: t.text,
-                    margin: 0,
-                  }}>
+              <div className="flex-1">
+                <div className="flex items-center gap-3 mb-2 flex-wrap">
+                  <h1 className="font-sans text-[clamp(1.8rem,4vw,2.4rem)] font-extrabold text-brand-text m-0">
                     ChurnRecovery + {integration.name}
                   </h1>
                 </div>
-                <p className="integration-description" style={{
-                  fontFamily: t.fontSerif,
-                  fontSize: '1.1rem',
-                  color: t.gray,
-                  lineHeight: 1.7,
-                  margin: '0 0 24px',
-                  maxWidth: '700px',
-                }}>
+                <p className="integration-description font-serif text-[1.1rem] text-brand-gray leading-[1.7] mt-0 mb-6 max-w-[700px]">
                   {integration.description}
                 </p>
                 {/* Quick stats */}
-                <div className="integration-stats-bar" style={{ display: 'flex', gap: '32px', flexWrap: 'wrap' }}>
+                <div className="integration-stats-bar flex gap-8 flex-wrap">
                   {[
                     { label: 'Setup time', value: integration.setupTime },
                     { label: 'Difficulty', value: integration.difficulty },
@@ -156,13 +88,8 @@ export default function IntegrationPage({ integration }) {
                     { label: 'Price', value: 'Free' },
                   ].map(({ label, value, highlight }) => (
                     <div key={label}>
-                      <div style={{ fontFamily: t.fontSans, fontSize: '0.72rem', color: t.grayLight, textTransform: 'uppercase', letterSpacing: '0.07em', marginBottom: '4px' }}>{label}</div>
-                      <div style={{
-                        fontFamily: t.fontSans,
-                        fontSize: '1.05rem',
-                        fontWeight: 700,
-                        color: highlight ? t.green : t.text,
-                      }}>{value}</div>
+                      <div className="font-sans text-[0.72rem] text-brand-gray-light uppercase tracking-[0.07em] mb-1">{label}</div>
+                      <div className={`font-sans text-[1.05rem] font-bold ${highlight ? 'text-brand-green' : 'text-brand-text'}`}>{value}</div>
                     </div>
                   ))}
                 </div>
@@ -172,55 +99,31 @@ export default function IntegrationPage({ integration }) {
         </div>
 
         {/* Main content */}
-        <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '48px 24px' }}>
-          <div className="integration-layout" style={{ display: 'grid', gridTemplateColumns: '1fr 320px', gap: '48px', alignItems: 'start' }}>
+        <div className="max-w-[1100px] mx-auto py-12 px-6">
+          <div className="integration-layout grid grid-cols-[1fr_320px] gap-12 items-start">
             {/* Left: main content */}
             <div>
               {/* Overview */}
-              <section style={{ marginBottom: '48px' }}>
-                <h2 style={{ fontFamily: t.fontSans, fontSize: '1.4rem', fontWeight: 700, color: t.text, margin: '0 0 16px' }}>
+              <section className="mb-12">
+                <h2 className="font-sans text-[1.4rem] font-bold text-brand-text mt-0 mb-4">
                   Overview
                 </h2>
                 {integration.longDescription.split('\n\n').map((para, i) => (
-                  <p key={i} style={{
-                    fontFamily: t.fontSerif,
-                    fontSize: '1rem',
-                    color: t.gray,
-                    lineHeight: 1.8,
-                    margin: '0 0 16px',
-                  }}>{para}</p>
+                  <p key={i} className="font-serif text-base text-brand-gray leading-[1.8] mt-0 mb-4">{para}</p>
                 ))}
               </section>
 
               {/* Features */}
-              <section style={{ marginBottom: '48px' }}>
-                <h2 style={{ fontFamily: t.fontSans, fontSize: '1.4rem', fontWeight: 700, color: t.text, margin: '0 0 20px' }}>
+              <section className="mb-12">
+                <h2 className="font-sans text-[1.4rem] font-bold text-brand-text mt-0 mb-5">
                   What's included
                 </h2>
-                <div style={{
-                  background: t.white,
-                  border: `1px solid ${t.border}`,
-                  borderRadius: '12px',
-                  padding: '24px',
-                }}>
-                  <ul style={{ margin: 0, padding: 0, listStyle: 'none' }}>
+                <div className="bg-brand-white border border-brand-border rounded-xl p-6">
+                  <ul className="m-0 p-0 list-none">
                     {integration.features.map((feature, i) => (
-                      <li key={i} style={{
-                        display: 'flex',
-                        alignItems: 'flex-start',
-                        gap: '12px',
-                        padding: i > 0 ? '12px 0 0' : '0',
-                        marginTop: i > 0 ? '12px' : 0,
-                        borderTop: i > 0 ? `1px solid ${t.border}` : 'none',
-                      }}>
-                        <span style={{
-                          color: t.green,
-                          fontWeight: 700,
-                          fontSize: '1rem',
-                          flexShrink: 0,
-                          marginTop: '2px',
-                        }}>✓</span>
-                        <span style={{ fontFamily: t.fontSans, fontSize: '0.95rem', color: t.text, lineHeight: 1.5 }}>
+                      <li key={i} className={`flex items-start gap-3 ${i > 0 ? 'pt-3 mt-3 border-t border-brand-border' : ''}`}>
+                        <span className="text-brand-green font-bold text-base shrink-0 mt-[2px]">✓</span>
+                        <span className="font-sans text-[0.95rem] text-brand-text leading-normal">
                           {feature}
                         </span>
                       </li>
@@ -230,53 +133,26 @@ export default function IntegrationPage({ integration }) {
               </section>
 
               {/* Use cases */}
-              <section style={{ marginBottom: '48px' }}>
-                <h2 style={{ fontFamily: t.fontSans, fontSize: '1.4rem', fontWeight: 700, color: t.text, margin: '0 0 20px' }}>
+              <section className="mb-12">
+                <h2 className="font-sans text-[1.4rem] font-bold text-brand-text mt-0 mb-5">
                   Use cases
                 </h2>
-                <div style={{
-                  display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))',
-                  gap: '16px',
-                }}>
+                <div className="grid grid-cols-[repeat(auto-fill,minmax(240px,1fr))] gap-4">
                   {integration.useCases.map((uc, i) => (
-                    <div key={i} style={{
-                      background: t.white,
-                      border: `1px solid ${t.border}`,
-                      borderRadius: '10px',
-                      padding: '20px',
-                    }}>
-                      <h3 style={{
-                        fontFamily: t.fontSans,
-                        fontSize: '0.95rem',
-                        fontWeight: 700,
-                        color: t.text,
-                        margin: '0 0 8px',
-                      }}>{uc.title}</h3>
-                      <p style={{
-                        fontFamily: t.fontSerif,
-                        fontSize: '0.88rem',
-                        color: t.gray,
-                        lineHeight: 1.6,
-                        margin: 0,
-                      }}>{uc.desc}</p>
+                    <div key={i} className="bg-brand-white border border-brand-border rounded-[10px] p-5">
+                      <h3 className="font-sans text-[0.95rem] font-bold text-brand-text mt-0 mb-2">{uc.title}</h3>
+                      <p className="font-serif text-[0.88rem] text-brand-gray leading-[1.6] m-0">{uc.desc}</p>
                     </div>
                   ))}
                 </div>
               </section>
 
               {/* Code snippets */}
-              <section style={{ marginBottom: '48px' }}>
-                <h2 style={{ fontFamily: t.fontSans, fontSize: '1.4rem', fontWeight: 700, color: t.text, margin: '0 0 8px' }}>
+              <section className="mb-12">
+                <h2 className="font-sans text-[1.4rem] font-bold text-brand-text mt-0 mb-2">
                   Code examples
                 </h2>
-                <p style={{
-                  fontFamily: t.fontSerif,
-                  fontSize: '0.95rem',
-                  color: t.gray,
-                  margin: '0 0 24px',
-                  lineHeight: 1.7,
-                }}>
+                <p className="font-serif text-[0.95rem] text-brand-gray mt-0 mb-6 leading-[1.7]">
                   Real code for your {integration.name} integration. Copy and customize.
                 </p>
                 {integration.codeSnippets.map((snippet, i) => (
@@ -286,48 +162,18 @@ export default function IntegrationPage({ integration }) {
             </div>
 
             {/* Right sidebar */}
-            <div style={{ position: 'sticky', top: '24px' }}>
+            <div className="sticky top-6">
               {/* Setup steps */}
-              <div style={{
-                background: t.white,
-                border: `1px solid ${t.border}`,
-                borderRadius: '12px',
-                padding: '24px',
-                marginBottom: '20px',
-              }}>
-                <h3 style={{
-                  fontFamily: t.fontSans,
-                  fontSize: '1rem',
-                  fontWeight: 700,
-                  color: t.text,
-                  margin: '0 0 16px',
-                }}>Setup checklist</h3>
-                <ol style={{ margin: 0, padding: 0, listStyle: 'none', counterReset: 'steps' }}>
+              <div className="bg-brand-white border border-brand-border rounded-xl p-6 mb-5">
+                <h3 className="font-sans text-base font-bold text-brand-text mt-0 mb-4">Setup checklist</h3>
+                <ol className="m-0 p-0 list-none">
                   {integration.setupSteps.map((step, i) => (
-                    <li key={i} style={{
-                      display: 'flex',
-                      alignItems: 'flex-start',
-                      gap: '12px',
-                      padding: i > 0 ? '12px 0 0' : '0',
-                      marginTop: i > 0 ? '12px' : 0,
-                      borderTop: i > 0 ? `1px solid ${t.border}` : 'none',
-                    }}>
-                      <span style={{
-                        width: '22px',
-                        height: '22px',
-                        borderRadius: '50%',
-                        background: t.accent + '18',
-                        color: t.accent,
-                        fontFamily: t.fontSans,
-                        fontSize: '0.75rem',
-                        fontWeight: 800,
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        flexShrink: 0,
-                        marginTop: '1px',
-                      }}>{i + 1}</span>
-                      <span style={{ fontFamily: t.fontSans, fontSize: '0.88rem', color: t.text, lineHeight: 1.5 }}>
+                    <li key={i} className={`flex items-start gap-3 ${i > 0 ? 'pt-3 mt-3 border-t border-brand-border' : ''}`}>
+                      <span
+                        className="w-[22px] h-[22px] rounded-full font-sans text-[0.75rem] font-extrabold flex items-center justify-center shrink-0 mt-[1px] text-brand-accent"
+                        style={{ background: '#D9775718' }}
+                      >{i + 1}</span>
+                      <span className="font-sans text-[0.88rem] text-brand-text leading-normal">
                         {step}
                       </span>
                     </li>
@@ -336,83 +182,28 @@ export default function IntegrationPage({ integration }) {
               </div>
 
               {/* CTA card */}
-              <div style={{
-                background: t.text,
-                borderRadius: '12px',
-                padding: '24px',
-                marginBottom: '20px',
-                textAlign: 'center',
-              }}>
-                <div style={{ fontSize: '2rem', marginBottom: '12px' }}>🚀</div>
-                <h3 style={{
-                  fontFamily: t.fontSans,
-                  fontSize: '1rem',
-                  fontWeight: 700,
-                  color: t.white,
-                  margin: '0 0 8px',
-                }}>Ready to get started?</h3>
-                <p style={{
-                  fontFamily: t.fontSerif,
-                  fontSize: '0.88rem',
-                  color: 'rgba(255,255,255,0.7)',
-                  margin: '0 0 16px',
-                  lineHeight: 1.6,
-                }}>Free forever. No credit card. Set up in {integration.setupTime}.</p>
-                <Link href="/#waitlist" style={{
-                  display: 'block',
-                  background: t.accent,
-                  color: t.white,
-                  fontFamily: t.fontSans,
-                  fontWeight: 700,
-                  fontSize: '0.9rem',
-                  padding: '12px 20px',
-                  borderRadius: '8px',
-                  textDecoration: 'none',
-                  textAlign: 'center',
-                }}>
+              <div className="bg-brand-text rounded-xl p-6 mb-5 text-center">
+                <div className="text-[2rem] mb-3">🚀</div>
+                <h3 className="font-sans text-base font-bold text-brand-white mt-0 mb-2">Ready to get started?</h3>
+                <p className="font-serif text-[0.88rem] text-white/70 mt-0 mb-4 leading-[1.6]">Free forever. No credit card. Set up in {integration.setupTime}.</p>
+                <Link href="/#waitlist" className="block bg-brand-accent text-brand-white font-sans font-bold text-[0.9rem] py-3 px-5 rounded-lg no-underline text-center">
                   Join Waitlist →
                 </Link>
               </div>
 
               {/* Other integrations */}
-              <div style={{
-                background: t.white,
-                border: `1px solid ${t.border}`,
-                borderRadius: '12px',
-                padding: '20px',
-              }}>
-                <h3 style={{
-                  fontFamily: t.fontSans,
-                  fontSize: '0.9rem',
-                  fontWeight: 700,
-                  color: t.text,
-                  margin: '0 0 12px',
-                }}>Other integrations</h3>
+              <div className="bg-brand-white border border-brand-border rounded-xl p-5">
+                <h3 className="font-sans text-[0.9rem] font-bold text-brand-text mt-0 mb-3">Other integrations</h3>
                 {['stripe', 'paddle', 'braintree', 'chargebee', 'recurly', 'custom']
                   .filter(s => s !== integration.slug)
                   .slice(0, 4)
                   .map(slug => (
-                    <Link key={slug} href={`/integrations/${slug}`} style={{
-                      display: 'block',
-                      fontFamily: t.fontSans,
-                      fontSize: '0.88rem',
-                      color: t.accent,
-                      textDecoration: 'none',
-                      padding: '6px 0',
-                      borderBottom: `1px solid ${t.border}`,
-                    }}>
+                    <Link key={slug} href={`/integrations/${slug}`} className="block font-sans text-[0.88rem] text-brand-accent no-underline py-[6px] border-b border-brand-border">
                       {slug.charAt(0).toUpperCase() + slug.slice(1)} integration →
                     </Link>
                   ))
                 }
-                <Link href="/integrations" style={{
-                  display: 'block',
-                  fontFamily: t.fontSans,
-                  fontSize: '0.85rem',
-                  color: t.grayLight,
-                  textDecoration: 'none',
-                  paddingTop: '8px',
-                }}>
+                <Link href="/integrations" className="block font-sans text-[0.85rem] text-brand-gray-light no-underline pt-2">
                   View all integrations →
                 </Link>
               </div>
@@ -421,43 +212,16 @@ export default function IntegrationPage({ integration }) {
         </div>
 
         {/* Bottom CTA */}
-        <div style={{
-          background: t.greenLight,
-          borderTop: `1px solid #C8EBD8`,
-          padding: '48px 24px',
-          textAlign: 'center',
-        }}>
-          <div style={{ maxWidth: '600px', margin: '0 auto' }}>
-            <h2 style={{
-              fontFamily: t.fontSans,
-              fontSize: '1.6rem',
-              fontWeight: 700,
-              color: t.text,
-              margin: '0 0 12px',
-            }}>
+        <div className="bg-brand-green-light border-t border-[#C8EBD8] py-12 px-6 text-center">
+          <div className="max-w-[600px] mx-auto">
+            <h2 className="font-sans text-[1.6rem] font-bold text-brand-text mt-0 mb-3">
               Stop losing customers you could keep
             </h2>
-            <p style={{
-              fontFamily: t.fontSerif,
-              fontSize: '1rem',
-              color: t.gray,
-              lineHeight: 1.7,
-              margin: '0 0 28px',
-            }}>
+            <p className="font-serif text-base text-brand-gray leading-[1.7] mt-0 mb-7">
               Most SaaS companies recover 20–30% of would-be churners with cancel flows.
               ChurnRecovery makes this free for {integration.name} users.
             </p>
-            <Link href="/#waitlist" style={{
-              display: 'inline-block',
-              background: t.accent,
-              color: t.white,
-              fontFamily: t.fontSans,
-              fontWeight: 700,
-              fontSize: '1rem',
-              padding: '14px 32px',
-              borderRadius: '8px',
-              textDecoration: 'none',
-            }}>
+            <Link href="/#waitlist" className="inline-block bg-brand-accent text-brand-white font-sans font-bold text-base py-[14px] px-8 rounded-lg no-underline">
               Join Waitlist — It's Free
             </Link>
           </div>

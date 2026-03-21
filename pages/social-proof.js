@@ -231,7 +231,7 @@ export default function SocialProofPage() {
             <span>500+ business owners on the waitlist</span>
           </div>
 
-          <h1 className="font-[Instrument_Sans,sans-serif] font-bold text-[#191919] leading-[1.15] m-0 mb-5 tracking-[-0.02em]" style={{ fontSize: 'clamp(2rem, 5vw, 3rem)' }}>
+          <h1 className="font-[Instrument_Sans,sans-serif] font-bold text-[#191919] leading-[1.15] m-0 mb-5 tracking-[-0.02em] text-[clamp(2rem,5vw,3rem)]">
             What People Are Saying<br />About ChurnRecovery
           </h1>
 

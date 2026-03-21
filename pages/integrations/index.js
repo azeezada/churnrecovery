@@ -2,21 +2,6 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { getAllIntegrations } from '../../lib/integrations'
 
-const t = {
-  bg: '#FAF9F5',
-  text: '#191919',
-  gray: '#666666',
-  grayLight: '#999999',
-  accent: '#D97757',
-  accentHover: '#C4603D',
-  border: '#E5E5E5',
-  white: '#FFFFFF',
-  green: '#2D7A4F',
-  greenLight: '#EDF7F1',
-  fontSans: '"Instrument Sans", sans-serif',
-  fontSerif: '"Merriweather", serif',
-}
-
 const difficultyColor = {
   Easy: { bg: '#EDF7F1', color: '#2D7A4F' },
   Medium: { bg: '#FEF9EC', color: '#856404' },
@@ -39,75 +24,25 @@ export default function IntegrationsIndex() {
         <link rel="canonical" href="https://churnrecovery.com/integrations" />
       </Head>
 
-      <div style={{ background: t.bg, minHeight: '100vh' }}>
+      <div className="bg-brand-bg min-h-screen">
         {/* Hero */}
-        <div style={{
-          borderBottom: `1px solid ${t.border}`,
-          padding: '80px 24px 64px',
-          textAlign: 'center',
-        }}>
-          <div style={{ maxWidth: '720px', margin: '0 auto' }}>
-            <div style={{
-              display: 'inline-block',
-              background: t.greenLight,
-              color: t.green,
-              fontFamily: t.fontSans,
-              fontSize: '0.8rem',
-              fontWeight: 700,
-              letterSpacing: '0.08em',
-              textTransform: 'uppercase',
-              padding: '6px 14px',
-              borderRadius: '20px',
-              marginBottom: '24px',
-            }}>
+        <div className="border-b border-brand-border pt-20 pb-16 px-6 text-center">
+          <div className="max-w-[720px] mx-auto">
+            <div className="inline-block bg-brand-green-light text-brand-green font-sans text-[0.8rem] font-bold tracking-[0.08em] uppercase px-[14px] py-[6px] rounded-[20px] mb-6">
               Works with your stack
             </div>
-            <h1 style={{
-              fontFamily: t.fontSans,
-              fontSize: 'clamp(2rem, 5vw, 3rem)',
-              fontWeight: 800,
-              color: t.text,
-              margin: '0 0 20px',
-              lineHeight: 1.15,
-            }}>
+            <h1 className="font-sans text-[clamp(2rem,5vw,3rem)] font-extrabold text-brand-text mt-0 mb-5 leading-[1.15]">
               Integrates with every major<br />payment processor
             </h1>
-            <p style={{
-              fontFamily: t.fontSerif,
-              fontSize: '1.15rem',
-              color: t.gray,
-              lineHeight: 1.7,
-              margin: '0 0 36px',
-            }}>
+            <p className="font-serif text-[1.15rem] text-brand-gray leading-[1.7] mt-0 mb-9">
               Whether you're on Stripe, Paddle, Braintree, or a custom billing system,
               ChurnRecovery gives you cancel flows and payment recovery — completely free.
             </p>
-            <div className="hero-ctas" style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
-              <Link href="/#waitlist" style={{
-                display: 'inline-block',
-                background: t.accent,
-                color: t.white,
-                fontFamily: t.fontSans,
-                fontWeight: 700,
-                fontSize: '0.95rem',
-                padding: '14px 28px',
-                borderRadius: '8px',
-                textDecoration: 'none',
-              }}>
+            <div className="hero-ctas flex gap-3 justify-center flex-wrap">
+              <Link href="/#waitlist" className="inline-block bg-brand-accent text-brand-white font-sans font-bold text-[0.95rem] py-[14px] px-7 rounded-lg no-underline">
                 Join Waitlist — It's Free
               </Link>
-              <Link href="/docs" style={{
-                display: 'inline-block',
-                background: 'transparent',
-                color: t.text,
-                fontFamily: t.fontSans,
-                fontWeight: 600,
-                fontSize: '0.95rem',
-                padding: '14px 28px',
-                borderRadius: '8px',
-                textDecoration: 'none',
-                border: `1px solid ${t.border}`,
-              }}>
+              <Link href="/docs" className="inline-block bg-transparent text-brand-text font-sans font-semibold text-[0.95rem] py-[14px] px-7 rounded-lg no-underline border border-brand-border">
                 View docs
               </Link>
             </div>
@@ -115,130 +50,58 @@ export default function IntegrationsIndex() {
         </div>
 
         {/* Integration cards grid */}
-        <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '64px 24px' }}>
-          <h2 style={{
-            fontFamily: t.fontSans,
-            fontSize: '1.4rem',
-            fontWeight: 700,
-            color: t.text,
-            margin: '0 0 8px',
-          }}>All integrations</h2>
-          <p style={{
-            fontFamily: t.fontSerif,
-            fontSize: '1rem',
-            color: t.gray,
-            margin: '0 0 40px',
-            lineHeight: 1.6,
-          }}>
+        <div className="max-w-[1100px] mx-auto py-16 px-6">
+          <h2 className="font-sans text-[1.4rem] font-bold text-brand-text mt-0 mb-2">All integrations</h2>
+          <p className="font-serif text-base text-brand-gray mt-0 mb-10 leading-[1.6]">
             Click any integration to see code snippets, setup guides, and use cases.
           </p>
 
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',
-            gap: '24px',
-          }}>
+          <div className="grid grid-cols-[repeat(auto-fill,minmax(320px,1fr))] gap-6">
             {integrationList.map((integration) => {
               const diff = difficultyColor[integration.difficulty] || difficultyColor.Medium
               return (
                 <Link
                   key={integration.slug}
                   href={`/integrations/${integration.slug}`}
-                  style={{ textDecoration: 'none' }}
+                  className="no-underline"
                 >
-                  <div style={{
-                    background: t.white,
-                    border: `1px solid ${t.border}`,
-                    borderRadius: '12px',
-                    padding: '28px',
-                    transition: 'box-shadow 0.2s, border-color 0.2s',
-                    cursor: 'pointer',
-                  }}
-                    onMouseEnter={e => {
-                      e.currentTarget.style.boxShadow = '0 4px 20px rgba(0,0,0,0.08)'
-                      e.currentTarget.style.borderColor = t.accent
-                    }}
-                    onMouseLeave={e => {
-                      e.currentTarget.style.boxShadow = 'none'
-                      e.currentTarget.style.borderColor = t.border
-                    }}
-                  >
+                  <div className="bg-brand-white border border-brand-border rounded-xl p-7 transition-[box-shadow,border-color] duration-200 cursor-pointer hover:shadow-[0_4px_20px_rgba(0,0,0,0.08)] hover:border-brand-accent">
                     {/* Header */}
-                    <div style={{ display: 'flex', alignItems: 'flex-start', gap: '16px', marginBottom: '16px' }}>
-                      <div style={{
-                        width: '52px',
-                        height: '52px',
-                        borderRadius: '12px',
-                        background: integration.color + '18',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        fontSize: '1.6rem',
-                        flexShrink: 0,
-                      }}>
+                    <div className="flex items-start gap-4 mb-4">
+                      <div
+                        className="w-[52px] h-[52px] rounded-xl flex items-center justify-center text-[1.6rem] shrink-0"
+                        style={{ background: integration.color + '18' }}
+                      >
                         {integration.logo}
                       </div>
-                      <div style={{ flex: 1 }}>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px', flexWrap: 'wrap' }}>
-                          <h3 style={{
-                            fontFamily: t.fontSans,
-                            fontSize: '1.1rem',
-                            fontWeight: 700,
-                            color: t.text,
-                            margin: 0,
-                          }}>{integration.name}</h3>
-                          <span style={{
-                            background: diff.bg,
-                            color: diff.color,
-                            fontFamily: t.fontSans,
-                            fontSize: '0.7rem',
-                            fontWeight: 700,
-                            padding: '2px 8px',
-                            borderRadius: '10px',
-                            letterSpacing: '0.03em',
-                          }}>{integration.difficulty}</span>
+                      <div className="flex-1">
+                        <div className="flex items-center gap-2 mb-1 flex-wrap">
+                          <h3 className="font-sans text-[1.1rem] font-bold text-brand-text m-0">{integration.name}</h3>
+                          <span
+                            className="font-sans text-[0.7rem] font-bold px-2 py-[2px] rounded-[10px] tracking-[0.03em]"
+                            style={{ background: diff.bg, color: diff.color }}
+                          >{integration.difficulty}</span>
                         </div>
-                        <p style={{
-                          fontFamily: t.fontSans,
-                          fontSize: '0.85rem',
-                          color: t.grayLight,
-                          margin: 0,
-                        }}>{integration.tagline}</p>
+                        <p className="font-sans text-[0.85rem] text-brand-gray-light m-0">{integration.tagline}</p>
                       </div>
                     </div>
 
-                    <p style={{
-                      fontFamily: t.fontSerif,
-                      fontSize: '0.9rem',
-                      color: t.gray,
-                      lineHeight: 1.65,
-                      margin: '0 0 20px',
-                    }}>
+                    <p className="font-serif text-[0.9rem] text-brand-gray leading-[1.65] mt-0 mb-5">
                       {integration.description.substring(0, 130)}…
                     </p>
 
                     {/* Stats row */}
-                    <div style={{
-                      display: 'flex',
-                      gap: '16px',
-                      paddingTop: '16px',
-                      borderTop: `1px solid ${t.border}`,
-                    }}>
+                    <div className="flex gap-4 pt-4 border-t border-brand-border">
                       <div>
-                        <div style={{ fontFamily: t.fontSans, fontSize: '0.7rem', color: t.grayLight, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '2px' }}>Setup</div>
-                        <div style={{ fontFamily: t.fontSans, fontSize: '0.9rem', fontWeight: 700, color: t.text }}>{integration.setupTime}</div>
+                        <div className="font-sans text-[0.7rem] text-brand-gray-light uppercase tracking-[0.06em] mb-[2px]">Setup</div>
+                        <div className="font-sans text-[0.9rem] font-bold text-brand-text">{integration.setupTime}</div>
                       </div>
                       <div>
-                        <div style={{ fontFamily: t.fontSans, fontSize: '0.7rem', color: t.grayLight, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '2px' }}>Avg save rate</div>
-                        <div style={{ fontFamily: t.fontSans, fontSize: '0.9rem', fontWeight: 700, color: t.green }}>{integration.stats.avgSaveRate}</div>
+                        <div className="font-sans text-[0.7rem] text-brand-gray-light uppercase tracking-[0.06em] mb-[2px]">Avg save rate</div>
+                        <div className="font-sans text-[0.9rem] font-bold text-brand-green">{integration.stats.avgSaveRate}</div>
                       </div>
-                      <div style={{ marginLeft: 'auto' }}>
-                        <span style={{
-                          fontFamily: t.fontSans,
-                          fontSize: '0.85rem',
-                          fontWeight: 600,
-                          color: t.accent,
-                        }}>View guide →</span>
+                      <div className="ml-auto">
+                        <span className="font-sans text-[0.85rem] font-semibold text-brand-accent">View guide →</span>
                       </div>
                     </div>
                   </div>
@@ -248,110 +111,33 @@ export default function IntegrationsIndex() {
           </div>
 
           {/* How it works section */}
-          <div style={{
-            marginTop: '80px',
-            padding: '48px',
-            background: t.white,
-            border: `1px solid ${t.border}`,
-            borderRadius: '16px',
-          }}>
-            <h2 style={{
-              fontFamily: t.fontSans,
-              fontSize: '1.5rem',
-              fontWeight: 700,
-              color: t.text,
-              margin: '0 0 8px',
-              textAlign: 'center',
-            }}>How ChurnRecovery integrates</h2>
-            <p style={{
-              fontFamily: t.fontSerif,
-              fontSize: '1rem',
-              color: t.gray,
-              textAlign: 'center',
-              margin: '0 0 40px',
-              lineHeight: 1.7,
-            }}>
+          <div className="mt-20 p-12 bg-brand-white border border-brand-border rounded-2xl">
+            <h2 className="font-sans text-[1.5rem] font-bold text-brand-text mt-0 mb-2 text-center">How ChurnRecovery integrates</h2>
+            <p className="font-serif text-base text-brand-gray text-center mt-0 mb-10 leading-[1.7]">
               The same three-step pattern works across all payment processors.
             </p>
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
-              gap: '32px',
-            }}>
+            <div className="grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-8">
               {[
                 { step: '01', title: 'Connect your processor', desc: 'Add your API keys and configure a webhook endpoint. Takes 5–45 minutes depending on the processor.' },
                 { step: '02', title: 'Intercept cancellations', desc: 'When a customer triggers cancellation, ChurnRecovery shows a smart cancel flow with targeted offers before it\'s final.' },
                 { step: '03', title: 'Recover revenue automatically', desc: 'Accepted offers are applied via the processor\'s API. Analytics track your save rate and revenue recovered.' },
               ].map(({ step, title, desc }) => (
-                <div key={step} style={{ textAlign: 'center' }}>
-                  <div style={{
-                    width: '48px',
-                    height: '48px',
-                    borderRadius: '12px',
-                    background: t.accent + '18',
-                    color: t.accent,
-                    fontFamily: t.fontSans,
-                    fontWeight: 800,
-                    fontSize: '1rem',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    margin: '0 auto 16px',
-                  }}>{step}</div>
-                  <h3 style={{
-                    fontFamily: t.fontSans,
-                    fontSize: '1.05rem',
-                    fontWeight: 700,
-                    color: t.text,
-                    margin: '0 0 8px',
-                  }}>{title}</h3>
-                  <p style={{
-                    fontFamily: t.fontSerif,
-                    fontSize: '0.9rem',
-                    color: t.gray,
-                    lineHeight: 1.65,
-                    margin: 0,
-                  }}>{desc}</p>
+                <div key={step} className="text-center">
+                  <div className="w-12 h-12 rounded-xl bg-[#D9775718] text-brand-accent font-sans font-extrabold text-base flex items-center justify-center mx-auto mb-4">{step}</div>
+                  <h3 className="font-sans text-[1.05rem] font-bold text-brand-text mt-0 mb-2">{title}</h3>
+                  <p className="font-serif text-[0.9rem] text-brand-gray leading-[1.65] m-0">{desc}</p>
                 </div>
               ))}
             </div>
           </div>
 
           {/* CTA */}
-          <div style={{
-            marginTop: '64px',
-            textAlign: 'center',
-            padding: '64px 24px',
-            background: t.text,
-            borderRadius: '16px',
-          }}>
-            <h2 style={{
-              fontFamily: t.fontSans,
-              fontSize: '1.8rem',
-              fontWeight: 800,
-              color: t.white,
-              margin: '0 0 16px',
-            }}>Start recovering revenue today</h2>
-            <p style={{
-              fontFamily: t.fontSerif,
-              fontSize: '1.05rem',
-              color: 'rgba(255,255,255,0.7)',
-              margin: '0 0 32px',
-              lineHeight: 1.7,
-            }}>
+          <div className="mt-16 text-center py-16 px-6 bg-brand-text rounded-2xl">
+            <h2 className="font-sans text-[1.8rem] font-extrabold text-brand-white mt-0 mb-4">Start recovering revenue today</h2>
+            <p className="font-serif text-[1.05rem] text-white/70 mt-0 mb-8 leading-[1.7]">
               Free for all payment processors. No credit card required. No monthly fee — ever.
             </p>
-            <Link href="/#waitlist" style={{
-              display: 'inline-block',
-              background: t.accent,
-              color: t.white,
-              fontFamily: t.fontSans,
-              fontWeight: 700,
-              fontSize: '1rem',
-              padding: '16px 36px',
-              borderRadius: '8px',
-              textDecoration: 'none',
-            }}>
+            <Link href="/#waitlist" className="inline-block bg-brand-accent text-brand-white font-sans font-bold text-base py-4 px-9 rounded-lg no-underline">
               Join Waitlist — It's Free
             </Link>
           </div>

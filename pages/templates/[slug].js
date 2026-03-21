@@ -113,7 +113,7 @@ export default function TemplatePage({ template }) {
         <section className="max-w-[1100px] mx-auto pt-8 px-6 pb-12">
           <div className="flex items-start gap-10 flex-wrap">
             <div className="flex-1 min-w-[300px]">
-              <h1 className="font-sans font-extrabold text-[#191919] tracking-[-0.04em] mb-3 leading-[1.1]" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)' }}>
+              <h1 className="font-sans font-extrabold text-[#191919] tracking-[-0.04em] mb-3 leading-[1.1] text-[clamp(1.8rem,4vw,2.5rem)]">
                 {template.name}
               </h1>
               <p className="font-serif text-[1.05rem] text-[#666] leading-[1.7] mb-6">
@@ -241,7 +241,7 @@ export default function TemplatePage({ template }) {
                     javascript
                   </span>
                 </div>
-                <pre className="bg-[#1E1E2E] p-5 m-0 overflow-x-auto text-[0.82rem] leading-[1.7] text-[#CDD6F4]" style={{ fontFamily: '"SF Mono", "Fira Code", "JetBrains Mono", monospace' }}>
+                <pre className="bg-[#1E1E2E] p-5 m-0 overflow-x-auto text-[0.82rem] leading-[1.7] text-[#CDD6F4] font-[SF_Mono,Fira_Code,JetBrains_Mono,monospace]">
                   <code>{template.code}</code>
                 </pre>
               </div>
@@ -265,10 +265,7 @@ export default function TemplatePage({ template }) {
               const offer = template.preview.offers[reason.offer]
               const offerInfo = offerTypeLabels[reason.offer] || { label: reason.offer, icon: '🎁', color: '#D97757' }
               return (
-                <div key={reason.id} style={{
-                  borderBottom: i < template.preview.reasons.length - 1 ? '1px solid #E5E5E5' : 'none',
-                  background: i % 2 === 0 ? '#FFFFFF' : '#FAF9F5',
-                }} className="grid grid-cols-[1fr_1fr_2fr] py-[14px] px-5 items-center">
+                <div key={reason.id} className={`grid grid-cols-[1fr_1fr_2fr] py-[14px] px-5 items-center ${i < template.preview.reasons.length - 1 ? 'border-b border-[#E5E5E5]' : ''} ${i % 2 === 0 ? 'bg-white' : 'bg-[#FAF9F5]'}`}>
                   <div className="flex items-center gap-2">
                     <span>{reason.icon}</span>
                     <span className="text-[0.85rem] font-medium text-[#191919]">{reason.label}</span>
@@ -314,7 +311,7 @@ export default function TemplatePage({ template }) {
 
         {/* CTA */}
         <section className="bg-[#191919] py-16 px-6 text-center">
-          <h2 className="font-sans font-bold text-white tracking-[-0.03em] mb-3" style={{ fontSize: 'clamp(1.3rem, 3vw, 1.8rem)' }}>
+          <h2 className="font-sans font-bold text-white tracking-[-0.03em] mb-3 text-[clamp(1.3rem,3vw,1.8rem)]">
             Use this template — free
           </h2>
           <p className="font-serif text-[0.95rem] text-white/65 mb-6 leading-[1.7]">

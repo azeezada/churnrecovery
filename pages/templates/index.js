@@ -2,50 +2,27 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { templates } from '../../lib/templates'
 
-const t = {
-  bg: '#FAF9F5',
-  text: '#191919',
-  gray: '#666666',
-  grayLight: '#999999',
-  accent: '#D97757',
-  accentHover: '#C4603D',
-  border: '#E5E5E5',
-  white: '#FFFFFF',
-  green: '#2D7A4F',
-  greenLight: '#EDF7F1',
-  fontSans: '"Instrument Sans", sans-serif',
-  fontSerif: '"Merriweather", serif',
-}
-
 const categoryColors = {
-  General: { bg: '#FDF4EF', text: t.accent },
+  General: { bg: '#FDF4EF', text: '#D97757' },
   Enterprise: { bg: '#F5F0FF', text: '#6B4FA0' },
   Consumer: { bg: '#EFF6FF', text: '#2563EB' },
   'Early Stage': { bg: '#FFF7ED', text: '#EA580C' },
-  'E-Commerce': { bg: '#EDF7F1', text: t.green },
+  'E-Commerce': { bg: '#EDF7F1', text: '#2D7A4F' },
   'High LTV': { bg: '#FEF2F2', text: '#DC2626' },
 }
 
 function Nav() {
   return (
-    <nav style={{
-      borderBottom: `1px solid ${t.border}`, background: t.white,
-      padding: '0 20px', height: '60px', display: 'flex',
-      alignItems: 'center', justifyContent: 'space-between',
-      position: 'sticky', top: 0, zIndex: 100,
-    }}>
-      <Link href="/" style={{ fontFamily: t.fontSans, fontWeight: 700, fontSize: '1.1rem', color: t.text, textDecoration: 'none', letterSpacing: '-0.01em' }}>
+    <nav className="border-b border-brand-border bg-brand-white px-5 h-[60px] flex items-center justify-between sticky top-0 z-[100]">
+      <Link href="/" className="font-sans font-bold text-[1.1rem] text-brand-text no-underline tracking-[-0.01em]">
         ChurnRecovery
       </Link>
-      <div className="nav-links" style={{ display: 'flex', gap: '24px', alignItems: 'center' }}>
-        <Link href="/features" style={{ color: t.gray, textDecoration: 'none', fontSize: '0.9rem', fontFamily: t.fontSans }}>Features</Link>
-        <Link href="/docs" style={{ color: t.gray, textDecoration: 'none', fontSize: '0.9rem', fontFamily: t.fontSans }}>Docs</Link>
-        <Link href="/templates" style={{ color: t.accent, textDecoration: 'none', fontSize: '0.9rem', fontFamily: t.fontSans, fontWeight: 600 }}>Templates</Link>
-        <Link href="/blog" style={{ color: t.gray, textDecoration: 'none', fontSize: '0.9rem', fontFamily: t.fontSans }}>Blog</Link>
-        <a href="/#waitlist" style={{
-          background: t.accent, color: t.white, padding: '8px 18px', borderRadius: '6px',
-          textDecoration: 'none', fontSize: '0.85rem', fontWeight: 600, fontFamily: t.fontSans,
-        }}>Join Waitlist</a>
+      <div className="nav-links flex gap-6 items-center">
+        <Link href="/features" className="text-brand-gray no-underline text-[0.9rem] font-sans">Features</Link>
+        <Link href="/docs" className="text-brand-gray no-underline text-[0.9rem] font-sans">Docs</Link>
+        <Link href="/templates" className="text-brand-accent no-underline text-[0.9rem] font-sans font-semibold">Templates</Link>
+        <Link href="/blog" className="text-brand-gray no-underline text-[0.9rem] font-sans">Blog</Link>
+        <a href="/#waitlist" className="bg-brand-accent text-brand-white px-[18px] py-2 rounded-[6px] no-underline text-[0.85rem] font-semibold font-sans">Join Waitlist</a>
       </div>
     </nav>
   )
@@ -81,75 +58,49 @@ export default function TemplatesGallery() {
         />
       </Head>
 
-      <div style={{ background: t.bg, minHeight: '100vh', fontFamily: t.fontSans }}>
+      <div className="bg-brand-bg min-h-screen font-sans">
         <Nav />
 
         {/* Hero */}
-        <section style={{ maxWidth: '900px', margin: '0 auto', padding: '72px 24px 56px', textAlign: 'center' }}>
-          <div style={{
-            display: 'inline-block', background: '#F0EBE5', color: t.accent,
-            padding: '4px 14px', borderRadius: '4px', fontSize: '0.72rem', fontWeight: 700,
-            textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '20px',
-          }}>
+        <section className="max-w-[900px] mx-auto px-6 pt-[72px] pb-14 text-center">
+          <div className="inline-block bg-[#F0EBE5] text-brand-accent px-[14px] py-1 rounded text-[0.72rem] font-bold uppercase tracking-[0.08em] mb-5">
             Templates Gallery
           </div>
-          <h1 style={{
-            fontFamily: t.fontSans, fontSize: 'clamp(2rem, 5vw, 3rem)', fontWeight: 800,
-            color: t.text, letterSpacing: '-0.04em', margin: '0 0 16px', lineHeight: 1.1,
-          }}>
+          <h1 className="font-sans font-extrabold text-brand-text tracking-[-0.04em] mb-4 leading-[1.1] text-[clamp(2rem,5vw,3rem)]">
             Cancel flow templates for every business
           </h1>
-          <p style={{
-            fontFamily: t.fontSerif, fontSize: '1.1rem', color: t.gray,
-            lineHeight: 1.7, maxWidth: '580px', margin: '0 auto',
-          }}>
+          <p className="font-serif text-[1.1rem] text-brand-gray leading-[1.7] max-w-[580px] mx-auto">
             Pick a template, customize it, and start recovering churned customers in minutes. Each template is battle-tested and optimized for specific business types.
           </p>
         </section>
 
         {/* Templates Grid */}
-        <section style={{ maxWidth: '1100px', margin: '0 auto', padding: '0 24px 80px' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(340px, 100%), 1fr))', gap: '24px' }}>
+        <section className="max-w-[1100px] mx-auto px-6 pb-20">
+          <div className="grid grid-cols-[repeat(auto-fill,minmax(min(340px,100%),1fr))] gap-6">
             {templates.map(tmpl => {
-              const catColor = categoryColors[tmpl.category] || { bg: '#F0EBE5', text: t.accent }
+              const catColor = categoryColors[tmpl.category] || { bg: '#F0EBE5', text: '#D97757' }
               return (
-                <Link key={tmpl.slug} href={`/templates/${tmpl.slug}`} style={{ textDecoration: 'none', color: 'inherit' }}>
-                  <div style={{
-                    border: `1px solid ${t.border}`, borderRadius: '12px',
-                    background: t.white, overflow: 'hidden',
-                    transition: 'all 0.2s', cursor: 'pointer',
-                  }}>
+                <Link key={tmpl.slug} href={`/templates/${tmpl.slug}`} className="no-underline text-inherit">
+                  <div className="border border-brand-border rounded-xl bg-brand-white overflow-hidden transition-all duration-200 cursor-pointer">
                     {/* Preview header */}
-                    <div style={{
-                      background: t.text, padding: '24px', position: 'relative',
-                    }}>
-                      <div style={{
-                        display: 'flex', gap: '6px', marginBottom: '16px',
-                      }}>
-                        <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#FF5F57' }} />
-                        <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#FEBC2E' }} />
-                        <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#28C840' }} />
+                    <div className="bg-brand-text p-6 relative">
+                      <div className="flex gap-[6px] mb-4">
+                        <div className="w-[10px] h-[10px] rounded-full bg-[#FF5F57]" />
+                        <div className="w-[10px] h-[10px] rounded-full bg-[#FEBC2E]" />
+                        <div className="w-[10px] h-[10px] rounded-full bg-[#28C840]" />
                       </div>
                       {/* Mini cancel flow preview */}
-                      <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-                        <div style={{
-                          color: 'rgba(255,255,255,0.9)', fontSize: '0.82rem',
-                          fontWeight: 600, marginBottom: '4px',
-                        }}>
+                      <div className="flex flex-col gap-[6px]">
+                        <div className="text-[rgba(255,255,255,0.9)] text-[0.82rem] font-semibold mb-1">
                           Why are you canceling?
                         </div>
                         {tmpl.preview.reasons.slice(0, 4).map(r => (
-                          <div key={r.id} style={{
-                            display: 'flex', alignItems: 'center', gap: '8px',
-                            padding: '6px 10px', borderRadius: '6px',
-                            background: 'rgba(255,255,255,0.08)',
-                            fontSize: '0.75rem', color: 'rgba(255,255,255,0.7)',
-                          }}>
+                          <div key={r.id} className="flex items-center gap-2 py-[6px] px-[10px] rounded-[6px] bg-[rgba(255,255,255,0.08)] text-[0.75rem] text-[rgba(255,255,255,0.7)]">
                             <span>{r.icon}</span> {r.label}
                           </div>
                         ))}
                         {tmpl.preview.reasons.length > 4 && (
-                          <div style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.4)', textAlign: 'center', padding: '2px 0' }}>
+                          <div className="text-[0.7rem] text-[rgba(255,255,255,0.4)] text-center py-[2px]">
                             +{tmpl.preview.reasons.length - 4} more options
                           </div>
                         )}
@@ -157,35 +108,25 @@ export default function TemplatesGallery() {
                     </div>
 
                     {/* Card body */}
-                    <div style={{ padding: '24px' }}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px' }}>
-                        <h3 style={{
-                          fontFamily: t.fontSans, fontSize: '1.05rem', fontWeight: 700,
-                          color: t.text, margin: 0, letterSpacing: '-0.02em',
-                        }}>
+                    <div className="p-6">
+                      <div className="flex items-center gap-[10px] mb-[10px]">
+                        <h3 className="font-sans text-[1.05rem] font-bold text-brand-text m-0 tracking-[-0.02em]">
                           {tmpl.name}
                         </h3>
-                        <span style={{
-                          fontSize: '0.68rem', fontWeight: 600, padding: '3px 8px',
-                          borderRadius: '4px', background: catColor.bg, color: catColor.text,
-                          textTransform: 'uppercase', letterSpacing: '0.05em',
-                        }}>
+                        <span className="text-[0.68rem] font-semibold px-2 py-[3px] rounded uppercase tracking-[0.05em]" style={{ background: catColor.bg, color: catColor.text }}>
                           {tmpl.category}
                         </span>
                       </div>
-                      <p style={{
-                        fontFamily: t.fontSerif, fontSize: '0.85rem', color: t.gray,
-                        lineHeight: 1.6, margin: '0 0 16px',
-                      }}>
+                      <p className="font-serif text-[0.85rem] text-brand-gray leading-[1.6] mb-4">
                         {tmpl.description}
                       </p>
-                      <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                          <span style={{ color: t.green, fontWeight: 700, fontSize: '0.85rem' }}>↑</span>
-                          <span style={{ fontSize: '0.8rem', fontWeight: 600, color: t.green }}>{tmpl.saveRate}</span>
-                          <span style={{ fontSize: '0.75rem', color: t.grayLight }}>save rate</span>
+                      <div className="flex gap-4 items-center">
+                        <div className="flex items-center gap-[6px]">
+                          <span className="text-brand-green font-bold text-[0.85rem]">↑</span>
+                          <span className="text-[0.8rem] font-semibold text-brand-green">{tmpl.saveRate}</span>
+                          <span className="text-[0.75rem] text-brand-gray-light">save rate</span>
                         </div>
-                        <span style={{ color: t.accent, fontSize: '0.82rem', fontWeight: 600, marginLeft: 'auto' }}>
+                        <span className="text-brand-accent text-[0.82rem] font-semibold ml-auto">
                           View template →
                         </span>
                       </div>
@@ -198,34 +139,18 @@ export default function TemplatesGallery() {
         </section>
 
         {/* Bottom CTA */}
-        <section style={{
-          background: t.white, borderTop: `1px solid ${t.border}`,
-          padding: '64px 24px', textAlign: 'center',
-        }}>
-          <h2 style={{
-            fontFamily: t.fontSans, fontSize: 'clamp(1.3rem, 3vw, 1.8rem)', fontWeight: 700,
-            color: t.text, letterSpacing: '-0.03em', margin: '0 0 12px',
-          }}>
+        <section className="bg-brand-white border-t border-brand-border py-16 px-6 text-center">
+          <h2 className="font-sans font-bold text-brand-text tracking-[-0.03em] mb-3 text-[clamp(1.3rem,3vw,1.8rem)]">
             Don&apos;t see your use case?
           </h2>
-          <p style={{
-            fontFamily: t.fontSerif, fontSize: '1rem', color: t.gray,
-            margin: '0 0 24px', lineHeight: 1.7, maxWidth: '480px', marginLeft: 'auto', marginRight: 'auto',
-          }}>
+          <p className="font-serif text-base text-brand-gray mb-6 leading-[1.7] max-w-[480px] mx-auto">
             Build a completely custom cancel flow with our SDK. Mix and match reasons, offers, and branding to match your product perfectly.
           </p>
-          <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link href="/docs" style={{
-              background: t.accent, color: t.white, padding: '13px 28px', borderRadius: '8px',
-              fontFamily: t.fontSans, fontWeight: 700, fontSize: '0.95rem', textDecoration: 'none',
-            }}>
+          <div className="flex gap-3 justify-center flex-wrap">
+            <Link href="/docs" className="bg-brand-accent text-brand-white px-7 py-[13px] rounded-lg font-sans font-bold text-[0.95rem] no-underline">
               Read the Docs →
             </Link>
-            <Link href="/demo" style={{
-              background: t.bg, color: t.text, padding: '13px 28px', borderRadius: '8px',
-              fontFamily: t.fontSans, fontWeight: 600, fontSize: '0.95rem', textDecoration: 'none',
-              border: `1px solid ${t.border}`,
-            }}>
+            <Link href="/demo" className="bg-brand-bg text-brand-text px-7 py-[13px] rounded-lg font-sans font-semibold text-[0.95rem] no-underline border border-brand-border">
               Try the Demo
             </Link>
           </div>

@@ -2,20 +2,6 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { getCompetitor, getAllCompetitorSlugs } from '../../lib/comparisons'
 
-const t = {
-  bg: '#FAF9F5',
-  text: '#191919',
-  gray: '#666666',
-  grayLight: '#999999',
-  accent: '#D97757',
-  border: '#E5E5E5',
-  white: '#FFFFFF',
-  green: '#2D7A4F',
-  greenLight: '#EDF7F1',
-  fontSans: '"Instrument Sans", sans-serif',
-  fontSerif: '"Merriweather", serif',
-}
-
 const churnRecoveryFeatures = [
   {
     icon: '🎯',
@@ -51,28 +37,10 @@ const churnRecoveryFeatures = [
 
 function FeatureCard({ icon, title, description }) {
   return (
-    <div style={{
-      border: `1px solid ${t.border}`,
-      borderRadius: '10px',
-      padding: '24px',
-      background: t.white,
-    }}>
-      <div style={{ fontSize: '1.5rem', marginBottom: '12px' }}>{icon}</div>
-      <h3 style={{
-        fontFamily: t.fontSans,
-        fontSize: '0.95rem',
-        fontWeight: 700,
-        color: t.text,
-        marginBottom: '8px',
-        letterSpacing: '-0.01em',
-      }}>{title}</h3>
-      <p style={{
-        fontFamily: t.fontSerif,
-        fontSize: '0.85rem',
-        color: t.gray,
-        lineHeight: 1.7,
-        margin: 0,
-      }}>{description}</p>
+    <div className="border border-brand-border rounded-[10px] p-6 bg-brand-white">
+      <div className="text-2xl mb-3">{icon}</div>
+      <h3 className="font-sans text-[0.95rem] font-bold text-brand-text mb-2 tracking-[-0.01em]">{title}</h3>
+      <p className="font-serif text-[0.85rem] text-brand-gray leading-[1.7] m-0">{description}</p>
     </div>
   )
 }
@@ -112,137 +80,59 @@ export default function AlternativePage({ competitor }) {
         />
       </Head>
 
-      <div style={{ background: t.bg, minHeight: '100vh', fontFamily: t.fontSans }}>
+      <div className="bg-brand-bg min-h-screen font-sans">
         {/* Nav */}
-        <nav style={{
-          borderBottom: `1px solid ${t.border}`,
-          background: t.white,
-          padding: '0 20px',
-          height: '60px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          position: 'sticky',
-          top: 0,
-          zIndex: 100,
-        }}>
-          <Link href="/" style={{
-            fontFamily: t.fontSans,
-            fontWeight: 700,
-            fontSize: '1.1rem',
-            color: t.text,
-            textDecoration: 'none',
-            letterSpacing: '-0.01em',
-          }}>
+        <nav className="border-b border-brand-border bg-brand-white px-5 h-[60px] flex items-center justify-between sticky top-0 z-[100]">
+          <Link href="/" className="font-sans font-bold text-[1.1rem] text-brand-text no-underline tracking-[-0.01em]">
             ChurnRecovery
           </Link>
-          <div className="nav-links" style={{ display: 'flex', gap: '24px', alignItems: 'center' }}>
-            <Link href="/blog" style={{ color: t.gray, textDecoration: 'none', fontSize: '0.9rem' }}>Blog</Link>
-            <Link href={`/compare/${competitor.slug}`} style={{ color: t.gray, textDecoration: 'none', fontSize: '0.9rem' }}>
+          <div className="nav-links flex gap-6 items-center">
+            <Link href="/blog" className="text-brand-gray no-underline text-[0.9rem]">Blog</Link>
+            <Link href={`/compare/${competitor.slug}`} className="text-brand-gray no-underline text-[0.9rem]">
               Full Comparison →
             </Link>
-            <a href="/#waitlist" style={{
-              background: t.accent,
-              color: t.white,
-              padding: '8px 18px',
-              borderRadius: '6px',
-              textDecoration: 'none',
-              fontSize: '0.85rem',
-              fontWeight: 600,
-            }}>Join Waitlist</a>
+            <a href="/#waitlist" className="bg-brand-accent text-brand-white px-[18px] py-2 rounded-[6px] no-underline text-[0.85rem] font-semibold">Join Waitlist</a>
           </div>
         </nav>
 
         {/* Breadcrumb */}
-        <div style={{ maxWidth: '860px', margin: '0 auto', padding: '20px 24px 0' }}>
-          <div style={{ fontSize: '0.8rem', color: t.gray, fontFamily: t.fontSans }}>
-            <Link href="/" style={{ color: t.gray, textDecoration: 'none' }}>Home</Link>
+        <div className="max-w-[860px] mx-auto pt-5 px-6">
+          <div className="text-[0.8rem] text-brand-gray font-sans">
+            <Link href="/" className="text-brand-gray no-underline">Home</Link>
             {' → '}
             <span>Alternatives</span>
             {' → '}
-            <span style={{ color: t.text }}>{competitor.name} Alternative</span>
+            <span className="text-brand-text">{competitor.name} Alternative</span>
           </div>
         </div>
 
         {/* Hero */}
-        <section style={{ maxWidth: '860px', margin: '0 auto', padding: '48px 24px 56px' }}>
-          <div style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '8px',
-            background: '#F0EBE5',
-            padding: '6px 14px',
-            borderRadius: '20px',
-            marginBottom: '24px',
-          }}>
-            <span style={{ fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: t.accent }}>
+        <section className="max-w-[860px] mx-auto px-6 pt-12 pb-14">
+          <div className="inline-flex items-center gap-2 bg-[#F0EBE5] px-[14px] py-[6px] rounded-[20px] mb-6">
+            <span className="text-[0.75rem] font-bold uppercase tracking-[0.08em] text-brand-accent">
               {competitor.name} Alternative
             </span>
           </div>
 
-          <h1 style={{
-            fontFamily: t.fontSans,
-            fontSize: 'clamp(2rem, 5.5vw, 3.2rem)',
-            fontWeight: 800,
-            color: t.text,
-            lineHeight: 1.15,
-            letterSpacing: '-0.04em',
-            margin: '0 0 24px',
-            maxWidth: '720px',
-          }}>
+          <h1 className="font-sans font-extrabold text-brand-text leading-[1.15] tracking-[-0.04em] mb-6 max-w-[720px] text-[clamp(2rem,5.5vw,3.2rem)]">
             The free alternative to {competitor.name} your SaaS has been waiting for
           </h1>
 
-          <p style={{
-            fontFamily: t.fontSerif,
-            fontSize: '1.15rem',
-            color: t.gray,
-            lineHeight: 1.7,
-            maxWidth: '600px',
-            marginBottom: '40px',
-          }}>
+          <p className="font-serif text-[1.15rem] text-brand-gray leading-[1.7] max-w-[600px] mb-10">
             {competitor.name} starts at {competitor.pricing.label}. ChurnRecovery gives you every feature you need to reduce churn — cancel flows, dunning, A/B testing, analytics — completely free.
           </p>
 
-          <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', marginBottom: '40px' }}>
-            <a href="#waitlist" style={{
-              display: 'inline-block',
-              background: t.accent,
-              color: t.white,
-              padding: '14px 28px',
-              borderRadius: '8px',
-              fontFamily: t.fontSans,
-              fontWeight: 700,
-              fontSize: '1rem',
-              textDecoration: 'none',
-              letterSpacing: '-0.01em',
-            }}>
+          <div className="flex gap-4 flex-wrap mb-10">
+            <a href="#waitlist" className="inline-block bg-brand-accent text-brand-white px-7 py-[14px] rounded-lg font-sans font-bold text-base no-underline tracking-[-0.01em]">
               Join Waitlist — It's Free
             </a>
-            <Link href={`/compare/${competitor.slug}`} style={{
-              display: 'inline-block',
-              background: 'transparent',
-              color: t.text,
-              padding: '14px 28px',
-              borderRadius: '8px',
-              fontFamily: t.fontSans,
-              fontWeight: 600,
-              fontSize: '1rem',
-              textDecoration: 'none',
-              border: `1px solid ${t.border}`,
-            }}>
+            <Link href={`/compare/${competitor.slug}`} className="inline-block bg-transparent text-brand-text px-7 py-[14px] rounded-lg font-sans font-semibold text-base no-underline border border-brand-border">
               See Full Comparison →
             </Link>
           </div>
 
           {/* Social proof bar */}
-          <div style={{
-            display: 'flex',
-            gap: '32px',
-            flexWrap: 'wrap',
-            paddingTop: '32px',
-            borderTop: `1px solid ${t.border}`,
-          }}>
+          <div className="flex gap-8 flex-wrap pt-8 border-t border-brand-border">
             {[
               { stat: '$0/mo', label: 'Forever free' },
               { stat: '< 1 day', label: 'Integration time' },
@@ -250,10 +140,10 @@ export default function AlternativePage({ competitor }) {
               { stat: 'Open source', label: 'Full transparency' },
             ].map(item => (
               <div key={item.stat}>
-                <div style={{ fontFamily: t.fontSans, fontWeight: 700, fontSize: '1.1rem', color: t.text, letterSpacing: '-0.02em' }}>
+                <div className="font-sans font-bold text-[1.1rem] text-brand-text tracking-[-0.02em]">
                   {item.stat}
                 </div>
-                <div style={{ fontFamily: t.fontSans, fontSize: '0.8rem', color: t.grayLight, textTransform: 'uppercase', letterSpacing: '0.04em', marginTop: '2px' }}>
+                <div className="font-sans text-[0.8rem] text-brand-gray-light uppercase tracking-[0.04em] mt-[2px]">
                   {item.label}
                 </div>
               </div>
@@ -262,53 +152,20 @@ export default function AlternativePage({ competitor }) {
         </section>
 
         {/* Why switch section */}
-        <section style={{
-          background: t.white,
-          borderTop: `1px solid ${t.border}`,
-          borderBottom: `1px solid ${t.border}`,
-          padding: '56px 24px',
-        }}>
-          <div style={{ maxWidth: '860px', margin: '0 auto' }}>
-            <h2 style={{
-              fontFamily: t.fontSans,
-              fontSize: '1.6rem',
-              fontWeight: 700,
-              color: t.text,
-              letterSpacing: '-0.03em',
-              marginBottom: '8px',
-            }}>
+        <section className="bg-brand-white border-y border-brand-border py-14 px-6">
+          <div className="max-w-[860px] mx-auto">
+            <h2 className="font-sans text-[1.6rem] font-bold text-brand-text tracking-[-0.03em] mb-2">
               Why teams switch from {competitor.name}
             </h2>
-            <p style={{
-              fontFamily: t.fontSerif,
-              fontSize: '0.95rem',
-              color: t.gray,
-              marginBottom: '32px',
-              lineHeight: 1.7,
-            }}>
+            <p className="font-serif text-[0.95rem] text-brand-gray mb-8 leading-[1.7]">
               These are the most common reasons SaaS founders look for a {competitor.name} alternative.
             </p>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: '16px' }}>
+            <div className="grid grid-cols-[repeat(auto-fill,minmax(260px,1fr))] gap-4">
               {competitor.weaknesses.map((w, i) => (
-                <div key={i} style={{
-                  padding: '20px',
-                  background: '#FDF8F5',
-                  borderRadius: '8px',
-                  border: `1px solid #F0E8E0`,
-                  display: 'flex',
-                  gap: '12px',
-                  alignItems: 'flex-start',
-                }}>
-                  <span style={{ color: t.accent, fontWeight: 700, fontSize: '1rem', flexShrink: 0, marginTop: '1px' }}>→</span>
+                <div key={i} className="p-5 bg-[#FDF8F5] rounded-lg border border-[#F0E8E0] flex gap-3 items-start">
+                  <span className="text-brand-accent font-bold text-base shrink-0 mt-[1px]">→</span>
                   <div>
-                    <p style={{
-                      fontFamily: t.fontSans,
-                      fontSize: '0.88rem',
-                      color: t.text,
-                      margin: 0,
-                      lineHeight: 1.5,
-                      fontWeight: 500,
-                    }}>{w}</p>
+                    <p className="font-sans text-[0.88rem] text-brand-text m-0 leading-[1.5] font-medium">{w}</p>
                   </div>
                 </div>
               ))}
@@ -317,27 +174,14 @@ export default function AlternativePage({ competitor }) {
         </section>
 
         {/* Features */}
-        <section style={{ maxWidth: '860px', margin: '0 auto', padding: '56px 24px' }}>
-          <h2 style={{
-            fontFamily: t.fontSans,
-            fontSize: '1.6rem',
-            fontWeight: 700,
-            color: t.text,
-            letterSpacing: '-0.03em',
-            marginBottom: '8px',
-          }}>
+        <section className="max-w-[860px] mx-auto py-14 px-6">
+          <h2 className="font-sans text-[1.6rem] font-bold text-brand-text tracking-[-0.03em] mb-2">
             Everything you need. Nothing you don't.
           </h2>
-          <p style={{
-            fontFamily: t.fontSerif,
-            fontSize: '0.95rem',
-            color: t.gray,
-            marginBottom: '32px',
-            lineHeight: 1.7,
-          }}>
+          <p className="font-serif text-[0.95rem] text-brand-gray mb-8 leading-[1.7]">
             ChurnRecovery includes all the features that make cancel flows and churn recovery work.
           </p>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))', gap: '16px' }}>
+          <div className="grid grid-cols-[repeat(auto-fill,minmax(240px,1fr))] gap-4">
             {churnRecoveryFeatures.map(f => (
               <FeatureCard key={f.title} {...f} />
             ))}
@@ -345,84 +189,30 @@ export default function AlternativePage({ competitor }) {
         </section>
 
         {/* Verdict */}
-        <section style={{
-          background: '#FDF8F5',
-          borderTop: `1px solid #F0E8E0`,
-          borderBottom: `1px solid #F0E8E0`,
-          padding: '56px 24px',
-        }}>
-          <div style={{ maxWidth: '680px', margin: '0 auto', textAlign: 'center' }}>
-            <h2 style={{
-              fontFamily: t.fontSans,
-              fontSize: '1.4rem',
-              fontWeight: 700,
-              color: t.text,
-              letterSpacing: '-0.02em',
-              marginBottom: '16px',
-            }}>
+        <section className="bg-[#FDF8F5] border-y border-[#F0E8E0] py-14 px-6">
+          <div className="max-w-[680px] mx-auto text-center">
+            <h2 className="font-sans text-[1.4rem] font-bold text-brand-text tracking-[-0.02em] mb-4">
               The bottom line
             </h2>
-            <p style={{
-              fontFamily: t.fontSerif,
-              fontSize: '1.05rem',
-              color: t.text,
-              lineHeight: 1.8,
-              marginBottom: '0',
-            }}>
+            <p className="font-serif text-[1.05rem] text-brand-text leading-[1.8] mb-0">
               {competitor.verdict}
             </p>
           </div>
         </section>
 
         {/* CTA */}
-        <section id="waitlist" style={{
-          background: t.text,
-          padding: '80px 24px',
-          textAlign: 'center',
-        }}>
-          <h2 style={{
-            fontFamily: t.fontSans,
-            fontSize: 'clamp(1.5rem, 4vw, 2.2rem)',
-            fontWeight: 700,
-            color: t.white,
-            letterSpacing: '-0.03em',
-            margin: '0 0 16px',
-          }}>
+        <section id="waitlist" className="bg-brand-text py-20 px-6 text-center">
+          <h2 className="font-sans font-bold text-brand-white tracking-[-0.03em] mb-4 text-[clamp(1.5rem,4vw,2.2rem)]">
             Ready to switch from {competitor.name}?
           </h2>
-          <p style={{
-            fontFamily: t.fontSerif,
-            fontSize: '1rem',
-            color: 'rgba(255,255,255,0.7)',
-            margin: '0 0 32px',
-            maxWidth: '460px',
-            marginLeft: 'auto',
-            marginRight: 'auto',
-            lineHeight: 1.7,
-          }}>
+          <p className="font-serif text-base text-[rgba(255,255,255,0.7)] mb-8 max-w-[460px] mx-auto leading-[1.7]">
             Join the waitlist and get early access to the churn recovery tool that doesn't cost you anything.
           </p>
-          <a href="https://tally.so/r/churnrecovery" style={{
-            display: 'inline-block',
-            background: t.accent,
-            color: t.white,
-            padding: '14px 32px',
-            borderRadius: '8px',
-            fontFamily: t.fontSans,
-            fontWeight: 700,
-            fontSize: '1rem',
-            textDecoration: 'none',
-            letterSpacing: '-0.01em',
-          }}>
+          <a href="https://tally.so/r/churnrecovery" className="inline-block bg-brand-accent text-brand-white px-8 py-[14px] rounded-lg font-sans font-bold text-base no-underline tracking-[-0.01em]">
             Join the Waitlist — It's Free
           </a>
-          <div style={{ marginTop: '20px' }}>
-            <Link href={`/compare/${competitor.slug}`} style={{
-              fontFamily: t.fontSans,
-              fontSize: '0.85rem',
-              color: 'rgba(255,255,255,0.5)',
-              textDecoration: 'none',
-            }}>
+          <div className="mt-5">
+            <Link href={`/compare/${competitor.slug}`} className="font-sans text-[0.85rem] text-[rgba(255,255,255,0.5)] no-underline">
               See the full comparison →
             </Link>
           </div>

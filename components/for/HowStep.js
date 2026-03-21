@@ -8,7 +8,6 @@
  *   description {string}         Body copy
  *   callout     {string}         (optional) Highlighted callout text shown below description
  *   accentColor {string}         (optional) Accent color for badge border + callout. Defaults to #D97757.
- *   theme       {object}         (optional) Partial theme override. Merged with defaults.
  */
 export default function HowStep({
   number,
@@ -17,66 +16,33 @@ export default function HowStep({
   description,
   callout,
   accentColor,
-  theme = {},
 }) {
-  const t = {
-    text: '#191919',
-    gray: '#666666',
-    border: '#E5E5E5',
-    white: '#FFFFFF',
-    accent: '#D97757',
-    accentBg: '#FDF4F0',
-    orange: '#EA580C',
-    fontSans: '"Instrument Sans", sans-serif',
-    fontSerif: '"Merriweather", serif',
-    ...theme,
-  }
-
-  const accent = accentColor || t.accent
+  const accent = accentColor || '#D97757'
 
   return (
-    <div style={{
-      background: t.white,
-      border: `1px solid ${t.border}`,
-      borderRadius: '12px',
-      padding: '28px 24px',
-    }}>
-      <div style={{
-        display: 'flex', gap: '16px',
-        alignItems: 'flex-start', marginBottom: '16px',
-      }}>
-        <div style={{
-          width: '48px', height: '48px', borderRadius: '50%',
-          background: t.accentBg, border: `2px solid ${accent}`,
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-          fontFamily: t.fontSans, fontWeight: 800, fontSize: '1.1rem',
-          color: accent, flexShrink: 0,
-        }}>
+    <div className="bg-brand-white border border-brand-border rounded-xl px-6 py-7">
+      <div className="flex gap-4 items-start mb-4">
+        <div
+          className="w-12 h-12 rounded-full bg-[#FDF4F0] flex items-center justify-center font-sans font-extrabold text-[1.1rem] shrink-0"
+          style={{ border: `2px solid ${accent}`, color: accent }}
+        >
           {number}
         </div>
         <div>
-          <div style={{ fontSize: '1.6rem', marginBottom: '4px' }}>{icon}</div>
-          <h3 style={{
-            fontFamily: t.fontSans, fontSize: '1.05rem',
-            fontWeight: 700, color: t.text, margin: 0,
-          }}>
+          <div className="text-[1.6rem] mb-1">{icon}</div>
+          <h3 className="font-sans text-[1.05rem] font-bold text-brand-text m-0">
             {title}
           </h3>
         </div>
       </div>
-      <p style={{
-        fontFamily: t.fontSerif, fontSize: '0.9rem',
-        color: t.gray, margin: '0 0 12px', lineHeight: 1.7,
-      }}>
+      <p className="font-serif text-[0.9rem] text-brand-gray mb-3 leading-[1.7]">
         {description}
       </p>
       {callout && (
-        <div style={{
-          background: t.accentBg,
-          border: `1px solid ${accent}30`,
-          borderRadius: '8px', padding: '10px 14px',
-          fontFamily: t.fontSans, fontSize: '0.8rem', color: t.orange,
-        }}>
+        <div
+          className="bg-[#FDF4F0] rounded-lg px-3.5 py-2.5 font-sans text-[0.8rem] text-brand-orange"
+          style={{ border: `1px solid ${accent}30` }}
+        >
           {callout}
         </div>
       )}

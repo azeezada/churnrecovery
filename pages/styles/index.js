@@ -42,123 +42,54 @@ export default function StylesIndex() {
         <meta name="description" content="Explore alternative homepage designs for ChurnRecovery: developer-focused, warm SaaS, and data-forward styles." />
       </Head>
 
-      <section style={{
-        background: '#FAF9F5',
-        paddingTop: '100px',
-      }}>
-        <div style={{
-          maxWidth: '1200px',
-          margin: '0 auto',
-          padding: '80px 24px',
-        }}>
-          <span style={{
-            fontFamily: '"Instrument Sans", sans-serif',
-            fontSize: '0.75rem',
-            fontWeight: 600,
-            color: '#D97757',
-            letterSpacing: '0.08em',
-            textTransform: 'uppercase',
-            display: 'block',
-            marginBottom: '12px',
-          }}>Design Exploration</span>
-          <h1 style={{
-            fontFamily: '"Instrument Sans", sans-serif',
-            fontSize: 'clamp(2rem, 4vw, 3rem)',
-            fontWeight: 600,
-            color: '#191919',
-            letterSpacing: '-0.03em',
-            margin: '0 0 16px 0',
-            lineHeight: 1.1,
-          }}>
+      <section className="bg-[#FAF9F5] pt-[100px]">
+        <div className="max-w-[1200px] mx-auto px-6 py-20">
+          <span className="font-sans text-[0.75rem] font-semibold text-[#D97757] tracking-[0.08em] uppercase block mb-3">Design Exploration</span>
+          <h1 className="font-sans text-[clamp(2rem,4vw,3rem)] font-semibold text-[#191919] tracking-[-0.03em] mb-4 leading-[1.1]">
             Alternative Homepage Styles
           </h1>
-          <p style={{
-            fontFamily: '"Instrument Sans", sans-serif',
-            fontSize: '1.1rem',
-            color: '#666666',
-            margin: '0 0 48px 0',
-            maxWidth: '600px',
-            lineHeight: 1.5,
-          }}>
+          <p className="font-sans text-[1.1rem] text-[#666666] mb-12 max-w-[600px] leading-normal">
             Three alternative directions for ChurnRecovery's homepage. The main site uses
-            <strong style={{ color: '#191919' }}> Option D (Editorial)</strong> — these are the roads not taken.
+            <strong className="text-[#191919]"> Option D (Editorial)</strong> — these are the roads not taken.
           </p>
 
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: '24px',
-          }}>
+          <div className="grid grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-6">
             {styles.map(s => (
               <Link
                 key={s.slug}
                 href={`/styles/${s.slug}`}
-                style={{ textDecoration: 'none', color: 'inherit' }}
+                className="no-underline text-inherit"
               >
-                <div style={{
-                  border: '1px solid #E5E5E5',
-                  borderRadius: '12px',
-                  overflow: 'hidden',
-                  background: '#FFFFFF',
-                  transition: 'box-shadow 0.2s',
-                }}>
+                <div className="border border-[#E5E5E5] rounded-xl overflow-hidden bg-white transition-shadow duration-200">
                   {/* Preview swatch */}
-                  <div style={{
-                    height: '140px',
-                    background: s.preview.bg,
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    gap: '12px',
-                    padding: '24px',
-                  }}>
-                    <div style={{
-                      width: '48px',
-                      height: '48px',
-                      borderRadius: '8px',
-                      background: s.preview.accent,
-                    }} />
-                    <div style={{
-                      fontFamily: '"Instrument Sans", sans-serif',
-                      fontSize: '1.5rem',
-                      fontWeight: 600,
-                      color: s.preview.text,
-                      letterSpacing: '-0.02em',
-                    }}>
+                  <div
+                    className="h-[140px] flex items-center justify-center gap-3 p-6"
+                    style={{ background: s.preview.bg }}
+                  >
+                    <div
+                      className="w-12 h-12 rounded-lg"
+                      style={{ background: s.preview.accent }}
+                    />
+                    <div
+                      className="font-sans text-2xl font-semibold tracking-[-0.02em]"
+                      style={{ color: s.preview.text }}
+                    >
                       ChurnRecovery
                     </div>
                   </div>
-                  <div style={{ padding: '24px' }}>
-                    <h2 style={{
-                      fontFamily: '"Instrument Sans", sans-serif',
-                      fontSize: '1.1rem',
-                      fontWeight: 600,
-                      color: '#191919',
-                      margin: '0 0 8px 0',
-                    }}>{s.title}</h2>
-                    <p style={{
-                      fontFamily: '"Merriweather", serif',
-                      fontSize: '0.9rem',
-                      color: '#666666',
-                      margin: 0,
-                      lineHeight: 1.6,
-                    }}>{s.description}</p>
+                  <div className="p-6">
+                    <h2 className="font-sans text-[1.1rem] font-semibold text-[#191919] mb-2">{s.title}</h2>
+                    <p className="font-serif text-[0.9rem] text-[#666666] m-0 leading-relaxed">{s.description}</p>
                   </div>
                 </div>
               </Link>
             ))}
           </div>
 
-          <div style={{ marginTop: '48px' }}>
+          <div className="mt-12">
             <Link
               href="/"
-              style={{
-                fontFamily: '"Instrument Sans", sans-serif',
-                fontSize: '0.9rem',
-                color: '#D97757',
-                textDecoration: 'none',
-                fontWeight: 500,
-              }}
+              className="font-sans text-[0.9rem] text-[#D97757] no-underline font-medium"
             >
               ← Back to main site (Option D)
             </Link>

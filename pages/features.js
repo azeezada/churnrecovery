@@ -1,31 +1,12 @@
 import Head from 'next/head'
 import Link from 'next/link'
 
-const t = {
-  bg: '#FAF9F5',
-  text: '#191919',
-  gray: '#666666',
-  grayLight: '#999999',
-  accent: '#D97757',
-  accentHover: '#C4603D',
-  border: '#E5E5E5',
-  white: '#FFFFFF',
-  green: '#2D7A4F',
-  greenLight: '#EDF7F1',
-  blue: '#2563EB',
-  blueLight: '#EFF6FF',
-  purple: '#6B4FA0',
-  purpleLight: '#F5F0FF',
-  fontSans: '"Instrument Sans", sans-serif',
-  fontSerif: '"Merriweather", serif',
-}
-
 const features = [
   {
     category: 'Cancel Flow',
     icon: '🚪',
-    color: t.accent,
-    colorLight: '#FDF4EF',
+    colorClass: 'text-brand-accent',
+    colorLightBg: 'bg-[#FDF4EF]',
     items: [
       {
         title: 'Smart Cancel Interception',
@@ -52,8 +33,8 @@ const features = [
   {
     category: 'Analytics',
     icon: '📊',
-    color: t.blue,
-    colorLight: t.blueLight,
+    colorClass: 'text-brand-blue',
+    colorLightBg: 'bg-brand-blue-light',
     items: [
       {
         title: 'Save Rate Dashboard',
@@ -80,8 +61,8 @@ const features = [
   {
     category: 'Win-Back',
     icon: '📧',
-    color: t.green,
-    colorLight: t.greenLight,
+    colorClass: 'text-brand-green',
+    colorLightBg: 'bg-brand-green-light',
     items: [
       {
         title: 'Automated Win-Back Email Sequences',
@@ -103,8 +84,8 @@ const features = [
   {
     category: 'Integration',
     icon: '🔗',
-    color: t.purple,
-    colorLight: t.purpleLight,
+    colorClass: 'text-brand-purple',
+    colorLightBg: 'bg-brand-purple-light',
     items: [
       {
         title: 'One-Line JavaScript SDK',
@@ -130,38 +111,18 @@ const features = [
   },
 ]
 
-const pricing = [
-  { label: 'Starter', price: '$0', limit: 'Up to 1,000 customers', features: ['Cancel flow', 'Basic analytics', 'Email win-back', 'Stripe integration'] },
-  { label: 'Growth', price: '$0', limit: 'Up to 10,000 customers', features: ['Everything in Starter', 'A/B testing', 'Advanced analytics', 'Priority support'] },
-  { label: 'Scale', price: '$0', limit: 'Unlimited customers', features: ['Everything in Growth', 'Custom branding', 'Dedicated support', 'SLA guarantee'] },
-]
-
 function Nav() {
   return (
-    <nav style={{
-      borderBottom: `1px solid ${t.border}`,
-      background: t.white,
-      padding: '0 20px',
-      height: '60px',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'space-between',
-      position: 'sticky',
-      top: 0,
-      zIndex: 100,
-    }}>
-      <Link href="/" style={{ fontFamily: t.fontSans, fontWeight: 700, fontSize: '1.1rem', color: t.text, textDecoration: 'none', letterSpacing: '-0.01em' }}>
+    <nav className="border-b border-brand-border bg-brand-white px-5 h-[60px] flex items-center justify-between sticky top-0 z-[100]">
+      <Link href="/" className="font-sans font-bold text-[1.1rem] text-brand-text no-underline tracking-[-0.01em]">
         ChurnRecovery
       </Link>
-      <div className="nav-links" style={{ display: 'flex', gap: '24px', alignItems: 'center' }}>
-        <Link href="/features" style={{ color: t.accent, textDecoration: 'none', fontSize: '0.9rem', fontFamily: t.fontSans, fontWeight: 600 }}>Features</Link>
-        <Link href="/docs" style={{ color: t.gray, textDecoration: 'none', fontSize: '0.9rem', fontFamily: t.fontSans }}>Docs</Link>
-        <Link href="/demo" style={{ color: t.gray, textDecoration: 'none', fontSize: '0.9rem', fontFamily: t.fontSans }}>Demo</Link>
-        <Link href="/blog" style={{ color: t.gray, textDecoration: 'none', fontSize: '0.9rem', fontFamily: t.fontSans }}>Blog</Link>
-        <a href="/#waitlist" style={{
-          background: t.accent, color: t.white, padding: '8px 18px', borderRadius: '6px',
-          textDecoration: 'none', fontSize: '0.85rem', fontWeight: 600, fontFamily: t.fontSans,
-        }}>Join Waitlist</a>
+      <div className="nav-links flex gap-6 items-center">
+        <Link href="/features" className="text-brand-accent no-underline text-[0.9rem] font-sans font-semibold">Features</Link>
+        <Link href="/docs" className="text-brand-gray no-underline text-[0.9rem] font-sans">Docs</Link>
+        <Link href="/demo" className="text-brand-gray no-underline text-[0.9rem] font-sans">Demo</Link>
+        <Link href="/blog" className="text-brand-gray no-underline text-[0.9rem] font-sans">Blog</Link>
+        <a href="/#waitlist" className="bg-brand-accent text-brand-white py-2 px-[18px] rounded-md no-underline text-[0.85rem] font-semibold font-sans">Join Waitlist</a>
       </div>
     </nav>
   )
@@ -199,40 +160,25 @@ export default function FeaturesPage() {
         />
       </Head>
 
-      <div style={{ background: t.bg, minHeight: '100vh', fontFamily: t.fontSans }}>
+      <div className="bg-brand-bg min-h-screen font-sans">
         <Nav />
 
         {/* Hero */}
-        <section style={{ maxWidth: '900px', margin: '0 auto', padding: '72px 24px 56px', textAlign: 'center' }}>
-          <div style={{
-            display: 'inline-block', background: '#F0EBE5', color: t.accent,
-            padding: '4px 14px', borderRadius: '4px', fontSize: '0.72rem', fontWeight: 700,
-            textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '20px',
-          }}>
+        <section className="max-w-[900px] mx-auto px-6 pt-[72px] pb-14 text-center">
+          <div className="inline-block bg-[#F0EBE5] text-brand-accent px-3.5 py-1 rounded text-[0.72rem] font-bold uppercase tracking-[0.08em] mb-5">
             Full Feature Set
           </div>
-          <h1 style={{
-            fontFamily: t.fontSans, fontSize: 'clamp(2rem, 5vw, 3rem)', fontWeight: 800,
-            color: t.text, letterSpacing: '-0.04em', margin: '0 0 16px', lineHeight: 1.1,
-          }}>
+          <h1 className="font-sans text-[clamp(2rem,5vw,3rem)] font-extrabold text-brand-text tracking-[-0.04em] mb-4 leading-[1.1]">
             Everything you need to stop losing customers
           </h1>
-          <p style={{
-            fontFamily: t.fontSerif, fontSize: '1.15rem', color: t.gray,
-            lineHeight: 1.7, maxWidth: '600px', margin: '0 auto 40px',
-          }}>
+          <p className="font-serif text-[1.15rem] text-brand-gray leading-[1.7] max-w-[600px] mx-auto mb-10">
             ChurnRecovery is a complete churn reduction platform — cancel flow interception, analytics, win-back automation, and deep integrations. Completely free, forever.
           </p>
 
           {/* Category jump links */}
-          <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
+          <div className="flex gap-3 justify-center flex-wrap">
             {features.map(f => (
-              <a key={f.category} href={`#${f.category.toLowerCase().replace(' ', '-')}`} style={{
-                display: 'flex', alignItems: 'center', gap: '6px',
-                padding: '8px 16px', borderRadius: '6px', border: `1px solid ${t.border}`,
-                background: t.white, textDecoration: 'none', color: t.text,
-                fontSize: '0.85rem', fontWeight: 600, transition: 'all 0.15s',
-              }}>
+              <a key={f.category} href={`#${f.category.toLowerCase().replace(' ', '-')}`} className="flex items-center gap-1.5 px-4 py-2 rounded-md border border-brand-border bg-brand-white no-underline text-brand-text text-[0.85rem] font-semibold transition-all duration-150">
                 <span>{f.icon}</span> {f.category}
               </a>
             ))}
@@ -244,64 +190,35 @@ export default function FeaturesPage() {
           <section
             key={category.category}
             id={category.category.toLowerCase().replace(' ', '-')}
-            style={{
-              background: ci % 2 === 0 ? t.white : t.bg,
-              borderTop: `1px solid ${t.border}`,
-              padding: '80px 24px',
-            }}
+            className={`${ci % 2 === 0 ? 'bg-brand-white' : 'bg-brand-bg'} border-t border-brand-border py-20 px-6`}
           >
-            <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
+            <div className="max-w-[1100px] mx-auto">
               {/* Category header */}
-              <div style={{ marginBottom: '56px' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px' }}>
-                  <div style={{
-                    width: '40px', height: '40px', borderRadius: '10px',
-                    background: category.colorLight, display: 'flex', alignItems: 'center',
-                    justifyContent: 'center', fontSize: '1.2rem',
-                  }}>
+              <div className="mb-14">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className={`w-10 h-10 rounded-[10px] ${category.colorLightBg} flex items-center justify-center text-[1.2rem]`}>
                     {category.icon}
                   </div>
-                  <span style={{
-                    fontFamily: t.fontSans, fontSize: '0.75rem', fontWeight: 700,
-                    textTransform: 'uppercase', letterSpacing: '0.1em', color: category.color,
-                  }}>
+                  <span className={`font-sans text-[0.75rem] font-bold uppercase tracking-[0.1em] ${category.colorClass}`}>
                     {category.category}
                   </span>
                 </div>
               </div>
 
               {/* Feature grid */}
-              <div style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fill, minmax(min(480px, 100%), 1fr))',
-                gap: '24px',
-              }}>
+              <div className="grid grid-cols-[repeat(auto-fill,minmax(min(480px,100%),1fr))] gap-6">
                 {category.items.map(feature => (
-                  <div key={feature.title} style={{
-                    border: `1px solid ${t.border}`,
-                    borderRadius: '12px',
-                    padding: '28px',
-                    background: ci % 2 === 0 ? t.bg : t.white,
-                  }}>
-                    <h3 style={{
-                      fontFamily: t.fontSans, fontSize: '1.05rem', fontWeight: 700,
-                      color: t.text, letterSpacing: '-0.02em', margin: '0 0 10px',
-                    }}>
+                  <div key={feature.title} className={`border border-brand-border rounded-xl p-7 ${ci % 2 === 0 ? 'bg-brand-bg' : 'bg-brand-white'}`}>
+                    <h3 className="font-sans text-[1.05rem] font-bold text-brand-text tracking-[-0.02em] mb-2.5">
                       {feature.title}
                     </h3>
-                    <p style={{
-                      fontFamily: t.fontSerif, fontSize: '0.88rem', color: t.gray,
-                      lineHeight: 1.7, margin: '0 0 20px',
-                    }}>
+                    <p className="font-serif text-[0.88rem] text-brand-gray leading-[1.7] mb-5">
                       {feature.description}
                     </p>
-                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+                    <div className="flex flex-wrap gap-2">
                       {feature.details.map(d => (
-                        <span key={d} style={{
-                          display: 'flex', alignItems: 'center', gap: '5px',
-                          fontSize: '0.78rem', color: t.gray, fontFamily: t.fontSans,
-                        }}>
-                          <span style={{ color: category.color, fontWeight: 700 }}>✓</span>
+                        <span key={d} className="flex items-center gap-[5px] text-[0.78rem] text-brand-gray font-sans">
+                          <span className={`${category.colorClass} font-bold`}>✓</span>
                           {d}
                         </span>
                       ))}
@@ -314,34 +231,19 @@ export default function FeaturesPage() {
         ))}
 
         {/* Comparison callout */}
-        <section style={{ background: t.text, padding: '80px 24px' }}>
-          <div style={{ maxWidth: '900px', margin: '0 auto', textAlign: 'center' }}>
-            <h2 style={{
-              fontFamily: t.fontSans, fontSize: 'clamp(1.5rem, 4vw, 2.2rem)', fontWeight: 700,
-              color: t.white, letterSpacing: '-0.03em', margin: '0 0 16px',
-            }}>
+        <section className="bg-brand-text py-20 px-6">
+          <div className="max-w-[900px] mx-auto text-center">
+            <h2 className="font-sans text-[clamp(1.5rem,4vw,2.2rem)] font-bold text-brand-white tracking-[-0.03em] mb-4">
               Churnkey charges $825/mo for the same features
             </h2>
-            <p style={{
-              fontFamily: t.fontSerif, fontSize: '1rem', color: 'rgba(255,255,255,0.65)',
-              margin: '0 0 32px', maxWidth: '520px', marginLeft: 'auto', marginRight: 'auto', lineHeight: 1.7,
-            }}>
+            <p className="font-serif text-base text-white/65 max-w-[520px] mx-auto mb-8 leading-[1.7]">
               ChurnRecovery is free. The only difference is our business model — we believe churn recovery tools should be accessible to every SaaS company, not just the ones that can afford $10k/year in software.
             </p>
-            <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
-              <a href="/#waitlist" style={{
-                display: 'inline-block', background: t.accent, color: t.white,
-                padding: '14px 32px', borderRadius: '8px', fontFamily: t.fontSans,
-                fontWeight: 700, fontSize: '1rem', textDecoration: 'none', letterSpacing: '-0.01em',
-              }}>
+            <div className="flex gap-4 justify-center flex-wrap">
+              <a href="/#waitlist" className="inline-block bg-brand-accent text-brand-white px-8 py-3.5 rounded-lg font-sans font-bold text-base no-underline tracking-[-0.01em]">
                 Join Waitlist — Free
               </a>
-              <Link href="/compare/churnkey" style={{
-                display: 'inline-block', background: 'transparent', color: 'rgba(255,255,255,0.7)',
-                padding: '14px 32px', borderRadius: '8px', fontFamily: t.fontSans,
-                fontWeight: 600, fontSize: '1rem', textDecoration: 'none',
-                border: '1px solid rgba(255,255,255,0.2)',
-              }}>
+              <Link href="/compare/churnkey" className="inline-block bg-transparent text-white/70 px-8 py-3.5 rounded-lg font-sans font-semibold text-base no-underline border border-white/20">
                 See Full Comparison →
               </Link>
             </div>
@@ -349,17 +251,14 @@ export default function FeaturesPage() {
         </section>
 
         {/* Quick feature checklist */}
-        <section style={{ padding: '80px 24px', background: t.bg }}>
-          <div style={{ maxWidth: '900px', margin: '0 auto' }}>
-            <div style={{ textAlign: 'center', marginBottom: '48px' }}>
-              <h2 style={{
-                fontFamily: t.fontSans, fontSize: 'clamp(1.4rem, 3.5vw, 2rem)', fontWeight: 700,
-                color: t.text, letterSpacing: '-0.03em', margin: '0 0 12px',
-              }}>
+        <section className="py-20 px-6 bg-brand-bg">
+          <div className="max-w-[900px] mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="font-sans text-[clamp(1.4rem,3.5vw,2rem)] font-bold text-brand-text tracking-[-0.03em] mb-3">
                 Everything, at a glance
               </h2>
             </div>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(260px, 100%), 1fr))', gap: '8px' }}>
+            <div className="grid grid-cols-[repeat(auto-fill,minmax(min(260px,100%),1fr))] gap-2">
               {[
                 'Cancel flow modal', 'Reason picker', 'Discount offers', 'Pause offers',
                 'Human escalation', 'Feedback collection', 'A/B testing', 'Save rate analytics',
@@ -369,13 +268,9 @@ export default function FeaturesPage() {
                 'Webhooks', 'Slack notifications', 'Custom branding', 'White-label mode',
                 'GDPR compliant', 'SOC 2 (planned)', 'Unlimited customers', 'Free forever',
               ].map(item => (
-                <div key={item} style={{
-                  display: 'flex', alignItems: 'center', gap: '10px',
-                  padding: '10px 14px', borderRadius: '6px', background: t.white,
-                  border: `1px solid ${t.border}`,
-                }}>
-                  <span style={{ color: t.green, fontWeight: 700, fontSize: '0.9rem' }}>✓</span>
-                  <span style={{ fontFamily: t.fontSans, fontSize: '0.85rem', color: t.text }}>{item}</span>
+                <div key={item} className="flex items-center gap-2.5 px-3.5 py-2.5 rounded-md bg-brand-white border border-brand-border">
+                  <span className="text-brand-green font-bold text-[0.9rem]">✓</span>
+                  <span className="font-sans text-[0.85rem] text-brand-text">{item}</span>
                 </div>
               ))}
             </div>
@@ -383,38 +278,21 @@ export default function FeaturesPage() {
         </section>
 
         {/* CTA */}
-        <section style={{ background: t.white, borderTop: `1px solid ${t.border}`, padding: '64px 24px', textAlign: 'center' }}>
-          <h2 style={{
-            fontFamily: t.fontSans, fontSize: 'clamp(1.3rem, 3vw, 1.8rem)', fontWeight: 700,
-            color: t.text, letterSpacing: '-0.03em', margin: '0 0 12px',
-          }}>
+        <section className="bg-brand-white border-t border-brand-border py-16 px-6 text-center">
+          <h2 className="font-sans text-[clamp(1.3rem,3vw,1.8rem)] font-bold text-brand-text tracking-[-0.03em] mb-3">
             Ready to start recovering customers?
           </h2>
-          <p style={{
-            fontFamily: t.fontSerif, fontSize: '1rem', color: t.gray,
-            margin: '0 0 28px', lineHeight: 1.7,
-          }}>
+          <p className="font-serif text-base text-brand-gray mb-7 leading-[1.7]">
             Join the waitlist and be among the first to go live. Free forever.
           </p>
-          <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <a href="/#waitlist" style={{
-              background: t.accent, color: t.white, padding: '13px 28px', borderRadius: '8px',
-              fontFamily: t.fontSans, fontWeight: 700, fontSize: '0.95rem', textDecoration: 'none',
-            }}>
+          <div className="flex gap-3 justify-center flex-wrap">
+            <a href="/#waitlist" className="bg-brand-accent text-brand-white px-7 py-[13px] rounded-lg font-sans font-bold text-[0.95rem] no-underline">
               Join Waitlist
             </a>
-            <Link href="/demo" style={{
-              background: t.bg, color: t.text, padding: '13px 28px', borderRadius: '8px',
-              fontFamily: t.fontSans, fontWeight: 600, fontSize: '0.95rem', textDecoration: 'none',
-              border: `1px solid ${t.border}`,
-            }}>
+            <Link href="/demo" className="bg-brand-bg text-brand-text px-7 py-[13px] rounded-lg font-sans font-semibold text-[0.95rem] no-underline border border-brand-border">
               Try the Demo →
             </Link>
-            <Link href="/docs" style={{
-              background: t.bg, color: t.text, padding: '13px 28px', borderRadius: '8px',
-              fontFamily: t.fontSans, fontWeight: 600, fontSize: '0.95rem', textDecoration: 'none',
-              border: `1px solid ${t.border}`,
-            }}>
+            <Link href="/docs" className="bg-brand-bg text-brand-text px-7 py-[13px] rounded-lg font-sans font-semibold text-[0.95rem] no-underline border border-brand-border">
               Read the Docs →
             </Link>
           </div>

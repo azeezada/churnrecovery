@@ -47,10 +47,10 @@ function WaitlistForm({ dark = false }) {
     return (
       <div className="text-center p-6 rounded-xl" style={{ background: dark ? 'rgba(45,122,79,0.15)' : '#EDF7F1', border: `1px solid ${dark ? 'rgba(45,122,79,0.3)' : '#C6E6D4'}` }}>
         <div className="text-[2rem] mb-2">{status === 'duplicate' ? '👋' : '🎉'}</div>
-        <p className="font-[Instrument_Sans,sans-serif] font-bold text-base m-0 mb-[6px]" style={{ color: dark ? '#FFFFFF' : '#191919' }}>
+        <p className="font-sans font-bold text-base m-0 mb-[6px]" style={{ color: dark ? '#FFFFFF' : '#191919' }}>
           {status === 'duplicate' ? "You're already on the list!" : "You're in!"}
         </p>
-        <p className="font-[Merriweather,serif] text-sm m-0" style={{ color: subtextColor }}>
+        <p className="font-serif text-sm m-0" style={{ color: subtextColor }}>
           We&apos;ll let you know when ChurnRecovery supports your setup.
         </p>
       </div>
@@ -61,17 +61,17 @@ function WaitlistForm({ dark = false }) {
     <div>
       <form onSubmit={handleSubmit} className="flex flex-col gap-[10px]">
         <input type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="your@email.com" required autoComplete="email"
-          className="px-4 py-[13px] rounded-lg font-[Instrument_Sans,sans-serif] text-[0.95rem] outline-none" style={{ border: `1px solid ${error ? '#DC2626' : borderColor}`, background: bgColor, color: textColor }} />
+          className="px-4 py-[13px] rounded-lg font-sans text-[0.95rem] outline-none" style={{ border: `1px solid ${error ? '#DC2626' : borderColor}`, background: bgColor, color: textColor }} />
         <button type="submit" disabled={status === 'loading'}
-          className="py-[14px] px-7 rounded-lg border-none font-[Instrument_Sans,sans-serif] font-bold text-base text-[#1A1000]" style={{ background: status === 'loading' ? '#999999' : '#FFD234', cursor: status === 'loading' ? 'not-allowed' : 'pointer' }}>
+          className="py-[14px] px-7 rounded-lg border-none font-sans font-bold text-base text-[#1A1000]" style={{ background: status === 'loading' ? '#999999' : '#FFD234', cursor: status === 'loading' ? 'not-allowed' : 'pointer' }}>
           {status === 'loading' ? 'Joining...' : 'Get Notified When We Support Lemon Squeezy →'}
         </button>
       </form>
-      {error && <p className="font-[Instrument_Sans,sans-serif] text-[0.8rem] text-[#DC2626] mt-2 mb-0">⚠ {error}</p>}
+      {error && <p className="font-sans text-[0.8rem] text-[#DC2626] mt-2 mb-0">⚠ {error}</p>}
       <div className="flex gap-4 mt-3 flex-wrap">
-        <span className="font-[Instrument_Sans,sans-serif] text-[0.78rem]" style={{ color: subtextColor }}>🆓 Free during beta</span>
-        <span className="font-[Instrument_Sans,sans-serif] text-[0.78rem]" style={{ color: subtextColor }}>🔒 No credit card required</span>
-        {count && <span className="font-[Instrument_Sans,sans-serif] text-[0.78rem]" style={{ color: subtextColor }}><span className="text-[#2D7A4F]">●</span> {count.toLocaleString()} on waitlist</span>}
+        <span className="font-sans text-[0.78rem]" style={{ color: subtextColor }}>🆓 Free during beta</span>
+        <span className="font-sans text-[0.78rem]" style={{ color: subtextColor }}>🔒 No credit card required</span>
+        {count && <span className="font-sans text-[0.78rem]" style={{ color: subtextColor }}><span className="text-[#2D7A4F]">●</span> {count.toLocaleString()} on waitlist</span>}
       </div>
     </div>
   )
@@ -81,10 +81,10 @@ function PainCard({ icon, title, stat, statLabel, description }) {
   return (
     <div className="bg-white border border-[#E5E5E5] rounded-xl px-6 py-7 border-t-[3px] border-t-[#FFD234]">
       <div className="text-[2rem] mb-3">{icon}</div>
-      <h3 className="font-[Instrument_Sans,sans-serif] text-base font-bold text-[#191919] m-0 mb-2">{title}</h3>
-      {stat && <div className="font-[Instrument_Sans,sans-serif] font-extrabold text-[2rem] text-[#D4A900] my-1">{stat}</div>}
-      {statLabel && <div className="font-[Instrument_Sans,sans-serif] text-[0.8rem] text-[#666666] mb-2">{statLabel}</div>}
-      <p className="font-[Merriweather,serif] text-[0.88rem] text-[#666666] m-0 leading-relaxed">{description}</p>
+      <h3 className="font-sans text-base font-bold text-[#191919] m-0 mb-2">{title}</h3>
+      {stat && <div className="font-sans font-extrabold text-[2rem] text-[#D4A900] my-1">{stat}</div>}
+      {statLabel && <div className="font-sans text-[0.8rem] text-[#666666] mb-2">{statLabel}</div>}
+      <p className="font-serif text-[0.88rem] text-[#666666] m-0 leading-relaxed">{description}</p>
     </div>
   )
 }
@@ -93,14 +93,14 @@ function HowStep({ number, icon, title, description, callout }) {
   return (
     <div className="bg-white border border-[#E5E5E5] rounded-xl px-6 py-7">
       <div className="flex gap-4 items-start mb-4">
-        <div className="w-12 h-12 rounded-full bg-[rgba(255,210,52,0.15)] border-2 border-[#FFD234] flex items-center justify-center font-[Instrument_Sans,sans-serif] font-extrabold text-[1.1rem] text-[#D4A900] shrink-0">{number}</div>
+        <div className="w-12 h-12 rounded-full bg-[rgba(255,210,52,0.15)] border-2 border-[#FFD234] flex items-center justify-center font-sans font-extrabold text-[1.1rem] text-[#D4A900] shrink-0">{number}</div>
         <div>
           <div className="text-[1.6rem] mb-1">{icon}</div>
-          <h3 className="font-[Instrument_Sans,sans-serif] text-[1.05rem] font-bold text-[#191919] m-0">{title}</h3>
+          <h3 className="font-sans text-[1.05rem] font-bold text-[#191919] m-0">{title}</h3>
         </div>
       </div>
-      <p className="font-[Merriweather,serif] text-[0.9rem] text-[#666666] mt-0 mb-3 leading-[1.7]">{description}</p>
-      {callout && <div className="bg-[rgba(255,210,52,0.1)] border border-[rgba(255,210,52,0.3)] rounded-lg px-[14px] py-[10px] font-[Instrument_Sans,sans-serif] text-[0.8rem] text-[#D4A900]">{callout}</div>}
+      <p className="font-serif text-[0.9rem] text-[#666666] mt-0 mb-3 leading-[1.7]">{description}</p>
+      {callout && <div className="bg-[rgba(255,210,52,0.1)] border border-[rgba(255,210,52,0.3)] rounded-lg px-[14px] py-[10px] font-sans text-[0.8rem] text-[#D4A900]">{callout}</div>}
     </div>
   )
 }
@@ -110,8 +110,8 @@ function BenefitCard({ icon, title, description }) {
     <div className="flex gap-[14px] items-start bg-white border border-[#E5E5E5] rounded-[10px] p-5">
       <span className="text-[1.4rem] shrink-0">{icon}</span>
       <div>
-        <h4 className="font-[Instrument_Sans,sans-serif] text-[0.92rem] font-bold text-[#191919] m-0 mb-1">{title}</h4>
-        <p className="font-[Merriweather,serif] text-[0.82rem] text-[#666666] m-0 leading-[1.55]">{description}</p>
+        <h4 className="font-sans text-[0.92rem] font-bold text-[#191919] m-0 mb-1">{title}</h4>
+        <p className="font-serif text-[0.82rem] text-[#666666] m-0 leading-[1.55]">{description}</p>
       </div>
     </div>
   )
@@ -122,12 +122,12 @@ function FAQItem({ q, a }) {
   return (
     <div className="border border-[#E5E5E5] rounded-[10px] overflow-hidden mb-2">
       <button onClick={() => setOpen(!open)} className="w-full bg-white border-none cursor-pointer px-5 py-4 flex justify-between items-center gap-3 text-left">
-        <span className="font-[Instrument_Sans,sans-serif] font-semibold text-[0.93rem] text-[#191919]">{q}</span>
+        <span className="font-sans font-semibold text-[0.93rem] text-[#191919]">{q}</span>
         <span className="text-[#D4A900] text-[1.2rem] font-bold shrink-0">{open ? '−' : '+'}</span>
       </button>
       {open && (
         <div className="px-5 pb-4 pt-0 bg-[#FFFDF0]">
-          <p className="font-[Merriweather,serif] text-[0.88rem] text-[#666666] m-0 leading-[1.7]">{a}</p>
+          <p className="font-serif text-[0.88rem] text-[#666666] m-0 leading-[1.7]">{a}</p>
         </div>
       )}
     </div>
@@ -152,31 +152,31 @@ export default function LemonSqueezyLandingPage() {
 
       <Header />
 
-      <main className="font-[Instrument_Sans,sans-serif] bg-[#FFFDF0] pt-[60px]">
+      <main className="font-sans bg-[#FFFDF0] pt-[60px]">
 
         {/* HERO */}
-        <section className="relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #1A1300 0%, #2D2000 100%)', padding: '80px 24px 100px' }}>
-          <div className="absolute -top-[80px] -right-[80px] w-[400px] h-[400px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(255,210,52,0.12) 0%, transparent 70%)' }} />
+        <section className="relative overflow-hidden bg-[linear-gradient(135deg,#1A1300_0%,#2D2000_100%)] pt-20 px-6 pb-[100px]">
+          <div className="absolute -top-[80px] -right-[80px] w-[400px] h-[400px] rounded-full pointer-events-none bg-[radial-gradient(circle,rgba(255,210,52,0.12)_0%,transparent_70%)]" />
 
           <div className="max-w-[720px] mx-auto text-center relative z-[1]">
-            <div className="inline-flex items-center gap-[6px] bg-[rgba(255,210,52,0.15)] border border-[rgba(255,210,52,0.3)] rounded-full px-4 py-[6px] font-[Instrument_Sans,sans-serif] text-[0.78rem] font-semibold text-[#FFD234] mb-7">
+            <div className="inline-flex items-center gap-[6px] bg-[rgba(255,210,52,0.15)] border border-[rgba(255,210,52,0.3)] rounded-full px-4 py-[6px] font-sans text-[0.78rem] font-semibold text-[#FFD234] mb-7">
               🍋 Honest guide for Lemon Squeezy creators
             </div>
 
-            <h1 className="font-[Instrument_Sans,sans-serif] font-extrabold text-white m-0 mb-5 leading-[1.15] tracking-[-0.02em]" style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)' }}>
+            <h1 className="font-sans font-extrabold text-white m-0 mb-5 leading-[1.15] tracking-[-0.02em] text-[clamp(2.2rem,5vw,3.5rem)]">
               Using Lemon Squeezy?<br />
               <span className="text-[#FFD234]">Here&apos;s the Honest Truth</span><br />
               About Churn Recovery.
             </h1>
 
-            <p className="font-[Merriweather,serif] text-[rgba(255,255,255,0.7)] m-0 mb-7 leading-[1.7] max-w-[620px] mx-auto" style={{ fontSize: 'clamp(1rem, 2.5vw, 1.2rem)' }}>
+            <p className="font-serif text-[rgba(255,255,255,0.7)] m-0 mb-7 leading-[1.7] max-w-[620px] mx-auto text-[clamp(1rem,2.5vw,1.2rem)]">
               We won&apos;t overpromise. Lemon Squeezy is a merchant of record — they own the Stripe connection, not you. That means ChurnRecovery can&apos;t plug directly into most Lemon Squeezy setups. But read on, because there&apos;s a real path forward.
             </p>
 
             {/* Honest limitation callout */}
             <div className="bg-[rgba(255,255,255,0.06)] border border-[rgba(255,255,255,0.12)] rounded-xl px-6 py-5 max-w-[560px] mx-auto mb-8 text-left">
-              <p className="font-[Instrument_Sans,sans-serif] font-bold text-[#FFD234] m-0 mb-2 text-[0.88rem]">⚠ Honest limitation</p>
-              <p className="font-[Merriweather,serif] text-sm text-[rgba(255,255,255,0.65)] m-0 leading-relaxed">
+              <p className="font-sans font-bold text-[#FFD234] m-0 mb-2 text-[0.88rem]">⚠ Honest limitation</p>
+              <p className="font-serif text-sm text-[rgba(255,255,255,0.65)] m-0 leading-relaxed">
                 If you use Lemon Squeezy&apos;s standard merchant-of-record plan, your Stripe account is Lemon Squeezy&apos;s — not yours. ChurnRecovery can&apos;t connect to it. <strong className="text-[rgba(255,255,255,0.85)]">However:</strong> if you&apos;re on a plan that lets you connect your own Stripe, or you&apos;re considering switching to direct Stripe billing, ChurnRecovery works perfectly.
               </p>
             </div>
@@ -186,8 +186,8 @@ export default function LemonSqueezyLandingPage() {
             </div>
 
             <div className="flex gap-5 justify-center flex-wrap">
-              <span className="font-[Instrument_Sans,sans-serif] text-[0.8rem] text-[rgba(255,255,255,0.4)]">🆓 Free during beta</span>
-              <span className="font-[Instrument_Sans,sans-serif] text-[0.8rem] text-[rgba(255,255,255,0.4)]">⚡ Works with direct Stripe</span>
+              <span className="font-sans text-[0.8rem] text-[rgba(255,255,255,0.4)]">🆓 Free during beta</span>
+              <span className="font-sans text-[0.8rem] text-[rgba(255,255,255,0.4)]">⚡ Works with direct Stripe</span>
             </div>
           </div>
         </section>
@@ -196,11 +196,11 @@ export default function LemonSqueezyLandingPage() {
         <section className="py-20 px-6 bg-[#FFFDF0]">
           <div className="max-w-[1080px] mx-auto">
             <div className="text-center mb-12">
-              <div className="font-[Instrument_Sans,sans-serif] text-xs font-bold text-[#666666] uppercase tracking-[0.08em] mb-3">The Real Situation</div>
-              <h2 className="font-[Instrument_Sans,sans-serif] font-extrabold text-[#191919] m-0 mb-4 tracking-[-0.02em]" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)' }}>
+              <div className="font-sans text-xs font-bold text-[#666666] uppercase tracking-[0.08em] mb-3">The Real Situation</div>
+              <h2 className="font-sans font-extrabold text-[#191919] m-0 mb-4 tracking-[-0.02em] text-[clamp(1.8rem,4vw,2.5rem)]">
                 Lemon Squeezy vs. Direct Stripe:<br />What Actually Changes
               </h2>
-              <p className="font-[Merriweather,serif] text-base text-[#666666] max-w-[580px] mx-auto leading-[1.7]">
+              <p className="font-serif text-base text-[#666666] max-w-[580px] mx-auto leading-[1.7]">
                 Lemon Squeezy is great for tax compliance and quick product launches. But as a merchant of record, they&apos;re between you and your subscribers. That has real consequences when it comes to churn recovery.
               </p>
             </div>
@@ -217,8 +217,8 @@ export default function LemonSqueezyLandingPage() {
         <section className="py-20 px-6 bg-white">
           <div className="max-w-[1080px] mx-auto">
             <div className="text-center mb-12">
-              <div className="font-[Instrument_Sans,sans-serif] text-xs font-bold text-[#D4A900] uppercase tracking-[0.08em] mb-3">Your Options</div>
-              <h2 className="font-[Instrument_Sans,sans-serif] font-extrabold text-[#191919] m-0 mb-4 tracking-[-0.02em]" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)' }}>
+              <div className="font-sans text-xs font-bold text-[#D4A900] uppercase tracking-[0.08em] mb-3">Your Options</div>
+              <h2 className="font-sans font-extrabold text-[#191919] m-0 mb-4 tracking-[-0.02em] text-[clamp(1.8rem,4vw,2.5rem)]">
                 Three Paths Forward
               </h2>
             </div>
@@ -235,7 +235,7 @@ export default function LemonSqueezyLandingPage() {
         <section className="py-20 px-6 bg-[#FFFDF0]">
           <div className="max-w-[1080px] mx-auto">
             <div className="text-center mb-12">
-              <h2 className="font-[Instrument_Sans,sans-serif] font-extrabold text-[#191919] m-0 tracking-[-0.02em]" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)' }}>
+              <h2 className="font-sans font-extrabold text-[#191919] m-0 tracking-[-0.02em] text-[clamp(1.8rem,4vw,2.5rem)]">
                 Why Creators Switch to Direct Stripe
               </h2>
             </div>
@@ -254,7 +254,7 @@ export default function LemonSqueezyLandingPage() {
         <section className="py-20 px-6 bg-white">
           <div className="max-w-[720px] mx-auto">
             <div className="text-center mb-10">
-              <h2 className="font-[Instrument_Sans,sans-serif] font-extrabold text-[#191919] m-0 tracking-[-0.02em]" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)' }}>
+              <h2 className="font-sans font-extrabold text-[#191919] m-0 tracking-[-0.02em] text-[clamp(1.8rem,4vw,2.5rem)]">
                 Questions About Lemon Squeezy + ChurnRecovery
               </h2>
             </div>
@@ -270,21 +270,21 @@ export default function LemonSqueezyLandingPage() {
         </section>
 
         {/* FINAL CTA */}
-        <section className="py-20 px-6" style={{ background: 'linear-gradient(135deg, #1A1300 0%, #2D2000 100%)' }}>
+        <section className="py-20 px-6 bg-[linear-gradient(135deg,#1A1300_0%,#2D2000_100%)]">
           <div className="max-w-[600px] mx-auto text-center">
-            <h2 className="font-[Instrument_Sans,sans-serif] font-extrabold text-white m-0 mb-5 leading-[1.2] tracking-[-0.02em]" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.6rem)' }}>
+            <h2 className="font-sans font-extrabold text-white m-0 mb-5 leading-[1.2] tracking-[-0.02em] text-[clamp(1.8rem,4vw,2.6rem)]">
               Ready to Own Your<br />
               <span className="text-[#FFD234]">Subscription Revenue?</span>
             </h2>
-            <p className="font-[Merriweather,serif] text-base text-[rgba(255,255,255,0.7)] m-0 mb-9 leading-[1.7]">
+            <p className="font-serif text-base text-[rgba(255,255,255,0.7)] m-0 mb-9 leading-[1.7]">
               Join the waitlist. Whether you&apos;re on Lemon Squeezy now or thinking about moving to direct Stripe, we&apos;ll help you set up a cancel flow that saves subscribers automatically.
             </p>
             <div className="max-w-[480px] mx-auto">
               <WaitlistForm dark={true} />
             </div>
             <div className="flex gap-6 justify-center mt-6 flex-wrap">
-              <span className="font-[Instrument_Sans,sans-serif] text-[0.78rem] text-[rgba(255,255,255,0.4)]">Free during beta</span>
-              <span className="font-[Instrument_Sans,sans-serif] text-[0.78rem] text-[rgba(255,255,255,0.4)]">No spam, ever</span>
+              <span className="font-sans text-[0.78rem] text-[rgba(255,255,255,0.4)]">Free during beta</span>
+              <span className="font-sans text-[0.78rem] text-[rgba(255,255,255,0.4)]">No spam, ever</span>
             </div>
           </div>
         </section>

@@ -4,43 +4,15 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import { useState, useEffect } from 'react'
 
-const t = {
-  bg: '#FAF9F5',
-  text: '#191919',
-  gray: '#666666',
-  grayLight: '#999999',
-  accent: '#D97757',
-  accentBg: '#FDF4F0',
-  border: '#E5E5E5',
-  white: '#FFFFFF',
-  green: '#2D7A4F',
-  greenBg: '#EDF7F1',
-  greenLight: '#22c55e',
-  yellow: '#B45309',
-  yellowBg: '#FFFBEB',
-  red: '#DC2626',
-  redBg: '#FEF2F2',
-  fontSans: '"Instrument Sans", sans-serif',
-  fontSerif: '"Merriweather", serif',
-}
-
 function StatusIndicator({ status }) {
   const colors = {
-    operational: t.greenLight,
+    operational: '#22c55e',
     degraded: '#f59e0b',
-    outage: t.red,
-    checking: t.grayLight,
+    outage: '#DC2626',
+    checking: '#999999',
   }
   return (
-    <span style={{
-      display: 'inline-block',
-      width: '10px',
-      height: '10px',
-      borderRadius: '50%',
-      background: colors[status] || t.grayLight,
-      marginRight: '8px',
-      flexShrink: 0,
-    }} />
+    <span className="inline-block w-[10px] h-[10px] rounded-full mr-2 shrink-0" style={{ background: colors[status] || '#999999' }} />
   )
 }
 
@@ -52,61 +24,35 @@ function ServiceRow({ name, description, status, note }) {
     checking: 'Checking…',
   }
   const colorMap = {
-    operational: t.green,
-    degraded: t.yellow,
-    outage: t.red,
-    checking: t.grayLight,
+    operational: '#2D7A4F',
+    degraded: '#B45309',
+    outage: '#DC2626',
+    checking: '#999999',
   }
   const bgMap = {
-    operational: t.greenBg,
-    degraded: t.yellowBg,
-    outage: t.redBg,
+    operational: '#EDF7F1',
+    degraded: '#FFFBEB',
+    outage: '#FEF2F2',
     checking: '#F5F5F5',
   }
 
   return (
-    <div style={{
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'space-between',
-      padding: '16px 20px',
-      borderBottom: `1px solid ${t.border}`,
-    }}>
-      <div style={{ display: 'flex', alignItems: 'center', gap: '0' }}>
+    <div className="flex items-center justify-between px-5 py-4 border-b border-brand-border">
+      <div className="flex items-center">
         <StatusIndicator status={status} />
         <div>
-          <div style={{
-            fontFamily: t.fontSans,
-            fontWeight: 600,
-            fontSize: '0.93rem',
-            color: t.text,
-          }}>
+          <div className="font-sans font-semibold text-[0.93rem] text-brand-text">
             {name}
           </div>
           {description && (
-            <div style={{
-              fontFamily: t.fontSerif,
-              fontSize: '0.8rem',
-              color: t.grayLight,
-              marginTop: '2px',
-            }}>
+            <div className="font-serif text-[0.8rem] text-brand-gray-light mt-[2px]">
               {description}
             </div>
           )}
         </div>
       </div>
       <div>
-        <span style={{
-          display: 'inline-block',
-          background: bgMap[status] || '#F5F5F5',
-          color: colorMap[status] || t.grayLight,
-          fontFamily: t.fontSans,
-          fontWeight: 600,
-          fontSize: '0.72rem',
-          letterSpacing: '0.04em',
-          padding: '3px 10px',
-          borderRadius: '20px',
-        }}>
+        <span className="inline-block font-sans font-semibold text-[0.72rem] tracking-[0.04em] px-[10px] py-[3px] rounded-[20px]" style={{ background: bgMap[status] || '#F5F5F5', color: colorMap[status] || '#999999' }}>
           {note || labelMap[status] || 'Unknown'}
         </span>
       </div>
@@ -148,80 +94,30 @@ export default function StatusPage() {
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <Header />
-      <main style={{ background: t.bg, minHeight: '100vh' }}>
+      <main className="bg-brand-bg min-h-screen">
 
         {/* Hero */}
-        <section style={{ maxWidth: '720px', margin: '0 auto', padding: '72px 24px 40px' }}>
-          <div style={{
-            display: 'inline-block',
-            background: t.accentBg,
-            color: t.accent,
-            fontFamily: t.fontSans,
-            fontWeight: 600,
-            fontSize: '0.78rem',
-            letterSpacing: '0.08em',
-            textTransform: 'uppercase',
-            padding: '6px 14px',
-            borderRadius: '20px',
-            marginBottom: '24px',
-          }}>
+        <section className="max-w-[720px] mx-auto px-6 pt-[72px] pb-10">
+          <div className="inline-block bg-[#FDF4F0] text-brand-accent font-sans font-semibold text-[0.78rem] tracking-[0.08em] uppercase px-[14px] py-[6px] rounded-[20px] mb-6">
             System Status
           </div>
-          <h1 style={{
-            fontFamily: t.fontSans,
-            fontWeight: 800,
-            fontSize: 'clamp(1.8rem, 4vw, 2.4rem)',
-            color: t.text,
-            margin: '0 0 16px',
-            letterSpacing: '-0.03em',
-            lineHeight: 1.15,
-          }}>
+          <h1 className="font-sans font-extrabold text-brand-text mb-4 leading-[1.15] tracking-[-0.03em] text-[clamp(1.8rem,4vw,2.4rem)]">
             ChurnRecovery Status
           </h1>
-          <p style={{
-            fontFamily: t.fontSerif,
-            fontSize: '1rem',
-            color: t.gray,
-            lineHeight: 1.8,
-            margin: 0,
-          }}>
+          <p className="font-serif text-base text-brand-gray leading-[1.8] m-0">
             Real-time health status for all ChurnRecovery services.
           </p>
         </section>
 
         {/* Overall status banner */}
-        <section style={{ maxWidth: '720px', margin: '0 auto', padding: '0 24px 32px' }}>
-          <div style={{
-            background: allOperational ? t.greenBg : t.yellowBg,
-            border: `1px solid ${allOperational ? '#A7F3D0' : '#FDE68A'}`,
-            borderRadius: '12px',
-            padding: '20px 24px',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '12px',
-          }}>
-            <div style={{
-              width: '12px',
-              height: '12px',
-              borderRadius: '50%',
-              background: allOperational ? t.greenLight : '#f59e0b',
-              flexShrink: 0,
-            }} />
+        <section className="max-w-[720px] mx-auto px-6 pb-8">
+          <div className={`${allOperational ? 'bg-brand-green-light border-[#A7F3D0]' : 'bg-[#FFFBEB] border-[#FDE68A]'} border rounded-xl px-6 py-5 flex items-center gap-3`}>
+            <div className="w-3 h-3 rounded-full shrink-0" style={{ background: allOperational ? '#22c55e' : '#f59e0b' }} />
             <div>
-              <div style={{
-                fontFamily: t.fontSans,
-                fontWeight: 700,
-                fontSize: '1rem',
-                color: allOperational ? t.green : t.yellow,
-              }}>
+              <div className={`font-sans font-bold text-base ${allOperational ? 'text-brand-green' : 'text-[#B45309]'}`}>
                 {allOperational ? 'All systems operational' : 'Some systems degraded'}
               </div>
-              <div style={{
-                fontFamily: t.fontSerif,
-                fontSize: '0.8rem',
-                color: t.grayLight,
-                marginTop: '2px',
-              }}>
+              <div className="font-serif text-[0.8rem] text-brand-gray-light mt-[2px]">
                 {lastChecked
                   ? `Last checked: ${lastChecked.toLocaleTimeString()}`
                   : 'Checking services…'}
@@ -231,27 +127,11 @@ export default function StatusPage() {
         </section>
 
         {/* Services */}
-        <section style={{ maxWidth: '720px', margin: '0 auto', padding: '0 24px 80px' }}>
-          <div style={{
-            background: t.white,
-            border: `1px solid ${t.border}`,
-            borderRadius: '12px',
-            overflow: 'hidden',
-          }}>
+        <section className="max-w-[720px] mx-auto px-6 pb-20">
+          <div className="bg-brand-white border border-brand-border rounded-xl overflow-hidden">
             {/* Section header */}
-            <div style={{
-              padding: '16px 20px',
-              borderBottom: `1px solid ${t.border}`,
-              background: '#FAFAF8',
-            }}>
-              <div style={{
-                fontFamily: t.fontSans,
-                fontWeight: 600,
-                fontSize: '0.78rem',
-                letterSpacing: '0.08em',
-                textTransform: 'uppercase',
-                color: t.grayLight,
-              }}>
+            <div className="px-5 py-4 border-b border-brand-border bg-[#FAFAF8]">
+              <div className="font-sans font-semibold text-[0.78rem] tracking-[0.08em] uppercase text-brand-gray-light">
                 Services
               </div>
             </div>
@@ -279,77 +159,31 @@ export default function StatusPage() {
           </div>
 
           {/* Incident history */}
-          <div style={{
-            marginTop: '32px',
-            background: t.white,
-            border: `1px solid ${t.border}`,
-            borderRadius: '12px',
-            overflow: 'hidden',
-          }}>
-            <div style={{
-              padding: '16px 20px',
-              borderBottom: `1px solid ${t.border}`,
-              background: '#FAFAF8',
-            }}>
-              <div style={{
-                fontFamily: t.fontSans,
-                fontWeight: 600,
-                fontSize: '0.78rem',
-                letterSpacing: '0.08em',
-                textTransform: 'uppercase',
-                color: t.grayLight,
-              }}>
+          <div className="mt-8 bg-brand-white border border-brand-border rounded-xl overflow-hidden">
+            <div className="px-5 py-4 border-b border-brand-border bg-[#FAFAF8]">
+              <div className="font-sans font-semibold text-[0.78rem] tracking-[0.08em] uppercase text-brand-gray-light">
                 Incident History
               </div>
             </div>
-            <div style={{
-              padding: '32px 24px',
-              textAlign: 'center',
-            }}>
-              <div style={{
-                fontFamily: t.fontSans,
-                fontWeight: 600,
-                fontSize: '0.93rem',
-                color: t.green,
-                marginBottom: '8px',
-              }}>
+            <div className="px-6 py-8 text-center">
+              <div className="font-sans font-semibold text-[0.93rem] text-brand-green mb-2">
                 ✓ No incidents in the last 90 days
               </div>
-              <p style={{
-                fontFamily: t.fontSerif,
-                fontSize: '0.82rem',
-                color: t.grayLight,
-                margin: 0,
-                lineHeight: 1.7,
-              }}>
+              <p className="font-serif text-[0.82rem] text-brand-gray-light m-0 leading-[1.7]">
                 All systems have been running smoothly.
               </p>
             </div>
           </div>
 
           {/* Footer note */}
-          <div style={{
-            marginTop: '32px',
-            textAlign: 'center',
-          }}>
-            <p style={{
-              fontFamily: t.fontSerif,
-              fontSize: '0.82rem',
-              color: t.grayLight,
-              margin: '0 0 12px',
-              lineHeight: 1.7,
-            }}>
+          <div className="mt-8 text-center">
+            <p className="font-serif text-[0.82rem] text-brand-gray-light mb-3 leading-[1.7]">
               Questions or issues?{' '}
-              <a href="mailto:hello@churnrecovery.com" style={{ color: t.accent, textDecoration: 'none' }}>
+              <a href="mailto:hello@churnrecovery.com" className="text-brand-accent no-underline">
                 hello@churnrecovery.com
               </a>
             </p>
-            <Link href="/changelog" style={{
-              fontFamily: t.fontSans,
-              fontSize: '0.82rem',
-              color: t.gray,
-              textDecoration: 'none',
-            }}>
+            <Link href="/changelog" className="font-sans text-[0.82rem] text-brand-gray no-underline">
               View Changelog →
             </Link>
           </div>

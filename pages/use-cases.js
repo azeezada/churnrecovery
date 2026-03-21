@@ -4,21 +4,6 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import WaitlistForm from '../components/WaitlistForm'
 
-const t = {
-  bg: '#FAF9F5',
-  text: '#191919',
-  gray: '#666666',
-  grayLight: '#999999',
-  accent: '#D97757',
-  accentBg: '#FDF4F0',
-  border: '#E5E5E5',
-  white: '#FFFFFF',
-  green: '#2D7A4F',
-  greenBg: '#EDF7F1',
-  fontSans: '"Instrument Sans", sans-serif',
-  fontSerif: '"Merriweather", serif',
-}
-
 const useCases = [
   {
     slug: 'b2b-saas',
@@ -306,72 +291,39 @@ const useCases = [
 
 function UseCaseCard({ useCase }) {
   return (
-    <Link href={`/use-cases/${useCase.slug}`} style={{ textDecoration: 'none' }}>
-      <div style={{
-        background: t.white,
-        border: `1px solid ${t.border}`,
-        borderRadius: '12px',
-        padding: '28px',
-        cursor: 'pointer',
-        transition: 'transform 0.15s, box-shadow 0.15s',
-        height: '100%',
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '16px',
-      }}
-      onMouseEnter={e => {
-        e.currentTarget.style.transform = 'translateY(-2px)'
-        e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.08)'
-      }}
-      onMouseLeave={e => {
-        e.currentTarget.style.transform = 'translateY(0)'
-        e.currentTarget.style.boxShadow = 'none'
-      }}
-      >
-        <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
-          <span style={{ fontSize: '2rem' }}>{useCase.icon}</span>
+    <Link href={`/use-cases/${useCase.slug}`} className="no-underline">
+      <div className="bg-brand-white border border-brand-border rounded-xl p-7 cursor-pointer transition-[transform,box-shadow] duration-150 h-full flex flex-col gap-4 hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)]">
+        <div className="flex items-start gap-3">
+          <span className="text-[2rem]">{useCase.icon}</span>
           <div>
-            <div style={{ fontFamily: t.fontSans, fontWeight: 700, fontSize: '1.05rem', color: t.text, marginBottom: '4px' }}>
+            <div className="font-sans font-bold text-[1.05rem] text-brand-text mb-1">
               {useCase.title}
             </div>
-            <div style={{ fontFamily: t.fontSerif, fontSize: '0.85rem', color: t.gray, lineHeight: 1.6 }}>
+            <div className="font-serif text-[0.85rem] text-brand-gray leading-[1.6]">
               {useCase.subtitle}
             </div>
           </div>
         </div>
-        <div style={{
-          background: useCase.colorBg,
-          borderRadius: '8px',
-          padding: '12px 16px',
-          display: 'flex',
-          alignItems: 'center',
-          gap: '12px',
-        }}>
-          <span style={{ fontFamily: t.fontSans, fontWeight: 800, fontSize: '1.6rem', color: useCase.color }}>
+        <div
+          className="rounded-lg py-3 px-4 flex items-center gap-3"
+          style={{ background: useCase.colorBg }}
+        >
+          <span className="font-sans font-extrabold text-[1.6rem]" style={{ color: useCase.color }}>
             {useCase.heroStat}
           </span>
-          <span style={{ fontFamily: t.fontSerif, fontSize: '0.8rem', color: useCase.color, lineHeight: 1.5 }}>
+          <span className="font-serif text-[0.8rem] leading-normal" style={{ color: useCase.color }}>
             {useCase.heroLabel}
           </span>
         </div>
-        <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+        <div className="flex gap-4 flex-wrap">
           {useCase.metrics.map((m, i) => (
             <div key={i}>
-              <div style={{ fontFamily: t.fontSans, fontWeight: 700, fontSize: '1rem', color: t.text }}>{m.value}</div>
-              <div style={{ fontFamily: t.fontSerif, fontSize: '0.75rem', color: t.grayLight }}>{m.label}</div>
+              <div className="font-sans font-bold text-base text-brand-text">{m.value}</div>
+              <div className="font-serif text-[0.75rem] text-brand-gray-light">{m.label}</div>
             </div>
           ))}
         </div>
-        <div style={{
-          marginTop: 'auto',
-          display: 'flex',
-          alignItems: 'center',
-          gap: '6px',
-          fontFamily: t.fontSans,
-          fontSize: '0.82rem',
-          fontWeight: 600,
-          color: t.accent,
-        }}>
+        <div className="mt-auto flex items-center gap-[6px] font-sans text-[0.82rem] font-semibold text-brand-accent">
           See how it works →
         </div>
       </div>
@@ -392,92 +344,34 @@ export default function UseCasesPage() {
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <Header />
-      <main style={{ background: t.bg, minHeight: '100vh' }}>
+      <main className="bg-brand-bg min-h-screen">
 
         {/* Hero */}
-        <section style={{
-          maxWidth: '760px',
-          margin: '0 auto',
-          padding: '80px 24px 60px',
-          textAlign: 'center',
-        }}>
-          <div style={{
-            display: 'inline-block',
-            background: t.accentBg,
-            color: t.accent,
-            fontFamily: t.fontSans,
-            fontWeight: 600,
-            fontSize: '0.78rem',
-            letterSpacing: '0.08em',
-            textTransform: 'uppercase',
-            padding: '6px 14px',
-            borderRadius: '20px',
-            marginBottom: '24px',
-          }}>
+        <section className="max-w-[760px] mx-auto pt-20 pb-[60px] px-6 text-center">
+          <div className="inline-block bg-[#FDF4F0] text-brand-accent font-sans font-semibold text-[0.78rem] tracking-[0.08em] uppercase px-[14px] py-[6px] rounded-[20px] mb-6">
             Use Cases
           </div>
-          <h1 style={{
-            fontFamily: t.fontSans,
-            fontWeight: 800,
-            fontSize: 'clamp(2rem, 5vw, 3rem)',
-            color: t.text,
-            margin: '0 0 20px',
-            lineHeight: 1.15,
-            letterSpacing: '-0.03em',
-          }}>
+          <h1 className="font-sans font-extrabold text-[clamp(2rem,5vw,3rem)] text-brand-text mt-0 mb-5 leading-[1.15] tracking-[-0.03em]">
             Churn recovery for<br />every SaaS vertical
           </h1>
-          <p style={{
-            fontFamily: t.fontSerif,
-            fontSize: '1.05rem',
-            color: t.gray,
-            lineHeight: 1.8,
-            margin: '0 0 32px',
-          }}>
+          <p className="font-serif text-[1.05rem] text-brand-gray leading-[1.8] mt-0 mb-8">
             The best cancel flow for a B2B project management tool looks very different
             from the best one for a newsletter. ChurnRecovery adapts to your vertical —
             with the right offers, messaging, and timing for your customers.
           </p>
-          <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link href="/#waitlist" style={{
-              background: t.accent,
-              color: t.white,
-              padding: '12px 28px',
-              borderRadius: '8px',
-              textDecoration: 'none',
-              fontFamily: t.fontSans,
-              fontWeight: 600,
-              fontSize: '0.95rem',
-            }}>
+          <div className="flex gap-3 justify-center flex-wrap">
+            <Link href="/#waitlist" className="bg-brand-accent text-brand-white py-3 px-7 rounded-lg no-underline font-sans font-semibold text-[0.95rem]">
               Join Waitlist
             </Link>
-            <Link href="/demo" style={{
-              background: t.white,
-              color: t.text,
-              padding: '12px 28px',
-              borderRadius: '8px',
-              textDecoration: 'none',
-              fontFamily: t.fontSans,
-              fontWeight: 600,
-              fontSize: '0.95rem',
-              border: `1px solid ${t.border}`,
-            }}>
+            <Link href="/demo" className="bg-brand-white text-brand-text py-3 px-7 rounded-lg no-underline font-sans font-semibold text-[0.95rem] border border-brand-border">
               See how it works
             </Link>
           </div>
         </section>
 
         {/* Use Case Cards Grid */}
-        <section style={{
-          maxWidth: '1100px',
-          margin: '0 auto',
-          padding: '0 24px 80px',
-        }}>
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',
-            gap: '20px',
-          }}>
+        <section className="max-w-[1100px] mx-auto px-6 pb-20">
+          <div className="grid grid-cols-[repeat(auto-fill,minmax(320px,1fr))] gap-5">
             {useCases.map(uc => (
               <UseCaseCard key={uc.slug} useCase={uc} />
             ))}
@@ -485,29 +379,12 @@ export default function UseCasesPage() {
         </section>
 
         {/* Why vertical-specific matters */}
-        <section style={{
-          borderTop: `1px solid ${t.border}`,
-          borderBottom: `1px solid ${t.border}`,
-          background: t.white,
-          padding: '80px 24px',
-        }}>
-          <div style={{ maxWidth: '900px', margin: '0 auto' }}>
-            <h2 style={{
-              fontFamily: t.fontSans,
-              fontWeight: 800,
-              fontSize: '1.8rem',
-              color: t.text,
-              margin: '0 0 48px',
-              textAlign: 'center',
-              letterSpacing: '-0.03em',
-            }}>
+        <section className="border-t border-b border-brand-border bg-brand-white py-20 px-6">
+          <div className="max-w-[900px] mx-auto">
+            <h2 className="font-sans font-extrabold text-[1.8rem] text-brand-text mt-0 mb-12 text-center tracking-[-0.03em]">
               Why vertical-specific flows outperform generic ones
             </h2>
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))',
-              gap: '24px',
-            }}>
+            <div className="grid grid-cols-[repeat(auto-fill,minmax(260px,1fr))] gap-6">
               {[
                 {
                   icon: '🎯',
@@ -530,16 +407,12 @@ export default function UseCasesPage() {
                   body: 'Seat reductions for B2B. Frequency changes for subscriptions. Feature downgrades for SaaS. The mechanics need to match your billing model.',
                 },
               ].map((item, i) => (
-                <div key={i} style={{
-                  padding: '24px',
-                  border: `1px solid ${t.border}`,
-                  borderRadius: '10px',
-                }}>
-                  <div style={{ fontSize: '1.5rem', marginBottom: '12px' }}>{item.icon}</div>
-                  <div style={{ fontFamily: t.fontSans, fontWeight: 700, fontSize: '0.95rem', color: t.text, marginBottom: '8px' }}>
+                <div key={i} className="p-6 border border-brand-border rounded-[10px]">
+                  <div className="text-[1.5rem] mb-3">{item.icon}</div>
+                  <div className="font-sans font-bold text-[0.95rem] text-brand-text mb-2">
                     {item.title}
                   </div>
-                  <div style={{ fontFamily: t.fontSerif, fontSize: '0.85rem', color: t.gray, lineHeight: 1.7 }}>
+                  <div className="font-serif text-[0.85rem] text-brand-gray leading-[1.7]">
                     {item.body}
                   </div>
                 </div>
@@ -549,33 +422,14 @@ export default function UseCasesPage() {
         </section>
 
         {/* How it works — 3 steps */}
-        <section style={{
-          maxWidth: '800px',
-          margin: '0 auto',
-          padding: '80px 24px',
-        }}>
-          <h2 style={{
-            fontFamily: t.fontSans,
-            fontWeight: 800,
-            fontSize: '1.8rem',
-            color: t.text,
-            margin: '0 0 12px',
-            textAlign: 'center',
-            letterSpacing: '-0.03em',
-          }}>
+        <section className="max-w-[800px] mx-auto py-20 px-6">
+          <h2 className="font-sans font-extrabold text-[1.8rem] text-brand-text mt-0 mb-3 text-center tracking-[-0.03em]">
             Set up in under 30 minutes
           </h2>
-          <p style={{
-            fontFamily: t.fontSerif,
-            color: t.gray,
-            textAlign: 'center',
-            marginBottom: '48px',
-            fontSize: '1rem',
-            lineHeight: 1.7,
-          }}>
+          <p className="font-serif text-brand-gray text-center mb-12 text-base leading-[1.7]">
             No matter your vertical, getting started is the same simple process.
           </p>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
+          <div className="flex flex-col">
             {[
               {
                 step: '1',
@@ -593,39 +447,18 @@ export default function UseCasesPage() {
                 body: 'Drop a script tag or npm package into your app. ChurnRecovery intercepts your cancel button and shows the right flow automatically.',
               },
             ].map((step, i, arr) => (
-              <div key={i} style={{
-                display: 'flex',
-                gap: '24px',
+              <div key={i} className="flex gap-6 ml-5 pl-8 relative" style={{
                 paddingBottom: i < arr.length - 1 ? '32px' : '0',
-                borderLeft: i < arr.length - 1 ? `2px solid ${t.border}` : 'none',
-                marginLeft: '20px',
-                paddingLeft: '32px',
-                position: 'relative',
+                borderLeft: i < arr.length - 1 ? '2px solid #E5E5E5' : 'none',
               }}>
-                <div style={{
-                  position: 'absolute',
-                  left: '-20px',
-                  top: '0',
-                  width: '40px',
-                  height: '40px',
-                  background: t.accent,
-                  borderRadius: '50%',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontFamily: t.fontSans,
-                  fontWeight: 800,
-                  fontSize: '0.9rem',
-                  color: t.white,
-                  flexShrink: 0,
-                }}>
+                <div className="absolute -left-5 top-0 w-10 h-10 bg-brand-accent rounded-full flex items-center justify-center font-sans font-extrabold text-[0.9rem] text-brand-white shrink-0">
                   {step.step}
                 </div>
-                <div style={{ paddingTop: '8px' }}>
-                  <div style={{ fontFamily: t.fontSans, fontWeight: 700, fontSize: '1rem', color: t.text, marginBottom: '8px' }}>
+                <div className="pt-2">
+                  <div className="font-sans font-bold text-base text-brand-text mb-2">
                     {step.title}
                   </div>
-                  <div style={{ fontFamily: t.fontSerif, fontSize: '0.9rem', color: t.gray, lineHeight: 1.7 }}>
+                  <div className="font-serif text-[0.9rem] text-brand-gray leading-[1.7]">
                     {step.body}
                   </div>
                 </div>
@@ -635,28 +468,12 @@ export default function UseCasesPage() {
         </section>
 
         {/* CTA */}
-        <section style={{
-          background: t.text,
-          padding: '80px 24px',
-        }}>
-          <div style={{ maxWidth: '560px', margin: '0 auto', textAlign: 'center' }}>
-            <h2 style={{
-              fontFamily: t.fontSans,
-              fontWeight: 800,
-              fontSize: '2rem',
-              color: t.white,
-              margin: '0 0 16px',
-              letterSpacing: '-0.03em',
-            }}>
+        <section className="bg-brand-text py-20 px-6">
+          <div className="max-w-[560px] mx-auto text-center">
+            <h2 className="font-sans font-extrabold text-[2rem] text-brand-white mt-0 mb-4 tracking-[-0.03em]">
               Free for every vertical
             </h2>
-            <p style={{
-              fontFamily: t.fontSerif,
-              fontSize: '1rem',
-              color: 'rgba(255,255,255,0.7)',
-              lineHeight: 1.8,
-              margin: '0 0 32px',
-            }}>
+            <p className="font-serif text-base text-white/70 leading-[1.8] mt-0 mb-8">
               Whether you're a B2B SaaS company or a solo newsletter creator,
               ChurnRecovery is free to use. No plans. No usage limits. No catch.
             </p>

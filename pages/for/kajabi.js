@@ -69,16 +69,16 @@ function KajabiWaitlistForm({ dark = false }) {
         <div className="text-[2rem] mb-2">
           {status === 'duplicate' ? '👋' : '🎉'}
         </div>
-        <p className="font-['Instrument_Sans',sans-serif] font-bold text-base m-0 mb-[6px]" style={{ color: dark ? '#FFFFFF' : '#191919' }}>
+        <p className="font-sans font-bold text-base m-0 mb-[6px]" style={{ color: dark ? '#FFFFFF' : '#191919' }}>
           {status === 'duplicate' ? "You're already on the list!" : "You're in! We'll be in touch soon."}
         </p>
-        <p className="font-['Merriweather',serif] text-[0.85rem] m-0" style={{ color: subtextColor }}>
+        <p className="font-serif text-[0.85rem] m-0" style={{ color: subtextColor }}>
           {status === 'duplicate'
             ? "We've got your email — we'll reach out when we launch."
             : "Free beta access for Kajabi creators. We'll email you when we're ready."}
         </p>
         {count && (
-          <p className="font-['Instrument_Sans',sans-serif] text-[0.75rem] mt-2.5 mb-0 mx-0" style={{ color: subtextColor }}>
+          <p className="font-sans text-[0.75rem] mt-2.5 mb-0 mx-0" style={{ color: subtextColor }}>
             Join {count.toLocaleString()} creators on the waitlist
           </p>
         )}
@@ -97,7 +97,7 @@ function KajabiWaitlistForm({ dark = false }) {
           required
           autoComplete="email"
           aria-label="Email address"
-          className="py-[13px] px-4 rounded-lg font-['Instrument_Sans',sans-serif] text-[0.95rem] outline-none"
+          className="py-[13px] px-4 rounded-lg font-sans text-[0.95rem] outline-none"
           style={{
             border: `1px solid ${error ? '#DC2626' : borderColor}`,
             background: bgColor, color: textColor,
@@ -106,7 +106,7 @@ function KajabiWaitlistForm({ dark = false }) {
         <button
           type="submit"
           disabled={status === 'loading'}
-          className="py-3.5 px-7 rounded-lg border-none font-['Instrument_Sans',sans-serif] font-bold text-base text-[#1A1200] transition-[background] duration-150"
+          className="py-3.5 px-7 rounded-lg border-none font-sans font-bold text-base text-[#1A1200] transition-[background] duration-150"
           style={{
             background: status === 'loading' ? '#999999' : '#E8A000',
             cursor: status === 'loading' ? 'not-allowed' : 'pointer',
@@ -118,19 +118,19 @@ function KajabiWaitlistForm({ dark = false }) {
         <input type="hidden" name="tag" value="kajabi-creator" />
       </form>
       {error && (
-        <p className="font-['Instrument_Sans',sans-serif] text-[0.8rem] text-[#DC2626] mt-2 mb-0 mx-0">
+        <p className="font-sans text-[0.8rem] text-[#DC2626] mt-2 mb-0 mx-0">
           ⚠ {error}
         </p>
       )}
       <div className="flex gap-4 mt-3 flex-wrap">
-        <span className="font-['Instrument_Sans',sans-serif] text-[0.78rem]" style={{ color: subtextColor }}>
+        <span className="font-sans text-[0.78rem]" style={{ color: subtextColor }}>
           🆓 Free during beta
         </span>
-        <span className="font-['Instrument_Sans',sans-serif] text-[0.78rem]" style={{ color: subtextColor }}>
+        <span className="font-sans text-[0.78rem]" style={{ color: subtextColor }}>
           🔒 No credit card required
         </span>
         {count && (
-          <span className="font-['Instrument_Sans',sans-serif] text-[0.78rem]" style={{ color: subtextColor }}>
+          <span className="font-sans text-[0.78rem]" style={{ color: subtextColor }}>
             <span className="text-[#2D7A4F]">●</span> {count.toLocaleString()} on waitlist
           </span>
         )}
@@ -144,20 +144,20 @@ function PainCard({ icon, title, stat, statLabel, description }) {
   return (
     <div className="bg-white border border-[#E5E5E5] rounded-xl py-7 px-6 border-t-[3px] border-t-[#E8A000]">
       <div className="text-[2rem] mb-3">{icon}</div>
-      <h3 className="font-['Instrument_Sans',sans-serif] text-base font-bold text-[#191919] m-0 mb-2">
+      <h3 className="font-sans text-base font-bold text-[#191919] m-0 mb-2">
         {title}
       </h3>
       {stat && (
-        <div className="font-['Instrument_Sans',sans-serif] font-extrabold text-[2rem] text-[#E8A000] my-1">
+        <div className="font-sans font-extrabold text-[2rem] text-[#E8A000] my-1">
           {stat}
         </div>
       )}
       {statLabel && (
-        <div className="font-['Instrument_Sans',sans-serif] text-[0.8rem] text-[#D97706] mb-2">
+        <div className="font-sans text-[0.8rem] text-[#D97706] mb-2">
           {statLabel}
         </div>
       )}
-      <p className="font-['Merriweather',serif] text-[0.88rem] text-[#666666] m-0 leading-[1.6]">
+      <p className="font-serif text-[0.88rem] text-[#666666] m-0 leading-[1.6]">
         {description}
       </p>
     </div>
@@ -169,21 +169,21 @@ function HowStep({ number, icon, title, description, callout }) {
   return (
     <div className="bg-white border border-[#E5E5E5] rounded-xl py-7 px-6">
       <div className="flex gap-4 items-start mb-4">
-        <div className="w-12 h-12 rounded-full bg-[rgba(232,160,0,0.1)] border-2 border-[#E8A000] flex items-center justify-center font-['Instrument_Sans',sans-serif] font-extrabold text-[1.1rem] text-[#E8A000] shrink-0">
+        <div className="w-12 h-12 rounded-full bg-[rgba(232,160,0,0.1)] border-2 border-[#E8A000] flex items-center justify-center font-sans font-extrabold text-[1.1rem] text-[#E8A000] shrink-0">
           {number}
         </div>
         <div>
           <div className="text-[1.6rem] mb-1">{icon}</div>
-          <h3 className="font-['Instrument_Sans',sans-serif] text-[1.05rem] font-bold text-[#191919] m-0">
+          <h3 className="font-sans text-[1.05rem] font-bold text-[#191919] m-0">
             {title}
           </h3>
         </div>
       </div>
-      <p className="font-['Merriweather',serif] text-[0.9rem] text-[#666666] m-0 mb-3 leading-[1.7]">
+      <p className="font-serif text-[0.9rem] text-[#666666] m-0 mb-3 leading-[1.7]">
         {description}
       </p>
       {callout && (
-        <div className="bg-[rgba(232,160,0,0.08)] border border-[rgba(232,160,0,0.25)] rounded-lg py-2.5 px-3.5 font-['Instrument_Sans',sans-serif] text-[0.8rem] text-[#D97706]">
+        <div className="bg-[rgba(232,160,0,0.08)] border border-[rgba(232,160,0,0.25)] rounded-lg py-2.5 px-3.5 font-sans text-[0.8rem] text-[#D97706]">
           {callout}
         </div>
       )}
@@ -197,10 +197,10 @@ function BenefitCard({ icon, title, description }) {
     <div className="flex gap-3.5 items-start bg-white border border-[#E5E5E5] rounded-[10px] p-5">
       <span className="text-[1.4rem] shrink-0">{icon}</span>
       <div>
-        <h4 className="font-['Instrument_Sans',sans-serif] text-[0.92rem] font-bold text-[#191919] m-0 mb-1">
+        <h4 className="font-sans text-[0.92rem] font-bold text-[#191919] m-0 mb-1">
           {title}
         </h4>
-        <p className="font-['Merriweather',serif] text-[0.82rem] text-[#666666] m-0 leading-[1.55]">
+        <p className="font-serif text-[0.82rem] text-[#666666] m-0 leading-[1.55]">
           {description}
         </p>
       </div>
@@ -217,7 +217,7 @@ function FAQItem({ q, a }) {
         onClick={() => setOpen(!open)}
         className="w-full bg-white border-none cursor-pointer py-4 px-5 flex justify-between items-center gap-3 text-left"
       >
-        <span className="font-['Instrument_Sans',sans-serif] font-semibold text-[0.93rem] text-[#191919]">
+        <span className="font-sans font-semibold text-[0.93rem] text-[#191919]">
           {q}
         </span>
         <span className="text-[#E8A000] text-[1.2rem] font-bold shrink-0">
@@ -226,7 +226,7 @@ function FAQItem({ q, a }) {
       </button>
       {open && (
         <div className="pt-0 px-5 pb-4 bg-[#FAF9F5]">
-          <p className="font-['Merriweather',serif] text-[0.88rem] text-[#666666] m-0 leading-[1.7]">
+          <p className="font-serif text-[0.88rem] text-[#666666] m-0 leading-[1.7]">
             {a}
           </p>
         </div>
@@ -254,7 +254,7 @@ export default function KajabiLandingPage() {
 
       <Header />
 
-      <main className="font-['Instrument_Sans',sans-serif] bg-[#FAF9F5] pt-[60px]">
+      <main className="font-sans bg-[#FAF9F5] pt-[60px]">
 
         {/* ─── SECTION 1: HERO ─────────────────────────────────────────── */}
         <section className="bg-[linear-gradient(135deg,#1A1200_0%,#2D1E00_50%,#1A1200_100%)] pt-20 px-6 pb-[100px] relative overflow-hidden">
@@ -263,16 +263,16 @@ export default function KajabiLandingPage() {
 
           <div className="max-w-[720px] mx-auto text-center relative z-[1]">
             {/* Trust badge */}
-            <div className="inline-flex items-center gap-1.5 bg-[rgba(232,160,0,0.15)] border border-[rgba(232,160,0,0.35)] rounded-full py-1.5 px-4 font-['Instrument_Sans',sans-serif] text-[0.78rem] font-semibold text-[#F5C842] mb-[28px]">
+            <div className="inline-flex items-center gap-1.5 bg-[rgba(232,160,0,0.15)] border border-[rgba(232,160,0,0.35)] rounded-full py-1.5 px-4 font-sans text-[0.78rem] font-semibold text-[#F5C842] mb-[28px]">
               <span>✓</span> Free for Kajabi Creators · No Credit Card Required
             </div>
 
-            <h1 className="font-['Instrument_Sans',sans-serif] font-extrabold text-[clamp(2.2rem,5vw,3.5rem)] text-white m-0 mb-5 leading-[1.15] tracking-[-0.02em]">
+            <h1 className="font-sans font-extrabold text-[clamp(2.2rem,5vw,3.5rem)] text-white m-0 mb-5 leading-[1.15] tracking-[-0.02em]">
               Stop Losing Kajabi Members<br />
               <span className="text-[#F5C842]">at the Cancel Screen</span>
             </h1>
 
-            <p className="font-['Merriweather',serif] text-[clamp(1rem,2.5vw,1.2rem)] text-[rgba(255,255,255,0.75)] m-0 mb-10 leading-[1.7] max-w-[600px] ml-auto mr-auto">
+            <p className="font-serif text-[clamp(1rem,2.5vw,1.2rem)] text-[rgba(255,255,255,0.75)] m-0 mb-10 leading-[1.7] max-w-[600px] ml-auto mr-auto">
               Most Kajabi creators don&apos;t realize it — but their memberships run on Stripe. That means you can intercept cancellations with a smooth cancel flow: a pause offer, a discount, or a simple &quot;why are you leaving?&quot; All without touching Kajabi&apos;s settings.
             </p>
 
@@ -281,16 +281,16 @@ export default function KajabiLandingPage() {
             </div>
 
             <div className="flex gap-5 justify-center flex-wrap">
-              <span className="font-['Instrument_Sans',sans-serif] text-[0.8rem] text-[rgba(255,255,255,0.5)]">
+              <span className="font-sans text-[0.8rem] text-[rgba(255,255,255,0.5)]">
                 🆓 Free tier available — no Kajabi approval needed
               </span>
-              <span className="font-['Instrument_Sans',sans-serif] text-[0.8rem] text-[rgba(255,255,255,0.5)]">
+              <span className="font-sans text-[0.8rem] text-[rgba(255,255,255,0.5)]">
                 ⚡ 3 steps, no code
               </span>
             </div>
 
             <div className="mt-5">
-              <Link href="/demo" className="font-['Instrument_Sans',sans-serif] text-[0.9rem] text-[rgba(255,255,255,0.6)] no-underline border-b border-b-[rgba(255,255,255,0.3)]">
+              <Link href="/demo" className="font-sans text-[0.9rem] text-[rgba(255,255,255,0.6)] no-underline border-b border-b-[rgba(255,255,255,0.3)]">
                 See how it works ↓
               </Link>
             </div>
@@ -301,13 +301,13 @@ export default function KajabiLandingPage() {
         <section className="py-20 px-6 bg-[#FAF9F5]">
           <div className="max-w-[1080px] mx-auto">
             <div className="text-center mb-12">
-              <div className="font-['Instrument_Sans',sans-serif] text-[0.75rem] font-bold text-[#D97706] uppercase tracking-[0.08em] mb-3">
+              <div className="font-sans text-[0.75rem] font-bold text-[#D97706] uppercase tracking-[0.08em] mb-3">
                 The Hidden Revenue Leak
               </div>
-              <h2 className="font-['Instrument_Sans',sans-serif] font-extrabold text-[clamp(1.8rem,4vw,2.5rem)] text-[#191919] m-0 mb-4 tracking-[-0.02em]">
+              <h2 className="font-sans font-extrabold text-[clamp(1.8rem,4vw,2.5rem)] text-[#191919] m-0 mb-4 tracking-[-0.02em]">
                 Every Kajabi Cancellation =<br />Lost Recurring Revenue
               </h2>
-              <p className="font-['Merriweather',serif] text-base text-[#666666] max-w-[540px] mx-auto leading-[1.7]">
+              <p className="font-serif text-base text-[#666666] max-w-[540px] mx-auto leading-[1.7]">
                 Kajabi gives you beautiful course pages — but zero protection against members walking out the door. Right now, they can cancel in seconds and you&apos;ll never know why.
               </p>
             </div>
@@ -338,13 +338,13 @@ export default function KajabiLandingPage() {
         <section id="how-it-works" className="py-20 px-6 bg-white">
           <div className="max-w-[1080px] mx-auto">
             <div className="text-center mb-12">
-              <div className="font-['Instrument_Sans',sans-serif] text-[0.75rem] font-bold text-[#E8A000] uppercase tracking-[0.08em] mb-3">
+              <div className="font-sans text-[0.75rem] font-bold text-[#E8A000] uppercase tracking-[0.08em] mb-3">
                 3 Steps, No Code
               </div>
-              <h2 className="font-['Instrument_Sans',sans-serif] font-extrabold text-[clamp(1.8rem,4vw,2.5rem)] text-[#191919] m-0 mb-4 tracking-[-0.02em]">
+              <h2 className="font-sans font-extrabold text-[clamp(1.8rem,4vw,2.5rem)] text-[#191919] m-0 mb-4 tracking-[-0.02em]">
                 Works With Kajabi in Minutes
               </h2>
-              <p className="font-['Merriweather',serif] text-base text-[#666666] max-w-[480px] mx-auto leading-[1.7]">
+              <p className="font-serif text-base text-[#666666] max-w-[480px] mx-auto leading-[1.7]">
                 Kajabi uses Stripe for payments. ChurnRecovery connects to Stripe — not Kajabi. No plugins, no approval needed.
               </p>
             </div>
@@ -374,22 +374,22 @@ export default function KajabiLandingPage() {
 
             {/* Technical callout */}
             <div className="mt-8 bg-[rgba(232,160,0,0.05)] border border-[rgba(232,160,0,0.25)] border-l-4 border-l-[#E8A000] rounded-[10px] py-5 px-6 max-w-[680px] mx-auto">
-              <p className="font-['Instrument_Sans',sans-serif] font-bold text-[#191919] m-0 mb-2 text-[0.95rem]">
+              <p className="font-sans font-bold text-[#191919] m-0 mb-2 text-[0.95rem]">
                 &ldquo;Does Kajabi even let you do this?&rdquo;
               </p>
-              <p className="font-['Merriweather',serif] text-[0.88rem] text-[#666666] m-0 mb-2.5 leading-[1.7]">
+              <p className="font-serif text-[0.88rem] text-[#666666] m-0 mb-2.5 leading-[1.7]">
                 Yes — because ChurnRecovery works at the Stripe level, not the Kajabi level. Kajabi uses Stripe to process your membership payments. By connecting directly to your Stripe account, we can listen for cancellation events and respond — completely outside Kajabi&apos;s ecosystem.
               </p>
-              <Link href="/docs" className="font-['Instrument_Sans',sans-serif] text-[0.82rem] text-[#E8A000] no-underline font-semibold">
+              <Link href="/docs" className="font-sans text-[0.82rem] text-[#E8A000] no-underline font-semibold">
                 Technical integration docs →
               </Link>
             </div>
 
             <div className="text-center mt-10">
-              <Link href="/demo" className="inline-flex items-center gap-2 bg-[rgba(232,160,0,0.1)] border border-[rgba(232,160,0,0.3)] rounded-[10px] py-3.5 px-7 font-['Instrument_Sans',sans-serif] font-bold text-[#E8A000] no-underline text-[0.95rem]">
+              <Link href="/demo" className="inline-flex items-center gap-2 bg-[rgba(232,160,0,0.1)] border border-[rgba(232,160,0,0.3)] rounded-[10px] py-3.5 px-7 font-sans font-bold text-[#E8A000] no-underline text-[0.95rem]">
                 🎮 Try the Interactive Demo
               </Link>
-              <p className="font-['Instrument_Sans',sans-serif] text-[0.78rem] text-[#999999] mt-2">
+              <p className="font-sans text-[0.78rem] text-[#999999] mt-2">
                 See a live cancel flow in action — no signup required
               </p>
             </div>
@@ -400,10 +400,10 @@ export default function KajabiLandingPage() {
         <section className="py-20 px-6 bg-[#FAF9F5]">
           <div className="max-w-[1080px] mx-auto">
             <div className="text-center mb-12">
-              <div className="font-['Instrument_Sans',sans-serif] text-[0.75rem] font-bold text-[#E8A000] uppercase tracking-[0.08em] mb-3">
+              <div className="font-sans text-[0.75rem] font-bold text-[#E8A000] uppercase tracking-[0.08em] mb-3">
                 What You Get
               </div>
-              <h2 className="font-['Instrument_Sans',sans-serif] font-extrabold text-[clamp(1.8rem,4vw,2.5rem)] text-[#191919] m-0 tracking-[-0.02em]">
+              <h2 className="font-sans font-extrabold text-[clamp(1.8rem,4vw,2.5rem)] text-[#191919] m-0 tracking-[-0.02em]">
                 Everything to Protect Your Membership Revenue
               </h2>
             </div>
@@ -446,10 +446,10 @@ export default function KajabiLandingPage() {
         {/* ─── SECTION 5: PRICING ──────────────────────────────────────── */}
         <section className="py-20 px-6 bg-white">
           <div className="max-w-[680px] mx-auto text-center">
-            <h2 className="font-['Instrument_Sans',sans-serif] font-extrabold text-[clamp(1.8rem,4vw,2.5rem)] text-[#191919] m-0 mb-5 tracking-[-0.02em]">
+            <h2 className="font-sans font-extrabold text-[clamp(1.8rem,4vw,2.5rem)] text-[#191919] m-0 mb-5 tracking-[-0.02em]">
               A Fraction of What Kajabi Costs You
             </h2>
-            <p className="font-['Merriweather',serif] text-base text-[#666666] leading-[1.7] m-0 mb-8">
+            <p className="font-serif text-base text-[#666666] leading-[1.7] m-0 mb-8">
               Kajabi charges $119/month just to run your courses. ChurnRecovery starts free — and helps you actually keep the revenue you&apos;re earning.
             </p>
 
@@ -462,18 +462,18 @@ export default function KajabiLandingPage() {
               ].map(({ tier, price, range, highlight }) => (
                 <div key={tier} className={`rounded-[10px] p-[18px] relative ${highlight ? 'bg-[rgba(232,160,0,0.08)] border border-[#E8A000]' : 'bg-[#FAF9F5] border border-[#E5E5E5]'}`}>
                   {highlight && (
-                    <div className="absolute top-[-10px] left-1/2 -translate-x-1/2 bg-[#E8A000] text-[#1A1200] font-['Instrument_Sans',sans-serif] text-[0.7rem] font-bold py-[3px] px-2.5 rounded-full">
+                    <div className="absolute top-[-10px] left-1/2 -translate-x-1/2 bg-[#E8A000] text-[#1A1200] font-sans text-[0.7rem] font-bold py-[3px] px-2.5 rounded-full">
                       START HERE
                     </div>
                   )}
-                  <div className="font-['Instrument_Sans',sans-serif] font-bold text-[#191919] text-[0.9rem]">{tier}</div>
-                  <div className={`font-['Instrument_Sans',sans-serif] font-extrabold text-[1.4rem] my-1 ${highlight ? 'text-[#E8A000]' : 'text-[#191919]'}`}>{price}</div>
-                  <div className="font-['Merriweather',serif] text-[0.78rem] text-[#666666]">{range}</div>
+                  <div className="font-sans font-bold text-[#191919] text-[0.9rem]">{tier}</div>
+                  <div className={`font-sans font-extrabold text-[1.4rem] my-1 ${highlight ? 'text-[#E8A000]' : 'text-[#191919]'}`}>{price}</div>
+                  <div className="font-serif text-[0.78rem] text-[#666666]">{range}</div>
                 </div>
               ))}
             </div>
 
-            <div className="bg-[#EDF7F1] border border-[#C6E6D4] rounded-[10px] py-3.5 px-5 font-['Instrument_Sans',sans-serif] text-[0.88rem] text-[#2D7A4F] mb-6">
+            <div className="bg-[#EDF7F1] border border-[#C6E6D4] rounded-[10px] py-3.5 px-5 font-sans text-[0.88rem] text-[#2D7A4F] mb-6">
               Compare to Kajabi ($119–$399/mo) which has zero built-in churn recovery. ChurnRecovery pays for itself the first time you save a member.
             </div>
           </div>
@@ -483,7 +483,7 @@ export default function KajabiLandingPage() {
         <section className="py-20 px-6 bg-[#FAF9F5]">
           <div className="max-w-[720px] mx-auto">
             <div className="text-center mb-10">
-              <h2 className="font-['Instrument_Sans',sans-serif] font-extrabold text-[clamp(1.8rem,4vw,2.5rem)] text-[#191919] m-0 tracking-[-0.02em]">
+              <h2 className="font-sans font-extrabold text-[clamp(1.8rem,4vw,2.5rem)] text-[#191919] m-0 tracking-[-0.02em]">
                 Questions From Kajabi Creators
               </h2>
             </div>
@@ -526,11 +526,11 @@ export default function KajabiLandingPage() {
         {/* ─── SECTION 7: FINAL CTA ────────────────────────────────────── */}
         <section className="bg-[linear-gradient(135deg,#1A1200_0%,#2D1E00_100%)] py-20 px-6">
           <div className="max-w-[600px] mx-auto text-center">
-            <h2 className="font-['Instrument_Sans',sans-serif] font-extrabold text-[clamp(1.8rem,4vw,2.6rem)] text-white m-0 mb-5 leading-[1.2] tracking-[-0.02em]">
+            <h2 className="font-sans font-extrabold text-[clamp(1.8rem,4vw,2.6rem)] text-white m-0 mb-5 leading-[1.2] tracking-[-0.02em]">
               A Kajabi Member Is About to Cancel.<br />
               <span className="text-[#F5C842]">Will You Be Ready?</span>
             </h2>
-            <p className="font-['Merriweather',serif] text-base text-[rgba(255,255,255,0.7)] m-0 mb-9 leading-[1.7]">
+            <p className="font-serif text-base text-[rgba(255,255,255,0.7)] m-0 mb-9 leading-[1.7]">
               Join the waitlist. Be first to protect your Kajabi membership revenue with automated churn recovery. Free to start — no Kajabi approval needed.
             </p>
 
@@ -539,13 +539,13 @@ export default function KajabiLandingPage() {
             </div>
 
             <div className="flex gap-6 justify-center mt-6 flex-wrap">
-              <span className="font-['Instrument_Sans',sans-serif] text-[0.78rem] text-[rgba(255,255,255,0.45)]">
+              <span className="font-sans text-[0.78rem] text-[rgba(255,255,255,0.45)]">
                 Free during beta
               </span>
-              <span className="font-['Instrument_Sans',sans-serif] text-[0.78rem] text-[rgba(255,255,255,0.45)]">
+              <span className="font-sans text-[0.78rem] text-[rgba(255,255,255,0.45)]">
                 Cancel anytime
               </span>
-              <span className="font-['Instrument_Sans',sans-serif] text-[0.78rem] text-[rgba(255,255,255,0.45)]">
+              <span className="font-sans text-[0.78rem] text-[rgba(255,255,255,0.45)]">
                 No spam, ever
               </span>
             </div>

@@ -5,21 +5,6 @@ import Footer from '../../components/Footer'
 import WaitlistForm from '../../components/WaitlistForm'
 import { useCases, getUseCaseBySlug, getAllUseCaseSlugs } from '../../lib/use-cases'
 
-const t = {
-  bg: '#FAF9F5',
-  text: '#191919',
-  gray: '#666666',
-  grayLight: '#999999',
-  accent: '#D97757',
-  accentBg: '#FDF4F0',
-  border: '#E5E5E5',
-  white: '#FFFFFF',
-  green: '#2D7A4F',
-  greenBg: '#EDF7F1',
-  fontSans: '"Instrument Sans", sans-serif',
-  fontSerif: '"Merriweather", serif',
-}
-
 export async function getStaticPaths() {
   const slugs = getAllUseCaseSlugs()
   return {
@@ -48,103 +33,64 @@ export default function UseCaseDetailPage({ useCase, others }) {
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <Header />
-      <main style={{ background: t.bg, minHeight: '100vh' }}>
+      <main className="bg-brand-bg min-h-screen">
 
         {/* Hero */}
-        <section style={{ maxWidth: '760px', margin: '0 auto', padding: '60px 24px 48px' }}>
-          <Link href="/use-cases" style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '6px',
-            fontFamily: t.fontSans,
-            fontSize: '0.82rem',
-            color: t.grayLight,
-            textDecoration: 'none',
-            marginBottom: '32px',
-          }}>
+        <section className="max-w-[760px] mx-auto pt-[60px] pb-12 px-6">
+          <Link href="/use-cases" className="inline-flex items-center gap-[6px] font-sans text-[0.82rem] text-brand-gray-light no-underline mb-8">
             ← All use cases
           </Link>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '24px' }}>
-            <span style={{ fontSize: '3rem' }}>{useCase.icon}</span>
+          <div className="flex items-center gap-4 mb-6">
+            <span className="text-[3rem]">{useCase.icon}</span>
             <div>
-              <div style={{
-                fontFamily: t.fontSans,
-                fontWeight: 800,
-                fontSize: 'clamp(1.6rem, 4vw, 2.5rem)',
-                color: t.text,
-                letterSpacing: '-0.03em',
-                lineHeight: 1.1,
-              }}>
+              <div className="font-sans font-extrabold text-[clamp(1.6rem,4vw,2.5rem)] text-brand-text tracking-[-0.03em] leading-[1.1]">
                 {useCase.title}
               </div>
-              <div style={{ fontFamily: t.fontSerif, fontSize: '1rem', color: t.gray, marginTop: '6px' }}>
+              <div className="font-serif text-base text-brand-gray mt-[6px]">
                 {useCase.subtitle}
               </div>
             </div>
           </div>
-          <div style={{
-            background: useCase.colorBg,
-            borderRadius: '12px',
-            padding: '20px 24px',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '16px',
-            marginBottom: '24px',
-          }}>
-            <span style={{ fontFamily: t.fontSans, fontWeight: 800, fontSize: '2.5rem', color: useCase.color }}>
+          <div
+            className="rounded-xl py-5 px-6 flex items-center gap-4 mb-6"
+            style={{ background: useCase.colorBg }}
+          >
+            <span className="font-sans font-extrabold text-[2.5rem]" style={{ color: useCase.color }}>
               {useCase.heroStat}
             </span>
-            <span style={{ fontFamily: t.fontSerif, fontSize: '1rem', color: useCase.color, lineHeight: 1.6 }}>
+            <span className="font-serif text-base leading-[1.6]" style={{ color: useCase.color }}>
               {useCase.heroLabel}
             </span>
           </div>
-          <p style={{ fontFamily: t.fontSerif, fontSize: '1rem', color: t.gray, lineHeight: 1.8, margin: 0 }}>
+          <p className="font-serif text-base text-brand-gray leading-[1.8] m-0">
             {useCase.description}
           </p>
         </section>
 
         {/* Key metrics */}
-        <section style={{ maxWidth: '760px', margin: '0 auto', padding: '0 24px 48px' }}>
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))',
-            gap: '16px',
-          }}>
+        <section className="max-w-[760px] mx-auto px-6 pb-12">
+          <div className="grid grid-cols-[repeat(auto-fill,minmax(180px,1fr))] gap-4">
             {useCase.metrics.map((m, i) => (
-              <div key={i} style={{
-                background: t.white,
-                border: `1px solid ${t.border}`,
-                borderRadius: '10px',
-                padding: '20px',
-                textAlign: 'center',
-              }}>
-                <div style={{ fontFamily: t.fontSans, fontWeight: 800, fontSize: '1.5rem', color: useCase.color, marginBottom: '4px' }}>
+              <div key={i} className="bg-brand-white border border-brand-border rounded-[10px] p-5 text-center">
+                <div className="font-sans font-extrabold text-[1.5rem] mb-1" style={{ color: useCase.color }}>
                   {m.value}
                 </div>
-                <div style={{ fontFamily: t.fontSerif, fontSize: '0.78rem', color: t.grayLight }}>{m.label}</div>
+                <div className="font-serif text-[0.78rem] text-brand-gray-light">{m.label}</div>
               </div>
             ))}
           </div>
         </section>
 
         {/* Challenges */}
-        <section style={{ background: t.white, borderTop: `1px solid ${t.border}`, borderBottom: `1px solid ${t.border}`, padding: '48px 24px' }}>
-          <div style={{ maxWidth: '760px', margin: '0 auto' }}>
-            <h2 style={{ fontFamily: t.fontSans, fontWeight: 700, fontSize: '1.3rem', color: t.text, margin: '0 0 24px', letterSpacing: '-0.02em' }}>
+        <section className="bg-brand-white border-t border-b border-brand-border py-12 px-6">
+          <div className="max-w-[760px] mx-auto">
+            <h2 className="font-sans font-bold text-[1.3rem] text-brand-text mt-0 mb-6 tracking-[-0.02em]">
               The {useCase.title} churn challenge
             </h2>
-            <ul style={{ margin: 0, padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+            <ul className="m-0 p-0 list-none flex flex-col gap-3">
               {useCase.challenges.map((c, i) => (
-                <li key={i} style={{
-                  display: 'flex',
-                  alignItems: 'flex-start',
-                  gap: '12px',
-                  fontFamily: t.fontSerif,
-                  fontSize: '0.95rem',
-                  color: t.gray,
-                  lineHeight: 1.7,
-                }}>
-                  <span style={{ color: '#DC2626', marginTop: '3px', flexShrink: 0 }}>✗</span>
+                <li key={i} className="flex items-start gap-3 font-serif text-[0.95rem] text-brand-gray leading-[1.7]">
+                  <span className="text-[#DC2626] mt-[3px] shrink-0">✗</span>
                   {c}
                 </li>
               ))}
@@ -153,28 +99,20 @@ export default function UseCaseDetailPage({ useCase, others }) {
         </section>
 
         {/* Solutions */}
-        <section style={{ maxWidth: '760px', margin: '0 auto', padding: '48px 24px' }}>
-          <h2 style={{ fontFamily: t.fontSans, fontWeight: 700, fontSize: '1.3rem', color: t.text, margin: '0 0 24px', letterSpacing: '-0.02em' }}>
+        <section className="max-w-[760px] mx-auto py-12 px-6">
+          <h2 className="font-sans font-bold text-[1.3rem] text-brand-text mt-0 mb-6 tracking-[-0.02em]">
             How ChurnRecovery handles it
           </h2>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+          <div className="flex flex-col gap-4">
             {useCase.solutions.map((s, i) => (
-              <div key={i} style={{
-                background: t.white,
-                border: `1px solid ${t.border}`,
-                borderRadius: '10px',
-                padding: '20px 24px',
-                display: 'flex',
-                gap: '16px',
-                alignItems: 'flex-start',
-              }}>
-                <span style={{ fontSize: '1.8rem', flexShrink: 0 }}>{s.icon}</span>
+              <div key={i} className="bg-brand-white border border-brand-border rounded-[10px] py-5 px-6 flex gap-4 items-start">
+                <span className="text-[1.8rem] shrink-0">{s.icon}</span>
                 <div>
-                  <div style={{ fontFamily: t.fontSans, fontWeight: 600, fontSize: '0.85rem', color: '#DC2626', marginBottom: '6px' }}>
+                  <div className="font-sans font-semibold text-[0.85rem] text-[#DC2626] mb-[6px]">
                     Problem: {s.problem}
                   </div>
-                  <div style={{ fontFamily: t.fontSerif, fontSize: '0.95rem', color: t.text, lineHeight: 1.6 }}>
-                    <span style={{ fontWeight: 600, color: t.green }}>→ </span>
+                  <div className="font-serif text-[0.95rem] text-brand-text leading-[1.6]">
+                    <span className="font-semibold text-brand-green">→ </span>
                     {s.solution}
                   </div>
                 </div>
@@ -184,72 +122,39 @@ export default function UseCaseDetailPage({ useCase, others }) {
         </section>
 
         {/* Quote */}
-        <section style={{
-          background: useCase.colorBg,
-          borderTop: `1px solid ${t.border}`,
-          borderBottom: `1px solid ${t.border}`,
-          padding: '48px 24px',
-        }}>
-          <div style={{ maxWidth: '640px', margin: '0 auto', textAlign: 'center' }}>
-            <div style={{ fontSize: '2rem', marginBottom: '16px', color: useCase.color }}>❝</div>
-            <blockquote style={{
-              fontFamily: t.fontSerif,
-              fontSize: '1.1rem',
-              color: t.text,
-              lineHeight: 1.8,
-              margin: '0 0 16px',
-              fontStyle: 'italic',
-            }}>
+        <section
+          className="border-t border-b border-brand-border py-12 px-6"
+          style={{ background: useCase.colorBg }}
+        >
+          <div className="max-w-[640px] mx-auto text-center">
+            <div className="text-[2rem] mb-4" style={{ color: useCase.color }}>❝</div>
+            <blockquote className="font-serif text-[1.1rem] text-brand-text leading-[1.8] mt-0 mb-4 italic">
               {useCase.quote.text}
             </blockquote>
-            <div style={{ fontFamily: t.fontSans, fontSize: '0.82rem', color: useCase.color, fontWeight: 600 }}>
+            <div className="font-sans text-[0.82rem] font-semibold" style={{ color: useCase.color }}>
               — {useCase.quote.author}
             </div>
           </div>
         </section>
 
         {/* Code example */}
-        <section style={{ maxWidth: '760px', margin: '0 auto', padding: '48px 24px' }}>
-          <h2 style={{ fontFamily: t.fontSans, fontWeight: 700, fontSize: '1.3rem', color: t.text, margin: '0 0 16px', letterSpacing: '-0.02em' }}>
+        <section className="max-w-[760px] mx-auto py-12 px-6">
+          <h2 className="font-sans font-bold text-[1.3rem] text-brand-text mt-0 mb-4 tracking-[-0.02em]">
             Implementation example
           </h2>
-          <p style={{ fontFamily: t.fontSerif, fontSize: '0.9rem', color: t.gray, lineHeight: 1.7, margin: '0 0 20px' }}>
+          <p className="font-serif text-[0.9rem] text-brand-gray leading-[1.7] mt-0 mb-5">
             Get a cancel flow working in under 30 minutes:
           </p>
-          <div style={{
-            background: '#1A1A2E',
-            borderRadius: '10px',
-            padding: '24px',
-            overflow: 'auto',
-          }}>
-            <pre style={{
-              margin: 0,
-              fontFamily: '"Fira Code", "Cascadia Code", monospace',
-              fontSize: '0.8rem',
-              color: '#E2E8F0',
-              lineHeight: 1.7,
-              whiteSpace: 'pre-wrap',
-              wordBreak: 'break-word',
-            }}>
+          <div className="bg-[#1A1A2E] rounded-[10px] p-6 overflow-auto">
+            <pre className="m-0 font-mono text-[0.8rem] text-[#E2E8F0] leading-[1.7] whitespace-pre-wrap break-words">
               {useCase.codeExample}
             </pre>
           </div>
-          <div style={{ marginTop: '16px', display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-            <Link href="/docs" style={{
-              fontFamily: t.fontSans,
-              fontSize: '0.85rem',
-              color: t.accent,
-              textDecoration: 'none',
-              fontWeight: 600,
-            }}>
+          <div className="mt-4 flex gap-3 flex-wrap">
+            <Link href="/docs" className="font-sans text-[0.85rem] text-brand-accent no-underline font-semibold">
               Full documentation →
             </Link>
-            <Link href="/integrations" style={{
-              fontFamily: t.fontSans,
-              fontSize: '0.85rem',
-              color: t.grayLight,
-              textDecoration: 'none',
-            }}>
+            <Link href="/integrations" className="font-sans text-[0.85rem] text-brand-gray-light no-underline">
               See integrations
             </Link>
           </div>
@@ -257,30 +162,18 @@ export default function UseCaseDetailPage({ useCase, others }) {
 
         {/* Other use cases */}
         {others.length > 0 && (
-          <section style={{
-            borderTop: `1px solid ${t.border}`,
-            padding: '48px 24px',
-          }}>
-            <div style={{ maxWidth: '760px', margin: '0 auto' }}>
-              <h2 style={{ fontFamily: t.fontSans, fontWeight: 700, fontSize: '1.1rem', color: t.text, margin: '0 0 20px', letterSpacing: '-0.02em' }}>
+          <section className="border-t border-brand-border py-12 px-6">
+            <div className="max-w-[760px] mx-auto">
+              <h2 className="font-sans font-bold text-[1.1rem] text-brand-text mt-0 mb-5 tracking-[-0.02em]">
                 Other verticals
               </h2>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '12px' }}>
+              <div className="grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-3">
                 {others.map(uc => (
-                  <Link key={uc.slug} href={`/use-cases/${uc.slug}`} style={{
-                    background: t.white,
-                    border: `1px solid ${t.border}`,
-                    borderRadius: '8px',
-                    padding: '16px',
-                    textDecoration: 'none',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '12px',
-                  }}>
-                    <span style={{ fontSize: '1.3rem' }}>{uc.icon}</span>
+                  <Link key={uc.slug} href={`/use-cases/${uc.slug}`} className="bg-brand-white border border-brand-border rounded-lg p-4 no-underline flex items-center gap-3">
+                    <span className="text-[1.3rem]">{uc.icon}</span>
                     <div>
-                      <div style={{ fontFamily: t.fontSans, fontWeight: 600, fontSize: '0.85rem', color: t.text }}>{uc.title}</div>
-                      <div style={{ fontFamily: t.fontSans, fontWeight: 700, fontSize: '0.78rem', color: uc.color }}>{uc.metrics[0].value} saved</div>
+                      <div className="font-sans font-semibold text-[0.85rem] text-brand-text">{uc.title}</div>
+                      <div className="font-sans font-bold text-[0.78rem]" style={{ color: uc.color }}>{uc.metrics[0].value} saved</div>
                     </div>
                   </Link>
                 ))}
@@ -290,25 +183,12 @@ export default function UseCaseDetailPage({ useCase, others }) {
         )}
 
         {/* CTA */}
-        <section style={{ background: t.text, padding: '64px 24px' }}>
-          <div style={{ maxWidth: '480px', margin: '0 auto', textAlign: 'center' }}>
-            <h2 style={{
-              fontFamily: t.fontSans,
-              fontWeight: 800,
-              fontSize: '1.8rem',
-              color: t.white,
-              margin: '0 0 12px',
-              letterSpacing: '-0.03em',
-            }}>
+        <section className="bg-brand-text py-16 px-6">
+          <div className="max-w-[480px] mx-auto text-center">
+            <h2 className="font-sans font-extrabold text-[1.8rem] text-brand-white mt-0 mb-3 tracking-[-0.03em]">
               Ready to recover {useCase.title} churn?
             </h2>
-            <p style={{
-              fontFamily: t.fontSerif,
-              fontSize: '0.95rem',
-              color: 'rgba(255,255,255,0.65)',
-              lineHeight: 1.7,
-              margin: '0 0 28px',
-            }}>
+            <p className="font-serif text-[0.95rem] text-white/65 leading-[1.7] mt-0 mb-7">
               Free to use. No contracts. Set up in under 30 minutes.
             </p>
             <WaitlistForm source={`use-case-${useCase.slug}`} />

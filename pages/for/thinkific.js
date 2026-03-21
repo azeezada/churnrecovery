@@ -262,8 +262,8 @@ export default function ThinkificLandingPage() {
       <main className="font-sans bg-brand-bg pt-[60px]">
 
         {/* ─── HERO ─────────────────────────────────────────────────────── */}
-        <section className="py-[80px] px-6 pb-[100px] relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #1A0A3E 0%, #2D1A5E 50%, #1A0A3E 100%)' }}>
-          <div className="absolute -top-[80px] -right-[80px] w-[400px] h-[400px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(124,58,237,0.2) 0%, transparent 70%)' }} />
+        <section className="py-[80px] px-6 pb-[100px] relative overflow-hidden bg-[linear-gradient(135deg,#1A0A3E_0%,#2D1A5E_50%,#1A0A3E_100%)]">
+          <div className="absolute -top-[80px] -right-[80px] w-[400px] h-[400px] rounded-full pointer-events-none bg-[radial-gradient(circle,rgba(124,58,237,0.2)_0%,transparent_70%)]" />
 
           <div className="max-w-[720px] mx-auto text-center relative z-[1]">
             <div className="inline-flex items-center gap-1.5 bg-[rgba(124,58,237,0.2)] border border-[rgba(124,58,237,0.4)] rounded-full py-1.5 px-4 font-sans text-[0.78rem] font-semibold text-[#C4B5FD] mb-7">
@@ -505,7 +505,7 @@ export default function ThinkificLandingPage() {
         </section>
 
         {/* ─── FINAL CTA ───────────────────────────────────────────────── */}
-        <section className="py-[80px] px-6" style={{ background: 'linear-gradient(135deg, #1A0A3E 0%, #2D1A5E 100%)' }}>
+        <section className="py-[80px] px-6 bg-[linear-gradient(135deg,#1A0A3E_0%,#2D1A5E_100%)]">
           <div className="max-w-[600px] mx-auto text-center">
             <h2 className="font-sans font-extrabold text-[clamp(1.8rem,4vw,2.6rem)] text-brand-white m-0 mb-5 leading-[1.2] tracking-[-0.02em]">
               A Thinkific Student Is<br />Canceling Right Now.
