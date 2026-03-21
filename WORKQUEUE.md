@@ -53,6 +53,14 @@ Low-code/no-code business owners: newsletter creators, coaches, online course se
 - [✅] **Guest post on SaaS founder newsletters about churn recovery strategies** — DONE 2026-03-21. Full strategy at docs/guest-post-strategy.md: 15 target publications with contact methods + angles, 3 pitch templates, 3 article concepts fully outlined, outreach tracking table.
 - [✅] **Reach out to Stripe/Paddle for integration marketplace listing** — DONE 2026-03-21. Full strategy at docs/integration-marketplace-strategy.md: Stripe Partner + App Marketplace (step-by-step checklists), Paddle Marketplace, Zapier public app, Make.com — with copy bank, technical requirements, and prioritized timeline.
 
+### Marketing Wave 13 (Added 2026-03-21)
+
+- [✅] **Blog post: how-to-retain-paying-members** — DONE 2026-03-21. ~1,200 words, targets "how to retain paying members", covers cancel flow, pause, value reminders, community, onboarding. CTAs to /demo and /tools/churn-rate-calculator. Live at /posts/how-to-retain-paying-members (HTTP 200).
+- [✅] **Blog post: hidden-revenue-leak-subscription-business** — DONE 2026-03-21. ~1,100 words, targets "subscription business revenue leak". Reveals the math behind churn, covers voluntary churn (cancel flow) + involuntary churn (dunning). CTA to /tools/roi-calculator. Live at /posts/hidden-revenue-leak-subscription-business (HTTP 200).
+- [✅] **Blog post: discount-vs-pause-vs-cancel-what-saves-subscribers** — DONE 2026-03-21. ~1,000 words, targets "discount vs pause subscription cancel". Data-backed comparison of 3 cancel flow strategies, sequencing guide, segment-based framework. CTA to /demo. Live at /posts/discount-vs-pause-vs-cancel-what-saves-subscribers (HTTP 200).
+- [✅] **/for/wix landing page** — DONE 2026-03-21. Wix Payments/Stripe angle, light blue (#0099FF) accent, pain points (no cancel flow, no visibility), waitlist tag: wix-seller. Uses shared PainCard/HowStep/BenefitCard/FAQItem components. Live at /for/wix (HTTP 200).
+- [✅] **/for/wordpress landing page** — DONE 2026-03-21. WooCommerce + MemberPress + Paid Memberships Pro angle, indigo (#3858E9) accent, supports all Stripe-connected WordPress setups, waitlist tag: wordpress-seller. Live at /for/wordpress (HTTP 200). generate-sitemap.mjs updated to include all /for/* pages (100 URLs total).
+
 ### Marketing Wave 12 (Added 2026-03-21)
 
 - [✅] **Twitter/X thread templates** — DONE 2026-03-21. 5 ready-to-post threads at docs/twitter-thread-templates.md: cancel flow math, Churnkey pricing comparison, cancel flow pattern analysis, ROI math, and building-in-public thread. Each formatted with tweet numbers + char counts + posting tips.

@@ -1,5 +1,13 @@
 # Orchestrator Log
 
+## 2026-03-21 — Content Wave 12 (cr-content-wave12 subagent)
+
+- **[BLOG-12a] /posts/how-to-retain-paying-members** — ~1,200 words, targets "how to retain paying members", 7 practical tactics (cancel flow, pause, value reminders, community, outreach, discounts, onboarding), CTAs to /demo + /tools/churn-rate-calculator, HTTP 200 verified.
+- **[BLOG-12b] /posts/hidden-revenue-leak-subscription-business** — ~1,100 words, targets "subscription business revenue leak", reveals the voluntary/involuntary churn math, cancel flow + dunning fix, CTA to /tools/roi-calculator, HTTP 200 verified.
+- **[BLOG-12c] /posts/discount-vs-pause-vs-cancel-what-saves-subscribers** — ~1,000 words, targets "discount vs pause subscription cancel", data-backed comparison + sequencing framework + segment table, CTA to /demo, HTTP 200 verified.
+- **[FOR-12a] /for/wix** — Light blue (#0099FF) accent, Wix Payments/Stripe angle (no native cancel flow), tag: `wix-seller`, uses shared for/ components, HTTP 200 verified.
+- **[FOR-12b] /for/wordpress** — Indigo (#3858E9) accent, WooCommerce + MemberPress + Paid Memberships Pro, tag: `wordpress-seller`, updated generate-sitemap.mjs to include all /for/* pages (100 total URLs), HTTP 200 verified.
+
 ## 2026-03-21 — Creator Landing Pages Wave 11 (cr-code-for-pages-wave11 subagent)
 
 - **[FOR-11a] /for/memberful** — Deep indigo/purple accent, targets independent publishers & podcasters, Stripe-native angle, tag: `memberful-creator`, deployed + HTTP 200 verified.
