@@ -2,33 +2,6 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { useState } from 'react'
 
-const t = {
-  bg: '#FAF9F5',
-  text: '#191919',
-  gray: '#666666',
-  grayLight: '#999999',
-  accent: '#D97757',
-  accentHover: '#C4603D',
-  border: '#E5E5E5',
-  white: '#FFFFFF',
-  green: '#2D7A4F',
-  greenLight: '#EDF7F1',
-  blue: '#2563EB',
-  blueLight: '#EFF6FF',
-  purple: '#6B4FA0',
-  purpleLight: '#F5F0FF',
-  fontSans: '"Instrument Sans", sans-serif',
-  fontSerif: '"Merriweather", serif',
-  codeBg: '#1E1E2E',
-  codeText: '#CDD6F4',
-  codeGreen: '#A6E3A1',
-  codeBlue: '#89B4FA',
-  codePurple: '#CBA6F7',
-  codeOrange: '#FAB387',
-  codeYellow: '#F9E2AF',
-  codeComment: '#6C7086',
-}
-
 const sections = [
   { id: 'quickstart', label: 'Quick Start', icon: '⚡' },
   { id: 'installation', label: 'Installation', icon: '📦' },
@@ -45,25 +18,14 @@ const sections = [
 
 function CodeBlock({ language, title, children }) {
   return (
-    <div style={{ borderRadius: '10px', overflow: 'hidden', marginBottom: '20px', border: '1px solid rgba(255,255,255,0.05)' }}>
+    <div className="rounded-[10px] overflow-hidden mb-5 border border-white/5">
       {title && (
-        <div style={{
-          background: '#181825', padding: '10px 16px',
-          display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-        }}>
-          <span style={{ fontFamily: 'monospace', fontSize: '0.78rem', color: t.codeComment }}>{title}</span>
-          <span style={{
-            fontSize: '0.65rem', fontFamily: t.fontSans, color: t.codeComment,
-            textTransform: 'uppercase', letterSpacing: '0.08em',
-          }}>{language}</span>
+        <div className="bg-[#181825] px-4 py-2.5 flex items-center justify-between">
+          <span className="font-mono text-[0.78rem] text-[#6C7086]">{title}</span>
+          <span className="text-[0.65rem] font-['Instrument_Sans',sans-serif] text-[#6C7086] uppercase tracking-[0.08em]">{language}</span>
         </div>
       )}
-      <pre style={{
-        background: t.codeBg, padding: '20px', margin: 0,
-        overflowX: 'auto', fontSize: '0.85rem', lineHeight: 1.7,
-        fontFamily: '"SF Mono", "Fira Code", "JetBrains Mono", monospace',
-        color: t.codeText,
-      }}>
+      <pre className="bg-[#1E1E2E] p-5 m-0 overflow-x-auto text-[0.85rem] leading-[1.7] font-mono text-[#CDD6F4]">
         <code>{children}</code>
       </pre>
     </div>
@@ -72,43 +34,34 @@ function CodeBlock({ language, title, children }) {
 
 function Callout({ type = 'info', children }) {
   const styles = {
-    info: { bg: t.blueLight, border: t.blue, icon: 'ℹ️' },
-    tip: { bg: t.greenLight, border: t.green, icon: '💡' },
+    info: { bg: '#EFF6FF', border: '#2563EB', icon: 'ℹ️' },
+    tip: { bg: '#EDF7F1', border: '#2D7A4F', icon: '💡' },
     warning: { bg: '#FFF7ED', border: '#EA580C', icon: '⚠️' },
   }
   const s = styles[type]
   return (
-    <div style={{
-      padding: '16px 20px', borderRadius: '8px', background: s.bg,
-      borderLeft: `3px solid ${s.border}`, marginBottom: '24px',
-      display: 'flex', gap: '10px', alignItems: 'flex-start',
-    }}>
-      <span style={{ fontSize: '1rem', flexShrink: 0 }}>{s.icon}</span>
-      <div style={{ fontFamily: t.fontSerif, fontSize: '0.88rem', color: t.text, lineHeight: 1.7 }}>{children}</div>
+    <div
+      className="px-5 py-4 rounded-lg flex gap-2.5 items-start mb-6"
+      style={{ background: s.bg, borderLeft: `3px solid ${s.border}` }}
+    >
+      <span className="text-base shrink-0">{s.icon}</span>
+      <div className="font-['Merriweather',serif] text-[0.88rem] text-[#191919] leading-[1.7]">{children}</div>
     </div>
   )
 }
 
 function Nav() {
   return (
-    <nav style={{
-      borderBottom: `1px solid ${t.border}`, background: t.white,
-      padding: '0 20px', height: '60px', display: 'flex',
-      alignItems: 'center', justifyContent: 'space-between',
-      position: 'sticky', top: 0, zIndex: 100,
-    }}>
-      <Link href="/" style={{ fontFamily: t.fontSans, fontWeight: 700, fontSize: '1.1rem', color: t.text, textDecoration: 'none', letterSpacing: '-0.01em' }}>
+    <nav className="border-b border-[#E5E5E5] bg-white px-5 h-[60px] flex items-center justify-between sticky top-0 z-[100]">
+      <Link href="/" className="font-['Instrument_Sans',sans-serif] font-bold text-[1.1rem] text-[#191919] no-underline tracking-[-0.01em]">
         ChurnRecovery
       </Link>
-      <div className="nav-links" style={{ display: 'flex', gap: '24px', alignItems: 'center' }}>
-        <Link href="/features" style={{ color: t.gray, textDecoration: 'none', fontSize: '0.9rem', fontFamily: t.fontSans }}>Features</Link>
-        <Link href="/docs" style={{ color: t.accent, textDecoration: 'none', fontSize: '0.9rem', fontFamily: t.fontSans, fontWeight: 600 }}>Docs</Link>
-        <Link href="/demo" style={{ color: t.gray, textDecoration: 'none', fontSize: '0.9rem', fontFamily: t.fontSans }}>Demo</Link>
-        <Link href="/blog" style={{ color: t.gray, textDecoration: 'none', fontSize: '0.9rem', fontFamily: t.fontSans }}>Blog</Link>
-        <a href="/#waitlist" style={{
-          background: t.accent, color: t.white, padding: '8px 18px', borderRadius: '6px',
-          textDecoration: 'none', fontSize: '0.85rem', fontWeight: 600, fontFamily: t.fontSans,
-        }}>Join Waitlist</a>
+      <div className="nav-links flex gap-6 items-center">
+        <Link href="/features" className="text-[#666666] no-underline text-[0.9rem] font-['Instrument_Sans',sans-serif]">Features</Link>
+        <Link href="/docs" className="text-[#D97757] no-underline text-[0.9rem] font-['Instrument_Sans',sans-serif] font-semibold">Docs</Link>
+        <Link href="/demo" className="text-[#666666] no-underline text-[0.9rem] font-['Instrument_Sans',sans-serif]">Demo</Link>
+        <Link href="/blog" className="text-[#666666] no-underline text-[0.9rem] font-['Instrument_Sans',sans-serif]">Blog</Link>
+        <a href="/#waitlist" className="bg-[#D97757] text-white px-[18px] py-2 rounded-md no-underline text-[0.85rem] font-semibold font-['Instrument_Sans',sans-serif]">Join Waitlist</a>
       </div>
     </nav>
   )
@@ -147,57 +100,46 @@ export default function DocsPage() {
         />
       </Head>
 
-      <div style={{ background: t.bg, minHeight: '100vh', fontFamily: t.fontSans }}>
+      <div className="bg-[#FAF9F5] min-h-screen font-['Instrument_Sans',sans-serif]">
         <Nav />
 
-        <div style={{ display: 'flex', maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
+        <div className="flex max-w-[1200px] mx-auto px-6">
           {/* Sidebar */}
-          <aside className="docs-sidebar" style={{
-            width: '220px', flexShrink: 0, padding: '32px 0',
-            position: 'sticky', top: '60px', height: 'calc(100vh - 60px)',
-            overflowY: 'auto', borderRight: `1px solid ${t.border}`,
-            display: 'flex', flexDirection: 'column', gap: '2px',
-          }}>
+          <aside className="docs-sidebar w-[220px] shrink-0 py-8 sticky top-[60px] h-[calc(100vh-60px)] overflow-y-auto border-r border-[#E5E5E5] flex flex-col gap-0.5">
             {sections.map(s => (
               <a
                 key={s.id}
                 href={`#${s.id}`}
                 onClick={() => setActiveSection(s.id)}
+                className="flex items-center gap-2 px-4 py-2 rounded-md no-underline text-[0.85rem] transition-all duration-150"
                 style={{
-                  display: 'flex', alignItems: 'center', gap: '8px',
-                  padding: '8px 16px', borderRadius: '6px',
-                  textDecoration: 'none', fontSize: '0.85rem',
                   fontWeight: activeSection === s.id ? 600 : 400,
-                  color: activeSection === s.id ? t.accent : t.gray,
+                  color: activeSection === s.id ? '#D97757' : '#666666',
                   background: activeSection === s.id ? '#FDF4EF' : 'transparent',
-                  transition: 'all 0.15s',
                 }}
               >
-                <span style={{ fontSize: '0.8rem' }}>{s.icon}</span>
+                <span className="text-[0.8rem]">{s.icon}</span>
                 {s.label}
               </a>
             ))}
           </aside>
 
           {/* Main content */}
-          <main className="docs-main" style={{ flex: 1, padding: '40px 0 80px 48px', maxWidth: '780px' }}>
+          <main className="docs-main flex-1 pt-10 pb-20 pl-12 max-w-[780px]">
             {/* Quick Start */}
-            <section id="quickstart" style={{ marginBottom: '64px' }}>
-              <h1 style={{
-                fontFamily: t.fontSans, fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800,
-                color: t.text, letterSpacing: '-0.04em', margin: '0 0 12px', lineHeight: 1.1,
-              }}>
+            <section id="quickstart" className="mb-16">
+              <h1 className="font-['Instrument_Sans',sans-serif] text-[clamp(1.8rem,4vw,2.5rem)] font-extrabold text-[#191919] tracking-[-0.04em] mb-3 mt-0 leading-[1.1]">
                 Developer Documentation
               </h1>
-              <p style={{ fontFamily: t.fontSerif, fontSize: '1.1rem', color: t.gray, lineHeight: 1.7, margin: '0 0 32px' }}>
+              <p className="font-['Merriweather',serif] text-[1.1rem] text-[#666666] leading-[1.7] mt-0 mb-8">
                 Get ChurnRecovery running in your app in under 10 minutes. One package, two function calls, zero backend work.
               </p>
 
               <Callout type="tip">
-                <strong>Fastest path:</strong> Install the SDK, initialize with your API key, and call <code style={{ background: 'rgba(0,0,0,0.06)', padding: '2px 6px', borderRadius: '3px', fontSize: '0.82rem' }}>showCancelFlow()</code> when a user clicks your cancel button. That&apos;s it.
+                <strong>Fastest path:</strong> Install the SDK, initialize with your API key, and call <code className="bg-black/[0.06] px-1.5 py-0.5 rounded text-[0.82rem]">showCancelFlow()</code> when a user clicks your cancel button. That&apos;s it.
               </Callout>
 
-              <h2 style={{ fontFamily: t.fontSans, fontSize: '1.3rem', fontWeight: 700, color: t.text, margin: '0 0 16px', letterSpacing: '-0.02em' }}>
+              <h2 className="font-['Instrument_Sans',sans-serif] text-[1.3rem] font-bold text-[#191919] mt-0 mb-4 tracking-[-0.02em]">
                 ⚡ 3-Minute Integration
               </h2>
 
@@ -233,21 +175,21 @@ document.getElementById('cancel-btn').addEventListener('click', async () => {
 })`}
               </CodeBlock>
 
-              <p style={{ fontFamily: t.fontSerif, fontSize: '0.9rem', color: t.gray, lineHeight: 1.7, margin: '0 0 24px' }}>
-                That&apos;s the entire integration. ChurnRecovery handles the cancel flow UI, reason collection, offer presentation, and analytics — all from that single <code style={{ background: 'rgba(0,0,0,0.06)', padding: '2px 6px', borderRadius: '3px', fontSize: '0.82rem' }}>showCancelFlow()</code> call.
+              <p className="font-['Merriweather',serif] text-[0.9rem] text-[#666666] leading-[1.7] mt-0 mb-6">
+                That&apos;s the entire integration. ChurnRecovery handles the cancel flow UI, reason collection, offer presentation, and analytics — all from that single <code className="bg-black/[0.06] px-1.5 py-0.5 rounded text-[0.82rem]">showCancelFlow()</code> call.
               </p>
             </section>
 
             {/* Installation */}
-            <section id="installation" style={{ marginBottom: '64px' }}>
-              <h2 style={{ fontFamily: t.fontSans, fontSize: '1.5rem', fontWeight: 700, color: t.text, margin: '0 0 8px', letterSpacing: '-0.03em' }}>
+            <section id="installation" className="mb-16">
+              <h2 className="font-['Instrument_Sans',sans-serif] text-[1.5rem] font-bold text-[#191919] mt-0 mb-2 tracking-[-0.03em]">
                 📦 Installation
               </h2>
-              <p style={{ fontFamily: t.fontSerif, fontSize: '0.9rem', color: t.gray, lineHeight: 1.7, margin: '0 0 24px' }}>
+              <p className="font-['Merriweather',serif] text-[0.9rem] text-[#666666] leading-[1.7] mt-0 mb-6">
                 Choose your preferred method. The npm package includes TypeScript types and tree-shakes to ~8KB gzipped.
               </p>
 
-              <h3 style={{ fontFamily: t.fontSans, fontSize: '1rem', fontWeight: 700, color: t.text, margin: '0 0 12px' }}>
+              <h3 className="font-['Instrument_Sans',sans-serif] text-base font-bold text-[#191919] mt-0 mb-3">
                 npm / yarn / pnpm
               </h3>
               <CodeBlock language="bash" title="Package manager">
@@ -261,7 +203,7 @@ yarn add @churnrecovery/sdk
 pnpm add @churnrecovery/sdk`}
               </CodeBlock>
 
-              <h3 style={{ fontFamily: t.fontSans, fontSize: '1rem', fontWeight: 700, color: t.text, margin: '0 0 12px' }}>
+              <h3 className="font-['Instrument_Sans',sans-serif] text-base font-bold text-[#191919] mt-0 mb-3">
                 CDN Script Tag
               </h3>
               <CodeBlock language="html" title="Script tag (no build step)">
@@ -277,44 +219,33 @@ pnpm add @churnrecovery/sdk`}
             </section>
 
             {/* Cancel Flow */}
-            <section id="cancel-flow" style={{ marginBottom: '64px' }}>
-              <h2 style={{ fontFamily: t.fontSans, fontSize: '1.5rem', fontWeight: 700, color: t.text, margin: '0 0 8px', letterSpacing: '-0.03em' }}>
+            <section id="cancel-flow" className="mb-16">
+              <h2 className="font-['Instrument_Sans',sans-serif] text-[1.5rem] font-bold text-[#191919] mt-0 mb-2 tracking-[-0.03em]">
                 🚪 Cancel Flow
               </h2>
-              <p style={{ fontFamily: t.fontSerif, fontSize: '0.9rem', color: t.gray, lineHeight: 1.7, margin: '0 0 24px' }}>
+              <p className="font-['Merriweather',serif] text-[0.9rem] text-[#666666] leading-[1.7] mt-0 mb-6">
                 The cancel flow is the core of ChurnRecovery. It intercepts the cancel action, collects the reason, presents a personalized retention offer, and reports the outcome.
               </p>
 
-              <h3 style={{ fontFamily: t.fontSans, fontSize: '1rem', fontWeight: 700, color: t.text, margin: '0 0 12px' }}>
+              <h3 className="font-['Instrument_Sans',sans-serif] text-base font-bold text-[#191919] mt-0 mb-3">
                 How it works
               </h3>
-              <div className="cancel-flow-steps" style={{
-                display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '12px',
-                marginBottom: '28px',
-              }}>
+              <div className="cancel-flow-steps grid grid-cols-4 gap-3 mb-7">
                 {[
                   { step: '1', label: 'User clicks cancel', desc: 'Your app calls showCancelFlow()' },
                   { step: '2', label: 'Reason picker', desc: 'Customer selects why they\'re leaving' },
                   { step: '3', label: 'Smart offer', desc: 'Personalized offer based on the reason' },
                   { step: '4', label: 'Outcome', desc: 'Customer saved or cancellation confirmed' },
                 ].map(s => (
-                  <div key={s.step} style={{
-                    padding: '16px', borderRadius: '8px', background: t.white,
-                    border: `1px solid ${t.border}`, textAlign: 'center',
-                  }}>
-                    <div style={{
-                      width: '28px', height: '28px', borderRadius: '50%',
-                      background: t.accent, color: t.white, display: 'flex',
-                      alignItems: 'center', justifyContent: 'center',
-                      fontSize: '0.8rem', fontWeight: 700, margin: '0 auto 10px',
-                    }}>{s.step}</div>
-                    <div style={{ fontFamily: t.fontSans, fontSize: '0.82rem', fontWeight: 600, color: t.text, marginBottom: '4px' }}>{s.label}</div>
-                    <div style={{ fontFamily: t.fontSans, fontSize: '0.75rem', color: t.gray }}>{s.desc}</div>
+                  <div key={s.step} className="p-4 rounded-lg bg-white border border-[#E5E5E5] text-center">
+                    <div className="w-7 h-7 rounded-full bg-[#D97757] text-white flex items-center justify-center text-[0.8rem] font-bold mx-auto mb-2.5">{s.step}</div>
+                    <div className="font-['Instrument_Sans',sans-serif] text-[0.82rem] font-semibold text-[#191919] mb-1">{s.label}</div>
+                    <div className="font-['Instrument_Sans',sans-serif] text-[0.75rem] text-[#666666]">{s.desc}</div>
                   </div>
                 ))}
               </div>
 
-              <h3 style={{ fontFamily: t.fontSans, fontSize: '1rem', fontWeight: 700, color: t.text, margin: '0 0 12px' }}>
+              <h3 className="font-['Instrument_Sans',sans-serif] text-base font-bold text-[#191919] mt-0 mb-3">
                 showCancelFlow() Options
               </h3>
               <CodeBlock language="typescript" title="Full options interface">
@@ -354,7 +285,7 @@ interface CancelFlowResult {
 }`}
               </CodeBlock>
 
-              <h3 style={{ fontFamily: t.fontSans, fontSize: '1rem', fontWeight: 700, color: t.text, margin: '0 0 12px' }}>
+              <h3 className="font-['Instrument_Sans',sans-serif] text-base font-bold text-[#191919] mt-0 mb-3">
                 Custom cancel reasons
               </h3>
               <CodeBlock language="javascript" title="Custom reasons + offer routing">
@@ -398,11 +329,11 @@ interface CancelFlowResult {
             </section>
 
             {/* Configuration */}
-            <section id="configuration" style={{ marginBottom: '64px' }}>
-              <h2 style={{ fontFamily: t.fontSans, fontSize: '1.5rem', fontWeight: 700, color: t.text, margin: '0 0 8px', letterSpacing: '-0.03em' }}>
+            <section id="configuration" className="mb-16">
+              <h2 className="font-['Instrument_Sans',sans-serif] text-[1.5rem] font-bold text-[#191919] mt-0 mb-2 tracking-[-0.03em]">
                 ⚙️ Configuration
               </h2>
-              <p style={{ fontFamily: t.fontSerif, fontSize: '0.9rem', color: t.gray, lineHeight: 1.7, margin: '0 0 24px' }}>
+              <p className="font-['Merriweather',serif] text-[0.9rem] text-[#666666] leading-[1.7] mt-0 mb-6">
                 Configure ChurnRecovery globally at initialization or per cancel flow call.
               </p>
 
@@ -437,7 +368,7 @@ interface CancelFlowResult {
 })`}
               </CodeBlock>
 
-              <h3 style={{ fontFamily: t.fontSans, fontSize: '1rem', fontWeight: 700, color: t.text, margin: '0 0 12px' }}>
+              <h3 className="font-['Instrument_Sans',sans-serif] text-base font-bold text-[#191919] mt-0 mb-3">
                 Environment variables
               </h3>
               <CodeBlock language="bash" title=".env">
@@ -453,35 +384,28 @@ CHURNRECOVERY_WEBHOOK_SECRET=whsec_xxx`}
             </section>
 
             {/* Offer Types */}
-            <section id="offers" style={{ marginBottom: '64px' }}>
-              <h2 style={{ fontFamily: t.fontSans, fontSize: '1.5rem', fontWeight: 700, color: t.text, margin: '0 0 8px', letterSpacing: '-0.03em' }}>
+            <section id="offers" className="mb-16">
+              <h2 className="font-['Instrument_Sans',sans-serif] text-[1.5rem] font-bold text-[#191919] mt-0 mb-2 tracking-[-0.03em]">
                 🎁 Offer Types
               </h2>
-              <p style={{ fontFamily: t.fontSerif, fontSize: '0.9rem', color: t.gray, lineHeight: 1.7, margin: '0 0 24px' }}>
+              <p className="font-['Merriweather',serif] text-[0.9rem] text-[#666666] leading-[1.7] mt-0 mb-6">
                 Four built-in offer types handle the vast majority of cancel scenarios.
               </p>
 
-              <div style={{ display: 'grid', gap: '16px', marginBottom: '28px' }}>
+              <div className="grid gap-4 mb-7">
                 {[
                   { type: 'Discount', icon: '💰', desc: 'Reduce the subscription price for a set number of months. Best for price-sensitive customers.', code: `{ type: 'discount', percent: 30, duration: 3 } // 30% off for 3 months` },
                   { type: 'Pause', icon: '⏸️', desc: 'Pause the subscription instead of canceling. Best for customers who plan to return.', code: `{ type: 'pause', months: 2 } // Pause for 2 months, auto-resume` },
                   { type: 'Human Escalation', icon: '💬', desc: 'Route the customer to live chat or support. Best for complex cases or enterprise accounts.', code: `{ type: 'human', url: '/support/chat', message: 'Talk to us first' }` },
                   { type: 'Feedback Only', icon: '📝', desc: 'Just collect the feedback, no counter-offer. Best for customers you know won\'t stay.', code: `{ type: 'feedback', prompt: 'Any feedback for us?' }` },
                 ].map(o => (
-                  <div key={o.type} style={{
-                    border: `1px solid ${t.border}`, borderRadius: '10px',
-                    padding: '24px', background: t.white,
-                  }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px' }}>
-                      <span style={{ fontSize: '1.2rem' }}>{o.icon}</span>
-                      <h3 style={{ fontFamily: t.fontSans, fontSize: '1rem', fontWeight: 700, color: t.text, margin: 0 }}>{o.type}</h3>
+                  <div key={o.type} className="border border-[#E5E5E5] rounded-[10px] p-6 bg-white">
+                    <div className="flex items-center gap-2.5 mb-2">
+                      <span className="text-[1.2rem]">{o.icon}</span>
+                      <h3 className="font-['Instrument_Sans',sans-serif] text-base font-bold text-[#191919] m-0">{o.type}</h3>
                     </div>
-                    <p style={{ fontFamily: t.fontSerif, fontSize: '0.85rem', color: t.gray, lineHeight: 1.7, margin: '0 0 12px' }}>{o.desc}</p>
-                    <code style={{
-                      display: 'block', background: t.codeBg, color: t.codeText,
-                      padding: '10px 14px', borderRadius: '6px', fontSize: '0.8rem',
-                      fontFamily: 'monospace', overflowX: 'auto',
-                    }}>{o.code}</code>
+                    <p className="font-['Merriweather',serif] text-[0.85rem] text-[#666666] leading-[1.7] mt-0 mb-3">{o.desc}</p>
+                    <code className="block bg-[#1E1E2E] text-[#CDD6F4] px-3.5 py-2.5 rounded-md text-[0.8rem] font-mono overflow-x-auto">{o.code}</code>
                   </div>
                 ))}
               </div>
@@ -492,11 +416,11 @@ CHURNRECOVERY_WEBHOOK_SECRET=whsec_xxx`}
             </section>
 
             {/* Analytics */}
-            <section id="analytics" style={{ marginBottom: '64px' }}>
-              <h2 style={{ fontFamily: t.fontSans, fontSize: '1.5rem', fontWeight: 700, color: t.text, margin: '0 0 8px', letterSpacing: '-0.03em' }}>
+            <section id="analytics" className="mb-16">
+              <h2 className="font-['Instrument_Sans',sans-serif] text-[1.5rem] font-bold text-[#191919] mt-0 mb-2 tracking-[-0.03em]">
                 📊 Analytics API
               </h2>
-              <p style={{ fontFamily: t.fontSerif, fontSize: '0.9rem', color: t.gray, lineHeight: 1.7, margin: '0 0 24px' }}>
+              <p className="font-['Merriweather',serif] text-[0.9rem] text-[#666666] leading-[1.7] mt-0 mb-6">
                 Query your churn recovery data programmatically.
               </p>
 
@@ -524,21 +448,18 @@ const reasons = await cr.analytics.getChurnReasons({
             </section>
 
             {/* Webhooks */}
-            <section id="webhooks" style={{ marginBottom: '64px' }}>
-              <h2 style={{ fontFamily: t.fontSans, fontSize: '1.5rem', fontWeight: 700, color: t.text, margin: '0 0 8px', letterSpacing: '-0.03em' }}>
+            <section id="webhooks" className="mb-16">
+              <h2 className="font-['Instrument_Sans',sans-serif] text-[1.5rem] font-bold text-[#191919] mt-0 mb-2 tracking-[-0.03em]">
                 🔗 Webhooks
               </h2>
-              <p style={{ fontFamily: t.fontSerif, fontSize: '0.9rem', color: t.gray, lineHeight: 1.7, margin: '0 0 24px' }}>
+              <p className="font-['Merriweather',serif] text-[0.9rem] text-[#666666] leading-[1.7] mt-0 mb-6">
                 Receive real-time notifications when customers interact with the cancel flow.
               </p>
 
-              <h3 style={{ fontFamily: t.fontSans, fontSize: '1rem', fontWeight: 700, color: t.text, margin: '0 0 12px' }}>
+              <h3 className="font-['Instrument_Sans',sans-serif] text-base font-bold text-[#191919] mt-0 mb-3">
                 Events
               </h3>
-              <div style={{
-                border: `1px solid ${t.border}`, borderRadius: '10px',
-                overflow: 'hidden', marginBottom: '24px',
-              }}>
+              <div className="border border-[#E5E5E5] rounded-[10px] overflow-hidden mb-6">
                 {[
                   { event: 'cancel_flow.started', desc: 'Customer opened the cancel flow' },
                   { event: 'cancel_flow.reason_selected', desc: 'Customer selected a cancel reason' },
@@ -548,18 +469,16 @@ const reasons = await cr.analytics.getChurnReasons({
                   { event: 'winback.email_sent', desc: 'Win-back email was sent to a churned customer' },
                   { event: 'winback.reactivated', desc: 'Churned customer reactivated via win-back' },
                 ].map((e, i) => (
-                  <div key={e.event} style={{
-                    display: 'flex', alignItems: 'center', gap: '16px',
-                    padding: '12px 16px',
-                    borderBottom: i < 6 ? `1px solid ${t.border}` : 'none',
-                    background: i % 2 === 0 ? t.white : t.bg,
-                  }}>
-                    <code style={{
-                      fontFamily: 'monospace', fontSize: '0.8rem', color: t.accent,
-                      background: '#FDF4EF', padding: '3px 8px', borderRadius: '4px',
-                      whiteSpace: 'nowrap',
-                    }}>{e.event}</code>
-                    <span style={{ fontFamily: t.fontSans, fontSize: '0.83rem', color: t.gray }}>{e.desc}</span>
+                  <div
+                    key={e.event}
+                    className="flex items-center gap-4 px-4 py-3"
+                    style={{
+                      borderBottom: i < 6 ? '1px solid #E5E5E5' : 'none',
+                      background: i % 2 === 0 ? '#FFFFFF' : '#FAF9F5',
+                    }}
+                  >
+                    <code className="font-mono text-[0.8rem] text-[#D97757] bg-[#FDF4EF] px-2 py-[3px] rounded whitespace-nowrap">{e.event}</code>
+                    <span className="font-['Instrument_Sans',sans-serif] text-[0.83rem] text-[#666666]">{e.desc}</span>
                   </div>
                 ))}
               </div>
@@ -591,11 +510,11 @@ app.post('/webhooks/churnrecovery', (req, res) => {
             </section>
 
             {/* REST API */}
-            <section id="rest-api" style={{ marginBottom: '64px' }}>
-              <h2 style={{ fontFamily: t.fontSans, fontSize: '1.5rem', fontWeight: 700, color: t.text, margin: '0 0 8px', letterSpacing: '-0.03em' }}>
+            <section id="rest-api" className="mb-16">
+              <h2 className="font-['Instrument_Sans',sans-serif] text-[1.5rem] font-bold text-[#191919] mt-0 mb-2 tracking-[-0.03em]">
                 🌐 REST API
               </h2>
-              <p style={{ fontFamily: t.fontSerif, fontSize: '0.9rem', color: t.gray, lineHeight: 1.7, margin: '0 0 24px' }}>
+              <p className="font-['Merriweather',serif] text-[0.9rem] text-[#666666] leading-[1.7] mt-0 mb-6">
                 Full REST API for server-side integrations. All endpoints are versioned and return JSON.
               </p>
 
@@ -603,7 +522,7 @@ app.post('/webhooks/churnrecovery', (req, res) => {
 {`https://api.churnrecovery.com/v1`}
               </CodeBlock>
 
-              <h3 style={{ fontFamily: t.fontSans, fontSize: '1rem', fontWeight: 700, color: t.text, margin: '0 0 12px' }}>
+              <h3 className="font-['Instrument_Sans',sans-serif] text-base font-bold text-[#191919] mt-0 mb-3">
                 Authentication
               </h3>
               <CodeBlock language="bash" title="API key header">
@@ -612,13 +531,10 @@ app.post('/webhooks/churnrecovery', (req, res) => {
   -H "Content-Type: application/json"`}
               </CodeBlock>
 
-              <h3 style={{ fontFamily: t.fontSans, fontSize: '1rem', fontWeight: 700, color: t.text, margin: '0 0 12px' }}>
+              <h3 className="font-['Instrument_Sans',sans-serif] text-base font-bold text-[#191919] mt-0 mb-3">
                 Key Endpoints
               </h3>
-              <div style={{
-                border: `1px solid ${t.border}`, borderRadius: '10px',
-                overflow: 'hidden', marginBottom: '24px',
-              }}>
+              <div className="border border-[#E5E5E5] rounded-[10px] overflow-hidden mb-6">
                 {[
                   { method: 'GET', path: '/v1/analytics/save-rate', desc: 'Get save rate statistics' },
                   { method: 'GET', path: '/v1/analytics/revenue', desc: 'Revenue recovered data' },
@@ -630,32 +546,34 @@ app.post('/webhooks/churnrecovery', (req, res) => {
                   { method: 'PUT', path: '/v1/offers/:id', desc: 'Update an offer configuration' },
                   { method: 'POST', path: '/v1/webhooks', desc: 'Register a webhook endpoint' },
                 ].map((e, i) => (
-                  <div key={e.path + e.method} style={{
-                    display: 'flex', alignItems: 'center', gap: '12px',
-                    padding: '10px 16px',
-                    borderBottom: i < 8 ? `1px solid ${t.border}` : 'none',
-                    background: i % 2 === 0 ? t.white : t.bg,
-                  }}>
-                    <span style={{
-                      fontFamily: 'monospace', fontSize: '0.72rem', fontWeight: 700,
-                      padding: '2px 8px', borderRadius: '4px',
-                      background: e.method === 'GET' ? t.greenLight : e.method === 'POST' ? t.blueLight : t.purpleLight,
-                      color: e.method === 'GET' ? t.green : e.method === 'POST' ? t.blue : t.purple,
-                      minWidth: '40px', textAlign: 'center',
-                    }}>{e.method}</span>
-                    <code style={{ fontFamily: 'monospace', fontSize: '0.82rem', color: t.text }}>{e.path}</code>
-                    <span style={{ fontFamily: t.fontSans, fontSize: '0.8rem', color: t.grayLight, marginLeft: 'auto' }}>{e.desc}</span>
+                  <div
+                    key={e.path + e.method}
+                    className="flex items-center gap-3 px-4 py-2.5"
+                    style={{
+                      borderBottom: i < 8 ? '1px solid #E5E5E5' : 'none',
+                      background: i % 2 === 0 ? '#FFFFFF' : '#FAF9F5',
+                    }}
+                  >
+                    <span
+                      className="font-mono text-[0.72rem] font-bold px-2 py-0.5 rounded min-w-[40px] text-center"
+                      style={{
+                        background: e.method === 'GET' ? '#EDF7F1' : e.method === 'POST' ? '#EFF6FF' : '#F5F0FF',
+                        color: e.method === 'GET' ? '#2D7A4F' : e.method === 'POST' ? '#2563EB' : '#6B4FA0',
+                      }}
+                    >{e.method}</span>
+                    <code className="font-mono text-[0.82rem] text-[#191919]">{e.path}</code>
+                    <span className="font-['Instrument_Sans',sans-serif] text-[0.8rem] text-[#999999] ml-auto">{e.desc}</span>
                   </div>
                 ))}
               </div>
             </section>
 
             {/* Stripe */}
-            <section id="stripe" style={{ marginBottom: '64px' }}>
-              <h2 style={{ fontFamily: t.fontSans, fontSize: '1.5rem', fontWeight: 700, color: t.text, margin: '0 0 8px', letterSpacing: '-0.03em' }}>
+            <section id="stripe" className="mb-16">
+              <h2 className="font-['Instrument_Sans',sans-serif] text-[1.5rem] font-bold text-[#191919] mt-0 mb-2 tracking-[-0.03em]">
                 💳 Stripe Integration
               </h2>
-              <p style={{ fontFamily: t.fontSerif, fontSize: '0.9rem', color: t.gray, lineHeight: 1.7, margin: '0 0 24px' }}>
+              <p className="font-['Merriweather',serif] text-[0.9rem] text-[#666666] leading-[1.7] mt-0 mb-6">
                 Connect Stripe in 30 seconds. ChurnRecovery reads your plans, customers, and subscriptions — and automatically applies retention offers (discounts, pauses) directly in Stripe.
               </p>
 
@@ -697,11 +615,11 @@ app.post('/webhooks/stripe', async (req, res) => {
             </section>
 
             {/* React SDK */}
-            <section id="react" style={{ marginBottom: '64px' }}>
-              <h2 style={{ fontFamily: t.fontSans, fontSize: '1.5rem', fontWeight: 700, color: t.text, margin: '0 0 8px', letterSpacing: '-0.03em' }}>
+            <section id="react" className="mb-16">
+              <h2 className="font-['Instrument_Sans',sans-serif] text-[1.5rem] font-bold text-[#191919] mt-0 mb-2 tracking-[-0.03em]">
                 ⚛️ React SDK
               </h2>
-              <p style={{ fontFamily: t.fontSerif, fontSize: '0.9rem', color: t.gray, lineHeight: 1.7, margin: '0 0 24px' }}>
+              <p className="font-['Merriweather',serif] text-[0.9rem] text-[#666666] leading-[1.7] mt-0 mb-6">
                 First-class React support with hooks and components.
               </p>
 
@@ -763,12 +681,12 @@ function SubscriptionSettings({ user }) {
             </section>
 
             {/* FAQ */}
-            <section id="faq" style={{ marginBottom: '64px' }}>
-              <h2 style={{ fontFamily: t.fontSans, fontSize: '1.5rem', fontWeight: 700, color: t.text, margin: '0 0 8px', letterSpacing: '-0.03em' }}>
+            <section id="faq" className="mb-16">
+              <h2 className="font-['Instrument_Sans',sans-serif] text-[1.5rem] font-bold text-[#191919] mt-0 mb-2 tracking-[-0.03em]">
                 ❓ Frequently Asked Questions
               </h2>
 
-              <div style={{ display: 'grid', gap: '16px', marginTop: '24px' }}>
+              <div className="grid gap-4 mt-6">
                 {[
                   { q: 'Is it really free?', a: 'Yes. ChurnRecovery is completely free — no usage limits, no feature gates, no hidden fees. We monetize through optional premium add-ons (custom branding removal, SLA guarantees, dedicated support) that most teams won\'t need.' },
                   { q: 'What billing providers do you support?', a: 'Stripe is natively integrated with automatic offer application. Paddle support is in beta. For other providers (Chargebee, Recurly, Braintree), you can use our REST API and webhooks for manual integration.' },
@@ -777,54 +695,27 @@ function SubscriptionSettings({ user }) {
                   { q: 'Can I customize the cancel flow UI?', a: 'Fully. Pass a theme object with your brand colors, fonts, logo, and border radius. For deeper customization, use the headless mode — we handle the logic, you handle the UI.' },
                   { q: 'What about GDPR?', a: 'ChurnRecovery is GDPR-compliant. We process data as your data processor, store minimal customer data, and provide full data export and deletion APIs. We don\'t sell data. Period.' },
                 ].map(faq => (
-                  <div key={faq.q} style={{
-                    padding: '20px 24px', border: `1px solid ${t.border}`,
-                    borderRadius: '10px', background: t.white,
-                  }}>
-                    <h3 style={{
-                      fontFamily: t.fontSans, fontSize: '0.95rem', fontWeight: 700,
-                      color: t.text, margin: '0 0 8px',
-                    }}>{faq.q}</h3>
-                    <p style={{
-                      fontFamily: t.fontSerif, fontSize: '0.85rem', color: t.gray,
-                      lineHeight: 1.7, margin: 0,
-                    }}>{faq.a}</p>
+                  <div key={faq.q} className="px-6 py-5 border border-[#E5E5E5] rounded-[10px] bg-white">
+                    <h3 className="font-['Instrument_Sans',sans-serif] text-[0.95rem] font-bold text-[#191919] mt-0 mb-2">{faq.q}</h3>
+                    <p className="font-['Merriweather',serif] text-[0.85rem] text-[#666666] leading-[1.7] m-0">{faq.a}</p>
                   </div>
                 ))}
               </div>
             </section>
 
             {/* Bottom CTA */}
-            <section style={{
-              background: t.text, borderRadius: '12px', padding: '40px',
-              textAlign: 'center',
-            }}>
-              <h2 style={{
-                fontFamily: t.fontSans, fontSize: '1.4rem', fontWeight: 700,
-                color: t.white, letterSpacing: '-0.03em', margin: '0 0 12px',
-              }}>
+            <section className="bg-[#191919] rounded-xl p-10 text-center">
+              <h2 className="font-['Instrument_Sans',sans-serif] text-[1.4rem] font-bold text-white tracking-[-0.03em] mt-0 mb-3">
                 Ready to integrate?
               </h2>
-              <p style={{
-                fontFamily: t.fontSerif, fontSize: '0.9rem', color: 'rgba(255,255,255,0.65)',
-                margin: '0 0 24px', lineHeight: 1.7,
-              }}>
+              <p className="font-['Merriweather',serif] text-[0.9rem] text-white/65 mt-0 mb-6 leading-[1.7]">
                 Join the waitlist to get your API key. Most teams are live in under an hour.
               </p>
-              <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
-                <a href="https://tally.so/r/churnrecovery" style={{
-                  display: 'inline-block', background: t.accent, color: t.white,
-                  padding: '12px 28px', borderRadius: '8px', fontFamily: t.fontSans,
-                  fontWeight: 700, fontSize: '0.95rem', textDecoration: 'none',
-                }}>
+              <div className="flex gap-3 justify-center flex-wrap">
+                <a href="https://tally.so/r/churnrecovery" className="inline-block bg-[#D97757] text-white px-7 py-3 rounded-lg font-['Instrument_Sans',sans-serif] font-bold text-[0.95rem] no-underline">
                   Get API Key — Free
                 </a>
-                <Link href="/demo" style={{
-                  display: 'inline-block', background: 'transparent', color: 'rgba(255,255,255,0.7)',
-                  padding: '12px 28px', borderRadius: '8px', fontFamily: t.fontSans,
-                  fontWeight: 600, fontSize: '0.95rem', textDecoration: 'none',
-                  border: '1px solid rgba(255,255,255,0.2)',
-                }}>
+                <Link href="/demo" className="inline-block bg-transparent text-white/70 px-7 py-3 rounded-lg font-['Instrument_Sans',sans-serif] font-semibold text-[0.95rem] no-underline border border-white/20">
                   Try the Demo →
                 </Link>
               </div>

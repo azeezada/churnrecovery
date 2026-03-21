@@ -205,6 +205,42 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://churnrecovery.com/compare/brightback</loc>
+    <lastmod>2026-03-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://churnrecovery.com/alternatives/brightback</loc>
+    <lastmod>2026-03-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://churnrecovery.com/compare/paddle-retain</loc>
+    <lastmod>2026-03-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://churnrecovery.com/alternatives/paddle-retain</loc>
+    <lastmod>2026-03-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://churnrecovery.com/compare/stripe-billing</loc>
+    <lastmod>2026-03-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://churnrecovery.com/alternatives/stripe-billing</loc>
+    <lastmod>2026-03-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://churnrecovery.com/compare/chargebee</loc>
     <lastmod>2026-03-21</lastmod>
     <changefreq>monthly</changefreq>

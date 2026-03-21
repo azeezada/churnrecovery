@@ -22,10 +22,10 @@ const SOURCE_TAG_MAP = {
 }
 
 /**
- * Subscribe email to ConvertKit form + apply source tag.
+ * Subscribe email to ConvertKit form + apply source tag + referral tag.
  * Errors are caught and logged — never block the D1 save.
  */
-async function subscribeToConvertKit(email, source, env) {
+async function subscribeToConvertKit(email, source, env, referralCode = null) {
   const apiKey = env.CONVERTKIT_API_KEY
   const formId = env.CONVERTKIT_FORM_ID
 
@@ -35,6 +35,12 @@ async function subscribeToConvertKit(email, source, env) {
   }
 
   const tagName = SOURCE_TAG_MAP[source] || 'organic-waitlist'
+  const tags = [tagName]
+
+  // Add referral tag so ConvertKit automation can segment referred users
+  if (referralCode) {
+    tags.push(`referred-by-${referralCode.toLowerCase().replace(/[^a-z0-9-]/g, '-')}`)
+  }
 
   try {
     const res = await fetch(`https://api.convertkit.com/v3/forms/${formId}/subscribe`, {
@@ -43,7 +49,9 @@ async function subscribeToConvertKit(email, source, env) {
       body: JSON.stringify({
         api_key: apiKey,
         email,
-        tags: [tagName],
+        tags,
+        // Pass referral_code as a ConvertKit custom field
+        ...(referralCode ? { fields: { referral_code: referralCode } } : {}),
       }),
     })
 
@@ -77,10 +85,29 @@ export async function onRequestPost(context) {
     }
 
     const source = sanitizeString(body.source, 50) || 'website'
+    const referralCode = sanitizeString(body.referral_code, 100) || null
 
     let duplicate = false
     try {
-      await env.DB.prepare('INSERT INTO waitlist (email, source) VALUES (?, ?)').bind(email, source).run()
+      if (referralCode) {
+        // Try inserting with referral_code column (migration 0002 adds it)
+        try {
+          await env.DB.prepare('INSERT INTO waitlist (email, source, referral_code) VALUES (?, ?, ?)')
+            .bind(email, source, referralCode)
+            .run()
+        } catch (colErr) {
+          // Column doesn't exist yet — fall back to encoding referral in source field
+          if (colErr.message && (colErr.message.includes('no column') || colErr.message.includes('table waitlist has no column'))) {
+            await env.DB.prepare('INSERT INTO waitlist (email, source) VALUES (?, ?)')
+              .bind(email, `${source}|ref:${referralCode}`)
+              .run()
+          } else {
+            throw colErr
+          }
+        }
+      } else {
+        await env.DB.prepare('INSERT INTO waitlist (email, source) VALUES (?, ?)').bind(email, source).run()
+      }
     } catch (e) {
       if (e.message && e.message.includes('UNIQUE')) {
         duplicate = true
@@ -94,7 +121,7 @@ export async function onRequestPost(context) {
     }
 
     // Fire-and-forget ConvertKit subscription (errors won't break waitlist)
-    await subscribeToConvertKit(email, source, env)
+    await subscribeToConvertKit(email, source, env, referralCode)
 
     const countResult = await env.DB.prepare('SELECT COUNT(*) as count FROM waitlist').first()
     return jsonResponse({ message: "You're on the list!", count: countResult?.count || 0 }, 201, request, { allowAnyOrigin: true })

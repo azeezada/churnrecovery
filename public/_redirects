@@ -1,0 +1,3 @@
+# Cloudflare Pages redirect rules
+# Referral catch-all: /refer/anycode → /refer/[code] (the static SPA shell)
+/refer/:code /refer/[code] 200

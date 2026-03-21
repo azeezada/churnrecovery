@@ -29,6 +29,7 @@ const footerLinks = {
   ],
   Company: [
     { label: 'About', href: '/about' },
+    { label: 'Press', href: '/press' },
     { label: 'Changelog', href: '/changelog' },
     { label: 'GitHub', href: 'https://github.com/churnrecovery', target: '_blank' },
     { label: 'Contact', href: 'mailto:hello@churnrecovery.com' },

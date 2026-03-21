@@ -34,7 +34,13 @@ function validateEmail(email) {
  * Variant is sent in the form submission body so we can track conversion rate per variant.
  * See lib/useABTest.js for full details on hypothesis, measurement, and winner criteria.
  */
-export default function WaitlistForm({ source = 'homepage', dark = false, compact = false }) {
+function getReferralCookie() {
+  if (typeof document === 'undefined') return null
+  const match = document.cookie.match(/(?:^|;\s*)cr_referral=([^;]*)/)
+  return match ? decodeURIComponent(match[1]) : null
+}
+
+export default function WaitlistForm({ source = 'homepage', dark = false, compact = false, referralCode = null }) {
   const { variant: abVariant, cta: abCta } = useABTest()
   const [email, setEmail] = useState('')
   const [status, setStatus] = useState('idle') // idle | loading | success | duplicate | error
@@ -42,9 +48,10 @@ export default function WaitlistForm({ source = 'homepage', dark = false, compac
   const [errorMessage, setErrorMessage] = useState('')
   const [validationError, setValidationError] = useState('')
   const [touched, setTouched] = useState(false)
+  const [cookieReferral, setCookieReferral] = useState(null)
   const inputRef = useRef(null)
 
-  // Fetch current count on mount
+  // Fetch current count on mount + read referral cookie
   useEffect(() => {
     fetch('/api/waitlist/count')
       .then(r => r.json())
@@ -52,6 +59,10 @@ export default function WaitlistForm({ source = 'homepage', dark = false, compac
         if (data.count > 0) setCount(data.count)
       })
       .catch(() => {})
+
+    // Read referral from cookie (set by /refer/[code] page)
+    const cookieCode = getReferralCookie()
+    if (cookieCode) setCookieReferral(cookieCode)
   }, [])
 
   // Clear validation error as user types (after first submit attempt)
@@ -79,10 +90,18 @@ export default function WaitlistForm({ source = 'homepage', dark = false, compac
     setErrorMessage('')
 
     try {
+      // Include referral code: prefer explicit prop, then cookie
+      const effectiveReferral = referralCode || cookieReferral || undefined
+
       const res = await fetch('/api/waitlist', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: email.trim(), source, variant: abVariant }),
+        body: JSON.stringify({
+          email: email.trim(),
+          source,
+          variant: abVariant,
+          ...(effectiveReferral ? { referral_code: effectiveReferral } : {}),
+        }),
       })
 
       const data = await res.json()

@@ -618,7 +618,7 @@ export default function ComparePage({ competitor }) {
               marginBottom: '24px',
             }}>More Comparisons</h2>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
-              {['churnkey', 'profitwell', 'churnbuster', 'stunning', 'baremetrics', 'raaft', 'recurly', 'zuora']
+              {['churnkey', 'profitwell', 'churnbuster', 'stunning', 'baremetrics', 'raaft', 'recurly', 'zuora', 'brightback', 'paddle-retain', 'stripe-billing']
                 .filter(slug => slug !== competitor.slug)
                 .map(slug => {
                   const names = {
@@ -630,6 +630,9 @@ export default function ComparePage({ competitor }) {
                     raaft: 'Raaft',
                     recurly: 'Recurly Retain',
                     zuora: 'Zuora',
+                    brightback: 'Brightback (Chargebee)',
+                    'paddle-retain': 'Paddle Retain',
+                    'stripe-billing': 'Stripe Billing',
                   }
                   return (
                     <Link key={slug} href={`/compare/${slug}`} style={{

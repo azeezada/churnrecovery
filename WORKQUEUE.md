@@ -53,6 +53,12 @@ Low-code/no-code business owners: newsletter creators, coaches, online course se
 - [✅] **Guest post on SaaS founder newsletters about churn recovery strategies** — DONE 2026-03-21. Full strategy at docs/guest-post-strategy.md: 15 target publications with contact methods + angles, 3 pitch templates, 3 article concepts fully outlined, outreach tracking table.
 - [✅] **Reach out to Stripe/Paddle for integration marketplace listing** — DONE 2026-03-21. Full strategy at docs/integration-marketplace-strategy.md: Stripe Partner + App Marketplace (step-by-step checklists), Paddle Marketplace, Zapier public app, Make.com — with copy bank, technical requirements, and prioritized timeline.
 
+### Marketing Wave 14 (Added 2026-03-21)
+
+- [✅] **3 new competitor comparison pages: BrightBack, Paddle Retain, Stripe Billing** — DONE 2026-03-21. /compare/brightback (acquired by Chargebee, free alternative angle), /compare/paddle-retain (Paddle ecosystem lock-in vs Stripe-first ChurnRecovery), /compare/stripe-billing (Stripe has dunning but no cancel flow — ChurnRecovery adds that layer). All HTTP 200. Added to More Comparisons section on all /compare/ pages.
+- [✅] **SEO content gap analysis** — DONE 2026-03-21. Full analysis at docs/seo-content-gap-analysis.md: 35+ keyword opportunities (churn+platform, cancel flow+niche, reduce churn+business type, long-tail), competitor content gaps (Churnkey vs ProsperStack), and 10-post priority content calendar.
+- [✅] **Press kit + /press page** — DONE 2026-03-21. Press kit at docs/press-kit.md (one-liner, 3-para about, founder bio, key stats, brand colors, 3 pre-approved quotes). Press page live at /press (HTTP 200). "Press" link added to footer Company section.
+
 ### Marketing Wave 13 (Added 2026-03-21)
 
 - [✅] **Blog post: how-to-retain-paying-members** — DONE 2026-03-21. ~1,200 words, targets "how to retain paying members", covers cancel flow, pause, value reminders, community, onboarding. CTAs to /demo and /tools/churn-rate-calculator. Live at /posts/how-to-retain-paying-members (HTTP 200).
