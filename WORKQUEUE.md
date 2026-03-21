@@ -22,7 +22,7 @@ Low-code/no-code business owners: newsletter creators, coaches, online course se
 - [ ] **Migrate to shadcn/ui + Tailwind** — Kill 1,770 inline styles. Important for maintainability but secondary to user acquisition.
 - [ ] **Widget CDN** — Minify, serve from cdn.churnrecovery.com
 - [ ] **A/B test homepage CTA copy** — Test different conversion approaches
-- [ ] **Substack-specific landing page** — "Free Churn Recovery for Newsletter Creators" — high-value niche targeting
+- ✅ **Substack-specific landing page** — "Free Churn Recovery for Newsletter Creators" — docs/substack-landing-page.md (2026-03-21)
 
 ### P3 — Ongoing (continuous improvement)
 - [ ] 2 blog posts per week (comparison pages, content marketing)
@@ -49,9 +49,9 @@ Low-code/no-code business owners: newsletter creators, coaches, online course se
 - [ ] Reach out to Stripe/Paddle for integration marketplace listing
 
 ## UX Research Opportunities
-- [ ] **User interview plan** — Newsletter creators, course sellers, small SaaS founders currently paying for churn tools
+- ✅ **User interview plan** — Newsletter creators, course sellers, small SaaS founders currently paying for churn tools — docs/user-interview-plan.md (2026-03-21)
 - [ ] **Progressive disclosure test** — Let users explore demo before email capture
-- [ ] **Trust signals optimization** — Customer logos vs. testimonial quotes effectiveness
+- ✅ **Trust signals optimization** — Customer logos vs. testimonial quotes effectiveness — docs/trust-signals-strategy.md (2026-03-21)
 - [ ] **Mobile UX full audit** — Complete responsive design review
 
 ## Completed (archive)
