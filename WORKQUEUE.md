@@ -6,7 +6,7 @@ Low-code/no-code business owners: newsletter creators, coaches, online course se
 ## Priority Tiers
 
 ### P0 — Do Now (blocks user acquisition)
-- [❗] Homepage UX overhaul for business owners — current dev aesthetic kills conversions for our target audience. This is THE blocker. Nothing else matters if the homepage bounces non-technical visitors.
+- [✅] Homepage UX overhaul for business owners — DONE. Rewrote entire homepage for non-technical audience (newsletter creators, coaches, course sellers). Benefits-first language, "How it works" 3-step, "Who it's for" section, FAQ, visual price comparison. Deployed 2026-03-21.
 - [ ] Make sign-up → dashboard → install widget flow work end-to-end (core product loop must work before marketing push)
 - [ ] Fix test runner — `npm test` hangs because `serve` background process never terminates. Add cleanup/timeout.
 
