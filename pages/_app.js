@@ -27,6 +27,12 @@ export default function MyApp({ Component, pageProps }) {
       <Head>
         <link rel="icon" href="/logo.png" />
         <link rel="apple-touch-icon" href="/logo.png" />
+
+        {/* Preconnect to external domains for faster resource loading */}
+        <link rel="preconnect" href="https://clerk.churnrecovery.com" />
+        <link rel="preconnect" href="https://accounts.churnrecovery.com" />
+        <link rel="preconnect" href="https://js.stripe.com" />
+        <link rel="preconnect" href="https://m.stripe.com" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="google-site-verification" content="cCAZpDlVK-QR4d6LRkvvBRonJmsCtHtEdkGzH_DsNSs" />
 

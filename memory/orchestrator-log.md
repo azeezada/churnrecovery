@@ -269,3 +269,12 @@
 - **[BLOG-2]** `/posts/churnkey-alternatives-ranked` — 5 tools ranked, ChurnRecovery #1 (free). HTTP 200 ✅
 - **[BLOG-3]** `/posts/coaching-business-churn` — 5 reasons coaches lose clients, cancel flow for coaches, CTA to /for/kajabi. HTTP 200 ✅
 - Build: 106 static pages (31 posts) ✅ | Deployed + cache purged | Pushed to main | WORKQUEUE.md ✅
+
+## 2026-03-21 — ConvertKit Integration + Performance Quick Wins (cr-code-convertkit-perf subagent)
+
+- **[CONVERTKIT-API]** Wired ConvertKit API into `functions/api/waitlist/index.js` — after successful D1 save, calls ConvertKit form subscribe API with source-to-tag mapping (product-hunt, reddit, alternativeto, betalist, organic → named tags). Errors are non-fatal: if ConvertKit fails, D1 save still completes. Env vars `CONVERTKIT_API_KEY` + `CONVERTKIT_FORM_ID` added to `.env.example`. WORKQUEUE.md P0 task marked ✅.
+- **[PRECONNECT]** Added `<link rel="preconnect">` tags for Clerk and Stripe in `pages/_app.js` (Clerk x2, Stripe x2). Lighthouse quick win for external domain DNS lookups.
+- **[WEBP-SCRIPT]** Created `scripts/convert-images-to-webp.sh` — bash script to convert all `public/screenshots/*.png` + `public/logo.png` to WebP using `cwebp`. Prints before/after sizes. Run with `bash scripts/convert-images-to-webp.sh` after `brew install webp`.
+- **[FOR-COMPONENTS]** Created `components/for/` shared components: `PainCard.js`, `HowStep.js`, `BenefitCard.js`, `FAQItem.js` — extracted from /for/convertkit.js pattern. Theme-overridable via `theme` prop. Next /for/ pages can import instead of copy-paste.
+- **[PERFORMANCE-TODO]** Updated `docs/performance-todo.md` — marked preconnect and shared components items as ✅ done.
+- Build: ✅ 109 static pages | Tests: 133/133 ✅ | Committed + pushed to main

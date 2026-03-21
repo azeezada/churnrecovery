@@ -94,9 +94,9 @@ Add `<link rel="preconnect">` tags for external domains used at runtime. Best pl
 ## 📊 Lighthouse Quick Win Checklist
 
 - [ ] Convert `public/logo.png` to WebP (biggest single win)
-- [ ] Convert `public/screenshots/*.png` to WebP
-- [ ] Add `<link rel="preconnect">` for Clerk/Stripe in `_document.js`
-- [ ] Extract shared `/for/` components to avoid code duplication
+- [ ] Convert `public/screenshots/*.png` to WebP  ← run `bash scripts/convert-images-to-webp.sh` (script ready ✅)
+- [✅] Add `<link rel="preconnect">` for Clerk/Stripe in `_app.js` — done 2026-03-21 (Clerk + Stripe preconnects added)
+- [✅] Extract shared `/for/` components — done 2026-03-21 (`components/for/PainCard.js`, `HowStep.js`, `BenefitCard.js`, `FAQItem.js`)
 - [ ] Consider extracting theme tokens to CSS custom properties
 - [ ] Verify no unused JS is loaded on static pages
 - [ ] Check for render-blocking resources in `<head>`

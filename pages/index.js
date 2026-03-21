@@ -2,6 +2,7 @@ import Link from 'next/link'
 import Head from 'next/head'
 import { getAllPosts } from '../lib/posts'
 import WaitlistForm from '../components/WaitlistForm'
+import LogoWall from '../components/LogoWall'
 
 // ─── Design tokens ─────────────────────────────────────────────────────────
 const t = {
@@ -405,6 +406,14 @@ export default function Home({ posts }) {
           </p>
         </div>
       </section>
+
+      {/* ── LOGO WALL — add real logos to logos array to display; empty = hidden ── */}
+      {/*
+        To add a real logo:
+          { name: 'Acme Newsletter', src: '/logos/acme.png', href: 'https://acme.com', type: 'Newsletter Creator' }
+        See docs/customer-logo-wall-strategy.md for full guide.
+      */}
+      <LogoWall logos={[]} showPlaceholders={false} />
 
       {/* ── THE PROBLEM ──────────────────────────────────────────────────── */}
       <section style={{

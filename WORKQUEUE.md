@@ -8,7 +8,7 @@ Low-code/no-code business owners: newsletter creators, coaches, online course se
 ### P0 — Do Now (blocks user acquisition)
 - [ ] **Execute manual marketing submissions** — IH post (docs/indie-hackers-post-final.md), BetaList (marketing/betalist-submission.md), Reddit posts (docs/reddit-execution-playbook.md) are ALL written and ready. Dawood needs to paste and publish. This is the #1 blocker to getting first users. MANUAL ACTION REQUIRED.
 - [✅] **Fix stale build cache issue** — DONE 2026-03-21. Build script now clears `.next`, `out`, and `.vercel/output` before every build.
-- [ ] **Set up ConvertKit/Mailchimp automation** — Welcome series for new signups from directories, segment by traffic source. Email drip content ready at docs/waitlist-email-drip.md.
+- [✅] **Set up ConvertKit/Mailchimp automation** — DONE 2026-03-21. ConvertKit API integration wired into `functions/api/waitlist/index.js`. Source-to-tag mapping for all channels. Errors non-fatal (D1 save always succeeds). Env vars added to `.env.example`.
 
 ### P1 — This Week (gets first user)
 - [✅] **Monitor AlternativeTo performance** — DONE 2026-03-21. Running log at docs/alternativeto-monitoring-log.md (weekly table: likes, reviews, traffic, actions). Full engagement strategy in docs/alternativeto-monitoring.md.
