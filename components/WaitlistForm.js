@@ -160,6 +160,8 @@ export default function WaitlistForm({ source = 'homepage', dark = false, compac
           }}
           placeholder="you@company.com"
           required
+          inputMode="email"
+          autoComplete="email"
           aria-label="Email address"
           aria-invalid={hasValidationError ? 'true' : 'false'}
           aria-describedby={hasValidationError ? errorId : undefined}

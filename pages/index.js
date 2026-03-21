@@ -149,7 +149,7 @@ function PostCard({ post }) {
     : null
 
   return (
-    <article style={{
+    <article className="home-post-card" style={{
       display: 'grid',
       gridTemplateColumns: '120px 1fr',
       gap: '24px',

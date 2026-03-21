@@ -121,8 +121,8 @@ export default function ComparePage({ competitor }) {
           }}>
             ChurnRecovery
           </Link>
-          <div className="nav-links" style={{ display: 'flex', gap: '24px', alignItems: 'center' }}>
-            <Link href="/blog" style={{ color: t.gray, textDecoration: 'none', fontSize: '0.9rem' }}>Blog</Link>
+          <div className="compare-nav-links" style={{ display: 'flex', gap: '24px', alignItems: 'center', flexWrap: 'wrap' }}>
+            <Link href="/blog" className="compare-nav-text" style={{ color: t.gray, textDecoration: 'none', fontSize: '0.9rem' }}>Blog</Link>
             <a href="/#waitlist" style={{
               background: t.accent,
               color: t.white,
@@ -131,9 +131,16 @@ export default function ComparePage({ competitor }) {
               textDecoration: 'none',
               fontSize: '0.85rem',
               fontWeight: 600,
+              whiteSpace: 'nowrap',
             }}>Join Waitlist</a>
           </div>
         </nav>
+        <style>{`
+          @media (max-width: 640px) {
+            .compare-nav-text { display: none !important; }
+            .compare-nav-links { gap: 8px !important; }
+          }
+        `}</style>
 
         {/* Breadcrumb */}
         <div style={{ maxWidth: '800px', margin: '0 auto', padding: '20px 24px 0' }}>

@@ -54,6 +54,13 @@ export default function DemoPage() {
         />
       </Head>
 
+      <style>{`
+        @media (max-width: 640px) {
+          .demo-nav-text { display: none !important; }
+          .demo-nav-links { gap: 8px !important; }
+        }
+      `}</style>
+
       <div style={{ background: t.bg, minHeight: '100vh', fontFamily: t.fontSans }}>
         {/* Nav */}
         <nav style={{
@@ -78,9 +85,9 @@ export default function DemoPage() {
           }}>
             ChurnRecovery
           </Link>
-          <div className="nav-links" style={{ display: 'flex', gap: '24px', alignItems: 'center' }}>
-            <Link href="/blog" style={{ color: t.gray, textDecoration: 'none', fontSize: '0.9rem' }}>Blog</Link>
-            <Link href="/compare/churnkey" style={{ color: t.gray, textDecoration: 'none', fontSize: '0.9rem' }}>Compare</Link>
+          <div className="demo-nav-links" style={{ display: 'flex', gap: '24px', alignItems: 'center', flexWrap: 'wrap' }}>
+            <Link href="/blog" className="demo-nav-text" style={{ color: t.gray, textDecoration: 'none', fontSize: '0.9rem' }}>Blog</Link>
+            <Link href="/compare/churnkey" className="demo-nav-text" style={{ color: t.gray, textDecoration: 'none', fontSize: '0.9rem' }}>Compare</Link>
             <a href="/#waitlist" style={{
               background: t.accent,
               color: t.white,
@@ -89,6 +96,7 @@ export default function DemoPage() {
               textDecoration: 'none',
               fontSize: '0.85rem',
               fontWeight: 600,
+              whiteSpace: 'nowrap',
             }}>Join Waitlist</a>
           </div>
         </nav>

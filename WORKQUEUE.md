@@ -14,8 +14,8 @@ Low-code/no-code business owners: newsletter creators, coaches, online course se
 - [ ] **Monitor AlternativeTo performance** — Track clicks, upvotes, comments; engage with community; add to other competitor pages
 - [✅] **CTA clarity audit** — DONE 2026-03-21. Unified all CTAs to "Join Waitlist" across 13+ pages. Replaced all tally.so links with /#waitlist anchor.
 - [✅] **Interactive demo** — Replace generic "Demo" with actual cancel flow preview (reduce friction before email capture)
-- [ ] **Hacker News "Show HN" post** — After Reddit/IH validation, write and post
-- [ ] **Product Hunt launch (April 1st target)** — Launch kit ready at docs/product-hunt-launch.md. Execute pre-launch warm-up starting ~March 25.
+- [✅] **Hacker News "Show HN" post** — Post drafted at docs/hacker-news-show-hn.md (2026-03-21). Ready to post after Reddit/IH validation.
+- [✅] **Product Hunt launch (April 1st target)** — Pre-launch warm-up checklist at docs/product-hunt-prelaunch-checklist.md. Day-by-day from March 25 → April 1. (2026-03-21)
 
 ### P2 — Next Week (retention + growth)
 - [ ] **Customer logo wall** — Get permission to display actual company logos for trust signals
@@ -52,7 +52,7 @@ Low-code/no-code business owners: newsletter creators, coaches, online course se
 - ✅ **User interview plan** — Newsletter creators, course sellers, small SaaS founders currently paying for churn tools — docs/user-interview-plan.md (2026-03-21)
 - [✅] **Progressive disclosure test** — DONE 2026-03-21. Demo at /demo requires no email/login. Added "Try the interactive demo first →" link in waitlist section on homepage.
 - ✅ **Trust signals optimization** — Customer logos vs. testimonial quotes effectiveness — docs/trust-signals-strategy.md (2026-03-21)
-- [ ] **Mobile UX full audit** — Complete responsive design review
+- [✅] **Mobile UX full audit** — Complete responsive design review. P0 issues fixed, P1/P2 documented at docs/mobile-ux-audit.md (2026-03-21)
 
 ## Completed (archive)
 - ✅ Homepage UX overhaul for business owners (2026-03-21)

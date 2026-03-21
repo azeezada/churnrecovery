@@ -204,3 +204,40 @@ body {
     grid-template-columns: 1fr !important;
   }
 }
+
+/* ── P0 MOBILE FIXES (2026-03-21) ───────────────────────────────────────── */
+
+/* Homepage blog post card: collapse date column on small screens */
+@media (max-width: 600px) {
+  .home-post-card {
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+  }
+}
+
+/* P2: Lazy-load hints and tap target improvements */
+@media (max-width: 768px) {
+  /* Ensure all images are responsive */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Larger tap targets for nav links on touch devices */
+  a, button {
+    min-height: 36px;
+  }
+}
+
+/* P2: WaitlistForm email input — better mobile keyboard */
+input[type="email"] {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* P1: Blog grid min-width safety for very small screens */
+@media (max-width: 400px) {
+  .blog-grid {
+    grid-template-columns: 1fr !important;
+  }
+}

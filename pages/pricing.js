@@ -196,8 +196,8 @@ export default function Pricing() {
         <p style={{ color: t.gray, textAlign: 'center', marginBottom: 36, fontSize: 16 }}>
           Same features. Zero monthly cost.
         </p>
-        <div style={{ background: t.white, borderRadius: 12, border: `1px solid ${t.border}`, overflow: 'hidden' }}>
-          <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 15 }}>
+        <div style={{ background: t.white, borderRadius: 12, border: `1px solid ${t.border}`, overflow: 'hidden', overflowX: 'auto', WebkitOverflowScrolling: 'touch' }}>
+          <table style={{ width: '100%', minWidth: '480px', borderCollapse: 'collapse', fontSize: 15 }}>
             <thead>
               <tr style={{ borderBottom: `2px solid ${t.border}` }}>
                 <th style={{ padding: '16px 24px', textAlign: 'left', color: t.gray, fontWeight: 600, width: '25%' }}>Platform</th>
