@@ -145,3 +145,10 @@ The platforms will keep improving. But the cancel moment gap has been there for 
 *ChurnRecovery is free during beta. Works with Ghost, Substack, Beehiiv, and any Stripe-based subscription — no credit card required.*
 
 [→ Join the waitlist](/waitlist)
+
+---
+
+**Platform-specific guides:**
+- [ChurnRecovery for Ghost creators](/for/ghost)
+- [ChurnRecovery for Substack creators](/for/substack)
+- [ChurnRecovery for Beehiiv creators](/for/beehiiv)

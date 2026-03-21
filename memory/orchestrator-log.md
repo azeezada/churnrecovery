@@ -253,3 +253,11 @@
 - **[COMPARE-RECURLY]** `/compare/recurly` — Added to lib/comparisons.js. Feature table, pricing, verdict. HTTP 200 ✅
 - **[COMPARE-ZUORA]** `/compare/zuora` — Enterprise-wrong-for-small-business framing. HTTP 200 ✅
 - Build clean | Deployed + cache purged | Pushed to main | WORKQUEUE.md ✅
+
+## 2026-03-21 — Wave 8, CODE worker (cr-code-creator-pages)
+
+- **[KAJABI-LP]** `/for/kajabi` — Gold/yellow accent, 3 pain points, 6 benefits, 7 FAQ, `kajabi-creator` tag. HTTP 200 ✅
+- **[TEACHABLE-LP]** `/for/teachable` — Green accent, pause/discount/survey angle, honest about Teachable's own payment system, `teachable-creator` tag. HTTP 200 ✅
+- **[GHOST-LP]** `/for/ghost` — Dark minimal, Ghost+Stripe native angle, "pay what you can" discount, `ghost-publisher` tag. HTTP 200 ✅
+- All 3 added to sitemap.xml | Build: 102 pages ✅ | Tests: 133/133 ✅ | Deployed + cache purged | Pushed to main
+- WORKQUEUE.md: ✅ creator landing pages added and marked done

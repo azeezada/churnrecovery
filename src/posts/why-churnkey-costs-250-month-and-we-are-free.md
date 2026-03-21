@@ -125,4 +125,8 @@ If the answer was "the price," that answer just changed.
 
 ---
 
+**Related:** Want a full feature-by-feature breakdown? → [ChurnRecovery vs. Churnkey: Side-by-Side Comparison](/compare/churnkey)
+
+---
+
 *ChurnRecovery is free churn recovery software built for newsletter creators, coaches, course sellers, and small subscription businesses. No credit card required.*

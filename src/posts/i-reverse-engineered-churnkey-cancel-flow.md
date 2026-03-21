@@ -181,4 +181,8 @@ ChurnRecovery is free to try — it covers the core features that actually move 
 
 ---
 
+**Related:** See the full feature-by-feature breakdown → [ChurnRecovery vs. Churnkey: Complete Comparison](/compare/churnkey)
+
+---
+
 *Last updated March 2026. Churnkey's pricing and features are subject to change — check their site for current details.*

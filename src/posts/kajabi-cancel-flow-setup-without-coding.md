@@ -169,4 +169,8 @@ The waitlist is open now. Early access members lock in free access before any pr
 
 ---
 
+**Related:** See exactly how ChurnRecovery works for Kajabi creators → [ChurnRecovery for Kajabi](/for/kajabi)
+
+---
+
 *Works with Kajabi, Teachable, Thinkific, Ghost, Beehiiv, and any other platform that processes subscriptions through Stripe.*

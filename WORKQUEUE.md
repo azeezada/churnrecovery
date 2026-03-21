@@ -23,6 +23,7 @@ Low-code/no-code business owners: newsletter creators, coaches, online course se
 - [✅] **Widget CDN** — Minified widget.js → widget.min.js (10KB, terser), build script at scripts/build-widget.sh, CDN setup docs at docs/widget-cdn-setup.md (2026-03-21)
 - ✅ **A/B test homepage CTA copy** — 50/50 split: "Join Waitlist" (A) vs "Get Early Access Free" (B). Hook in lib/useABTest.js, variant sent in form submission body for conversion tracking — deployed + verified (2026-03-21)
 - ✅ **Substack-specific landing page** — Implemented at /for/substack — newsletter creator angle, pain points, how-it-works, benefits, FAQ, dual waitlist forms with `substack-creator` tag — deployed + HTTP 200 verified (2026-03-21)
+- ✅ **Creator landing pages: Kajabi, Teachable, Ghost** — /for/kajabi, /for/teachable, /for/ghost deployed (2026-03-21). Kajabi=gold/yellow accent (Stripe-native angle, no approval needed), Teachable=green (course subscription recovery), Ghost=dark/minimal (native Stripe integration, pause + PWYW discount). All 133 tests pass.
 
 ### P3 — Ongoing (continuous improvement)
 - [✅] 2 blog posts per week (comparison pages, content marketing) — DONE 2026-03-21. Published: "Chargebee Retain vs Churnkey vs ChurnRecovery" + "5 Cancellation Emails That Win Back Subscribers"

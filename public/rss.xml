@@ -5,7 +5,7 @@
     <link>https://churnrecovery.com/blog</link>
     <description>Insights on churn recovery, payment failures, and SaaS retention</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 21 Mar 2026 05:08:40 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 21 Mar 2026 05:14:58 GMT</lastBuildDate>
     <atom:link href="https://churnrecovery.com/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title><![CDATA[The $50,000/Year SaaS Tool Stack Audit]]></title>
@@ -82,6 +82,29 @@
       <category>cancel flow</category>
       <category>SaaS tools comparison</category>
       <category>subscription business</category>
+    </item>
+    <item>
+      <title><![CDATA[Churnkey Alternatives: 5 Tools to Reduce Subscription Cancellations (Ranked)]]></title>
+      <link>https://churnrecovery.com/posts/churnkey-alternatives-ranked</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/churnkey-alternatives-ranked</guid>
+      <description><![CDATA[]]></description>
+      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
+      <category>churnkey</category>
+      <category>alternatives</category>
+      <category>cancel flow</category>
+      <category>subscription tools</category>
+    </item>
+    <item>
+      <title><![CDATA[Coaching Business Churn: Why Your Clients Keep Canceling (And How to Stop It)]]></title>
+      <link>https://churnrecovery.com/posts/coaching-business-churn</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/coaching-business-churn</guid>
+      <description><![CDATA[]]></description>
+      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
+      <category>coaching</category>
+      <category>clients</category>
+      <category>churn</category>
+      <category>subscription</category>
+      <category>retention</category>
     </item>
     <item>
       <title><![CDATA[Free Alternatives to Churnkey, ProfitWell, and Baremetrics]]></title>
@@ -213,6 +236,17 @@
       <category>churn</category>
       <category>revenue</category>
       <category>small business</category>
+    </item>
+    <item>
+      <title><![CDATA[What Is a Cancel Flow? (And Why Every Subscription Business Needs One)]]></title>
+      <link>https://churnrecovery.com/posts/what-is-a-cancel-flow</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/what-is-a-cancel-flow</guid>
+      <description><![CDATA[]]></description>
+      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
+      <category>cancel flow</category>
+      <category>subscription</category>
+      <category>churn</category>
+      <category>beginner guide</category>
     </item>
     <item>
       <title><![CDATA[Why Churnkey Costs $250/Month and We're Free]]></title>
