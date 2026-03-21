@@ -57,11 +57,11 @@ Low-code/no-code business owners: newsletter creators, coaches, online course se
 
 - [ ] **P2: Churn rate calculator landing page** — Interactive tool at `/tools/churn-calculator` already exists, but there's no SEO-optimized landing page driving traffic to it. Create a dedicated page with "membership site churn rate calculator" as target keyword, embed the tool, and add educational content around it. High-intent search traffic (people calculating churn are already in pain-aware mode).
 
-- [ ] **P2: Email nurture sequence for waitlist signups** — We collect emails but have no drip sequence after signup. Build a 5-email onboarding sequence: Day 1 (what ChurnRecovery does), Day 3 (case study / social proof), Day 7 (cancel flow walk-through), Day 14 (objection handling — "it's free, really?"), Day 21 (urgency / launch offer). ConvertKit integration is already wired — just needs the sequence written and tagged.
+- [✅] **P2: Email nurture sequence for waitlist signups** — DONE 2026-03-21. 5-email drip at docs/email-nurture-sequence.md: platform-personalized welcome (Substack/Kajabi/Beehiiv), math email (Day 3 → ROI calculator), cancel flow walkthrough (Day 7 → /demo), "it's really free" objection handling (Day 14), urgency + first-500 perks (Day 21). Full subject lines, preview text, body, CTAs.
 
 - [ ] **P2: Creator landing pages: Memberful, Stan Store, Payhip** — Already identified in docs/next-for-pages-plan.md. Priority: Memberful first (Stripe-required, strong brand alignment), then Stan Store (80k creators), then Payhip. All three have audiences that match our ICP and don't have dedicated landing pages yet.
 
-- [ ] **P3: "Churn Recovery Playbook" lead magnet PDF** — A downloadable PDF ("The Membership Site Churn Recovery Playbook") that compiles the best tactics from our blog posts into a single resource. Gate it behind email capture on a dedicated landing page. Drives list growth from organic blog traffic that's otherwise bouncing after reading.
+- [✅] **P3: "Churn Recovery Playbook" lead magnet PDF** — DONE 2026-03-21. Landing page at /resources/churn-recovery-playbook (live, HTTP 200). Content at docs/churn-recovery-playbook-content.md (~2,000 words, 5 sections). "Free Playbook" link added to footer Resources column. WaitlistForm source=playbook for ConvertKit tagging.
 
 - [ ] **P3: Schema markup (FAQ + HowTo) for all blog posts** — Our blog posts answer specific questions but don't have structured data. Adding FAQ schema to posts like "Why Subscribers Cancel" and HowTo schema to posts like "How to Reduce Churn" could unlock Google rich results, increasing CTR from search without changing rankings. Low effort, asymmetric upside.
 

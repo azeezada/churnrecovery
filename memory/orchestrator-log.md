@@ -331,3 +331,6 @@
 - **[CONTENT-2] "Why Subscribers Cancel (And How to Stop Them)"** — 1,100-word SEO post targeting "why subscribers cancel"; 7 cancellation reasons with response scripts; cancel flow as top intervention; CTA to /demo; deployed at /posts/why-subscribers-cancel (HTTP 200).
 - **[CONTENT-3] "Membership Site Churn Rate: What's Normal and How to Beat It"** — 1,200-word SEO post targeting "membership site churn rate"; benchmarks (5-8% common, 2-3% achievable), churn formula, exit survey guide; CTAs to /for/memberful and /for/circle; deployed at /posts/membership-site-churn-rate (HTTP 200).
 - **[WORKQUEUE] 5 new P2/P3 tasks added** — Churn rate calculator landing page, email nurture sequence, Memberful/Stan/Payhip landing pages, lead magnet PDF, schema markup for blog posts.
+
+2026-03-21: Email nurture sequence (docs/email-nurture-sequence.md) — 5-email drip with platform personalization, math email, cancel flow walkthrough, objection handling, urgency+social proof; all subjects/preview/body/CTA written.
+2026-03-21: Churn Recovery Playbook lead magnet — landing page live at /resources/churn-recovery-playbook (HTTP 200), ~2,000-word playbook content at docs/churn-recovery-playbook-content.md, 'Free Playbook' added to footer, source=playbook tag wired.
