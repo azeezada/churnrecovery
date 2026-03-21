@@ -1,0 +1,116 @@
+[
+  {
+    "date": "2026-03-21",
+    "version": "v0.9",
+    "tag": "UX",
+    "title": "Interactive Cancel Flow Demo",
+    "changes": [
+      "New /demo page with live 4-step cancel flow preview",
+      "No login required to try the demo",
+      "Pause offer, discount offer, and exit survey steps",
+      "Mobile-responsive demo experience"
+    ]
+  },
+  {
+    "date": "2026-03-20",
+    "version": "v0.8",
+    "tag": "Analytics",
+    "title": "Real-Time Dashboard Analytics",
+    "changes": [
+      "Dashboard now shows live data from your Stripe webhooks",
+      "Cancel attempt tracking",
+      "Save rate calculations",
+      "Revenue recovered metrics",
+      "Analytics page with charts and trend data"
+    ]
+  },
+  {
+    "date": "2026-03-15",
+    "version": "v0.7",
+    "tag": "Marketing",
+    "title": "Creator & Platform Landing Pages",
+    "changes": [
+      "New /for/memberful landing page for Memberful users",
+      "New /for/stan-store landing page for Stan Store creators",
+      "New /for/payhip landing page for Payhip sellers",
+      "New /for/wordpress landing page for WordPress/WooCommerce sites",
+      "New /for/wix landing page for Wix users"
+    ]
+  },
+  {
+    "date": "2026-03-12",
+    "version": "v0.6",
+    "tag": "Tools",
+    "title": "ROI Calculator & Churn Tools",
+    "changes": [
+      "New /tools/roi-calculator — estimate revenue recovered with ChurnRecovery",
+      "New /tools/churn-calculator — calculate your monthly churn impact",
+      "New /tools/churn-rate-calculator — industry-specific churn benchmarks",
+      "Template gallery at /templates with 6 pre-built cancel flow templates"
+    ]
+  },
+  {
+    "date": "2026-03-10",
+    "version": "v0.5",
+    "tag": "Content",
+    "title": "Blog & Documentation",
+    "changes": [
+      "Blog system with tags, pagination, and RSS feed",
+      "Developer docs with full SDK documentation and code examples",
+      "Churn Recovery Playbook lead magnet at /resources/churn-recovery-playbook",
+      "6 SEO blog posts covering churn benchmarks, cancel flows, and recovery strategies"
+    ]
+  },
+  {
+    "date": "2026-03-07",
+    "version": "v0.4",
+    "tag": "Fix",
+    "title": "Mobile UX Improvements",
+    "changes": [
+      "Fixed navigation hamburger menu on mobile",
+      "Improved hero section layout on small screens",
+      "Fixed pricing card overflow on mobile",
+      "Improved font sizes across all breakpoints",
+      "Fixed footer link alignment on mobile"
+    ]
+  },
+  {
+    "date": "2026-03-05",
+    "version": "v0.3",
+    "tag": "SEO",
+    "title": "Compare Pages & SEO Infrastructure",
+    "changes": [
+      "Compare pages: vs Churnkey, ProfitWell, Churnbuster, Baremetrics, Raaft, Stunning",
+      "FAQ and HowTo schema markup for blog posts",
+      "Sitemap.xml and robots.txt generation",
+      "OG image generation for all pages",
+      "Press kit and media assets at /press"
+    ]
+  },
+  {
+    "date": "2026-02-28",
+    "version": "v0.2",
+    "tag": "Core",
+    "title": "Cancel Flow Widget & Dashboard",
+    "changes": [
+      "Embeddable widget (widget.js) — drop one script tag to activate",
+      "Cancel flow builder with visual editor and live preview",
+      "Stripe webhook integration for real-time events",
+      "Projects dashboard — manage multiple cancel flows",
+      "API key management and settings"
+    ]
+  },
+  {
+    "date": "2026-02-20",
+    "version": "v0.1",
+    "tag": "Launch",
+    "title": "Project Foundation",
+    "changes": [
+      "Next.js 14 project setup with Cloudflare Pages deployment",
+      "Design system with Instrument Sans + Merriweather typography",
+      "Waitlist API with email deduplication",
+      "Header and Footer components",
+      "Initial homepage and pricing page"
+    ]
+  }
+]

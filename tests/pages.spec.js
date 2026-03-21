@@ -17,6 +17,7 @@ const pages = {
     ['/docs', 'Docs'],
     ['/blog', 'Blog'],
     ['/changelog', 'Changelog'],
+    ['/status', 'Status'],
     ['/templates', 'Templates'],
     ['/use-cases', 'Use Cases'],
   ],
