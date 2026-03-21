@@ -206,3 +206,10 @@
 **Result**: 133 tests, all passing, 0 failed, 0 flaky
 **Build**: ✅ `npm run build` — 88+ static pages, no errors
 **Commit**: test: E2E coverage for demo, ROI calculator, Substack page, CTA consistency
+
+## 2026-03-21 — Wave 6, CODE worker (cr-code-abt-pipeline)
+
+- **[PIPELINE] Deploy-and-verify script improved** — Added Step 0 cache-clear (`rm -rf .next out .vercel/output`) to `scripts/deploy-and-verify.sh`. Every deploy now starts from clean state.
+- **[AB-TEST] Homepage CTA A/B test** — Created `lib/useABTest.js` (localStorage-based 50/50 split, SSR-safe). Updated `WaitlistForm.js` to show "Join Waitlist" (A) or "Get Early Access Free" (B). Variant tracked in form submission body for conversion analysis.
+- Build: ✅ | Tests: 133/133 ✅ | Deployed + cache purged | Pushed to main
+- WORKQUEUE.md: both tasks marked ✅

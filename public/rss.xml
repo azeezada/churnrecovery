@@ -5,7 +5,7 @@
     <link>https://churnrecovery.com/blog</link>
     <description>Insights on churn recovery, payment failures, and SaaS retention</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 21 Mar 2026 04:47:58 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 21 Mar 2026 04:49:33 GMT</lastBuildDate>
     <atom:link href="https://churnrecovery.com/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title><![CDATA[The $50,000/Year SaaS Tool Stack Audit]]></title>
@@ -56,6 +56,19 @@
       <category>mockups</category>
       <category>screenshots</category>
       <category>saas</category>
+    </item>
+    <item>
+      <title><![CDATA[The 5 Cancellation Emails That Actually Win Back Subscribers (With Templates)]]></title>
+      <link>https://churnrecovery.com/posts/cancellation-emails-that-win-back-subscribers</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/cancellation-emails-that-win-back-subscribers</guid>
+      <description><![CDATA[Most cancellation emails are generic, arrive too late, and offer nothing. Here are the 5 types that actually work — with copy-paste templates you can use today.]]></description>
+      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
+      <category>cancellation emails</category>
+      <category>win-back</category>
+      <category>email templates</category>
+      <category>churn recovery</category>
+      <category>subscription business</category>
+      <category>customer retention</category>
     </item>
     <item>
       <title><![CDATA[Chargebee Retain vs Churnkey vs ChurnRecovery: Which Cancel Flow Tool Is Right for You?]]></title>
