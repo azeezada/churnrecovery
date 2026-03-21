@@ -50,6 +50,9 @@ git push origin main
 - **2 flaky Clerk tests**: `auth.spec.js` Clerk preload link tests are known-flaky (103/105 pass). Not a blocker.
 - **Concurrent WORKQUEUE edits**: Multiple agents editing WORKQUEUE.md simultaneously causes edit failures. Agents should retry once on edit failure, or use append-only updates.
 
+## Current Phase: DISTRIBUTION (not building)
+As of 2026-03-21, we have 100+ pages, 20+ blog posts, 15+ landing pages, 141 tests, full Tailwind migration, and zero users. **STOP BUILDING NEW PAGES. START DISTRIBUTING.** Any new code work should be: analytics, conversion tracking, email automation, or fixing bugs. No more /for/ pages. No more blog posts. The content library is massive — now it needs eyeballs.
+
 ## Do NOT
 - Skip tests ("I'll test later" = never)
 - Claim something is deployed without verifying the live URL
@@ -58,6 +61,8 @@ git push origin main
 - Use inline styles without design tokens (use Tailwind or tokens from lib/design-tokens.js)
 - Ask Dawood "what should I work on next?" — check WORKQUEUE.md and pick the highest priority item
 - Give status updates that end with questions — say what's happening and what's coming next
+- Create more /for/ pages or blog posts before existing ones have any traffic data
+- Build features for hypothetical users — get real users first, then build what they need
 
 ## Key Files
 - `STATE.json` — project state and task queue
