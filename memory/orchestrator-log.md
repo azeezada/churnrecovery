@@ -41,3 +41,4 @@
 - CODE-3 DONE: Stripe webhook already correctly implemented; dashboard/analytics wired to real API with localStore fallback + shimmer loading + "Live" badge
 
 ### Progress milestone: 5+ tasks done, sending update to Dawood
+- CONTENT-3 DONE: 2 blog posts + waitlist email drip sequence. Post 1: 'Why Churnkey Costs $250/Month and We're Free' at /posts/why-churnkey-costs-250-month-and-we-are-free (~1100 words, explains enterprise pricing logic, why ChurnRecovery is free). Post 2: 'I Analyzed 50+ SaaS Pricing Pages — Here's What I Found' at /posts/i-analyzed-50-saas-pricing-pages (~1400 words, 6 pricing patterns, natural ChurnRecovery CTA). Both HTTP 200 verified. Drip sequence: docs/waitlist-email-drip.md — 5 emails (welcome/Day2/Day5/Day10/Day14), A/B subject lines, preview text, plain founder voice, ConvertKit/Loops implementation notes. WORKQUEUE.md updated. Committed + pushed.

@@ -31,6 +31,7 @@ export default function Header() {
       background: t.bg, zIndex: 1000,
       borderBottom: `1px solid ${t.border}`,
       fontFamily: t.fontSans,
+      overflow: 'visible',
     }}>
       <div style={{
         maxWidth: 1200, margin: '0 auto',
@@ -160,7 +161,17 @@ export default function Header() {
         @media (max-width: 768px) {
           .desktop-nav { display: none !important; }
           .header-cta { display: none !important; }
-          .mobile-menu-btn { display: block !important; }
+          .header-signin { display: none !important; }
+          .mobile-menu-btn { display: flex !important; }
+        }
+        .mobile-nav {
+          display: block;
+          position: absolute;
+          top: 60px;
+          left: 0;
+          right: 0;
+          z-index: 999;
+          box-shadow: 0 8px 24px rgba(0,0,0,0.08);
         }
       `}</style>
     </header>

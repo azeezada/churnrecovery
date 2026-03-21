@@ -25,7 +25,7 @@ Low-code/no-code business owners: newsletter creators, coaches, online course se
 - [✅] Publish Indie Hackers post + Reddit cross-promotion — DOCS READY 2026-03-21. Final IH post at docs/indie-hackers-post-final.md (ready to copy/paste). Reddit execution playbook at docs/reddit-execution-playbook.md (exact posts for all 3 subs, ready to paste). Manual execution needed.
 - [ ] **Execute BetaList submission** — Copy ready in marketing/betalist-submission.md, target "early access" positioning before Product Hunt
 - [ ] **Monitor AlternativeTo performance** — Track clicks, upvotes, comments; engage with community; add to other competitor pages  
-- [ ] **Create email drip sequence for waitlist** — 5-email sequence introducing product, founders, beta access, case studies, launch countdown
+- [✅] **Create email drip sequence for waitlist** — DONE 2026-03-21. 5-email sequence at docs/waitlist-email-drip.md. Covers welcome, churn cost numbers, product mechanics, case study, and beta CTA. A/B subject lines + implementation notes for ConvertKit/Loops.
 - [ ] **Set up ConvertKit/Mailchimp automation** — Welcome series for new signups from directories, segment by traffic source
 
 ### P2 — Next Week (retention + growth)
@@ -54,7 +54,7 @@ Low-code/no-code business owners: newsletter creators, coaches, online course se
 - [ ] Hacker News "Show HN" post (after Reddit validation)
 
 ## Content Ideas Backlog
-- [ ] **"Why Churnkey Costs $250/Month and We're Free"** — Bold comparison piece for Medium + Indie Hackers
+- [✅] **"Why Churnkey Costs $250/Month and We're Free"** — DONE 2026-03-21. Published at /posts/why-churnkey-costs-250-month-and-we-are-free. ~1100 words, non-technical audience, explains enterprise pricing logic and why ChurnRecovery is free.
 - [ ] **Screenshot guide series** — "5 SaaS Dashboard Screenshots That Convert" using our mockups as examples
 - [ ] **"Building in Public: 48 Hours to Product Screenshots"** — Behind-scenes content about our mockup creation process
 - [ ] **Twitter thread: "Directory submission checklist"** — Share our screenshot strategy + submission tips
@@ -76,7 +76,7 @@ Low-code/no-code business owners: newsletter creators, coaches, online course se
 ## Content Ideas Backlog (Original)
 - [✅] "The $825/month SaaS Tool That Should Cost $25" — DONE 2026-03-21. Published at /posts/saas-tool-pricing-take. 900 words, non-technical audience, links to ChurnRecovery throughout.
 - [ ] Case study template: "How [Company] Saved $4,800/year by Switching from Churnkey"
-- [ ] "I Analyzed 50+ SaaS Pricing Pages - Here's What I Found" — industry data angle
+- [✅] "I Analyzed 50+ SaaS Pricing Pages - Here's What I Found" — DONE 2026-03-21. Published at /posts/i-analyzed-50-saas-pricing-pages. 6 pricing patterns, natural ChurnRecovery mention, ~1400 words.
 - [ ] "The $50,000/Year SaaS Tool Stack Audit" — controversial cost analysis
 - [ ] Twitter thread series: Real-time building in public updates
 - [ ] "Free SaaS Tools That Replace $100k+/Year Software" — broader market positioning

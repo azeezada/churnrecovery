@@ -18,44 +18,64 @@ const t = {
 }
 
 // ─── How It Works Step ────────────────────────────────────────────────────
-function Step({ number, title, description }) {
+function Step({ number, title, description, screenshot, screenshotAlt }) {
   return (
     <div style={{
-      display: 'flex',
-      gap: '20px',
-      alignItems: 'flex-start',
-    }}>
+      display: 'grid',
+      gridTemplateColumns: '1fr',
+      gap: '24px',
+    }} className="step-card">
       <div style={{
-        width: '44px',
-        height: '44px',
-        borderRadius: '50%',
-        background: `${t.accent}15`,
-        border: `2px solid ${t.accent}`,
         display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        fontFamily: t.fontSans,
-        fontWeight: 700,
-        fontSize: '1.1rem',
-        color: t.accent,
-        flexShrink: 0,
-      }}>{number}</div>
-      <div>
-        <h3 style={{
+        gap: '20px',
+        alignItems: 'flex-start',
+      }}>
+        <div style={{
+          width: '44px',
+          height: '44px',
+          borderRadius: '50%',
+          background: `${t.accent}15`,
+          border: `2px solid ${t.accent}`,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
           fontFamily: t.fontSans,
+          fontWeight: 700,
           fontSize: '1.1rem',
-          fontWeight: 600,
-          color: t.text,
-          margin: '0 0 6px 0',
-        }}>{title}</h3>
-        <p style={{
-          fontFamily: t.fontSans,
-          fontSize: '0.95rem',
-          color: t.gray,
-          margin: 0,
-          lineHeight: 1.6,
-        }}>{description}</p>
+          color: t.accent,
+          flexShrink: 0,
+        }}>{number}</div>
+        <div>
+          <h3 style={{
+            fontFamily: t.fontSans,
+            fontSize: '1.1rem',
+            fontWeight: 600,
+            color: t.text,
+            margin: '0 0 6px 0',
+          }}>{title}</h3>
+          <p style={{
+            fontFamily: t.fontSans,
+            fontSize: '0.95rem',
+            color: t.gray,
+            margin: 0,
+            lineHeight: 1.6,
+          }}>{description}</p>
+        </div>
       </div>
+      {screenshot && (
+        <div style={{
+          borderRadius: '12px',
+          overflow: 'hidden',
+          border: `1px solid ${t.border}`,
+          boxShadow: '0 4px 16px rgba(0,0,0,0.07)',
+        }}>
+          <img
+            src={screenshot}
+            alt={screenshotAlt}
+            style={{ width: '100%', height: 'auto', display: 'block' }}
+          />
+        </div>
+      )}
     </div>
   )
 }
@@ -333,6 +353,57 @@ export default function Home({ posts }) {
             Works with newsletters, courses, coaching, memberships — any subscription business.
           </p>
         </div>
+
+        {/* ── Hero Product Screenshot ─────────────────────────────────── */}
+        <div style={{
+          maxWidth: '1100px',
+          margin: '0 auto',
+          padding: '0 24px 72px',
+        }}>
+          <div style={{
+            borderRadius: '16px',
+            overflow: 'hidden',
+            border: `1px solid ${t.border}`,
+            boxShadow: '0 8px 40px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.06)',
+            background: t.white,
+          }}>
+            {/* Browser chrome mockup */}
+            <div style={{
+              background: '#F0EFE9',
+              borderBottom: `1px solid ${t.border}`,
+              padding: '10px 16px',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '8px',
+            }}>
+              <span style={{ width: 12, height: 12, borderRadius: '50%', background: '#FF5F57', display: 'inline-block' }} />
+              <span style={{ width: 12, height: 12, borderRadius: '50%', background: '#FEBC2E', display: 'inline-block' }} />
+              <span style={{ width: 12, height: 12, borderRadius: '50%', background: '#28C840', display: 'inline-block' }} />
+              <span style={{
+                flex: 1, background: t.white, borderRadius: 6, padding: '4px 12px',
+                fontSize: '0.75rem', color: t.gray, fontFamily: t.fontSans, marginLeft: 8,
+              }}>app.churnrecovery.com/dashboard</span>
+            </div>
+            <img
+              src="/screenshots/homepage-hero.png"
+              alt="ChurnRecovery dashboard showing recovered revenue, active cancel flows, and subscriber analytics — all in one place"
+              style={{
+                width: '100%',
+                height: 'auto',
+                display: 'block',
+              }}
+            />
+          </div>
+          <p style={{
+            fontFamily: t.fontSans,
+            fontSize: '0.82rem',
+            color: t.grayLight,
+            textAlign: 'center',
+            marginTop: '14px',
+          }}>
+            The ChurnRecovery dashboard — see recovered revenue, cancel reasons, and active flows at a glance.
+          </p>
+        </div>
       </section>
 
       {/* ── THE PROBLEM ──────────────────────────────────────────────────── */}
@@ -519,22 +590,28 @@ export default function Home({ posts }) {
           <div style={{
             display: 'flex',
             flexDirection: 'column',
-            gap: '36px',
+            gap: '48px',
           }}>
             <Step
               number="1"
               title="Connect your payment provider"
               description="Link your Stripe, Paddle, or other payment account. Takes about 60 seconds — just click 'connect' and authorize."
+              screenshot="/screenshots/product-flow-builder.png"
+              screenshotAlt="ChurnRecovery cancel flow builder — customize save offers, pause options, and cancellation reasons with a visual editor"
             />
             <Step
               number="2"
               title="Choose what to offer"
               description="Pick from proven templates: offer a discount, suggest a pause, switch their plan, or ask for feedback. Customize the message in your voice. No design skills needed."
+              screenshot="/screenshots/product-dashboard-improved.png"
+              screenshotAlt="ChurnRecovery dashboard showing recovered revenue metrics, subscriber save rate, and payment recovery statistics"
             />
             <Step
               number="3"
               title="Start recovering revenue"
               description="That's it. When someone tries to cancel, they'll see your custom save flow. When a payment fails, we handle retries and reminders. You just watch the recovered revenue in your dashboard."
+              screenshot="/screenshots/product-email-sequences.png"
+              screenshotAlt="ChurnRecovery automated email sequences — dunning emails for failed payments sent at the right time to recover subscribers"
             />
           </div>
 
