@@ -1,23 +1,23 @@
 import { jsonResponse, handleCors, getUserId } from './_shared.js'
 
-export async function onRequestOptions() {
-  return handleCors()
+export async function onRequestOptions(context) {
+  return handleCors(context.request)
 }
 
 export async function onRequestGet(context) {
   const { request, env } = context
   const userId = getUserId(request)
-  if (!userId) return jsonResponse({ error: 'Unauthorized' }, 401)
+  if (!userId) return jsonResponse({ error: 'Unauthorized' }, 401, request)
 
   const url = new URL(request.url)
   const projectId = url.searchParams.get('projectId')
-  const days = parseInt(url.searchParams.get('days') || '30')
+  const days = Math.min(Math.max(parseInt(url.searchParams.get('days') || '30') || 30, 1), 365)
 
-  if (!projectId) return jsonResponse({ error: 'projectId required' }, 400)
+  if (!projectId) return jsonResponse({ error: 'projectId required' }, 400, request)
 
   const project = await env.DB.prepare('SELECT * FROM projects WHERE id = ?').bind(projectId).first()
   if (!project || project.user_id !== userId) {
-    return jsonResponse({ error: 'Forbidden' }, 403)
+    return jsonResponse({ error: 'Forbidden' }, 403, request)
   }
 
   const daysStr = `-${days} days`
@@ -63,5 +63,5 @@ export async function onRequestGet(context) {
     outcomeBreakdown,
     reasonBreakdown,
     dailyEvents,
-  })
+  }, 200, request)
 }
