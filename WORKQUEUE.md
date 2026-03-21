@@ -108,6 +108,14 @@ Low-code/no-code business owners: newsletter creators, coaches, online course se
 
 - [✅] **P3: Schema markup (FAQ + HowTo) for all blog posts** — DONE 2026-03-21. lib/post-schemas.js with FAQPage (why-subscribers-cancel: 7 Q&As, membership-site-churn-rate: 5 Q&As) + HowTo schemas (reduce-churn-online-course-business: 5 steps, kajabi-cancel-flow: bonus). Dynamic FAQPage schema on all /compare/[slug] pages. Confirmed live in HTML. 134 tests pass.
 
+### Wave 14 Content (Added 2026-03-21)
+
+- [✅] **SEO blog post: shopify-subscription-churn** — DONE 2026-03-21. ~1,100 words. Target keyword: "shopify subscription churn". Covers the cancel flow gap in Shopify, ChurnRecovery + Stripe integration. CTAs → /for/stripe and /demo. Live at /posts/shopify-subscription-churn (HTTP 200).
+- [✅] **SEO blog post: online-community-churn-rate** — DONE 2026-03-21. ~1,100 words. Target keyword: "online community churn rate". Covers emotional/social churn drivers for Circle/Mighty Networks/Discord communities. CTAs → /for/circle and /for/memberful. Live at /posts/online-community-churn-rate (HTTP 200).
+- [✅] **SEO blog post: woocommerce-subscription-cancel-flow** — DONE 2026-03-21. ~1,200 words. Target keyword: "woocommerce subscription cancel flow". Step-by-step tutorial for WooCommerce + Stripe cancel flow setup, no coding. Links → /for/wordpress. CTA → /waitlist. Live at /posts/woocommerce-subscription-cancel-flow (HTTP 200).
+- [✅] **SEO blog post: churn-prevention-strategies-coaching** — DONE 2026-03-21. ~1,100 words. Target keyword: "churn prevention strategies coaching". 5 strategies for coaches/consultants + financial impact math. Links → /for/kajabi, /for/teachable. CTA → /demo. Live at /posts/churn-prevention-strategies-coaching (HTTP 200).
+- [✅] **SEO blog post: voluntary-vs-involuntary-churn** — DONE 2026-03-21. ~1,000 words. Target keyword: "voluntary vs involuntary churn". Educational explainer covering both churn types + respective solutions. Links → /tools/churn-rate-calculator. CTA → /demo. Live at /posts/voluntary-vs-involuntary-churn (HTTP 200).
+
 ## UX Research Opportunities
 - ✅ **User interview plan** — Newsletter creators, course sellers, small SaaS founders currently paying for churn tools — docs/user-interview-plan.md (2026-03-21)
 - [✅] **Progressive disclosure test** — DONE 2026-03-21. Demo at /demo requires no email/login. Added "Try the interactive demo first →" link in waitlist section on homepage.

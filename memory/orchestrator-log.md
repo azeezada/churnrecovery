@@ -460,3 +460,28 @@
 - Tests: 12/12 marketing page tests pass (including /changelog and /status)
 - Status page uses `useState`/`useEffect` for client-side health check with 30s auto-refresh
 - Welcome email sequence covers: first webhook → Day 3 → Day 14; Resend + ConvertKit implementation notes included
+
+---
+
+## Wave 14 Content — 5 SEO Blog Posts
+**Date:** 2026-03-21
+**Commit:** 5441faf — "content: 5 SEO blog posts wave 14 - shopify/community/woocommerce/coaching/churn-types"
+
+### Files Created
+- `src/posts/shopify-subscription-churn.md` — ~1,100 words. "How to Reduce Churn on Your Shopify Subscription Store". Target: "shopify subscription churn". CTAs → /for/stripe + /demo.
+- `src/posts/online-community-churn-rate.md` — ~1,100 words. "Online Community Churn: Why Members Leave (And How to Keep Them)". Target: "online community churn rate". CTAs → /for/circle + /for/memberful.
+- `src/posts/woocommerce-subscription-cancel-flow.md` — ~1,200 words. "How to Set Up a Cancel Flow for Your WooCommerce Subscription Site". Target: "woocommerce subscription cancel flow". Links → /for/wordpress. CTA → /waitlist.
+- `src/posts/churn-prevention-strategies-coaching.md` — ~1,100 words. "Churn Prevention Strategies for Coaches and Consultants". Target: "churn prevention strategies coaching". Links → /for/kajabi + /for/teachable. CTA → /demo.
+- `src/posts/voluntary-vs-involuntary-churn.md` — ~1,000 words. "What Is Voluntary vs Involuntary Churn? (And How to Reduce Both)". Target: "voluntary vs involuntary churn". Links → /tools/churn-rate-calculator. CTA → /demo.
+
+### Build & Deploy Status
+- Build: ✅ passes — sitemap.xml updated with 118 URLs (all 5 new posts included)
+- Tests: ✅ 96 passed (3 flaky pre-existing, not new)
+- Deploy: ✅ via scripts/deploy-and-verify.sh — custom domain serving correct build
+- URL verification: ✅ HTTP 200 on all 5 new post URLs
+
+### Notes
+- /for/circle confirmed to exist (live JS chunk in out/ directory) — used as primary CTA for community post
+- All posts follow existing frontmatter format (title, description, date, tags, author, readingTime)
+- SEO gaps addressed from docs/seo-content-gap-analysis.md: rows 1 (shopify), 8 (circle/community), 2 (woocommerce), 21 (coaching), plus voluntary/involuntary churn education
+- WORKQUEUE.md updated with all 5 items marked complete
