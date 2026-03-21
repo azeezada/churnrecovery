@@ -65,6 +65,14 @@ Low-code/no-code business owners: newsletter creators, coaches, online course se
 - [ ] **"SaaS Pricing Audit: Tools That Should Cost 90% Less"** — Controversial take on inflated B2B SaaS pricing
 - [ ] **Video testimonials from beta users** — Real founders explaining why they switched from paid tools
 
+## UX Research Opportunities (NEW)
+- [ ] **User interview plan** — Newsletter creators, course sellers, small SaaS founders currently paying for churn tools
+- [ ] **A/B test hero with product screenshot** — vs. current text-only approach
+- [ ] **Substack-specific landing page** — "Free Churn Recovery for Newsletter Creators"  
+- [ ] **Mobile UX audit** — Complete responsive design review
+- [ ] **Progressive disclosure test** — Let users explore demo before email capture
+- [ ] **Trust signals optimization** — Customer logos vs. testimonial quotes effectiveness
+
 ## Content Ideas Backlog (Original)
 - [ ] "The $825/month SaaS Tool That Should Cost $25" — controversial pricing take for Medium
 - [ ] Case study template: "How [Company] Saved $4,800/year by Switching from Churnkey"

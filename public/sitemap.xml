@@ -163,6 +163,30 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://churnrecovery.com/compare/prosperstack</loc>
+    <lastmod>2026-03-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://churnrecovery.com/alternatives/prosperstack</loc>
+    <lastmod>2026-03-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://churnrecovery.com/compare/chargebee</loc>
+    <lastmod>2026-03-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://churnrecovery.com/alternatives/chargebee</loc>
+    <lastmod>2026-03-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://churnrecovery.com/templates/saas-standard</loc>
     <lastmod>2026-03-21</lastmod>
     <changefreq>monthly</changefreq>

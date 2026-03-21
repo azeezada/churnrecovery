@@ -23,3 +23,12 @@
 - SOCIAL-1: Execute Reddit posts + Indie Hackers publish (P1)
 
 - MARKETING-2 DONE: Created docs/reddit-execution-playbook.md (exact copy-paste posts for r/SideProject, r/entrepreneur, r/startups with subreddit-specific angles, best post times, rules, reply templates, cross-promotion strategy), docs/directory-submission-execution.md (top 10 directories prioritized with step-by-step instructions, copy-paste descriptions, submission schedule), docs/launch-day-social-checklist.md (single-page ordered checklist of every social action for launch day). indie-hackers-post-final.md was already finalized. WORKQUEUE.md updated. Committed and pushed.
+
+### Wave 2 completions
+- MARKETING-2 DONE: Reddit playbook (3 subs, copy-paste posts, UTM, reply templates), directory submission guide (top 10), launch day checklist — committed
+- CODE-2 DONE: Clerk dynamic imports fixed, widget URL corrected, install page empty state + plain-English copy — 103/105 tests, deployed
+
+### Wave 3 spawning (P2 tasks)
+- CODE-3: Stripe webhook signature verification + real analytics in dashboard
+- CONTENT-2: More comparison pages for long-tail SEO
+- MARKETING-3: G2 + Capterra business profiles setup
