@@ -4,23 +4,6 @@ import { useState, useEffect } from 'react'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 
-const t = {
-  bg: '#F7F7F7',
-  text: '#191919',
-  gray: '#666666',
-  grayLight: '#999999',
-  accent: '#000000',
-  accentHover: '#333333',
-  accentBg: '#F0F0F0',
-  border: '#E5E5E5',
-  white: '#FFFFFF',
-  green: '#2D7A4F',
-  greenBg: '#EDF7F1',
-  red: '#DC2626',
-  fontSans: '"Instrument Sans", sans-serif',
-  fontSerif: '"Merriweather", serif',
-}
-
 function WaitlistForm({ dark = false }) {
   const [email, setEmail] = useState('')
   const [status, setStatus] = useState('idle')
@@ -55,19 +38,19 @@ function WaitlistForm({ dark = false }) {
     } catch { setStatus('error'); setError('Network error. Please try again.') }
   }
 
-  const bgColor = dark ? 'rgba(255,255,255,0.08)' : t.white
-  const borderColor = dark ? 'rgba(255,255,255,0.15)' : t.border
-  const textColor = dark ? t.white : t.text
-  const subtextColor = dark ? 'rgba(255,255,255,0.6)' : t.gray
+  const bgColor = dark ? 'rgba(255,255,255,0.08)' : '#FFFFFF'
+  const borderColor = dark ? 'rgba(255,255,255,0.15)' : '#E5E5E5'
+  const textColor = dark ? '#FFFFFF' : '#191919'
+  const subtextColor = dark ? 'rgba(255,255,255,0.6)' : '#666666'
 
   if (status === 'success' || status === 'duplicate') {
     return (
-      <div style={{ textAlign: 'center', padding: '24px', borderRadius: '12px', background: dark ? 'rgba(45,122,79,0.15)' : t.greenBg, border: `1px solid ${dark ? 'rgba(45,122,79,0.3)' : '#C6E6D4'}` }}>
-        <div style={{ fontSize: '2rem', marginBottom: '8px' }}>{status === 'duplicate' ? '👋' : '🎉'}</div>
-        <p style={{ fontFamily: t.fontSans, fontWeight: 700, fontSize: '1rem', color: dark ? t.white : t.text, margin: '0 0 6px' }}>
+      <div className="text-center p-6 rounded-xl" style={{ background: dark ? 'rgba(45,122,79,0.15)' : '#EDF7F1', border: `1px solid ${dark ? 'rgba(45,122,79,0.3)' : '#C6E6D4'}` }}>
+        <div className="text-[2rem] mb-2">{status === 'duplicate' ? '👋' : '🎉'}</div>
+        <p className="font-[Instrument_Sans,sans-serif] font-bold text-base m-0 mb-[6px]" style={{ color: dark ? '#FFFFFF' : '#191919' }}>
           {status === 'duplicate' ? "You're already on the list!" : "You're in!"}
         </p>
-        <p style={{ fontFamily: t.fontSerif, fontSize: '0.85rem', color: subtextColor, margin: 0 }}>
+        <p className="font-[Merriweather,serif] text-sm m-0" style={{ color: subtextColor }}>
           We&apos;ll reach out when your Squarespace cancel flow is ready.
         </p>
       </div>
@@ -76,19 +59,19 @@ function WaitlistForm({ dark = false }) {
 
   return (
     <div>
-      <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+      <form onSubmit={handleSubmit} className="flex flex-col gap-[10px]">
         <input type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="your@email.com" required autoComplete="email"
-          style={{ padding: '13px 16px', borderRadius: '8px', border: `1px solid ${error ? t.red : borderColor}`, background: bgColor, fontFamily: t.fontSans, fontSize: '0.95rem', color: textColor, outline: 'none' }} />
+          className="px-4 py-[13px] rounded-lg font-[Instrument_Sans,sans-serif] text-[0.95rem] outline-none" style={{ border: `1px solid ${error ? '#DC2626' : borderColor}`, background: bgColor, color: textColor }} />
         <button type="submit" disabled={status === 'loading'}
-          style={{ padding: '14px 28px', borderRadius: '8px', border: 'none', background: status === 'loading' ? t.grayLight : (dark ? t.white : t.accent), color: dark ? t.accent : t.white, fontFamily: t.fontSans, fontWeight: 700, fontSize: '1rem', cursor: status === 'loading' ? 'not-allowed' : 'pointer' }}>
+          className="py-[14px] px-7 rounded-lg border-none font-[Instrument_Sans,sans-serif] font-bold text-base" style={{ background: status === 'loading' ? '#999999' : (dark ? '#FFFFFF' : '#000000'), color: dark ? '#000000' : '#FFFFFF', cursor: status === 'loading' ? 'not-allowed' : 'pointer' }}>
           {status === 'loading' ? 'Joining...' : 'Add a Cancel Flow to Squarespace →'}
         </button>
       </form>
-      {error && <p style={{ fontFamily: t.fontSans, fontSize: '0.8rem', color: t.red, margin: '8px 0 0' }}>⚠ {error}</p>}
-      <div style={{ display: 'flex', gap: '16px', marginTop: '12px', flexWrap: 'wrap' }}>
-        <span style={{ fontFamily: t.fontSans, fontSize: '0.78rem', color: subtextColor }}>🆓 Free during beta</span>
-        <span style={{ fontFamily: t.fontSans, fontSize: '0.78rem', color: subtextColor }}>🔒 No credit card required</span>
-        {count && <span style={{ fontFamily: t.fontSans, fontSize: '0.78rem', color: subtextColor }}><span style={{ color: t.green }}>●</span> {count.toLocaleString()} on waitlist</span>}
+      {error && <p className="font-[Instrument_Sans,sans-serif] text-[0.8rem] text-[#DC2626] mt-2 mb-0">⚠ {error}</p>}
+      <div className="flex gap-4 mt-3 flex-wrap">
+        <span className="font-[Instrument_Sans,sans-serif] text-[0.78rem]" style={{ color: subtextColor }}>🆓 Free during beta</span>
+        <span className="font-[Instrument_Sans,sans-serif] text-[0.78rem]" style={{ color: subtextColor }}>🔒 No credit card required</span>
+        {count && <span className="font-[Instrument_Sans,sans-serif] text-[0.78rem]" style={{ color: subtextColor }}><span className="text-[#2D7A4F]">●</span> {count.toLocaleString()} on waitlist</span>}
       </div>
     </div>
   )
@@ -96,39 +79,39 @@ function WaitlistForm({ dark = false }) {
 
 function PainCard({ icon, title, stat, statLabel, description }) {
   return (
-    <div style={{ background: t.white, border: `1px solid ${t.border}`, borderRadius: '12px', padding: '28px 24px', borderTop: `3px solid ${t.accent}` }}>
-      <div style={{ fontSize: '2rem', marginBottom: '12px' }}>{icon}</div>
-      <h3 style={{ fontFamily: t.fontSans, fontSize: '1rem', fontWeight: 700, color: t.text, margin: '0 0 8px' }}>{title}</h3>
-      {stat && <div style={{ fontFamily: t.fontSans, fontWeight: 800, fontSize: '2rem', color: t.accent, margin: '4px 0' }}>{stat}</div>}
-      {statLabel && <div style={{ fontFamily: t.fontSans, fontSize: '0.8rem', color: t.gray, marginBottom: '8px' }}>{statLabel}</div>}
-      <p style={{ fontFamily: t.fontSerif, fontSize: '0.88rem', color: t.gray, margin: 0, lineHeight: 1.6 }}>{description}</p>
+    <div className="bg-white border border-[#E5E5E5] rounded-xl px-6 py-7 border-t-[3px] border-t-black">
+      <div className="text-[2rem] mb-3">{icon}</div>
+      <h3 className="font-[Instrument_Sans,sans-serif] text-base font-bold text-[#191919] m-0 mb-2">{title}</h3>
+      {stat && <div className="font-[Instrument_Sans,sans-serif] font-extrabold text-[2rem] text-black my-1">{stat}</div>}
+      {statLabel && <div className="font-[Instrument_Sans,sans-serif] text-[0.8rem] text-[#666666] mb-2">{statLabel}</div>}
+      <p className="font-[Merriweather,serif] text-[0.88rem] text-[#666666] m-0 leading-relaxed">{description}</p>
     </div>
   )
 }
 
 function HowStep({ number, icon, title, description, callout }) {
   return (
-    <div style={{ background: t.white, border: `1px solid ${t.border}`, borderRadius: '12px', padding: '28px 24px' }}>
-      <div style={{ display: 'flex', gap: '16px', alignItems: 'flex-start', marginBottom: '16px' }}>
-        <div style={{ width: '48px', height: '48px', borderRadius: '50%', background: 'rgba(0,0,0,0.06)', border: `2px solid ${t.accent}`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: t.fontSans, fontWeight: 800, fontSize: '1.1rem', color: t.accent, flexShrink: 0 }}>{number}</div>
+    <div className="bg-white border border-[#E5E5E5] rounded-xl px-6 py-7">
+      <div className="flex gap-4 items-start mb-4">
+        <div className="w-12 h-12 rounded-full bg-[rgba(0,0,0,0.06)] border-2 border-black flex items-center justify-center font-[Instrument_Sans,sans-serif] font-extrabold text-[1.1rem] text-black shrink-0">{number}</div>
         <div>
-          <div style={{ fontSize: '1.6rem', marginBottom: '4px' }}>{icon}</div>
-          <h3 style={{ fontFamily: t.fontSans, fontSize: '1.05rem', fontWeight: 700, color: t.text, margin: 0 }}>{title}</h3>
+          <div className="text-[1.6rem] mb-1">{icon}</div>
+          <h3 className="font-[Instrument_Sans,sans-serif] text-[1.05rem] font-bold text-[#191919] m-0">{title}</h3>
         </div>
       </div>
-      <p style={{ fontFamily: t.fontSerif, fontSize: '0.9rem', color: t.gray, margin: '0 0 12px', lineHeight: 1.7 }}>{description}</p>
-      {callout && <div style={{ background: 'rgba(0,0,0,0.04)', border: '1px solid rgba(0,0,0,0.1)', borderRadius: '8px', padding: '10px 14px', fontFamily: t.fontSans, fontSize: '0.8rem', color: t.text }}>{callout}</div>}
+      <p className="font-[Merriweather,serif] text-[0.9rem] text-[#666666] mt-0 mb-3 leading-[1.7]">{description}</p>
+      {callout && <div className="bg-[rgba(0,0,0,0.04)] border border-[rgba(0,0,0,0.1)] rounded-lg px-[14px] py-[10px] font-[Instrument_Sans,sans-serif] text-[0.8rem] text-[#191919]">{callout}</div>}
     </div>
   )
 }
 
 function BenefitCard({ icon, title, description }) {
   return (
-    <div style={{ display: 'flex', gap: '14px', alignItems: 'flex-start', background: t.white, border: `1px solid ${t.border}`, borderRadius: '10px', padding: '20px' }}>
-      <span style={{ fontSize: '1.4rem', flexShrink: 0 }}>{icon}</span>
+    <div className="flex gap-[14px] items-start bg-white border border-[#E5E5E5] rounded-[10px] p-5">
+      <span className="text-[1.4rem] shrink-0">{icon}</span>
       <div>
-        <h4 style={{ fontFamily: t.fontSans, fontSize: '0.92rem', fontWeight: 700, color: t.text, margin: '0 0 4px' }}>{title}</h4>
-        <p style={{ fontFamily: t.fontSerif, fontSize: '0.82rem', color: t.gray, margin: 0, lineHeight: 1.55 }}>{description}</p>
+        <h4 className="font-[Instrument_Sans,sans-serif] text-[0.92rem] font-bold text-[#191919] m-0 mb-1">{title}</h4>
+        <p className="font-[Merriweather,serif] text-[0.82rem] text-[#666666] m-0 leading-[1.55]">{description}</p>
       </div>
     </div>
   )
@@ -137,14 +120,14 @@ function BenefitCard({ icon, title, description }) {
 function FAQItem({ q, a }) {
   const [open, setOpen] = useState(false)
   return (
-    <div style={{ border: `1px solid ${t.border}`, borderRadius: '10px', overflow: 'hidden', marginBottom: '8px' }}>
-      <button onClick={() => setOpen(!open)} style={{ width: '100%', background: t.white, border: 'none', cursor: 'pointer', padding: '16px 20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '12px', textAlign: 'left' }}>
-        <span style={{ fontFamily: t.fontSans, fontWeight: 600, fontSize: '0.93rem', color: t.text }}>{q}</span>
-        <span style={{ color: t.accent, fontSize: '1.2rem', fontWeight: 700, flexShrink: 0 }}>{open ? '−' : '+'}</span>
+    <div className="border border-[#E5E5E5] rounded-[10px] overflow-hidden mb-2">
+      <button onClick={() => setOpen(!open)} className="w-full bg-white border-none cursor-pointer px-5 py-4 flex justify-between items-center gap-3 text-left">
+        <span className="font-[Instrument_Sans,sans-serif] font-semibold text-[0.93rem] text-[#191919]">{q}</span>
+        <span className="text-black text-[1.2rem] font-bold shrink-0">{open ? '−' : '+'}</span>
       </button>
       {open && (
-        <div style={{ padding: '0 20px 16px', background: t.bg }}>
-          <p style={{ fontFamily: t.fontSerif, fontSize: '0.88rem', color: t.gray, margin: 0, lineHeight: 1.7 }}>{a}</p>
+        <div className="px-5 pb-4 pt-0 bg-[#F7F7F7]">
+          <p className="font-[Merriweather,serif] text-[0.88rem] text-[#666666] m-0 leading-[1.7]">{a}</p>
         </div>
       )}
     </div>
@@ -169,39 +152,39 @@ export default function SquarespaceLandingPage() {
 
       <Header />
 
-      <main style={{ fontFamily: t.fontSans, background: t.bg, paddingTop: '60px' }}>
+      <main className="font-[Instrument_Sans,sans-serif] bg-[#F7F7F7] pt-[60px]">
 
         {/* HERO */}
-        <section style={{ background: 'linear-gradient(135deg, #000000 0%, #1a1a1a 100%)', padding: '80px 24px 100px', position: 'relative', overflow: 'hidden' }}>
-          <div style={{ position: 'absolute', top: '-100px', right: '-100px', width: '500px', height: '500px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%)', pointerEvents: 'none' }} />
+        <section className="relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #000000 0%, #1a1a1a 100%)', padding: '80px 24px 100px' }}>
+          <div className="absolute -top-[100px] -right-[100px] w-[500px] h-[500px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%)' }} />
 
-          <div style={{ maxWidth: '720px', margin: '0 auto', textAlign: 'center', position: 'relative', zIndex: 1 }}>
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '100px', padding: '6px 16px', fontFamily: t.fontSans, fontSize: '0.78rem', fontWeight: 600, color: 'rgba(255,255,255,0.85)', marginBottom: '28px' }}>
+          <div className="max-w-[720px] mx-auto text-center relative z-[1]">
+            <div className="inline-flex items-center gap-[6px] bg-[rgba(255,255,255,0.1)] border border-[rgba(255,255,255,0.2)] rounded-full px-4 py-[6px] font-[Instrument_Sans,sans-serif] text-[0.78rem] font-semibold text-[rgba(255,255,255,0.85)] mb-7">
               <span>✓</span> Built for Squarespace + Stripe sellers
             </div>
 
-            <h1 style={{ fontFamily: t.fontSans, fontWeight: 800, fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', color: t.white, margin: '0 0 20px', lineHeight: 1.15, letterSpacing: '-0.02em' }}>
+            <h1 className="font-[Instrument_Sans,sans-serif] font-extrabold text-white m-0 mb-5 leading-[1.15] tracking-[-0.02em]" style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)' }}>
               Squarespace Doesn&apos;t Give You<br />
-              <span style={{ color: 'rgba(255,255,255,0.65)' }}>a Cancel Flow.</span><br />
-              <span style={{ color: t.white }}>We Add One in 10 Minutes.</span>
+              <span className="text-[rgba(255,255,255,0.65)]">a Cancel Flow.</span><br />
+              <span className="text-white">We Add One in 10 Minutes.</span>
             </h1>
 
-            <p style={{ fontFamily: t.fontSerif, fontSize: 'clamp(1rem, 2.5vw, 1.2rem)', color: 'rgba(255,255,255,0.7)', margin: '0 0 40px', lineHeight: 1.7, maxWidth: '600px', marginLeft: 'auto', marginRight: 'auto' }}>
+            <p className="font-[Merriweather,serif] text-[rgba(255,255,255,0.7)] m-0 mb-10 leading-[1.7] max-w-[600px] mx-auto" style={{ fontSize: 'clamp(1rem, 2.5vw, 1.2rem)' }}>
               When a subscriber cancels on Squarespace, it happens silently. No pause option. No discount. No &quot;are you sure?&quot; They&apos;re just gone. ChurnRecovery connects to your Stripe account and gives you a fighting chance before they leave.
             </p>
 
-            <div style={{ maxWidth: '480px', margin: '0 auto 24px' }}>
+            <div className="max-w-[480px] mx-auto mb-6">
               <WaitlistForm dark={true} />
             </div>
 
-            <div style={{ display: 'flex', gap: '20px', justifyContent: 'center', flexWrap: 'wrap' }}>
-              <span style={{ fontFamily: t.fontSans, fontSize: '0.8rem', color: 'rgba(255,255,255,0.5)' }}>🆓 Free to start</span>
-              <span style={{ fontFamily: t.fontSans, fontSize: '0.8rem', color: 'rgba(255,255,255,0.5)' }}>⚡ No code, no plugins</span>
-              <span style={{ fontFamily: t.fontSans, fontSize: '0.8rem', color: 'rgba(255,255,255,0.5)' }}>🔗 Works with Stripe</span>
+            <div className="flex gap-5 justify-center flex-wrap">
+              <span className="font-[Instrument_Sans,sans-serif] text-[0.8rem] text-[rgba(255,255,255,0.5)]">🆓 Free to start</span>
+              <span className="font-[Instrument_Sans,sans-serif] text-[0.8rem] text-[rgba(255,255,255,0.5)]">⚡ No code, no plugins</span>
+              <span className="font-[Instrument_Sans,sans-serif] text-[0.8rem] text-[rgba(255,255,255,0.5)]">🔗 Works with Stripe</span>
             </div>
 
-            <div style={{ marginTop: '20px' }}>
-              <Link href="/demo" style={{ fontFamily: t.fontSans, fontSize: '0.9rem', color: 'rgba(255,255,255,0.55)', textDecoration: 'none', borderBottom: '1px solid rgba(255,255,255,0.25)' }}>
+            <div className="mt-5">
+              <Link href="/demo" className="font-[Instrument_Sans,sans-serif] text-[0.9rem] text-[rgba(255,255,255,0.55)] no-underline border-b border-[rgba(255,255,255,0.25)]">
                 See a live demo ↓
               </Link>
             </div>
@@ -209,19 +192,19 @@ export default function SquarespaceLandingPage() {
         </section>
 
         {/* PAIN POINTS */}
-        <section style={{ padding: '80px 24px', background: t.bg }}>
-          <div style={{ maxWidth: '1080px', margin: '0 auto' }}>
-            <div style={{ textAlign: 'center', marginBottom: '48px' }}>
-              <div style={{ fontFamily: t.fontSans, fontSize: '0.75rem', fontWeight: 700, color: t.gray, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '12px' }}>The Problem</div>
-              <h2 style={{ fontFamily: t.fontSans, fontWeight: 800, fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', color: t.text, margin: '0 0 16px', letterSpacing: '-0.02em' }}>
+        <section className="py-20 px-6 bg-[#F7F7F7]">
+          <div className="max-w-[1080px] mx-auto">
+            <div className="text-center mb-12">
+              <div className="font-[Instrument_Sans,sans-serif] text-xs font-bold text-[#666666] uppercase tracking-[0.08em] mb-3">The Problem</div>
+              <h2 className="font-[Instrument_Sans,sans-serif] font-extrabold text-[#191919] m-0 mb-4 tracking-[-0.02em]" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)' }}>
                 Every Squarespace Cancellation<br />Happens Without Warning
               </h2>
-              <p style={{ fontFamily: t.fontSerif, fontSize: '1rem', color: t.gray, maxWidth: '540px', margin: '0 auto', lineHeight: 1.7 }}>
+              <p className="font-[Merriweather,serif] text-base text-[#666666] max-w-[540px] mx-auto leading-[1.7]">
                 Squarespace is a beautiful platform — but it was built for websites, not subscription retention. There&apos;s no built-in way to catch a cancellation before it&apos;s final.
               </p>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
+            <div className="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-5">
               <PainCard icon="🔇" title="Silent Cancellations" stat="100%" statLabel="of Squarespace cancellations go uncontested" description="There's no friction, no offer, no ask. One click and they're gone. Squarespace shows you the cancellation notification hours later — and by then, it's too late." />
               <PainCard icon="🚫" title="No Built-In Retention Tools" description="Squarespace has no cancel flow feature. No pause offer. No discount popup. No exit survey. If you want to save a subscriber, you have to do it manually — after the fact, when they're already gone." />
               <PainCard icon="💸" title="You're Losing Real Money" stat="$1,164" statLabel="lost per $97/mo subscriber who cancels" description="One cancellation sounds small. But if 3–5 people cancel per month, that's thousands of dollars leaking out annually. Without a cancel flow, you have zero chance to stop it." />
@@ -230,55 +213,55 @@ export default function SquarespaceLandingPage() {
         </section>
 
         {/* HOW IT WORKS */}
-        <section id="how-it-works" style={{ padding: '80px 24px', background: t.white }}>
-          <div style={{ maxWidth: '1080px', margin: '0 auto' }}>
-            <div style={{ textAlign: 'center', marginBottom: '48px' }}>
-              <div style={{ fontFamily: t.fontSans, fontSize: '0.75rem', fontWeight: 700, color: t.gray, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '12px' }}>How It Works</div>
-              <h2 style={{ fontFamily: t.fontSans, fontWeight: 800, fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', color: t.text, margin: '0 0 16px', letterSpacing: '-0.02em' }}>
+        <section id="how-it-works" className="py-20 px-6 bg-white">
+          <div className="max-w-[1080px] mx-auto">
+            <div className="text-center mb-12">
+              <div className="font-[Instrument_Sans,sans-serif] text-xs font-bold text-[#666666] uppercase tracking-[0.08em] mb-3">How It Works</div>
+              <h2 className="font-[Instrument_Sans,sans-serif] font-extrabold text-[#191919] m-0 mb-4 tracking-[-0.02em]" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)' }}>
                 Works With Squarespace in 10 Minutes
               </h2>
-              <p style={{ fontFamily: t.fontSerif, fontSize: '1rem', color: t.gray, maxWidth: '480px', margin: '0 auto', lineHeight: 1.7 }}>
+              <p className="font-[Merriweather,serif] text-base text-[#666666] max-w-[480px] mx-auto leading-[1.7]">
                 Squarespace uses Stripe for subscription payments. ChurnRecovery connects to Stripe — not Squarespace. No plugins, no approval, no developers.
               </p>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '20px' }}>
+            <div className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-5">
               <HowStep number="1" icon="🔗" title="Connect Your Stripe Account" description="Squarespace uses Stripe to process your subscription payments. Link your Stripe account to ChurnRecovery with one click — it takes 60 seconds." callout="✓ No Squarespace settings to touch. No developer needed." />
               <HowStep number="2" icon="⚡" title="We Watch for Cancellations" description="ChurnRecovery monitors your Stripe account for cancellation events in real time. The moment someone starts the cancellation process, we trigger your recovery flow automatically." />
               <HowStep number="3" icon="💬" title="They See Your Offer — Not a Dead End" description="Instead of an instant cancellation, subscribers see a personalized message: a pause option, a discount, or a quick exit survey. Set it up once and it runs on its own." callout="🎯 20–35% of at-risk subscribers accept an offer" />
             </div>
 
-            <div style={{ marginTop: '32px', background: 'rgba(0,0,0,0.03)', border: '1px solid rgba(0,0,0,0.08)', borderLeft: `4px solid ${t.accent}`, borderRadius: '10px', padding: '20px 24px', maxWidth: '680px', margin: '32px auto 0' }}>
-              <p style={{ fontFamily: t.fontSans, fontWeight: 700, color: t.text, margin: '0 0 8px', fontSize: '0.95rem' }}>
+            <div className="mt-8 bg-[rgba(0,0,0,0.03)] border border-[rgba(0,0,0,0.08)] border-l-4 border-l-black rounded-[10px] px-6 py-5 max-w-[680px] mx-auto">
+              <p className="font-[Instrument_Sans,sans-serif] font-bold text-[#191919] m-0 mb-2 text-[0.95rem]">
                 &ldquo;Does this actually work with Squarespace?&rdquo;
               </p>
-              <p style={{ fontFamily: t.fontSerif, fontSize: '0.88rem', color: t.gray, margin: '0 0 10px', lineHeight: 1.7 }}>
+              <p className="font-[Merriweather,serif] text-[0.88rem] text-[#666666] mt-0 mb-[10px] leading-[1.7]">
                 Yes — if your Squarespace memberships or subscriptions are connected to Stripe (which most are), ChurnRecovery works. We operate entirely at the Stripe level, so Squarespace doesn&apos;t need to approve or install anything.
               </p>
-              <Link href="/docs" style={{ fontFamily: t.fontSans, fontSize: '0.82rem', color: t.accent, textDecoration: 'none', fontWeight: 600 }}>
+              <Link href="/docs" className="font-[Instrument_Sans,sans-serif] text-[0.82rem] text-black no-underline font-semibold">
                 See the technical setup docs →
               </Link>
             </div>
 
-            <div style={{ textAlign: 'center', marginTop: '40px' }}>
-              <Link href="/demo" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(0,0,0,0.05)', border: '1px solid rgba(0,0,0,0.12)', borderRadius: '10px', padding: '14px 28px', fontFamily: t.fontSans, fontWeight: 700, color: t.text, textDecoration: 'none', fontSize: '0.95rem' }}>
+            <div className="text-center mt-10">
+              <Link href="/demo" className="inline-flex items-center gap-2 bg-[rgba(0,0,0,0.05)] border border-[rgba(0,0,0,0.12)] rounded-[10px] px-7 py-[14px] font-[Instrument_Sans,sans-serif] font-bold text-[#191919] no-underline text-[0.95rem]">
                 🎮 Try the Interactive Demo
               </Link>
-              <p style={{ fontFamily: t.fontSans, fontSize: '0.78rem', color: t.grayLight, marginTop: '8px' }}>See a real cancel flow — no signup required</p>
+              <p className="font-[Instrument_Sans,sans-serif] text-[0.78rem] text-[#999999] mt-2">See a real cancel flow — no signup required</p>
             </div>
           </div>
         </section>
 
         {/* BENEFITS */}
-        <section style={{ padding: '80px 24px', background: t.bg }}>
-          <div style={{ maxWidth: '1080px', margin: '0 auto' }}>
-            <div style={{ textAlign: 'center', marginBottom: '48px' }}>
-              <div style={{ fontFamily: t.fontSans, fontSize: '0.75rem', fontWeight: 700, color: t.gray, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '12px' }}>What You Get</div>
-              <h2 style={{ fontFamily: t.fontSans, fontWeight: 800, fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', color: t.text, margin: 0, letterSpacing: '-0.02em' }}>
+        <section className="py-20 px-6 bg-[#F7F7F7]">
+          <div className="max-w-[1080px] mx-auto">
+            <div className="text-center mb-12">
+              <div className="font-[Instrument_Sans,sans-serif] text-xs font-bold text-[#666666] uppercase tracking-[0.08em] mb-3">What You Get</div>
+              <h2 className="font-[Instrument_Sans,sans-serif] font-extrabold text-[#191919] m-0 tracking-[-0.02em]" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)' }}>
                 Everything Squarespace Forgot to Build
               </h2>
             </div>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '14px' }}>
+            <div className="grid grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-[14px]">
               <BenefitCard icon="⏸" title="Pause Offer" description="Let subscribers pause for 1–3 months instead of canceling. Most people who leave during a busy period would have stayed if you'd offered a break." />
               <BenefitCard icon="🏷" title="Discount Offer" description="Automatically offer a discount to price-sensitive subscribers at the cancel screen — before they're gone. You decide the offer." />
               <BenefitCard icon="📋" title="Exit Survey" description="Find out exactly why people are leaving with a one-question exit survey. This alone is worth the setup — you'll know what to fix." />
@@ -290,10 +273,10 @@ export default function SquarespaceLandingPage() {
         </section>
 
         {/* FAQ */}
-        <section style={{ padding: '80px 24px', background: t.white }}>
-          <div style={{ maxWidth: '720px', margin: '0 auto' }}>
-            <div style={{ textAlign: 'center', marginBottom: '40px' }}>
-              <h2 style={{ fontFamily: t.fontSans, fontWeight: 800, fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', color: t.text, margin: 0, letterSpacing: '-0.02em' }}>
+        <section className="py-20 px-6 bg-white">
+          <div className="max-w-[720px] mx-auto">
+            <div className="text-center mb-10">
+              <h2 className="font-[Instrument_Sans,sans-serif] font-extrabold text-[#191919] m-0 tracking-[-0.02em]" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)' }}>
                 Questions About Squarespace + ChurnRecovery
               </h2>
             </div>
@@ -310,23 +293,23 @@ export default function SquarespaceLandingPage() {
         </section>
 
         {/* FINAL CTA */}
-        <section style={{ background: 'linear-gradient(135deg, #000000 0%, #1a1a1a 100%)', padding: '80px 24px' }}>
-          <div style={{ maxWidth: '600px', margin: '0 auto', textAlign: 'center' }}>
-            <h2 style={{ fontFamily: t.fontSans, fontWeight: 800, fontSize: 'clamp(1.8rem, 4vw, 2.6rem)', color: t.white, margin: '0 0 20px', lineHeight: 1.2, letterSpacing: '-0.02em' }}>
+        <section className="py-20 px-6" style={{ background: 'linear-gradient(135deg, #000000 0%, #1a1a1a 100%)' }}>
+          <div className="max-w-[600px] mx-auto text-center">
+            <h2 className="font-[Instrument_Sans,sans-serif] font-extrabold text-white m-0 mb-5 leading-[1.2] tracking-[-0.02em]" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.6rem)' }}>
               A Squarespace Subscriber Is<br />
-              <span style={{ color: 'rgba(255,255,255,0.6)' }}>About to Cancel Silently.</span><br />
+              <span className="text-[rgba(255,255,255,0.6)]">About to Cancel Silently.</span><br />
               Be Ready.
             </h2>
-            <p style={{ fontFamily: t.fontSerif, fontSize: '1rem', color: 'rgba(255,255,255,0.7)', margin: '0 0 36px', lineHeight: 1.7 }}>
+            <p className="font-[Merriweather,serif] text-base text-[rgba(255,255,255,0.7)] m-0 mb-9 leading-[1.7]">
               Join the waitlist and be first to protect your Squarespace subscription revenue with a real cancel flow. Free to start.
             </p>
-            <div style={{ maxWidth: '480px', margin: '0 auto' }}>
+            <div className="max-w-[480px] mx-auto">
               <WaitlistForm dark={true} />
             </div>
-            <div style={{ display: 'flex', gap: '24px', justifyContent: 'center', marginTop: '24px', flexWrap: 'wrap' }}>
-              <span style={{ fontFamily: t.fontSans, fontSize: '0.78rem', color: 'rgba(255,255,255,0.4)' }}>Free during beta</span>
-              <span style={{ fontFamily: t.fontSans, fontSize: '0.78rem', color: 'rgba(255,255,255,0.4)' }}>Cancel anytime</span>
-              <span style={{ fontFamily: t.fontSans, fontSize: '0.78rem', color: 'rgba(255,255,255,0.4)' }}>No spam, ever</span>
+            <div className="flex gap-6 justify-center mt-6 flex-wrap">
+              <span className="font-[Instrument_Sans,sans-serif] text-[0.78rem] text-[rgba(255,255,255,0.4)]">Free during beta</span>
+              <span className="font-[Instrument_Sans,sans-serif] text-[0.78rem] text-[rgba(255,255,255,0.4)]">Cancel anytime</span>
+              <span className="font-[Instrument_Sans,sans-serif] text-[0.78rem] text-[rgba(255,255,255,0.4)]">No spam, ever</span>
             </div>
           </div>
         </section>

@@ -13,21 +13,6 @@ const ACCENT_LIGHT = '#6B8BFF'
 const ACCENT_DARK_BG = 'rgba(56,88,233,0.15)'
 const ACCENT_BG = 'rgba(56,88,233,0.08)'
 
-const t = {
-  bg: '#FAF9F5',
-  text: '#191919',
-  gray: '#666666',
-  grayLight: '#999999',
-  accent: ACCENT,
-  border: '#E5E5E5',
-  white: '#FFFFFF',
-  green: '#2D7A4F',
-  greenBg: '#EDF7F1',
-  red: '#DC2626',
-  fontSans: '"Instrument Sans", sans-serif',
-  fontSerif: '"Merriweather", serif',
-}
-
 function WordPressWaitlistForm({ dark = false }) {
   const [email, setEmail] = useState('')
   const [status, setStatus] = useState('idle')
@@ -75,31 +60,31 @@ function WordPressWaitlistForm({ dark = false }) {
     }
   }
 
-  const bgColor = dark ? 'rgba(255,255,255,0.08)' : t.white
-  const borderColor = dark ? 'rgba(255,255,255,0.15)' : t.border
-  const textColor = dark ? t.white : t.text
-  const subtextColor = dark ? 'rgba(255,255,255,0.6)' : t.gray
+  const bgColor = dark ? 'rgba(255,255,255,0.08)' : '#FFFFFF'
+  const borderColor = dark ? 'rgba(255,255,255,0.15)' : '#E5E5E5'
+  const textColor = dark ? '#FFFFFF' : '#191919'
+  const subtextColor = dark ? 'rgba(255,255,255,0.6)' : '#666666'
 
   if (status === 'success' || status === 'duplicate') {
     return (
       <div style={{
         textAlign: 'center', padding: '24px', borderRadius: '12px',
-        background: dark ? 'rgba(45,122,79,0.15)' : t.greenBg,
+        background: dark ? 'rgba(45,122,79,0.15)' : '#EDF7F1',
         border: `1px solid ${dark ? 'rgba(45,122,79,0.3)' : '#C6E6D4'}`,
       }}>
-        <div style={{ fontSize: '2rem', marginBottom: '8px' }}>
+        <div className="text-[2rem] mb-[8px]">
           {status === 'duplicate' ? '👋' : '🎉'}
         </div>
-        <p style={{ fontFamily: t.fontSans, fontWeight: 700, fontSize: '1rem', color: dark ? t.white : t.text, margin: '0 0 6px' }}>
+        <p style={{ fontFamily: '"Instrument Sans", sans-serif', fontWeight: 700, fontSize: '1rem', color: dark ? '#FFFFFF' : '#191919', margin: '0 0 6px' }}>
           {status === 'duplicate' ? "You're already on the list!" : "You're in! We'll be in touch soon."}
         </p>
-        <p style={{ fontFamily: t.fontSerif, fontSize: '0.85rem', color: subtextColor, margin: 0 }}>
+        <p style={{ fontFamily: '"Merriweather", serif', fontSize: '0.85rem', color: subtextColor, margin: 0 }}>
           {status === 'duplicate'
             ? "We've got your email — we'll reach out when we launch."
             : "Free beta access for WordPress membership owners. We'll email you when we're ready."}
         </p>
         {count && (
-          <p style={{ fontFamily: t.fontSans, fontSize: '0.75rem', color: subtextColor, margin: '10px 0 0' }}>
+          <p style={{ fontFamily: '"Instrument Sans", sans-serif', fontSize: '0.75rem', color: subtextColor, margin: '10px 0 0' }}>
             Join {count.toLocaleString()} site owners on the waitlist
           </p>
         )}
@@ -109,7 +94,7 @@ function WordPressWaitlistForm({ dark = false }) {
 
   return (
     <div>
-      <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+      <form onSubmit={handleSubmit} className="flex flex-col gap-[10px]">
         <input
           type="email"
           value={email}
@@ -120,8 +105,8 @@ function WordPressWaitlistForm({ dark = false }) {
           aria-label="Email address"
           style={{
             padding: '13px 16px', borderRadius: '8px',
-            border: `1px solid ${error ? t.red : borderColor}`,
-            background: bgColor, fontFamily: t.fontSans,
+            border: `1px solid ${error ? '#DC2626' : borderColor}`,
+            background: bgColor, fontFamily: '"Instrument Sans", sans-serif',
             fontSize: '0.95rem', color: textColor, outline: 'none',
           }}
         />
@@ -130,8 +115,8 @@ function WordPressWaitlistForm({ dark = false }) {
           disabled={status === 'loading'}
           style={{
             padding: '14px 28px', borderRadius: '8px', border: 'none',
-            background: status === 'loading' ? t.grayLight : ACCENT,
-            color: t.white, fontFamily: t.fontSans, fontWeight: 700,
+            background: status === 'loading' ? '#999999' : ACCENT,
+            color: '#FFFFFF', fontFamily: '"Instrument Sans", sans-serif', fontWeight: 700,
             fontSize: '1rem', cursor: status === 'loading' ? 'not-allowed' : 'pointer',
             transition: 'background 0.15s',
           }}
@@ -142,16 +127,16 @@ function WordPressWaitlistForm({ dark = false }) {
         <input type="hidden" name="tag" value="wordpress-seller" />
       </form>
       {error && (
-        <p style={{ fontFamily: t.fontSans, fontSize: '0.8rem', color: t.red, margin: '8px 0 0' }}>
+        <p className="font-[Instrument_Sans,sans-serif] text-[0.8rem] text-[#DC2626] mt-[8px] mb-0">
           ⚠ {error}
         </p>
       )}
-      <div style={{ display: 'flex', gap: '16px', marginTop: '12px', flexWrap: 'wrap' }}>
-        <span style={{ fontFamily: t.fontSans, fontSize: '0.78rem', color: subtextColor }}>🆓 Free during beta</span>
-        <span style={{ fontFamily: t.fontSans, fontSize: '0.78rem', color: subtextColor }}>🔒 No credit card required</span>
+      <div className="flex gap-[16px] mt-[12px] flex-wrap">
+        <span style={{ fontFamily: '"Instrument Sans", sans-serif', fontSize: '0.78rem', color: subtextColor }}>🆓 Free during beta</span>
+        <span style={{ fontFamily: '"Instrument Sans", sans-serif', fontSize: '0.78rem', color: subtextColor }}>🔒 No credit card required</span>
         {count && (
-          <span style={{ fontFamily: t.fontSans, fontSize: '0.78rem', color: subtextColor }}>
-            <span style={{ color: t.green }}>●</span> {count.toLocaleString()} on waitlist
+          <span style={{ fontFamily: '"Instrument Sans", sans-serif', fontSize: '0.78rem', color: subtextColor }}>
+            <span className="text-[#2D7A4F]">●</span> {count.toLocaleString()} on waitlist
           </span>
         )}
       </div>
@@ -177,69 +162,42 @@ export default function WordPressLandingPage() {
 
       <Header />
 
-      <main style={{ fontFamily: t.fontSans, background: t.bg, paddingTop: '60px' }}>
+      <main className="font-[Instrument_Sans,sans-serif] bg-[#FAF9F5] pt-[60px]">
 
         {/* ─── HERO ─────────────────────────────────────────────────────── */}
-        <section style={{
-          background: 'linear-gradient(135deg, #0D1B4B 0%, #1a2a6c 50%, #0D1B4B 100%)',
-          padding: '80px 24px 100px',
-          position: 'relative', overflow: 'hidden',
-        }}>
-          <div style={{
-            position: 'absolute', top: '-80px', right: '-80px',
-            width: '400px', height: '400px', borderRadius: '50%',
-            background: `radial-gradient(circle, ${ACCENT_DARK_BG} 0%, transparent 70%)`,
-            pointerEvents: 'none',
-          }} />
+        <section className="px-[24px] pt-[80px] pb-[100px] relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #0D1B4B 0%, #1a2a6c 50%, #0D1B4B 100%)' }}>
+          <div className="absolute top-[-80px] right-[-80px] w-[400px] h-[400px] rounded-full pointer-events-none" style={{ background: `radial-gradient(circle, ${ACCENT_DARK_BG} 0%, transparent 70%)` }} />
 
-          <div style={{ maxWidth: '720px', margin: '0 auto', textAlign: 'center', position: 'relative', zIndex: 1 }}>
-            <div style={{
-              display: 'inline-flex', alignItems: 'center', gap: '6px',
-              background: 'rgba(56,88,233,0.2)', border: '1px solid rgba(107,139,255,0.4)',
-              borderRadius: '100px', padding: '6px 16px',
-              fontFamily: t.fontSans, fontSize: '0.78rem', fontWeight: 600,
-              color: ACCENT_LIGHT, marginBottom: '28px',
-            }}>
+          <div className="max-w-[720px] mx-auto text-center relative z-[1]">
+            <div className="inline-flex items-center gap-[6px] bg-[rgba(56,88,233,0.2)] border border-[rgba(107,139,255,0.4)] rounded-[100px] px-[16px] py-[6px] font-[Instrument_Sans,sans-serif] text-[0.78rem] font-semibold text-[#6B8BFF] mb-[28px]">
               <span>✓</span> WooCommerce · MemberPress · Paid Memberships Pro · Free During Beta
             </div>
 
-            <h1 style={{
-              fontFamily: t.fontSans, fontWeight: 800,
-              fontSize: 'clamp(2.2rem, 5vw, 3.5rem)',
-              color: t.white, margin: '0 0 20px', lineHeight: 1.15,
-              letterSpacing: '-0.02em',
-            }}>
+            <h1 className="font-[Instrument_Sans,sans-serif] font-extrabold text-[#FFFFFF] mb-[20px] leading-[1.15] tracking-[-0.02em]" style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)' }}>
               WooCommerce Cancellations<br />
-              <span style={{ color: ACCENT_LIGHT }}>Happen Silently.</span><br />
+              <span className="text-[#6B8BFF]">Happen Silently.</span><br />
               Not Anymore.
             </h1>
 
-            <p style={{
-              fontFamily: t.fontSerif, fontSize: 'clamp(1rem, 2.5vw, 1.2rem)',
-              color: 'rgba(255,255,255,0.75)', margin: '0 0 40px', lineHeight: 1.7,
-              maxWidth: '620px', marginLeft: 'auto', marginRight: 'auto',
-            }}>
+            <p className="font-[Merriweather,serif] text-[rgba(255,255,255,0.75)] mb-[40px] leading-[1.7] max-w-[620px] mx-auto" style={{ fontSize: 'clamp(1rem, 2.5vw, 1.2rem)' }}>
               When a WooCommerce Subscriptions member cancels, it&apos;s instant and silent — no pause option, no discount offer, no &quot;why are you leaving?&quot; ChurnRecovery works with any Stripe-connected WordPress setup and catches those cancellations before they&apos;re final. WooCommerce, MemberPress, Paid Memberships Pro — we work with all of them.
             </p>
 
-            <div style={{ maxWidth: '480px', margin: '0 auto 24px' }}>
+            <div className="max-w-[480px] mx-auto mb-[24px]">
               <WordPressWaitlistForm dark={true} />
             </div>
 
-            <div style={{ display: 'flex', gap: '20px', justifyContent: 'center', flexWrap: 'wrap' }}>
-              <span style={{ fontFamily: t.fontSans, fontSize: '0.8rem', color: 'rgba(255,255,255,0.5)' }}>
+            <div className="flex gap-[20px] justify-center flex-wrap">
+              <span className="font-[Instrument_Sans,sans-serif] text-[0.8rem] text-[rgba(255,255,255,0.5)]">
                 🔌 Works with any Stripe-connected WordPress setup
               </span>
-              <span style={{ fontFamily: t.fontSans, fontSize: '0.8rem', color: 'rgba(255,255,255,0.5)' }}>
+              <span className="font-[Instrument_Sans,sans-serif] text-[0.8rem] text-[rgba(255,255,255,0.5)]">
                 ⚡ No WordPress plugin required
               </span>
             </div>
 
-            <div style={{ marginTop: '20px' }}>
-              <Link href="/demo" style={{
-                fontFamily: t.fontSans, fontSize: '0.9rem', color: 'rgba(255,255,255,0.6)',
-                textDecoration: 'none', borderBottom: '1px solid rgba(255,255,255,0.3)',
-              }}>
+            <div className="mt-[20px]">
+              <Link href="/demo" className="font-[Instrument_Sans,sans-serif] text-[0.9rem] text-[rgba(255,255,255,0.6)] no-underline border-b border-[rgba(255,255,255,0.3)]">
                 See how it works ↓
               </Link>
             </div>
@@ -247,28 +205,19 @@ export default function WordPressLandingPage() {
         </section>
 
         {/* ─── PAIN POINTS ─────────────────────────────────────────────── */}
-        <section style={{ padding: '80px 24px', background: t.bg }}>
-          <div style={{ maxWidth: '1080px', margin: '0 auto' }}>
-            <div style={{ textAlign: 'center', marginBottom: '48px' }}>
-              <div style={{
-                fontFamily: t.fontSans, fontSize: '0.75rem', fontWeight: 700,
-                color: ACCENT, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '12px',
-              }}>The Problem With WordPress Memberships</div>
-              <h2 style={{
-                fontFamily: t.fontSans, fontWeight: 800, fontSize: 'clamp(1.8rem, 4vw, 2.5rem)',
-                color: t.text, margin: '0 0 16px', letterSpacing: '-0.02em',
-              }}>
+        <section className="px-[24px] py-[80px] bg-[#FAF9F5]">
+          <div className="max-w-[1080px] mx-auto">
+            <div className="text-center mb-[48px]">
+              <div className="font-[Instrument_Sans,sans-serif] text-[0.75rem] font-bold text-[#3858E9] uppercase tracking-[0.08em] mb-[12px]">The Problem With WordPress Memberships</div>
+              <h2 className="font-[Instrument_Sans,sans-serif] font-extrabold text-[#191919] mb-[16px] tracking-[-0.02em]" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)' }}>
                 WooCommerce Was Built to Sell.<br />Not to Retain.
               </h2>
-              <p style={{
-                fontFamily: t.fontSerif, fontSize: '1rem', color: t.gray,
-                maxWidth: '560px', margin: '0 auto', lineHeight: 1.7,
-              }}>
+              <p className="font-[Merriweather,serif] text-[1rem] text-[#666666] max-w-[560px] mx-auto leading-[1.7]">
                 WooCommerce Subscriptions and most WordPress membership plugins are excellent at processing recurring payments. But none of them have a built-in cancel flow. When a member decides to leave, they can — instantly and silently.
               </p>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
+            <div className="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-[20px]">
               <PainCard
                 icon="🔇"
                 title="Silent Cancellations"
@@ -294,28 +243,19 @@ export default function WordPressLandingPage() {
         </section>
 
         {/* ─── HOW IT WORKS ────────────────────────────────────────────── */}
-        <section id="how-it-works" style={{ padding: '80px 24px', background: t.white }}>
-          <div style={{ maxWidth: '1080px', margin: '0 auto' }}>
-            <div style={{ textAlign: 'center', marginBottom: '48px' }}>
-              <div style={{
-                fontFamily: t.fontSans, fontSize: '0.75rem', fontWeight: 700,
-                color: ACCENT, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '12px',
-              }}>3 Steps, No WordPress Developer</div>
-              <h2 style={{
-                fontFamily: t.fontSans, fontWeight: 800, fontSize: 'clamp(1.8rem, 4vw, 2.5rem)',
-                color: t.text, margin: '0 0 16px', letterSpacing: '-0.02em',
-              }}>
+        <section id="how-it-works" className="px-[24px] py-[80px] bg-[#FFFFFF]">
+          <div className="max-w-[1080px] mx-auto">
+            <div className="text-center mb-[48px]">
+              <div className="font-[Instrument_Sans,sans-serif] text-[0.75rem] font-bold text-[#3858E9] uppercase tracking-[0.08em] mb-[12px]">3 Steps, No WordPress Developer</div>
+              <h2 className="font-[Instrument_Sans,sans-serif] font-extrabold text-[#191919] mb-[16px] tracking-[-0.02em]" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)' }}>
                 Works With Any Stripe-Connected WordPress Setup
               </h2>
-              <p style={{
-                fontFamily: t.fontSerif, fontSize: '1rem', color: t.gray,
-                maxWidth: '560px', margin: '0 auto', lineHeight: 1.7,
-              }}>
+              <p className="font-[Merriweather,serif] text-[1rem] text-[#666666] max-w-[560px] mx-auto leading-[1.7]">
                 Whether you use WooCommerce Subscriptions, MemberPress, or Paid Memberships Pro — if your members pay through Stripe, ChurnRecovery can protect that revenue. We connect to Stripe directly. No WordPress plugin, no theme changes, no developer.
               </p>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '20px' }}>
+            <div className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-[20px]">
               <HowStep
                 number="1"
                 icon="🔗"
@@ -341,39 +281,26 @@ export default function WordPressLandingPage() {
               />
             </div>
 
-            <div style={{
-              marginTop: '32px',
-              background: ACCENT_BG,
-              border: `1px solid rgba(56,88,233,0.25)`,
-              borderLeft: `4px solid ${ACCENT}`,
-              borderRadius: '10px', padding: '20px 24px',
-              maxWidth: '680px', margin: '32px auto 0',
-            }}>
-              <p style={{ fontFamily: t.fontSans, fontWeight: 700, color: t.text, margin: '0 0 8px', fontSize: '0.95rem' }}>
+            <div className="mt-[32px] bg-[rgba(56,88,233,0.08)] border border-[rgba(56,88,233,0.25)] border-l-[4px] border-l-[#3858E9] rounded-[10px] px-[24px] py-[20px] max-w-[680px] mx-auto">
+              <p className="font-[Instrument_Sans,sans-serif] font-bold text-[#191919] mb-[8px] mt-0 text-[0.95rem]">
                 Supported WordPress setups
               </p>
-              <ul style={{ fontFamily: t.fontSerif, fontSize: '0.88rem', color: t.gray, margin: '0 0 10px', lineHeight: 1.8, paddingLeft: '20px' }}>
+              <ul className="font-[Merriweather,serif] text-[0.88rem] text-[#666666] mb-[10px] mt-0 leading-[1.8] pl-[20px]">
                 <li><strong>WooCommerce Subscriptions</strong> with Stripe payment gateway</li>
                 <li><strong>MemberPress</strong> with Stripe integration</li>
                 <li><strong>Paid Memberships Pro</strong> with Stripe gateway</li>
                 <li>Any custom WordPress setup that routes recurring payments through Stripe</li>
               </ul>
-              <p style={{ fontFamily: t.fontSerif, fontSize: '0.82rem', color: t.gray, margin: 0, lineHeight: 1.6 }}>
+              <p className="font-[Merriweather,serif] text-[0.82rem] text-[#666666] m-0 leading-[1.6]">
                 Not sure if yours qualifies? If you use Stripe for billing, it almost certainly does.
               </p>
             </div>
 
-            <div style={{ textAlign: 'center', marginTop: '40px' }}>
-              <Link href="/demo" style={{
-                display: 'inline-flex', alignItems: 'center', gap: '8px',
-                background: ACCENT_BG, border: `1px solid rgba(56,88,233,0.3)`,
-                borderRadius: '10px', padding: '14px 28px',
-                fontFamily: t.fontSans, fontWeight: 700, color: ACCENT,
-                textDecoration: 'none', fontSize: '0.95rem',
-              }}>
+            <div className="text-center mt-[40px]">
+              <Link href="/demo" className="inline-flex items-center gap-[8px] bg-[rgba(56,88,233,0.08)] border border-[rgba(56,88,233,0.3)] rounded-[10px] px-[28px] py-[14px] font-[Instrument_Sans,sans-serif] font-bold text-[#3858E9] no-underline text-[0.95rem]">
                 🎮 Try the Interactive Demo
               </Link>
-              <p style={{ fontFamily: t.fontSans, fontSize: '0.78rem', color: t.grayLight, marginTop: '8px' }}>
+              <p className="font-[Instrument_Sans,sans-serif] text-[0.78rem] text-[#999999] mt-[8px]">
                 See a live cancel flow in action — no signup required
               </p>
             </div>
@@ -381,22 +308,16 @@ export default function WordPressLandingPage() {
         </section>
 
         {/* ─── BENEFITS ─────────────────────────────────────────────────── */}
-        <section style={{ padding: '80px 24px', background: t.bg }}>
-          <div style={{ maxWidth: '1080px', margin: '0 auto' }}>
-            <div style={{ textAlign: 'center', marginBottom: '48px' }}>
-              <div style={{
-                fontFamily: t.fontSans, fontSize: '0.75rem', fontWeight: 700,
-                color: ACCENT, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '12px',
-              }}>What You Get</div>
-              <h2 style={{
-                fontFamily: t.fontSans, fontWeight: 800, fontSize: 'clamp(1.8rem, 4vw, 2.5rem)',
-                color: t.text, margin: 0, letterSpacing: '-0.02em',
-              }}>
+        <section className="px-[24px] py-[80px] bg-[#FAF9F5]">
+          <div className="max-w-[1080px] mx-auto">
+            <div className="text-center mb-[48px]">
+              <div className="font-[Instrument_Sans,sans-serif] text-[0.75rem] font-bold text-[#3858E9] uppercase tracking-[0.08em] mb-[12px]">What You Get</div>
+              <h2 className="font-[Instrument_Sans,sans-serif] font-extrabold text-[#191919] m-0 tracking-[-0.02em]" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)' }}>
                 The Retention Layer Your WordPress Membership Plugin Is Missing
               </h2>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '14px' }}>
+            <div className="grid grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-[14px]">
               <BenefitCard
                 icon="⏸"
                 title="Pause Offer"
@@ -438,14 +359,10 @@ export default function WordPressLandingPage() {
         </section>
 
         {/* ─── FAQ ─────────────────────────────────────────────────────── */}
-        <section style={{ padding: '80px 24px', background: t.white }}>
-          <div style={{ maxWidth: '720px', margin: '0 auto' }}>
-            <div style={{ textAlign: 'center', marginBottom: '40px' }}>
-              <h2 style={{
-                fontFamily: t.fontSans, fontWeight: 800,
-                fontSize: 'clamp(1.8rem, 4vw, 2.5rem)',
-                color: t.text, margin: 0, letterSpacing: '-0.02em',
-              }}>
+        <section className="px-[24px] py-[80px] bg-[#FFFFFF]">
+          <div className="max-w-[720px] mx-auto">
+            <div className="text-center mb-[40px]">
+              <h2 className="font-[Instrument_Sans,sans-serif] font-extrabold text-[#191919] m-0 tracking-[-0.02em]" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)' }}>
                 Questions From WordPress Membership Owners
               </h2>
             </div>
@@ -486,39 +403,28 @@ export default function WordPressLandingPage() {
         </section>
 
         {/* ─── FINAL CTA ───────────────────────────────────────────────── */}
-        <section style={{
-          background: 'linear-gradient(135deg, #0D1B4B 0%, #1a2a6c 100%)',
-          padding: '80px 24px',
-        }}>
-          <div style={{ maxWidth: '600px', margin: '0 auto', textAlign: 'center' }}>
-            <h2 style={{
-              fontFamily: t.fontSans, fontWeight: 800,
-              fontSize: 'clamp(1.8rem, 4vw, 2.6rem)',
-              color: t.white, margin: '0 0 20px', lineHeight: 1.2,
-              letterSpacing: '-0.02em',
-            }}>
+        <section className="px-[24px] py-[80px]" style={{ background: 'linear-gradient(135deg, #0D1B4B 0%, #1a2a6c 100%)' }}>
+          <div className="max-w-[600px] mx-auto text-center">
+            <h2 className="font-[Instrument_Sans,sans-serif] font-extrabold text-[#FFFFFF] mb-[20px] leading-[1.2] tracking-[-0.02em]" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.6rem)' }}>
               A WordPress Member Is About to Cancel.<br />
-              <span style={{ color: ACCENT_LIGHT }}>Will You Catch Them?</span>
+              <span className="text-[#6B8BFF]">Will You Catch Them?</span>
             </h2>
-            <p style={{
-              fontFamily: t.fontSerif, fontSize: '1rem',
-              color: 'rgba(255,255,255,0.7)', margin: '0 0 36px', lineHeight: 1.7,
-            }}>
+            <p className="font-[Merriweather,serif] text-[1rem] text-[rgba(255,255,255,0.7)] mb-[36px] leading-[1.7]">
               Join the waitlist. Be first to add a cancel flow to your WordPress membership site — without a WordPress plugin, without a developer, and without touching your existing setup. Free to start.
             </p>
 
-            <div style={{ maxWidth: '480px', margin: '0 auto' }}>
+            <div className="max-w-[480px] mx-auto">
               <WordPressWaitlistForm dark={true} />
             </div>
 
-            <div style={{ display: 'flex', gap: '24px', justifyContent: 'center', marginTop: '24px', flexWrap: 'wrap' }}>
-              <span style={{ fontFamily: t.fontSans, fontSize: '0.78rem', color: 'rgba(255,255,255,0.45)' }}>
+            <div className="flex gap-[24px] justify-center mt-[24px] flex-wrap">
+              <span className="font-[Instrument_Sans,sans-serif] text-[0.78rem] text-[rgba(255,255,255,0.45)]">
                 Free during beta
               </span>
-              <span style={{ fontFamily: t.fontSans, fontSize: '0.78rem', color: 'rgba(255,255,255,0.45)' }}>
+              <span className="font-[Instrument_Sans,sans-serif] text-[0.78rem] text-[rgba(255,255,255,0.45)]">
                 No WordPress plugin needed
               </span>
-              <span style={{ fontFamily: t.fontSans, fontSize: '0.78rem', color: 'rgba(255,255,255,0.45)' }}>
+              <span className="font-[Instrument_Sans,sans-serif] text-[0.78rem] text-[rgba(255,255,255,0.45)]">
                 No spam, ever
               </span>
             </div>

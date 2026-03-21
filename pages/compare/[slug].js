@@ -2,62 +2,29 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { getCompetitor, getAllCompetitorSlugs, featureLabels, getFeatureValue } from '../../lib/comparisons'
 
-const t = {
-  bg: '#FAF9F5',
-  text: '#191919',
-  gray: '#666666',
-  grayLight: '#999999',
-  accent: '#D97757',
-  accentHover: '#C4603D',
-  border: '#E5E5E5',
-  white: '#FFFFFF',
-  green: '#2D7A4F',
-  greenLight: '#EDF7F1',
-  red: '#C0392B',
-  redLight: '#FDECEA',
-  yellowLight: '#FEF9EC',
-  fontSans: '"Instrument Sans", sans-serif',
-  fontSerif: '"Merriweather", serif',
-}
-
 function FeatureRow({ label, crValue, themValue }) {
   const cr = getFeatureValue(crValue)
   const them = getFeatureValue(themValue)
 
   const badge = (v) => {
     const colors = {
-      yes: { bg: t.greenLight, color: t.green },
-      no: { bg: t.redLight, color: t.red },
-      partial: { bg: t.yellowLight, color: '#856404' },
+      yes: { bg: '#EDF7F1', color: '#2D7A4F' },
+      no: { bg: '#FDECEA', color: '#C0392B' },
+      partial: { bg: '#FEF9EC', color: '#856404' },
     }
-    const style = colors[v.type] || colors.partial
+    const s = colors[v.type] || colors.partial
     return (
-      <span style={{
-        display: 'inline-block',
-        padding: '3px 10px',
-        borderRadius: '20px',
-        fontSize: '0.82rem',
-        fontWeight: 600,
-        fontFamily: t.fontSans,
-        background: style.bg,
-        color: style.color,
-      }}>
+      <span className="inline-block px-[10px] py-[3px] rounded-[20px] text-[0.82rem] font-semibold font-[Instrument_Sans,sans-serif]" style={{ background: s.bg, color: s.color }}>
         {v.type === 'yes' ? '✓ ' : v.type === 'no' ? '✗ ' : '~ '}{v.label}
       </span>
     )
   }
 
   return (
-    <tr style={{ borderBottom: `1px solid ${t.border}` }}>
-      <td style={{
-        padding: '14px 20px',
-        fontFamily: t.fontSans,
-        fontSize: '0.9rem',
-        color: t.text,
-        fontWeight: 500,
-      }}>{label}</td>
-      <td style={{ padding: '14px 20px', textAlign: 'center' }}>{badge(cr)}</td>
-      <td style={{ padding: '14px 20px', textAlign: 'center' }}>{badge(them)}</td>
+    <tr className="border-b border-[#E5E5E5]">
+      <td className="px-5 py-[14px] font-[Instrument_Sans,sans-serif] text-[0.9rem] text-[#191919] font-medium">{label}</td>
+      <td className="px-5 py-[14px] text-center">{badge(cr)}</td>
+      <td className="px-5 py-[14px] text-center">{badge(them)}</td>
     </tr>
   )
 }
@@ -148,42 +115,15 @@ export default function ComparePage({ competitor }) {
         />
       </Head>
 
-      <div style={{ background: t.bg, minHeight: '100vh', fontFamily: t.fontSans }}>
+      <div className="bg-[#FAF9F5] min-h-screen font-[Instrument_Sans,sans-serif]">
         {/* Nav */}
-        <nav style={{
-          borderBottom: `1px solid ${t.border}`,
-          background: t.white,
-          padding: '0 20px',
-          height: '60px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          position: 'sticky',
-          top: 0,
-          zIndex: 100,
-        }}>
-          <Link href="/" style={{
-            fontFamily: t.fontSans,
-            fontWeight: 700,
-            fontSize: '1.1rem',
-            color: t.text,
-            textDecoration: 'none',
-            letterSpacing: '-0.01em',
-          }}>
+        <nav className="border-b border-[#E5E5E5] bg-white px-5 h-[60px] flex items-center justify-between sticky top-0 z-[100]">
+          <Link href="/" className="font-[Instrument_Sans,sans-serif] font-bold text-[1.1rem] text-[#191919] no-underline tracking-[-0.01em]">
             ChurnRecovery
           </Link>
-          <div className="compare-nav-links" style={{ display: 'flex', gap: '24px', alignItems: 'center', flexWrap: 'wrap' }}>
-            <Link href="/blog" className="compare-nav-text" style={{ color: t.gray, textDecoration: 'none', fontSize: '0.9rem' }}>Blog</Link>
-            <a href="/#waitlist" style={{
-              background: t.accent,
-              color: t.white,
-              padding: '8px 18px',
-              borderRadius: '6px',
-              textDecoration: 'none',
-              fontSize: '0.85rem',
-              fontWeight: 600,
-              whiteSpace: 'nowrap',
-            }}>Join Waitlist</a>
+          <div className="compare-nav-links flex gap-6 items-center flex-wrap">
+            <Link href="/blog" className="compare-nav-text text-[#666666] no-underline text-[0.9rem]">Blog</Link>
+            <a href="/#waitlist" className="bg-[#D97757] text-white px-[18px] py-2 rounded-[6px] no-underline text-[0.85rem] font-semibold whitespace-nowrap">Join Waitlist</a>
           </div>
         </nav>
         <style>{`
@@ -200,93 +140,37 @@ export default function ComparePage({ competitor }) {
         `}</style>
 
         {/* Breadcrumb */}
-        <div style={{ maxWidth: '800px', margin: '0 auto', padding: '20px 24px 0' }}>
-          <div style={{ fontSize: '0.8rem', color: t.gray, fontFamily: t.fontSans }}>
-            <Link href="/" style={{ color: t.gray, textDecoration: 'none' }}>Home</Link>
+        <div className="max-w-[800px] mx-auto px-6 pt-5">
+          <div className="text-[0.8rem] text-[#666666] font-[Instrument_Sans,sans-serif]">
+            <Link href="/" className="text-[#666666] no-underline">Home</Link>
             {' → '}
             <span>Compare</span>
             {' → '}
-            <span style={{ color: t.text }}>vs {competitor.name}</span>
+            <span className="text-[#191919]">vs {competitor.name}</span>
           </div>
         </div>
 
         {/* Hero */}
-        <section style={{ maxWidth: '800px', margin: '0 auto', padding: '48px 24px 40px' }}>
-          <div style={{
-            display: 'inline-block',
-            background: '#F0EBE5',
-            color: t.accent,
-            padding: '4px 12px',
-            borderRadius: '4px',
-            fontSize: '0.75rem',
-            fontWeight: 700,
-            textTransform: 'uppercase',
-            letterSpacing: '0.08em',
-            marginBottom: '20px',
-          }}>
+        <section className="max-w-[800px] mx-auto px-6 pt-12 pb-10">
+          <div className="inline-block bg-[#F0EBE5] text-[#D97757] px-3 py-1 rounded text-xs font-bold uppercase tracking-[0.08em] mb-5">
             Comparison
           </div>
-          <h1 style={{
-            fontFamily: t.fontSans,
-            fontSize: 'clamp(1.8rem, 5vw, 2.8rem)',
-            fontWeight: 700,
-            color: t.text,
-            lineHeight: 1.2,
-            letterSpacing: '-0.03em',
-            margin: '0 0 20px',
-          }}>
+          <h1 className="font-[Instrument_Sans,sans-serif] font-bold text-[#191919] leading-[1.2] tracking-[-0.03em] m-0 mb-5" style={{ fontSize: 'clamp(1.8rem, 5vw, 2.8rem)' }}>
             ChurnRecovery vs {competitor.name}
           </h1>
-          <p style={{
-            fontFamily: t.fontSerif,
-            fontSize: '1.1rem',
-            color: t.gray,
-            lineHeight: 1.7,
-            margin: '0 0 40px',
-            maxWidth: '620px',
-          }}>
+          <p className="font-[Merriweather,serif] text-[1.1rem] text-[#666666] leading-[1.7] m-0 mb-10 max-w-[620px]">
             {description}
           </p>
 
           {/* Quick verdict cards */}
-          <div className="compare-verdict-grid" style={{
-            display: 'grid',
-            gridTemplateColumns: '1fr 1fr',
-            gap: '16px',
-            marginBottom: '48px',
-          }}>
+          <div className="compare-verdict-grid grid grid-cols-2 gap-4 mb-12">
             {/* ChurnRecovery */}
-            <div style={{
-              border: `2px solid ${t.accent}`,
-              borderRadius: '12px',
-              padding: '24px',
-              background: t.white,
-            }}>
-              <div style={{
-                fontFamily: t.fontSans,
-                fontWeight: 700,
-                fontSize: '1rem',
-                color: t.text,
-                marginBottom: '4px',
-              }}>ChurnRecovery</div>
-              <div style={{
-                fontFamily: t.fontSans,
-                fontSize: '0.82rem',
-                color: t.accent,
-                fontWeight: 700,
-                marginBottom: '12px',
-              }}>FREE — Always</div>
-              <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+            <div className="border-2 border-[#D97757] rounded-xl p-6 bg-white">
+              <div className="font-[Instrument_Sans,sans-serif] font-bold text-base text-[#191919] mb-1">ChurnRecovery</div>
+              <div className="font-[Instrument_Sans,sans-serif] text-[0.82rem] text-[#D97757] font-bold mb-3">FREE — Always</div>
+              <ul className="list-none p-0 m-0">
                 {['Cancel flows', 'Failed payment recovery', 'Open source', 'Developer API', 'A/B testing'].map(item => (
-                  <li key={item} style={{
-                    fontFamily: t.fontSans,
-                    fontSize: '0.85rem',
-                    color: t.green,
-                    padding: '3px 0',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '6px',
-                  }}>
+                  <li key={item} className="font-[Instrument_Sans,sans-serif] text-[0.85rem] text-[#2D7A4F] py-[3px] flex items-center gap-[6px]">
                     <span>✓</span> {item}
                   </li>
                 ))}
@@ -294,50 +178,17 @@ export default function ComparePage({ competitor }) {
             </div>
 
             {/* Competitor */}
-            <div style={{
-              border: `1px solid ${t.border}`,
-              borderRadius: '12px',
-              padding: '24px',
-              background: t.white,
-            }}>
-              <div style={{
-                fontFamily: t.fontSans,
-                fontWeight: 700,
-                fontSize: '1rem',
-                color: t.text,
-                marginBottom: '4px',
-              }}>{competitor.name}</div>
-              <div style={{
-                fontFamily: t.fontSans,
-                fontSize: '0.82rem',
-                color: t.gray,
-                fontWeight: 600,
-                marginBottom: '12px',
-              }}>{competitor.pricing.label}</div>
-              <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+            <div className="border border-[#E5E5E5] rounded-xl p-6 bg-white">
+              <div className="font-[Instrument_Sans,sans-serif] font-bold text-base text-[#191919] mb-1">{competitor.name}</div>
+              <div className="font-[Instrument_Sans,sans-serif] text-[0.82rem] text-[#666666] font-semibold mb-3">{competitor.pricing.label}</div>
+              <ul className="list-none p-0 m-0">
                 {competitor.strengths.slice(0, 3).map(item => (
-                  <li key={item} style={{
-                    fontFamily: t.fontSans,
-                    fontSize: '0.85rem',
-                    color: t.gray,
-                    padding: '3px 0',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '6px',
-                  }}>
-                    <span style={{ color: t.grayLight }}>•</span> {item}
+                  <li key={item} className="font-[Instrument_Sans,sans-serif] text-[0.85rem] text-[#666666] py-[3px] flex items-center gap-[6px]">
+                    <span className="text-[#999999]">•</span> {item}
                   </li>
                 ))}
                 {competitor.weaknesses.slice(0, 2).map(item => (
-                  <li key={item} style={{
-                    fontFamily: t.fontSans,
-                    fontSize: '0.85rem',
-                    color: t.red,
-                    padding: '3px 0',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '6px',
-                  }}>
+                  <li key={item} className="font-[Instrument_Sans,sans-serif] text-[0.85rem] text-[#C0392B] py-[3px] flex items-center gap-[6px]">
                     <span>✗</span> {item}
                   </li>
                 ))}
@@ -347,60 +198,16 @@ export default function ComparePage({ competitor }) {
         </section>
 
         {/* Feature Matrix */}
-        <section style={{ maxWidth: '800px', margin: '0 auto', padding: '0 24px 48px' }}>
-          <h2 style={{
-            fontFamily: t.fontSans,
-            fontSize: '1.4rem',
-            fontWeight: 700,
-            color: t.text,
-            letterSpacing: '-0.02em',
-            marginBottom: '24px',
-          }}>Feature Comparison</h2>
+        <section className="max-w-[800px] mx-auto px-6 pb-12">
+          <h2 className="font-[Instrument_Sans,sans-serif] text-[1.4rem] font-bold text-[#191919] tracking-[-0.02em] mb-6">Feature Comparison</h2>
 
-          <div style={{
-            border: `1px solid ${t.border}`,
-            borderRadius: '12px',
-            overflow: 'hidden',
-            overflowX: 'auto',
-            WebkitOverflowScrolling: 'touch',
-            background: t.white,
-          }}>
-            <table style={{ width: '100%', minWidth: '500px', borderCollapse: 'collapse' }}>
+          <div className="border border-[#E5E5E5] rounded-xl overflow-hidden overflow-x-auto [-webkit-overflow-scrolling:touch] bg-white">
+            <table className="w-full min-w-[500px] border-collapse">
               <thead>
-                <tr style={{ background: '#F5F4F0', borderBottom: `2px solid ${t.border}` }}>
-                  <th style={{
-                    padding: '14px 20px',
-                    textAlign: 'left',
-                    fontFamily: t.fontSans,
-                    fontSize: '0.8rem',
-                    fontWeight: 700,
-                    color: t.gray,
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.05em',
-                    width: '40%',
-                  }}>Feature</th>
-                  <th style={{
-                    padding: '14px 20px',
-                    textAlign: 'center',
-                    fontFamily: t.fontSans,
-                    fontSize: '0.8rem',
-                    fontWeight: 700,
-                    color: t.accent,
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.05em',
-                    width: '30%',
-                  }}>ChurnRecovery</th>
-                  <th style={{
-                    padding: '14px 20px',
-                    textAlign: 'center',
-                    fontFamily: t.fontSans,
-                    fontSize: '0.8rem',
-                    fontWeight: 700,
-                    color: t.gray,
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.05em',
-                    width: '30%',
-                  }}>{competitor.name}</th>
+                <tr className="bg-[#F5F4F0] border-b-2 border-[#E5E5E5]">
+                  <th className="px-5 py-[14px] text-left font-[Instrument_Sans,sans-serif] text-[0.8rem] font-bold text-[#666666] uppercase tracking-[0.05em] w-[40%]">Feature</th>
+                  <th className="px-5 py-[14px] text-center font-[Instrument_Sans,sans-serif] text-[0.8rem] font-bold text-[#D97757] uppercase tracking-[0.05em] w-[30%]">ChurnRecovery</th>
+                  <th className="px-5 py-[14px] text-center font-[Instrument_Sans,sans-serif] text-[0.8rem] font-bold text-[#666666] uppercase tracking-[0.05em] w-[30%]">{competitor.name}</th>
                 </tr>
               </thead>
               <tbody>
@@ -418,85 +225,40 @@ export default function ComparePage({ competitor }) {
         </section>
 
         {/* Pricing section */}
-        <section style={{
-          background: t.white,
-          borderTop: `1px solid ${t.border}`,
-          borderBottom: `1px solid ${t.border}`,
-          padding: '48px 24px',
-          margin: '0 0 48px',
-        }}>
-          <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-            <h2 style={{
-              fontFamily: t.fontSans,
-              fontSize: '1.4rem',
-              fontWeight: 700,
-              color: t.text,
-              letterSpacing: '-0.02em',
-              marginBottom: '8px',
-            }}>Pricing</h2>
-            <p style={{
-              fontFamily: t.fontSerif,
-              fontSize: '0.95rem',
-              color: t.gray,
-              marginBottom: '32px',
-              lineHeight: 1.7,
-            }}>
+        <section className="bg-white border-y border-[#E5E5E5] px-6 py-12 mb-12">
+          <div className="max-w-[800px] mx-auto">
+            <h2 className="font-[Instrument_Sans,sans-serif] text-[1.4rem] font-bold text-[#191919] tracking-[-0.02em] mb-2">Pricing</h2>
+            <p className="font-[Merriweather,serif] text-[0.95rem] text-[#666666] mb-8 leading-[1.7]">
               The most honest comparison we can make. {competitor.pricing.notes}
             </p>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
-              <div style={{
-                border: `2px solid ${t.accent}`,
-                borderRadius: '12px',
-                padding: '28px',
-                background: '#FDF8F5',
-              }}>
-                <div style={{ fontFamily: t.fontSans, fontWeight: 700, fontSize: '1.1rem', color: t.text, marginBottom: '8px' }}>
+            <div className="grid grid-cols-2 gap-5">
+              <div className="border-2 border-[#D97757] rounded-xl p-7 bg-[#FDF8F5]">
+                <div className="font-[Instrument_Sans,sans-serif] font-bold text-[1.1rem] text-[#191919] mb-2">
                   ChurnRecovery
                 </div>
-                <div style={{
-                  fontFamily: t.fontSans,
-                  fontSize: '2.5rem',
-                  fontWeight: 800,
-                  color: t.accent,
-                  letterSpacing: '-0.04em',
-                  lineHeight: 1,
-                  marginBottom: '8px',
-                }}>
+                <div className="font-[Instrument_Sans,sans-serif] text-[2.5rem] font-extrabold text-[#D97757] tracking-[-0.04em] leading-none mb-2">
                   $0
                 </div>
-                <div style={{ fontFamily: t.fontSans, fontSize: '0.85rem', color: t.gray, marginBottom: '16px' }}>
+                <div className="font-[Instrument_Sans,sans-serif] text-[0.85rem] text-[#666666] mb-4">
                   Forever. No credit card required.
                 </div>
-                <div style={{ fontFamily: t.fontSans, fontSize: '0.85rem', color: t.green, fontWeight: 600 }}>
+                <div className="font-[Instrument_Sans,sans-serif] text-[0.85rem] text-[#2D7A4F] font-semibold">
                   ✓ Full feature access on free tier
                 </div>
               </div>
 
-              <div style={{
-                border: `1px solid ${t.border}`,
-                borderRadius: '12px',
-                padding: '28px',
-                background: t.white,
-              }}>
-                <div style={{ fontFamily: t.fontSans, fontWeight: 700, fontSize: '1.1rem', color: t.text, marginBottom: '8px' }}>
+              <div className="border border-[#E5E5E5] rounded-xl p-7 bg-white">
+                <div className="font-[Instrument_Sans,sans-serif] font-bold text-[1.1rem] text-[#191919] mb-2">
                   {competitor.name}
                 </div>
-                <div style={{
-                  fontFamily: t.fontSans,
-                  fontSize: '2.5rem',
-                  fontWeight: 800,
-                  color: t.text,
-                  letterSpacing: '-0.04em',
-                  lineHeight: 1,
-                  marginBottom: '8px',
-                }}>
+                <div className="font-[Instrument_Sans,sans-serif] text-[2.5rem] font-extrabold text-[#191919] tracking-[-0.04em] leading-none mb-2">
                   {competitor.pricing.entry > 0 ? `$${competitor.pricing.entry}` : competitor.pricing.label}
                 </div>
-                <div style={{ fontFamily: t.fontSans, fontSize: '0.85rem', color: t.gray, marginBottom: '16px' }}>
+                <div className="font-[Instrument_Sans,sans-serif] text-[0.85rem] text-[#666666] mb-4">
                   {competitor.pricing.entry > 0 ? 'per month, entry plan' : 'Pricing varies'}
                 </div>
-                <div style={{ fontFamily: t.fontSans, fontSize: '0.85rem', color: t.red, fontWeight: 600 }}>
+                <div className="font-[Instrument_Sans,sans-serif] text-[0.85rem] text-[#C0392B] font-semibold">
                   ✗ No free tier
                 </div>
               </div>
@@ -505,65 +267,34 @@ export default function ComparePage({ competitor }) {
         </section>
 
         {/* About the competitor */}
-        <section style={{ maxWidth: '800px', margin: '0 auto', padding: '0 24px 48px' }}>
-          <h2 style={{
-            fontFamily: t.fontSans,
-            fontSize: '1.4rem',
-            fontWeight: 700,
-            color: t.text,
-            letterSpacing: '-0.02em',
-            marginBottom: '16px',
-          }}>About {competitor.name}</h2>
-          <p style={{
-            fontFamily: t.fontSerif,
-            fontSize: '1rem',
-            color: t.text,
-            lineHeight: 1.8,
-            marginBottom: '32px',
-          }}>
+        <section className="max-w-[800px] mx-auto px-6 pb-12">
+          <h2 className="font-[Instrument_Sans,sans-serif] text-[1.4rem] font-bold text-[#191919] tracking-[-0.02em] mb-4">About {competitor.name}</h2>
+          <p className="font-[Merriweather,serif] text-base text-[#191919] leading-[1.8] mb-8">
             {competitor.description}
           </p>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px', marginBottom: '40px' }}>
+          <div className="grid grid-cols-2 gap-6 mb-10">
             <div>
-              <h3 style={{ fontFamily: t.fontSans, fontSize: '0.95rem', fontWeight: 700, color: t.text, marginBottom: '12px' }}>
+              <h3 className="font-[Instrument_Sans,sans-serif] text-[0.95rem] font-bold text-[#191919] mb-3">
                 {competitor.name} Strengths
               </h3>
-              <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+              <ul className="list-none p-0 m-0">
                 {competitor.strengths.map(s => (
-                  <li key={s} style={{
-                    fontFamily: t.fontSans,
-                    fontSize: '0.85rem',
-                    color: t.text,
-                    padding: '5px 0',
-                    borderBottom: `1px solid ${t.border}`,
-                    display: 'flex',
-                    alignItems: 'flex-start',
-                    gap: '8px',
-                  }}>
-                    <span style={{ color: t.green, fontWeight: 700, flexShrink: 0 }}>+</span>
+                  <li key={s} className="font-[Instrument_Sans,sans-serif] text-[0.85rem] text-[#191919] py-[5px] border-b border-[#E5E5E5] flex items-start gap-2">
+                    <span className="text-[#2D7A4F] font-bold shrink-0">+</span>
                     {s}
                   </li>
                 ))}
               </ul>
             </div>
             <div>
-              <h3 style={{ fontFamily: t.fontSans, fontSize: '0.95rem', fontWeight: 700, color: t.text, marginBottom: '12px' }}>
+              <h3 className="font-[Instrument_Sans,sans-serif] text-[0.95rem] font-bold text-[#191919] mb-3">
                 {competitor.name} Weaknesses
               </h3>
-              <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+              <ul className="list-none p-0 m-0">
                 {competitor.weaknesses.map(w => (
-                  <li key={w} style={{
-                    fontFamily: t.fontSans,
-                    fontSize: '0.85rem',
-                    color: t.text,
-                    padding: '5px 0',
-                    borderBottom: `1px solid ${t.border}`,
-                    display: 'flex',
-                    alignItems: 'flex-start',
-                    gap: '8px',
-                  }}>
-                    <span style={{ color: t.red, fontWeight: 700, flexShrink: 0 }}>−</span>
+                  <li key={w} className="font-[Instrument_Sans,sans-serif] text-[0.85rem] text-[#191919] py-[5px] border-b border-[#E5E5E5] flex items-start gap-2">
+                    <span className="text-[#C0392B] font-bold shrink-0">−</span>
                     {w}
                   </li>
                 ))}
@@ -572,52 +303,19 @@ export default function ComparePage({ competitor }) {
           </div>
 
           {/* Verdict */}
-          <div style={{
-            background: '#FDF8F5',
-            border: `1px solid ${t.accent}`,
-            borderLeft: `4px solid ${t.accent}`,
-            borderRadius: '8px',
-            padding: '24px',
-            marginBottom: '48px',
-          }}>
-            <div style={{
-              fontFamily: t.fontSans,
-              fontSize: '0.75rem',
-              fontWeight: 700,
-              textTransform: 'uppercase',
-              letterSpacing: '0.08em',
-              color: t.accent,
-              marginBottom: '8px',
-            }}>Our Honest Verdict</div>
-            <p style={{
-              fontFamily: t.fontSerif,
-              fontSize: '1rem',
-              color: t.text,
-              lineHeight: 1.7,
-              margin: 0,
-            }}>
+          <div className="bg-[#FDF8F5] border border-[#D97757] border-l-4 rounded-lg p-6 mb-12">
+            <div className="font-[Instrument_Sans,sans-serif] text-xs font-bold uppercase tracking-[0.08em] text-[#D97757] mb-2">Our Honest Verdict</div>
+            <p className="font-[Merriweather,serif] text-base text-[#191919] leading-[1.7] m-0">
               {competitor.verdict}
             </p>
           </div>
         </section>
 
         {/* More comparisons */}
-        <section style={{
-          background: t.white,
-          borderTop: `1px solid ${t.border}`,
-          padding: '48px 24px',
-          marginBottom: '0',
-        }}>
-          <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-            <h2 style={{
-              fontFamily: t.fontSans,
-              fontSize: '1.2rem',
-              fontWeight: 700,
-              color: t.text,
-              letterSpacing: '-0.02em',
-              marginBottom: '24px',
-            }}>More Comparisons</h2>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
+        <section className="bg-white border-t border-[#E5E5E5] px-6 py-12">
+          <div className="max-w-[800px] mx-auto">
+            <h2 className="font-[Instrument_Sans,sans-serif] text-[1.2rem] font-bold text-[#191919] tracking-[-0.02em] mb-6">More Comparisons</h2>
+            <div className="flex flex-wrap gap-3">
               {['churnkey', 'profitwell', 'churnbuster', 'stunning', 'baremetrics', 'raaft', 'recurly', 'zuora', 'brightback', 'paddle-retain', 'stripe-billing']
                 .filter(slug => slug !== competitor.slug)
                 .map(slug => {
@@ -635,17 +333,7 @@ export default function ComparePage({ competitor }) {
                     'stripe-billing': 'Stripe Billing',
                   }
                   return (
-                    <Link key={slug} href={`/compare/${slug}`} style={{
-                      display: 'inline-block',
-                      padding: '8px 16px',
-                      border: `1px solid ${t.border}`,
-                      borderRadius: '6px',
-                      fontFamily: t.fontSans,
-                      fontSize: '0.85rem',
-                      color: t.text,
-                      textDecoration: 'none',
-                      fontWeight: 500,
-                    }}>
+                    <Link key={slug} href={`/compare/${slug}`} className="inline-block px-4 py-2 border border-[#E5E5E5] rounded-[6px] font-[Instrument_Sans,sans-serif] text-[0.85rem] text-[#191919] no-underline font-medium">
                       vs {names[slug]}
                     </Link>
                   )
@@ -655,45 +343,14 @@ export default function ComparePage({ competitor }) {
         </section>
 
         {/* CTA */}
-        <section id="waitlist" style={{
-          background: t.text,
-          padding: '80px 24px',
-          textAlign: 'center',
-        }}>
-          <h2 style={{
-            fontFamily: t.fontSans,
-            fontSize: 'clamp(1.5rem, 4vw, 2.2rem)',
-            fontWeight: 700,
-            color: t.white,
-            letterSpacing: '-0.03em',
-            margin: '0 0 16px',
-          }}>
+        <section id="waitlist" className="bg-[#191919] px-6 py-20 text-center">
+          <h2 className="font-[Instrument_Sans,sans-serif] font-bold text-white tracking-[-0.03em] m-0 mb-4" style={{ fontSize: 'clamp(1.5rem, 4vw, 2.2rem)' }}>
             Stop paying for churn recovery.
           </h2>
-          <p style={{
-            fontFamily: t.fontSerif,
-            fontSize: '1rem',
-            color: 'rgba(255,255,255,0.7)',
-            margin: '0 0 32px',
-            maxWidth: '460px',
-            marginLeft: 'auto',
-            marginRight: 'auto',
-            lineHeight: 1.7,
-          }}>
+          <p className="font-[Merriweather,serif] text-base text-[rgba(255,255,255,0.7)] m-0 mb-8 max-w-[460px] mx-auto leading-[1.7]">
             ChurnRecovery gives you everything {competitor.name} charges for — at zero cost. Join the waitlist for early access.
           </p>
-          <a href="https://tally.so/r/churnrecovery" style={{
-            display: 'inline-block',
-            background: t.accent,
-            color: t.white,
-            padding: '14px 32px',
-            borderRadius: '8px',
-            fontFamily: t.fontSans,
-            fontWeight: 700,
-            fontSize: '1rem',
-            textDecoration: 'none',
-            letterSpacing: '-0.01em',
-          }}>
+          <a href="https://tally.so/r/churnrecovery" className="inline-block bg-[#D97757] text-white px-8 py-[14px] rounded-lg font-[Instrument_Sans,sans-serif] font-bold text-base no-underline tracking-[-0.01em]">
             Join the Waitlist — It's Free
           </a>
         </section>

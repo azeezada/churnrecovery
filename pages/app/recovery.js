@@ -3,26 +3,6 @@ import { useState, useEffect } from 'react'
 import AppLayout from '../../components/AppLayout'
 import { getProjects } from '../../lib/localStore'
 
-const t = {
-  bg: '#FAF9F5',
-  text: '#191919',
-  gray: '#666666',
-  grayLight: '#999999',
-  accent: '#D97757',
-  border: '#E5E5E5',
-  white: '#FFFFFF',
-  green: '#2D7A4F',
-  greenLight: '#EDF7F1',
-  red: '#DC2626',
-  redLight: '#FEF2F2',
-  blue: '#2563EB',
-  blueLight: '#EFF6FF',
-  yellow: '#D97706',
-  yellowLight: '#FFFBEB',
-  fontSans: '"Instrument Sans", sans-serif',
-  fontSerif: '"Merriweather", serif',
-}
-
 // Generate realistic-looking demo failed payment data
 function makeDemoPayments() {
   const customers = [
@@ -73,50 +53,47 @@ function makeDemoPayments() {
 
 function StatusBadge({ status }) {
   const configs = {
-    recovered: { bg: t.greenLight, color: t.green, label: '✓ Recovered' },
-    pending: { bg: t.yellowLight, color: t.yellow, label: '↻ Retrying' },
-    lost: { bg: t.redLight, color: t.red, label: '✗ Lost' },
+    recovered: { bg: 'bg-brand-green-light', text: 'text-brand-green', label: '✓ Recovered' },
+    pending: { bg: 'bg-[#FFFBEB]', text: 'text-brand-amber', label: '↻ Retrying' },
+    lost: { bg: 'bg-[#FEF2F2]', text: 'text-brand-red', label: '✗ Lost' },
   }
   const cfg = configs[status] || configs.pending
   return (
-    <span style={{
-      background: cfg.bg, color: cfg.color,
-      padding: '2px 8px', borderRadius: '20px',
-      fontSize: '0.72rem', fontWeight: 600, whiteSpace: 'nowrap',
-    }}>
+    <span className={`px-2 py-[2px] rounded-[20px] text-[0.72rem] font-semibold whitespace-nowrap ${cfg.bg} ${cfg.text}`}>
       {cfg.label}
     </span>
   )
 }
 
 function MetricCard({ label, value, sub, color }) {
+  const colorClass = !color || color === '#191919' ? 'text-brand-text'
+    : color === '#2D7A4F' ? 'text-brand-green'
+    : color === '#D97706' ? 'text-brand-amber'
+    : color === '#D97757' ? 'text-brand-accent'
+    : 'text-brand-text'
   return (
-    <div style={{
-      background: t.white, border: `1px solid ${t.border}`,
-      borderRadius: '12px', padding: '24px',
-    }}>
-      <div style={{ fontSize: '0.72rem', color: t.grayLight, fontWeight: 600, marginBottom: '10px', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+    <div className="bg-brand-white border border-brand-border rounded-xl p-6">
+      <div className="text-[0.72rem] text-brand-gray-light font-semibold mb-[10px] uppercase tracking-[0.06em]">
         {label}
       </div>
-      <div style={{ fontSize: '2rem', fontWeight: 800, color: color || t.text, letterSpacing: '-0.04em', lineHeight: 1 }}>
+      <div className={`text-[2rem] font-extrabold tracking-[-0.04em] leading-none ${colorClass}`}>
         {value}
       </div>
-      {sub && <div style={{ fontSize: '0.78rem', color: t.gray, marginTop: '6px' }}>{sub}</div>}
+      {sub && <div className="text-[0.78rem] text-brand-gray mt-[6px]">{sub}</div>}
     </div>
   )
 }
 
 function DunningProgress({ sent, max = 4 }) {
   return (
-    <div style={{ display: 'flex', gap: '4px', alignItems: 'center' }}>
+    <div className="flex gap-1 items-center">
       {Array.from({ length: max }).map((_, i) => (
-        <div key={i} style={{
-          width: '16px', height: '16px', borderRadius: '4px',
-          background: i < sent ? t.accent : t.border,
-          fontSize: '0.6rem', color: i < sent ? t.white : t.grayLight,
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-          fontWeight: 700,
-        }}>
+        <div
+          key={i}
+          className={`w-4 h-4 rounded text-[0.6rem] flex items-center justify-center font-bold ${
+            i < sent ? 'bg-brand-accent text-brand-white' : 'bg-brand-border text-brand-gray-light'
+          }`}
+        >
           {i + 1}
         </div>
       ))}
@@ -136,36 +113,36 @@ function formatAmount(cents) {
 function RecoveryRow({ payment, onViewDetails }) {
   const isPending = payment.recovery_status === 'pending'
   return (
-    <tr style={{ borderBottom: `1px solid ${t.border}` }}>
-      <td style={{ padding: '14px 16px', verticalAlign: 'middle' }}>
-        <div style={{ fontWeight: 600, fontSize: '0.85rem', color: t.text }}>
+    <tr className="border-b border-brand-border">
+      <td className="px-4 py-[14px] align-middle">
+        <div className="font-semibold text-[0.85rem] text-brand-text">
           {payment.customer_name || payment.customer_email}
         </div>
-        <div style={{ fontSize: '0.75rem', color: t.gray, marginTop: '2px' }}>
+        <div className="text-xs text-brand-gray mt-[2px]">
           {payment.customer_email}
         </div>
       </td>
-      <td style={{ padding: '14px 16px', verticalAlign: 'middle' }}>
-        <div style={{ fontWeight: 700, fontSize: '0.9rem', color: t.text }}>
+      <td className="px-4 py-[14px] align-middle">
+        <div className="font-bold text-[0.9rem] text-brand-text">
           {formatAmount(payment.amount_cents)}
         </div>
-        <div style={{ fontSize: '0.7rem', color: t.gray, marginTop: '2px' }}>
+        <div className="text-[0.7rem] text-brand-gray mt-[2px]">
           {payment.failure_reason}
         </div>
       </td>
-      <td style={{ padding: '14px 16px', verticalAlign: 'middle' }}>
+      <td className="px-4 py-[14px] align-middle">
         <StatusBadge status={payment.recovery_status} />
       </td>
-      <td style={{ padding: '14px 16px', verticalAlign: 'middle' }}>
+      <td className="px-4 py-[14px] align-middle">
         <DunningProgress sent={payment.dunning_emails_sent} />
-        <div style={{ fontSize: '0.7rem', color: t.gray, marginTop: '4px' }}>
+        <div className="text-[0.7rem] text-brand-gray mt-1">
           {payment.dunning_emails_sent}/4 emails sent
         </div>
       </td>
-      <td style={{ padding: '14px 16px', verticalAlign: 'middle', fontSize: '0.8rem', color: t.gray }}>
+      <td className="px-4 py-[14px] align-middle text-[0.8rem] text-brand-gray">
         {isPending && payment.next_retry_at ? (
           <div>
-            <div style={{ color: t.yellow, fontWeight: 600, fontSize: '0.75rem' }}>
+            <div className="text-brand-amber font-semibold text-xs">
               Next retry
             </div>
             {formatDate(payment.next_retry_at)}
@@ -174,15 +151,10 @@ function RecoveryRow({ payment, onViewDetails }) {
           formatDate(payment.updated_at)
         )}
       </td>
-      <td style={{ padding: '14px 16px', verticalAlign: 'middle' }}>
+      <td className="px-4 py-[14px] align-middle">
         <button
           onClick={() => onViewDetails(payment)}
-          style={{
-            background: 'none', border: `1px solid ${t.border}`,
-            borderRadius: '6px', padding: '4px 12px',
-            fontSize: '0.75rem', color: t.gray, cursor: 'pointer',
-            fontWeight: 500, fontFamily: t.fontSans,
-          }}
+          className="bg-transparent border border-brand-border rounded-[6px] px-3 py-1 text-xs text-brand-gray cursor-pointer font-medium font-sans"
         >
           Details
         </button>
@@ -207,106 +179,85 @@ function DetailModal({ payment, onClose }) {
     { day: 'Day 14', subject: 'Your account has been suspended', sent: payment.dunning_emails_sent >= 4 },
   ]
 
+  const statusBgClass = payment.recovery_status === 'recovered' ? 'bg-brand-green-light'
+    : payment.recovery_status === 'pending' ? 'bg-[#FFFBEB]' : 'bg-[#FEF2F2]'
+
   return (
-    <div style={{
-      position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.5)',
-      display: 'flex', alignItems: 'center', justifyContent: 'center',
-      zIndex: 1000, padding: '20px',
-    }} onClick={onClose}>
-      <div style={{
-        background: t.white, borderRadius: '16px', maxWidth: '520px', width: '100%',
-        padding: '32px', maxHeight: '90vh', overflowY: 'auto',
-      }} onClick={e => e.stopPropagation()}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '24px' }}>
+    <div className="fixed inset-0 bg-[rgba(0,0,0,0.5)] flex items-center justify-center z-[1000] p-5" onClick={onClose}>
+      <div className="bg-brand-white rounded-2xl max-w-[520px] w-full p-8 max-h-[90vh] overflow-y-auto" onClick={e => e.stopPropagation()}>
+        <div className="flex justify-between items-start mb-6">
           <div>
-            <h2 style={{ fontFamily: t.fontSans, fontSize: '1.1rem', fontWeight: 700, margin: '0 0 4px', color: t.text }}>
+            <h2 className="font-sans text-[1.1rem] font-bold m-0 mb-1 text-brand-text">
               Payment Recovery Details
             </h2>
-            <div style={{ fontSize: '0.8rem', color: t.gray }}>
+            <div className="text-[0.8rem] text-brand-gray">
               Invoice {payment.stripe_invoice_id}
             </div>
           </div>
-          <button onClick={onClose} style={{
-            background: 'none', border: 'none', cursor: 'pointer',
-            fontSize: '1.2rem', color: t.gray, padding: '0',
-          }}>✕</button>
+          <button onClick={onClose} className="bg-transparent border-none cursor-pointer text-[1.2rem] text-brand-gray p-0">✕</button>
         </div>
 
         {/* Customer + Amount */}
-        <div style={{
-          background: t.bg, borderRadius: '10px', padding: '16px', marginBottom: '20px',
-          display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px',
-        }}>
+        <div className="bg-brand-bg rounded-[10px] p-4 mb-5 grid grid-cols-2 gap-3">
           <div>
-            <div style={{ fontSize: '0.7rem', color: t.grayLight, textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '4px' }}>Customer</div>
-            <div style={{ fontWeight: 600, fontSize: '0.85rem', color: t.text }}>{payment.customer_name}</div>
-            <div style={{ fontSize: '0.75rem', color: t.gray }}>{payment.customer_email}</div>
+            <div className="text-[0.7rem] text-brand-gray-light uppercase tracking-[0.05em] mb-1">Customer</div>
+            <div className="font-semibold text-[0.85rem] text-brand-text">{payment.customer_name}</div>
+            <div className="text-xs text-brand-gray">{payment.customer_email}</div>
           </div>
           <div>
-            <div style={{ fontSize: '0.7rem', color: t.grayLight, textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '4px' }}>Amount</div>
-            <div style={{ fontWeight: 700, fontSize: '1.2rem', color: t.text }}>{formatAmount(payment.amount_cents)}</div>
+            <div className="text-[0.7rem] text-brand-gray-light uppercase tracking-[0.05em] mb-1">Amount</div>
+            <div className="font-bold text-[1.2rem] text-brand-text">{formatAmount(payment.amount_cents)}</div>
           </div>
           <div>
-            <div style={{ fontSize: '0.7rem', color: t.grayLight, textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '4px' }}>Status</div>
+            <div className="text-[0.7rem] text-brand-gray-light uppercase tracking-[0.05em] mb-1">Status</div>
             <StatusBadge status={payment.recovery_status} />
           </div>
           <div>
-            <div style={{ fontSize: '0.7rem', color: t.grayLight, textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '4px' }}>Failure Reason</div>
-            <div style={{ fontSize: '0.82rem', color: t.red, fontWeight: 600 }}>{payment.failure_reason}</div>
+            <div className="text-[0.7rem] text-brand-gray-light uppercase tracking-[0.05em] mb-1">Failure Reason</div>
+            <div className="text-[0.82rem] text-brand-red font-semibold">{payment.failure_reason}</div>
           </div>
         </div>
 
         {/* Status message */}
-        <div style={{
-          background: payment.recovery_status === 'recovered' ? t.greenLight
-            : payment.recovery_status === 'pending' ? t.yellowLight : t.redLight,
-          borderRadius: '8px', padding: '12px 14px', marginBottom: '20px',
-          fontSize: '0.82rem', color: t.text, lineHeight: 1.5,
-        }}>
+        <div className={`rounded-lg px-[14px] py-3 mb-5 text-[0.82rem] text-brand-text leading-[1.5] ${statusBgClass}`}>
           {statusMessages[payment.recovery_status]}
         </div>
 
         {/* Dunning email sequence */}
-        <h3 style={{ fontFamily: t.fontSans, fontSize: '0.85rem', fontWeight: 700, color: t.text, marginBottom: '12px' }}>
+        <h3 className="font-sans text-[0.85rem] font-bold text-brand-text mb-3">
           Dunning Email Sequence
         </h3>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '24px' }}>
+        <div className="flex flex-col gap-2 mb-6">
           {dunningEmails.map((email, i) => (
-            <div key={i} style={{
-              display: 'flex', alignItems: 'center', gap: '12px',
-              padding: '10px 12px', borderRadius: '8px',
-              background: email.sent ? t.greenLight : t.bg,
-              border: `1px solid ${email.sent ? '#BBF7D0' : t.border}`,
-            }}>
-              <div style={{
-                width: '20px', height: '20px', borderRadius: '50%',
-                background: email.sent ? t.green : t.border,
-                color: t.white, display: 'flex', alignItems: 'center',
-                justifyContent: 'center', fontSize: '0.65rem', fontWeight: 700,
-                flexShrink: 0,
-              }}>
+            <div
+              key={i}
+              className={`flex items-center gap-3 px-3 py-[10px] rounded-lg border ${
+                email.sent
+                  ? 'bg-brand-green-light border-[#BBF7D0]'
+                  : 'bg-brand-bg border-brand-border'
+              }`}
+            >
+              <div className={`w-5 h-5 rounded-full flex items-center justify-center text-[0.65rem] font-bold text-brand-white shrink-0 ${
+                email.sent ? 'bg-brand-green' : 'bg-brand-border'
+              }`}>
                 {email.sent ? '✓' : i + 1}
               </div>
-              <div style={{ flex: 1 }}>
-                <div style={{ fontSize: '0.78rem', fontWeight: 600, color: email.sent ? t.green : t.gray }}>
+              <div className="flex-1">
+                <div className={`text-[0.78rem] font-semibold ${email.sent ? 'text-brand-green' : 'text-brand-gray'}`}>
                   {email.day}
                 </div>
-                <div style={{ fontSize: '0.72rem', color: t.gray, marginTop: '1px' }}>
+                <div className="text-[0.72rem] text-brand-gray mt-[1px]">
                   {email.subject}
                 </div>
               </div>
-              <div style={{ fontSize: '0.7rem', color: email.sent ? t.green : t.grayLight, fontWeight: 500 }}>
+              <div className={`text-[0.7rem] font-medium ${email.sent ? 'text-brand-green' : 'text-brand-gray-light'}`}>
                 {email.sent ? 'Sent' : 'Pending'}
               </div>
             </div>
           ))}
         </div>
 
-        <button onClick={onClose} style={{
-          width: '100%', padding: '10px', background: t.text, color: t.white,
-          border: 'none', borderRadius: '8px', cursor: 'pointer',
-          fontFamily: t.fontSans, fontWeight: 600, fontSize: '0.9rem',
-        }}>
+        <button onClick={onClose} className="w-full py-[10px] bg-brand-text text-brand-white border-none rounded-lg cursor-pointer font-sans font-semibold text-[0.9rem]">
           Close
         </button>
       </div>
@@ -331,8 +282,6 @@ export default function RecoveryPage() {
 
   useEffect(() => {
     if (selectedProject) {
-      // In production: fetch from /api/recovery?projectId=...
-      // For demo: generate deterministic seed data
       setPayments(makeDemoPayments())
     }
   }, [selectedProject])
@@ -363,13 +312,13 @@ export default function RecoveryPage() {
         <meta name="description" content="Recover failed payments with automated dunning sequences. See which customers need attention and track recovery status." />
       </Head>
 
-      <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '32px 24px' }}>
+      <div className="max-w-[1100px] mx-auto px-6 py-8">
 
         {/* Header */}
-        <div style={{ marginBottom: '32px' }}>
-          <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px' }}>
+        <div className="mb-8">
+          <div className="flex items-start justify-between flex-wrap gap-3">
             <div>
-              <p style={{ fontFamily: t.fontSerif, fontSize: '0.88rem', color: t.gray, margin: 0, lineHeight: 1.6 }}>
+              <p className="font-serif text-[0.88rem] text-brand-gray m-0 leading-relaxed">
                 Automated dunning recovers 20–40% of failed payments without manual effort.
               </p>
             </div>
@@ -377,10 +326,7 @@ export default function RecoveryPage() {
               <select
                 value={selectedProject?.id || ''}
                 onChange={e => setSelectedProject(projects.find(p => p.id === e.target.value))}
-                style={{
-                  padding: '8px 12px', borderRadius: '8px', border: `1px solid ${t.border}`,
-                  fontFamily: t.fontSans, fontSize: '0.85rem', background: t.white, color: t.text,
-                }}
+                className="px-3 py-2 rounded-lg border border-brand-border font-sans text-[0.85rem] bg-brand-white text-brand-text"
               >
                 {projects.map(p => <option key={p.id} value={p.id}>{p.name}</option>)}
               </select>
@@ -389,7 +335,7 @@ export default function RecoveryPage() {
         </div>
 
         {/* Metric Cards */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px', marginBottom: '32px' }}>
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-4 mb-8">
           <MetricCard
             label="Total at Risk"
             value={formatAmount(totalAtRisk)}
@@ -399,62 +345,51 @@ export default function RecoveryPage() {
             label="Recovered"
             value={formatAmount(recoveredAmount)}
             sub={`${recovered.length} payments recovered`}
-            color={recoveredAmount > 0 ? t.green : t.text}
+            color={recoveredAmount > 0 ? '#2D7A4F' : '#191919'}
           />
           <MetricCard
             label="In Dunning"
             value={formatAmount(pendingAmount)}
             sub={`${pending.length} actively retrying`}
-            color={pendingAmount > 0 ? t.yellow : t.text}
+            color={pendingAmount > 0 ? '#D97706' : '#191919'}
           />
           <MetricCard
             label="Recovery Rate"
             value={`${recoveryRate}%`}
             sub="vs. industry avg 28%"
-            color={recoveryRate >= 28 ? t.green : t.accent}
+            color={recoveryRate >= 28 ? '#2D7A4F' : '#D97757'}
           />
         </div>
 
         {/* Stripe Connect CTA (if not connected) */}
         {(!selectedProject?.stripeConnected) && (
-          <div style={{
-            background: t.blueLight, border: `1px solid #BFDBFE`,
-            borderRadius: '12px', padding: '20px 24px', marginBottom: '28px',
-            display: 'flex', alignItems: 'center', gap: '16px', flexWrap: 'wrap',
-          }}>
-            <div style={{ flex: 1 }}>
-              <div style={{ fontWeight: 700, fontSize: '0.9rem', color: t.blue, marginBottom: '4px' }}>
+          <div className="bg-brand-blue-light border border-[#BFDBFE] rounded-xl px-6 py-5 mb-7 flex items-center gap-4 flex-wrap">
+            <div className="flex-1">
+              <div className="font-bold text-[0.9rem] text-brand-blue mb-1">
                 🔗 Connect Stripe to enable live dunning
               </div>
-              <div style={{ fontSize: '0.82rem', color: t.gray, lineHeight: 1.5 }}>
+              <div className="text-[0.82rem] text-brand-gray leading-[1.5]">
                 ChurnRecovery automatically retries failed payments and sends dunning emails on your behalf.
                 You're viewing demo data below.
               </div>
             </div>
-            <a href="/app/connect-stripe" style={{
-              background: t.blue, color: t.white, padding: '10px 20px',
-              borderRadius: '8px', textDecoration: 'none', fontWeight: 600,
-              fontSize: '0.85rem', whiteSpace: 'nowrap', fontFamily: t.fontSans,
-            }}>
+            <a href="/app/connect-stripe" className="bg-brand-blue text-brand-white px-5 py-[10px] rounded-lg no-underline font-semibold text-[0.85rem] whitespace-nowrap font-sans">
               Connect Stripe
             </a>
           </div>
         )}
 
         {/* Filter tabs */}
-        <div style={{ display: 'flex', gap: '4px', marginBottom: '16px', borderBottom: `1px solid ${t.border}`, paddingBottom: '0' }}>
+        <div className="flex gap-1 mb-4 border-b border-brand-border pb-0">
           {filterTabs.map(tab => (
             <button
               key={tab.key}
               onClick={() => setFilter(tab.key)}
-              style={{
-                padding: '8px 16px', background: 'none',
-                border: 'none', cursor: 'pointer',
-                fontFamily: t.fontSans, fontSize: '0.82rem', fontWeight: 600,
-                color: filter === tab.key ? t.accent : t.gray,
-                borderBottom: filter === tab.key ? `2px solid ${t.accent}` : '2px solid transparent',
-                marginBottom: '-1px', transition: 'all 0.15s',
-              }}
+              className={`px-4 py-2 bg-transparent border-none cursor-pointer font-sans text-[0.82rem] font-semibold -mb-[1px] transition-all duration-150 border-b-2 ${
+                filter === tab.key
+                  ? 'text-brand-accent border-b-brand-accent'
+                  : 'text-brand-gray border-b-transparent'
+              }`}
             >
               {tab.label}
             </button>
@@ -462,28 +397,24 @@ export default function RecoveryPage() {
         </div>
 
         {/* Payments Table */}
-        <div style={{ background: t.white, border: `1px solid ${t.border}`, borderRadius: '12px', overflow: 'hidden' }}>
+        <div className="bg-brand-white border border-brand-border rounded-xl overflow-hidden">
           {loading ? (
-            <div style={{ padding: '60px', textAlign: 'center', color: t.gray }}>Loading...</div>
+            <div className="p-[60px] text-center text-brand-gray">Loading...</div>
           ) : filtered.length === 0 ? (
-            <div style={{ padding: '60px', textAlign: 'center' }}>
-              <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🎉</div>
-              <div style={{ fontWeight: 700, color: t.text, marginBottom: '6px' }}>No payments in this category</div>
-              <div style={{ color: t.gray, fontSize: '0.85rem' }}>
+            <div className="p-[60px] text-center">
+              <div className="text-[2.5rem] mb-3">🎉</div>
+              <div className="font-bold text-brand-text mb-[6px]">No payments in this category</div>
+              <div className="text-brand-gray text-[0.85rem]">
                 {filter === 'recovered' ? 'Connect Stripe to start recovering failed payments.' : 'Nothing to show here.'}
               </div>
             </div>
           ) : (
-            <div style={{ overflowX: 'auto' }}>
-              <table style={{ width: '100%', borderCollapse: 'collapse', minWidth: '700px' }}>
+            <div className="overflow-x-auto">
+              <table className="w-full border-collapse min-w-[700px]">
                 <thead>
-                  <tr style={{ background: t.bg, borderBottom: `1px solid ${t.border}` }}>
+                  <tr className="bg-brand-bg border-b border-brand-border">
                     {['Customer', 'Amount / Reason', 'Status', 'Dunning Progress', 'Next Action', ''].map((h, i) => (
-                      <th key={i} style={{
-                        padding: '12px 16px', textAlign: 'left',
-                        fontSize: '0.72rem', fontWeight: 700, color: t.grayLight,
-                        textTransform: 'uppercase', letterSpacing: '0.06em',
-                      }}>
+                      <th key={i} className="px-4 py-3 text-left text-[0.72rem] font-bold text-brand-gray-light uppercase tracking-[0.06em]">
                         {h}
                       </th>
                     ))}
@@ -500,26 +431,23 @@ export default function RecoveryPage() {
         </div>
 
         {/* How it works */}
-        <div style={{ marginTop: '40px' }}>
-          <h2 style={{ fontFamily: t.fontSans, fontSize: '1rem', fontWeight: 700, color: t.text, marginBottom: '16px' }}>
+        <div className="mt-10">
+          <h2 className="font-sans text-base font-bold text-brand-text mb-4">
             How Automated Dunning Works
           </h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '16px' }}>
+          <div className="grid grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-4">
             {[
               { step: '1', icon: '⚡', title: 'Payment Fails', desc: 'Stripe fires a webhook. ChurnRecovery logs the event immediately.' },
               { step: '2', icon: '📧', title: 'Email Day 1', desc: 'Customer gets a friendly payment update email with a direct link to update their card.' },
               { step: '3', icon: '🔄', title: 'Smart Retry', desc: 'We retry the payment on days 3, 7, and 14 while sending follow-up emails.' },
               { step: '4', icon: '💰', title: 'Recovery', desc: 'If the payment succeeds, the account is restored and the event is logged as recovered.' },
             ].map(item => (
-              <div key={item.step} style={{
-                background: t.white, border: `1px solid ${t.border}`,
-                borderRadius: '10px', padding: '20px',
-              }}>
-                <div style={{ fontSize: '1.5rem', marginBottom: '10px' }}>{item.icon}</div>
-                <div style={{ fontWeight: 700, fontSize: '0.85rem', color: t.text, marginBottom: '4px' }}>
+              <div key={item.step} className="bg-brand-white border border-brand-border rounded-[10px] p-5">
+                <div className="text-[1.5rem] mb-[10px]">{item.icon}</div>
+                <div className="font-bold text-[0.85rem] text-brand-text mb-1">
                   {item.title}
                 </div>
-                <div style={{ fontSize: '0.78rem', color: t.gray, lineHeight: 1.6 }}>
+                <div className="text-[0.78rem] text-brand-gray leading-relaxed">
                   {item.desc}
                 </div>
               </div>

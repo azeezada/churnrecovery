@@ -2,102 +2,39 @@ import Head from 'next/head'
 import Link from 'next/link'
 import WaitlistForm from '../components/WaitlistForm'
 
-const t = {
-  bg: '#FAF9F5',
-  text: '#191919',
-  gray: '#666666',
-  grayLight: '#999999',
-  accent: '#D97757',
-  accentLight: '#FDF0EB',
-  border: '#E5E5E5',
-  borderLight: '#F0EFEC',
-  white: '#FFFFFF',
-  purple: '#7C3AED',
-  purpleLight: '#F5F0FF',
-  fontSans: '"Instrument Sans", sans-serif',
-  fontSerif: '"Merriweather", serif',
-}
-
 // ─── Testimonial Placeholder ─────────────────────────────────────────────────
 function TestimonialPlaceholder({ platform, role }) {
   return (
-    <div style={{
-      border: `1.5px dashed ${t.border}`,
-      borderRadius: '12px',
-      padding: '28px',
-      background: t.white,
-      position: 'relative',
-      overflow: 'hidden',
-    }}>
+    <div className="border-[1.5px] border-dashed border-[#E5E5E5] rounded-xl p-7 bg-white relative overflow-hidden">
       {/* Placeholder badge */}
-      <div style={{
-        position: 'absolute',
-        top: '16px',
-        right: '16px',
-        background: t.borderLight,
-        color: t.grayLight,
-        fontSize: '0.7rem',
-        fontFamily: t.fontSans,
-        fontWeight: 600,
-        letterSpacing: '0.05em',
-        textTransform: 'uppercase',
-        padding: '4px 8px',
-        borderRadius: '4px',
-      }}>
+      <div className="absolute top-4 right-4 bg-[#F0EFEC] text-[#999999] text-[0.7rem] font-[Instrument_Sans,sans-serif] font-semibold tracking-[0.05em] uppercase px-2 py-1 rounded">
         Coming soon
       </div>
 
       {/* Quote icon */}
-      <div style={{
-        fontSize: '1.8rem',
-        color: t.borderLight,
-        fontFamily: 'Georgia, serif',
-        lineHeight: 1,
-        marginBottom: '12px',
-      }}>
+      <div className="text-[1.8rem] text-[#F0EFEC] font-[Georgia,serif] leading-none mb-3">
         &ldquo;
       </div>
 
       {/* Placeholder lines */}
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '20px' }}>
+      <div className="flex flex-col gap-2 mb-5">
         {[90, 100, 75].map((w, i) => (
-          <div key={i} style={{
-            height: '14px',
-            width: `${w}%`,
-            background: t.borderLight,
-            borderRadius: '4px',
-          }} />
+          <div key={i} className="h-[14px] bg-[#F0EFEC] rounded" style={{ width: `${w}%` }} />
         ))}
       </div>
 
       {/* Author area */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-        <div style={{
-          width: '36px',
-          height: '36px',
-          borderRadius: '50%',
-          background: t.borderLight,
-          flexShrink: 0,
-        }} />
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-          <div style={{ height: '12px', width: '120px', background: t.borderLight, borderRadius: '3px' }} />
-          <div style={{ height: '11px', width: '80px', background: t.borderLight, borderRadius: '3px' }} />
+      <div className="flex items-center gap-3">
+        <div className="w-9 h-9 rounded-full bg-[#F0EFEC] shrink-0" />
+        <div className="flex flex-col gap-[6px]">
+          <div className="h-3 w-[120px] bg-[#F0EFEC] rounded-[3px]" />
+          <div className="h-[11px] w-[80px] bg-[#F0EFEC] rounded-[3px]" />
         </div>
       </div>
 
       {/* Platform tag */}
       {platform && (
-        <div style={{
-          marginTop: '16px',
-          display: 'inline-block',
-          background: t.accentLight,
-          color: t.accent,
-          fontSize: '0.75rem',
-          fontFamily: t.fontSans,
-          fontWeight: 600,
-          padding: '3px 10px',
-          borderRadius: '20px',
-        }}>
+        <div className="mt-4 inline-block bg-[#FDF0EB] text-[#D97757] text-xs font-[Instrument_Sans,sans-serif] font-semibold px-[10px] py-[3px] rounded-[20px]">
           {platform}
         </div>
       )}
@@ -108,78 +45,31 @@ function TestimonialPlaceholder({ platform, role }) {
 // ─── Real Testimonial (for when we have them) ─────────────────────────────────
 function Testimonial({ quote, name, role, platform, avatar }) {
   return (
-    <div style={{
-      border: `1px solid ${t.border}`,
-      borderRadius: '12px',
-      padding: '28px',
-      background: t.white,
-      boxShadow: '0 2px 8px rgba(0,0,0,0.04)',
-    }}>
-      <div style={{
-        fontSize: '1.8rem',
-        color: t.accent,
-        fontFamily: 'Georgia, serif',
-        lineHeight: 1,
-        marginBottom: '12px',
-      }}>
+    <div className="border border-[#E5E5E5] rounded-xl p-7 bg-white shadow-[0_2px_8px_rgba(0,0,0,0.04)]">
+      <div className="text-[1.8rem] text-[#D97757] font-[Georgia,serif] leading-none mb-3">
         &ldquo;
       </div>
-      <p style={{
-        fontFamily: t.fontSerif,
-        fontSize: '0.95rem',
-        color: t.text,
-        lineHeight: 1.65,
-        margin: '0 0 20px 0',
-        fontStyle: 'italic',
-      }}>
+      <p className="font-[Merriweather,serif] text-[0.95rem] text-[#191919] leading-[1.65] m-0 mb-5 italic">
         {quote}
       </p>
-      <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+      <div className="flex items-center gap-3">
         {avatar ? (
-          <img src={avatar} alt={name} style={{
-            width: '36px',
-            height: '36px',
-            borderRadius: '50%',
-            objectFit: 'cover',
-          }} />
+          <img src={avatar} alt={name} className="w-9 h-9 rounded-full object-cover" />
         ) : (
-          <div style={{
-            width: '36px',
-            height: '36px',
-            borderRadius: '50%',
-            background: t.accentLight,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            fontFamily: t.fontSans,
-            fontWeight: 700,
-            fontSize: '0.85rem',
-            color: t.accent,
-            flexShrink: 0,
-          }}>
+          <div className="w-9 h-9 rounded-full bg-[#FDF0EB] flex items-center justify-center font-[Instrument_Sans,sans-serif] font-bold text-[0.85rem] text-[#D97757] shrink-0">
             {name.charAt(0)}
           </div>
         )}
         <div>
-          <div style={{ fontFamily: t.fontSans, fontWeight: 600, fontSize: '0.875rem', color: t.text }}>
+          <div className="font-[Instrument_Sans,sans-serif] font-semibold text-sm text-[#191919]">
             {name}
           </div>
-          <div style={{ fontFamily: t.fontSans, fontSize: '0.8rem', color: t.grayLight }}>
+          <div className="font-[Instrument_Sans,sans-serif] text-[0.8rem] text-[#999999]">
             {role}
           </div>
         </div>
         {platform && (
-          <div style={{
-            marginLeft: 'auto',
-            background: t.accentLight,
-            color: t.accent,
-            fontSize: '0.75rem',
-            fontFamily: t.fontSans,
-            fontWeight: 600,
-            padding: '3px 10px',
-            borderRadius: '20px',
-            flexShrink: 0,
-          }}>
+          <div className="ml-auto bg-[#FDF0EB] text-[#D97757] text-xs font-[Instrument_Sans,sans-serif] font-semibold px-[10px] py-[3px] rounded-[20px] shrink-0">
             {platform}
           </div>
         )}
@@ -191,45 +81,23 @@ function Testimonial({ quote, name, role, platform, avatar }) {
 // ─── Twitter Mention (embed-ready) ───────────────────────────────────────────
 function TwitterMentionPlaceholder() {
   return (
-    <div style={{
-      border: `1.5px dashed ${t.border}`,
-      borderRadius: '12px',
-      padding: '20px',
-      background: t.white,
-    }}>
-      <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '12px' }}>
-        <div style={{
-          width: '40px',
-          height: '40px',
-          borderRadius: '50%',
-          background: t.borderLight,
-          flexShrink: 0,
-        }} />
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', flex: 1 }}>
-          <div style={{ height: '12px', width: '140px', background: t.borderLight, borderRadius: '3px' }} />
-          <div style={{ height: '11px', width: '90px', background: t.borderLight, borderRadius: '3px' }} />
+    <div className="border-[1.5px] border-dashed border-[#E5E5E5] rounded-xl p-5 bg-white">
+      <div className="flex items-center gap-[10px] mb-3">
+        <div className="w-10 h-10 rounded-full bg-[#F0EFEC] shrink-0" />
+        <div className="flex flex-col gap-[6px] flex-1">
+          <div className="h-3 w-[140px] bg-[#F0EFEC] rounded-[3px]" />
+          <div className="h-[11px] w-[90px] bg-[#F0EFEC] rounded-[3px]" />
         </div>
-        <svg width="20" height="20" viewBox="0 0 24 24" fill={t.borderLight}>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="#F0EFEC">
           <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.736l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
         </svg>
       </div>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+      <div className="flex flex-col gap-2">
         {[100, 85, 60].map((w, i) => (
-          <div key={i} style={{
-            height: '13px',
-            width: `${w}%`,
-            background: t.borderLight,
-            borderRadius: '4px',
-          }} />
+          <div key={i} className="h-[13px] bg-[#F0EFEC] rounded" style={{ width: `${w}%` }} />
         ))}
       </div>
-      <div style={{
-        marginTop: '14px',
-        fontSize: '0.75rem',
-        color: t.grayLight,
-        fontFamily: t.fontSans,
-        fontStyle: 'italic',
-      }}>
+      <div className="mt-[14px] text-xs text-[#999999] font-[Instrument_Sans,sans-serif] italic">
         Twitter mention — coming soon
       </div>
     </div>
@@ -239,40 +107,15 @@ function TwitterMentionPlaceholder() {
 // ─── Press Mention ────────────────────────────────────────────────────────────
 function PressMentionPlaceholder({ outlet }) {
   return (
-    <div style={{
-      border: `1.5px dashed ${t.border}`,
-      borderRadius: '10px',
-      padding: '20px 24px',
-      background: t.white,
-      display: 'flex',
-      alignItems: 'center',
-      gap: '16px',
-    }}>
-      <div style={{
-        width: '48px',
-        height: '48px',
-        background: t.borderLight,
-        borderRadius: '8px',
-        flexShrink: 0,
-      }} />
-      <div style={{ flex: 1 }}>
-        <div style={{
-          fontFamily: t.fontSans,
-          fontWeight: 600,
-          fontSize: '0.875rem',
-          color: t.grayLight,
-          marginBottom: '6px',
-        }}>
+    <div className="border-[1.5px] border-dashed border-[#E5E5E5] rounded-[10px] px-6 py-5 bg-white flex items-center gap-4">
+      <div className="w-12 h-12 bg-[#F0EFEC] rounded-lg shrink-0" />
+      <div className="flex-1">
+        <div className="font-[Instrument_Sans,sans-serif] font-semibold text-sm text-[#999999] mb-[6px]">
           {outlet}
         </div>
-        <div style={{ height: '12px', width: '70%', background: t.borderLight, borderRadius: '3px' }} />
+        <div className="h-3 w-[70%] bg-[#F0EFEC] rounded-[3px]" />
       </div>
-      <div style={{
-        fontSize: '0.75rem',
-        color: t.grayLight,
-        fontFamily: t.fontSans,
-        whiteSpace: 'nowrap',
-      }}>
+      <div className="text-xs text-[#999999] font-[Instrument_Sans,sans-serif] whitespace-nowrap">
         Coverage pending
       </div>
     </div>
@@ -282,38 +125,15 @@ function PressMentionPlaceholder({ outlet }) {
 // ─── Stat Card ────────────────────────────────────────────────────────────────
 function StatCard({ number, label, sublabel }) {
   return (
-    <div style={{
-      textAlign: 'center',
-      padding: '32px 20px',
-      background: t.white,
-      border: `1px solid ${t.border}`,
-      borderRadius: '12px',
-    }}>
-      <div style={{
-        fontFamily: t.fontSans,
-        fontWeight: 700,
-        fontSize: '2.5rem',
-        color: t.accent,
-        lineHeight: 1,
-        marginBottom: '8px',
-      }}>
+    <div className="text-center py-8 px-5 bg-white border border-[#E5E5E5] rounded-xl">
+      <div className="font-[Instrument_Sans,sans-serif] font-bold text-[2.5rem] text-[#D97757] leading-none mb-2">
         {number}
       </div>
-      <div style={{
-        fontFamily: t.fontSans,
-        fontWeight: 600,
-        fontSize: '0.9rem',
-        color: t.text,
-        marginBottom: '4px',
-      }}>
+      <div className="font-[Instrument_Sans,sans-serif] font-semibold text-[0.9rem] text-[#191919] mb-1">
         {label}
       </div>
       {sublabel && (
-        <div style={{
-          fontFamily: t.fontSans,
-          fontSize: '0.8rem',
-          color: t.grayLight,
-        }}>
+        <div className="font-[Instrument_Sans,sans-serif] text-[0.8rem] text-[#999999]">
           {sublabel}
         </div>
       )}
@@ -324,44 +144,16 @@ function StatCard({ number, label, sublabel }) {
 // ─── Community Reaction ───────────────────────────────────────────────────────
 function CommunityReaction({ community, type, summary, link }) {
   return (
-    <div style={{
-      border: `1px solid ${t.border}`,
-      borderRadius: '10px',
-      padding: '20px',
-      background: t.white,
-      display: 'flex',
-      flexDirection: 'column',
-      gap: '10px',
-    }}>
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-        <span style={{
-          fontFamily: t.fontSans,
-          fontWeight: 600,
-          fontSize: '0.875rem',
-          color: t.text,
-        }}>
+    <div className="border border-[#E5E5E5] rounded-[10px] p-5 bg-white flex flex-col gap-[10px]">
+      <div className="flex items-center justify-between">
+        <span className="font-[Instrument_Sans,sans-serif] font-semibold text-sm text-[#191919]">
           {community}
         </span>
-        <span style={{
-          background: t.purpleLight,
-          color: t.purple,
-          fontSize: '0.72rem',
-          fontFamily: t.fontSans,
-          fontWeight: 600,
-          padding: '3px 9px',
-          borderRadius: '20px',
-        }}>
+        <span className="bg-[#F5F0FF] text-[#7C3AED] text-[0.72rem] font-[Instrument_Sans,sans-serif] font-semibold px-[9px] py-[3px] rounded-[20px]">
           {type}
         </span>
       </div>
-      <p style={{
-        fontFamily: t.fontSerif,
-        fontSize: '0.875rem',
-        color: t.gray,
-        margin: 0,
-        lineHeight: 1.6,
-        fontStyle: 'italic',
-      }}>
+      <p className="font-[Merriweather,serif] text-sm text-[#666666] m-0 leading-relaxed italic">
         &ldquo;{summary}&rdquo;
       </p>
       {link && (
@@ -369,12 +161,7 @@ function CommunityReaction({ community, type, summary, link }) {
           href={link}
           target="_blank"
           rel="noopener noreferrer"
-          style={{
-            fontFamily: t.fontSans,
-            fontSize: '0.8rem',
-            color: t.accent,
-            textDecoration: 'none',
-          }}
+          className="font-[Instrument_Sans,sans-serif] text-[0.8rem] text-[#D97757] no-underline"
         >
           Read thread →
         </a>
@@ -421,99 +208,41 @@ export default function SocialProofPage() {
         <link rel="canonical" href="https://churnrecovery.com/social-proof" />
       </Head>
 
-      <div style={{ background: t.bg, minHeight: '100vh', fontFamily: t.fontSans }}>
+      <div className="bg-[#FAF9F5] min-h-screen font-[Instrument_Sans,sans-serif]">
 
         {/* Nav */}
-        <nav style={{
-          borderBottom: `1px solid ${t.border}`,
-          background: t.white,
-          padding: '0 24px',
-          height: '60px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          position: 'sticky',
-          top: 0,
-          zIndex: 100,
-        }}>
-          <Link href="/" style={{ fontFamily: t.fontSans, fontWeight: 700, fontSize: '1.1rem', color: t.text, textDecoration: 'none' }}>
+        <nav className="border-b border-[#E5E5E5] bg-white px-6 h-[60px] flex items-center justify-between sticky top-0 z-[100]">
+          <Link href="/" className="font-[Instrument_Sans,sans-serif] font-bold text-[1.1rem] text-[#191919] no-underline">
             ChurnRecovery
           </Link>
-          <div style={{ display: 'flex', gap: '24px', alignItems: 'center' }}>
-            <Link href="/features" style={{ color: t.gray, textDecoration: 'none', fontSize: '0.9rem' }}>Features</Link>
-            <Link href="/pricing" style={{ color: t.gray, textDecoration: 'none', fontSize: '0.9rem' }}>Pricing</Link>
-            <a href="/#waitlist" style={{
-              background: t.accent,
-              color: t.white,
-              padding: '8px 18px',
-              borderRadius: '6px',
-              textDecoration: 'none',
-              fontSize: '0.875rem',
-              fontWeight: 600,
-            }}>
+          <div className="flex gap-6 items-center">
+            <Link href="/features" className="text-[#666666] no-underline text-[0.9rem]">Features</Link>
+            <Link href="/pricing" className="text-[#666666] no-underline text-[0.9rem]">Pricing</Link>
+            <a href="/#waitlist" className="bg-[#D97757] text-white px-[18px] py-2 rounded-[6px] no-underline text-sm font-semibold">
               Join Waitlist
             </a>
           </div>
         </nav>
 
         {/* Hero */}
-        <section style={{
-          maxWidth: '860px',
-          margin: '0 auto',
-          padding: '80px 24px 40px',
-          textAlign: 'center',
-        }}>
-          <div style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '8px',
-            background: t.accentLight,
-            color: t.accent,
-            padding: '6px 16px',
-            borderRadius: '20px',
-            fontSize: '0.8rem',
-            fontWeight: 600,
-            marginBottom: '24px',
-          }}>
+        <section className="max-w-[860px] mx-auto px-6 pt-20 pb-10 text-center">
+          <div className="inline-flex items-center gap-2 bg-[#FDF0EB] text-[#D97757] px-4 py-[6px] rounded-[20px] text-[0.8rem] font-semibold mb-6">
             <span>🎙️</span>
             <span>500+ business owners on the waitlist</span>
           </div>
 
-          <h1 style={{
-            fontFamily: t.fontSans,
-            fontWeight: 700,
-            fontSize: 'clamp(2rem, 5vw, 3rem)',
-            color: t.text,
-            lineHeight: 1.15,
-            margin: '0 0 20px 0',
-            letterSpacing: '-0.02em',
-          }}>
+          <h1 className="font-[Instrument_Sans,sans-serif] font-bold text-[#191919] leading-[1.15] m-0 mb-5 tracking-[-0.02em]" style={{ fontSize: 'clamp(2rem, 5vw, 3rem)' }}>
             What People Are Saying<br />About ChurnRecovery
           </h1>
 
-          <p style={{
-            fontFamily: t.fontSerif,
-            fontSize: '1.1rem',
-            color: t.gray,
-            lineHeight: 1.65,
-            margin: '0 auto',
-            maxWidth: '560px',
-          }}>
+          <p className="font-[Merriweather,serif] text-[1.1rem] text-[#666666] leading-[1.65] mx-auto max-w-[560px]">
             Real reactions from newsletter operators, coaches, and indie founders who are tired of paying $250/mo just to keep their subscribers.
           </p>
         </section>
 
         {/* Social proof stats bar */}
-        <section style={{
-          maxWidth: '900px',
-          margin: '0 auto',
-          padding: '0 24px 60px',
-        }}>
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
-            gap: '16px',
-          }}>
+        <section className="max-w-[900px] mx-auto px-6 pb-[60px]">
+          <div className="grid grid-cols-[repeat(auto-fit,minmax(160px,1fr))] gap-4">
             <StatCard number="500+" label="Waitlist Members" sublabel="and growing" />
             <StatCard number="~30%" label="Avg. Save Rate" sublabel="of at-risk subscribers" />
             <StatCard number="$0" label="Cost to Start" sublabel="free forever core tier" />
@@ -522,36 +251,17 @@ export default function SocialProofPage() {
         </section>
 
         {/* Testimonials */}
-        <section style={{
-          maxWidth: '900px',
-          margin: '0 auto',
-          padding: '0 24px 80px',
-        }}>
-          <div style={{ marginBottom: '32px' }}>
-            <h2 style={{
-              fontFamily: t.fontSans,
-              fontWeight: 700,
-              fontSize: '1.5rem',
-              color: t.text,
-              margin: '0 0 8px 0',
-            }}>
+        <section className="max-w-[900px] mx-auto px-6 pb-20">
+          <div className="mb-8">
+            <h2 className="font-[Instrument_Sans,sans-serif] font-bold text-[1.5rem] text-[#191919] m-0 mb-2">
               Customer Testimonials
             </h2>
-            <p style={{
-              fontFamily: t.fontSans,
-              fontSize: '0.9rem',
-              color: t.grayLight,
-              margin: 0,
-            }}>
+            <p className="font-[Instrument_Sans,sans-serif] text-[0.9rem] text-[#999999] m-0">
               We&apos;re in pre-launch. Real quotes are on their way — sign up to be one of the first.
             </p>
           </div>
 
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
-            gap: '20px',
-          }}>
+          <div className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-5">
             {realTestimonials.length > 0 ? (
               realTestimonials.map((t, i) => (
                 <Testimonial key={i} {...t} />
@@ -568,25 +278,11 @@ export default function SocialProofPage() {
             )}
           </div>
 
-          <div style={{
-            marginTop: '24px',
-            padding: '16px 20px',
-            background: t.accentLight,
-            borderRadius: '8px',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '12px',
-          }}>
-            <span style={{ fontSize: '1.2rem' }}>✉️</span>
-            <p style={{
-              fontFamily: t.fontSans,
-              fontSize: '0.875rem',
-              color: t.accent,
-              margin: 0,
-              fontWeight: 500,
-            }}>
+          <div className="mt-6 px-5 py-4 bg-[#FDF0EB] rounded-lg flex items-center gap-3">
+            <span className="text-[1.2rem]">✉️</span>
+            <p className="font-[Instrument_Sans,sans-serif] text-sm text-[#D97757] m-0 font-medium">
               Are you on the waitlist? We&apos;d love to feature your story.{' '}
-              <a href="mailto:hello@churnrecovery.com?subject=I want to share my story" style={{ color: t.accent, fontWeight: 700 }}>
+              <a href="mailto:hello@churnrecovery.com?subject=I want to share my story" className="text-[#D97757] font-bold">
                 Reach out
               </a>
               .
@@ -595,56 +291,32 @@ export default function SocialProofPage() {
         </section>
 
         {/* Twitter Mentions */}
-        <section style={{
-          background: t.white,
-          borderTop: `1px solid ${t.border}`,
-          borderBottom: `1px solid ${t.border}`,
-        }}>
-          <div style={{
-            maxWidth: '900px',
-            margin: '0 auto',
-            padding: '60px 24px',
-          }}>
-            <div style={{ marginBottom: '32px', display: 'flex', alignItems: 'center', gap: '12px' }}>
-              <svg width="22" height="22" viewBox="0 0 24 24" fill={t.text}>
+        <section className="bg-white border-y border-[#E5E5E5]">
+          <div className="max-w-[900px] mx-auto px-6 py-[60px]">
+            <div className="mb-8 flex items-center gap-3">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="#191919">
                 <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.736l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
               </svg>
               <div>
-                <h2 style={{
-                  fontFamily: t.fontSans,
-                  fontWeight: 700,
-                  fontSize: '1.5rem',
-                  color: t.text,
-                  margin: 0,
-                }}>
+                <h2 className="font-[Instrument_Sans,sans-serif] font-bold text-[1.5rem] text-[#191919] m-0">
                   Twitter Mentions
                 </h2>
               </div>
             </div>
 
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
-              gap: '16px',
-            }}>
+            <div className="grid grid-cols-[repeat(auto-fill,minmax(280px,1fr))] gap-4">
               <TwitterMentionPlaceholder />
               <TwitterMentionPlaceholder />
               <TwitterMentionPlaceholder />
             </div>
 
-            <p style={{
-              fontFamily: t.fontSans,
-              fontSize: '0.85rem',
-              color: t.grayLight,
-              marginTop: '20px',
-              textAlign: 'center',
-            }}>
+            <p className="font-[Instrument_Sans,sans-serif] text-[0.85rem] text-[#999999] mt-5 text-center">
               Mentioned us on Twitter?{' '}
               <a
                 href="https://twitter.com/intent/tweet?text=Just+discovered+%40ChurnRecovery+%E2%80%94+free+churn+recovery+for+subscription+businesses.+%F0%9F%92%8C&url=https%3A%2F%2Fchurnrecovery.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{ color: t.accent, textDecoration: 'none', fontWeight: 600 }}
+                className="text-[#D97757] no-underline font-semibold"
               >
                 Share the news
               </a>{' '}
@@ -653,7 +325,7 @@ export default function SocialProofPage() {
                 href="https://twitter.com/ChurnRecovery"
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{ color: t.accent, textDecoration: 'none' }}
+                className="text-[#D97757] no-underline"
               >
                 @ChurnRecovery
               </a>
@@ -663,35 +335,20 @@ export default function SocialProofPage() {
         </section>
 
         {/* Press Mentions */}
-        <section style={{
-          maxWidth: '900px',
-          margin: '0 auto',
-          padding: '60px 24px',
-        }}>
-          <div style={{ marginBottom: '32px' }}>
-            <h2 style={{
-              fontFamily: t.fontSans,
-              fontWeight: 700,
-              fontSize: '1.5rem',
-              color: t.text,
-              margin: '0 0 8px 0',
-            }}>
+        <section className="max-w-[900px] mx-auto px-6 py-[60px]">
+          <div className="mb-8">
+            <h2 className="font-[Instrument_Sans,sans-serif] font-bold text-[1.5rem] text-[#191919] m-0 mb-2">
               Press &amp; Coverage
             </h2>
-            <p style={{
-              fontFamily: t.fontSans,
-              fontSize: '0.9rem',
-              color: t.grayLight,
-              margin: 0,
-            }}>
+            <p className="font-[Instrument_Sans,sans-serif] text-[0.9rem] text-[#999999] m-0">
               Pre-launch. Coverage coming as we grow.{' '}
-              <Link href="/press" style={{ color: t.accent, textDecoration: 'none', fontWeight: 600 }}>
+              <Link href="/press" className="text-[#D97757] no-underline font-semibold">
                 Press kit →
               </Link>
             </p>
           </div>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+          <div className="flex flex-col gap-3">
             <PressMentionPlaceholder outlet="Indie Hackers" />
             <PressMentionPlaceholder outlet="Hacker News" />
             <PressMentionPlaceholder outlet="Product Hunt" />
@@ -700,41 +357,18 @@ export default function SocialProofPage() {
         </section>
 
         {/* Community Reactions */}
-        <section style={{
-          background: t.white,
-          borderTop: `1px solid ${t.border}`,
-          borderBottom: `1px solid ${t.border}`,
-        }}>
-          <div style={{
-            maxWidth: '900px',
-            margin: '0 auto',
-            padding: '60px 24px',
-          }}>
-            <div style={{ marginBottom: '32px' }}>
-              <h2 style={{
-                fontFamily: t.fontSans,
-                fontWeight: 700,
-                fontSize: '1.5rem',
-                color: t.text,
-                margin: '0 0 8px 0',
-              }}>
+        <section className="bg-white border-y border-[#E5E5E5]">
+          <div className="max-w-[900px] mx-auto px-6 py-[60px]">
+            <div className="mb-8">
+              <h2 className="font-[Instrument_Sans,sans-serif] font-bold text-[1.5rem] text-[#191919] m-0 mb-2">
                 Community Reactions
               </h2>
-              <p style={{
-                fontFamily: t.fontSans,
-                fontSize: '0.9rem',
-                color: t.grayLight,
-                margin: 0,
-              }}>
+              <p className="font-[Instrument_Sans,sans-serif] text-[0.9rem] text-[#999999] m-0">
                 What the indie builder community is saying about the churn recovery gap.
               </p>
             </div>
 
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
-              gap: '16px',
-            }}>
+            <div className="grid grid-cols-[repeat(auto-fill,minmax(280px,1fr))] gap-4">
               {communityReactions.map((reaction, i) => (
                 <CommunityReaction key={i} {...reaction} />
               ))}
@@ -743,50 +377,20 @@ export default function SocialProofPage() {
         </section>
 
         {/* Waitlist CTA */}
-        <section style={{
-          maxWidth: '640px',
-          margin: '0 auto',
-          padding: '80px 24px 100px',
-          textAlign: 'center',
-        }}>
-          <div style={{
-            background: t.white,
-            border: `1px solid ${t.border}`,
-            borderRadius: '16px',
-            padding: '48px 40px',
-            boxShadow: '0 4px 20px rgba(0,0,0,0.05)',
-          }}>
-            <div style={{ fontSize: '2rem', marginBottom: '16px' }}>🚀</div>
-            <h2 style={{
-              fontFamily: t.fontSans,
-              fontWeight: 700,
-              fontSize: '1.6rem',
-              color: t.text,
-              margin: '0 0 12px 0',
-              lineHeight: 1.25,
-            }}>
+        <section className="max-w-[640px] mx-auto px-6 py-20 text-center">
+          <div className="bg-white border border-[#E5E5E5] rounded-2xl px-10 py-12 shadow-[0_4px_20px_rgba(0,0,0,0.05)]">
+            <div className="text-[2rem] mb-4">🚀</div>
+            <h2 className="font-[Instrument_Sans,sans-serif] font-bold text-[1.6rem] text-[#191919] m-0 mb-3 leading-[1.25]">
               Join 500+ business owners on the waitlist
             </h2>
-            <p style={{
-              fontFamily: t.fontSerif,
-              fontSize: '0.95rem',
-              color: t.gray,
-              lineHeight: 1.65,
-              margin: '0 0 32px 0',
-            }}>
+            <p className="font-[Merriweather,serif] text-[0.95rem] text-[#666666] leading-[1.65] m-0 mb-8">
               ChurnRecovery is free forever. No credit card. No $250/mo Churnkey contract.
               Just a cancel flow that keeps your subscribers.
             </p>
 
             <WaitlistForm source="social-proof" />
 
-            <p style={{
-              fontFamily: t.fontSans,
-              fontSize: '0.8rem',
-              color: t.grayLight,
-              marginTop: '16px',
-              marginBottom: 0,
-            }}>
+            <p className="font-[Instrument_Sans,sans-serif] text-[0.8rem] text-[#999999] mt-4 mb-0">
               Free forever. Unsubscribe anytime.
             </p>
           </div>
