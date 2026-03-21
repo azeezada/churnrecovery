@@ -14,8 +14,8 @@ Low-code/no-code business owners: newsletter creators, coaches, online course se
 - [ ] Take actual product screenshots (specs in docs/) — needed for ALL directory submissions + Product Hunt
 - [✅] Deploy blog post (Churnkey comparison) to live site — DONE. Churnkey comparison page is live at /compare/churnkey with full feature table, pricing breakdown, and CTA to waitlist.
 - [ ] First user acquisition campaign — execute directory submissions (plans ready, need manual account creation)
-- [ ] Product Hunt launch prep → Target April 1st
-- [ ] Publish Indie Hackers post + Reddit cross-promotion (content ready, needs execution)
+- [✅] Product Hunt launch prep → Target April 1st — DONE 2026-03-20. Full launch kit at docs/product-hunt-launch.md: tagline, description, categories, maker comment, 7 gallery asset specs, launch timeline, hunter strategy (5 names), pre-launch warm-up, post-launch actions.
+- [✅] Publish Indie Hackers post + Reddit cross-promotion — DONE 2026-03-20. Final IH post at docs/indie-hackers-post-final.md (ready to copy/paste). Reddit strategy already in marketing/reddit-strategy.md.
 
 ### P2 — Next Week (retention + growth)
 - [ ] Migrate to shadcn/ui + Tailwind (kill 1,770 inline styles) — important but secondary to getting the product loop working

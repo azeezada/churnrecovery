@@ -10,3 +10,4 @@
 - CONTENT-1 DONE: Churnkey comparison page live at https://churnrecovery.com/compare/churnkey — full feature table, pricing ($0 vs $250/mo), strengths/weaknesses, verdict, and waitlist CTA. HTTP 200 confirmed.
 - CODE-1 DONE: Removed orphan pretest script; Playwright webServer config now owns serve lifecycle — 105 tests pass cleanly in ~12s, process exits on its own. Deployed + cache purged.
   - MARKETING-1: Product Hunt launch prep
+- MARKETING-1 DONE: Product Hunt launch kit created (docs/product-hunt-launch.md) — tagline, 260-char description, 5 categories, maker comment, 7 gallery asset specs, hunter strategy (5 PH hunters listed), pre-launch week plan, hourly launch day timeline, post-launch checklist. IH post finalized (docs/indie-hackers-post-final.md). Both P1 tasks marked ✅ in WORKQUEUE.md.
