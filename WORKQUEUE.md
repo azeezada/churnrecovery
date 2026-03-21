@@ -147,6 +147,11 @@ Low-code/no-code business owners: newsletter creators, coaches, online course se
 - ✅ Directory submission plan + checklist
 - ✅ UTM tracking strategy
 
+## Marketing Wave 14 (Added 2026-03-21)
+- ✅ **Podcast outreach strategy** — DONE 2026-03-21. Full guide at docs/podcast-outreach-strategy.md. 10 target shows with audience size, contact method, pitch angle. 3 pitch templates. Pre-pitch checklist. Tracking spreadsheet template. Priority tiers: Creator Science / Bootstrapped Founder / Indie Bites first.
+- ✅ **Social proof page** — DONE 2026-03-21. /social-proof deployed + HTTP 200 verified. Testimonial placeholders (no fake quotes), Twitter mentions section, press mentions, community reactions, "500+ waitlist" social proof bar, waitlist CTA. Added to footer under Company.
+- ✅ **Launch timing analysis** — DONE 2026-03-21. Full analysis at docs/launch-timing-analysis.md. PH: Tuesday April 7 @ 12:01 AM PST. Reddit timing per subreddit. HN: 8 AM PT Tuesday. Full coordinated 7-day launch playbook.
+
 ## Meta Tasks (self-improvement)
 - [x] Review agent performance — concurrent edit failures documented in AGENTS.md
 - [x] Update AGENTS.md with stale cache fix + known issues

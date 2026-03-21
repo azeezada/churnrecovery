@@ -485,3 +485,28 @@
 - All posts follow existing frontmatter format (title, description, date, tags, author, readingTime)
 - SEO gaps addressed from docs/seo-content-gap-analysis.md: rows 1 (shopify), 8 (circle/community), 2 (woocommerce), 21 (coaching), plus voluntary/involuntary churn education
 - WORKQUEUE.md updated with all 5 items marked complete
+
+---
+
+## Wave 14 — Marketing: Podcast Outreach, Social Proof, Launch Timing
+
+**Date:** 2026-03-21
+**Agent:** cr-marketing-wave14 (subagent)
+**Commit:** 89df6e8 — "marketing: podcast outreach, social proof page, launch timing analysis"
+
+### Files Created
+- `docs/podcast-outreach-strategy.md` — 10 target shows (Creator Science, Indie Bites, Build Your SaaS, Starter Story, Rogue Startups, Bootstrapped Founder, My First Million, SaaS Podcast, Newsletter Operator, 6-Figure Newsletter). Each with audience size, contact method, specific angle. 3 pitch templates (Free Tool Founder / Bootstrapper's Take / Creator Economy Infrastructure). Pre-pitch checklist, subject line formulas, DM vs email vs form per show, tracking spreadsheet template.
+- `docs/launch-timing-analysis.md` — Product Hunt (Tue April 7 @ 12:01 AM PST, avoid April 1), Reddit timing per sub (SideProject/entrepreneur/startups/SaaS/indiehackers), Hacker News (8 AM PT Tuesday), coordinated 7-day launch playbook, waitlist → PH upvote strategy.
+- `pages/social-proof.js` — /social-proof page. Stats bar (500+, ~30%, $0, 10+), Testimonial placeholders (honest "coming soon" styling — no fake quotes), Twitter mentions embed-ready, Press mentions, Community reactions, waitlist CTA at bottom. Added to Footer.js under Company.
+
+### Build & Deploy Status
+- Build: ✅ passes — social-proof.html in out/ directory (54KB)
+- Tests: 140 passed / 2 failed (pre-existing: CTA A/B test flakiness on homepage + app/sign-up Clerk route)
+- Deploy: ✅ via scripts/deploy-and-verify.sh — build-1774077354-cab8c1a8
+- URL verification: ✅ HTTP 200 on https://churnrecovery.com/social-proof
+
+### Notes
+- The 2 test failures are pre-existing (CTA A/B test randomness + Clerk sign-up page). Not caused by this wave's changes.
+- /social-proof uses honest pre-launch placeholder styling — no fake testimonials, no invented quotes
+- Podcast priority tiers: Tier 1 (Creator Science, Bootstrapped Founder, Indie Bites) → Tier 2 (Build Your SaaS, Rogue Startups, Newsletter Operator) → Tier 3 (Starter Story, SaaS Podcast, 6-Figure Newsletter) → Stretch (My First Million)
+- WORKQUEUE.md updated with all 3 tasks marked complete
