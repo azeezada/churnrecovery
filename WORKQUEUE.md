@@ -12,7 +12,7 @@ Low-code/no-code business owners: newsletter creators, coaches, online course se
 
 ### P1 — This Week (gets first user)
 - [ ] Take actual product screenshots (specs in docs/) — needed for ALL directory submissions + Product Hunt
-- [ ] Deploy blog post (Churnkey comparison) to live site — content is written, just needs to go live
+- [✅] Deploy blog post (Churnkey comparison) to live site — DONE. Churnkey comparison page is live at /compare/churnkey with full feature table, pricing breakdown, and CTA to waitlist.
 - [ ] First user acquisition campaign — execute directory submissions (plans ready, need manual account creation)
 - [ ] Product Hunt launch prep → Target April 1st
 - [ ] Publish Indie Hackers post + Reddit cross-promotion (content ready, needs execution)

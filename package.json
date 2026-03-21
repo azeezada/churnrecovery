@@ -9,8 +9,7 @@
     "lint": "echo \"No lint configured\"",
     "postbuild": "bash scripts/fix-catchall.sh",
     "test": "npx playwright test",
-    "test:headed": "npx playwright test --headed",
-    "pretest": "npx serve out -p 3050 -L &"
+    "test:headed": "npx playwright test --headed"
   },
   "dependencies": {
     "@clerk/nextjs": "^7.0.6",
