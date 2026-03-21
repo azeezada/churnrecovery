@@ -85,7 +85,7 @@ export default function ChurnCalculatorPage() {
           <div className="nav-links" style={{ display: 'flex', gap: '24px', alignItems: 'center' }}>
             <Link href="/demo" style={{ color: t.gray, textDecoration: 'none', fontSize: '0.9rem' }}>Demo</Link>
             <Link href="/blog" style={{ color: t.gray, textDecoration: 'none', fontSize: '0.9rem' }}>Blog</Link>
-            <a href="https://tally.so/r/churnrecovery" style={{
+            <a href="/#waitlist" style={{
               background: t.accent,
               color: t.white,
               padding: '8px 18px',
@@ -93,7 +93,7 @@ export default function ChurnCalculatorPage() {
               textDecoration: 'none',
               fontSize: '0.85rem',
               fontWeight: 600,
-            }}>Get Early Access</a>
+            }}>Join Waitlist</a>
           </div>
         </nav>
 

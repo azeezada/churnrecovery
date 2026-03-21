@@ -141,7 +141,7 @@ export default function AlternativePage({ competitor }) {
             <Link href={`/compare/${competitor.slug}`} style={{ color: t.gray, textDecoration: 'none', fontSize: '0.9rem' }}>
               Full Comparison →
             </Link>
-            <a href="#waitlist" style={{
+            <a href="/#waitlist" style={{
               background: t.accent,
               color: t.white,
               padding: '8px 18px',
@@ -149,7 +149,7 @@ export default function AlternativePage({ competitor }) {
               textDecoration: 'none',
               fontSize: '0.85rem',
               fontWeight: 600,
-            }}>Get Early Access</a>
+            }}>Join Waitlist</a>
           </div>
         </nav>
 
@@ -217,7 +217,7 @@ export default function AlternativePage({ competitor }) {
               textDecoration: 'none',
               letterSpacing: '-0.01em',
             }}>
-              Start Free — No Card Required
+              Join Waitlist — It's Free
             </a>
             <Link href={`/compare/${competitor.slug}`} style={{
               display: 'inline-block',

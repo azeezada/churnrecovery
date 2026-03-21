@@ -94,7 +94,7 @@ export default function IntegrationsIndex() {
                 borderRadius: '8px',
                 textDecoration: 'none',
               }}>
-                Get early access — it's free
+                Join Waitlist — It's Free
               </Link>
               <Link href="/docs" style={{
                 display: 'inline-block',
@@ -352,7 +352,7 @@ export default function IntegrationsIndex() {
               borderRadius: '8px',
               textDecoration: 'none',
             }}>
-              Get early access — it's free
+              Join Waitlist — It's Free
             </Link>
           </div>
         </div>

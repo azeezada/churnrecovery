@@ -123,7 +123,7 @@ export default function ComparePage({ competitor }) {
           </Link>
           <div className="nav-links" style={{ display: 'flex', gap: '24px', alignItems: 'center' }}>
             <Link href="/blog" style={{ color: t.gray, textDecoration: 'none', fontSize: '0.9rem' }}>Blog</Link>
-            <a href="#waitlist" style={{
+            <a href="/#waitlist" style={{
               background: t.accent,
               color: t.white,
               padding: '8px 18px',
@@ -131,7 +131,7 @@ export default function ComparePage({ competitor }) {
               textDecoration: 'none',
               fontSize: '0.85rem',
               fontWeight: 600,
-            }}>Get Early Access</a>
+            }}>Join Waitlist</a>
           </div>
         </nav>
 

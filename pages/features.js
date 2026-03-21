@@ -158,10 +158,10 @@ function Nav() {
         <Link href="/docs" style={{ color: t.gray, textDecoration: 'none', fontSize: '0.9rem', fontFamily: t.fontSans }}>Docs</Link>
         <Link href="/demo" style={{ color: t.gray, textDecoration: 'none', fontSize: '0.9rem', fontFamily: t.fontSans }}>Demo</Link>
         <Link href="/blog" style={{ color: t.gray, textDecoration: 'none', fontSize: '0.9rem', fontFamily: t.fontSans }}>Blog</Link>
-        <a href="https://tally.so/r/churnrecovery" style={{
+        <a href="/#waitlist" style={{
           background: t.accent, color: t.white, padding: '8px 18px', borderRadius: '6px',
           textDecoration: 'none', fontSize: '0.85rem', fontWeight: 600, fontFamily: t.fontSans,
-        }}>Get Early Access</a>
+        }}>Join Waitlist</a>
       </div>
     </nav>
   )
@@ -329,12 +329,12 @@ export default function FeaturesPage() {
               ChurnRecovery is free. The only difference is our business model — we believe churn recovery tools should be accessible to every SaaS company, not just the ones that can afford $10k/year in software.
             </p>
             <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
-              <a href="https://tally.so/r/churnrecovery" style={{
+              <a href="/#waitlist" style={{
                 display: 'inline-block', background: t.accent, color: t.white,
                 padding: '14px 32px', borderRadius: '8px', fontFamily: t.fontSans,
                 fontWeight: 700, fontSize: '1rem', textDecoration: 'none', letterSpacing: '-0.01em',
               }}>
-                Get Early Access — Free
+                Join Waitlist — Free
               </a>
               <Link href="/compare/churnkey" style={{
                 display: 'inline-block', background: 'transparent', color: 'rgba(255,255,255,0.7)',
@@ -397,7 +397,7 @@ export default function FeaturesPage() {
             Join the waitlist and be among the first to go live. Free forever.
           </p>
           <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <a href="https://tally.so/r/churnrecovery" style={{
+            <a href="/#waitlist" style={{
               background: t.accent, color: t.white, padding: '13px 28px', borderRadius: '8px',
               fontFamily: t.fontSans, fontWeight: 700, fontSize: '0.95rem', textDecoration: 'none',
             }}>

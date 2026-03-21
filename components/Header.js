@@ -84,12 +84,12 @@ export default function Header() {
               }} className="header-signin">
                 Sign in
               </Link>
-              <Link href="/app/sign-up" style={{
+              <Link href="/#waitlist" style={{
                 background: t.accent, color: t.white, padding: '8px 18px',
                 borderRadius: 7, fontWeight: 600, textDecoration: 'none', fontSize: 14,
                 whiteSpace: 'nowrap',
               }} className="header-cta">
-                Get started free
+                Join Waitlist
               </Link>
             </>
           )}
@@ -144,13 +144,13 @@ export default function Header() {
               }}>
                 Sign in
               </Link>
-              <Link href="/app/sign-up" onClick={() => setMobileOpen(false)} style={{
+              <Link href="/#waitlist" onClick={() => setMobileOpen(false)} style={{
                 display: 'block', marginTop: 16,
                 background: t.accent, color: t.white,
                 padding: '12px', borderRadius: 8, fontWeight: 700,
                 textDecoration: 'none', textAlign: 'center', fontSize: 15,
               }}>
-                Get started free →
+                Join Waitlist →
               </Link>
             </>
           )}

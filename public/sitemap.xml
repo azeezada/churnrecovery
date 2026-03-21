@@ -331,6 +331,18 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://churnrecovery.com/posts/i-reverse-engineered-churnkey-cancel-flow</loc>
+    <lastmod>2026-03-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://churnrecovery.com/posts/newsletter-creator-guide-reducing-churn</loc>
+    <lastmod>2026-03-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://churnrecovery.com/posts/saas-tool-pricing-take</loc>
     <lastmod>2026-03-21</lastmod>
     <changefreq>monthly</changefreq>

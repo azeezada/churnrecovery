@@ -343,14 +343,14 @@ export default function AboutPage() {
             Join us in fixing churn
           </h2>
           <p style={{ fontSize: 16, color: 'rgba(255,255,255,0.85)', marginBottom: 32, maxWidth: 480, margin: '0 auto 32px', fontFamily: t.fontSerif, lineHeight: 1.7 }}>
-            Get early access to ChurnRecovery. Help us shape the product. Keep your feedback loop short with the people building it.
+            Join the waitlist for ChurnRecovery. Help us shape the product. Keep your feedback loop short with the people building it.
           </p>
           <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
             <Link href="/#waitlist" style={{
               background: t.white, color: t.accent, padding: '14px 32px',
               borderRadius: 8, fontWeight: 700, textDecoration: 'none', fontSize: 16
             }}>
-              Get early access →
+              Join Waitlist →
             </Link>
             <Link href="/demo" style={{
               background: 'rgba(255,255,255,0.15)', color: t.white, padding: '14px 32px',

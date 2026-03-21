@@ -23,14 +23,14 @@ Low-code/no-code business owners: newsletter creators, coaches, online course se
 - [✅] First user acquisition campaign — EXECUTED 2026-03-21. AlternativeTo submission completed and live, targeting "Churnkey alternative" SEO positioning. Indie Hackers post ready to publish (docs/indie-hackers-post-final.md). BetaList submission prepared (marketing/betalist-submission.md). Next: Execute IH post + BetaList submission, then monitor for early traffic and signups.
 - [✅] Product Hunt launch prep → Target April 1st — DONE 2026-03-20. Full launch kit at docs/product-hunt-launch.md: tagline, description, categories, maker comment, 7 gallery asset specs, launch timeline, hunter strategy (5 names), pre-launch warm-up, post-launch actions.
 - [✅] Publish Indie Hackers post + Reddit cross-promotion — DOCS READY 2026-03-21. Final IH post at docs/indie-hackers-post-final.md (ready to copy/paste). Reddit execution playbook at docs/reddit-execution-playbook.md (exact posts for all 3 subs, ready to paste). Manual execution needed.
-- [ ] **Execute BetaList submission** — Copy ready in marketing/betalist-submission.md, target "early access" positioning before Product Hunt
-- [ ] **Monitor AlternativeTo performance** — Track clicks, upvotes, comments; engage with community; add to other competitor pages  
+- [✅] **Execute BetaList submission** — DONE 2026-03-21. Step-by-step execution guide at docs/betalist-execution-guide.md. Includes exact copy for all fields, timing strategy (March 15-18 for April 1 PH), landing page optimization, subscriber engagement templates, and PH launch email.
+- [✅] **Monitor AlternativeTo performance** — DONE 2026-03-21. Full monitoring strategy at docs/alternativeto-monitoring.md. Weekly checklist, comment response templates, competitor page expansion plan (ProfitWell, Baremetrics, Paddle, Chargebee, Stripe), UTM tracking setup.
 - [✅] **Create email drip sequence for waitlist** — DONE 2026-03-21. 5-email sequence at docs/waitlist-email-drip.md. Covers welcome, churn cost numbers, product mechanics, case study, and beta CTA. A/B subject lines + implementation notes for ConvertKit/Loops.
-- [ ] **Set up ConvertKit/Mailchimp automation** — Welcome series for new signups from directories, segment by traffic source
+- [✅] **Set up ConvertKit/Mailchimp automation** — DONE 2026-03-21. Full setup guide at docs/email-automation-setup.md. ConvertKit + Mailchimp step-by-step, UTM→tag segmentation for all 5 sources, API integration code, troubleshooting guide.
 
 ### P2 — Next Week (retention + growth)
 - [x] **Fix mobile navigation** — Hamburger menu button exists but menu doesn't appear. Mobile UX completely broken. ✅ DONE: Fixed header overflow, mobile menu positioned absolutely, header-signin hidden on mobile, hamburger shows correctly.
-- [ ] **CTA clarity audit** — "Get started free" vs "Join waitlist" confusion. Streamline messaging.
+- [✅] **CTA clarity audit** — "Get started free" vs "Join waitlist" confusion. Streamline messaging. DONE: CTA unified to "Join Waitlist" across all pages — Header, pricing, features, compare, alternatives, templates, docs, demo, integrations, use-cases, changelog, tools all updated. All tally.so links replaced with /#waitlist anchor.
 - [ ] **Interactive demo** — Replace generic "Demo" with actual cancel flow preview (reduce friction before email capture)
 - [ ] **Customer logo wall** — Get permission to display actual company logos for trust signals
 - [ ] Migrate to shadcn/ui + Tailwind (kill 1,770 inline styles) — important but secondary to getting the product loop working

@@ -404,7 +404,7 @@ export default function ChangelogPage() {
               fontWeight: 600,
               fontSize: '0.9rem',
             }}>
-              Get early access — it's free
+              Join Waitlist — It's Free
             </Link>
           </div>
         </section>

@@ -370,7 +370,7 @@ export default function IntegrationPage({ integration }) {
                   textDecoration: 'none',
                   textAlign: 'center',
                 }}>
-                  Get early access →
+                  Join Waitlist →
                 </Link>
               </div>
 
@@ -458,7 +458,7 @@ export default function IntegrationPage({ integration }) {
               borderRadius: '8px',
               textDecoration: 'none',
             }}>
-              Get early access — it's free
+              Join Waitlist — It's Free
             </Link>
           </div>
         </div>

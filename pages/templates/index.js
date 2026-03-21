@@ -42,10 +42,10 @@ function Nav() {
         <Link href="/docs" style={{ color: t.gray, textDecoration: 'none', fontSize: '0.9rem', fontFamily: t.fontSans }}>Docs</Link>
         <Link href="/templates" style={{ color: t.accent, textDecoration: 'none', fontSize: '0.9rem', fontFamily: t.fontSans, fontWeight: 600 }}>Templates</Link>
         <Link href="/blog" style={{ color: t.gray, textDecoration: 'none', fontSize: '0.9rem', fontFamily: t.fontSans }}>Blog</Link>
-        <a href="https://tally.so/r/churnrecovery" style={{
+        <a href="/#waitlist" style={{
           background: t.accent, color: t.white, padding: '8px 18px', borderRadius: '6px',
           textDecoration: 'none', fontSize: '0.85rem', fontWeight: 600, fontFamily: t.fontSans,
-        }}>Get Early Access</a>
+        }}>Join Waitlist</a>
       </div>
     </nav>
   )

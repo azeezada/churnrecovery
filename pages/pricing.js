@@ -114,7 +114,7 @@ export default function Pricing() {
               background: t.accent, color: t.white, padding: '14px 32px',
               borderRadius: 8, fontWeight: 700, textDecoration: 'none', fontSize: 16
             }}>
-              Get early access →
+              Join Waitlist →
             </Link>
             <Link href="/demo" style={{
               background: t.white, color: t.text, padding: '14px 32px',
@@ -271,7 +271,7 @@ export default function Pricing() {
               background: t.accent, color: t.white, padding: '14px 32px',
               borderRadius: 8, fontWeight: 700, textDecoration: 'none', fontSize: 16
             }}>
-              Get early access →
+              Join Waitlist →
             </Link>
             <Link href="/tools/churn-calculator" style={{
               background: 'rgba(255,255,255,0.1)', color: t.white, padding: '14px 32px',

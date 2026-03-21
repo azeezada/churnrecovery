@@ -81,7 +81,7 @@ export default function DemoPage() {
           <div className="nav-links" style={{ display: 'flex', gap: '24px', alignItems: 'center' }}>
             <Link href="/blog" style={{ color: t.gray, textDecoration: 'none', fontSize: '0.9rem' }}>Blog</Link>
             <Link href="/compare/churnkey" style={{ color: t.gray, textDecoration: 'none', fontSize: '0.9rem' }}>Compare</Link>
-            <a href="https://tally.so/r/churnrecovery" style={{
+            <a href="/#waitlist" style={{
               background: t.accent,
               color: t.white,
               padding: '8px 18px',
@@ -89,7 +89,7 @@ export default function DemoPage() {
               textDecoration: 'none',
               fontSize: '0.85rem',
               fontWeight: 600,
-            }}>Get Early Access</a>
+            }}>Join Waitlist</a>
           </div>
         </nav>
 

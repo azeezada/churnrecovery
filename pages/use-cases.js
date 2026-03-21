@@ -439,7 +439,7 @@ export default function UseCasesPage() {
             with the right offers, messaging, and timing for your customers.
           </p>
           <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link href="/demo" style={{
+            <Link href="/#waitlist" style={{
               background: t.accent,
               color: t.white,
               padding: '12px 28px',
@@ -449,9 +449,9 @@ export default function UseCasesPage() {
               fontWeight: 600,
               fontSize: '0.95rem',
             }}>
-              See live demo
+              Join Waitlist
             </Link>
-            <Link href="/app/sign-up" style={{
+            <Link href="/demo" style={{
               background: t.white,
               color: t.text,
               padding: '12px 28px',
@@ -462,7 +462,7 @@ export default function UseCasesPage() {
               fontSize: '0.95rem',
               border: `1px solid ${t.border}`,
             }}>
-              Get started free
+              See how it works
             </Link>
           </div>
         </section>

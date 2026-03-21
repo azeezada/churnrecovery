@@ -5,7 +5,7 @@
     <link>https://churnrecovery.com/blog</link>
     <description>Insights on churn recovery, payment failures, and SaaS retention</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 21 Mar 2026 03:48:41 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 21 Mar 2026 04:06:01 GMT</lastBuildDate>
     <atom:link href="https://churnrecovery.com/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title><![CDATA[ChurnRecovery vs Churnkey: The Complete Comparison Guide (2026)]]></title>
@@ -29,6 +29,31 @@
       <category>saas</category>
       <category>analysis</category>
       <category>business</category>
+    </item>
+    <item>
+      <title><![CDATA[I Reverse-Engineered Churnkey's Cancel Flow]]></title>
+      <link>https://churnrecovery.com/posts/i-reverse-engineered-churnkey-cancel-flow</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/i-reverse-engineered-churnkey-cancel-flow</guid>
+      <description><![CDATA[]]></description>
+      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
+      <category>churnkey</category>
+      <category>cancel flow</category>
+      <category>churn recovery</category>
+      <category>comparison</category>
+      <category>pricing</category>
+    </item>
+    <item>
+      <title><![CDATA[The Newsletter Creator's Guide to Reducing Churn]]></title>
+      <link>https://churnrecovery.com/posts/newsletter-creator-guide-reducing-churn</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/newsletter-creator-guide-reducing-churn</guid>
+      <description><![CDATA[]]></description>
+      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
+      <category>newsletter</category>
+      <category>churn</category>
+      <category>beehiiv</category>
+      <category>convertkit</category>
+      <category>substack</category>
+      <category>subscriber retention</category>
     </item>
     <item>
       <title><![CDATA[The $825/Month SaaS Tool That Should Cost $25]]></title>
