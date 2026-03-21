@@ -45,6 +45,7 @@ Low-code/no-code business owners: newsletter creators, coaches, online course se
 - [x] **"SaaS Pricing Audit: Tools That Should Cost 90% Less"** — Controversial take
 - [✅] Case study template: "How [Company] Saved $4,800/year by Switching from Churnkey" — DONE 2026-03-21. Template at docs/case-study-template.md.
 - [x] "The $50,000/Year SaaS Tool Stack Audit" — broader market positioning (published 2026-03-21)
+- [✅] **3 blog posts + Recurly/Zuora comparison pages (2026-03-21)** — Ghost vs Substack vs Beehiiv (/posts/ghost-vs-substack-vs-beehiiv-paid-subscribers), Kajabi cancel flow tutorial (/posts/kajabi-cancel-flow-setup-without-coding), Subscription leaking revenue (/posts/subscription-business-leaking-revenue-every-month), + /compare/recurly and /compare/zuora live.
 - [✅] **Guest post on SaaS founder newsletters about churn recovery strategies** — DONE 2026-03-21. Full strategy at docs/guest-post-strategy.md: 15 target publications with contact methods + angles, 3 pitch templates, 3 article concepts fully outlined, outreach tracking table.
 - [✅] **Reach out to Stripe/Paddle for integration marketplace listing** — DONE 2026-03-21. Full strategy at docs/integration-marketplace-strategy.md: Stripe Partner + App Marketplace (step-by-step checklists), Paddle Marketplace, Zapier public app, Make.com — with copy bank, technical requirements, and prioritized timeline.
 

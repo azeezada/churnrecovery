@@ -244,3 +244,12 @@
 - Added both + `/for/substack` to sitemap.xml
 - Build: 92 static pages ✅ | Tests: 131/133 (pre-existing flakies) | Deployed + cache purged | Pushed to main
 - WORKQUEUE.md: ✅ Widget CDN marked done
+
+## 2026-03-21 — Wave 8, CONTENT worker (cr-content-wave7)
+
+- **[BLOG-1]** `/posts/ghost-vs-substack-vs-beehiiv-paid-subscribers` — Platform comparison, cancel flow gap, ChurnRecovery via Stripe. HTTP 200 ✅
+- **[BLOG-2]** `/posts/kajabi-cancel-flow-setup-without-coding` — Step-by-step tutorial, copy-paste scripts, $1,164/yr math. HTTP 200 ✅
+- **[BLOG-3]** `/posts/subscription-business-leaking-revenue-every-month` — Provocative churn math hook, 3 fixes, CTA to ROI calculator. HTTP 200 ✅
+- **[COMPARE-RECURLY]** `/compare/recurly` — Added to lib/comparisons.js. Feature table, pricing, verdict. HTTP 200 ✅
+- **[COMPARE-ZUORA]** `/compare/zuora` — Enterprise-wrong-for-small-business framing. HTTP 200 ✅
+- Build clean | Deployed + cache purged | Pushed to main | WORKQUEUE.md ✅
