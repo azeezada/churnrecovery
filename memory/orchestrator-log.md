@@ -262,6 +262,15 @@
 - All 3 added to sitemap.xml | Build: 102 pages ✅ | Tests: 133/133 ✅ | Deployed + cache purged | Pushed to main
 - WORKQUEUE.md: ✅ creator landing pages added and marked done
 
+## 2026-03-21 — Wave 10, CODE worker (cr-code-convertkit-perf)
+
+- **[CONVERTKIT]** — Wired ConvertKit API to waitlist handler. `subscribeToConvertKit()` fires post-D1-save, maps source param to tags (product-hunt-waitlist, reddit-waitlist, etc. + all /for/ pages). Non-fatal: D1 save always completes even if ConvertKit is down. `.env.example` updated with `CONVERTKIT_API_KEY` + `CONVERTKIT_FORM_ID`.
+- **[PRECONNECT]** — Added 4 `<link rel="preconnect">` tags to `pages/_app.js` (Clerk x2, Stripe x2).
+- **[WEBP-SCRIPT]** — Created `scripts/convert-images-to-webp.sh` — ready to run with `bash scripts/convert-images-to-webp.sh` (requires `brew install webp`).
+- **[SHARED-COMPONENTS]** — Extracted `components/for/PainCard.js`, `HowStep.js`, `BenefitCard.js`, `FAQItem.js` — shared components with `theme` prop for per-page color overrides. Future /for/ pages import instead of copy-paste.
+- **[PERFORMANCE-TODO]** — Marked preconnect + shared components items as done.
+- Build: 109 static pages ✅ | Tests: 133/133 ✅ | Committed `ceb65eb` + pushed
+
 ## 2026-03-21 — Wave 9, CONTENT worker (cr-content-wave8)
 
 - **[INTERNAL-LINKS]** `docs/internal-linking-audit.md` created. Added 5 high-impact internal links: Churnkey reverse-engineer post → /compare/churnkey, why-churnkey-costs post → /compare/churnkey, Kajabi tutorial → /for/kajabi, Ghost/Substack/Beehiiv post → /for/ghost+/for/substack+/for/beehiiv, cancellation emails post → /demo
@@ -278,3 +287,11 @@
 - **[FOR-COMPONENTS]** Created `components/for/` shared components: `PainCard.js`, `HowStep.js`, `BenefitCard.js`, `FAQItem.js` — extracted from /for/convertkit.js pattern. Theme-overridable via `theme` prop. Next /for/ pages can import instead of copy-paste.
 - **[PERFORMANCE-TODO]** Updated `docs/performance-todo.md` — marked preconnect and shared components items as ✅ done.
 - Build: ✅ 109 static pages | Tests: 133/133 ✅ | Committed + pushed to main
+
+## 2026-03-21 — Marketing: Logo Wall, Video Testimonials, /for/ Pages Research (cr-marketing-logos-testimonials subagent)
+
+- **[LOGO-WALL-STRATEGY]** Created `docs/customer-logo-wall-strategy.md` — how to collect logos, email/DM permission templates, "Trusted by" vs "As seen in" framing, fallback options (placeholder slots, counter, quote cards), and milestone-based timeline for when to show real logos.
+- **[LOGO-WALL-COMPONENT]** Created `components/LogoWall.js` — placeholder-mode (greyed industry type labels) + real logo mode (grayscale → color hover); renders nothing if `logos=[]` and `showPlaceholders=false`; added to `pages/index.js` after hero section (currently hidden, logs=[] by default).
+- **[VIDEO-TESTIMONIALS]** Created `docs/video-testimonial-playbook.md` — trigger timing (first save, 7d, 30d, ROI confirmed), email + Twitter DM templates, 3-question prompt script, display placement guide (homepage/pricing//for/ pages), Loom vs Testimonial.to vs Vocal Video comparison, hosting (YouTube unlisted vs Cloudflare Stream), permission language, 30-day action plan.
+- **[FOR-PAGES-RESEARCH]** Created `docs/next-for-pages-plan.md` — analyzed 9 creator platform candidates: excluded Gumroad/Lemon Squeezy/Whop (MoR, no direct Stripe), excluded Transistor.fm (no creator billing); top 3 to build: `/for/memberful` (Stripe-required, independent publishers/podcasters), `/for/stan-store` (80k creators, Stripe-connected), `/for/payhip` (130k+ sellers, own Stripe); full page copy direction for each.
+- Build: ✅ static export passes | WORKQUEUE.md ✅ | Pushed to main

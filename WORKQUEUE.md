@@ -18,12 +18,13 @@ Low-code/no-code business owners: newsletter creators, coaches, online course se
 - [✅] **Product Hunt launch (April 1st target)** — Pre-launch warm-up checklist at docs/product-hunt-prelaunch-checklist.md. Day-by-day from March 25 → April 1. (2026-03-21)
 
 ### P2 — Next Week (retention + growth)
-- [ ] **Customer logo wall** — Get permission to display actual company logos for trust signals
+- [✅] **Customer logo wall** — Strategy + permission templates at docs/customer-logo-wall-strategy.md. LogoWall.js component added to codebase (hidden until real logos added). (2026-03-21)
 - [ ] **Migrate to shadcn/ui + Tailwind** — Kill 1,770 inline styles. Important for maintainability but secondary to user acquisition.
 - [✅] **Widget CDN** — Minified widget.js → widget.min.js (10KB, terser), build script at scripts/build-widget.sh, CDN setup docs at docs/widget-cdn-setup.md (2026-03-21)
 - ✅ **A/B test homepage CTA copy** — 50/50 split: "Join Waitlist" (A) vs "Get Early Access Free" (B). Hook in lib/useABTest.js, variant sent in form submission body for conversion tracking — deployed + verified (2026-03-21)
 - ✅ **Substack-specific landing page** — Implemented at /for/substack — newsletter creator angle, pain points, how-it-works, benefits, FAQ, dual waitlist forms with `substack-creator` tag — deployed + HTTP 200 verified (2026-03-21)
 - ✅ **Creator landing pages: Kajabi, Teachable, Ghost** — /for/kajabi, /for/teachable, /for/ghost deployed (2026-03-21). Kajabi=gold/yellow accent (Stripe-native angle, no approval needed), Teachable=green (course subscription recovery), Ghost=dark/minimal (native Stripe integration, pause + PWYW discount). All 133 tests pass.
+- [ ] **Creator landing pages: Memberful, Stan Store, Payhip** — Next batch identified in docs/next-for-pages-plan.md. Priority: Memberful first (Stripe-required, strong brand), then Stan Store (80k creators), then Payhip. Gumroad/LS/Whop excluded (MoR, no direct Stripe). (2026-03-21)
 - ✅ **Creator landing pages: Podia, Thinkific, Circle, Patreon** — /for/podia, /for/thinkific, /for/circle, /for/patreon deployed (2026-03-21). Podia=indigo (Stripe-level interception, silent cancels angle), Thinkific=purple (native Stripe, course subscription recovery), Circle=coral/orange (pause-first community retention), Patreon=red (honest about Stripe limitation, off-platform migration angle). All 4 return HTTP 200. Performance audit at docs/performance-todo.md.
 
 ### P3 — Ongoing (continuous improvement)
@@ -34,7 +35,7 @@ Low-code/no-code business owners: newsletter creators, coaches, online course se
 - [x] E2E test coverage for new features
 - [✅] Track directory submission ROI (signups per platform) — DONE 2026-03-21. ROI tracker at docs/directory-submission-roi-tracker.md: UTM reference for all 10 directories, tracking table, Cloudflare + D1 data pull guide, decision framework, monthly review template.
 - [✅] Community engagement in SaaS founder groups — DONE 2026-03-21. Full playbook at docs/community-engagement-playbook.md: 15 communities, weekly content calendar, 10 comment templates, 5 post templates, engagement rules, tracking spreadsheet, UTM strategy.
-- [ ] Video testimonials from beta users
+- [✅] Video testimonials from beta users — Full playbook at docs/video-testimonial-playbook.md: timing, outreach templates, prompt script, display placements, tool comparison (Loom/Testimonial.to/Vocal Video), hosting options, legal. (2026-03-21)
 
 ## Content Ideas Backlog
 - [x] **Screenshot guide series** — "5 SaaS Dashboard Screenshots That Convert" using our mockups as examples (published 2026-03-21)
