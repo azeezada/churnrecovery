@@ -21,7 +21,7 @@ Low-code/no-code business owners: newsletter creators, coaches, online course se
 - [ ] **Customer logo wall** — Get permission to display actual company logos for trust signals
 - [ ] **Migrate to shadcn/ui + Tailwind** — Kill 1,770 inline styles. Important for maintainability but secondary to user acquisition.
 - [ ] **Widget CDN** — Minify, serve from cdn.churnrecovery.com
-- [ ] **A/B test homepage CTA copy** — Test different conversion approaches
+- ✅ **A/B test homepage CTA copy** — 50/50 split: "Join Waitlist" (A) vs "Get Early Access Free" (B). Hook in lib/useABTest.js, variant sent in form submission body for conversion tracking — deployed + verified (2026-03-21)
 - ✅ **Substack-specific landing page** — Implemented at /for/substack — newsletter creator angle, pain points, how-it-works, benefits, FAQ, dual waitlist forms with `substack-creator` tag — deployed + HTTP 200 verified (2026-03-21)
 
 ### P3 — Ongoing (continuous improvement)
@@ -80,4 +80,4 @@ Low-code/no-code business owners: newsletter creators, coaches, online course se
 ## Meta Tasks (self-improvement)
 - [x] Review agent performance — concurrent edit failures documented in AGENTS.md
 - [x] Update AGENTS.md with stale cache fix + known issues
-- [ ] Improve deploy-and-verify pipeline (add cache-clear step)
+- ✅ Improve deploy-and-verify pipeline — added `rm -rf .next out .vercel/output` cache-clear step at top of scripts/deploy-and-verify.sh (2026-03-21)
