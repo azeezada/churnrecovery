@@ -12,6 +12,7 @@ const footerLinks = {
     { label: 'Pricing', href: '/pricing' },
   ],
   Resources: [
+    { label: 'Free Playbook', href: '/resources/churn-recovery-playbook' },
     { label: 'Blog', href: '/blog' },
     { label: 'Documentation', href: '/docs' },
     { label: 'Use Cases', href: '/use-cases' },

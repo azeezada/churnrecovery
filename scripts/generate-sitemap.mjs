@@ -16,6 +16,7 @@ const staticPages = [
   { path: '/blog', priority: '0.8', changefreq: 'weekly' },
   { path: '/templates', priority: '0.8', changefreq: 'monthly' },
   { path: '/tools/churn-calculator', priority: '0.7', changefreq: 'monthly' },
+  { path: '/resources/churn-recovery-playbook', priority: '0.8', changefreq: 'monthly' },
   { path: '/styles', priority: '0.3', changefreq: 'monthly' },
   { path: '/styles/developer', priority: '0.3', changefreq: 'monthly' },
   { path: '/styles/warm-saas', priority: '0.3', changefreq: 'monthly' },

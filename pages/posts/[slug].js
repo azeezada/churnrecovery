@@ -1,4 +1,5 @@
 import { getPostSlugs, getPostBySlugWithHtml, getReadingTime } from '../../lib/posts'
+import { postSchemas } from '../../lib/post-schemas'
 import Head from 'next/head'
 import Link from 'next/link'
 import fs from 'fs'
@@ -23,12 +24,22 @@ export default function Post({ post, readingTime }) {
   const siteUrl = 'https://churnrecovery.com'
   const postUrl = `${siteUrl}/posts/${post.slug}`
 
+  // Structured data schemas for this post (defined in lib/post-schemas.js)
+  const schemaObjects = postSchemas[post.slug] || []
+
   return (
     <>
       <Head>
         <title>{meta.title} — ChurnRecovery Blog</title>
         <meta name="description" content={meta.excerpt || meta.title} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        {schemaObjects.map((schema, i) => (
+          <script
+            key={i}
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+          />
+        ))}
         {/* OG Tags */}
         <meta property="og:title" content={meta.title} />
         <meta property="og:description" content={meta.excerpt || ''} />

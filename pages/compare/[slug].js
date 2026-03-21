@@ -95,6 +95,57 @@ export default function ComparePage({ competitor }) {
             }),
           }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'FAQPage',
+              mainEntity: [
+                {
+                  '@type': 'Question',
+                  name: `Is ChurnRecovery better than ${competitor.name}?`,
+                  acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: `ChurnRecovery and ${competitor.name} both offer churn prevention features including cancel flows and payment failure recovery. The key difference is pricing: ChurnRecovery is free to start with no per-MRR fees, while ${competitor.name} ${competitor.pricing ? `starts at ${competitor.pricing.label}` : 'charges based on your MRR'}. For small subscription businesses (newsletters, online courses, membership sites), ChurnRecovery is typically the better fit. See the full feature comparison above.`,
+                  },
+                },
+                {
+                  '@type': 'Question',
+                  name: `What does ${competitor.name} cost compared to ChurnRecovery?`,
+                  acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: `${competitor.name} ${competitor.pricing ? `is priced at ${competitor.pricing.label}${competitor.pricing.notes ? '. ' + competitor.pricing.notes : ''}` : 'uses MRR-based pricing that scales with your revenue'}. ChurnRecovery is free — no trial period, no per-MRR fee, no feature gates on the core product (cancel flows, payment failure recovery, analytics). Premium features like A/B testing and advanced reporting are planned as optional paid upgrades.`,
+                  },
+                },
+                {
+                  '@type': 'Question',
+                  name: `Does ChurnRecovery have a free tier unlike ${competitor.name}?`,
+                  acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: `Yes. ChurnRecovery's core product is free with no limits on subscribers, cancel flows, or payment recovery emails. ${competitor.name} ${competitor.features && competitor.features.freeTier && !competitor.features.freeTier.them ? 'does not offer a free tier' : 'offers limited free access'}. ChurnRecovery is built for subscription businesses of all sizes — from 50-subscriber newsletters to established membership sites.`,
+                  },
+                },
+                {
+                  '@type': 'Question',
+                  name: `Can ChurnRecovery replace ${competitor.name}?`,
+                  acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: `For most small subscription businesses, yes. ChurnRecovery covers the core use cases: customizable cancel flows with pause, discount, and downgrade offers; automated payment failure recovery emails; and a churn analytics dashboard. If you need enterprise features like white-label portals, dedicated account management, or deep CRM integrations, ${competitor.name} may be a better fit. If you need core churn recovery without enterprise pricing, ChurnRecovery is the better option.`,
+                  },
+                },
+                {
+                  '@type': 'Question',
+                  name: 'How quickly can I switch from my current tool to ChurnRecovery?',
+                  acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: 'Setup takes 10–15 minutes. Connect your Stripe account, customize your cancel flow offers, and turn on payment failure recovery emails. ChurnRecovery works with any Stripe-powered subscription — no code changes required on your existing setup.',
+                  },
+                },
+              ],
+            }),
+          }}
+        />
       </Head>
 
       <div style={{ background: t.bg, minHeight: '100vh', fontFamily: t.fontSans }}>
