@@ -33,3 +33,11 @@
 - CONTENT-2: More comparison pages for long-tail SEO
 - MARKETING-3: G2 + Capterra business profiles setup
 - MARKETING-3 DONE: G2/Capterra profile setup guides created at docs/g2-capterra-profiles.md (step-by-step instructions, product descriptions, review collection email templates, incentive strategy, tracking table). Blog post 'The $825/month SaaS Tool That Should Cost $25' written and deployed live at https://churnrecovery.com/posts/saas-tool-pricing-take (900 words, non-technical audience, links to ChurnRecovery). Build passed, cache purged, WORKQUEUE.md updated.
+- CODE-3 DONE: Fixed Stripe webhook verification (already fully implemented — verifyStripeSignature() was correctly called in onRequestPost before processing events, reads STRIPE_WEBHOOK_SECRET from env, returns 401 if invalid, warns if missing). Wired real analytics data to dashboard: analytics.js and dashboard.js now call /api/analytics and /api/events for real D1 database data, falling back gracefully to localStore demo data. Added lib/useApi.js helper for authenticated API calls. Added shimmer skeleton loading states. Deploy verified (HTTP 200). Committed bd8e059.
+
+### Wave 3 completions
+- CONTENT-2 DONE: Added ProsperStack + Chargebee Retain comparison pages (others already existed). 8 competitors total, 74 static pages, deployed
+- MARKETING-3 DONE: G2/Capterra/AlternativeTo profile guides + review strategy + blog post live at /posts/saas-tool-pricing-take
+- CODE-3 DONE: Stripe webhook already correctly implemented; dashboard/analytics wired to real API with localStore fallback + shimmer loading + "Live" badge
+
+### Progress milestone: 5+ tasks done, sending update to Dawood

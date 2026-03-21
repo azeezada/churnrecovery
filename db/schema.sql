@@ -79,3 +79,20 @@ CREATE TABLE IF NOT EXISTS failed_payments (
 
 CREATE INDEX IF NOT EXISTS idx_failed_payments_project_id ON failed_payments(project_id);
 CREATE INDEX IF NOT EXISTS idx_failed_payments_status ON failed_payments(recovery_status);
+
+-- Dunning sequences: tracks multi-day email sequences for failed payments
+CREATE TABLE IF NOT EXISTS dunning_sequences (
+  id TEXT PRIMARY KEY,
+  customer_id TEXT NOT NULL,
+  customer_email TEXT,
+  project_id TEXT NOT NULL,
+  started_at TEXT DEFAULT (datetime('now')),
+  last_email_day INTEGER DEFAULT 0,
+  next_email_at TEXT,
+  status TEXT DEFAULT 'active', -- 'active', 'completed', 'cancelled', 'recovered'
+  stripe_invoice_id TEXT
+);
+
+CREATE INDEX IF NOT EXISTS idx_dunning_sequences_project_id ON dunning_sequences(project_id);
+CREATE INDEX IF NOT EXISTS idx_dunning_sequences_status ON dunning_sequences(status);
+CREATE INDEX IF NOT EXISTS idx_dunning_sequences_next_email ON dunning_sequences(next_email_at);

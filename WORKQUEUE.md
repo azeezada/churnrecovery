@@ -35,9 +35,9 @@ Low-code/no-code business owners: newsletter creators, coaches, online course se
 - [ ] **Customer logo wall** — Get permission to display actual company logos for trust signals
 - [ ] Migrate to shadcn/ui + Tailwind (kill 1,770 inline styles) — important but secondary to getting the product loop working
 - [ ] Dunning email sequences (Resend/SendGrid integration)
-- [ ] Real analytics in dashboard (replace mock data)
+- [✅] Real analytics in dashboard (replace mock data) — DONE 2026-03-21. Wired analytics.js + dashboard.js to /api/analytics and /api/events. Falls back to localStore. Skeleton loading states added.
 - [ ] Widget CDN (minify, serve from cdn.churnrecovery.com)
-- [ ] Stripe webhook signature verification
+- [✅] Stripe webhook signature verification — DONE (already implemented in stripe-webhook.js, verified). Uses STRIPE_WEBHOOK_SECRET env var, 401 on invalid, warns if missing.
 - [x] More comparison pages for long-tail SEO
 - [✅] G2 + Capterra business profiles with review collection strategy — DONE 2026-03-21. Full setup guides at docs/g2-capterra-profiles.md: G2 (Churn Management category), Capterra (Customer Retention), AlternativeTo (already live), review collection email templates, incentive strategy, tracking table.
 

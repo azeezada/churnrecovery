@@ -5,7 +5,7 @@
     <link>https://churnrecovery.com/blog</link>
     <description>Insights on churn recovery, payment failures, and SaaS retention</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 21 Mar 2026 03:39:21 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 21 Mar 2026 03:44:29 GMT</lastBuildDate>
     <atom:link href="https://churnrecovery.com/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title><![CDATA[ChurnRecovery vs Churnkey: The Complete Comparison Guide (2026)]]></title>
@@ -29,6 +29,17 @@
       <category>saas-tools</category>
       <category>churn</category>
       <category>business</category>
+    </item>
+    <item>
+      <title><![CDATA[Why Churnkey Costs $250/Month and We're Free]]></title>
+      <link>https://churnrecovery.com/posts/why-churnkey-costs-250-month-and-we-are-free</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/why-churnkey-costs-250-month-and-we-are-free</guid>
+      <description><![CDATA[Churnkey starts at $250/month — and goes up to $825. We charge nothing. Here's the honest reason why, and what that actually means for your subscription business.]]></description>
+      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
+      <category>pricing</category>
+      <category>churnkey</category>
+      <category>churn</category>
+      <category>small business</category>
     </item>
     <item>
       <title><![CDATA[B2B SaaS Churn Benchmarks 2025: What's a Good Churn Rate?]]></title>

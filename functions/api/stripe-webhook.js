@@ -1,4 +1,6 @@
 import { jsonResponse, rateLimit, rateLimitResponse } from './_shared.js'
+import { sendEmail } from './_email.js'
+import { paymentFailedDay0, paymentFailedDay3, paymentFailedDay7 } from './_email-templates.js'
 
 /**
  * Verify Stripe webhook signature using Web Crypto API.
@@ -108,6 +110,7 @@ export async function onRequestPost(context) {
           const projectId = invoice.metadata.churnrecovery_project_id
           const project = await env.DB.prepare('SELECT id FROM projects WHERE id = ?').bind(projectId).first()
           if (project) {
+            // Record the failed payment
             await env.DB.prepare(`
               INSERT INTO failed_payments (project_id, customer_id, stripe_invoice_id, amount_cents)
               VALUES (?, ?, ?, ?)
@@ -117,6 +120,60 @@ export async function onRequestPost(context) {
               invoice.id,
               typeof invoice.amount_due === 'number' ? invoice.amount_due : 0
             ).run()
+
+            // Kick off dunning sequence — send Day 0 email immediately
+            const customerId = invoice.customer || 'unknown'
+            const customerEmail = invoice.customer_email || null
+
+            if (customerEmail) {
+              // Generate the Stripe customer portal URL (or use configured portal URL)
+              // The actual portal URL is created via Stripe API; we use a generic fallback here
+              // In production, this should be a real Stripe Billing Portal session URL
+              const portalBaseUrl = env.STRIPE_PORTAL_URL || 'https://billing.stripe.com/p/login/test'
+              const updateUrl = portalBaseUrl
+
+              const { subject, html, text } = paymentFailedDay0(customerEmail, updateUrl)
+              const emailResult = await sendEmail({ to: customerEmail, subject, html, text }, env)
+              console.log('[Stripe] Day 0 dunning email sent:', emailResult)
+
+              // Store the dunning sequence record in D1
+              const sequenceId = crypto.randomUUID()
+              const nowIso = new Date().toISOString()
+              // Next email at Day 3 (72 hours from now)
+              const day3Date = new Date(Date.now() + 3 * 24 * 60 * 60 * 1000).toISOString()
+
+              await env.DB.prepare(`
+                INSERT INTO dunning_sequences
+                  (id, customer_id, customer_email, project_id, started_at, last_email_day, next_email_at, status, stripe_invoice_id)
+                VALUES (?, ?, ?, ?, ?, 0, ?, 'active', ?)
+              `).bind(
+                sequenceId,
+                customerId,
+                customerEmail,
+                projectId,
+                nowIso,
+                day3Date,
+                invoice.id
+              ).run()
+
+              console.log('[Stripe] Dunning sequence started:', sequenceId)
+            } else {
+              console.warn('[Stripe] No customer email on invoice — skipping dunning emails for:', invoice.id)
+
+              // Still record the sequence without email
+              const sequenceId = crypto.randomUUID()
+              const nowIso = new Date().toISOString()
+              await env.DB.prepare(`
+                INSERT INTO dunning_sequences
+                  (id, customer_id, customer_email, project_id, started_at, last_email_day, next_email_at, status, stripe_invoice_id)
+                VALUES (?, ?, NULL, ?, ?, 0, NULL, 'active', ?)
+              `).bind(sequenceId, customerId, projectId, nowIso, invoice.id).run()
+            }
+
+            // NOTE: Day 3 and Day 7 emails are processed by a Cloudflare Cron Worker.
+            // Configure a scheduled worker (wrangler.toml crons) to call processDunningSequences()
+            // which queries: SELECT * FROM dunning_sequences WHERE status='active' AND next_email_at <= datetime('now')
+            // Then sends the appropriate email based on last_email_day (0→3→7) and updates the record.
           }
         }
         break
@@ -130,6 +187,14 @@ export async function onRequestPost(context) {
             UPDATE failed_payments SET recovery_status = 'recovered', updated_at = datetime('now')
             WHERE stripe_invoice_id = ? AND recovery_status = 'pending'
           `).bind(invoice.id).run()
+
+          // Mark any active dunning sequence for this invoice as recovered
+          await env.DB.prepare(`
+            UPDATE dunning_sequences SET status = 'recovered'
+            WHERE stripe_invoice_id = ? AND status = 'active'
+          `).bind(invoice.id).run()
+
+          console.log('[Stripe] Dunning sequence marked recovered for invoice:', invoice.id)
         }
         break
       }
