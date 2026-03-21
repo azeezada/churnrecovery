@@ -88,6 +88,14 @@ Low-code/no-code business owners: newsletter creators, coaches, online course se
 - [✅] **Referral & affiliate strategy** — DONE 2026-03-21. Full strategy at docs/referral-affiliate-strategy.md: referral program design (free-tier-compatible perks + Pro early access), UTM + ConvertKit tracking implementation, 3 affiliate channels (newsletter sponsorships, podcast pitches, content swaps), 20 target newsletters, first 10 partner categories with outreach templates.
 - [✅] **Launch announcement email** — DONE 2026-03-21. Full launch email at docs/launch-announcement-email.md: 5 subject line A/B variants, plain-text + HTML-friendly versions, 7-day follow-up sequence, founder-voice tone (no corporate hype), ConvertKit personalization tokens.
 
+### Wave 14 — Changelog + Status + Onboarding (Added 2026-03-21)
+
+- [✅] **P1: Changelog page** — DONE 2026-03-21. `/changelog` already existed with full timeline layout. Added `src/changelog/changelog.json` with 9 machine-readable entries (v0.1–v0.9). Footer already had Changelog links under Product and Company.
+
+- [✅] **P1: Status page** — DONE 2026-03-21. `/status` created at pages/status.js. Shows real-time API health (client-side fetch), static Operational for Webhook Processing / Dashboard / Widget CDN, auto-updating timestamp every 30s. "Status" link added to footer Company section.
+
+- [✅] **P2: Welcome email sequence** — DONE 2026-03-21. 3-email onboarding sequence at docs/welcome-email-sequence.md. Email 1 (first Stripe webhook, immediate), Email 2 (Day 3 save rate check-in), Email 3 (Day 14 optimization review). Full Resend + ConvertKit implementation notes included.
+
 ### New P2/P3 Tasks — Growth Opportunities (Added 2026-03-21)
 
 - [✅] **P2: Churn rate calculator landing page** — DONE 2026-03-21. `/tools/churn-rate-calculator` deployed (HTTP 200). Full SEO meta, embedded ChurnCalculator, educational benchmarks by membership type, 5-step reduction guide, 7-question FAQ with JSON-LD FAQPage schema, WebApplication schema, waitlist CTAs. Added to sitemap.

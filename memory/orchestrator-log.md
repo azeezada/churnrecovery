@@ -439,3 +439,24 @@
 - Tests: 139 pass, 2 pre-existing flaky failures (homepage CTA AB test — unrelated to this work)
 - HTTP 200 verified on all 7 new URLs on live churnrecovery.com
 - Deploy fingerprint: build-1774076754-b81a9aae confirmed on both pages.dev URL and churnrecovery.com
+
+---
+
+## Wave 14 — Changelog + Status Page + Welcome Email Sequence
+**Date:** 2026-03-21
+**Commit:** 320f21b — "feat: changelog page + status page + welcome email sequence"
+
+### Files Created/Modified
+- `pages/status.js` — New /status page (service health, client-side API check, auto-refresh)
+- `src/changelog/changelog.json` — Machine-readable changelog data (9 entries, v0.1–v0.9)
+- `docs/welcome-email-sequence.md` — 3-email onboarding sequence for widget installers
+- `components/Footer.js` — Added "Status" link to Company section
+- `tests/pages.spec.js` — Added /status to marketing pages test suite
+
+### Notes
+- `pages/changelog.js` already existed from prior work — no recreation needed
+- Footer already had Changelog in both Product and Company sections
+- Build passes: ✅ (116 sitemap URLs, all pages generated)
+- Tests: 12/12 marketing page tests pass (including /changelog and /status)
+- Status page uses `useState`/`useEffect` for client-side health check with 30s auto-refresh
+- Welcome email sequence covers: first webhook → Day 3 → Day 14; Resend + ConvertKit implementation notes included
