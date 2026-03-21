@@ -2,19 +2,6 @@ import Head from 'next/head'
 import Link from 'next/link'
 import ChurnCalculator from '../../components/ChurnCalculator'
 
-const t = {
-  bg: '#FAF9F5',
-  text: '#191919',
-  gray: '#666666',
-  grayLight: '#999999',
-  accent: '#D97757',
-  border: '#E5E5E5',
-  white: '#FFFFFF',
-  green: '#2D7A4F',
-  fontSans: '"Instrument Sans", sans-serif',
-  fontSerif: '"Merriweather", serif',
-}
-
 const faqItems = [
   {
     q: 'What is churn rate and how do you calculate it?',
@@ -115,256 +102,111 @@ export default function ChurnRateCalculatorPage() {
         />
       </Head>
 
-      <div style={{ background: t.bg, minHeight: '100vh', fontFamily: t.fontSans }}>
+      <div className="bg-[#FAF9F5] min-h-screen font-sans">
 
         {/* Nav */}
-        <nav style={{
-          borderBottom: `1px solid ${t.border}`,
-          background: t.white,
-          padding: '0 20px',
-          height: '60px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          position: 'sticky',
-          top: 0,
-          zIndex: 100,
-        }}>
-          <Link href="/" style={{
-            fontFamily: t.fontSans,
-            fontWeight: 700,
-            fontSize: '1.1rem',
-            color: t.text,
-            textDecoration: 'none',
-            letterSpacing: '-0.01em',
-          }}>
+        <nav className="border-b border-[#E5E5E5] bg-white px-5 h-[60px] flex items-center justify-between sticky top-0 z-[100]">
+          <Link href="/" className="font-sans font-bold text-[1.1rem] text-[#191919] no-underline tracking-[-0.01em]">
             ChurnRecovery
           </Link>
-          <div style={{ display: 'flex', gap: '24px', alignItems: 'center' }}>
-            <Link href="/demo" style={{ color: t.gray, textDecoration: 'none', fontSize: '0.9rem' }}>Demo</Link>
-            <Link href="/blog" style={{ color: t.gray, textDecoration: 'none', fontSize: '0.9rem' }}>Blog</Link>
-            <a href="/#waitlist" style={{
-              background: t.accent,
-              color: t.white,
-              padding: '8px 18px',
-              borderRadius: '6px',
-              textDecoration: 'none',
-              fontSize: '0.85rem',
-              fontWeight: 600,
-            }}>Join Waitlist</a>
+          <div className="flex gap-6 items-center">
+            <Link href="/demo" className="text-[#666] no-underline text-[0.9rem]">Demo</Link>
+            <Link href="/blog" className="text-[#666] no-underline text-[0.9rem]">Blog</Link>
+            <a href="/#waitlist" className="bg-[#D97757] text-white px-[18px] py-2 rounded-[6px] no-underline text-[0.85rem] font-semibold">Join Waitlist</a>
           </div>
         </nav>
 
         {/* Breadcrumb */}
-        <div style={{ maxWidth: '760px', margin: '0 auto', padding: '16px 24px 0', fontSize: '0.8rem', color: t.grayLight }}>
-          <Link href="/" style={{ color: t.grayLight, textDecoration: 'none' }}>Home</Link>
+        <div className="max-w-[760px] mx-auto pt-4 px-6 text-[0.8rem] text-[#999]">
+          <Link href="/" className="text-[#999] no-underline">Home</Link>
           {' '}/{' '}
-          <span style={{ color: t.gray }}>Tools</span>
+          <span className="text-[#666]">Tools</span>
           {' '}/{' '}
-          <span style={{ color: t.text }}>Churn Rate Calculator</span>
+          <span className="text-[#191919]">Churn Rate Calculator</span>
         </div>
 
         {/* Hero */}
-        <section style={{ maxWidth: '760px', margin: '0 auto', padding: '48px 24px 40px', textAlign: 'center' }}>
-          <div style={{
-            display: 'inline-block',
-            background: '#F0EBE5',
-            color: t.accent,
-            padding: '4px 14px',
-            borderRadius: '4px',
-            fontSize: '0.72rem',
-            fontWeight: 700,
-            textTransform: 'uppercase',
-            letterSpacing: '0.08em',
-            marginBottom: '20px',
-          }}>
+        <section className="max-w-[760px] mx-auto pt-12 px-6 pb-10 text-center">
+          <div className="inline-block bg-[#F0EBE5] text-[#D97757] px-[14px] py-1 rounded-[4px] text-[0.72rem] font-bold uppercase tracking-[0.08em] mb-5">
             Free Membership Tool
           </div>
-          <h1 style={{
-            fontFamily: t.fontSans,
-            fontSize: 'clamp(1.8rem, 5vw, 2.8rem)',
-            fontWeight: 800,
-            color: t.text,
-            letterSpacing: '-0.04em',
-            margin: '0 0 16px',
-            lineHeight: 1.15,
-          }}>
+          <h1 className="font-sans font-extrabold text-[#191919] tracking-[-0.04em] mb-4 leading-[1.15]" style={{ fontSize: 'clamp(1.8rem, 5vw, 2.8rem)' }}>
             Membership Site Churn Rate Calculator
           </h1>
-          <p style={{
-            fontFamily: t.fontSerif,
-            fontSize: '1.1rem',
-            color: t.gray,
-            lineHeight: 1.7,
-            maxWidth: '560px',
-            margin: '0 auto 12px',
-          }}>
+          <p className="font-serif text-[1.1rem] text-[#666] leading-[1.7] max-w-[560px] mx-auto mb-3">
             Enter your membership numbers and instantly see your churn rate, the revenue you're losing each month, and how much a cancel flow could save. Free. No signup.
           </p>
-          <p style={{
-            fontFamily: t.fontSans,
-            fontSize: '0.85rem',
-            color: t.grayLight,
-            margin: '0 auto 40px',
-          }}>
+          <p className="font-sans text-[0.85rem] text-[#999] mx-auto mb-10">
             Takes 30 seconds · 100% free · No email required
           </p>
         </section>
 
         {/* Calculator */}
-        <section style={{ maxWidth: '760px', margin: '0 auto', padding: '0 24px 80px' }}>
+        <section className="max-w-[760px] mx-auto px-6 pb-20">
           <ChurnCalculator />
         </section>
 
         {/* Post-calculator CTA */}
-        <section style={{
-          background: '#F5F0E8',
-          borderTop: `1px solid ${t.border}`,
-          borderBottom: `1px solid ${t.border}`,
-          padding: '48px 24px',
-          textAlign: 'center',
-        }}>
-          <div style={{ maxWidth: '560px', margin: '0 auto' }}>
-            <p style={{
-              fontFamily: t.fontSans,
-              fontSize: '0.75rem',
-              fontWeight: 700,
-              textTransform: 'uppercase',
-              letterSpacing: '0.08em',
-              color: t.accent,
-              marginBottom: '12px',
-            }}>
+        <section className="bg-[#F5F0E8] border-t border-b border-[#E5E5E5] py-12 px-6 text-center">
+          <div className="max-w-[560px] mx-auto">
+            <p className="font-sans text-[0.75rem] font-bold uppercase tracking-[0.08em] text-[#D97757] mb-3">
               Stop the bleed
             </p>
-            <h2 style={{
-              fontFamily: t.fontSans,
-              fontSize: 'clamp(1.3rem, 3vw, 1.8rem)',
-              fontWeight: 700,
-              color: t.text,
-              letterSpacing: '-0.03em',
-              margin: '0 0 14px',
-              lineHeight: 1.2,
-            }}>
+            <h2 className="font-sans font-bold text-[#191919] tracking-[-0.03em] mb-[14px] leading-[1.2]" style={{ fontSize: 'clamp(1.3rem, 3vw, 1.8rem)' }}>
               Now that you know your churn cost — do something about it
             </h2>
-            <p style={{
-              fontFamily: t.fontSerif,
-              fontSize: '0.95rem',
-              color: t.gray,
-              lineHeight: 1.7,
-              margin: '0 0 28px',
-            }}>
+            <p className="font-serif text-[0.95rem] text-[#666] leading-[1.7] mb-7">
               ChurnRecovery intercepts cancellations with the right offer — a pause, a discount, a downgrade. Founders using cancel flows save 25–45% of churning members automatically. It's free.
             </p>
-            <a href="https://tally.so/r/churnrecovery" style={{
-              display: 'inline-block',
-              background: t.accent,
-              color: t.white,
-              padding: '14px 32px',
-              borderRadius: '8px',
-              fontFamily: t.fontSans,
-              fontWeight: 700,
-              fontSize: '1rem',
-              textDecoration: 'none',
-              letterSpacing: '-0.01em',
-            }}>
+            <a href="https://tally.so/r/churnrecovery" className="inline-block bg-[#D97757] text-white px-8 py-[14px] rounded-lg font-sans font-bold text-base no-underline tracking-[-0.01em]">
               Join the Waitlist — It's Free
             </a>
-            <p style={{
-              fontFamily: t.fontSans,
-              fontSize: '0.78rem',
-              color: t.grayLight,
-              marginTop: '12px',
-            }}>
+            <p className="font-sans text-[0.78rem] text-[#999] mt-3">
               No credit card. No commitment. Cancel flows that actually work.
             </p>
           </div>
         </section>
 
         {/* What is churn rate */}
-        <section style={{ maxWidth: '760px', margin: '0 auto', padding: '72px 24px 48px' }}>
-          <h2 style={{
-            fontFamily: t.fontSans,
-            fontSize: 'clamp(1.3rem, 3vw, 1.8rem)',
-            fontWeight: 700,
-            color: t.text,
-            letterSpacing: '-0.03em',
-            margin: '0 0 20px',
-          }}>
+        <section className="max-w-[760px] mx-auto pt-[72px] px-6 pb-12">
+          <h2 className="font-sans font-bold text-[#191919] tracking-[-0.03em] mb-5" style={{ fontSize: 'clamp(1.3rem, 3vw, 1.8rem)' }}>
             What is churn rate? And how do you calculate it?
           </h2>
-          <div style={{ fontFamily: t.fontSerif, fontSize: '0.95rem', color: t.gray, lineHeight: 1.8 }}>
-            <p style={{ margin: '0 0 16px' }}>
-              <strong style={{ color: t.text, fontFamily: t.fontSans }}>Churn rate</strong> is the percentage of paying members who cancel their subscription during a given time period. It's the single most important health metric for any membership site, community, or subscription business.
+          <div className="font-serif text-[0.95rem] text-[#666] leading-[1.8]">
+            <p className="mb-4">
+              <strong className="text-[#191919] font-sans">Churn rate</strong> is the percentage of paying members who cancel their subscription during a given time period. It's the single most important health metric for any membership site, community, or subscription business.
             </p>
-            <p style={{ margin: '0 0 16px' }}>
+            <p className="mb-4">
               The churn rate formula is straightforward:
             </p>
-            <div style={{
-              background: t.white,
-              border: `1px solid ${t.border}`,
-              borderRadius: '10px',
-              padding: '24px',
-              margin: '0 0 20px',
-              textAlign: 'center',
-            }}>
-              <p style={{
-                fontFamily: t.fontSans,
-                fontSize: '1.1rem',
-                fontWeight: 700,
-                color: t.text,
-                margin: 0,
-                letterSpacing: '-0.02em',
-              }}>
+            <div className="bg-white border border-[#E5E5E5] rounded-[10px] p-6 mb-5 text-center">
+              <p className="font-sans text-[1.1rem] font-bold text-[#191919] m-0 tracking-[-0.02em]">
                 Churn Rate = (Members Lost ÷ Members at Start of Period) × 100
               </p>
-              <p style={{
-                fontFamily: t.fontSans,
-                fontSize: '0.82rem',
-                color: t.grayLight,
-                margin: '8px 0 0',
-              }}>
+              <p className="font-sans text-[0.82rem] text-[#999] mt-2 mb-0">
                 Example: 25 cancellations ÷ 500 members × 100 = 5% monthly churn
               </p>
             </div>
-            <p style={{ margin: '0 0 16px' }}>
+            <p className="mb-4">
               Most membership sites track monthly churn rate because billing is monthly. Annual churn rate is roughly 12× monthly churn for rough benchmarking, though the real number compounds slightly higher.
             </p>
-            <p style={{ margin: 0 }}>
+            <p className="m-0">
               The calculator above computes this for you automatically — and goes further by translating churn rate into actual dollars lost per month and per year, which is what motivates action.
             </p>
           </div>
         </section>
 
         {/* Benchmarks by industry */}
-        <section style={{
-          background: t.white,
-          borderTop: `1px solid ${t.border}`,
-          borderBottom: `1px solid ${t.border}`,
-          padding: '72px 24px',
-        }}>
-          <div style={{ maxWidth: '760px', margin: '0 auto' }}>
-            <h2 style={{
-              fontFamily: t.fontSans,
-              fontSize: 'clamp(1.3rem, 3vw, 1.8rem)',
-              fontWeight: 700,
-              color: t.text,
-              letterSpacing: '-0.03em',
-              margin: '0 0 12px',
-            }}>
+        <section className="bg-white border-t border-b border-[#E5E5E5] py-[72px] px-6">
+          <div className="max-w-[760px] mx-auto">
+            <h2 className="font-sans font-bold text-[#191919] tracking-[-0.03em] mb-3" style={{ fontSize: 'clamp(1.3rem, 3vw, 1.8rem)' }}>
               What's a good churn rate? Benchmarks by membership type
             </h2>
-            <p style={{
-              fontFamily: t.fontSerif,
-              fontSize: '0.95rem',
-              color: t.gray,
-              lineHeight: 1.7,
-              margin: '0 0 36px',
-            }}>
+            <p className="font-serif text-[0.95rem] text-[#666] leading-[1.7] mb-9">
               Churn benchmarks vary significantly by market. Here's what's typical — and what's excellent — across common membership site categories.
             </p>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '20px', marginBottom: '40px' }}>
+            <div className="grid grid-cols-[repeat(auto-fill,minmax(220px,1fr))] gap-5 mb-10">
               {[
                 { type: 'B2B SaaS / Software', avg: '3–5%', excellent: '< 1.5%', bad: '> 7%' },
                 { type: 'Online Courses / E-learning', avg: '5–8%', excellent: '< 3%', bad: '> 10%' },
@@ -373,52 +215,30 @@ export default function ChurnRateCalculatorPage() {
                 { type: 'Coaching / Mastermind', avg: '3–6%', excellent: '< 2%', bad: '> 8%' },
                 { type: 'Fitness / Wellness Subscriptions', avg: '6–10%', excellent: '< 4%', bad: '> 15%' },
               ].map(item => (
-                <div key={item.type} style={{
-                  padding: '20px',
-                  border: `1px solid ${t.border}`,
-                  borderRadius: '10px',
-                }}>
-                  <div style={{
-                    fontFamily: t.fontSans,
-                    fontSize: '0.82rem',
-                    fontWeight: 700,
-                    color: t.text,
-                    marginBottom: '12px',
-                    lineHeight: 1.3,
-                  }}>
+                <div key={item.type} className="p-5 border border-[#E5E5E5] rounded-[10px]">
+                  <div className="font-sans text-[0.82rem] font-bold text-[#191919] mb-3 leading-[1.3]">
                     {item.type}
                   </div>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                      <span style={{ fontFamily: t.fontSans, fontSize: '0.72rem', color: t.grayLight }}>Average</span>
-                      <span style={{ fontFamily: t.fontSans, fontSize: '0.82rem', fontWeight: 600, color: t.gray }}>{item.avg}/mo</span>
+                  <div className="flex flex-col gap-[6px]">
+                    <div className="flex justify-between items-center">
+                      <span className="font-sans text-[0.72rem] text-[#999]">Average</span>
+                      <span className="font-sans text-[0.82rem] font-semibold text-[#666]">{item.avg}/mo</span>
                     </div>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                      <span style={{ fontFamily: t.fontSans, fontSize: '0.72rem', color: t.grayLight }}>Excellent</span>
-                      <span style={{ fontFamily: t.fontSans, fontSize: '0.82rem', fontWeight: 600, color: t.green }}>{item.excellent}/mo</span>
+                    <div className="flex justify-between items-center">
+                      <span className="font-sans text-[0.72rem] text-[#999]">Excellent</span>
+                      <span className="font-sans text-[0.82rem] font-semibold text-[#2D7A4F]">{item.excellent}/mo</span>
                     </div>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                      <span style={{ fontFamily: t.fontSans, fontSize: '0.72rem', color: t.grayLight }}>Problem zone</span>
-                      <span style={{ fontFamily: t.fontSans, fontSize: '0.82rem', fontWeight: 600, color: '#B91C1C' }}>{item.bad}/mo</span>
+                    <div className="flex justify-between items-center">
+                      <span className="font-sans text-[0.72rem] text-[#999]">Problem zone</span>
+                      <span className="font-sans text-[0.82rem] font-semibold text-[#B91C1C]">{item.bad}/mo</span>
                     </div>
                   </div>
                 </div>
               ))}
             </div>
 
-            <div style={{
-              background: '#F0EBE5',
-              borderRadius: '10px',
-              padding: '20px 24px',
-              borderLeft: `4px solid ${t.accent}`,
-            }}>
-              <p style={{
-                fontFamily: t.fontSerif,
-                fontSize: '0.9rem',
-                color: t.text,
-                lineHeight: 1.7,
-                margin: 0,
-              }}>
+            <div className="bg-[#F0EBE5] rounded-[10px] py-5 px-6 border-l-4 border-l-[#D97757]">
+              <p className="font-serif text-[0.9rem] text-[#191919] leading-[1.7] m-0">
                 <strong>Rule of thumb:</strong> If your monthly churn is above 5%, you have a retention problem worth fixing today. If it's above 8%, churn is likely your #1 business risk. A cancel flow alone typically saves 25–45% of would-be churners.
               </p>
             </div>
@@ -426,28 +246,15 @@ export default function ChurnRateCalculatorPage() {
         </section>
 
         {/* How to reduce churn */}
-        <section style={{ maxWidth: '760px', margin: '0 auto', padding: '72px 24px' }}>
-          <h2 style={{
-            fontFamily: t.fontSans,
-            fontSize: 'clamp(1.3rem, 3vw, 1.8rem)',
-            fontWeight: 700,
-            color: t.text,
-            letterSpacing: '-0.03em',
-            margin: '0 0 16px',
-          }}>
+        <section className="max-w-[760px] mx-auto py-[72px] px-6">
+          <h2 className="font-sans font-bold text-[#191919] tracking-[-0.03em] mb-4" style={{ fontSize: 'clamp(1.3rem, 3vw, 1.8rem)' }}>
             How to reduce churn on your membership site
           </h2>
-          <p style={{
-            fontFamily: t.fontSerif,
-            fontSize: '0.95rem',
-            color: t.gray,
-            lineHeight: 1.7,
-            margin: '0 0 36px',
-          }}>
+          <p className="font-serif text-[0.95rem] text-[#666] leading-[1.7] mb-9">
             Churn has two phases: before someone decides to leave, and the moment they click "cancel." Both are winnable with the right approach.
           </p>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
+          <div className="flex flex-col gap-8">
             {[
               {
                 number: '01',
@@ -475,43 +282,15 @@ export default function ChurnRateCalculatorPage() {
                 body: 'Up to 40% of membership churn is passive — failed payments that no one follows up on. Smart retry logic (retry on different days, at different times) combined with dunning emails ("your card failed, here\'s how to update it") can recover 60–80% of these failed payments automatically.',
               },
             ].map(item => (
-              <div key={item.number} style={{ display: 'flex', gap: '20px' }}>
-                <div style={{
-                  flexShrink: 0,
-                  width: '40px',
-                  height: '40px',
-                  borderRadius: '50%',
-                  background: '#F0EBE5',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontFamily: t.fontSans,
-                  fontSize: '0.72rem',
-                  fontWeight: 800,
-                  color: t.accent,
-                  letterSpacing: '0.04em',
-                }}>
+              <div key={item.number} className="flex gap-5">
+                <div className="shrink-0 w-10 h-10 rounded-full bg-[#F0EBE5] flex items-center justify-center font-sans text-[0.72rem] font-extrabold text-[#D97757] tracking-[0.04em]">
                   {item.number}
                 </div>
                 <div>
-                  <h3 style={{
-                    fontFamily: t.fontSans,
-                    fontSize: '0.95rem',
-                    fontWeight: 700,
-                    color: t.text,
-                    margin: '0 0 8px',
-                    letterSpacing: '-0.01em',
-                    lineHeight: 1.3,
-                  }}>
+                  <h3 className="font-sans text-[0.95rem] font-bold text-[#191919] mb-2 tracking-[-0.01em] leading-[1.3]">
                     {item.title}
                   </h3>
-                  <p style={{
-                    fontFamily: t.fontSerif,
-                    fontSize: '0.9rem',
-                    color: t.gray,
-                    lineHeight: 1.7,
-                    margin: 0,
-                  }}>
+                  <p className="font-serif text-[0.9rem] text-[#666] leading-[1.7] m-0">
                     {item.body}
                   </p>
                 </div>
@@ -521,33 +300,15 @@ export default function ChurnRateCalculatorPage() {
         </section>
 
         {/* When to use section */}
-        <section style={{
-          background: t.white,
-          borderTop: `1px solid ${t.border}`,
-          borderBottom: `1px solid ${t.border}`,
-          padding: '72px 24px',
-        }}>
-          <div style={{ maxWidth: '760px', margin: '0 auto' }}>
-            <h2 style={{
-              fontFamily: t.fontSans,
-              fontSize: 'clamp(1.3rem, 3vw, 1.8rem)',
-              fontWeight: 700,
-              color: t.text,
-              letterSpacing: '-0.03em',
-              margin: '0 0 20px',
-            }}>
+        <section className="bg-white border-t border-b border-[#E5E5E5] py-[72px] px-6">
+          <div className="max-w-[760px] mx-auto">
+            <h2 className="font-sans font-bold text-[#191919] tracking-[-0.03em] mb-5" style={{ fontSize: 'clamp(1.3rem, 3vw, 1.8rem)' }}>
               When to use a membership site churn rate calculator
             </h2>
-            <p style={{
-              fontFamily: t.fontSerif,
-              fontSize: '0.95rem',
-              color: t.gray,
-              lineHeight: 1.7,
-              margin: '0 0 28px',
-            }}>
+            <p className="font-serif text-[0.95rem] text-[#666] leading-[1.7] mb-7">
               The calculator above is most useful in these situations:
             </p>
-            <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '16px' }}>
+            <ul className="list-none p-0 m-0 flex flex-col gap-4">
               {[
                 'You\'ve never calculated your churn rate before and want a baseline',
                 'You\'re pitching a retention investment (cancel flow, community manager, new content) to a co-founder or team and need the revenue impact in dollars',
@@ -556,24 +317,11 @@ export default function ChurnRateCalculatorPage() {
                 'A member just cancelled and you\'re wondering how much revenue is really at stake per cancellation',
                 'You\'re evaluating retention tools and want to know the ROI threshold for when a paid tool makes sense',
               ].map((item, i) => (
-                <li key={i} style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-                  <span style={{
-                    flexShrink: 0,
-                    width: '20px',
-                    height: '20px',
-                    borderRadius: '50%',
-                    background: '#E8F5ED',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    fontSize: '0.65rem',
-                    color: t.green,
-                    fontWeight: 800,
-                    marginTop: '2px',
-                  }}>
+                <li key={i} className="flex gap-3 items-start">
+                  <span className="shrink-0 w-5 h-5 rounded-full bg-[#E8F5ED] flex items-center justify-center text-[0.65rem] text-[#2D7A4F] font-extrabold mt-[2px]">
                     ✓
                   </span>
-                  <span style={{ fontFamily: t.fontSerif, fontSize: '0.9rem', color: t.gray, lineHeight: 1.6 }}>
+                  <span className="font-serif text-[0.9rem] text-[#666] leading-[1.6]">
                     {item}
                   </span>
                 </li>
@@ -583,19 +331,11 @@ export default function ChurnRateCalculatorPage() {
         </section>
 
         {/* Stats */}
-        <section style={{ maxWidth: '760px', margin: '0 auto', padding: '72px 24px' }}>
-          <h2 style={{
-            fontFamily: t.fontSans,
-            fontSize: 'clamp(1.2rem, 3vw, 1.6rem)',
-            fontWeight: 700,
-            color: t.text,
-            letterSpacing: '-0.03em',
-            marginBottom: '40px',
-            textAlign: 'center',
-          }}>
+        <section className="max-w-[760px] mx-auto py-[72px] px-6">
+          <h2 className="font-sans font-bold text-[#191919] tracking-[-0.03em] mb-10 text-center" style={{ fontSize: 'clamp(1.2rem, 3vw, 1.6rem)' }}>
             The numbers behind membership site retention
           </h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '20px' }}>
+          <div className="grid grid-cols-[repeat(auto-fill,minmax(220px,1fr))] gap-5">
             {[
               {
                 stat: '5–7%',
@@ -618,40 +358,14 @@ export default function ChurnRateCalculatorPage() {
                 body: 'Many membership site owners don\'t realize nearly half their lost members never intended to cancel — their cards just declined.',
               },
             ].map(item => (
-              <div key={item.stat} style={{
-                padding: '24px',
-                border: `1px solid ${t.border}`,
-                borderRadius: '10px',
-                background: t.white,
-              }}>
-                <div style={{
-                  fontFamily: t.fontSans,
-                  fontWeight: 800,
-                  fontSize: '2rem',
-                  color: t.accent,
-                  letterSpacing: '-0.04em',
-                  lineHeight: 1,
-                  marginBottom: '8px',
-                }}>
+              <div key={item.stat} className="p-6 border border-[#E5E5E5] rounded-[10px] bg-white">
+                <div className="font-sans font-extrabold text-[2rem] text-[#D97757] tracking-[-0.04em] leading-none mb-2">
                   {item.stat}
                 </div>
-                <div style={{
-                  fontFamily: t.fontSans,
-                  fontSize: '0.82rem',
-                  fontWeight: 600,
-                  color: t.text,
-                  marginBottom: '8px',
-                  lineHeight: 1.3,
-                }}>
+                <div className="font-sans text-[0.82rem] font-semibold text-[#191919] mb-2 leading-[1.3]">
                   {item.label}
                 </div>
-                <p style={{
-                  fontFamily: t.fontSerif,
-                  fontSize: '0.8rem',
-                  color: t.gray,
-                  lineHeight: 1.6,
-                  margin: 0,
-                }}>
+                <p className="font-serif text-[0.8rem] text-[#666] leading-[1.6] m-0">
                   {item.body}
                 </p>
               </div>
@@ -660,47 +374,18 @@ export default function ChurnRateCalculatorPage() {
         </section>
 
         {/* FAQ */}
-        <section style={{
-          background: t.white,
-          borderTop: `1px solid ${t.border}`,
-          borderBottom: `1px solid ${t.border}`,
-          padding: '72px 24px',
-        }}>
-          <div style={{ maxWidth: '760px', margin: '0 auto' }}>
-            <h2 style={{
-              fontFamily: t.fontSans,
-              fontSize: 'clamp(1.3rem, 3vw, 1.7rem)',
-              fontWeight: 700,
-              color: t.text,
-              letterSpacing: '-0.03em',
-              marginBottom: '40px',
-            }}>
+        <section className="bg-white border-t border-b border-[#E5E5E5] py-[72px] px-6">
+          <div className="max-w-[760px] mx-auto">
+            <h2 className="font-sans font-bold text-[#191919] tracking-[-0.03em] mb-10" style={{ fontSize: 'clamp(1.3rem, 3vw, 1.7rem)' }}>
               Frequently asked questions
             </h2>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '28px' }}>
+            <div className="flex flex-col gap-7">
               {faqItems.map(item => (
-                <div key={item.q} style={{
-                  borderBottom: `1px solid ${t.border}`,
-                  paddingBottom: '28px',
-                }}>
-                  <h3 style={{
-                    fontFamily: t.fontSans,
-                    fontSize: '0.95rem',
-                    fontWeight: 700,
-                    color: t.text,
-                    margin: '0 0 10px',
-                    letterSpacing: '-0.01em',
-                    lineHeight: 1.4,
-                  }}>
+                <div key={item.q} className="border-b border-[#E5E5E5] pb-7">
+                  <h3 className="font-sans text-[0.95rem] font-bold text-[#191919] mb-[10px] tracking-[-0.01em] leading-[1.4]">
                     {item.q}
                   </h3>
-                  <p style={{
-                    fontFamily: t.fontSerif,
-                    fontSize: '0.9rem',
-                    color: t.gray,
-                    lineHeight: 1.7,
-                    margin: 0,
-                  }}>
+                  <p className="font-serif text-[0.9rem] text-[#666] leading-[1.7] m-0">
                     {item.a}
                   </p>
                 </div>
@@ -710,18 +395,11 @@ export default function ChurnRateCalculatorPage() {
         </section>
 
         {/* Related resources */}
-        <section style={{ maxWidth: '760px', margin: '0 auto', padding: '64px 24px 48px' }}>
-          <h2 style={{
-            fontFamily: t.fontSans,
-            fontSize: '1.2rem',
-            fontWeight: 700,
-            color: t.text,
-            letterSpacing: '-0.02em',
-            marginBottom: '24px',
-          }}>
+        <section className="max-w-[760px] mx-auto pt-16 px-6 pb-12">
+          <h2 className="font-sans text-[1.2rem] font-bold text-[#191919] tracking-[-0.02em] mb-6">
             Go deeper on membership site retention
           </h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '12px' }}>
+          <div className="grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-3">
             {[
               { href: '/demo', label: '→ Try the cancel flow demo' },
               { href: '/posts/membership-site-churn-rate', label: '→ Membership site churn guide' },
@@ -730,17 +408,7 @@ export default function ChurnRateCalculatorPage() {
               { href: '/posts/Involuntary-Churn-Recovery', label: '→ Involuntary churn recovery' },
               { href: '/tools/churn-calculator', label: '→ SaaS revenue calculator' },
             ].map(link => (
-              <Link key={link.href} href={link.href} style={{
-                display: 'block',
-                padding: '12px 16px',
-                border: `1px solid ${t.border}`,
-                borderRadius: '8px',
-                fontFamily: t.fontSans,
-                fontSize: '0.85rem',
-                color: t.text,
-                textDecoration: 'none',
-                fontWeight: 500,
-              }}>
+              <Link key={link.href} href={link.href} className="block py-3 px-4 border border-[#E5E5E5] rounded-lg font-sans text-[0.85rem] text-[#191919] no-underline font-medium">
                 {link.label}
               </Link>
             ))}
@@ -748,53 +416,17 @@ export default function ChurnRateCalculatorPage() {
         </section>
 
         {/* Bottom CTA */}
-        <section style={{
-          background: t.text,
-          padding: '80px 24px',
-          textAlign: 'center',
-        }}>
-          <h2 style={{
-            fontFamily: t.fontSans,
-            fontSize: 'clamp(1.5rem, 4vw, 2.2rem)',
-            fontWeight: 700,
-            color: t.white,
-            letterSpacing: '-0.03em',
-            margin: '0 0 16px',
-          }}>
+        <section className="bg-[#191919] py-20 px-6 text-center">
+          <h2 className="font-sans font-bold text-white tracking-[-0.03em] mb-4" style={{ fontSize: 'clamp(1.5rem, 4vw, 2.2rem)' }}>
             Ready to stop losing members?
           </h2>
-          <p style={{
-            fontFamily: t.fontSerif,
-            fontSize: '1rem',
-            color: 'rgba(255,255,255,0.7)',
-            margin: '0 0 32px',
-            maxWidth: '460px',
-            marginLeft: 'auto',
-            marginRight: 'auto',
-            lineHeight: 1.7,
-          }}>
+          <p className="font-serif text-base text-white/70 mb-8 max-w-[460px] mx-auto leading-[1.7]">
             Join the waitlist for ChurnRecovery — the free cancel flow platform for membership sites, communities, and SaaS founders.
           </p>
-          <a href="https://tally.so/r/churnrecovery" style={{
-            display: 'inline-block',
-            background: t.accent,
-            color: t.white,
-            padding: '14px 32px',
-            borderRadius: '8px',
-            fontFamily: t.fontSans,
-            fontWeight: 700,
-            fontSize: '1rem',
-            textDecoration: 'none',
-            letterSpacing: '-0.01em',
-          }}>
+          <a href="https://tally.so/r/churnrecovery" className="inline-block bg-[#D97757] text-white px-8 py-[14px] rounded-lg font-sans font-bold text-base no-underline tracking-[-0.01em]">
             Join the Waitlist — Free
           </a>
-          <p style={{
-            fontFamily: t.fontSans,
-            fontSize: '0.78rem',
-            color: 'rgba(255,255,255,0.4)',
-            marginTop: '14px',
-          }}>
+          <p className="font-sans text-[0.78rem] text-white/40 mt-[14px]">
             No credit card. No commitment. Set up in minutes.
           </p>
         </section>

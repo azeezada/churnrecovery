@@ -13,21 +13,6 @@ const ACCENT_LIGHT = '#6ee7b7'
 const ACCENT_BG = 'rgba(16,185,129,0.08)'
 const ACCENT_DARK_BG = 'rgba(16,185,129,0.15)'
 
-const t = {
-  bg: '#FAF9F5',
-  text: '#191919',
-  gray: '#666666',
-  grayLight: '#999999',
-  accent: ACCENT,
-  border: '#E5E5E5',
-  white: '#FFFFFF',
-  green: '#2D7A4F',
-  greenBg: '#EDF7F1',
-  red: '#DC2626',
-  fontSans: '"Instrument Sans", sans-serif',
-  fontSerif: '"Merriweather", serif',
-}
-
 function PayhipWaitlistForm({ dark = false }) {
   const [email, setEmail] = useState('')
   const [status, setStatus] = useState('idle')
@@ -71,31 +56,30 @@ function PayhipWaitlistForm({ dark = false }) {
     }
   }
 
-  const bgColor = dark ? 'rgba(255,255,255,0.08)' : t.white
-  const borderColor = dark ? 'rgba(255,255,255,0.15)' : t.border
-  const textColor = dark ? t.white : t.text
-  const subtextColor = dark ? 'rgba(255,255,255,0.6)' : t.gray
+  const bgColor = dark ? 'rgba(255,255,255,0.08)' : '#FFFFFF'
+  const borderColor = dark ? 'rgba(255,255,255,0.15)' : '#E5E5E5'
+  const textColor = dark ? '#FFFFFF' : '#191919'
+  const subtextColor = dark ? 'rgba(255,255,255,0.6)' : '#666666'
 
   if (status === 'success' || status === 'duplicate') {
     return (
       <div style={{
-        textAlign: 'center', padding: '24px', borderRadius: '12px',
-        background: dark ? 'rgba(45,122,79,0.15)' : t.greenBg,
+        background: dark ? 'rgba(45,122,79,0.15)' : '#EDF7F1',
         border: `1px solid ${dark ? 'rgba(45,122,79,0.3)' : '#C6E6D4'}`,
-      }}>
-        <div style={{ fontSize: '2rem', marginBottom: '8px' }}>
+      }} className="text-center p-6 rounded-xl">
+        <div className="text-[2rem] mb-2">
           {status === 'duplicate' ? '👋' : '🎉'}
         </div>
-        <p style={{ fontFamily: t.fontSans, fontWeight: 700, fontSize: '1rem', color: dark ? t.white : t.text, margin: '0 0 6px' }}>
+        <p style={{ color: dark ? '#FFFFFF' : '#191919' }} className="font-sans font-bold text-base m-0 mb-[6px]">
           {status === 'duplicate' ? "You're already on the list!" : "You're in! We'll be in touch soon."}
         </p>
-        <p style={{ fontFamily: t.fontSerif, fontSize: '0.85rem', color: subtextColor, margin: 0 }}>
+        <p style={{ color: subtextColor }} className="font-serif text-[0.85rem] m-0">
           {status === 'duplicate'
             ? "We've got your email — we'll reach out when we launch."
             : 'Free beta access for Payhip sellers. We\'ll email you when we\'re ready.'}
         </p>
         {count && (
-          <p style={{ fontFamily: t.fontSans, fontSize: '0.75rem', color: subtextColor, margin: '10px 0 0' }}>
+          <p style={{ color: subtextColor }} className="font-sans text-xs mt-[10px] mb-0 mx-0">
             Join {count.toLocaleString()} sellers on the waitlist
           </p>
         )}
@@ -105,7 +89,7 @@ function PayhipWaitlistForm({ dark = false }) {
 
   return (
     <div>
-      <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+      <form onSubmit={handleSubmit} className="flex flex-col gap-[10px]">
         <input
           type="email"
           value={email}
@@ -115,22 +99,20 @@ function PayhipWaitlistForm({ dark = false }) {
           autoComplete="email"
           aria-label="Email address"
           style={{
-            padding: '13px 16px', borderRadius: '8px',
-            border: `1px solid ${error ? t.red : borderColor}`,
-            background: bgColor, fontFamily: t.fontSans,
-            fontSize: '0.95rem', color: textColor, outline: 'none',
+            border: `1px solid ${error ? '#DC2626' : borderColor}`,
+            background: bgColor,
+            color: textColor,
           }}
+          className="py-[13px] px-4 rounded-lg font-sans text-[0.95rem] outline-none"
         />
         <button
           type="submit"
           disabled={status === 'loading'}
           style={{
-            padding: '14px 28px', borderRadius: '8px', border: 'none',
-            background: status === 'loading' ? t.grayLight : ACCENT,
-            color: t.white, fontFamily: t.fontSans, fontWeight: 700,
-            fontSize: '1rem', cursor: status === 'loading' ? 'not-allowed' : 'pointer',
-            transition: 'background 0.15s',
+            background: status === 'loading' ? '#999999' : ACCENT,
+            cursor: status === 'loading' ? 'not-allowed' : 'pointer',
           }}
+          className="py-[14px] px-7 rounded-lg border-none text-white font-sans font-bold text-base transition-[background] duration-150"
         >
           {status === 'loading' ? 'Joining...' : 'Keep More Subscribers — Join Free →'}
         </button>
@@ -138,16 +120,16 @@ function PayhipWaitlistForm({ dark = false }) {
         <input type="hidden" name="tag" value="payhip-seller" />
       </form>
       {error && (
-        <p style={{ fontFamily: t.fontSans, fontSize: '0.8rem', color: t.red, margin: '8px 0 0' }}>
+        <p className="font-sans text-[0.8rem] text-red-600 mt-2 mb-0">
           ⚠ {error}
         </p>
       )}
-      <div style={{ display: 'flex', gap: '16px', marginTop: '12px', flexWrap: 'wrap' }}>
-        <span style={{ fontFamily: t.fontSans, fontSize: '0.78rem', color: subtextColor }}>🆓 Free during beta</span>
-        <span style={{ fontFamily: t.fontSans, fontSize: '0.78rem', color: subtextColor }}>🔒 No credit card required</span>
+      <div className="flex gap-4 mt-3 flex-wrap">
+        <span style={{ color: subtextColor }} className="font-sans text-[0.78rem]">🆓 Free during beta</span>
+        <span style={{ color: subtextColor }} className="font-sans text-[0.78rem]">🔒 No credit card required</span>
         {count && (
-          <span style={{ fontFamily: t.fontSans, fontSize: '0.78rem', color: subtextColor }}>
-            <span style={{ color: t.green }}>●</span> {count.toLocaleString()} on waitlist
+          <span style={{ color: subtextColor }} className="font-sans text-[0.78rem]">
+            <span className="text-[#2D7A4F]">●</span> {count.toLocaleString()} on waitlist
           </span>
         )}
       </div>
@@ -173,68 +155,50 @@ export default function PayhipLandingPage() {
 
       <Header />
 
-      <main style={{ fontFamily: t.fontSans, background: t.bg, paddingTop: '60px' }}>
+      <main className="font-sans bg-[#FAF9F5] pt-[60px]">
 
         {/* ─── HERO ─────────────────────────────────────────────────────── */}
-        <section style={{
-          background: 'linear-gradient(135deg, #071a12 0%, #0d2e1e 50%, #071a12 100%)',
-          padding: '80px 24px 100px',
-          position: 'relative', overflow: 'hidden',
-        }}>
-          <div style={{
-            position: 'absolute', top: '-80px', right: '-80px',
-            width: '400px', height: '400px', borderRadius: '50%',
-            background: `radial-gradient(circle, ${ACCENT_DARK_BG} 0%, transparent 70%)`,
-            pointerEvents: 'none',
-          }} />
+        <section
+          style={{ background: 'linear-gradient(135deg, #071a12 0%, #0d2e1e 50%, #071a12 100%)' }}
+          className="py-20 px-6 pb-[100px] relative overflow-hidden"
+        >
+          <div
+            style={{ background: `radial-gradient(circle, ${ACCENT_DARK_BG} 0%, transparent 70%)` }}
+            className="absolute -top-20 -right-20 w-[400px] h-[400px] rounded-full pointer-events-none"
+          />
 
-          <div style={{ maxWidth: '720px', margin: '0 auto', textAlign: 'center', position: 'relative', zIndex: 1 }}>
-            <div style={{
-              display: 'inline-flex', alignItems: 'center', gap: '6px',
-              background: 'rgba(16,185,129,0.15)', border: '1px solid rgba(16,185,129,0.35)',
-              borderRadius: '100px', padding: '6px 16px',
-              fontFamily: t.fontSans, fontSize: '0.78rem', fontWeight: 600,
-              color: ACCENT_LIGHT, marginBottom: '28px',
-            }}>
+          <div className="max-w-[720px] mx-auto text-center relative z-[1]">
+            <div
+              style={{ color: ACCENT_LIGHT }}
+              className="inline-flex items-center gap-[6px] bg-[rgba(16,185,129,0.15)] border border-[rgba(16,185,129,0.35)] rounded-full py-[6px] px-4 font-sans text-[0.78rem] font-semibold mb-7"
+            >
               <span>✓</span> Built for Payhip Sellers · Free During Beta
             </div>
 
-            <h1 style={{
-              fontFamily: t.fontSans, fontWeight: 800,
-              fontSize: 'clamp(2.2rem, 5vw, 3.5rem)',
-              color: t.white, margin: '0 0 20px', lineHeight: 1.15,
-              letterSpacing: '-0.02em',
-            }}>
+            <h1 className="font-sans font-extrabold text-[clamp(2.2rem,5vw,3.5rem)] text-white m-0 mb-5 leading-[1.15] tracking-[-0.02em]">
               Payhip Doesn&apos;t Do Retention.<br />
               <span style={{ color: ACCENT_LIGHT }}>We Do.</span>
             </h1>
 
-            <p style={{
-              fontFamily: t.fontSerif, fontSize: 'clamp(1rem, 2.5vw, 1.2rem)',
-              color: 'rgba(255,255,255,0.75)', margin: '0 0 40px', lineHeight: 1.7,
-              maxWidth: '600px', marginLeft: 'auto', marginRight: 'auto',
-            }}>
+            <p className="font-serif text-[clamp(1rem,2.5vw,1.2rem)] text-[rgba(255,255,255,0.75)] m-0 mb-10 leading-[1.7] max-w-[600px] mx-auto">
               Payhip is great for selling digital products and subscriptions. But when a subscriber&apos;s card fails or they click cancel, you&apos;re completely on your own. ChurnRecovery adds automatic dunning and cancel recovery — in your brand — so you keep the revenue you already earned.
             </p>
 
-            <div style={{ maxWidth: '480px', margin: '0 auto 24px' }}>
+            <div className="max-w-[480px] mx-auto mb-6">
               <PayhipWaitlistForm dark={true} />
             </div>
 
-            <div style={{ display: 'flex', gap: '20px', justifyContent: 'center', flexWrap: 'wrap' }}>
-              <span style={{ fontFamily: t.fontSans, fontSize: '0.8rem', color: 'rgba(255,255,255,0.5)' }}>
+            <div className="flex gap-5 justify-center flex-wrap">
+              <span className="font-sans text-[0.8rem] text-[rgba(255,255,255,0.5)]">
                 ⚡ Works with Payhip + Stripe
               </span>
-              <span style={{ fontFamily: t.fontSans, fontSize: '0.8rem', color: 'rgba(255,255,255,0.5)' }}>
+              <span className="font-sans text-[0.8rem] text-[rgba(255,255,255,0.5)]">
                 🌍 Strong for UK &amp; EU creators
               </span>
             </div>
 
-            <div style={{ marginTop: '20px' }}>
-              <Link href="/demo" style={{
-                fontFamily: t.fontSans, fontSize: '0.9rem', color: 'rgba(255,255,255,0.6)',
-                textDecoration: 'none', borderBottom: '1px solid rgba(255,255,255,0.3)',
-              }}>
+            <div className="mt-5">
+              <Link href="/demo" className="font-sans text-[0.9rem] text-[rgba(255,255,255,0.6)] no-underline border-b border-[rgba(255,255,255,0.3)]">
                 See how it works ↓
               </Link>
             </div>
@@ -242,28 +206,19 @@ export default function PayhipLandingPage() {
         </section>
 
         {/* ─── PAIN POINTS ─────────────────────────────────────────────── */}
-        <section style={{ padding: '80px 24px', background: t.bg }}>
-          <div style={{ maxWidth: '1080px', margin: '0 auto' }}>
-            <div style={{ textAlign: 'center', marginBottom: '48px' }}>
-              <div style={{
-                fontFamily: t.fontSans, fontSize: '0.75rem', fontWeight: 700,
-                color: ACCENT, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '12px',
-              }}>The Payhip Revenue Gap</div>
-              <h2 style={{
-                fontFamily: t.fontSans, fontWeight: 800, fontSize: 'clamp(1.8rem, 4vw, 2.5rem)',
-                color: t.text, margin: '0 0 16px', letterSpacing: '-0.02em',
-              }}>
+        <section className="py-20 px-6 bg-[#FAF9F5]">
+          <div className="max-w-[1080px] mx-auto">
+            <div className="text-center mb-12">
+              <div style={{ color: ACCENT }} className="font-sans text-xs font-bold uppercase tracking-[0.08em] mb-3">The Payhip Revenue Gap</div>
+              <h2 className="font-sans font-extrabold text-[clamp(1.8rem,4vw,2.5rem)] text-[#191919] m-0 mb-4 tracking-[-0.02em]">
                 You&apos;re Losing Subscription Revenue<br />You Didn&apos;t Know You Could Keep
               </h2>
-              <p style={{
-                fontFamily: t.fontSerif, fontSize: '1rem', color: t.gray,
-                maxWidth: '540px', margin: '0 auto', lineHeight: 1.7,
-              }}>
+              <p className="font-serif text-base text-[#666] max-w-[540px] mx-auto leading-[1.7] m-0">
                 Payhip handles checkout brilliantly. But the moment a payment fails or someone clicks cancel, there&apos;s nothing in place to save them — and you find out after it&apos;s too late.
               </p>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
+            <div className="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-5">
               <PainCard
                 icon="💳"
                 title="Failed Payments Go Unrecovered"
@@ -289,28 +244,19 @@ export default function PayhipLandingPage() {
         </section>
 
         {/* ─── HOW IT WORKS ────────────────────────────────────────────── */}
-        <section id="how-it-works" style={{ padding: '80px 24px', background: t.white }}>
-          <div style={{ maxWidth: '1080px', margin: '0 auto' }}>
-            <div style={{ textAlign: 'center', marginBottom: '48px' }}>
-              <div style={{
-                fontFamily: t.fontSans, fontSize: '0.75rem', fontWeight: 700,
-                color: ACCENT, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '12px',
-              }}>3 Steps, No Code</div>
-              <h2 style={{
-                fontFamily: t.fontSans, fontWeight: 800, fontSize: 'clamp(1.8rem, 4vw, 2.5rem)',
-                color: t.text, margin: '0 0 16px', letterSpacing: '-0.02em',
-              }}>
+        <section id="how-it-works" className="py-20 px-6 bg-white">
+          <div className="max-w-[1080px] mx-auto">
+            <div className="text-center mb-12">
+              <div style={{ color: ACCENT }} className="font-sans text-xs font-bold uppercase tracking-[0.08em] mb-3">3 Steps, No Code</div>
+              <h2 className="font-sans font-extrabold text-[clamp(1.8rem,4vw,2.5rem)] text-[#191919] m-0 mb-4 tracking-[-0.02em]">
                 Works With Payhip in Minutes
               </h2>
-              <p style={{
-                fontFamily: t.fontSerif, fontSize: '1rem', color: t.gray,
-                maxWidth: '480px', margin: '0 auto', lineHeight: 1.7,
-              }}>
+              <p className="font-serif text-base text-[#666] max-w-[480px] mx-auto leading-[1.7] m-0">
                 Payhip connects to your Stripe account for subscription payments. ChurnRecovery connects to that same Stripe — no Payhip integration, no developer, no code.
               </p>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '20px' }}>
+            <div className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-5">
               <HowStep
                 number="1"
                 icon="🔗"
@@ -339,39 +285,36 @@ export default function PayhipLandingPage() {
               />
             </div>
 
-            <div style={{
-              marginTop: '32px',
-              background: ACCENT_BG,
-              border: `1px solid rgba(16,185,129,0.25)`,
-              borderLeft: `4px solid ${ACCENT}`,
-              borderRadius: '10px', padding: '20px 24px',
-              maxWidth: '680px', margin: '32px auto 0',
-            }}>
-              <p style={{ fontFamily: t.fontSans, fontWeight: 700, color: t.text, margin: '0 0 8px', fontSize: '0.95rem' }}>
+            <div
+              style={{
+                background: ACCENT_BG,
+                borderLeft: `4px solid ${ACCENT}`,
+              }}
+              className="mt-8 border border-[rgba(16,185,129,0.25)] rounded-[10px] py-5 px-6 max-w-[680px] mx-auto"
+            >
+              <p className="font-sans font-bold text-[#191919] m-0 mb-2 text-[0.95rem]">
                 &ldquo;Do I need to change how I use Payhip?&rdquo;
               </p>
-              <p style={{ fontFamily: t.fontSerif, fontSize: '0.88rem', color: t.gray, margin: '0 0 10px', lineHeight: 1.7 }}>
+              <p className="font-serif text-[0.88rem] text-[#666] m-0 mb-[10px] leading-[1.7]">
                 No. ChurnRecovery works at the Stripe layer — completely separate from Payhip. You don&apos;t change any Payhip settings. Payhip doesn&apos;t know ChurnRecovery exists. Your subscribers continue as normal after recovery.
               </p>
-              <Link href="/docs" style={{
-                fontFamily: t.fontSans, fontSize: '0.82rem', color: ACCENT,
-                textDecoration: 'none', fontWeight: 600,
-              }}>
+              <Link href="/docs" style={{ color: ACCENT }} className="font-sans text-[0.82rem] no-underline font-semibold">
                 Technical integration docs →
               </Link>
             </div>
 
-            <div style={{ textAlign: 'center', marginTop: '40px' }}>
-              <Link href="/demo" style={{
-                display: 'inline-flex', alignItems: 'center', gap: '8px',
-                background: ACCENT_BG, border: `1px solid rgba(16,185,129,0.3)`,
-                borderRadius: '10px', padding: '14px 28px',
-                fontFamily: t.fontSans, fontWeight: 700, color: ACCENT,
-                textDecoration: 'none', fontSize: '0.95rem',
-              }}>
+            <div className="text-center mt-10">
+              <Link
+                href="/demo"
+                style={{
+                  background: ACCENT_BG,
+                  color: ACCENT,
+                }}
+                className="inline-flex items-center gap-2 border border-[rgba(16,185,129,0.3)] rounded-[10px] py-[14px] px-7 font-sans font-bold no-underline text-[0.95rem]"
+              >
                 🎮 Try the Interactive Demo
               </Link>
-              <p style={{ fontFamily: t.fontSans, fontSize: '0.78rem', color: t.grayLight, marginTop: '8px' }}>
+              <p className="font-sans text-[0.78rem] text-[#999] mt-2">
                 See a live cancel and dunning flow — no signup required
               </p>
             </div>
@@ -379,22 +322,16 @@ export default function PayhipLandingPage() {
         </section>
 
         {/* ─── BENEFITS ────────────────────────────────────────────────── */}
-        <section style={{ padding: '80px 24px', background: t.bg }}>
-          <div style={{ maxWidth: '1080px', margin: '0 auto' }}>
-            <div style={{ textAlign: 'center', marginBottom: '48px' }}>
-              <div style={{
-                fontFamily: t.fontSans, fontSize: '0.75rem', fontWeight: 700,
-                color: ACCENT, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '12px',
-              }}>What You Get</div>
-              <h2 style={{
-                fontFamily: t.fontSans, fontWeight: 800, fontSize: 'clamp(1.8rem, 4vw, 2.5rem)',
-                color: t.text, margin: 0, letterSpacing: '-0.02em',
-              }}>
+        <section className="py-20 px-6 bg-[#FAF9F5]">
+          <div className="max-w-[1080px] mx-auto">
+            <div className="text-center mb-12">
+              <div style={{ color: ACCENT }} className="font-sans text-xs font-bold uppercase tracking-[0.08em] mb-3">What You Get</div>
+              <h2 className="font-sans font-extrabold text-[clamp(1.8rem,4vw,2.5rem)] text-[#191919] m-0 tracking-[-0.02em]">
                 Everything Payhip Doesn&apos;t Include
               </h2>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '14px' }}>
+            <div className="grid grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-[14px]">
               <BenefitCard
                 icon="📬"
                 title="Branded Dunning Emails"
@@ -430,43 +367,35 @@ export default function PayhipLandingPage() {
         </section>
 
         {/* ─── PRICING ─────────────────────────────────────────────────── */}
-        <section style={{ padding: '80px 24px', background: t.white }}>
-          <div style={{ maxWidth: '680px', margin: '0 auto', textAlign: 'center' }}>
-            <h2 style={{
-              fontFamily: t.fontSans, fontWeight: 800,
-              fontSize: 'clamp(1.8rem, 4vw, 2.5rem)',
-              color: t.text, margin: '0 0 20px', letterSpacing: '-0.02em',
-            }}>
+        <section className="py-20 px-6 bg-white">
+          <div className="max-w-[680px] mx-auto text-center">
+            <h2 className="font-sans font-extrabold text-[clamp(1.8rem,4vw,2.5rem)] text-[#191919] m-0 mb-5 tracking-[-0.02em]">
               Free for Payhip Sellers
             </h2>
-            <p style={{
-              fontFamily: t.fontSerif, fontSize: '1rem', color: t.gray,
-              lineHeight: 1.7, margin: '0 0 32px',
-            }}>
+            <p className="font-serif text-base text-[#666] leading-[1.7] m-0 mb-8">
               130,000+ Payhip sellers sell digital products. If you have subscriptions, you&apos;re losing revenue to churn you could recover. ChurnRecovery starts free.
             </p>
 
-            <div style={{
-              background: ACCENT_BG, border: `1px solid rgba(16,185,129,0.25)`,
-              borderRadius: '12px', padding: '24px', marginBottom: '28px',
-              textAlign: 'center',
-            }}>
-              <div style={{ fontFamily: t.fontSans, fontSize: '0.8rem', fontWeight: 600, color: ACCENT, marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.06em' }}>By the numbers</div>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px' }}>
+            <div
+              style={{ background: ACCENT_BG }}
+              className="border border-[rgba(16,185,129,0.25)] rounded-xl p-6 mb-7 text-center"
+            >
+              <div style={{ color: ACCENT }} className="font-sans text-[0.8rem] font-semibold mb-2 uppercase tracking-[0.06em]">By the numbers</div>
+              <div className="grid grid-cols-3 gap-4">
                 {[
                   { stat: '5–10%', label: 'fail monthly' },
                   { stat: '~70%', label: 'are recoverable' },
                   { stat: '20–35%', label: 'cancel saves' },
                 ].map(({ stat, label }) => (
                   <div key={label}>
-                    <div style={{ fontFamily: t.fontSans, fontWeight: 800, fontSize: '1.6rem', color: ACCENT }}>{stat}</div>
-                    <div style={{ fontFamily: t.fontSerif, fontSize: '0.78rem', color: t.gray }}>{label}</div>
+                    <div style={{ color: ACCENT }} className="font-sans font-extrabold text-[1.6rem]">{stat}</div>
+                    <div className="font-serif text-[0.78rem] text-[#666]">{label}</div>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '12px', marginBottom: '28px' }}>
+            <div className="grid grid-cols-2 gap-3 mb-7">
               {[
                 { tier: 'Starter', price: '$0/month', range: 'Free to start', highlight: true },
                 { tier: 'Growth', price: '$29/month', range: 'Up to $5k MRR' },
@@ -474,46 +403,30 @@ export default function PayhipLandingPage() {
                 { tier: 'Enterprise', price: 'Custom', range: 'Above $20k MRR' },
               ].map(({ tier, price, range, highlight }) => (
                 <div key={tier} style={{
-                  background: highlight ? ACCENT_BG : t.bg,
-                  border: `1px solid ${highlight ? ACCENT : t.border}`,
-                  borderRadius: '10px', padding: '18px',
-                  position: 'relative',
-                }}>
+                  background: highlight ? ACCENT_BG : '#FAF9F5',
+                  border: `1px solid ${highlight ? ACCENT : '#E5E5E5'}`,
+                }} className="rounded-[10px] p-[18px] relative">
                   {highlight && (
-                    <div style={{
-                      position: 'absolute', top: '-10px', left: '50%',
-                      transform: 'translateX(-50%)',
-                      background: ACCENT, color: t.white,
-                      fontFamily: t.fontSans, fontSize: '0.7rem', fontWeight: 700,
-                      padding: '3px 10px', borderRadius: '100px',
-                    }}>START HERE</div>
+                    <div style={{ background: ACCENT }} className="absolute -top-[10px] left-1/2 -translate-x-1/2 text-white font-sans text-[0.7rem] font-bold py-[3px] px-[10px] rounded-full">START HERE</div>
                   )}
-                  <div style={{ fontFamily: t.fontSans, fontWeight: 700, color: t.text, fontSize: '0.9rem' }}>{tier}</div>
-                  <div style={{ fontFamily: t.fontSans, fontWeight: 800, color: highlight ? ACCENT : t.text, fontSize: '1.4rem', margin: '4px 0' }}>{price}</div>
-                  <div style={{ fontFamily: t.fontSerif, fontSize: '0.78rem', color: t.gray }}>{range}</div>
+                  <div className="font-sans font-bold text-[#191919] text-[0.9rem]">{tier}</div>
+                  <div style={{ color: highlight ? ACCENT : '#191919' }} className="font-sans font-extrabold text-[1.4rem] my-1">{price}</div>
+                  <div className="font-serif text-[0.78rem] text-[#666]">{range}</div>
                 </div>
               ))}
             </div>
 
-            <div style={{
-              background: t.greenBg, border: '1px solid #C6E6D4',
-              borderRadius: '10px', padding: '14px 20px',
-              fontFamily: t.fontSans, fontSize: '0.88rem', color: t.green, marginBottom: '24px',
-            }}>
+            <div className="bg-[#EDF7F1] border border-[#C6E6D4] rounded-[10px] py-[14px] px-5 font-sans text-[0.88rem] text-[#2D7A4F] mb-6">
               Recovering 1 failed payment per month more than pays for ChurnRecovery. Most sellers save far more.
             </div>
           </div>
         </section>
 
         {/* ─── FAQ ──────────────────────────────────────────────────────── */}
-        <section style={{ padding: '80px 24px', background: t.bg }}>
-          <div style={{ maxWidth: '720px', margin: '0 auto' }}>
-            <div style={{ textAlign: 'center', marginBottom: '40px' }}>
-              <h2 style={{
-                fontFamily: t.fontSans, fontWeight: 800,
-                fontSize: 'clamp(1.8rem, 4vw, 2.5rem)',
-                color: t.text, margin: 0, letterSpacing: '-0.02em',
-              }}>
+        <section className="py-20 px-6 bg-[#FAF9F5]">
+          <div className="max-w-[720px] mx-auto">
+            <div className="text-center mb-10">
+              <h2 className="font-sans font-extrabold text-[clamp(1.8rem,4vw,2.5rem)] text-[#191919] m-0 tracking-[-0.02em]">
                 Questions From Payhip Sellers
               </h2>
             </div>
@@ -559,35 +472,27 @@ export default function PayhipLandingPage() {
         </section>
 
         {/* ─── FINAL CTA ────────────────────────────────────────────────── */}
-        <section style={{
-          background: 'linear-gradient(135deg, #071a12 0%, #0d2e1e 100%)',
-          padding: '80px 24px',
-        }}>
-          <div style={{ maxWidth: '600px', margin: '0 auto', textAlign: 'center' }}>
-            <h2 style={{
-              fontFamily: t.fontSans, fontWeight: 800,
-              fontSize: 'clamp(1.8rem, 4vw, 2.6rem)',
-              color: t.white, margin: '0 0 20px', lineHeight: 1.2,
-              letterSpacing: '-0.02em',
-            }}>
+        <section
+          style={{ background: 'linear-gradient(135deg, #071a12 0%, #0d2e1e 100%)' }}
+          className="py-20 px-6"
+        >
+          <div className="max-w-[600px] mx-auto text-center">
+            <h2 className="font-sans font-extrabold text-[clamp(1.8rem,4vw,2.6rem)] text-white m-0 mb-5 leading-[1.2] tracking-[-0.02em]">
               You Earned That Subscriber.<br />
               <span style={{ color: ACCENT_LIGHT }}>Don&apos;t Let Them Slip Away.</span>
             </h2>
-            <p style={{
-              fontFamily: t.fontSerif, fontSize: '1rem',
-              color: 'rgba(255,255,255,0.7)', margin: '0 0 36px', lineHeight: 1.7,
-            }}>
+            <p className="font-serif text-base text-[rgba(255,255,255,0.7)] m-0 mb-9 leading-[1.7]">
               Join the waitlist. Be first to add automatic cancel recovery and dunning to your Payhip store. Free to start — no Payhip approval, no code, no credit card.
             </p>
 
-            <div style={{ maxWidth: '480px', margin: '0 auto' }}>
+            <div className="max-w-[480px] mx-auto">
               <PayhipWaitlistForm dark={true} />
             </div>
 
-            <div style={{ display: 'flex', gap: '24px', justifyContent: 'center', marginTop: '24px', flexWrap: 'wrap' }}>
-              <span style={{ fontFamily: t.fontSans, fontSize: '0.78rem', color: 'rgba(255,255,255,0.45)' }}>Free during beta</span>
-              <span style={{ fontFamily: t.fontSans, fontSize: '0.78rem', color: 'rgba(255,255,255,0.45)' }}>Cancel anytime</span>
-              <span style={{ fontFamily: t.fontSans, fontSize: '0.78rem', color: 'rgba(255,255,255,0.45)' }}>No spam, ever</span>
+            <div className="flex gap-6 justify-center mt-6 flex-wrap">
+              <span className="font-sans text-[0.78rem] text-[rgba(255,255,255,0.45)]">Free during beta</span>
+              <span className="font-sans text-[0.78rem] text-[rgba(255,255,255,0.45)]">Cancel anytime</span>
+              <span className="font-sans text-[0.78rem] text-[rgba(255,255,255,0.45)]">No spam, ever</span>
             </div>
           </div>
         </section>

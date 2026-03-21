@@ -3,60 +3,31 @@ import Link from 'next/link'
 import { useState } from 'react'
 import { templates, getTemplateBySlug, getAllTemplateSlugs } from '../../lib/templates'
 
-const t = {
-  bg: '#FAF9F5',
-  text: '#191919',
-  gray: '#666666',
-  grayLight: '#999999',
-  accent: '#D97757',
-  accentHover: '#C4603D',
-  border: '#E5E5E5',
-  white: '#FFFFFF',
-  green: '#2D7A4F',
-  greenLight: '#EDF7F1',
-  blue: '#2563EB',
-  blueLight: '#EFF6FF',
-  purple: '#6B4FA0',
-  purpleLight: '#F5F0FF',
-  fontSans: '"Instrument Sans", sans-serif',
-  fontSerif: '"Merriweather", serif',
-  codeBg: '#1E1E2E',
-  codeText: '#CDD6F4',
-}
-
 const offerTypeLabels = {
-  discount: { label: 'Discount', icon: '💰', color: t.accent },
-  pause: { label: 'Pause', icon: '⏸️', color: t.blue },
-  human: { label: 'Human', icon: '💬', color: t.purple },
-  feedback: { label: 'Feedback', icon: '📝', color: t.green },
+  discount: { label: 'Discount', icon: '💰', color: '#D97757' },
+  pause: { label: 'Pause', icon: '⏸️', color: '#2563EB' },
+  human: { label: 'Human', icon: '💬', color: '#6B4FA0' },
+  feedback: { label: 'Feedback', icon: '📝', color: '#2D7A4F' },
   downgrade: { label: 'Downgrade', icon: '⬇️', color: '#EA580C' },
-  skip: { label: 'Skip', icon: '⏭️', color: t.blue },
-  swap: { label: 'Swap', icon: '🔄', color: t.purple },
+  skip: { label: 'Skip', icon: '⏭️', color: '#2563EB' },
+  swap: { label: 'Swap', icon: '🔄', color: '#6B4FA0' },
   'big-discount': { label: 'Big Discount', icon: '💰', color: '#DC2626' },
-  'pause-long': { label: 'Long Pause', icon: '⏸️', color: t.blue },
-  'human-priority': { label: 'Priority Support', icon: '🚀', color: t.purple },
+  'pause-long': { label: 'Long Pause', icon: '⏸️', color: '#2563EB' },
+  'human-priority': { label: 'Priority Support', icon: '🚀', color: '#6B4FA0' },
 }
 
 function Nav() {
   return (
-    <nav style={{
-      borderBottom: `1px solid ${t.border}`, background: t.white,
-      padding: '0 20px', height: '60px', display: 'flex',
-      alignItems: 'center', justifyContent: 'space-between',
-      position: 'sticky', top: 0, zIndex: 100,
-    }}>
-      <Link href="/" style={{ fontFamily: t.fontSans, fontWeight: 700, fontSize: '1.1rem', color: t.text, textDecoration: 'none', letterSpacing: '-0.01em' }}>
+    <nav className="border-b border-[#E5E5E5] bg-white px-5 h-[60px] flex items-center justify-between sticky top-0 z-[100]">
+      <Link href="/" className="font-sans font-bold text-[1.1rem] text-[#191919] no-underline tracking-[-0.01em]">
         ChurnRecovery
       </Link>
-      <div className="nav-links" style={{ display: 'flex', gap: '24px', alignItems: 'center' }}>
-        <Link href="/features" style={{ color: t.gray, textDecoration: 'none', fontSize: '0.9rem', fontFamily: t.fontSans }}>Features</Link>
-        <Link href="/docs" style={{ color: t.gray, textDecoration: 'none', fontSize: '0.9rem', fontFamily: t.fontSans }}>Docs</Link>
-        <Link href="/templates" style={{ color: t.accent, textDecoration: 'none', fontSize: '0.9rem', fontFamily: t.fontSans, fontWeight: 600 }}>Templates</Link>
-        <Link href="/blog" style={{ color: t.gray, textDecoration: 'none', fontSize: '0.9rem', fontFamily: t.fontSans }}>Blog</Link>
-        <a href="/#waitlist" style={{
-          background: t.accent, color: t.white, padding: '8px 18px', borderRadius: '6px',
-          textDecoration: 'none', fontSize: '0.85rem', fontWeight: 600, fontFamily: t.fontSans,
-        }}>Join Waitlist</a>
+      <div className="nav-links flex gap-6 items-center">
+        <Link href="/features" className="text-[#666] no-underline text-[0.9rem] font-sans">Features</Link>
+        <Link href="/docs" className="text-[#666] no-underline text-[0.9rem] font-sans">Docs</Link>
+        <Link href="/templates" className="text-[#D97757] no-underline text-[0.9rem] font-sans font-semibold">Templates</Link>
+        <Link href="/blog" className="text-[#666] no-underline text-[0.9rem] font-sans">Blog</Link>
+        <a href="/#waitlist" className="bg-[#D97757] text-white px-[18px] py-2 rounded-[6px] no-underline text-[0.85rem] font-semibold font-sans">Join Waitlist</a>
       </div>
     </nav>
   )
@@ -126,46 +97,40 @@ export default function TemplatePage({ template }) {
         />
       </Head>
 
-      <div style={{ background: t.bg, minHeight: '100vh', fontFamily: t.fontSans }}>
+      <div className="bg-[#FAF9F5] min-h-screen font-sans">
         <Nav />
 
         {/* Breadcrumb */}
-        <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '20px 24px 0' }}>
-          <div style={{ display: 'flex', gap: '8px', alignItems: 'center', fontSize: '0.82rem', color: t.grayLight }}>
-            <Link href="/templates" style={{ color: t.gray, textDecoration: 'none' }}>Templates</Link>
+        <div className="max-w-[1100px] mx-auto pt-5 px-6">
+          <div className="flex gap-2 items-center text-[0.82rem] text-[#999]">
+            <Link href="/templates" className="text-[#666] no-underline">Templates</Link>
             <span>→</span>
-            <span style={{ color: t.text, fontWeight: 600 }}>{template.name}</span>
+            <span className="text-[#191919] font-semibold">{template.name}</span>
           </div>
         </div>
 
         {/* Header */}
-        <section style={{ maxWidth: '1100px', margin: '0 auto', padding: '32px 24px 48px' }}>
-          <div style={{ display: 'flex', alignItems: 'flex-start', gap: '40px', flexWrap: 'wrap' }}>
-            <div style={{ flex: 1, minWidth: '300px' }}>
-              <h1 style={{
-                fontFamily: t.fontSans, fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800,
-                color: t.text, letterSpacing: '-0.04em', margin: '0 0 12px', lineHeight: 1.1,
-              }}>
+        <section className="max-w-[1100px] mx-auto pt-8 px-6 pb-12">
+          <div className="flex items-start gap-10 flex-wrap">
+            <div className="flex-1 min-w-[300px]">
+              <h1 className="font-sans font-extrabold text-[#191919] tracking-[-0.04em] mb-3 leading-[1.1]" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)' }}>
                 {template.name}
               </h1>
-              <p style={{
-                fontFamily: t.fontSerif, fontSize: '1.05rem', color: t.gray,
-                lineHeight: 1.7, margin: '0 0 24px',
-              }}>
+              <p className="font-serif text-[1.05rem] text-[#666] leading-[1.7] mb-6">
                 {template.description}
               </p>
-              <div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap' }}>
+              <div className="flex gap-6 flex-wrap">
                 <div>
-                  <div style={{ fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.08em', color: t.grayLight, fontWeight: 600, marginBottom: '4px' }}>Save Rate</div>
-                  <div style={{ fontSize: '1.2rem', fontWeight: 700, color: t.green }}>{template.saveRate}</div>
+                  <div className="text-[0.72rem] uppercase tracking-[0.08em] text-[#999] font-semibold mb-1">Save Rate</div>
+                  <div className="text-[1.2rem] font-bold text-[#2D7A4F]">{template.saveRate}</div>
                 </div>
                 <div>
-                  <div style={{ fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.08em', color: t.grayLight, fontWeight: 600, marginBottom: '4px' }}>Best For</div>
-                  <div style={{ fontSize: '0.9rem', fontWeight: 500, color: t.text }}>{template.bestFor}</div>
+                  <div className="text-[0.72rem] uppercase tracking-[0.08em] text-[#999] font-semibold mb-1">Best For</div>
+                  <div className="text-[0.9rem] font-medium text-[#191919]">{template.bestFor}</div>
                 </div>
                 <div>
-                  <div style={{ fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.08em', color: t.grayLight, fontWeight: 600, marginBottom: '4px' }}>Category</div>
-                  <div style={{ fontSize: '0.9rem', fontWeight: 500, color: t.text }}>{template.category}</div>
+                  <div className="text-[0.72rem] uppercase tracking-[0.08em] text-[#999] font-semibold mb-1">Category</div>
+                  <div className="text-[0.9rem] font-medium text-[#191919]">{template.category}</div>
                 </div>
               </div>
             </div>
@@ -173,142 +138,84 @@ export default function TemplatePage({ template }) {
         </section>
 
         {/* Interactive Preview + Code side by side */}
-        <section style={{ maxWidth: '1100px', margin: '0 auto', padding: '0 24px 64px' }}>
-          <div className="template-detail-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '32px', alignItems: 'start' }}>
+        <section className="max-w-[1100px] mx-auto px-6 pb-16">
+          <div className="template-detail-grid grid grid-cols-[1fr_1fr] gap-8 items-start">
             {/* Interactive preview */}
             <div>
-              <h2 style={{
-                fontFamily: t.fontSans, fontSize: '1.1rem', fontWeight: 700,
-                color: t.text, margin: '0 0 16px', letterSpacing: '-0.02em',
-              }}>
+              <h2 className="font-sans text-[1.1rem] font-bold text-[#191919] mb-4 tracking-[-0.02em]">
                 Interactive Preview
               </h2>
-              <div style={{
-                border: `1px solid ${t.border}`, borderRadius: '12px',
-                overflow: 'hidden', background: t.white,
-              }}>
+              <div className="border border-[#E5E5E5] rounded-xl overflow-hidden bg-white">
                 {/* Browser chrome */}
-                <div style={{
-                  background: '#F5F5F5', padding: '10px 14px',
-                  display: 'flex', alignItems: 'center', gap: '8px',
-                  borderBottom: `1px solid ${t.border}`,
-                }}>
-                  <div style={{ display: 'flex', gap: '6px' }}>
-                    <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#FF5F57' }} />
-                    <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#FEBC2E' }} />
-                    <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#28C840' }} />
+                <div className="bg-[#F5F5F5] py-[10px] px-[14px] flex items-center gap-2 border-b border-[#E5E5E5]">
+                  <div className="flex gap-[6px]">
+                    <div className="w-[10px] h-[10px] rounded-full bg-[#FF5F57]" />
+                    <div className="w-[10px] h-[10px] rounded-full bg-[#FEBC2E]" />
+                    <div className="w-[10px] h-[10px] rounded-full bg-[#28C840]" />
                   </div>
-                  <div style={{
-                    flex: 1, background: t.white, borderRadius: '4px', padding: '4px 12px',
-                    fontSize: '0.72rem', color: t.grayLight, textAlign: 'center',
-                  }}>
+                  <div className="flex-1 bg-white rounded-[4px] py-1 px-3 text-[0.72rem] text-[#999] text-center">
                     yourapp.com/settings/subscription
                   </div>
                 </div>
 
                 {/* Cancel flow modal */}
-                <div style={{ padding: '32px 24px', minHeight: '380px' }}>
+                <div className="py-8 px-6 min-h-[380px]">
                   {activeStep === 0 ? (
                     <>
-                      <h3 style={{
-                        fontFamily: t.fontSans, fontSize: '1.1rem', fontWeight: 700,
-                        color: t.text, margin: '0 0 4px', textAlign: 'center',
-                      }}>
+                      <h3 className="font-sans text-[1.1rem] font-bold text-[#191919] mb-1 text-center">
                         We&apos;re sorry to see you go
                       </h3>
-                      <p style={{
-                        fontFamily: t.fontSerif, fontSize: '0.85rem', color: t.gray,
-                        textAlign: 'center', margin: '0 0 24px',
-                      }}>
+                      <p className="font-serif text-[0.85rem] text-[#666] text-center mb-6">
                         Tell us why you&apos;re leaving — we might be able to help.
                       </p>
-                      <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                      <div className="flex flex-col gap-2">
                         {template.preview.reasons.map(reason => (
                           <button
                             key={reason.id}
                             onClick={() => handleReasonClick(reason)}
-                            style={{
-                              display: 'flex', alignItems: 'center', gap: '12px',
-                              padding: '12px 16px', borderRadius: '8px',
-                              border: `1px solid ${t.border}`, background: t.bg,
-                              cursor: 'pointer', fontSize: '0.88rem',
-                              fontFamily: t.fontSans, color: t.text,
-                              textAlign: 'left', transition: 'all 0.15s',
-                              width: '100%',
-                            }}
+                            className="flex items-center gap-3 py-3 px-4 rounded-lg border border-[#E5E5E5] bg-[#FAF9F5] cursor-pointer text-[0.88rem] font-sans text-[#191919] text-left transition-all duration-150 w-full"
                           >
-                            <span style={{ fontSize: '1.1rem' }}>{reason.icon}</span>
-                            <span style={{ fontWeight: 500 }}>{reason.label}</span>
-                            <span style={{ marginLeft: 'auto', color: t.grayLight, fontSize: '0.8rem' }}>→</span>
+                            <span className="text-[1.1rem]">{reason.icon}</span>
+                            <span className="font-medium">{reason.label}</span>
+                            <span className="ml-auto text-[#999] text-[0.8rem]">→</span>
                           </button>
                         ))}
                       </div>
-                      <button style={{
-                        display: 'block', margin: '16px auto 0', background: 'none',
-                        border: 'none', color: t.grayLight, fontSize: '0.8rem',
-                        cursor: 'pointer', textDecoration: 'underline',
-                        fontFamily: t.fontSans,
-                      }}>
+                      <button className="block mx-auto mt-4 bg-transparent border-none text-[#999] text-[0.8rem] cursor-pointer underline font-sans">
                         Cancel anyway →
                       </button>
                     </>
                   ) : (
                     <>
-                      <div style={{ textAlign: 'center' }}>
-                        <div style={{
-                          width: '48px', height: '48px', borderRadius: '50%',
-                          background: '#FDF4EF', display: 'flex', alignItems: 'center',
-                          justifyContent: 'center', margin: '0 auto 16px', fontSize: '1.5rem',
-                        }}>
+                      <div className="text-center">
+                        <div className="w-12 h-12 rounded-full bg-[#FDF4EF] flex items-center justify-center mx-auto mb-4 text-2xl">
                           {activeOffer && (activeOffer.type === 'discount' ? '💰' : activeOffer.type === 'pause' ? '⏸️' : activeOffer.type === 'human' ? '💬' : '📝')}
                         </div>
-                        <h3 style={{
-                          fontFamily: t.fontSans, fontSize: '1.1rem', fontWeight: 700,
-                          color: t.text, margin: '0 0 8px',
-                        }}>
+                        <h3 className="font-sans text-[1.1rem] font-bold text-[#191919] mb-2">
                           {activeOffer?.headline || 'We have an offer for you'}
                         </h3>
                         {activeOffer?.message && (
-                          <p style={{
-                            fontFamily: t.fontSerif, fontSize: '0.85rem', color: t.gray,
-                            margin: '0 0 8px', lineHeight: 1.6,
-                          }}>
+                          <p className="font-serif text-[0.85rem] text-[#666] mb-2 leading-[1.6]">
                             {activeOffer.message}
                           </p>
                         )}
                         {activeOffer?.subtext && (
-                          <p style={{
-                            fontFamily: t.fontSerif, fontSize: '0.82rem', color: t.grayLight,
-                            margin: '0 0 8px',
-                          }}>
+                          <p className="font-serif text-[0.82rem] text-[#999] mb-2">
                             {activeOffer.subtext}
                           </p>
                         )}
                         {activeOffer?.prompt && (
-                          <div style={{
-                            margin: '16px 0', padding: '12px', borderRadius: '8px',
-                            border: `1px solid ${t.border}`, background: t.bg,
-                            fontFamily: t.fontSerif, fontSize: '0.82rem', color: t.grayLight,
-                            textAlign: 'left', minHeight: '60px',
-                          }}>
+                          <div className="my-4 p-3 rounded-lg border border-[#E5E5E5] bg-[#FAF9F5] font-serif text-[0.82rem] text-[#999] text-left min-h-[60px]">
                             {activeOffer.prompt}
                           </div>
                         )}
-                        <div style={{ display: 'flex', gap: '10px', justifyContent: 'center', marginTop: '24px' }}>
-                          <button style={{
-                            background: t.accent, color: t.white, border: 'none',
-                            padding: '10px 24px', borderRadius: '8px', fontFamily: t.fontSans,
-                            fontWeight: 600, fontSize: '0.88rem', cursor: 'pointer',
-                          }}>
+                        <div className="flex gap-[10px] justify-center mt-6">
+                          <button className="bg-[#D97757] text-white border-none py-[10px] px-6 rounded-lg font-sans font-semibold text-[0.88rem] cursor-pointer">
                             {activeOffer?.type === 'feedback' ? 'Submit Feedback' : activeOffer?.type === 'human' ? 'Talk to Us' : 'Accept Offer'}
                           </button>
                           <button
                             onClick={resetFlow}
-                            style={{
-                              background: 'none', color: t.grayLight, border: `1px solid ${t.border}`,
-                              padding: '10px 24px', borderRadius: '8px', fontFamily: t.fontSans,
-                              fontSize: '0.85rem', cursor: 'pointer',
-                            }}
+                            className="bg-transparent text-[#999] border border-[#E5E5E5] py-[10px] px-6 rounded-lg font-sans text-[0.85rem] cursor-pointer"
                           >
                             No thanks
                           </button>
@@ -322,30 +229,19 @@ export default function TemplatePage({ template }) {
 
             {/* Code snippet */}
             <div>
-              <h2 style={{
-                fontFamily: t.fontSans, fontSize: '1.1rem', fontWeight: 700,
-                color: t.text, margin: '0 0 16px', letterSpacing: '-0.02em',
-              }}>
+              <h2 className="font-sans text-[1.1rem] font-bold text-[#191919] mb-4 tracking-[-0.02em]">
                 Code
               </h2>
-              <div style={{ borderRadius: '10px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.05)' }}>
-                <div style={{
-                  background: '#181825', padding: '10px 16px',
-                  display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-                }}>
-                  <span style={{ fontFamily: 'monospace', fontSize: '0.78rem', color: '#6C7086' }}>
+              <div className="rounded-[10px] overflow-hidden border border-white/5">
+                <div className="bg-[#181825] py-[10px] px-4 flex items-center justify-between">
+                  <span className="font-mono text-[0.78rem] text-[#6C7086]">
                     cancel-flow.js
                   </span>
-                  <span style={{ fontSize: '0.65rem', fontFamily: t.fontSans, color: '#6C7086', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+                  <span className="text-[0.65rem] font-sans text-[#6C7086] uppercase tracking-[0.08em]">
                     javascript
                   </span>
                 </div>
-                <pre style={{
-                  background: t.codeBg, padding: '20px', margin: 0,
-                  overflowX: 'auto', fontSize: '0.82rem', lineHeight: 1.7,
-                  fontFamily: '"SF Mono", "Fira Code", "JetBrains Mono", monospace',
-                  color: t.codeText,
-                }}>
+                <pre className="bg-[#1E1E2E] p-5 m-0 overflow-x-auto text-[0.82rem] leading-[1.7] text-[#CDD6F4]" style={{ fontFamily: '"SF Mono", "Fira Code", "JetBrains Mono", monospace' }}>
                   <code>{template.code}</code>
                 </pre>
               </div>
@@ -354,53 +250,38 @@ export default function TemplatePage({ template }) {
         </section>
 
         {/* Reason → Offer mapping table */}
-        <section style={{ maxWidth: '1100px', margin: '0 auto', padding: '0 24px 64px' }}>
-          <h2 style={{
-            fontFamily: t.fontSans, fontSize: '1.3rem', fontWeight: 700,
-            color: t.text, margin: '0 0 24px', letterSpacing: '-0.03em',
-          }}>
+        <section className="max-w-[1100px] mx-auto px-6 pb-16">
+          <h2 className="font-sans text-[1.3rem] font-bold text-[#191919] mb-6 tracking-[-0.03em]">
             Reason → Offer Mapping
           </h2>
-          <div style={{
-            border: `1px solid ${t.border}`, borderRadius: '10px',
-            overflow: 'hidden',
-          }}>
+          <div className="border border-[#E5E5E5] rounded-[10px] overflow-hidden">
             {/* Header row */}
-            <div style={{
-              display: 'grid', gridTemplateColumns: '1fr 1fr 2fr',
-              padding: '12px 20px', background: '#F5F3EF',
-              borderBottom: `1px solid ${t.border}`,
-            }}>
-              <span style={{ fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: t.gray }}>Reason</span>
-              <span style={{ fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: t.gray }}>Offer Type</span>
-              <span style={{ fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: t.gray }}>What the customer sees</span>
+            <div className="grid grid-cols-[1fr_1fr_2fr] py-3 px-5 bg-[#F5F3EF] border-b border-[#E5E5E5]">
+              <span className="text-[0.75rem] font-bold uppercase tracking-[0.08em] text-[#666]">Reason</span>
+              <span className="text-[0.75rem] font-bold uppercase tracking-[0.08em] text-[#666]">Offer Type</span>
+              <span className="text-[0.75rem] font-bold uppercase tracking-[0.08em] text-[#666]">What the customer sees</span>
             </div>
             {template.preview.reasons.map((reason, i) => {
               const offer = template.preview.offers[reason.offer]
-              const offerInfo = offerTypeLabels[reason.offer] || { label: reason.offer, icon: '🎁', color: t.accent }
+              const offerInfo = offerTypeLabels[reason.offer] || { label: reason.offer, icon: '🎁', color: '#D97757' }
               return (
                 <div key={reason.id} style={{
-                  display: 'grid', gridTemplateColumns: '1fr 1fr 2fr',
-                  padding: '14px 20px',
-                  borderBottom: i < template.preview.reasons.length - 1 ? `1px solid ${t.border}` : 'none',
-                  background: i % 2 === 0 ? t.white : t.bg,
-                  alignItems: 'center',
-                }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  borderBottom: i < template.preview.reasons.length - 1 ? '1px solid #E5E5E5' : 'none',
+                  background: i % 2 === 0 ? '#FFFFFF' : '#FAF9F5',
+                }} className="grid grid-cols-[1fr_1fr_2fr] py-[14px] px-5 items-center">
+                  <div className="flex items-center gap-2">
                     <span>{reason.icon}</span>
-                    <span style={{ fontSize: '0.85rem', fontWeight: 500, color: t.text }}>{reason.label}</span>
+                    <span className="text-[0.85rem] font-medium text-[#191919]">{reason.label}</span>
                   </div>
                   <div>
-                    <span style={{
-                      display: 'inline-flex', alignItems: 'center', gap: '5px',
-                      padding: '3px 10px', borderRadius: '4px',
-                      background: `${offerInfo.color}15`, color: offerInfo.color,
-                      fontSize: '0.78rem', fontWeight: 600,
+                    <span className="inline-flex items-center gap-[5px] py-[3px] px-[10px] rounded-[4px] text-[0.78rem] font-semibold" style={{
+                      background: `${offerInfo.color}15`,
+                      color: offerInfo.color,
                     }}>
                       {offerInfo.icon} {offerInfo.label}
                     </span>
                   </div>
-                  <div style={{ fontSize: '0.83rem', color: t.gray, fontFamily: t.fontSerif }}>
+                  <div className="text-[0.83rem] text-[#666] font-serif">
                     {offer?.headline || 'Custom offer'}
                   </div>
                 </div>
@@ -410,33 +291,21 @@ export default function TemplatePage({ template }) {
         </section>
 
         {/* Other templates */}
-        <section style={{ maxWidth: '1100px', margin: '0 auto', padding: '0 24px 64px' }}>
-          <h2 style={{
-            fontFamily: t.fontSans, fontSize: '1.3rem', fontWeight: 700,
-            color: t.text, margin: '0 0 24px', letterSpacing: '-0.03em',
-          }}>
+        <section className="max-w-[1100px] mx-auto px-6 pb-16">
+          <h2 className="font-sans text-[1.3rem] font-bold text-[#191919] mb-6 tracking-[-0.03em]">
             Other Templates
           </h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '16px' }}>
+          <div className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-4">
             {templates.filter(t2 => t2.slug !== template.slug).slice(0, 3).map(t2 => (
-              <Link key={t2.slug} href={`/templates/${t2.slug}`} style={{ textDecoration: 'none', color: 'inherit' }}>
-                <div style={{
-                  padding: '20px', border: `1px solid ${t.border}`, borderRadius: '10px',
-                  background: t.white, transition: 'all 0.15s',
-                }}>
-                  <h3 style={{
-                    fontFamily: t.fontSans, fontSize: '0.95rem', fontWeight: 700,
-                    color: t.text, margin: '0 0 6px',
-                  }}>
+              <Link key={t2.slug} href={`/templates/${t2.slug}`} className="no-underline text-inherit">
+                <div className="p-5 border border-[#E5E5E5] rounded-[10px] bg-white transition-all duration-150">
+                  <h3 className="font-sans text-[0.95rem] font-bold text-[#191919] mb-[6px]">
                     {t2.name}
                   </h3>
-                  <p style={{
-                    fontFamily: t.fontSerif, fontSize: '0.82rem', color: t.gray,
-                    lineHeight: 1.6, margin: '0 0 10px',
-                  }}>
+                  <p className="font-serif text-[0.82rem] text-[#666] leading-[1.6] mb-[10px]">
                     {t2.description.substring(0, 100)}...
                   </p>
-                  <span style={{ color: t.accent, fontSize: '0.8rem', fontWeight: 600 }}>View →</span>
+                  <span className="text-[#D97757] text-[0.8rem] font-semibold">View →</span>
                 </div>
               </Link>
             ))}
@@ -444,35 +313,18 @@ export default function TemplatePage({ template }) {
         </section>
 
         {/* CTA */}
-        <section style={{
-          background: t.text, padding: '64px 24px', textAlign: 'center',
-        }}>
-          <h2 style={{
-            fontFamily: t.fontSans, fontSize: 'clamp(1.3rem, 3vw, 1.8rem)', fontWeight: 700,
-            color: t.white, letterSpacing: '-0.03em', margin: '0 0 12px',
-          }}>
+        <section className="bg-[#191919] py-16 px-6 text-center">
+          <h2 className="font-sans font-bold text-white tracking-[-0.03em] mb-3" style={{ fontSize: 'clamp(1.3rem, 3vw, 1.8rem)' }}>
             Use this template — free
           </h2>
-          <p style={{
-            fontFamily: t.fontSerif, fontSize: '0.95rem', color: 'rgba(255,255,255,0.65)',
-            margin: '0 0 24px', lineHeight: 1.7,
-          }}>
+          <p className="font-serif text-[0.95rem] text-white/65 mb-6 leading-[1.7]">
             Copy the code above, join the waitlist for your API key, and start saving customers today.
           </p>
-          <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <a href="/#waitlist" style={{
-              display: 'inline-block', background: t.accent, color: t.white,
-              padding: '13px 28px', borderRadius: '8px', fontFamily: t.fontSans,
-              fontWeight: 700, fontSize: '0.95rem', textDecoration: 'none',
-            }}>
+          <div className="flex gap-3 justify-center flex-wrap">
+            <a href="/#waitlist" className="inline-block bg-[#D97757] text-white py-[13px] px-7 rounded-lg font-sans font-bold text-[0.95rem] no-underline">
               Join Waitlist
             </a>
-            <Link href="/docs" style={{
-              display: 'inline-block', background: 'transparent', color: 'rgba(255,255,255,0.7)',
-              padding: '13px 28px', borderRadius: '8px', fontFamily: t.fontSans,
-              fontWeight: 600, fontSize: '0.95rem', textDecoration: 'none',
-              border: '1px solid rgba(255,255,255,0.2)',
-            }}>
+            <Link href="/docs" className="inline-block bg-transparent text-white/70 py-[13px] px-7 rounded-lg font-sans font-semibold text-[0.95rem] no-underline border border-white/20">
               Read the Docs →
             </Link>
           </div>
