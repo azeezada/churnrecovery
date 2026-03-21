@@ -415,6 +415,30 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://churnrecovery.com/for/stripe</loc>
+    <lastmod>2026-03-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://churnrecovery.com/for/squarespace</loc>
+    <lastmod>2026-03-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://churnrecovery.com/for/lemon-squeezy</loc>
+    <lastmod>2026-03-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://churnrecovery.com/for/chargebee</loc>
+    <lastmod>2026-03-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://churnrecovery.com/posts/50000-year-saas-tool-stack-audit</loc>
     <lastmod>2026-03-21</lastmod>
     <changefreq>monthly</changefreq>
@@ -499,6 +523,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://churnrecovery.com/posts/cancel-flow-templates</loc>
+    <lastmod>2026-03-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://churnrecovery.com/posts/cancellation-emails-that-win-back-subscribers</loc>
     <lastmod>2026-03-21</lastmod>
     <changefreq>monthly</changefreq>
@@ -524,6 +554,12 @@
   </url>
   <url>
     <loc>https://churnrecovery.com/posts/discount-vs-pause-vs-cancel-what-saves-subscribers</loc>
+    <lastmod>2026-03-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://churnrecovery.com/posts/dunning-management-guide-small-business</loc>
     <lastmod>2026-03-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -608,6 +644,12 @@
   </url>
   <url>
     <loc>https://churnrecovery.com/posts/saas-tool-pricing-take</loc>
+    <lastmod>2026-03-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://churnrecovery.com/posts/stripe-subscription-cancellations-how-to-stop-them</loc>
     <lastmod>2026-03-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>

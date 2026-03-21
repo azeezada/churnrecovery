@@ -5,7 +5,7 @@
     <link>https://churnrecovery.com/blog</link>
     <description>Insights on churn recovery, payment failures, and SaaS retention</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 21 Mar 2026 07:00:29 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 21 Mar 2026 07:06:04 GMT</lastBuildDate>
     <atom:link href="https://churnrecovery.com/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title><![CDATA[The $50,000/Year SaaS Tool Stack Audit]]></title>
@@ -56,6 +56,18 @@
       <category>mockups</category>
       <category>screenshots</category>
       <category>saas</category>
+    </item>
+    <item>
+      <title><![CDATA[5 Cancel Flow Templates That Actually Save Subscribers (Copy These)]]></title>
+      <link>https://churnrecovery.com/posts/cancel-flow-templates</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/cancel-flow-templates</guid>
+      <description><![CDATA[]]></description>
+      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
+      <category>cancel flow templates</category>
+      <category>cancel flow</category>
+      <category>churn recovery</category>
+      <category>subscription retention</category>
+      <category>pause offer</category>
     </item>
     <item>
       <title><![CDATA[The 5 Cancellation Emails That Actually Win Back Subscribers (With Templates)]]></title>
@@ -118,6 +130,18 @@
       <category>retention</category>
       <category>discount</category>
       <category>pause</category>
+    </item>
+    <item>
+      <title><![CDATA[The Complete Guide to Dunning Management for Small Businesses]]></title>
+      <link>https://churnrecovery.com/posts/dunning-management-guide-small-business</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/dunning-management-guide-small-business</guid>
+      <description><![CDATA[]]></description>
+      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
+      <category>dunning management small business</category>
+      <category>failed payments</category>
+      <category>passive churn</category>
+      <category>subscription business</category>
+      <category>churn recovery</category>
     </item>
     <item>
       <title><![CDATA[Free Alternatives to Churnkey, ProfitWell, and Baremetrics]]></title>
@@ -291,6 +315,18 @@
       <category>saas-tools</category>
       <category>churn</category>
       <category>business</category>
+    </item>
+    <item>
+      <title><![CDATA[Stripe Subscription Cancellations: How to Stop Them Before They Happen]]></title>
+      <link>https://churnrecovery.com/posts/stripe-subscription-cancellations-how-to-stop-them</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/stripe-subscription-cancellations-how-to-stop-them</guid>
+      <description><![CDATA[]]></description>
+      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
+      <category>stripe</category>
+      <category>stripe subscription cancellations</category>
+      <category>cancel flow</category>
+      <category>churn recovery</category>
+      <category>subscription business</category>
     </item>
     <item>
       <title><![CDATA[Your Subscription Business Is Leaking Revenue Every Month (And You Don't Know It)]]></title>

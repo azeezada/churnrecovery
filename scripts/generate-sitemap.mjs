@@ -51,9 +51,12 @@ const forPageSlugs = [
   'kajabi', 'teachable', 'ghost', 'convertkit', 'substack',
   'beehiiv', 'memberful', 'stan-store', 'payhip', 'podia',
   'thinkific', 'circle', 'patreon', 'wix', 'wordpress',
+  'stripe', 'squarespace', 'lemon-squeezy', 'chargebee',
 ]
 const forPages = forPageSlugs.map(slug => ({
-  path: `/for/${slug}`, priority: '0.8', changefreq: 'monthly',
+  path: `/for/${slug}`,
+  priority: ['stripe', 'squarespace', 'lemon-squeezy', 'chargebee'].includes(slug) ? '0.9' : '0.8',
+  changefreq: 'monthly',
 }))
 
 // Blog posts
