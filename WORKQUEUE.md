@@ -7,7 +7,7 @@ Low-code/no-code business owners: newsletter creators, coaches, online course se
 
 ### P0 — Do Now (blocks user acquisition)
 - [✅] Homepage UX overhaul for business owners — DONE. Rewrote entire homepage for non-technical audience (newsletter creators, coaches, course sellers). Benefits-first language, "How it works" 3-step, "Who it's for" section, FAQ, visual price comparison. Deployed 2026-03-21.
-- [ ] Make sign-up → dashboard → install widget flow work end-to-end (core product loop must work before marketing push)
+- ✅ Make sign-up → dashboard → install widget flow work end-to-end (core product loop must work before marketing push)
 - [✅] Fix test runner — `npm test` hangs because `serve` background process never terminates. Add cleanup/timeout. DONE: Removed orphan `pretest` script; Playwright webServer config manages lifecycle. 105 tests pass cleanly in ~12s.
 
 ### P1 — This Week (gets first user)
@@ -18,6 +18,7 @@ Low-code/no-code business owners: newsletter creators, coaches, online course se
   • product-integrations.png — Payment processor + webhook integrations
   • 4 additional marketing site screenshots for supplementary use
   Ready for Product Hunt, AlternativeTo, G2, Capterra submissions.
+- [ ] **URGENT: Add product screenshots to homepage** — Current hero has NO visual proof. Users can't see the actual product. Add dashboard screenshot above fold + cancel flow preview in "How it works" section. Critical conversion blocker.
 - [✅] Deploy blog post (Churnkey comparison) to live site — DONE. Churnkey comparison page is live at /compare/churnkey with full feature table, pricing breakdown, and CTA to waitlist.
 - [✅] First user acquisition campaign — EXECUTED 2026-03-21. AlternativeTo submission completed and live, targeting "Churnkey alternative" SEO positioning. Indie Hackers post ready to publish (docs/indie-hackers-post-final.md). BetaList submission prepared (marketing/betalist-submission.md). Next: Execute IH post + BetaList submission, then monitor for early traffic and signups.
 - [✅] Product Hunt launch prep → Target April 1st — DONE 2026-03-20. Full launch kit at docs/product-hunt-launch.md: tagline, description, categories, maker comment, 7 gallery asset specs, launch timeline, hunter strategy (5 names), pre-launch warm-up, post-launch actions.
@@ -28,6 +29,10 @@ Low-code/no-code business owners: newsletter creators, coaches, online course se
 - [ ] **Set up ConvertKit/Mailchimp automation** — Welcome series for new signups from directories, segment by traffic source
 
 ### P2 — Next Week (retention + growth)
+- [ ] **Fix mobile navigation** — Hamburger menu button exists but menu doesn't appear. Mobile UX completely broken.
+- [ ] **CTA clarity audit** — "Get started free" vs "Join waitlist" confusion. Streamline messaging.
+- [ ] **Interactive demo** — Replace generic "Demo" with actual cancel flow preview (reduce friction before email capture)
+- [ ] **Customer logo wall** — Get permission to display actual company logos for trust signals
 - [ ] Migrate to shadcn/ui + Tailwind (kill 1,770 inline styles) — important but secondary to getting the product loop working
 - [ ] Dunning email sequences (Resend/SendGrid integration)
 - [ ] Real analytics in dashboard (replace mock data)
