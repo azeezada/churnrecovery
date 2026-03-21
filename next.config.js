@@ -1,11 +1,13 @@
 /**
- * Next.js config — hybrid rendering for ChurnRecovery app.
+ * Next.js config — static export for Cloudflare Pages deployment.
  *
- * Removed output: 'export' to enable API routes and server-side auth middleware.
- * Marketing pages still prerender as static HTML.
- * New app pages use client-side rendering with Clerk auth.
+ * output: 'export' generates the `out/` directory that gets deployed.
+ * API routes are handled by Cloudflare Pages Functions in `functions/api/`.
+ * Auth middleware is a passthrough (Clerk uses placeholder keys for now).
+ * Dashboard pages are client-side rendered — static HTML shells that hydrate.
  */
 const nextConfig = {
+  output: 'export',
   reactStrictMode: true,
   images: {
     unoptimized: true

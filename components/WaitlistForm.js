@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 const t = {
   bg: '#FAF9F5',
@@ -11,8 +11,20 @@ const t = {
   white: '#FFFFFF',
   green: '#2D7A4F',
   greenLight: '#EDF7F1',
+  red: '#DC2626',
+  redLight: '#FEF2F2',
+  redBorder: '#FECACA',
   fontSans: '"Instrument Sans", sans-serif',
   fontSerif: '"Merriweather", serif',
+}
+
+// RFC 5322-ish email validation — covers real-world emails without being overly strict
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/
+
+function validateEmail(email) {
+  if (!email || !email.trim()) return 'Please enter your email address'
+  if (!EMAIL_REGEX.test(email.trim())) return 'Please enter a valid email address'
+  return null
 }
 
 export default function WaitlistForm({ source = 'homepage', dark = false, compact = false }) {
@@ -20,6 +32,9 @@ export default function WaitlistForm({ source = 'homepage', dark = false, compac
   const [status, setStatus] = useState('idle') // idle | loading | success | duplicate | error
   const [count, setCount] = useState(null)
   const [errorMessage, setErrorMessage] = useState('')
+  const [validationError, setValidationError] = useState('')
+  const [touched, setTouched] = useState(false)
+  const inputRef = useRef(null)
 
   // Fetch current count on mount
   useEffect(() => {
@@ -31,10 +46,27 @@ export default function WaitlistForm({ source = 'homepage', dark = false, compac
       .catch(() => {})
   }, [])
 
+  // Clear validation error as user types (after first submit attempt)
+  useEffect(() => {
+    if (touched && email) {
+      const err = validateEmail(email)
+      // Only clear the error when valid; don't show new errors while typing
+      if (!err) setValidationError('')
+    }
+  }, [email, touched])
+
   const handleSubmit = async (e) => {
     e.preventDefault()
-    if (!email || !email.includes('@')) return
+    setTouched(true)
 
+    const err = validateEmail(email)
+    if (err) {
+      setValidationError(err)
+      inputRef.current?.focus()
+      return
+    }
+
+    setValidationError('')
     setStatus('loading')
     setErrorMessage('')
 
@@ -42,7 +74,7 @@ export default function WaitlistForm({ source = 'homepage', dark = false, compac
       const res = await fetch('/api/waitlist', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, source }),
+        body: JSON.stringify({ email: email.trim(), source }),
       })
 
       const data = await res.json()
@@ -54,18 +86,22 @@ export default function WaitlistForm({ source = 'homepage', dark = false, compac
         setStatus('duplicate')
       } else {
         setStatus('error')
-        setErrorMessage(data.error || 'Something went wrong')
+        setErrorMessage(data.error || 'Something went wrong. Please try again.')
       }
     } catch (err) {
       setStatus('error')
-      setErrorMessage('Network error. Please try again.')
+      setErrorMessage('Network error. Please check your connection and try again.')
     }
   }
 
+  const hasValidationError = touched && validationError
   const bgColor = dark ? 'rgba(255,255,255,0.08)' : t.white
-  const borderColor = dark ? 'rgba(255,255,255,0.15)' : t.border
+  const borderColor = hasValidationError
+    ? (dark ? '#F87171' : t.red)
+    : (dark ? 'rgba(255,255,255,0.15)' : t.border)
   const textColor = dark ? t.white : t.text
   const subtextColor = dark ? 'rgba(255,255,255,0.6)' : t.gray
+  const errorId = `waitlist-error-${source}`
 
   if (status === 'success' || status === 'duplicate') {
     return (
@@ -112,22 +148,33 @@ export default function WaitlistForm({ source = 'homepage', dark = false, compac
         flexDirection: compact ? 'column' : 'row',
       }}>
         <input
+          ref={inputRef}
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          onBlur={() => {
+            if (touched && email) {
+              const err = validateEmail(email)
+              if (err) setValidationError(err)
+            }
+          }}
           placeholder="you@company.com"
           required
+          aria-label="Email address"
+          aria-invalid={hasValidationError ? 'true' : 'false'}
+          aria-describedby={hasValidationError ? errorId : undefined}
           style={{
             flex: 1,
             padding: compact ? '10px 14px' : '12px 16px',
             borderRadius: '8px',
             border: `1px solid ${borderColor}`,
-            background: bgColor,
+            background: hasValidationError ? (dark ? 'rgba(220,38,38,0.1)' : t.redLight) : bgColor,
             fontFamily: t.fontSans,
             fontSize: '0.9rem',
             color: textColor,
             outline: 'none',
             minWidth: compact ? '100%' : '240px',
+            transition: 'border-color 0.15s, background 0.15s',
           }}
         />
         <button
@@ -151,12 +198,28 @@ export default function WaitlistForm({ source = 'homepage', dark = false, compac
         </button>
       </form>
 
+      {hasValidationError && (
+        <p
+          id={errorId}
+          role="alert"
+          style={{
+            fontFamily: t.fontSans, fontSize: '0.8rem', color: dark ? '#F87171' : t.red,
+            margin: '8px 0 0', display: 'flex', alignItems: 'center', gap: '4px',
+          }}
+        >
+          <span aria-hidden="true">⚠</span> {validationError}
+        </p>
+      )}
+
       {status === 'error' && (
-        <p style={{
-          fontFamily: t.fontSans, fontSize: '0.8rem', color: '#DC2626',
-          margin: '8px 0 0',
-        }}>
-          {errorMessage}
+        <p
+          role="alert"
+          style={{
+            fontFamily: t.fontSans, fontSize: '0.8rem', color: dark ? '#F87171' : t.red,
+            margin: '8px 0 0', display: 'flex', alignItems: 'center', gap: '4px',
+          }}
+        >
+          <span aria-hidden="true">⚠</span> {errorMessage}
         </p>
       )}
 
