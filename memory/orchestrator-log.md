@@ -268,6 +268,14 @@
 - All 3 added to sitemap.xml | Build: 102 pages ✅ | Tests: 133/133 ✅ | Deployed + cache purged | Pushed to main
 - WORKQUEUE.md: ✅ creator landing pages added and marked done
 
+## 2026-03-21 — Wave 11, CODE worker (cr-code-for-pages-wave11)
+
+- **[/for/memberful]** — Indigo accent, Memberful+Stripe angle, "intercepts silently", `memberful-creator` tag. HTTP 200 ✅
+- **[/for/stan-store]** — Pink/magenta accent, 80k+ creators, impulse cancel → pause offer angle, `stan-store-creator` tag. HTTP 200 ✅
+- **[/for/payhip]** — Green accent, 130k+ sellers, "Payhip doesn't do retention. We do." angle, `payhip-seller` tag. HTTP 200 ✅
+- All 3 use shared `components/for/` PainCard/HowStep/BenefitCard/FAQItem with `accentColor` props
+- Sitemap updated (81 URLs) | Tests: 133/133 ✅ | Committed + pushed to main
+
 ## 2026-03-21 — Wave 11, CONTENT worker (cr-content-wave11)
 
 - **[BLOG-1]** `/posts/reduce-churn-online-course-business` — 5 tactics for course sellers (cancel flow, dunning, pause, check-in, community), CTAs to /for/kajabi + /for/teachable. HTTP 200 ✅
