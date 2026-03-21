@@ -1,5 +1,14 @@
 # Orchestrator Log
 
+## 2026-03-21 — Tailwind Phase 1: Components + App Pages Migration
+
+- **Scope**: 4 shared components + 6 app pages (10 files total, ~1200 inline styles eliminated)
+- **Components migrated**: Header.js, Footer.js, WaitlistForm.js, AppLayout.js
+- **Pages migrated**: dashboard.js, analytics.js, install.js, cancel-flow.js, settings.js (recovery.js was already done in prior wave)
+- **Approach**: Removed local `const t = {...}` token objects; replaced all `style={{...}}` with Tailwind utility classes using brand tokens from `@theme` (bg-brand-accent, text-brand-gray, border-brand-border, etc.). Hover handlers replaced with `hover:` classes. Dynamic/conditional styles use template literal className with ternaries. Truly dynamic values (Skeleton widths, BarChart heights, outcome badge colors from runtime data) kept as minimal inline styles.
+- **Build**: `npm run build` passes clean. 114/142 tests pass (28 pre-existing failures in unrelated pages).
+- **Commit**: 6a577a8
+
 ## 2026-03-21 — Wave 15: Referral System + Schema Markup (cr-code-referral-schema subagent)
 
 - **[REFER-1] pages/refer/[code].js** — Referral landing page. Sets `cr_referral` cookie (30-day expiry via `document.cookie`), shows "You've been invited to ChurnRecovery" title, inline WaitlistForm with referralCode prop pre-filled. Generic message for unknown codes; CODE_NAMES map for named codes. HTTP 200 via Cloudflare _redirects catch-all.

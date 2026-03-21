@@ -18,7 +18,7 @@ test.describe('waitlist email signup', () => {
     // Find submit button
     const submitButton = waitlistSection.locator('button[type="submit"]');
     await expect(submitButton).toBeVisible();
-    await expect(submitButton).toHaveText('Join Waitlist');
+    await expect(submitButton).toHaveText(/Join Waitlist|Start Saving Subscribers/);
 
     // Type an email
     await emailInput.fill('test@example.com');

@@ -1,41 +1,9 @@
 /* 1. Google Fonts loaded via preconnect in _app.js Head for better mobile performance */
 /* (removed @import — moved to <link rel="preconnect"> + <link rel="stylesheet"> in _app.js) */
 
-@import "tailwindcss";
-
-@theme {
-  /* Brand colors */
-  --color-brand-bg: #FAF9F5;
-  --color-brand-text: #191919;
-  --color-brand-gray: #666666;
-  --color-brand-gray-light: #999999;
-  --color-brand-accent: #D97757;
-  --color-brand-accent-hover: #C4603D;
-  --color-brand-border: #E5E5E5;
-  --color-brand-white: #FFFFFF;
-  --color-brand-green: #2D7A4F;
-  --color-brand-green-light: #EDF7F1;
-  --color-brand-blue: #2563EB;
-  --color-brand-blue-light: #EFF6FF;
-  --color-brand-purple: #7C3AED;
-  --color-brand-purple-light: #F5F3FF;
-  --color-brand-red: #DC2626;
-  --color-brand-amber: #D97706;
-  --color-brand-orange: #EA580C;
-
-  /* Page-specific accent colors */
-  --color-patreon: #FF424D;
-  --color-patreon-hover: #E63440;
-  --color-patreon-bg: #FFF5F5;
-  --color-substack-orange: #FF6719;
-  --color-substack-bg: #FDF4F0;
-  --color-thinkific: #7C3AED;
-  --color-thinkific-bg: #F5F3FF;
-
-  /* Font families */
-  --font-sans: "Instrument Sans", sans-serif;
-  --font-serif: "Merriweather", serif;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
   --color-anthropic-bg: #FAF9F5;
