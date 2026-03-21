@@ -5,7 +5,7 @@
     <link>https://churnrecovery.com/blog</link>
     <description>Insights on churn recovery, payment failures, and SaaS retention</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 21 Mar 2026 04:16:09 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 21 Mar 2026 04:25:04 GMT</lastBuildDate>
     <atom:link href="https://churnrecovery.com/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title><![CDATA[The $50,000/Year SaaS Tool Stack Audit]]></title>
@@ -30,6 +30,19 @@
       <category>SaaS tools comparison</category>
       <category>open-source</category>
       <category>pricing</category>
+    </item>
+    <item>
+      <title><![CDATA[Building in Public: How We Created 5 Product Screenshots in 48 Hours]]></title>
+      <link>https://churnrecovery.com/posts/building-in-public-48-hours-product-screenshots</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/building-in-public-48-hours-product-screenshots</guid>
+      <description><![CDATA[]]></description>
+      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
+      <category>building in public</category>
+      <category>product hunt</category>
+      <category>design</category>
+      <category>mockups</category>
+      <category>screenshots</category>
+      <category>saas</category>
     </item>
     <item>
       <title><![CDATA[Free Alternatives to Churnkey, ProfitWell, and Baremetrics]]></title>
@@ -65,6 +78,19 @@
       <category>churn recovery</category>
       <category>comparison</category>
       <category>pricing</category>
+    </item>
+    <item>
+      <title><![CDATA[Newsletter Creator Case Study: How to Save $3,600/Year on Churn Tools]]></title>
+      <link>https://churnrecovery.com/posts/newsletter-creator-case-study-saved-3600-year</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/newsletter-creator-case-study-saved-3600-year</guid>
+      <description><![CDATA[]]></description>
+      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
+      <category>case study</category>
+      <category>newsletter</category>
+      <category>beehiiv</category>
+      <category>churnkey</category>
+      <category>churn recovery</category>
+      <category>newsletter creator</category>
     </item>
     <item>
       <title><![CDATA[The Newsletter Creator's Guide to Reducing Churn]]></title>

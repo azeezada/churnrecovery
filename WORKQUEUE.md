@@ -39,8 +39,8 @@ Low-code/no-code business owners: newsletter creators, coaches, online course se
 - [ ] **"Building in Public: 48 Hours to Product Screenshots"** — Behind-scenes content
 - [ ] **Twitter thread: "Directory submission checklist"** — Share strategy + tips
 - [x] **"Free Alternatives to [Expensive SaaS Tool]"** series — Target Churnkey, ProfitWell, Baremetrics pricing pain
-- [ ] **"I Reverse-Engineered Churnkey's Cancel Flow"** — Technical deep-dive
-- [ ] **"Churn Recovery ROI Calculator"** — Interactive tool
+- [✅] **"I Reverse-Engineered Churnkey's Cancel Flow"** — DONE 2026-03-21. Published at /posts/i-reverse-engineered-churnkey-cancel-flow (~1,200 words).
+- [✅] **"Churn Recovery ROI Calculator"** — Interactive tool. DONE 2026-03-21. Published at /tools/roi-calculator. Real-time sliders, vs-Churnkey verdict, CTA.
 - [ ] **Newsletter creator case study series** — Targeting Beehiiv, ConvertKit, Substack creators
 - [x] **"SaaS Pricing Audit: Tools That Should Cost 90% Less"** — Controversial take
 - [ ] Case study template: "How [Company] Saved $4,800/year by Switching from Churnkey"

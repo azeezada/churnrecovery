@@ -7,6 +7,7 @@ const footerLinks = {
     { label: 'Integrations', href: '/integrations' },
     { label: 'Cancel Flow Demo', href: '/demo' },
     { label: 'Churn Calculator', href: '/tools/churn-calculator' },
+    { label: 'ROI Calculator', href: '/tools/roi-calculator' },
     { label: 'Templates', href: '/templates' },
     { label: 'Pricing', href: '/pricing' },
   ],

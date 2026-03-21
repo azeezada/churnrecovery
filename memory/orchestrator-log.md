@@ -89,3 +89,45 @@
   3. docs/alternativeto-monitoring.md — Weekly monitoring checklist, 6 copy-paste response templates for common questions, competitor page expansion plan (ProfitWell, Baremetrics, Paddle, Chargebee, Stripe, Brightback, Recurly), UTM tracking + monthly reporting
   - WORKQUEUE.md: All 3 P1 tasks marked [✅]
 - [2026-03-21] Interactive cancel flow demo built: 4-step sequential flow (cancel intent → pause offer → discount offer → exit survey) with fake SaaS dashboard background, no login required, CTA after demo; deployed to https://churnrecovery.pages.dev/demo (HTTP 200 ✓)
+
+## 2026-03-21 — Marketing + Mobile UX Batch (cr-marketing-hn-mobile subagent)
+
+### [MKT-1] Hacker News "Show HN" Post — `docs/hacker-news-show-hn.md`
+- Exact post title: `Show HN: ChurnRecovery – Free cancel flow widget for subscription businesses`
+- Full 180-word post body (HN-appropriate tone: technical, honest, no marketing-speak)
+- Highlights Cloudflare Workers + D1 architecture, vanilla JS widget (~12KB)
+- 10 Q&A pairs covering: Stripe comparison, Churnkey comparison, dark patterns, sustainability, tech stack
+- Best post time: Tue–Thu 8–10 AM PST
+- Guide for handling negative HN comments
+- Pre-post checklist + post-launch tracking metrics
+- Status: ✅ committed — ready to post after Reddit/IH validation
+
+### [MKT-2] Mobile UX Full Audit — `docs/mobile-ux-audit.md`
+- Found 6 P0 (blocker), 9 P1 (important), 5 P2 (nice-to-have) issues
+- **P0 fixes applied directly:**
+  - P0-1: Pricing comparison table — added `overflowX: auto` + `min-width: 480px` (was causing full-page horizontal scroll)
+  - P0-3/4: Demo + Compare page navs — added `flexWrap` + mobile CSS to hide text links on <640px (nav was overflowing and clipping CTA)
+  - P0-5: Homepage PostCard — added `home-post-card` CSS class to collapse 120px date column on <600px
+  - P0-6: Blog tag filter — confirmed `flexWrap: wrap` already in place (no change needed)
+  - P2-3 bonus fix: WaitlistForm — added `inputMode="email"` and `autoComplete="email"` (brings up email keyboard on iOS/Android)
+  - globals.css: Added responsive image rules, tap target minimums, small-screen post card layout
+- P1/P2 documented for future code worker (comparison table min-width, CancelFlowDemo audit, code block overflow, etc.)
+- Status: ✅ P0 fixed + committed; P1/P2 documented
+
+### [MKT-3] Product Hunt Pre-Launch Checklist — `docs/product-hunt-prelaunch-checklist.md`
+- Day-by-day plan March 25 → April 1 with specific tasks, copy, and timing
+- March 25: PH upcoming page setup, Twitter bio update, waitlist email, 5 warm IH DMs
+- March 26: Gallery assets, tweet drafts, maker comment saved, hunter outreach (Kevin William David → Sharath Kuruganty priority order)
+- March 27: Hunter decision deadline (self-hunt if no reply), listing finalized, assets uploaded
+- March 28: Dry run, Slack drafts prepared, Reddit drafts prepared, alarm set
+- March 29: Rest day + teaser tweet
+- March 30–31: Final checklist + launch-eve email to waitlist
+- Launch day minute-by-minute (12:01 AM → midnight) reproduced from launch kit
+- 4 voter outreach DM templates (IH connections, Twitter followers, personal network, cold outreach)
+- Non-spammy DM rules (no link in first DM to strangers, no upvote trades, max 20 DMs/day)
+- Status: ✅ committed
+
+### Commit
+`ec88ea8` — "marketing: HN show-hn post, mobile UX audit + fixes, PH prelaunch checklist"
+
+2026-03-21: Built and deployed Churn Recovery ROI Calculator at /tools/roi-calculator — interactive sliders for subscribers/churn/ARPU/tool-cost/recovery-rate, real-time results showing revenue lost, recovered, and verdict vs. Churnkey; added to Header nav and Footer; HTTP 200 verified.
