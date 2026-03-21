@@ -35,7 +35,7 @@ Low-code/no-code business owners: newsletter creators, coaches, online course se
 - [ ] Video testimonials from beta users
 
 ## Content Ideas Backlog
-- [ ] **Screenshot guide series** — "5 SaaS Dashboard Screenshots That Convert" using our mockups as examples
+- [x] **Screenshot guide series** — "5 SaaS Dashboard Screenshots That Convert" using our mockups as examples (published 2026-03-21)
 - [ ] **"Building in Public: 48 Hours to Product Screenshots"** — Behind-scenes content
 - [ ] **Twitter thread: "Directory submission checklist"** — Share strategy + tips
 - [x] **"Free Alternatives to [Expensive SaaS Tool]"** series — Target Churnkey, ProfitWell, Baremetrics pricing pain
@@ -44,7 +44,7 @@ Low-code/no-code business owners: newsletter creators, coaches, online course se
 - [ ] **Newsletter creator case study series** — Targeting Beehiiv, ConvertKit, Substack creators
 - [x] **"SaaS Pricing Audit: Tools That Should Cost 90% Less"** — Controversial take
 - [ ] Case study template: "How [Company] Saved $4,800/year by Switching from Churnkey"
-- [ ] "The $50,000/Year SaaS Tool Stack Audit" — broader market positioning
+- [x] "The $50,000/Year SaaS Tool Stack Audit" — broader market positioning (published 2026-03-21)
 - [ ] Guest post on SaaS founder newsletters about churn recovery strategies
 - [ ] Reach out to Stripe/Paddle for integration marketplace listing
 

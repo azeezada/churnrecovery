@@ -5,7 +5,7 @@
     <link>https://churnrecovery.com/blog</link>
     <description>Insights on churn recovery, payment failures, and SaaS retention</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 21 Mar 2026 04:15:21 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 21 Mar 2026 04:16:09 GMT</lastBuildDate>
     <atom:link href="https://churnrecovery.com/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title><![CDATA[The $50,000/Year SaaS Tool Stack Audit]]></title>
@@ -78,6 +78,18 @@
       <category>convertkit</category>
       <category>substack</category>
       <category>subscriber retention</category>
+    </item>
+    <item>
+      <title><![CDATA[5 SaaS Dashboard Screenshots That Convert (And What Makes Them Work)]]></title>
+      <link>https://churnrecovery.com/posts/saas-dashboard-screenshots-that-convert</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/saas-dashboard-screenshots-that-convert</guid>
+      <description><![CDATA[Most SaaS screenshots are wallpaper. Here's what separates screenshots that actually drive signups from screenshots that just take up space on your landing page.]]></description>
+      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
+      <category>SaaS marketing</category>
+      <category>product screenshots</category>
+      <category>conversion</category>
+      <category>landing page</category>
+      <category>SaaS design</category>
     </item>
     <item>
       <title><![CDATA[SaaS Pricing Audit: 7 Tools That Should Cost 90% Less]]></title>
