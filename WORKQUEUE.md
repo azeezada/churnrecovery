@@ -38,11 +38,11 @@ Low-code/no-code business owners: newsletter creators, coaches, online course se
 - [ ] **Screenshot guide series** — "5 SaaS Dashboard Screenshots That Convert" using our mockups as examples
 - [ ] **"Building in Public: 48 Hours to Product Screenshots"** — Behind-scenes content
 - [ ] **Twitter thread: "Directory submission checklist"** — Share strategy + tips
-- [ ] **"Free Alternatives to [Expensive SaaS Tool]"** series — Target Churnkey, ProfitWell, Baremetrics pricing pain
+- [x] **"Free Alternatives to [Expensive SaaS Tool]"** series — Target Churnkey, ProfitWell, Baremetrics pricing pain
 - [ ] **"I Reverse-Engineered Churnkey's Cancel Flow"** — Technical deep-dive
 - [ ] **"Churn Recovery ROI Calculator"** — Interactive tool
 - [ ] **Newsletter creator case study series** — Targeting Beehiiv, ConvertKit, Substack creators
-- [ ] **"SaaS Pricing Audit: Tools That Should Cost 90% Less"** — Controversial take
+- [x] **"SaaS Pricing Audit: Tools That Should Cost 90% Less"** — Controversial take
 - [ ] Case study template: "How [Company] Saved $4,800/year by Switching from Churnkey"
 - [ ] "The $50,000/Year SaaS Tool Stack Audit" — broader market positioning
 - [ ] Guest post on SaaS founder newsletters about churn recovery strategies
