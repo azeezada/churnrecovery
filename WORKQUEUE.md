@@ -45,8 +45,8 @@ Low-code/no-code business owners: newsletter creators, coaches, online course se
 - [x] **"SaaS Pricing Audit: Tools That Should Cost 90% Less"** — Controversial take
 - [ ] Case study template: "How [Company] Saved $4,800/year by Switching from Churnkey"
 - [x] "The $50,000/Year SaaS Tool Stack Audit" — broader market positioning (published 2026-03-21)
-- [ ] Guest post on SaaS founder newsletters about churn recovery strategies
-- [ ] Reach out to Stripe/Paddle for integration marketplace listing
+- [✅] **Guest post on SaaS founder newsletters about churn recovery strategies** — DONE 2026-03-21. Full strategy at docs/guest-post-strategy.md: 15 target publications with contact methods + angles, 3 pitch templates, 3 article concepts fully outlined, outreach tracking table.
+- [✅] **Reach out to Stripe/Paddle for integration marketplace listing** — DONE 2026-03-21. Full strategy at docs/integration-marketplace-strategy.md: Stripe Partner + App Marketplace (step-by-step checklists), Paddle Marketplace, Zapier public app, Make.com — with copy bank, technical requirements, and prioritized timeline.
 
 ## UX Research Opportunities
 - ✅ **User interview plan** — Newsletter creators, course sellers, small SaaS founders currently paying for churn tools — docs/user-interview-plan.md (2026-03-21)
