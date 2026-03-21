@@ -228,3 +228,19 @@
 - **[GSC-GUIDE]** — `docs/google-search-console-monitoring.md` (~120 lines). Sitemap submission, weekly checklist, coverage error guide, priority queries.
 - Committed `7a70939` | Pushed to main
 - WORKQUEUE.md: ✅ both P3 tasks updated
+
+## 2026-03-21 — Wave 7, MARKETING worker (cr-marketing-roi-testimonials)
+
+- **[ROI-TRACKER]** — `docs/directory-submission-roi-tracker.md`. UTM reference for all 10 directories, pre-filled tracking table, D1 query + Cloudflare analytics pull guide, decision framework (>2% double down, <0.5% move on), monthly review template.
+- **[TESTIMONIALS]** — `docs/testimonial-collection-playbook.md`. 3 timing triggers, 3 ask templates (email/Twitter/Discord), 6 outcome-based prompts, format guide (text/tweet/Loom/case study), display locations, incentive strategy, legal permission note.
+- **[ALTERNATIVETO-LOG]** — `docs/alternativeto-monitoring-log.md`. 12-week tracking table template, 30/90-day targets, action prompts.
+- Committed + pushed to main | WORKQUEUE.md: ✅ directory ROI, testimonials, AlternativeTo monitoring
+
+## 2026-03-21 — Wave 7, CODE worker (cr-code-cdn-landingpages)
+
+- **[WIDGET-CDN]** — `scripts/build-widget.sh` minifies widget.js via terser (15KB→10KB, 33% reduction). Output: `public/widget.min.js` with date-stamped header. `docs/widget-cdn-setup.md` covers CNAME setup, cache headers, embed code update.
+- **[BEEHIIV-LP]** — `/for/beehiiv` deployed. Dark yellow hero, Stripe webhook angle, 6 benefits, 7 FAQ, waitlist form with `beehiiv-creator` tag. HTTP 200 ✅
+- **[CONVERTKIT-LP]** — `/for/convertkit` deployed. Kit rebranding addressed in FAQ, blue/navy hero, same structure as Substack page, `convertkit-creator` tag. HTTP 200 ✅
+- Added both + `/for/substack` to sitemap.xml
+- Build: 92 static pages ✅ | Tests: 131/133 (pre-existing flakies) | Deployed + cache purged | Pushed to main
+- WORKQUEUE.md: ✅ Widget CDN marked done

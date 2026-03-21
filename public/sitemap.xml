@@ -175,6 +175,30 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://churnrecovery.com/compare/recurly</loc>
+    <lastmod>2026-03-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://churnrecovery.com/alternatives/recurly</loc>
+    <lastmod>2026-03-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://churnrecovery.com/compare/zuora</loc>
+    <lastmod>2026-03-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://churnrecovery.com/alternatives/zuora</loc>
+    <lastmod>2026-03-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://churnrecovery.com/compare/chargebee</loc>
     <lastmod>2026-03-21</lastmod>
     <changefreq>monthly</changefreq>
@@ -361,6 +385,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://churnrecovery.com/posts/ghost-vs-substack-vs-beehiiv-paid-subscribers</loc>
+    <lastmod>2026-03-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://churnrecovery.com/posts/i-analyzed-50-saas-pricing-pages</loc>
     <lastmod>2026-03-21</lastmod>
     <changefreq>monthly</changefreq>
@@ -368,6 +398,12 @@
   </url>
   <url>
     <loc>https://churnrecovery.com/posts/i-reverse-engineered-churnkey-cancel-flow</loc>
+    <lastmod>2026-03-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://churnrecovery.com/posts/kajabi-cancel-flow-setup-without-coding</loc>
     <lastmod>2026-03-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -398,6 +434,12 @@
   </url>
   <url>
     <loc>https://churnrecovery.com/posts/saas-tool-pricing-take</loc>
+    <lastmod>2026-03-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://churnrecovery.com/posts/subscription-business-leaking-revenue-every-month</loc>
     <lastmod>2026-03-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>

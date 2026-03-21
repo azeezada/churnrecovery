@@ -5,7 +5,7 @@
     <link>https://churnrecovery.com/blog</link>
     <description>Insights on churn recovery, payment failures, and SaaS retention</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 21 Mar 2026 04:59:09 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 21 Mar 2026 05:05:20 GMT</lastBuildDate>
     <atom:link href="https://churnrecovery.com/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title><![CDATA[The $50,000/Year SaaS Tool Stack Audit]]></title>
@@ -96,6 +96,18 @@
       <category>churn recovery</category>
     </item>
     <item>
+      <title><![CDATA[Ghost vs Substack vs Beehiiv: Which Platform Protects Your Paid Subscribers Best?]]></title>
+      <link>https://churnrecovery.com/posts/ghost-vs-substack-vs-beehiiv-paid-subscribers</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/ghost-vs-substack-vs-beehiiv-paid-subscribers</guid>
+      <description><![CDATA[]]></description>
+      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
+      <category>ghost</category>
+      <category>substack</category>
+      <category>beehiiv</category>
+      <category>newsletter</category>
+      <category>paid subscribers</category>
+    </item>
+    <item>
       <title><![CDATA[I Analyzed 50+ SaaS Pricing Pages — Here's What I Found]]></title>
       <link>https://churnrecovery.com/posts/i-analyzed-50-saas-pricing-pages</link>
       <guid isPermaLink="true">https://churnrecovery.com/posts/i-analyzed-50-saas-pricing-pages</guid>
@@ -117,6 +129,18 @@
       <category>churn recovery</category>
       <category>comparison</category>
       <category>pricing</category>
+    </item>
+    <item>
+      <title><![CDATA[How to Set Up a Cancel Flow for Your Kajabi Membership (Without Coding)]]></title>
+      <link>https://churnrecovery.com/posts/kajabi-cancel-flow-setup-without-coding</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/kajabi-cancel-flow-setup-without-coding</guid>
+      <description><![CDATA[]]></description>
+      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
+      <category>kajabi</category>
+      <category>course creators</category>
+      <category>cancel flow</category>
+      <category>churn</category>
+      <category>tutorial</category>
     </item>
     <item>
       <title><![CDATA[Newsletter Creator Case Study: How to Save $3,600/Year on Churn Tools]]></title>
@@ -178,6 +202,17 @@
       <category>saas-tools</category>
       <category>churn</category>
       <category>business</category>
+    </item>
+    <item>
+      <title><![CDATA[Your Subscription Business Is Leaking Revenue Every Month (And You Don't Know It)]]></title>
+      <link>https://churnrecovery.com/posts/subscription-business-leaking-revenue-every-month</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/subscription-business-leaking-revenue-every-month</guid>
+      <description><![CDATA[]]></description>
+      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
+      <category>subscription</category>
+      <category>churn</category>
+      <category>revenue</category>
+      <category>small business</category>
     </item>
     <item>
       <title><![CDATA[Why Churnkey Costs $250/Month and We're Free]]></title>
