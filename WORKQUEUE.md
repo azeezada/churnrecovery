@@ -18,7 +18,7 @@ Low-code/no-code business owners: newsletter creators, coaches, online course se
   • product-integrations.png — Payment processor + webhook integrations
   • 4 additional marketing site screenshots for supplementary use
   Ready for Product Hunt, AlternativeTo, G2, Capterra submissions.
-- [ ] **URGENT: Add product screenshots to homepage** — Current hero has NO visual proof. Users can't see the actual product. Add dashboard screenshot above fold + cancel flow preview in "How it works" section. Critical conversion blocker.
+- [x] **URGENT: Add product screenshots to homepage** — Current hero has NO visual proof. Users can't see the actual product. Add dashboard screenshot above fold + cancel flow preview in "How it works" section. Critical conversion blocker. ✅ DONE: homepage-hero.png in hero with browser chrome mockup; flow-builder/dashboard/email screenshots in How It Works steps.
 - [✅] Deploy blog post (Churnkey comparison) to live site — DONE. Churnkey comparison page is live at /compare/churnkey with full feature table, pricing breakdown, and CTA to waitlist.
 - [✅] First user acquisition campaign — EXECUTED 2026-03-21. AlternativeTo submission completed and live, targeting "Churnkey alternative" SEO positioning. Indie Hackers post ready to publish (docs/indie-hackers-post-final.md). BetaList submission prepared (marketing/betalist-submission.md). Next: Execute IH post + BetaList submission, then monitor for early traffic and signups.
 - [✅] Product Hunt launch prep → Target April 1st — DONE 2026-03-20. Full launch kit at docs/product-hunt-launch.md: tagline, description, categories, maker comment, 7 gallery asset specs, launch timeline, hunter strategy (5 names), pre-launch warm-up, post-launch actions.
@@ -29,7 +29,7 @@ Low-code/no-code business owners: newsletter creators, coaches, online course se
 - [ ] **Set up ConvertKit/Mailchimp automation** — Welcome series for new signups from directories, segment by traffic source
 
 ### P2 — Next Week (retention + growth)
-- [ ] **Fix mobile navigation** — Hamburger menu button exists but menu doesn't appear. Mobile UX completely broken.
+- [x] **Fix mobile navigation** — Hamburger menu button exists but menu doesn't appear. Mobile UX completely broken. ✅ DONE: Fixed header overflow, mobile menu positioned absolutely, header-signin hidden on mobile, hamburger shows correctly.
 - [ ] **CTA clarity audit** — "Get started free" vs "Join waitlist" confusion. Streamline messaging.
 - [ ] **Interactive demo** — Replace generic "Demo" with actual cancel flow preview (reduce friction before email capture)
 - [ ] **Customer logo wall** — Get permission to display actual company logos for trust signals
@@ -59,9 +59,9 @@ Low-code/no-code business owners: newsletter creators, coaches, online course se
 - [ ] **"Building in Public: 48 Hours to Product Screenshots"** — Behind-scenes content about our mockup creation process
 - [ ] **Twitter thread: "Directory submission checklist"** — Share our screenshot strategy + submission tips
 - [ ] **"Free Alternatives to [Expensive SaaS Tool]"** series — Target Churnkey, ProfitWell, Baremetrics pricing pain points
-- [ ] **"I Reverse-Engineered Churnkey's Cancel Flow"** — Technical deep-dive showing what $825/month gets you vs our free version
+- [✅] **"I Reverse-Engineered Churnkey's Cancel Flow"** — DONE 2026-03-21. Published at /posts/i-reverse-engineered-churnkey-cancel-flow. ~1200 words, founder voice, feature-by-feature comparison with honest take on when Churnkey is worth it.
 - [ ] **"Churn Recovery ROI Calculator"** — Interactive tool to calculate if expensive tools pay for themselves (spoiler: often don't for small businesses)
-- [ ] **Newsletter creator case study series** — "How [Newsletter] Saved $3k/year Switching from Paid Tools" targeting Beehiiv, ConvertKit, Substack creators
+- [✅] **"The Newsletter Creator's Guide to Reducing Churn"** — DONE 2026-03-21. Published at /posts/newsletter-creator-guide-reducing-churn. ~1100 words, 6 tactics (pause option, win-back email, downsell tier, exit surveys, reminder-of-value emails, cancel flow automation), targets Beehiiv/ConvertKit/Substack users.
 - [ ] **"SaaS Pricing Audit: Tools That Should Cost 90% Less"** — Controversial take on inflated B2B SaaS pricing
 - [ ] **Video testimonials from beta users** — Real founders explaining why they switched from paid tools
 
