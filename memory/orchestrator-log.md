@@ -221,3 +221,10 @@
 - **[CASE-STUDY-TEMPLATE]** — `docs/case-study-template.md` created. Fillable sections for switching story, results table, testimonial.
 - Build: 90 static pages ✅ | Deployed + cache purged | Pushed to main
 - WORKQUEUE.md: ✅ updated
+
+## 2026-03-21 — Wave 6, MARKETING worker (cr-marketing-community)
+
+- **[COMMUNITY-PLAYBOOK]** — `docs/community-engagement-playbook.md` (350+ lines). 15 communities with specs, weekly content calendar, 10 comment templates, 5 post templates, hard engagement rules, tracking spreadsheet, UTM links for top 10 communities.
+- **[GSC-GUIDE]** — `docs/google-search-console-monitoring.md` (~120 lines). Sitemap submission, weekly checklist, coverage error guide, priority queries.
+- Committed `7a70939` | Pushed to main
+- WORKQUEUE.md: ✅ both P3 tasks updated

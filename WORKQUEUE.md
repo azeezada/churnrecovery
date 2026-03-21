@@ -11,7 +11,7 @@ Low-code/no-code business owners: newsletter creators, coaches, online course se
 - [ ] **Set up ConvertKit/Mailchimp automation** — Welcome series for new signups from directories, segment by traffic source. Email drip content ready at docs/waitlist-email-drip.md.
 
 ### P1 — This Week (gets first user)
-- [ ] **Monitor AlternativeTo performance** — Track clicks, upvotes, comments; engage with community; add to other competitor pages
+- [✅] **Monitor AlternativeTo performance** — DONE 2026-03-21. Running log at docs/alternativeto-monitoring-log.md (weekly table: likes, reviews, traffic, actions). Full engagement strategy in docs/alternativeto-monitoring.md.
 - [✅] **CTA clarity audit** — DONE 2026-03-21. Unified all CTAs to "Join Waitlist" across 13+ pages. Replaced all tally.so links with /#waitlist anchor.
 - [✅] **Interactive demo** — Replace generic "Demo" with actual cancel flow preview (reduce friction before email capture)
 - [✅] **Hacker News "Show HN" post** — Post drafted at docs/hacker-news-show-hn.md (2026-03-21). Ready to post after Reddit/IH validation.
@@ -27,10 +27,10 @@ Low-code/no-code business owners: newsletter creators, coaches, online course se
 ### P3 — Ongoing (continuous improvement)
 - [✅] 2 blog posts per week (comparison pages, content marketing) — DONE 2026-03-21. Published: "Chargebee Retain vs Churnkey vs ChurnRecovery" + "5 Cancellation Emails That Win Back Subscribers"
 - [✅] Monitor Google Search Console for indexing — DONE 2026-03-21. Full guide at docs/google-search-console-monitoring.md: sitemap submission, coverage errors, weekly checklist, CTR monitoring, query analysis.
-- [ ] Collect real testimonials from early users
+- [✅] Collect real testimonials from early users — DONE 2026-03-21. Full playbook at docs/testimonial-collection-playbook.md: timing signals, 3 outreach templates, outcome-based prompts, format guide, display placements, incentive strategy, legal notes.
 - [x] Error handling + rate limiting improvements
 - [x] E2E test coverage for new features
-- [ ] Track directory submission ROI (signups per platform)
+- [✅] Track directory submission ROI (signups per platform) — DONE 2026-03-21. ROI tracker at docs/directory-submission-roi-tracker.md: UTM reference for all 10 directories, tracking table, Cloudflare + D1 data pull guide, decision framework, monthly review template.
 - [✅] Community engagement in SaaS founder groups — DONE 2026-03-21. Full playbook at docs/community-engagement-playbook.md: 15 communities, weekly content calendar, 10 comment templates, 5 post templates, engagement rules, tracking spreadsheet, UTM strategy.
 - [ ] Video testimonials from beta users
 
