@@ -20,7 +20,7 @@ Low-code/no-code business owners: newsletter creators, coaches, online course se
 ### P2 — Next Week (retention + growth)
 - [ ] **Customer logo wall** — Get permission to display actual company logos for trust signals
 - [ ] **Migrate to shadcn/ui + Tailwind** — Kill 1,770 inline styles. Important for maintainability but secondary to user acquisition.
-- [ ] **Widget CDN** — Minify, serve from cdn.churnrecovery.com
+- [✅] **Widget CDN** — Minified widget.js → widget.min.js (10KB, terser), build script at scripts/build-widget.sh, CDN setup docs at docs/widget-cdn-setup.md (2026-03-21)
 - ✅ **A/B test homepage CTA copy** — 50/50 split: "Join Waitlist" (A) vs "Get Early Access Free" (B). Hook in lib/useABTest.js, variant sent in form submission body for conversion tracking — deployed + verified (2026-03-21)
 - ✅ **Substack-specific landing page** — Implemented at /for/substack — newsletter creator angle, pain points, how-it-works, benefits, FAQ, dual waitlist forms with `substack-creator` tag — deployed + HTTP 200 verified (2026-03-21)
 
