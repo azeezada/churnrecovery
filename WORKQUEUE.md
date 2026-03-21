@@ -36,12 +36,12 @@ Low-code/no-code business owners: newsletter creators, coaches, online course se
 
 ## Content Ideas Backlog
 - [x] **Screenshot guide series** — "5 SaaS Dashboard Screenshots That Convert" using our mockups as examples (published 2026-03-21)
-- [ ] **"Building in Public: 48 Hours to Product Screenshots"** — Behind-scenes content
-- [ ] **Twitter thread: "Directory submission checklist"** — Share strategy + tips
+- [x] **"Building in Public: 48 Hours to Product Screenshots"** — Behind-scenes content (published 2026-03-21)
+- [x] **Twitter thread: "Directory submission checklist"** — Share strategy + tips (docs/twitter-thread-directory-checklist.md 2026-03-21)
 - [x] **"Free Alternatives to [Expensive SaaS Tool]"** series — Target Churnkey, ProfitWell, Baremetrics pricing pain
 - [✅] **"I Reverse-Engineered Churnkey's Cancel Flow"** — DONE 2026-03-21. Published at /posts/i-reverse-engineered-churnkey-cancel-flow (~1,200 words).
 - [✅] **"Churn Recovery ROI Calculator"** — Interactive tool. DONE 2026-03-21. Published at /tools/roi-calculator. Real-time sliders, vs-Churnkey verdict, CTA.
-- [ ] **Newsletter creator case study series** — Targeting Beehiiv, ConvertKit, Substack creators
+- [x] **Newsletter creator case study series** — Targeting Beehiiv, ConvertKit, Substack creators (published 2026-03-21)
 - [x] **"SaaS Pricing Audit: Tools That Should Cost 90% Less"** — Controversial take
 - [ ] Case study template: "How [Company] Saved $4,800/year by Switching from Churnkey"
 - [x] "The $50,000/Year SaaS Tool Stack Audit" — broader market positioning (published 2026-03-21)
