@@ -4,7 +4,7 @@
   "current_phase": 5,
   "current_task": "done",
   "started_at": "2026-03-20T04:20:00Z",
-  "last_updated": "2026-03-21T02:45:00Z",
+  "last_updated": "2026-03-21T04:01:00Z",
   "completed_tasks": [
     "001",
     "002",
@@ -404,6 +404,12 @@
       "task": "019-024",
       "action": "complete",
       "summary": "Phase 5 product build: Clerk auth (v7), 5 dashboard pages with sidebar layout, 5 API routes, embeddable widget.js, D1 schema. Build passes with 53 pages. Marketing site unchanged."
+    },
+    {
+      "timestamp": "2026-03-21T04:01:00Z",
+      "task": "waitlist-validation-fix",
+      "action": "complete",
+      "summary": "Fixed email validation: proper regex, inline error states with red border/bg, aria attributes, focus management. Also fixed deploy pipeline by re-enabling output:export (out/ was stale since hybrid mode removed it). Deployed and verified on churnrecovery.com."
     }
   ]
 }

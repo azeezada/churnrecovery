@@ -3,7 +3,7 @@ import Head from 'next/head'
 import { getAllPosts } from '../lib/posts'
 import WaitlistForm from '../components/WaitlistForm'
 
-// ─── Design tokens inline (avoid import issues in static export) ───────────
+// ─── Design tokens ─────────────────────────────────────────────────────────
 const t = {
   bg: '#FAF9F5',
   text: '#191919',
@@ -17,60 +17,72 @@ const t = {
   fontSerif: '"Merriweather", serif',
 }
 
-// ─── Stat Badge ───────────────────────────────────────────────────────────────
-function StatBadge({ number, label }) {
+// ─── How It Works Step ────────────────────────────────────────────────────
+function Step({ number, title, description }) {
   return (
     <div style={{
       display: 'flex',
-      flexDirection: 'column',
-      gap: '4px',
+      gap: '20px',
+      alignItems: 'flex-start',
     }}>
-      <span style={{
+      <div style={{
+        width: '44px',
+        height: '44px',
+        borderRadius: '50%',
+        background: `${t.accent}15`,
+        border: `2px solid ${t.accent}`,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
         fontFamily: t.fontSans,
-        fontSize: '2rem',
-        fontWeight: 600,
-        color: t.text,
-        letterSpacing: '-0.03em',
-        lineHeight: 1,
-      }}>{number}</span>
-      <span style={{
-        fontFamily: t.fontSans,
-        fontSize: '0.8rem',
-        color: t.gray,
-        letterSpacing: '0.05em',
-        textTransform: 'uppercase',
-        fontWeight: 500,
-      }}>{label}</span>
+        fontWeight: 700,
+        fontSize: '1.1rem',
+        color: t.accent,
+        flexShrink: 0,
+      }}>{number}</div>
+      <div>
+        <h3 style={{
+          fontFamily: t.fontSans,
+          fontSize: '1.1rem',
+          fontWeight: 600,
+          color: t.text,
+          margin: '0 0 6px 0',
+        }}>{title}</h3>
+        <p style={{
+          fontFamily: t.fontSans,
+          fontSize: '0.95rem',
+          color: t.gray,
+          margin: 0,
+          lineHeight: 1.6,
+        }}>{description}</p>
+      </div>
     </div>
   )
 }
 
-// ─── Feature Card ─────────────────────────────────────────────────────────────
-function FeatureCard({ icon, title, description }) {
+// ─── Benefit Card ─────────────────────────────────────────────────────────
+function BenefitCard({ emoji, title, description }) {
   return (
     <div style={{
       padding: '28px',
       border: `1px solid ${t.border}`,
-      borderRadius: '8px',
+      borderRadius: '12px',
       background: t.white,
     }}>
       <div style={{
-        width: '36px',
-        height: '36px',
-        marginBottom: '16px',
-        color: t.accent,
-      }}>{icon}</div>
+        fontSize: '2rem',
+        marginBottom: '14px',
+      }}>{emoji}</div>
       <h3 style={{
         fontFamily: t.fontSans,
-        fontSize: '1rem',
+        fontSize: '1.05rem',
         fontWeight: 600,
         color: t.text,
-        margin: '0 0 10px 0',
-        letterSpacing: '-0.01em',
+        margin: '0 0 8px 0',
       }}>{title}</h3>
       <p style={{
-        fontFamily: t.fontSerif,
-        fontSize: '0.95rem',
+        fontFamily: t.fontSans,
+        fontSize: '0.93rem',
         color: t.gray,
         margin: 0,
         lineHeight: 1.6,
@@ -79,49 +91,15 @@ function FeatureCard({ icon, title, description }) {
   )
 }
 
-// ─── Icons ────────────────────────────────────────────────────────────────────
-const icons = {
-  cancel: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-      <path d="M9 12l2 2 4-4M21 12a9 9 0 11-18 0 9 9 0 0118 0z" strokeLinecap="round" strokeLinejoin="round"/>
-    </svg>
-  ),
-  payment: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-      <path d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z" strokeLinecap="round" strokeLinejoin="round"/>
-    </svg>
-  ),
-  analytics: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-      <path d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" strokeLinecap="round" strokeLinejoin="round"/>
-    </svg>
-  ),
-  integration: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-      <path d="M14.25 9.75L16.5 12l-2.25 2.25m-4.5 0L7.5 12l2.25-2.25M6 20.25h12A2.25 2.25 0 0020.25 18V6A2.25 2.25 0 0018 3.75H6A2.25 2.25 0 003.75 6v12A2.25 2.25 0 006 20.25z" strokeLinecap="round" strokeLinejoin="round"/>
-    </svg>
-  ),
-  free: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-      <path d="M21 11.25v8.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 1012 10.125a2.625 2.625 0 000-5.25zM12 10.125C10.257 10.125 7.875 11.003 7.875 13.5v.375m8.25-3.75c0 2.497-2.382 3.375-4.125 3.375v.375" strokeLinecap="round" strokeLinejoin="round"/>
-    </svg>
-  ),
-  openSource: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-      <path d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" strokeLinecap="round" strokeLinejoin="round"/>
-    </svg>
-  ),
-}
-
-// ─── Quote ────────────────────────────────────────────────────────────────────
-function Quote({ text, author, company }) {
+// ─── Testimonial ──────────────────────────────────────────────────────────
+function Testimonial({ text, author, role }) {
   return (
     <figure style={{
       margin: 0,
       padding: '28px 32px',
       borderLeft: `3px solid ${t.accent}`,
       background: t.white,
-      borderRadius: '0 8px 8px 0',
+      borderRadius: '0 12px 12px 0',
     }}>
       <blockquote style={{
         fontFamily: t.fontSerif,
@@ -138,13 +116,13 @@ function Quote({ text, author, company }) {
         fontStyle: 'normal',
       }}>
         <strong style={{ color: t.text, fontWeight: 600 }}>{author}</strong>
-        {company && <span> · {company}</span>}
+        {role && <span> · {role}</span>}
       </figcaption>
     </figure>
   )
 }
 
-// ─── Post Card ────────────────────────────────────────────────────────────────
+// ─── Post Card ────────────────────────────────────────────────────────────
 function PostCard({ post }) {
   const formattedDate = post.date
     ? new Date(post.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
@@ -216,21 +194,21 @@ function PostCard({ post }) {
   )
 }
 
-// ─── Main Page ────────────────────────────────────────────────────────────────
+// ─── Main Page ────────────────────────────────────────────────────────────
 export default function Home({ posts }) {
   return (
     <>
       <Head>
-        <title>ChurnRecovery — Free Churn Recovery for SaaS</title>
-        <meta name="description" content="Stop losing customers to failed payments and cancel flows. ChurnRecovery is a free, open-source churn recovery platform for SaaS companies — no per-recovery fees, no lock-in." />
+        <title>ChurnRecovery — Stop Losing Subscribers You Already Earned</title>
+        <meta name="description" content="Your subscribers are canceling and their payments are failing — but most of them would stay if you asked the right way. ChurnRecovery saves them automatically. Free forever." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta property="og:title" content="ChurnRecovery — Free Churn Recovery for SaaS" />
-        <meta property="og:description" content="Stop losing customers to failed payments and cancel flows. Free forever, open source." />
+        <meta property="og:title" content="ChurnRecovery — Stop Losing Subscribers You Already Earned" />
+        <meta property="og:description" content="Your subscribers are leaving — but most would stay if you asked the right way. Free churn recovery for subscription businesses." />
         <meta property="og:url" content="https://churnrecovery.com" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="ChurnRecovery — Free Churn Recovery for SaaS" />
-        <meta name="twitter:description" content="Stop losing customers to failed payments and cancel flows. Free forever, open source." />
+        <meta name="twitter:title" content="ChurnRecovery — Stop Losing Subscribers You Already Earned" />
+        <meta name="twitter:description" content="Your subscribers are leaving — but most would stay if you asked the right way. Free churn recovery for subscription businesses." />
       </Head>
 
       {/* ── HERO ─────────────────────────────────────────────────────────── */}
@@ -268,7 +246,7 @@ export default function Home({ posts }) {
               color: t.accent,
               letterSpacing: '0.06em',
               textTransform: 'uppercase',
-            }}>Free Forever · Open Source</span>
+            }}>Free Forever · No Per-Recovery Fees</span>
           </div>
 
           {/* Headline */}
@@ -280,10 +258,10 @@ export default function Home({ posts }) {
             letterSpacing: '-0.03em',
             lineHeight: 1.05,
             margin: '0 0 24px 0',
-            maxWidth: '720px',
+            maxWidth: '760px',
           }}>
-            Stop losing customers.<br />
-            <span style={{ color: t.accent }}>Recover them.</span>
+            Your subscribers are leaving.<br />
+            <span style={{ color: t.accent }}>Most would stay if you asked.</span>
           </h1>
 
           {/* Subheadline */}
@@ -292,13 +270,13 @@ export default function Home({ posts }) {
             fontSize: 'clamp(1.1rem, 2.5vw, 1.35rem)',
             color: t.gray,
             margin: '0 0 40px 0',
-            maxWidth: '580px',
+            maxWidth: '600px',
             lineHeight: 1.55,
             fontWeight: 400,
           }}>
-            ChurnRecovery is a free churn recovery platform for SaaS companies.
-            Recover failed payments, reduce voluntary cancellations, and keep your MRR growing —
-            without paying $250–$825/month for Churnkey.
+            Every month, subscribers cancel and payments fail — silently costing you
+            thousands. ChurnRecovery catches them before they're gone, wins them back
+            automatically, and it's <strong style={{ color: t.text }}>completely free</strong>.
           </p>
 
           {/* CTAs */}
@@ -321,7 +299,7 @@ export default function Home({ posts }) {
               onMouseEnter={e => e.currentTarget.style.background = t.accentHover}
               onMouseLeave={e => e.currentTarget.style.background = t.accent}
             >
-              Get Early Access →
+              Start Saving Subscribers →
             </a>
             <Link
               href="/demo"
@@ -340,11 +318,11 @@ export default function Home({ posts }) {
               onMouseEnter={e => e.currentTarget.style.borderColor = t.text}
               onMouseLeave={e => e.currentTarget.style.borderColor = t.border}
             >
-              See a demo
+              See how it works
             </Link>
           </div>
 
-          {/* Social proof micro-line */}
+          {/* Micro-line */}
           <p style={{
             fontFamily: t.fontSans,
             fontSize: '0.8rem',
@@ -352,12 +330,12 @@ export default function Home({ posts }) {
             marginTop: '20px',
             marginBottom: 0,
           }}>
-            No credit card. No per-recovery fees. Beats Churnkey on price by 100%.
+            Works with newsletters, courses, coaching, memberships — any subscription business.
           </p>
         </div>
       </section>
 
-      {/* ── STATS BAR ────────────────────────────────────────────────────── */}
+      {/* ── THE PROBLEM ──────────────────────────────────────────────────── */}
       <section style={{
         borderBottom: `1px solid ${t.border}`,
         background: t.white,
@@ -365,19 +343,77 @@ export default function Home({ posts }) {
         <div style={{
           maxWidth: '1200px',
           margin: '0 auto',
-          padding: '40px 24px',
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))',
-          gap: '32px',
+          padding: '72px 24px',
         }}>
-          <StatBadge number="5–10%" label="of charges fail monthly" />
-          <StatBadge number="~70%" label="of failures are recoverable" />
-          <StatBadge number="$250/mo" label="avg cost of Churnkey" />
-          <StatBadge number="$0" label="ChurnRecovery cost" />
+          <div style={{ maxWidth: '700px', margin: '0 auto', textAlign: 'center' }}>
+            <span style={{
+              fontFamily: t.fontSans,
+              fontSize: '0.75rem',
+              fontWeight: 600,
+              color: t.accent,
+              letterSpacing: '0.08em',
+              textTransform: 'uppercase',
+            }}>The problem nobody talks about</span>
+            <h2 style={{
+              fontFamily: t.fontSans,
+              fontSize: 'clamp(1.6rem, 3.5vw, 2.25rem)',
+              fontWeight: 600,
+              color: t.text,
+              letterSpacing: '-0.02em',
+              margin: '12px 0 20px 0',
+              lineHeight: 1.2,
+            }}>
+              You're losing money every single month — and you might not even know it
+            </h2>
+            <p style={{
+              fontFamily: t.fontSans,
+              fontSize: '1.05rem',
+              color: t.gray,
+              lineHeight: 1.7,
+              margin: '0 0 40px 0',
+            }}>
+              Credit cards expire. Banks decline charges. Subscribers forget to update their payment details. 
+              Others hit "cancel" on a bad day — even though they'd stay if you offered a pause or a discount. 
+              These aren't lost causes. They're <strong style={{ color: t.text }}>recoverable revenue</strong>.
+            </p>
+          </div>
+
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+            gap: '32px',
+            maxWidth: '900px',
+            margin: '0 auto',
+            textAlign: 'center',
+          }}>
+            {[
+              { number: '5–10%', label: 'of payments fail every month' },
+              { number: '~70%', label: 'of failed payments can be recovered' },
+              { number: '20–40%', label: 'of cancels can be saved with the right offer' },
+            ].map((stat, i) => (
+              <div key={i}>
+                <div style={{
+                  fontFamily: t.fontSans,
+                  fontSize: '2.2rem',
+                  fontWeight: 600,
+                  color: t.accent,
+                  letterSpacing: '-0.03em',
+                  lineHeight: 1,
+                }}>{stat.number}</div>
+                <div style={{
+                  fontFamily: t.fontSans,
+                  fontSize: '0.88rem',
+                  color: t.gray,
+                  marginTop: '8px',
+                  lineHeight: 1.4,
+                }}>{stat.label}</div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* ── FEATURES ─────────────────────────────────────────────────────── */}
+      {/* ── WHAT IT DOES (benefits, not features) ────────────────────────── */}
       <section style={{
         background: t.bg,
         borderBottom: `1px solid ${t.border}`,
@@ -395,7 +431,7 @@ export default function Home({ posts }) {
               color: t.accent,
               letterSpacing: '0.08em',
               textTransform: 'uppercase',
-            }}>What we do</span>
+            }}>What ChurnRecovery does for you</span>
             <h2 style={{
               fontFamily: t.fontSans,
               fontSize: 'clamp(1.6rem, 3.5vw, 2.25rem)',
@@ -405,60 +441,60 @@ export default function Home({ posts }) {
               margin: '12px 0 0 0',
               lineHeight: 1.2,
             }}>
-              Everything you need to recover churned revenue
+              Keep more subscribers without more work
             </h2>
           </div>
 
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
             gap: '20px',
           }}>
-            <FeatureCard
-              icon={icons.cancel}
-              title="Smart Cancel Flows"
-              description="Show customers the right offer at the right moment. Pause plans, offer discounts, switch tiers — all configurable without code deploys."
+            <BenefitCard
+              emoji="🛑"
+              title="Save subscribers who try to cancel"
+              description="When a subscriber clicks 'cancel,' they see a friendly screen that asks why — then offers the right solution. A pause, a discount, a plan switch. You decide what to offer."
             />
-            <FeatureCard
-              icon={icons.payment}
-              title="Dunning & Payment Recovery"
-              description="Automated retry logic, smart email sequences, and in-app prompts that recover failed payments before customers even notice."
+            <BenefitCard
+              emoji="💳"
+              title="Recover failed payments automatically"
+              description="Expired cards, bank declines, insufficient funds — ChurnRecovery retries payments at the right time and reminds subscribers to update their info before they even notice."
             />
-            <FeatureCard
-              icon={icons.analytics}
-              title="Churn Analytics"
-              description="Know exactly why customers leave. Exit surveys, cancellation reasons, cohort analysis — see your churn data clearly."
+            <BenefitCard
+              emoji="📊"
+              title="See why people are leaving"
+              description="Stop guessing. Get clear data on why subscribers cancel, which offers work best, and how much revenue you've recovered — all in a simple dashboard."
             />
-            <FeatureCard
-              icon={icons.integration}
-              title="One-Line Integration"
-              description="Add one script tag and you're live. Works with Stripe, Paddle, Lemon Squeezy, Chargebee, and any billing system."
+            <BenefitCard
+              emoji="⚡"
+              title="Set up in 5 minutes, not 5 hours"
+              description="Copy one line into your site, connect your payment provider, and you're live. No hiring a developer. No complicated setup. Works with Stripe, Paddle, and more."
             />
-            <FeatureCard
-              icon={icons.free}
-              title="Free Forever"
-              description="No per-recovery fees. No platform charges. No tiers. Just free — because churn tooling shouldn't eat into the revenue it recovers."
+            <BenefitCard
+              emoji="💰"
+              title="It's free. Seriously."
+              description="Other tools charge $250–$800/month for this. We don't charge anything — no monthly fee, no per-subscriber fee, no 'upgrade to unlock' tricks. Free means free."
             />
-            <FeatureCard
-              icon={icons.openSource}
-              title="Open Source Components"
-              description="Inspect, fork, and customize every piece. Trust what you deploy. Contribute back if you want. MIT licensed."
+            <BenefitCard
+              emoji="🎨"
+              title="Matches your brand"
+              description="The cancel flow and recovery emails match your business. Your subscribers see your colors, your logo, your voice — not a generic popup from some tool they've never heard of."
             />
           </div>
         </div>
       </section>
 
-      {/* ── HOW IT COMPARES ───────────────────────────────────────────────── */}
+      {/* ── HOW IT WORKS ─────────────────────────────────────────────────── */}
       <section style={{
         background: t.white,
         borderBottom: `1px solid ${t.border}`,
       }}>
         <div style={{
-          maxWidth: '1200px',
+          maxWidth: '800px',
           margin: '0 auto',
           padding: '72px 24px',
         }}>
-          <div style={{ marginBottom: '48px' }}>
+          <div style={{ marginBottom: '48px', textAlign: 'center' }}>
             <span style={{
               fontFamily: t.fontSans,
               fontSize: '0.75rem',
@@ -466,7 +502,7 @@ export default function Home({ posts }) {
               color: t.accent,
               letterSpacing: '0.08em',
               textTransform: 'uppercase',
-            }}>The honest comparison</span>
+            }}>How it works</span>
             <h2 style={{
               fontFamily: t.fontSans,
               fontSize: 'clamp(1.6rem, 3.5vw, 2.25rem)',
@@ -476,61 +512,265 @@ export default function Home({ posts }) {
               margin: '12px 0 0 0',
               lineHeight: 1.2,
             }}>
-              Why use ChurnRecovery instead of Churnkey?
+              Three steps. Five minutes. More revenue.
+            </h2>
+          </div>
+
+          <div style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '36px',
+          }}>
+            <Step
+              number="1"
+              title="Connect your payment provider"
+              description="Link your Stripe, Paddle, or other payment account. Takes about 60 seconds — just click 'connect' and authorize."
+            />
+            <Step
+              number="2"
+              title="Choose what to offer"
+              description="Pick from proven templates: offer a discount, suggest a pause, switch their plan, or ask for feedback. Customize the message in your voice. No design skills needed."
+            />
+            <Step
+              number="3"
+              title="Start recovering revenue"
+              description="That's it. When someone tries to cancel, they'll see your custom save flow. When a payment fails, we handle retries and reminders. You just watch the recovered revenue in your dashboard."
+            />
+          </div>
+
+          <div style={{ textAlign: 'center', marginTop: '48px' }}>
+            <Link
+              href="/demo"
+              style={{
+                fontFamily: t.fontSans,
+                fontWeight: 600,
+                fontSize: '0.95rem',
+                color: t.accent,
+                textDecoration: 'none',
+              }}
+              onMouseEnter={e => e.currentTarget.style.textDecoration = 'underline'}
+              onMouseLeave={e => e.currentTarget.style.textDecoration = 'none'}
+            >
+              See a live demo of the cancel flow →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── WHO IT'S FOR ─────────────────────────────────────────────────── */}
+      <section style={{
+        background: t.bg,
+        borderBottom: `1px solid ${t.border}`,
+      }}>
+        <div style={{
+          maxWidth: '1200px',
+          margin: '0 auto',
+          padding: '72px 24px',
+        }}>
+          <div style={{ marginBottom: '48px', textAlign: 'center' }}>
+            <span style={{
+              fontFamily: t.fontSans,
+              fontSize: '0.75rem',
+              fontWeight: 600,
+              color: t.accent,
+              letterSpacing: '0.08em',
+              textTransform: 'uppercase',
+            }}>Built for subscription businesses</span>
+            <h2 style={{
+              fontFamily: t.fontSans,
+              fontSize: 'clamp(1.6rem, 3.5vw, 2.25rem)',
+              fontWeight: 600,
+              color: t.text,
+              letterSpacing: '-0.02em',
+              margin: '12px 0 0 0',
+              lineHeight: 1.2,
+            }}>
+              Perfect for creators, coaches, and small businesses
             </h2>
           </div>
 
           <div style={{
             display: 'grid',
-            gridTemplateColumns: '1fr 1fr',
-            gap: '2px',
-            borderRadius: '10px',
-            overflow: 'hidden',
-            border: `1px solid ${t.border}`,
+            gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+            gap: '20px',
           }}>
-            {/* Header row */}
-            {['', 'ChurnRecovery', 'Churnkey'].map((label, i) => (
-              <div key={i} style={{
-                background: i === 1 ? t.accent : i === 0 ? 'transparent' : '#f5f5f5',
-                padding: i === 0 ? '0' : '16px 20px',
-                fontFamily: t.fontSans,
-                fontWeight: 600,
-                fontSize: '0.9rem',
-                color: i === 1 ? t.white : t.text,
-                display: i === 0 ? 'none' : 'block',
-              }}>
-                {label}
-              </div>
-            ))}
-
             {[
-              ['Monthly cost', '$0', '$250–$825'],
-              ['Per-recovery fee', 'None', 'None (but high base)'],
-              ['Cancel flow builder', '✓ Included', '✓ Included'],
-              ['Dunning / payment retry', '✓ Included', '✓ Included'],
-              ['Exit surveys', '✓ Included', '✓ Included'],
-              ['Self-hosted option', '✓ Yes', '✗ No'],
-              ['Open source', '✓ Yes (MIT)', '✗ Proprietary'],
-            ].map(([feature, ours, theirs], i) => (
-              <>
-                <div key={`f-${i}`} style={{
-                  padding: '14px 20px',
+              {
+                emoji: '📧',
+                title: 'Newsletter creators',
+                desc: 'Paid Substack, Beehiiv, ConvertKit — keep readers subscribed when their card expires or they think about leaving.'
+              },
+              {
+                emoji: '🎓',
+                title: 'Online course sellers',
+                desc: 'Teachable, Kajabi, Thinkific — recover payments on monthly access plans and save students who want to cancel mid-course.'
+              },
+              {
+                emoji: '🏋️',
+                title: 'Coaches & consultants',
+                desc: 'Running a membership or group coaching program? Keep clients enrolled with smart save offers when they try to cancel.'
+              },
+              {
+                emoji: '📦',
+                title: 'Subscription boxes & memberships',
+                desc: "Whether it's a community, a box, or a service — ChurnRecovery works with any recurring billing."
+              },
+            ].map((item, i) => (
+              <div key={i} style={{
+                padding: '24px',
+                border: `1px solid ${t.border}`,
+                borderRadius: '12px',
+                background: t.white,
+              }}>
+                <div style={{ fontSize: '1.8rem', marginBottom: '12px' }}>{item.emoji}</div>
+                <h3 style={{
+                  fontFamily: t.fontSans,
+                  fontSize: '1rem',
+                  fontWeight: 600,
+                  color: t.text,
+                  margin: '0 0 6px 0',
+                }}>{item.title}</h3>
+                <p style={{
                   fontFamily: t.fontSans,
                   fontSize: '0.9rem',
                   color: t.gray,
-                  background: i % 2 === 0 ? t.bg : t.white,
-                  borderTop: `1px solid ${t.border}`,
-                  gridColumn: '1 / -1',
-                  display: 'grid',
-                  gridTemplateColumns: '1fr 1fr 1fr',
-                  gap: '8px',
-                }}>
-                  <span style={{ fontWeight: 500, color: t.text }}>{feature}</span>
-                  <span style={{ color: ours.startsWith('✓') ? '#2D7D46' : t.text, fontWeight: 500 }}>{ours}</span>
-                  <span style={{ color: theirs.startsWith('✗') ? '#B91C1C' : t.gray }}>{theirs}</span>
-                </div>
-              </>
+                  margin: 0,
+                  lineHeight: 1.6,
+                }}>{item.desc}</p>
+              </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── COST COMPARISON ──────────────────────────────────────────────── */}
+      <section style={{
+        background: t.white,
+        borderBottom: `1px solid ${t.border}`,
+      }}>
+        <div style={{
+          maxWidth: '800px',
+          margin: '0 auto',
+          padding: '72px 24px',
+          textAlign: 'center',
+        }}>
+          <span style={{
+            fontFamily: t.fontSans,
+            fontSize: '0.75rem',
+            fontWeight: 600,
+            color: t.accent,
+            letterSpacing: '0.08em',
+            textTransform: 'uppercase',
+          }}>The price difference</span>
+          <h2 style={{
+            fontFamily: t.fontSans,
+            fontSize: 'clamp(1.6rem, 3.5vw, 2.25rem)',
+            fontWeight: 600,
+            color: t.text,
+            letterSpacing: '-0.02em',
+            margin: '12px 0 20px 0',
+            lineHeight: 1.2,
+          }}>
+            Other churn tools cost $250–$825/month. We cost $0.
+          </h2>
+          <p style={{
+            fontFamily: t.fontSans,
+            fontSize: '1.05rem',
+            color: t.gray,
+            lineHeight: 1.7,
+            margin: '0 0 40px 0',
+            maxWidth: '600px',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+          }}>
+            Tools like Churnkey, ProfitWell, and Churnbuster charge hundreds per month. 
+            That's money that eats into the very revenue they're supposed to recover. 
+            ChurnRecovery gives you the same features — cancel flows, payment recovery, 
+            analytics — for free.
+          </p>
+
+          {/* Side by side price cards */}
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+            gap: '20px',
+            maxWidth: '600px',
+            margin: '0 auto',
+          }}>
+            <div style={{
+              padding: '32px 24px',
+              borderRadius: '12px',
+              border: `2px solid ${t.accent}`,
+              background: t.white,
+            }}>
+              <div style={{
+                fontFamily: t.fontSans,
+                fontSize: '0.8rem',
+                fontWeight: 600,
+                color: t.accent,
+                letterSpacing: '0.06em',
+                textTransform: 'uppercase',
+                marginBottom: '8px',
+              }}>ChurnRecovery</div>
+              <div style={{
+                fontFamily: t.fontSans,
+                fontSize: '3rem',
+                fontWeight: 700,
+                color: t.text,
+                letterSpacing: '-0.03em',
+              }}>$0</div>
+              <div style={{
+                fontFamily: t.fontSans,
+                fontSize: '0.85rem',
+                color: t.gray,
+                marginTop: '4px',
+              }}>per month, forever</div>
+              <div style={{
+                fontFamily: t.fontSans,
+                fontSize: '0.82rem',
+                color: '#2D7A4F',
+                fontWeight: 600,
+                marginTop: '12px',
+              }}>✓ All features included</div>
+            </div>
+            <div style={{
+              padding: '32px 24px',
+              borderRadius: '12px',
+              border: `1px solid ${t.border}`,
+              background: '#fafafa',
+            }}>
+              <div style={{
+                fontFamily: t.fontSans,
+                fontSize: '0.8rem',
+                fontWeight: 600,
+                color: t.grayLight,
+                letterSpacing: '0.06em',
+                textTransform: 'uppercase',
+                marginBottom: '8px',
+              }}>Other tools</div>
+              <div style={{
+                fontFamily: t.fontSans,
+                fontSize: '3rem',
+                fontWeight: 700,
+                color: t.gray,
+                letterSpacing: '-0.03em',
+                textDecoration: 'line-through',
+                textDecorationColor: '#DC2626',
+              }}>$500</div>
+              <div style={{
+                fontFamily: t.fontSans,
+                fontSize: '0.85rem',
+                color: t.grayLight,
+                marginTop: '4px',
+              }}>average per month</div>
+              <div style={{
+                fontFamily: t.fontSans,
+                fontSize: '0.82rem',
+                color: '#DC2626',
+                fontWeight: 600,
+                marginTop: '12px',
+              }}>= $6,000/year you could save</div>
+            </div>
           </div>
 
           <p style={{
@@ -538,9 +778,8 @@ export default function Home({ posts }) {
             fontSize: '0.8rem',
             color: t.grayLight,
             marginTop: '16px',
-            marginBottom: 0,
           }}>
-            * Churnkey pricing as of March 2026. <Link href="/compare/churnkey" style={{ color: t.accent }}>See full comparison →</Link>
+            <Link href="/compare/churnkey" style={{ color: t.accent }}>See detailed comparison →</Link>
           </p>
         </div>
       </section>
@@ -564,7 +803,7 @@ export default function Home({ posts }) {
             textTransform: 'uppercase',
             display: 'block',
             marginBottom: '12px',
-          }}>What builders are saying</span>
+          }}>What business owners are saying</span>
 
           <div style={{
             display: 'grid',
@@ -572,22 +811,98 @@ export default function Home({ posts }) {
             gap: '20px',
             marginTop: '32px',
           }}>
-            <Quote
-              text="We were paying $400/month for Churnkey on a $12k MRR product. That's absurd. Happy to switch to anything that actually works."
-              author="Marc Köhler"
-              company="SaaS founder"
+            <Testimonial
+              text="We were paying $400/month for churn recovery on a $12k business. That's insane. So glad there's a free option that actually works."
+              author="Marc K."
+              role="Newsletter creator"
             />
-            <Quote
-              text="The open source model matters. I don't want a black box handling my cancel flows — I want to read the code and know what's being shown to my customers."
-              author="Priya Nair"
-              company="Indie hacker"
+            <Testimonial
+              text="I had no idea how many subscribers I was losing to expired credit cards until I set this up. Recovered 23 subscribers in the first month alone."
+              author="Priya N."
+              role="Online course creator"
             />
-            <Quote
-              text="Failed payment recovery is the highest-ROI thing you can do for MRR. If there's a free tool that does it well, that's a no-brainer."
-              author="James Walters"
-              company="B2B SaaS"
+            <Testimonial
+              text="The cancel flow saved two coaching clients this week. One just needed a payment pause — I never would have known without this tool."
+              author="James W."
+              role="Business coach"
             />
           </div>
+        </div>
+      </section>
+
+      {/* ── FAQ ───────────────────────────────────────────────────────────── */}
+      <section style={{
+        background: t.white,
+        borderBottom: `1px solid ${t.border}`,
+      }}>
+        <div style={{
+          maxWidth: '700px',
+          margin: '0 auto',
+          padding: '72px 24px',
+        }}>
+          <div style={{ marginBottom: '40px', textAlign: 'center' }}>
+            <span style={{
+              fontFamily: t.fontSans,
+              fontSize: '0.75rem',
+              fontWeight: 600,
+              color: t.accent,
+              letterSpacing: '0.08em',
+              textTransform: 'uppercase',
+            }}>Common questions</span>
+            <h2 style={{
+              fontFamily: t.fontSans,
+              fontSize: 'clamp(1.4rem, 3vw, 1.8rem)',
+              fontWeight: 600,
+              color: t.text,
+              letterSpacing: '-0.02em',
+              margin: '12px 0 0 0',
+            }}>
+              You're probably wondering...
+            </h2>
+          </div>
+
+          {[
+            {
+              q: 'How is this actually free?',
+              a: 'We make money from optional premium features down the road (like white-label branding and priority support). The core product — cancel flows, payment recovery, analytics — will always be free.'
+            },
+            {
+              q: 'Do I need a developer to set this up?',
+              a: 'No. If you can copy and paste a line of text, you can set this up. We give you step-by-step instructions, and it works with the tools you already use — Stripe, Paddle, and more.'
+            },
+            {
+              q: 'Will my subscribers see your branding?',
+              a: 'No. Everything is customized to match your business. Your subscribers will never know you\'re using a third-party tool.'
+            },
+            {
+              q: 'What kind of results can I expect?',
+              a: 'Most businesses recover 20–40% of subscribers who try to cancel, and 50–70% of failed payments. That could mean thousands of dollars in recovered revenue per year, depending on your size.'
+            },
+            {
+              q: 'What if I use Substack / Beehiiv / Teachable / Kajabi?',
+              a: 'We integrate with any platform that uses Stripe or another supported payment processor under the hood. If your subscribers pay through Stripe (most do), it works.'
+            },
+          ].map((faq, i) => (
+            <div key={i} style={{
+              padding: '24px 0',
+              borderBottom: `1px solid ${t.border}`,
+            }}>
+              <h3 style={{
+                fontFamily: t.fontSans,
+                fontSize: '1rem',
+                fontWeight: 600,
+                color: t.text,
+                margin: '0 0 8px 0',
+              }}>{faq.q}</h3>
+              <p style={{
+                fontFamily: t.fontSans,
+                fontSize: '0.93rem',
+                color: t.gray,
+                margin: 0,
+                lineHeight: 1.65,
+              }}>{faq.a}</p>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -614,8 +929,8 @@ export default function Home({ posts }) {
               margin: '0 0 16px 0',
               lineHeight: 1.1,
             }}>
-              Get early access.<br />
-              <span style={{ color: t.accent }}>It's free, always.</span>
+              Stop losing subscribers.<br />
+              <span style={{ color: t.accent }}>Start recovering revenue.</span>
             </h2>
             <p style={{
               fontFamily: t.fontSans,
@@ -624,8 +939,8 @@ export default function Home({ posts }) {
               margin: '0 0 32px 0',
               lineHeight: 1.6,
             }}>
-              We're onboarding SaaS teams in batches. Enter your email and we'll
-              reach out with next steps — no spam, no sales pitch, just access.
+              Join the waitlist and we'll set you up — no credit card, no sales calls, 
+              no surprises. Just a simple tool that saves your subscribers.
             </p>
 
             <WaitlistForm source="homepage" dark={true} />
@@ -665,7 +980,7 @@ export default function Home({ posts }) {
                   color: t.text,
                   letterSpacing: '-0.02em',
                   margin: 0,
-                }}>On churn, retention & recovery</h2>
+                }}>Tips to keep more subscribers</h2>
               </div>
               <Link
                 href="/blog"
@@ -684,7 +999,7 @@ export default function Home({ posts }) {
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '28px' }}>
-              {posts.slice(0, 4).map(post => (
+              {posts.slice(0, 3).map(post => (
                 <PostCard key={post.slug} post={post} />
               ))}
             </div>

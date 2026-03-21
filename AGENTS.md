@@ -42,12 +42,18 @@ git push origin main
 - Each sub-agent follows the same checklist
 - You synthesize results and do the final deploy + verify
 
+## Known Issues
+- **Test runner hangs**: `npm test` starts `serve` in background via `pretest` but never kills it. Tests may hang indefinitely. Workaround: run `npx serve out -p 3050 -L &` manually, run `npx playwright test`, then kill serve. Or add a timeout.
+- **1,770 inline styles**: Migration to shadcn/ui + Tailwind is planned but not done yet. Use design tokens from `lib/design-tokens.js` for now.
+
 ## Do NOT
 - Skip tests ("I'll test later" = never)
 - Claim something is deployed without verifying the live URL
 - Commit code that doesn't build
 - Modify tests to make them pass instead of fixing the code
 - Use inline styles without design tokens (use Tailwind or tokens from lib/design-tokens.js)
+- Ask Dawood "what should I work on next?" — check WORKQUEUE.md and pick the highest priority item
+- Give status updates that end with questions — say what's happening and what's coming next
 
 ## Key Files
 - `STATE.json` — project state and task queue

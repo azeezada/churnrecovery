@@ -6,93 +6,64 @@ Low-code/no-code business owners: newsletter creators, coaches, online course se
 ## Priority Tiers
 
 ### P0 — Do Now (blocks user acquisition)
-- [❗] URGENT: Homepage UX overhaul for business owners (dev aesthetic kills conversions)
-- [ ] Migrate to shadcn/ui + Tailwind (kill 1,770 inline styles)
-- [❗] CRITICAL: Fix email validation on waitlist form (no error states, confusing UX)
-- [ ] Redesign homepage for non-technical audience (not developer aesthetic)
-- [ ] Make sign-up → dashboard → install widget flow work end-to-end
-- [ ] Security audit (task 025)
+- [❗] Homepage UX overhaul for business owners — current dev aesthetic kills conversions for our target audience. This is THE blocker. Nothing else matters if the homepage bounces non-technical visitors.
+- [ ] Make sign-up → dashboard → install widget flow work end-to-end (core product loop must work before marketing push)
+- [ ] Fix test runner — `npm test` hangs because `serve` background process never terminates. Add cleanup/timeout.
 
 ### P1 — This Week (gets first user)
-- [ ] First user acquisition campaign (task 026)
-- [ ] Product Hunt launch prep → Target April 1st launch  
-- [✅] Submit to 20 SaaS directories → Submission plan + checklist created
-- [✅] Write "How I Built a Free Churnkey Alternative" for Indie Hackers → Post ready
-- [✅] Create screenshot requirements for directory submissions
-- [✅] Create Reddit content strategy for cross-promotion
-- [✅] Write comprehensive Churnkey comparison content for SEO
-
-**COMPLETED TONIGHT:** 
-- ✅ Screenshot requirements document created
-- ✅ Reddit content strategy with platform-specific messaging  
-- ✅ Comprehensive Churnkey comparison blog post written
-- ✅ Directory submission action plan for weekend execution
-- ✅ All marketing copy templates ready for submissions
-
-**NEXT:** Manual execution required - Publish IH post → Reddit cross-promotion → Directory account creation
+- [ ] Take actual product screenshots (specs in docs/) — needed for ALL directory submissions + Product Hunt
+- [ ] Deploy blog post (Churnkey comparison) to live site — content is written, just needs to go live
+- [ ] First user acquisition campaign — execute directory submissions (plans ready, need manual account creation)
+- [ ] Product Hunt launch prep → Target April 1st
+- [ ] Publish Indie Hackers post + Reddit cross-promotion (content ready, needs execution)
 
 ### P2 — Next Week (retention + growth)
-- [❗] URGENT: Competitor research & positioning update (found significant UX gaps)
+- [ ] Migrate to shadcn/ui + Tailwind (kill 1,770 inline styles) — important but secondary to getting the product loop working
 - [ ] Dunning email sequences (Resend/SendGrid integration)
 - [ ] Real analytics in dashboard (replace mock data)
 - [ ] Widget CDN (minify, serve from cdn.churnrecovery.com)
 - [ ] Stripe webhook signature verification
 - [ ] More comparison pages for long-tail SEO
-- [✅] Screenshot creation requirements (specs ready for dev team)
-- [ ] Take actual product screenshots per marketing specs
 - [ ] G2 + Capterra business profiles with review collection strategy
-- [✅] Publish comprehensive Churnkey comparison as blog post → Written, needs deployment 
-- [✅] Create AlternativeTo submission content → Ready in action plan
-- [✅] Set up UTM tracking strategy → Documented in Reddit strategy
-- [ ] Deploy new blog post to live site
-- [ ] Execute weekend directory submission plan (manual accounts required)
-- [ ] Monitor Indie Hackers + Reddit engagement actively
 
 ### P3 — Ongoing (continuous improvement)
 - [ ] 2 blog posts per week
 - [ ] Monitor Google Search Console for indexing
-- [ ] A/B test homepage CTA copy  
+- [ ] A/B test homepage CTA copy
 - [ ] Collect real testimonials from early users
 - [ ] Error handling + rate limiting
 - [ ] E2E test coverage for new features
-- [ ] Reddit content strategy (r/SideProject, r/entrepreneur, r/startups)
 - [ ] Track directory submission ROI (signups per platform)
-- [ ] Hacker News Show HN post timing
 - [ ] Community engagement in SaaS founder groups
+- [ ] Execute Reddit posts (r/SideProject, r/entrepreneur, r/startups)
+- [ ] Hacker News "Show HN" post (after Reddit validation)
 
-## New Marketing Ideas (Generated Tonight)
-
-### Content Marketing Opportunities
+## Content Ideas Backlog
 - [ ] "The $825/month SaaS Tool That Should Cost $25" — controversial pricing take for Medium
-- [ ] "Why I Open-Sourced My SaaS Instead of Selling It" — transparency angle
-- [✅] Comparison content: "Churnkey vs ChurnRecovery vs [other alternatives]" for SEO — Written, ready for blog
 - [ ] Case study template: "How [Company] Saved $4,800/year by Switching from Churnkey"
-- [ ] Technical deep-dive: "Building Churn Recovery: Architecture Decisions" for dev audience
 - [ ] "I Analyzed 50+ SaaS Pricing Pages - Here's What I Found" — industry data angle
-- [✅] "Migration Guide: Churnkey to ChurnRecovery in 2 Weeks" — Included in comparison post
-- [ ] "The $50,000/Year SaaS Tool Stack Audit" — controversial cost analysis for viral content
-- [ ] "Show HN: ChurnRecovery" — Hacker News timing after Reddit validation  
+- [ ] "The $50,000/Year SaaS Tool Stack Audit" — controversial cost analysis
 - [ ] Twitter thread series: Real-time building in public updates
 - [ ] "Free SaaS Tools That Replace $100k+/Year Software" — broader market positioning
-
-### Community Engagement
-- [ ] Answer Churnkey questions on StackOverflow/Reddit with free alternative mention
 - [ ] Guest post on SaaS founder newsletters about churn recovery strategies
-- [ ] Sponsor/speak at indie founder meetups about open-source vs paid tools
 - [ ] Twitter thread series: "Things that shouldn't cost $800/month"
-- [✅] Reddit strategy: r/SideProject, r/entrepreneur, r/startups cross-promotion plan
-- [ ] Execute Reddit posts (Saturday: r/SideProject, Sunday: r/entrepreneur, Monday: r/startups)
-- [ ] Hacker News "Show HN" post timing (after Reddit validation)
+- [ ] Reach out to Stripe/Paddle for integration marketplace listing
 
-### Partnership/Collaboration
-- [ ] Reach out to billing platform APIs (Stripe, Paddle) for integration marketplace listing
-- [ ] Connect with SaaS boilerplate creators to include ChurnRecovery as default
-- [ ] Partner with other free SaaS tools for cross-promotion
-- [ ] Collaborate with SaaS cost optimization consultants
+## Completed (archive)
+- ✅ Email validation on waitlist form (regex, inline errors, aria attrs, focus)
+- ✅ Deploy pipeline fix (static export restored)
+- ✅ Security audit (task 025)
+- ✅ Directory submission plan + checklist
+- ✅ Indie Hackers post written
+- ✅ Screenshot requirements documented
+- ✅ Reddit content strategy created
+- ✅ Churnkey comparison content written
+- ✅ AlternativeTo submission content ready
+- ✅ UTM tracking strategy documented
+- ✅ Migration guide included in comparison post
 
 ## Meta Tasks (self-improvement)
 - [ ] Review agent performance — what keeps failing?
 - [ ] Update AGENTS.md with lessons learned
 - [ ] Review Dawood's messages — what did he have to tell me that I should have known?
-- [ ] Generate new skills for common tasks
 - [ ] Improve deploy-and-verify pipeline
