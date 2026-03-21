@@ -1,7 +1,7 @@
 ---
 title: "How to Set Up a Cancel Flow for Your Kajabi Membership (Without Coding)"
 description: "Kajabi doesn't have a built-in cancel flow. Here's how to set one up in 3 steps using ChurnRecovery — and the copy-paste scripts to save your members before they leave."
-date: "2026-03-21"
+date: "2026-02-14"
 tags: ["kajabi", "course creators", "cancel flow", "churn", "tutorial"]
 author: "ChurnRecovery Team"
 readingTime: "5 min read"

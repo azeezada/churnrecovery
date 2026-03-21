@@ -1,7 +1,7 @@
 ---
 title: "How to Reduce Churn for Your Online Course Business"
 description: "Running a course on Kajabi, Teachable, Thinkific, or Podia? Here are 5 concrete tactics to reduce churn for your online course business — including one you can set up for free today."
-date: "2026-03-21"
+date: "2026-02-10"
 tags: ["online course", "churn", "kajabi", "teachable", "thinkific", "podia", "retention"]
 author: "ChurnRecovery Team"
 readingTime: "6 min read"

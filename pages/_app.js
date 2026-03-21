@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import { useRouter } from 'next/router'
 import '../styles/globals.css'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
@@ -21,10 +22,14 @@ const AuthProvider = clerkEnabled ? ClerkProvider : NoAuthProvider
 
 export default function MyApp({ Component, pageProps }) {
   const isAppPage = Component.isAppPage
+  const router = useRouter()
+  const canonicalPath = router.asPath.split('?')[0].split('#')[0]
+  const canonicalUrl = `https://churnrecovery.com${canonicalPath === '/' ? '' : canonicalPath}`
 
   return (
     <AuthProvider {...(clerkEnabled ? pageProps : {})}>
       <Head>
+        <link rel="canonical" href={canonicalUrl} />
         <link rel="icon" href="/logo.png" />
         <link rel="apple-touch-icon" href="/logo.png" />
 

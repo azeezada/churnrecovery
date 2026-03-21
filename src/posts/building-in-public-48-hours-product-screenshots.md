@@ -1,7 +1,7 @@
 ---
 title: "Building in Public: How We Created 5 Product Screenshots in 48 Hours"
 description: "We needed product screenshots for Product Hunt but had no real users yet. Here's the honest story of how we built mockups in 48 hours — what worked, what didn't, and what we learned about what makes a great screenshot."
-date: "2026-03-21"
+date: "2026-02-23"
 tags: ["building in public", "product hunt", "design", "mockups", "screenshots", "saas"]
 author: "ChurnRecovery Team"
 readingTime: "6 min read"

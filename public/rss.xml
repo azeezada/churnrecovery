@@ -5,486 +5,8 @@
     <link>https://churnrecovery.com/blog</link>
     <description>Insights on churn recovery, payment failures, and SaaS retention</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 21 Mar 2026 23:13:00 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 21 Mar 2026 23:20:28 GMT</lastBuildDate>
     <atom:link href="https://churnrecovery.com/rss.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title><![CDATA[The $50,000/Year SaaS Tool Stack Audit]]></title>
-      <link>https://churnrecovery.com/posts/50000-year-saas-tool-stack-audit</link>
-      <guid isPermaLink="true">https://churnrecovery.com/posts/50000-year-saas-tool-stack-audit</guid>
-      <description><![CDATA[Most SaaS founders have no idea what their tool stack actually costs. Here's a line-by-line breakdown — and why the number is probably worse than you think.]]></description>
-      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
-      <category>SaaS pricing</category>
-      <category>SaaS tools</category>
-      <category>cost reduction</category>
-      <category>startup costs</category>
-      <category>churn recovery</category>
-    </item>
-    <item>
-      <title><![CDATA[ChurnRecovery vs Churnkey: The Complete Comparison Guide (2026)]]></title>
-      <link>https://churnrecovery.com/posts/ChurnRecovery-vs-Churnkey-Complete-Comparison</link>
-      <guid isPermaLink="true">https://churnrecovery.com/posts/ChurnRecovery-vs-Churnkey-Complete-Comparison</guid>
-      <description><![CDATA[Side-by-side comparison of ChurnRecovery vs Churnkey: features, pricing, and why 10,000+ SaaS founders are switching to the free alternative that saves $3,000-$9,900 per year.]]></description>
-      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
-      <category>churnkey cost</category>
-      <category>churn recovery</category>
-      <category>SaaS tools comparison</category>
-      <category>open-source</category>
-      <category>pricing</category>
-    </item>
-    <item>
-      <title><![CDATA[How I'm Building ChurnRecovery Without Spending a Dollar on Marketing]]></title>
-      <link>https://churnrecovery.com/posts/building-churnrecovery-without-spending-marketing</link>
-      <guid isPermaLink="true">https://churnrecovery.com/posts/building-churnrecovery-without-spending-marketing</guid>
-      <description><![CDATA[]]></description>
-      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
-      <category>building in public</category>
-      <category>bootstrapped</category>
-      <category>marketing</category>
-      <category>churn</category>
-      <category>saas</category>
-      <category>growth</category>
-    </item>
-    <item>
-      <title><![CDATA[Building in Public: How We Created 5 Product Screenshots in 48 Hours]]></title>
-      <link>https://churnrecovery.com/posts/building-in-public-48-hours-product-screenshots</link>
-      <guid isPermaLink="true">https://churnrecovery.com/posts/building-in-public-48-hours-product-screenshots</guid>
-      <description><![CDATA[]]></description>
-      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
-      <category>building in public</category>
-      <category>product hunt</category>
-      <category>design</category>
-      <category>mockups</category>
-      <category>screenshots</category>
-      <category>saas</category>
-    </item>
-    <item>
-      <title><![CDATA[5 Cancel Flow Templates That Actually Save Subscribers (Copy These)]]></title>
-      <link>https://churnrecovery.com/posts/cancel-flow-templates</link>
-      <guid isPermaLink="true">https://churnrecovery.com/posts/cancel-flow-templates</guid>
-      <description><![CDATA[]]></description>
-      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
-      <category>cancel flow templates</category>
-      <category>cancel flow</category>
-      <category>churn recovery</category>
-      <category>subscription retention</category>
-      <category>pause offer</category>
-    </item>
-    <item>
-      <title><![CDATA[The 5 Cancellation Emails That Actually Win Back Subscribers (With Templates)]]></title>
-      <link>https://churnrecovery.com/posts/cancellation-emails-that-win-back-subscribers</link>
-      <guid isPermaLink="true">https://churnrecovery.com/posts/cancellation-emails-that-win-back-subscribers</guid>
-      <description><![CDATA[Most cancellation emails are generic, arrive too late, and offer nothing. Here are the 5 types that actually work — with copy-paste templates you can use today.]]></description>
-      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
-      <category>cancellation emails</category>
-      <category>win-back</category>
-      <category>email templates</category>
-      <category>churn recovery</category>
-      <category>subscription business</category>
-      <category>customer retention</category>
-    </item>
-    <item>
-      <title><![CDATA[Chargebee Retain vs Churnkey vs ChurnRecovery: Which Cancel Flow Tool Is Right for You?]]></title>
-      <link>https://churnrecovery.com/posts/chargebee-retain-vs-churnkey-vs-churnrecovery</link>
-      <guid isPermaLink="true">https://churnrecovery.com/posts/chargebee-retain-vs-churnkey-vs-churnrecovery</guid>
-      <description><![CDATA[Comparing the three main cancel flow tools in 2026: Chargebee Retain for enterprises, Churnkey for mid-market, and ChurnRecovery for small businesses that want results without the $250-$825/month price tag.]]></description>
-      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
-      <category>chargebee retain</category>
-      <category>churnkey</category>
-      <category>churn recovery</category>
-      <category>cancel flow</category>
-      <category>SaaS tools comparison</category>
-      <category>subscription business</category>
-    </item>
-    <item>
-      <title><![CDATA[Churn Prevention Strategies for Coaches and Consultants]]></title>
-      <link>https://churnrecovery.com/posts/churn-prevention-strategies-coaching</link>
-      <guid isPermaLink="true">https://churnrecovery.com/posts/churn-prevention-strategies-coaching</guid>
-      <description><![CDATA[]]></description>
-      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
-      <category>coaching</category>
-      <category>churn prevention</category>
-      <category>subscriptions</category>
-      <category>retainer</category>
-      <category>kajabi</category>
-      <category>teachable</category>
-    </item>
-    <item>
-      <title><![CDATA[Churnkey Alternatives: 5 Tools to Reduce Subscription Cancellations (Ranked)]]></title>
-      <link>https://churnrecovery.com/posts/churnkey-alternatives-ranked</link>
-      <guid isPermaLink="true">https://churnrecovery.com/posts/churnkey-alternatives-ranked</guid>
-      <description><![CDATA[]]></description>
-      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
-      <category>churnkey</category>
-      <category>alternatives</category>
-      <category>cancel flow</category>
-      <category>subscription tools</category>
-    </item>
-    <item>
-      <title><![CDATA[Coaching Business Churn: Why Your Clients Keep Canceling (And How to Stop It)]]></title>
-      <link>https://churnrecovery.com/posts/coaching-business-churn</link>
-      <guid isPermaLink="true">https://churnrecovery.com/posts/coaching-business-churn</guid>
-      <description><![CDATA[]]></description>
-      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
-      <category>coaching</category>
-      <category>clients</category>
-      <category>churn</category>
-      <category>subscription</category>
-      <category>retention</category>
-    </item>
-    <item>
-      <title><![CDATA[Discount vs. Pause vs. Cancel: What Actually Saves Subscribers?]]></title>
-      <link>https://churnrecovery.com/posts/discount-vs-pause-vs-cancel-what-saves-subscribers</link>
-      <guid isPermaLink="true">https://churnrecovery.com/posts/discount-vs-pause-vs-cancel-what-saves-subscribers</guid>
-      <description><![CDATA[]]></description>
-      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
-      <category>cancel flow</category>
-      <category>churn</category>
-      <category>subscription</category>
-      <category>retention</category>
-      <category>discount</category>
-      <category>pause</category>
-    </item>
-    <item>
-      <title><![CDATA[The Complete Guide to Dunning Management for Small Businesses]]></title>
-      <link>https://churnrecovery.com/posts/dunning-management-guide-small-business</link>
-      <guid isPermaLink="true">https://churnrecovery.com/posts/dunning-management-guide-small-business</guid>
-      <description><![CDATA[]]></description>
-      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
-      <category>dunning management small business</category>
-      <category>failed payments</category>
-      <category>passive churn</category>
-      <category>subscription business</category>
-      <category>churn recovery</category>
-    </item>
-    <item>
-      <title><![CDATA[Free Alternatives to Churnkey, ProfitWell, and Baremetrics]]></title>
-      <link>https://churnrecovery.com/posts/free-alternatives-churnkey-profitwell-baremetrics</link>
-      <guid isPermaLink="true">https://churnrecovery.com/posts/free-alternatives-churnkey-profitwell-baremetrics</guid>
-      <description><![CDATA[Churnkey, ProfitWell, and Baremetrics charge hundreds of dollars every month. Here's what to use instead — for free.]]></description>
-      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
-      <category>churnkey alternative</category>
-      <category>profitwell alternative</category>
-      <category>baremetrics alternative</category>
-      <category>free SaaS tools</category>
-      <category>churn recovery</category>
-    </item>
-    <item>
-      <title><![CDATA[Ghost vs Substack vs Beehiiv: Which Platform Protects Your Paid Subscribers Best?]]></title>
-      <link>https://churnrecovery.com/posts/ghost-vs-substack-vs-beehiiv-paid-subscribers</link>
-      <guid isPermaLink="true">https://churnrecovery.com/posts/ghost-vs-substack-vs-beehiiv-paid-subscribers</guid>
-      <description><![CDATA[]]></description>
-      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
-      <category>ghost</category>
-      <category>substack</category>
-      <category>beehiiv</category>
-      <category>newsletter</category>
-      <category>paid subscribers</category>
-    </item>
-    <item>
-      <title><![CDATA[The Hidden Revenue Leak in Your Subscription Business (And How to Fix It)]]></title>
-      <link>https://churnrecovery.com/posts/hidden-revenue-leak-subscription-business</link>
-      <guid isPermaLink="true">https://churnrecovery.com/posts/hidden-revenue-leak-subscription-business</guid>
-      <description><![CDATA[]]></description>
-      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
-      <category>subscription</category>
-      <category>revenue</category>
-      <category>churn</category>
-      <category>cancel flow</category>
-      <category>dunning</category>
-      <category>small business</category>
-    </item>
-    <item>
-      <title><![CDATA[How to Keep More Paying Members: A Practical Guide for Membership Sites]]></title>
-      <link>https://churnrecovery.com/posts/how-to-retain-paying-members</link>
-      <guid isPermaLink="true">https://churnrecovery.com/posts/how-to-retain-paying-members</guid>
-      <description><![CDATA[]]></description>
-      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
-      <category>membership</category>
-      <category>retention</category>
-      <category>churn</category>
-      <category>subscribers</category>
-      <category>cancel flow</category>
-    </item>
-    <item>
-      <title><![CDATA[I Analyzed 50+ SaaS Pricing Pages — Here's What I Found]]></title>
-      <link>https://churnrecovery.com/posts/i-analyzed-50-saas-pricing-pages</link>
-      <guid isPermaLink="true">https://churnrecovery.com/posts/i-analyzed-50-saas-pricing-pages</guid>
-      <description><![CDATA[I spent two weeks clicking through pricing pages so you don't have to. Price anchoring, fake urgency, free tier traps, per-seat chaos — here's what's actually going on.]]></description>
-      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
-      <category>pricing</category>
-      <category>saas</category>
-      <category>analysis</category>
-      <category>business</category>
-    </item>
-    <item>
-      <title><![CDATA[I Reverse-Engineered Churnkey's Cancel Flow]]></title>
-      <link>https://churnrecovery.com/posts/i-reverse-engineered-churnkey-cancel-flow</link>
-      <guid isPermaLink="true">https://churnrecovery.com/posts/i-reverse-engineered-churnkey-cancel-flow</guid>
-      <description><![CDATA[]]></description>
-      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
-      <category>churnkey</category>
-      <category>cancel flow</category>
-      <category>churn recovery</category>
-      <category>comparison</category>
-      <category>pricing</category>
-    </item>
-    <item>
-      <title><![CDATA[How to Set Up a Cancel Flow for Your Kajabi Membership (Without Coding)]]></title>
-      <link>https://churnrecovery.com/posts/kajabi-cancel-flow-setup-without-coding</link>
-      <guid isPermaLink="true">https://churnrecovery.com/posts/kajabi-cancel-flow-setup-without-coding</guid>
-      <description><![CDATA[]]></description>
-      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
-      <category>kajabi</category>
-      <category>course creators</category>
-      <category>cancel flow</category>
-      <category>churn</category>
-      <category>tutorial</category>
-    </item>
-    <item>
-      <title><![CDATA[Membership Site Churn Rate: What's Normal and How to Beat It]]></title>
-      <link>https://churnrecovery.com/posts/membership-site-churn-rate</link>
-      <guid isPermaLink="true">https://churnrecovery.com/posts/membership-site-churn-rate</guid>
-      <description><![CDATA[]]></description>
-      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
-      <category>membership site churn rate</category>
-      <category>churn</category>
-      <category>memberful</category>
-      <category>circle</category>
-      <category>patreon</category>
-      <category>membership</category>
-      <category>retention</category>
-    </item>
-    <item>
-      <title><![CDATA[Newsletter Creator Case Study: How to Save $3,600/Year on Churn Tools]]></title>
-      <link>https://churnrecovery.com/posts/newsletter-creator-case-study-saved-3600-year</link>
-      <guid isPermaLink="true">https://churnrecovery.com/posts/newsletter-creator-case-study-saved-3600-year</guid>
-      <description><![CDATA[]]></description>
-      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
-      <category>case study</category>
-      <category>newsletter</category>
-      <category>beehiiv</category>
-      <category>churnkey</category>
-      <category>churn recovery</category>
-      <category>newsletter creator</category>
-    </item>
-    <item>
-      <title><![CDATA[The Newsletter Creator's Guide to Reducing Churn]]></title>
-      <link>https://churnrecovery.com/posts/newsletter-creator-guide-reducing-churn</link>
-      <guid isPermaLink="true">https://churnrecovery.com/posts/newsletter-creator-guide-reducing-churn</guid>
-      <description><![CDATA[]]></description>
-      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
-      <category>newsletter</category>
-      <category>churn</category>
-      <category>beehiiv</category>
-      <category>convertkit</category>
-      <category>substack</category>
-      <category>subscriber retention</category>
-    </item>
-    <item>
-      <title><![CDATA[Online Community Churn: Why Members Leave (And How to Keep Them)]]></title>
-      <link>https://churnrecovery.com/posts/online-community-churn-rate</link>
-      <guid isPermaLink="true">https://churnrecovery.com/posts/online-community-churn-rate</guid>
-      <description><![CDATA[]]></description>
-      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
-      <category>community</category>
-      <category>churn</category>
-      <category>membership</category>
-      <category>circle</category>
-      <category>mighty networks</category>
-      <category>retention</category>
-    </item>
-    <item>
-      <title><![CDATA[How to Reduce Churn for Your Online Course Business]]></title>
-      <link>https://churnrecovery.com/posts/reduce-churn-online-course-business</link>
-      <guid isPermaLink="true">https://churnrecovery.com/posts/reduce-churn-online-course-business</guid>
-      <description><![CDATA[]]></description>
-      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
-      <category>online course</category>
-      <category>churn</category>
-      <category>kajabi</category>
-      <category>teachable</category>
-      <category>thinkific</category>
-      <category>podia</category>
-      <category>retention</category>
-    </item>
-    <item>
-      <title><![CDATA[5 SaaS Dashboard Screenshots That Convert (And What Makes Them Work)]]></title>
-      <link>https://churnrecovery.com/posts/saas-dashboard-screenshots-that-convert</link>
-      <guid isPermaLink="true">https://churnrecovery.com/posts/saas-dashboard-screenshots-that-convert</guid>
-      <description><![CDATA[Most SaaS screenshots are wallpaper. Here's what separates screenshots that actually drive signups from screenshots that just take up space on your landing page.]]></description>
-      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
-      <category>SaaS marketing</category>
-      <category>product screenshots</category>
-      <category>conversion</category>
-      <category>landing page</category>
-      <category>SaaS design</category>
-    </item>
-    <item>
-      <title><![CDATA[SaaS Pricing Audit: 7 Tools That Should Cost 90% Less]]></title>
-      <link>https://churnrecovery.com/posts/saas-pricing-audit-tools-that-should-cost-less</link>
-      <guid isPermaLink="true">https://churnrecovery.com/posts/saas-pricing-audit-tools-that-should-cost-less</guid>
-      <description><![CDATA[Someone decided business software should cost $200–$500/month per tool. They were wrong. Here's the audit.]]></description>
-      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
-      <category>SaaS pricing</category>
-      <category>overpriced software</category>
-      <category>SaaS tools</category>
-      <category>business software</category>
-      <category>churn recovery</category>
-    </item>
-    <item>
-      <title><![CDATA[The $825/Month SaaS Tool That Should Cost $25]]></title>
-      <link>https://churnrecovery.com/posts/saas-tool-pricing-take</link>
-      <guid isPermaLink="true">https://churnrecovery.com/posts/saas-tool-pricing-take</guid>
-      <description><![CDATA[Someone is charging $825/month to send a few emails and show a popup when customers try to cancel. Here's why that price exists — and why you don't have to pay it.]]></description>
-      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
-      <category>pricing</category>
-      <category>saas-tools</category>
-      <category>churn</category>
-      <category>business</category>
-    </item>
-    <item>
-      <title><![CDATA[How to Reduce Churn on Your Shopify Subscription Store]]></title>
-      <link>https://churnrecovery.com/posts/shopify-subscription-churn</link>
-      <guid isPermaLink="true">https://churnrecovery.com/posts/shopify-subscription-churn</guid>
-      <description><![CDATA[]]></description>
-      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
-      <category>shopify</category>
-      <category>subscriptions</category>
-      <category>churn</category>
-      <category>cancel flow</category>
-      <category>stripe</category>
-      <category>ecommerce</category>
-    </item>
-    <item>
-      <title><![CDATA[Stripe Subscription Cancellations: How to Stop Them Before They Happen]]></title>
-      <link>https://churnrecovery.com/posts/stripe-subscription-cancellations-how-to-stop-them</link>
-      <guid isPermaLink="true">https://churnrecovery.com/posts/stripe-subscription-cancellations-how-to-stop-them</guid>
-      <description><![CDATA[]]></description>
-      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
-      <category>stripe</category>
-      <category>stripe subscription cancellations</category>
-      <category>cancel flow</category>
-      <category>churn recovery</category>
-      <category>subscription business</category>
-    </item>
-    <item>
-      <title><![CDATA[Your Subscription Business Is Leaking Revenue Every Month (And You Don't Know It)]]></title>
-      <link>https://churnrecovery.com/posts/subscription-business-leaking-revenue-every-month</link>
-      <guid isPermaLink="true">https://churnrecovery.com/posts/subscription-business-leaking-revenue-every-month</guid>
-      <description><![CDATA[]]></description>
-      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
-      <category>subscription</category>
-      <category>churn</category>
-      <category>revenue</category>
-      <category>small business</category>
-    </item>
-    <item>
-      <title><![CDATA[What Is Voluntary vs Involuntary Churn? (And How to Reduce Both)]]></title>
-      <link>https://churnrecovery.com/posts/voluntary-vs-involuntary-churn</link>
-      <guid isPermaLink="true">https://churnrecovery.com/posts/voluntary-vs-involuntary-churn</guid>
-      <description><![CDATA[]]></description>
-      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
-      <category>churn</category>
-      <category>voluntary churn</category>
-      <category>involuntary churn</category>
-      <category>dunning</category>
-      <category>stripe</category>
-      <category>subscription</category>
-    </item>
-    <item>
-      <title><![CDATA[What Is a Cancel Flow? (And Why Every Subscription Business Needs One)]]></title>
-      <link>https://churnrecovery.com/posts/what-is-a-cancel-flow</link>
-      <guid isPermaLink="true">https://churnrecovery.com/posts/what-is-a-cancel-flow</guid>
-      <description><![CDATA[]]></description>
-      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
-      <category>cancel flow</category>
-      <category>subscription</category>
-      <category>churn</category>
-      <category>beginner guide</category>
-    </item>
-    <item>
-      <title><![CDATA[Why Churnkey Costs $250/Month and We're Free]]></title>
-      <link>https://churnrecovery.com/posts/why-churnkey-costs-250-month-and-we-are-free</link>
-      <guid isPermaLink="true">https://churnrecovery.com/posts/why-churnkey-costs-250-month-and-we-are-free</guid>
-      <description><![CDATA[Churnkey starts at $250/month — and goes up to $825. We charge nothing. Here's the honest reason why, and what that actually means for your subscription business.]]></description>
-      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
-      <category>pricing</category>
-      <category>churnkey</category>
-      <category>churn</category>
-      <category>small business</category>
-    </item>
-    <item>
-      <title><![CDATA[Why Subscribers Cancel (And How to Stop Them)]]></title>
-      <link>https://churnrecovery.com/posts/why-subscribers-cancel</link>
-      <guid isPermaLink="true">https://churnrecovery.com/posts/why-subscribers-cancel</guid>
-      <description><![CDATA[]]></description>
-      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
-      <category>subscribers cancel</category>
-      <category>churn</category>
-      <category>newsletter</category>
-      <category>membership</category>
-      <category>coaching</category>
-      <category>retention</category>
-      <category>cancel flow</category>
-    </item>
-    <item>
-      <title><![CDATA[How to Set Up a Cancel Flow for Your WooCommerce Subscription Site]]></title>
-      <link>https://churnrecovery.com/posts/woocommerce-subscription-cancel-flow</link>
-      <guid isPermaLink="true">https://churnrecovery.com/posts/woocommerce-subscription-cancel-flow</guid>
-      <description><![CDATA[]]></description>
-      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
-      <category>woocommerce</category>
-      <category>wordpress</category>
-      <category>subscriptions</category>
-      <category>cancel flow</category>
-      <category>stripe</category>
-      <category>tutorial</category>
-    </item>
-    <item>
-      <title><![CDATA[B2B SaaS Churn Benchmarks 2025: What's a Good Churn Rate?]]></title>
-      <link>https://churnrecovery.com/posts/B2B-SaaS-Churn-Benchmarks-2025</link>
-      <guid isPermaLink="true">https://churnrecovery.com/posts/B2B-SaaS-Churn-Benchmarks-2025</guid>
-      <description><![CDATA[How does your churn rate compare to other B2B SaaS companies? We break down the 2025 benchmarks by ARR tier, market segment, and product category — and show you what the top performers do differently.]]></description>
-      <pubDate>Fri, 20 Mar 2026 00:00:00 GMT</pubDate>
-      <category>churn</category>
-      <category>benchmarks</category>
-      <category>b2b</category>
-      <category>saas</category>
-      <category>metrics</category>
-    </item>
-    <item>
-      <title><![CDATA[Churnkey Pricing 2026: Is It Worth $250/Month?]]></title>
-      <link>https://churnrecovery.com/posts/Churnkey-Pricing-2026-Is-It-Worth-250-Month</link>
-      <guid isPermaLink="true">https://churnrecovery.com/posts/Churnkey-Pricing-2026-Is-It-Worth-250-Month</guid>
-      <description><![CDATA[]]></description>
-      <pubDate>Fri, 20 Mar 2026 00:00:00 GMT</pubDate>
-      <category>churnkey pricing</category>
-      <category>churnkey cost</category>
-      <category>churn prevention</category>
-      <category>SaaS tools comparison</category>
-    </item>
-    <item>
-      <title><![CDATA[How to Build a Cancel Flow That Saves 30% of Churning Customers]]></title>
-      <link>https://churnrecovery.com/posts/How-to-Build-Cancel-Flow-That-Saves-30-Percent-Churning-Customers</link>
-      <guid isPermaLink="true">https://churnrecovery.com/posts/How-to-Build-Cancel-Flow-That-Saves-30-Percent-Churning-Customers</guid>
-      <description><![CDATA[]]></description>
-      <pubDate>Fri, 20 Mar 2026 00:00:00 GMT</pubDate>
-      <category>cancel flow</category>
-      <category>churn recovery</category>
-      <category>retention</category>
-      <category>SaaS</category>
-    </item>
-    <item>
-      <title><![CDATA[SaaS Pricing Psychology: Why Your Pricing Page Is Losing You Customers]]></title>
-      <link>https://churnrecovery.com/posts/SaaS-Pricing-Psychology</link>
-      <guid isPermaLink="true">https://churnrecovery.com/posts/SaaS-Pricing-Psychology</guid>
-      <description><![CDATA[The gap between what you charge and what customers perceive as fair is where churn is born. Here's the psychology behind SaaS pricing — and how to fix it before customers cancel.]]></description>
-      <pubDate>Fri, 20 Mar 2026 00:00:00 GMT</pubDate>
-      <category>pricing</category>
-      <category>churn</category>
-      <category>psychology</category>
-      <category>saas</category>
-    </item>
     <item>
       <title><![CDATA[Payment Failure Recovery: A Technical Playbook]]></title>
       <link>https://churnrecovery.com/posts/Payment-Failure-Recovery</link>
@@ -516,6 +38,17 @@
       <category>examples</category>
     </item>
     <item>
+      <title><![CDATA[Your Subscription Business Is Leaking Revenue Every Month (And You Don't Know It)]]></title>
+      <link>https://churnrecovery.com/posts/subscription-business-leaking-revenue-every-month</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/subscription-business-leaking-revenue-every-month</guid>
+      <description><![CDATA[]]></description>
+      <pubDate>Mon, 16 Mar 2026 00:00:00 GMT</pubDate>
+      <category>subscription</category>
+      <category>churn</category>
+      <category>revenue</category>
+      <category>small business</category>
+    </item>
+    <item>
       <title><![CDATA[Involuntary Churn: The Revenue Leak You're Probably Ignoring]]></title>
       <link>https://churnrecovery.com/posts/Involuntary-Churn-Recovery</link>
       <guid isPermaLink="true">https://churnrecovery.com/posts/Involuntary-Churn-Recovery</guid>
@@ -526,6 +59,44 @@
       <category>involuntary-churn</category>
     </item>
     <item>
+      <title><![CDATA[What Is a Cancel Flow? (And Why Every Subscription Business Needs One)]]></title>
+      <link>https://churnrecovery.com/posts/what-is-a-cancel-flow</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/what-is-a-cancel-flow</guid>
+      <description><![CDATA[]]></description>
+      <pubDate>Sat, 14 Mar 2026 00:00:00 GMT</pubDate>
+      <category>cancel flow</category>
+      <category>subscription</category>
+      <category>churn</category>
+      <category>beginner guide</category>
+    </item>
+    <item>
+      <title><![CDATA[Why Subscribers Cancel (And How to Stop Them)]]></title>
+      <link>https://churnrecovery.com/posts/why-subscribers-cancel</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/why-subscribers-cancel</guid>
+      <description><![CDATA[]]></description>
+      <pubDate>Sat, 14 Mar 2026 00:00:00 GMT</pubDate>
+      <category>subscribers cancel</category>
+      <category>churn</category>
+      <category>newsletter</category>
+      <category>membership</category>
+      <category>coaching</category>
+      <category>retention</category>
+      <category>cancel flow</category>
+    </item>
+    <item>
+      <title><![CDATA[Online Community Churn: Why Members Leave (And How to Keep Them)]]></title>
+      <link>https://churnrecovery.com/posts/online-community-churn-rate</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/online-community-churn-rate</guid>
+      <description><![CDATA[]]></description>
+      <pubDate>Fri, 13 Mar 2026 00:00:00 GMT</pubDate>
+      <category>community</category>
+      <category>churn</category>
+      <category>membership</category>
+      <category>circle</category>
+      <category>mighty networks</category>
+      <category>retention</category>
+    </item>
+    <item>
       <title><![CDATA[Why ChurnRecovery Is Free (And How We Plan to Stay That Way)]]></title>
       <link>https://churnrecovery.com/posts/Why-Churn-Recovery-Is-Free</link>
       <guid isPermaLink="true">https://churnrecovery.com/posts/Why-Churn-Recovery-Is-Free</guid>
@@ -534,6 +105,435 @@
       <category>churnrecovery</category>
       <category>open-source</category>
       <category>business-model</category>
+    </item>
+    <item>
+      <title><![CDATA[How to Set Up a Cancel Flow for Your WooCommerce Subscription Site]]></title>
+      <link>https://churnrecovery.com/posts/woocommerce-subscription-cancel-flow</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/woocommerce-subscription-cancel-flow</guid>
+      <description><![CDATA[]]></description>
+      <pubDate>Thu, 12 Mar 2026 00:00:00 GMT</pubDate>
+      <category>woocommerce</category>
+      <category>wordpress</category>
+      <category>subscriptions</category>
+      <category>cancel flow</category>
+      <category>stripe</category>
+      <category>tutorial</category>
+    </item>
+    <item>
+      <title><![CDATA[Chargebee Retain vs Churnkey vs ChurnRecovery: Which Cancel Flow Tool Is Right for You?]]></title>
+      <link>https://churnrecovery.com/posts/chargebee-retain-vs-churnkey-vs-churnrecovery</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/chargebee-retain-vs-churnkey-vs-churnrecovery</guid>
+      <description><![CDATA[Comparing the three main cancel flow tools in 2026: Chargebee Retain for enterprises, Churnkey for mid-market, and ChurnRecovery for small businesses that want results without the $250-$825/month price tag.]]></description>
+      <pubDate>Wed, 11 Mar 2026 00:00:00 GMT</pubDate>
+      <category>chargebee retain</category>
+      <category>churnkey</category>
+      <category>churn recovery</category>
+      <category>cancel flow</category>
+      <category>SaaS tools comparison</category>
+      <category>subscription business</category>
+    </item>
+    <item>
+      <title><![CDATA[How I'm Building ChurnRecovery Without Spending a Dollar on Marketing]]></title>
+      <link>https://churnrecovery.com/posts/building-churnrecovery-without-spending-marketing</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/building-churnrecovery-without-spending-marketing</guid>
+      <description><![CDATA[]]></description>
+      <pubDate>Tue, 10 Mar 2026 00:00:00 GMT</pubDate>
+      <category>building in public</category>
+      <category>bootstrapped</category>
+      <category>marketing</category>
+      <category>churn</category>
+      <category>saas</category>
+      <category>growth</category>
+    </item>
+    <item>
+      <title><![CDATA[Churnkey Alternatives: 5 Tools to Reduce Subscription Cancellations (Ranked)]]></title>
+      <link>https://churnrecovery.com/posts/churnkey-alternatives-ranked</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/churnkey-alternatives-ranked</guid>
+      <description><![CDATA[]]></description>
+      <pubDate>Mon, 09 Mar 2026 00:00:00 GMT</pubDate>
+      <category>churnkey</category>
+      <category>alternatives</category>
+      <category>cancel flow</category>
+      <category>subscription tools</category>
+    </item>
+    <item>
+      <title><![CDATA[Membership Site Churn Rate: What's Normal and How to Beat It]]></title>
+      <link>https://churnrecovery.com/posts/membership-site-churn-rate</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/membership-site-churn-rate</guid>
+      <description><![CDATA[]]></description>
+      <pubDate>Sun, 08 Mar 2026 00:00:00 GMT</pubDate>
+      <category>membership site churn rate</category>
+      <category>churn</category>
+      <category>memberful</category>
+      <category>circle</category>
+      <category>patreon</category>
+      <category>membership</category>
+      <category>retention</category>
+    </item>
+    <item>
+      <title><![CDATA[The $825/Month SaaS Tool That Should Cost $25]]></title>
+      <link>https://churnrecovery.com/posts/saas-tool-pricing-take</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/saas-tool-pricing-take</guid>
+      <description><![CDATA[Someone is charging $825/month to send a few emails and show a popup when customers try to cancel. Here's why that price exists — and why you don't have to pay it.]]></description>
+      <pubDate>Sat, 07 Mar 2026 00:00:00 GMT</pubDate>
+      <category>pricing</category>
+      <category>saas-tools</category>
+      <category>churn</category>
+      <category>business</category>
+    </item>
+    <item>
+      <title><![CDATA[5 Cancel Flow Templates That Actually Save Subscribers (Copy These)]]></title>
+      <link>https://churnrecovery.com/posts/cancel-flow-templates</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/cancel-flow-templates</guid>
+      <description><![CDATA[]]></description>
+      <pubDate>Fri, 06 Mar 2026 00:00:00 GMT</pubDate>
+      <category>cancel flow templates</category>
+      <category>cancel flow</category>
+      <category>churn recovery</category>
+      <category>subscription retention</category>
+      <category>pause offer</category>
+    </item>
+    <item>
+      <title><![CDATA[Ghost vs Substack vs Beehiiv: Which Platform Protects Your Paid Subscribers Best?]]></title>
+      <link>https://churnrecovery.com/posts/ghost-vs-substack-vs-beehiiv-paid-subscribers</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/ghost-vs-substack-vs-beehiiv-paid-subscribers</guid>
+      <description><![CDATA[]]></description>
+      <pubDate>Wed, 04 Mar 2026 00:00:00 GMT</pubDate>
+      <category>ghost</category>
+      <category>substack</category>
+      <category>beehiiv</category>
+      <category>newsletter</category>
+      <category>paid subscribers</category>
+    </item>
+    <item>
+      <title><![CDATA[5 SaaS Dashboard Screenshots That Convert (And What Makes Them Work)]]></title>
+      <link>https://churnrecovery.com/posts/saas-dashboard-screenshots-that-convert</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/saas-dashboard-screenshots-that-convert</guid>
+      <description><![CDATA[Most SaaS screenshots are wallpaper. Here's what separates screenshots that actually drive signups from screenshots that just take up space on your landing page.]]></description>
+      <pubDate>Tue, 03 Mar 2026 00:00:00 GMT</pubDate>
+      <category>SaaS marketing</category>
+      <category>product screenshots</category>
+      <category>conversion</category>
+      <category>landing page</category>
+      <category>SaaS design</category>
+    </item>
+    <item>
+      <title><![CDATA[The Hidden Revenue Leak in Your Subscription Business (And How to Fix It)]]></title>
+      <link>https://churnrecovery.com/posts/hidden-revenue-leak-subscription-business</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/hidden-revenue-leak-subscription-business</guid>
+      <description><![CDATA[]]></description>
+      <pubDate>Mon, 02 Mar 2026 00:00:00 GMT</pubDate>
+      <category>subscription</category>
+      <category>revenue</category>
+      <category>churn</category>
+      <category>cancel flow</category>
+      <category>dunning</category>
+      <category>small business</category>
+    </item>
+    <item>
+      <title><![CDATA[SaaS Pricing Psychology: Why Your Pricing Page Is Losing You Customers]]></title>
+      <link>https://churnrecovery.com/posts/SaaS-Pricing-Psychology</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/SaaS-Pricing-Psychology</guid>
+      <description><![CDATA[The gap between what you charge and what customers perceive as fair is where churn is born. Here's the psychology behind SaaS pricing — and how to fix it before customers cancel.]]></description>
+      <pubDate>Sun, 01 Mar 2026 00:00:00 GMT</pubDate>
+      <category>pricing</category>
+      <category>churn</category>
+      <category>psychology</category>
+      <category>saas</category>
+    </item>
+    <item>
+      <title><![CDATA[Stripe Subscription Cancellations: How to Stop Them Before They Happen]]></title>
+      <link>https://churnrecovery.com/posts/stripe-subscription-cancellations-how-to-stop-them</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/stripe-subscription-cancellations-how-to-stop-them</guid>
+      <description><![CDATA[]]></description>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 GMT</pubDate>
+      <category>stripe</category>
+      <category>stripe subscription cancellations</category>
+      <category>cancel flow</category>
+      <category>churn recovery</category>
+      <category>subscription business</category>
+    </item>
+    <item>
+      <title><![CDATA[The 5 Cancellation Emails That Actually Win Back Subscribers (With Templates)]]></title>
+      <link>https://churnrecovery.com/posts/cancellation-emails-that-win-back-subscribers</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/cancellation-emails-that-win-back-subscribers</guid>
+      <description><![CDATA[Most cancellation emails are generic, arrive too late, and offer nothing. Here are the 5 types that actually work — with copy-paste templates you can use today.]]></description>
+      <pubDate>Fri, 27 Feb 2026 00:00:00 GMT</pubDate>
+      <category>cancellation emails</category>
+      <category>win-back</category>
+      <category>email templates</category>
+      <category>churn recovery</category>
+      <category>subscription business</category>
+      <category>customer retention</category>
+    </item>
+    <item>
+      <title><![CDATA[I Reverse-Engineered Churnkey's Cancel Flow]]></title>
+      <link>https://churnrecovery.com/posts/i-reverse-engineered-churnkey-cancel-flow</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/i-reverse-engineered-churnkey-cancel-flow</guid>
+      <description><![CDATA[]]></description>
+      <pubDate>Thu, 26 Feb 2026 00:00:00 GMT</pubDate>
+      <category>churnkey</category>
+      <category>cancel flow</category>
+      <category>churn recovery</category>
+      <category>comparison</category>
+      <category>pricing</category>
+    </item>
+    <item>
+      <title><![CDATA[Building in Public: How We Created 5 Product Screenshots in 48 Hours]]></title>
+      <link>https://churnrecovery.com/posts/building-in-public-48-hours-product-screenshots</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/building-in-public-48-hours-product-screenshots</guid>
+      <description><![CDATA[]]></description>
+      <pubDate>Mon, 23 Feb 2026 00:00:00 GMT</pubDate>
+      <category>building in public</category>
+      <category>product hunt</category>
+      <category>design</category>
+      <category>mockups</category>
+      <category>screenshots</category>
+      <category>saas</category>
+    </item>
+    <item>
+      <title><![CDATA[How to Keep More Paying Members: A Practical Guide for Membership Sites]]></title>
+      <link>https://churnrecovery.com/posts/how-to-retain-paying-members</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/how-to-retain-paying-members</guid>
+      <description><![CDATA[]]></description>
+      <pubDate>Mon, 23 Feb 2026 00:00:00 GMT</pubDate>
+      <category>membership</category>
+      <category>retention</category>
+      <category>churn</category>
+      <category>subscribers</category>
+      <category>cancel flow</category>
+    </item>
+    <item>
+      <title><![CDATA[SaaS Pricing Audit: 7 Tools That Should Cost 90% Less]]></title>
+      <link>https://churnrecovery.com/posts/saas-pricing-audit-tools-that-should-cost-less</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/saas-pricing-audit-tools-that-should-cost-less</guid>
+      <description><![CDATA[Someone decided business software should cost $200–$500/month per tool. They were wrong. Here's the audit.]]></description>
+      <pubDate>Sun, 22 Feb 2026 00:00:00 GMT</pubDate>
+      <category>SaaS pricing</category>
+      <category>overpriced software</category>
+      <category>SaaS tools</category>
+      <category>business software</category>
+      <category>churn recovery</category>
+    </item>
+    <item>
+      <title><![CDATA[I Analyzed 50+ SaaS Pricing Pages — Here's What I Found]]></title>
+      <link>https://churnrecovery.com/posts/i-analyzed-50-saas-pricing-pages</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/i-analyzed-50-saas-pricing-pages</guid>
+      <description><![CDATA[I spent two weeks clicking through pricing pages so you don't have to. Price anchoring, fake urgency, free tier traps, per-seat chaos — here's what's actually going on.]]></description>
+      <pubDate>Sat, 21 Feb 2026 00:00:00 GMT</pubDate>
+      <category>pricing</category>
+      <category>saas</category>
+      <category>analysis</category>
+      <category>business</category>
+    </item>
+    <item>
+      <title><![CDATA[Churnkey Pricing 2026: Is It Worth $250/Month?]]></title>
+      <link>https://churnrecovery.com/posts/Churnkey-Pricing-2026-Is-It-Worth-250-Month</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/Churnkey-Pricing-2026-Is-It-Worth-250-Month</guid>
+      <description><![CDATA[]]></description>
+      <pubDate>Thu, 19 Feb 2026 00:00:00 GMT</pubDate>
+      <category>churnkey pricing</category>
+      <category>churnkey cost</category>
+      <category>churn prevention</category>
+      <category>SaaS tools comparison</category>
+    </item>
+    <item>
+      <title><![CDATA[Churn Prevention Strategies for Coaches and Consultants]]></title>
+      <link>https://churnrecovery.com/posts/churn-prevention-strategies-coaching</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/churn-prevention-strategies-coaching</guid>
+      <description><![CDATA[]]></description>
+      <pubDate>Thu, 19 Feb 2026 00:00:00 GMT</pubDate>
+      <category>coaching</category>
+      <category>churn prevention</category>
+      <category>subscriptions</category>
+      <category>retainer</category>
+      <category>kajabi</category>
+      <category>teachable</category>
+    </item>
+    <item>
+      <title><![CDATA[Discount vs. Pause vs. Cancel: What Actually Saves Subscribers?]]></title>
+      <link>https://churnrecovery.com/posts/discount-vs-pause-vs-cancel-what-saves-subscribers</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/discount-vs-pause-vs-cancel-what-saves-subscribers</guid>
+      <description><![CDATA[]]></description>
+      <pubDate>Tue, 17 Feb 2026 00:00:00 GMT</pubDate>
+      <category>cancel flow</category>
+      <category>churn</category>
+      <category>subscription</category>
+      <category>retention</category>
+      <category>discount</category>
+      <category>pause</category>
+    </item>
+    <item>
+      <title><![CDATA[The Newsletter Creator's Guide to Reducing Churn]]></title>
+      <link>https://churnrecovery.com/posts/newsletter-creator-guide-reducing-churn</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/newsletter-creator-guide-reducing-churn</guid>
+      <description><![CDATA[]]></description>
+      <pubDate>Tue, 17 Feb 2026 00:00:00 GMT</pubDate>
+      <category>newsletter</category>
+      <category>churn</category>
+      <category>beehiiv</category>
+      <category>convertkit</category>
+      <category>substack</category>
+      <category>subscriber retention</category>
+    </item>
+    <item>
+      <title><![CDATA[How to Set Up a Cancel Flow for Your Kajabi Membership (Without Coding)]]></title>
+      <link>https://churnrecovery.com/posts/kajabi-cancel-flow-setup-without-coding</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/kajabi-cancel-flow-setup-without-coding</guid>
+      <description><![CDATA[]]></description>
+      <pubDate>Sat, 14 Feb 2026 00:00:00 GMT</pubDate>
+      <category>kajabi</category>
+      <category>course creators</category>
+      <category>cancel flow</category>
+      <category>churn</category>
+      <category>tutorial</category>
+    </item>
+    <item>
+      <title><![CDATA[ChurnRecovery vs Churnkey: The Complete Comparison Guide (2026)]]></title>
+      <link>https://churnrecovery.com/posts/ChurnRecovery-vs-Churnkey-Complete-Comparison</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/ChurnRecovery-vs-Churnkey-Complete-Comparison</guid>
+      <description><![CDATA[Side-by-side comparison of ChurnRecovery vs Churnkey: features, pricing, and why 10,000+ SaaS founders are switching to the free alternative that saves $3,000-$9,900 per year.]]></description>
+      <pubDate>Fri, 13 Feb 2026 00:00:00 GMT</pubDate>
+      <category>churnkey cost</category>
+      <category>churn recovery</category>
+      <category>SaaS tools comparison</category>
+      <category>open-source</category>
+      <category>pricing</category>
+    </item>
+    <item>
+      <title><![CDATA[Why Churnkey Costs $250/Month and We're Free]]></title>
+      <link>https://churnrecovery.com/posts/why-churnkey-costs-250-month-and-we-are-free</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/why-churnkey-costs-250-month-and-we-are-free</guid>
+      <description><![CDATA[Churnkey starts at $250/month — and goes up to $825. We charge nothing. Here's the honest reason why, and what that actually means for your subscription business.]]></description>
+      <pubDate>Fri, 13 Feb 2026 00:00:00 GMT</pubDate>
+      <category>pricing</category>
+      <category>churnkey</category>
+      <category>churn</category>
+      <category>small business</category>
+    </item>
+    <item>
+      <title><![CDATA[The $50,000/Year SaaS Tool Stack Audit]]></title>
+      <link>https://churnrecovery.com/posts/50000-year-saas-tool-stack-audit</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/50000-year-saas-tool-stack-audit</guid>
+      <description><![CDATA[Most SaaS founders have no idea what their tool stack actually costs. Here's a line-by-line breakdown — and why the number is probably worse than you think.]]></description>
+      <pubDate>Wed, 11 Feb 2026 00:00:00 GMT</pubDate>
+      <category>SaaS pricing</category>
+      <category>SaaS tools</category>
+      <category>cost reduction</category>
+      <category>startup costs</category>
+      <category>churn recovery</category>
+    </item>
+    <item>
+      <title><![CDATA[How to Build a Cancel Flow That Saves 30% of Churning Customers]]></title>
+      <link>https://churnrecovery.com/posts/How-to-Build-Cancel-Flow-That-Saves-30-Percent-Churning-Customers</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/How-to-Build-Cancel-Flow-That-Saves-30-Percent-Churning-Customers</guid>
+      <description><![CDATA[]]></description>
+      <pubDate>Tue, 10 Feb 2026 00:00:00 GMT</pubDate>
+      <category>cancel flow</category>
+      <category>churn recovery</category>
+      <category>retention</category>
+      <category>SaaS</category>
+    </item>
+    <item>
+      <title><![CDATA[How to Reduce Churn for Your Online Course Business]]></title>
+      <link>https://churnrecovery.com/posts/reduce-churn-online-course-business</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/reduce-churn-online-course-business</guid>
+      <description><![CDATA[]]></description>
+      <pubDate>Tue, 10 Feb 2026 00:00:00 GMT</pubDate>
+      <category>online course</category>
+      <category>churn</category>
+      <category>kajabi</category>
+      <category>teachable</category>
+      <category>thinkific</category>
+      <category>podia</category>
+      <category>retention</category>
+    </item>
+    <item>
+      <title><![CDATA[The Complete Guide to Dunning Management for Small Businesses]]></title>
+      <link>https://churnrecovery.com/posts/dunning-management-guide-small-business</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/dunning-management-guide-small-business</guid>
+      <description><![CDATA[]]></description>
+      <pubDate>Sat, 07 Feb 2026 00:00:00 GMT</pubDate>
+      <category>dunning management small business</category>
+      <category>failed payments</category>
+      <category>passive churn</category>
+      <category>subscription business</category>
+      <category>churn recovery</category>
+    </item>
+    <item>
+      <title><![CDATA[B2B SaaS Churn Benchmarks 2025: What's a Good Churn Rate?]]></title>
+      <link>https://churnrecovery.com/posts/B2B-SaaS-Churn-Benchmarks-2025</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/B2B-SaaS-Churn-Benchmarks-2025</guid>
+      <description><![CDATA[How does your churn rate compare to other B2B SaaS companies? We break down the 2025 benchmarks by ARR tier, market segment, and product category — and show you what the top performers do differently.]]></description>
+      <pubDate>Fri, 06 Feb 2026 00:00:00 GMT</pubDate>
+      <category>churn</category>
+      <category>benchmarks</category>
+      <category>b2b</category>
+      <category>saas</category>
+      <category>metrics</category>
+    </item>
+    <item>
+      <title><![CDATA[Newsletter Creator Case Study: How to Save $3,600/Year on Churn Tools]]></title>
+      <link>https://churnrecovery.com/posts/newsletter-creator-case-study-saved-3600-year</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/newsletter-creator-case-study-saved-3600-year</guid>
+      <description><![CDATA[]]></description>
+      <pubDate>Fri, 06 Feb 2026 00:00:00 GMT</pubDate>
+      <category>case study</category>
+      <category>newsletter</category>
+      <category>beehiiv</category>
+      <category>churnkey</category>
+      <category>churn recovery</category>
+      <category>newsletter creator</category>
+    </item>
+    <item>
+      <title><![CDATA[Free Alternatives to Churnkey, ProfitWell, and Baremetrics]]></title>
+      <link>https://churnrecovery.com/posts/free-alternatives-churnkey-profitwell-baremetrics</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/free-alternatives-churnkey-profitwell-baremetrics</guid>
+      <description><![CDATA[Churnkey, ProfitWell, and Baremetrics charge hundreds of dollars every month. Here's what to use instead — for free.]]></description>
+      <pubDate>Wed, 04 Feb 2026 00:00:00 GMT</pubDate>
+      <category>churnkey alternative</category>
+      <category>profitwell alternative</category>
+      <category>baremetrics alternative</category>
+      <category>free SaaS tools</category>
+      <category>churn recovery</category>
+    </item>
+    <item>
+      <title><![CDATA[What Is Voluntary vs Involuntary Churn? (And How to Reduce Both)]]></title>
+      <link>https://churnrecovery.com/posts/voluntary-vs-involuntary-churn</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/voluntary-vs-involuntary-churn</guid>
+      <description><![CDATA[]]></description>
+      <pubDate>Wed, 04 Feb 2026 00:00:00 GMT</pubDate>
+      <category>churn</category>
+      <category>voluntary churn</category>
+      <category>involuntary churn</category>
+      <category>dunning</category>
+      <category>stripe</category>
+      <category>subscription</category>
+    </item>
+    <item>
+      <title><![CDATA[Coaching Business Churn: Why Your Clients Keep Canceling (And How to Stop It)]]></title>
+      <link>https://churnrecovery.com/posts/coaching-business-churn</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/coaching-business-churn</guid>
+      <description><![CDATA[]]></description>
+      <pubDate>Sun, 01 Feb 2026 00:00:00 GMT</pubDate>
+      <category>coaching</category>
+      <category>clients</category>
+      <category>churn</category>
+      <category>subscription</category>
+      <category>retention</category>
+    </item>
+    <item>
+      <title><![CDATA[How to Reduce Churn on Your Shopify Subscription Store]]></title>
+      <link>https://churnrecovery.com/posts/shopify-subscription-churn</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/shopify-subscription-churn</guid>
+      <description><![CDATA[]]></description>
+      <pubDate>Sun, 01 Feb 2026 00:00:00 GMT</pubDate>
+      <category>shopify</category>
+      <category>subscriptions</category>
+      <category>churn</category>
+      <category>cancel flow</category>
+      <category>stripe</category>
+      <category>ecommerce</category>
     </item>
     <item>
       <title><![CDATA[Subscription Revenue: Protecting the Asset]]></title>

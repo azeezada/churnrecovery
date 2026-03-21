@@ -1,6 +1,6 @@
 ---
 title: "Free Alternatives to Churnkey, ProfitWell, and Baremetrics"
-date: "2026-03-21"
+date: "2026-02-04"
 excerpt: "Churnkey, ProfitWell, and Baremetrics charge hundreds of dollars every month. Here's what to use instead — for free."
 tags: ["churnkey alternative", "profitwell alternative", "baremetrics alternative", "free SaaS tools", "churn recovery"]
 author: "ChurnRecovery Team"

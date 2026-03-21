@@ -1,7 +1,7 @@
 ---
 title: "What Is a Cancel Flow? (And Why Every Subscription Business Needs One)"
 description: "A cancel flow is the screen that appears when someone tries to cancel your subscription. Here's what it is, how it works, and how to set one up without a developer."
-date: "2026-03-21"
+date: "2026-03-14"
 tags: ["cancel flow", "subscription", "churn", "beginner guide"]
 author: "ChurnRecovery Team"
 readingTime: "6 min read"

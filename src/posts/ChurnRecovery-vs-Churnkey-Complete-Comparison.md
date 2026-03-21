@@ -1,6 +1,6 @@
 ---
 title: "ChurnRecovery vs Churnkey: The Complete Comparison Guide (2026)"
-date: "2026-03-21"
+date: "2026-02-13"
 excerpt: "Side-by-side comparison of ChurnRecovery vs Churnkey: features, pricing, and why 10,000+ SaaS founders are switching to the free alternative that saves $3,000-$9,900 per year."
 tags: ["churnkey cost", "churn recovery", "SaaS tools comparison", "open-source", "pricing"]
 author: "ChurnRecovery Team" 

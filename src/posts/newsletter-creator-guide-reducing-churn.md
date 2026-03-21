@@ -1,7 +1,7 @@
 ---
 title: "The Newsletter Creator's Guide to Reducing Churn"
 description: "Losing paid subscribers on Beehiiv, ConvertKit, or Substack? Here are 6 concrete tactics — pause options, win-back emails, downsell tiers, exit surveys, and more — to keep more of the readers you've already earned."
-date: "2026-03-21"
+date: "2026-02-17"
 tags: ["newsletter", "churn", "beehiiv", "convertkit", "substack", "subscriber retention"]
 author: "ChurnRecovery Team"
 readingTime: "7 min read"

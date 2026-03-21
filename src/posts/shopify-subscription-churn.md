@@ -1,7 +1,7 @@
 ---
 title: "How to Reduce Churn on Your Shopify Subscription Store"
 description: "Shopify is built for selling — not for keeping customers. Here's the cancel flow gap that's costing Shopify subscription store owners revenue every month, and how to fix it."
-date: "2026-03-21"
+date: "2026-02-01"
 tags: ["shopify", "subscriptions", "churn", "cancel flow", "stripe", "ecommerce"]
 author: "ChurnRecovery Team"
 readingTime: "5 min read"

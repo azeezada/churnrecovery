@@ -1,7 +1,7 @@
 ---
 title: "How I'm Building ChurnRecovery Without Spending a Dollar on Marketing"
 description: "An honest account of how we're growing a SaaS product with zero marketing budget — what's working, what's an experiment, and what we're betting on."
-date: "2026-03-21"
+date: "2026-03-10"
 tags: ["building in public", "bootstrapped", "marketing", "churn", "saas", "growth"]
 author: "ChurnRecovery Team"
 readingTime: "5 min read"

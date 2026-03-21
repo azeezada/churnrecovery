@@ -1,7 +1,7 @@
 ---
 title: "Churn Prevention Strategies for Coaches and Consultants"
 description: "Coaches don't talk about churn enough — but client cancellations are quietly killing your revenue. Here are 5 churn prevention strategies that work for coaching businesses, plus the easiest win most coaches overlook."
-date: "2026-03-21"
+date: "2026-02-19"
 tags: ["coaching", "churn prevention", "subscriptions", "retainer", "kajabi", "teachable"]
 author: "ChurnRecovery Team"
 readingTime: "5 min read"

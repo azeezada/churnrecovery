@@ -1,7 +1,7 @@
 ---
 title: "5 Cancel Flow Templates That Actually Save Subscribers (Copy These)"
 description: "Real cancel flow scripts for newsletters, online courses, coaching programs, memberships, and SaaS — with pause offers, discount offers, and exit survey copy you can use right now."
-date: "2026-03-21"
+date: "2026-03-06"
 tags: ["cancel flow templates", "cancel flow", "churn recovery", "subscription retention", "pause offer"]
 author: "ChurnRecovery Team"
 readingTime: "6 min read"

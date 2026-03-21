@@ -1,7 +1,7 @@
 ---
 title: "Membership Site Churn Rate: What's Normal and How to Beat It"
 description: "What's a normal membership site churn rate? Industry benchmarks say 5–8% monthly is common — but 2–3% is achievable. Here's how to calculate yours and what separates low-churn sites from the rest."
-date: "2026-03-21"
+date: "2026-03-08"
 tags: ["membership site churn rate", "churn", "memberful", "circle", "patreon", "membership", "retention"]
 author: "ChurnRecovery Team"
 readingTime: "7 min read"

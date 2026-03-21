@@ -1,7 +1,7 @@
 ---
 title: "What Is Voluntary vs Involuntary Churn? (And How to Reduce Both)"
 description: "Voluntary churn means a customer chose to leave. Involuntary churn means a payment failed and took them with it. Both cost you money — and both have different solutions. Here's how to handle each."
-date: "2026-03-21"
+date: "2026-02-04"
 tags: ["churn", "voluntary churn", "involuntary churn", "dunning", "stripe", "subscription"]
 author: "ChurnRecovery Team"
 readingTime: "5 min read"

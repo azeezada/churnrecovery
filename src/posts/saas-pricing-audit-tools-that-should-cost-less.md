@@ -1,6 +1,6 @@
 ---
 title: "SaaS Pricing Audit: 7 Tools That Should Cost 90% Less"
-date: "2026-03-21"
+date: "2026-02-22"
 excerpt: "Someone decided business software should cost $200–$500/month per tool. They were wrong. Here's the audit."
 tags: ["SaaS pricing", "overpriced software", "SaaS tools", "business software", "churn recovery"]
 author: "ChurnRecovery Team"

@@ -1,7 +1,7 @@
 ---
 title: "How to Keep More Paying Members: A Practical Guide for Membership Sites"
 description: "Losing paying members is painful — but most of it is preventable. Here are the proven tactics membership site owners use to reduce churn, from cancel flows to personalized outreach."
-date: "2026-03-21"
+date: "2026-02-23"
 tags: ["membership", "retention", "churn", "subscribers", "cancel flow"]
 author: "ChurnRecovery Team"
 readingTime: "6 min read"

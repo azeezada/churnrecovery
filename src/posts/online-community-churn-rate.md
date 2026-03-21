@@ -1,7 +1,7 @@
 ---
 title: "Online Community Churn: Why Members Leave (And How to Keep Them)"
 description: "Community churn is different from SaaS churn — it's emotional, social, and harder to see coming. Here's why members leave paid communities and what actually works to keep them."
-date: "2026-03-21"
+date: "2026-03-13"
 tags: ["community", "churn", "membership", "circle", "mighty networks", "retention"]
 author: "ChurnRecovery Team"
 readingTime: "5 min read"

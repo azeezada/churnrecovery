@@ -49,21 +49,6 @@ function BenefitCard({ emoji, title, description }) {
   )
 }
 
-// ─── Testimonial ──────────────────────────────────────────────────────────
-function Testimonial({ text, author, role }) {
-  return (
-    <figure className="m-0 py-7 px-6 sm:px-8 border-l-[3px] border-brand-accent bg-brand-white rounded-r-xl">
-      <blockquote className="font-serif text-lg text-brand-text m-0 mb-4 leading-[1.7] italic">
-        &ldquo;{text}&rdquo;
-      </blockquote>
-      <figcaption className="font-sans text-base text-gray-600 not-italic">
-        <strong className="text-brand-text font-semibold">{author}</strong>
-        {role && <span> · {role}</span>}
-      </figcaption>
-    </figure>
-  )
-}
-
 // ─── Post Card ────────────────────────────────────────────────────────────
 function PostCard({ post }) {
   const formattedDate = post.date
@@ -414,28 +399,19 @@ export default function Home({ posts }) {
         </div>
       </section>
 
-      {/* ── SOCIAL PROOF ─────────────────────────────────────────────────── */}
+      {/* ── EARLY ACCESS CTA ─────────────────────────────────────────────── */}
       <section className="bg-brand-bg border-b border-brand-border">
-        <div className="max-w-[1200px] mx-auto px-5 sm:px-6 lg:px-8 py-[72px]">
-          <span className="eyebrow text-brand-accent block mb-3">What business owners are saying</span>
-
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 mt-8">
-            <Testimonial
-              text="We were paying $400/month for churn recovery on a $12k business. That's insane. So glad there's a free option that actually works."
-              author="Marc K."
-              role="Newsletter creator"
-            />
-            <Testimonial
-              text="I had no idea how many subscribers I was losing to expired credit cards until I set this up. Recovered 23 subscribers in the first month alone."
-              author="Priya N."
-              role="Online course creator"
-            />
-            <Testimonial
-              text="The cancel flow saved two coaching clients this week. One just needed a payment pause — I never would have known without this tool."
-              author="James W."
-              role="Business coach"
-            />
-          </div>
+        <div className="max-w-[700px] mx-auto px-5 sm:px-6 lg:px-8 py-[72px] text-center">
+          <span className="eyebrow text-brand-accent block mb-3">Early access</span>
+          <h2 className="font-sans text-[clamp(1.4rem,3vw,1.8rem)] font-semibold text-brand-text tracking-[-0.02em] mt-3 mb-4 mx-0">
+            Be among the first to try ChurnRecovery
+          </h2>
+          <p className="font-sans text-base text-gray-700 m-0 mb-8 leading-[1.65] max-w-[520px] mx-auto">
+            We&apos;re building ChurnRecovery in the open. Join the waitlist and get free access before anyone else — plus help shape the product with your feedback.
+          </p>
+          <a href="#waitlist" className="btn-accent min-h-[44px] inline-flex items-center">
+            Join the Waitlist — It&apos;s Free →
+          </a>
         </div>
       </section>
 

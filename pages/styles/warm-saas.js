@@ -105,9 +105,9 @@ export default function WarmSaasStyle() {
           <div className="max-w-[1100px] mx-auto px-6 pb-20">
             <div className="bg-white border border-[#FDE8D0] rounded-[20px] p-10 grid grid-cols-[repeat(auto-fit,minmax(160px,1fr))] gap-8 text-center">
               {[
-                { number: '2,400+', label: 'SaaS companies', emoji: '🏢' },
-                { number: '$8.2M', label: 'Revenue recovered', emoji: '💰' },
-                { number: '34%', label: 'Avg cancellations saved', emoji: '📉' },
+                { number: '100%', label: 'Free forever', emoji: '🏢' },
+                { number: '5 min', label: 'Setup time', emoji: '⚡' },
+                { number: '34%', label: 'Industry avg saves', emoji: '📉' },
                 { number: '$0', label: 'Cost to you, always', emoji: '🎁' },
               ].map(({ number, label, emoji }) => (
                 <div key={label}>
@@ -126,7 +126,7 @@ export default function WarmSaasStyle() {
             <div className="text-center mb-14">
               <span className="font-sans text-[0.8rem] font-bold text-[#EA580C] tracking-[0.08em] uppercase">Everything you need</span>
               <h2 className="font-sans text-[clamp(1.8rem,3vw,2.6rem)] font-extrabold text-[#1C1917] tracking-[-0.03em] mt-3 mb-4">Tools that actually work</h2>
-              <p className="font-sans text-[1.05rem] text-[#78716C] max-w-[500px] mx-auto leading-relaxed">We've seen thousands of cancel flows. Here's what actually retains customers.</p>
+              <p className="font-sans text-[1.05rem] text-[#78716C] max-w-[500px] mx-auto leading-relaxed">We researched the best cancel flows in the industry. Here&apos;s what actually retains customers.</p>
             </div>
 
             <div className="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-5">
@@ -169,31 +169,31 @@ export default function WarmSaasStyle() {
         <section>
           <div className="max-w-[1100px] mx-auto px-6 py-20">
             <div className="text-center mb-12">
-              <h2 className="font-sans text-[clamp(1.8rem,3vw,2.4rem)] font-extrabold text-[#1C1917] tracking-[-0.03em] mb-3">Founders love us</h2>
-              <p className="font-sans text-base text-[#78716C]">Real stories from real SaaS founders</p>
+              <h2 className="font-sans text-[clamp(1.8rem,3vw,2.4rem)] font-extrabold text-[#1C1917] tracking-[-0.03em] mb-3">Be our first beta users</h2>
+              <p className="font-sans text-base text-[#78716C]">We&apos;re in early access — join us and help shape the product</p>
             </div>
 
             <div className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-5">
               <TestimonialCard
-                emoji="😮"
-                quote="I was ready to pay $300/month for Churnkey. Then I found ChurnRecovery. Same features, $0. My CFO almost cried."
-                author="Marcus Okonkwo"
-                role="CEO"
-                company="Reportly"
+                emoji="🚀"
+                quote="We're building ChurnRecovery in the open. Join early and get free access forever — plus direct input on what we build next."
+                author="The ChurnRecovery Team"
+                role=""
+                company=""
               />
               <TestimonialCard
-                emoji="🙌"
-                quote="Set it up on a Saturday afternoon. By Monday I'd already saved 3 cancellations. Easiest win I've had in years."
-                author="Priya Chandrasekaran"
-                role="Founder"
-                company="FormStack Pro"
+                emoji="🎁"
+                quote="Early adopters get priority support, feature requests, and the satisfaction of knowing they helped build something great."
+                author="Why join now?"
+                role=""
+                company=""
               />
               <TestimonialCard
-                emoji="💯"
-                quote="The exit survey data alone was worth it. We completely redesigned our onboarding based on what we learned."
-                author="Tom Walsh"
-                role="Head of Growth"
-                company="Beacon Analytics"
+                emoji="💬"
+                quote="Have feedback? We want to hear it. Every early user gets a direct line to the team. Your input shapes the roadmap."
+                author="Your voice matters"
+                role=""
+                company=""
               />
             </div>
           </div>
@@ -205,7 +205,7 @@ export default function WarmSaasStyle() {
             <span className="text-[3rem] block mb-6">🚀</span>
             <h2 className="font-sans text-[clamp(2rem,4vw,3rem)] font-extrabold text-white tracking-[-0.03em] mb-4">Start recovering revenue today</h2>
             <p className="font-sans text-[1.1rem] text-white/85 mx-auto mb-10 max-w-[480px] leading-normal">
-              Join 2,400+ SaaS founders who've switched to free churn recovery.
+              Free churn recovery for subscription businesses.
               Takes about 10 minutes to set up.
             </p>
             <span className="inline-block font-sans text-base font-bold text-[#EA580C] bg-white px-9 py-4 rounded-[14px] cursor-pointer shadow-[0_4px_20px_rgba(0,0,0,0.15)]">Get started for free →</span>

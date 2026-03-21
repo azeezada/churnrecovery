@@ -1,7 +1,7 @@
 ---
 title: "Your Subscription Business Is Leaking Revenue Every Month (And You Don't Know It)"
 description: "Most subscription businesses lose 2-5% of subscribers every month without realizing it. Here's the math, why it's invisible, and what to do about it."
-date: "2026-03-21"
+date: "2026-03-16"
 tags: ["subscription", "churn", "revenue", "small business"]
 author: "ChurnRecovery Team"
 readingTime: "4 min read"

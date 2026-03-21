@@ -84,7 +84,7 @@ export default function DataForwardStyle() {
           <div className="max-w-[1200px] mx-auto px-6 pt-20 pb-12">
             <div className="inline-flex items-center gap-2 bg-[rgba(14,165,233,0.15)] border border-[rgba(14,165,233,0.3)] text-[#0EA5E9] font-sans text-[0.8rem] font-semibold px-3.5 py-1.5 rounded-full mb-7 tracking-[0.04em]">
               <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] inline-block" />
-              LIVE PLATFORM · 2,400+ companies tracking churn
+              LIVE PLATFORM · Free churn recovery
             </div>
 
             <h1 className="font-sans text-[clamp(2.5rem,5vw,4rem)] font-bold text-[#F1F5F9] tracking-[-0.04em] leading-[1.08] mb-5 max-w-[700px]">
@@ -92,8 +92,8 @@ export default function DataForwardStyle() {
               <span className="text-[#0EA5E9]">with data that proves it works.</span>
             </h1>
             <p className="font-sans text-[1.1rem] text-[#94A3B8] mb-12 max-w-[560px] leading-relaxed">
-              Don't take our word for it. The numbers speak: 34% average cancellation save rate,
-              $8.2M in recovered revenue, and it costs you exactly $0.
+              Industry data shows 20–40% of cancellations can be recovered with the right cancel flow.
+              ChurnRecovery gives you those tools — and it costs you exactly $0.
             </p>
 
             <div className="flex gap-3 mb-[60px]">
@@ -187,7 +187,7 @@ export default function DataForwardStyle() {
             <h2 className="font-sans text-[clamp(2rem,4vw,3rem)] font-bold text-[#F1F5F9] tracking-[-0.03em] mb-4">Start recovering revenue</h2>
             <p className="font-sans text-base text-[#94A3B8] mx-auto mb-9 max-w-[480px] leading-relaxed">
               Free forever. No credit card. Works with your existing Stripe setup.
-              2,400+ SaaS companies trust ChurnRecovery.
+              Join early and help shape the product.
             </p>
             <div className="flex gap-3 justify-center">
               <span className="font-sans text-[0.95rem] font-bold text-white bg-[#0EA5E9] px-7 py-3.5 rounded-lg cursor-pointer">Create free account →</span>

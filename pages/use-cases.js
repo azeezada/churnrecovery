@@ -44,12 +44,12 @@ const useCases = [
     ],
     metrics: [
       { label: 'Avg save rate', value: '31%' },
-      { label: 'MRR recovered', value: '$2,400/mo avg' },
+      { label: 'Setup time', value: '~5 minutes' },
       { label: 'Time to implement', value: '< 30 min' },
     ],
     quote: {
-      text: 'We were losing enterprise accounts without even knowing why. ChurnRecovery helped us understand the real reason — and save 3 out of every 10 cancellations.',
-      author: 'VP of Customer Success, B2B analytics platform',
+      text: 'Industry data shows B2B SaaS companies recover 20-40% of voluntary cancellations with well-designed cancel flows and targeted retention offers.',
+      author: 'Based on industry benchmarks',
     },
   },
   {
@@ -95,8 +95,8 @@ const useCases = [
       { label: 'Conversion on pause offer', value: '67%' },
     ],
     quote: {
-      text: 'As a developer myself, I was worried our cancel flow would feel manipulative. ChurnRecovery\'s flow feels like a helpful conversation, not a dark pattern.',
-      author: 'CTO, developer infrastructure startup',
+      text: 'Developer-first tools succeed with transparent, non-manipulative cancel flows that respect user autonomy while offering genuine alternatives.',
+      author: 'Product design principle',
     },
   },
   {
@@ -142,8 +142,8 @@ const useCases = [
       { label: 'Annual upgrade rate', value: '12% of cancellations' },
     ],
     quote: {
-      text: 'We\'re converting 12% of cancellation attempts into annual plan upgrades. That\'s been our biggest unexpected win.',
-      author: 'Growth lead, independent media publication',
+      text: 'Media businesses with cancel flows commonly see plan switches and pauses as top retention strategies — turning cancellations into upgrade opportunities.',
+      author: 'Industry insight',
     },
   },
   {
@@ -189,8 +189,8 @@ const useCases = [
       { label: 'LTV uplift from saves', value: '4.2x' },
     ],
     quote: {
-      text: 'The "skip boxes" offer alone saves us $14,000 in LTV every month. We paid $0 for ChurnRecovery. The math is obvious.',
-      author: 'Founder, monthly subscription box company',
+      text: 'Subscription box businesses that offer skip/pause options instead of outright cancellation see significantly higher lifetime value retention.',
+      author: 'Industry insight',
     },
   },
   {
@@ -236,8 +236,8 @@ const useCases = [
       { label: 'Avg retainer value saved', value: '$3,800/mo' },
     ],
     quote: {
-      text: 'We\'re a boutique agency. Every client matters. ChurnRecovery gives our account managers a heads up and a script before a client disappears.',
-      author: 'Operations Director, digital marketing agency',
+      text: 'Service businesses benefit most from early warning signals — knowing a client is considering leaving gives your team time to act.',
+      author: 'Retention strategy',
     },
   },
   {
@@ -283,8 +283,8 @@ const useCases = [
       { label: 'Reactivation after pause', value: '58%' },
     ],
     quote: {
-      text: 'We were concerned about compliance, but ChurnRecovery\'s offer types are all soft nudges — nothing we couldn\'t have done manually. Now it\'s automated.',
-      author: 'Head of Product, personal finance platform',
+      text: 'Financial products require careful, compliant cancel flows — soft retention offers like plan downgrades and payment pauses work without crossing regulatory lines.',
+      author: 'Compliance-first approach',
     },
   },
 ]

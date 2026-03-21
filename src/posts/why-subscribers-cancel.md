@@ -1,7 +1,7 @@
 ---
 title: "Why Subscribers Cancel (And How to Stop Them)"
 description: "The top 7 real reasons subscribers cancel newsletters, memberships, and coaching retainers — with exact scripts to use at each moment, and the one intervention that works best."
-date: "2026-03-21"
+date: "2026-03-14"
 tags: ["subscribers cancel", "churn", "newsletter", "membership", "coaching", "retention", "cancel flow"]
 author: "ChurnRecovery Team"
 readingTime: "7 min read"

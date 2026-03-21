@@ -1,6 +1,6 @@
 ---
 title: "The $50,000/Year SaaS Tool Stack Audit"
-date: "2026-03-21"
+date: "2026-02-11"
 excerpt: "Most SaaS founders have no idea what their tool stack actually costs. Here's a line-by-line breakdown — and why the number is probably worse than you think."
 tags: ["SaaS pricing", "SaaS tools", "cost reduction", "startup costs", "churn recovery"]
 author: "ChurnRecovery Team"

@@ -1,7 +1,7 @@
 ---
 title: "Coaching Business Churn: Why Your Clients Keep Canceling (And How to Stop It)"
 description: "Clients don't leave because your coaching is bad. They leave at predictable moments for predictable reasons. Here's what's actually happening — and what to do about it at the cancellation moment."
-date: "2026-03-21"
+date: "2026-02-01"
 tags: ["coaching", "clients", "churn", "subscription", "retention"]
 author: "ChurnRecovery Team"
 readingTime: "7 min read"

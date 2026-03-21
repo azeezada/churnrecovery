@@ -1,6 +1,6 @@
 ---
 title: "B2B SaaS Churn Benchmarks 2025: What's a Good Churn Rate?"
-date: "2026-03-20"
+date: "2026-02-06"
 excerpt: "How does your churn rate compare to other B2B SaaS companies? We break down the 2025 benchmarks by ARR tier, market segment, and product category — and show you what the top performers do differently."
 tags: ["churn", "benchmarks", "b2b", "saas", "metrics"]
 author: "ChurnRecovery Team"

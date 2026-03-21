@@ -1,6 +1,6 @@
 ---
 title: "I Analyzed 50+ SaaS Pricing Pages — Here's What I Found"
-date: "2026-03-21"
+date: "2026-02-21"
 excerpt: "I spent two weeks clicking through pricing pages so you don't have to. Price anchoring, fake urgency, free tier traps, per-seat chaos — here's what's actually going on."
 tags: ["pricing", "saas", "analysis", "business"]
 author: "ChurnRecovery Team"

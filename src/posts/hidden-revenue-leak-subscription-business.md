@@ -1,7 +1,7 @@
 ---
 title: "The Hidden Revenue Leak in Your Subscription Business (And How to Fix It)"
 description: "Most subscription business owners focus on getting new customers — while quietly losing thousands of dollars a month to cancellations. Here's the math behind the leak and how to fix it."
-date: "2026-03-21"
+date: "2026-03-02"
 tags: ["subscription", "revenue", "churn", "cancel flow", "dunning", "small business"]
 author: "ChurnRecovery Team"
 readingTime: "6 min read"

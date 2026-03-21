@@ -1,6 +1,6 @@
 ---
 title: "The 5 Cancellation Emails That Actually Win Back Subscribers (With Templates)"
-date: "2026-03-21"
+date: "2026-02-27"
 excerpt: "Most cancellation emails are generic, arrive too late, and offer nothing. Here are the 5 types that actually work — with copy-paste templates you can use today."
 tags: ["cancellation emails", "win-back", "email templates", "churn recovery", "subscription business", "customer retention"]
 author: "ChurnRecovery Team"

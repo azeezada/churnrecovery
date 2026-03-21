@@ -1,7 +1,7 @@
 ---
 title: "I Reverse-Engineered Churnkey's Cancel Flow"
 description: "What does Churnkey's $825/month actually give you? I dug into their cancel flow feature-by-feature and compared it to what you can get for free. Here's the honest breakdown."
-date: "2026-03-21"
+date: "2026-02-26"
 tags: ["churnkey", "cancel flow", "churn recovery", "comparison", "pricing"]
 author: "ChurnRecovery Team"
 readingTime: "8 min read"

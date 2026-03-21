@@ -1,6 +1,6 @@
 ---
 title: "Churnkey Pricing 2026: Is It Worth $250/Month?"
-date: "2026-03-20"
+date: "2026-02-19"
 summary: "Complete breakdown of Churnkey's pricing structure, hidden costs, and whether their $250-825/month fees make sense for your SaaS. Includes free alternatives."
 tags: ["churnkey pricing", "churnkey cost", "churn prevention", "SaaS tools comparison"]
 author: "ChurnRecovery"

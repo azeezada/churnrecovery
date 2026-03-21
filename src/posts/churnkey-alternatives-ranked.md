@@ -1,7 +1,7 @@
 ---
 title: "Churnkey Alternatives: 5 Tools to Reduce Subscription Cancellations (Ranked)"
 description: "Churnkey starts at $250/month — overkill for most small businesses. Here are 5 alternatives ranked by price, features, and who they're actually built for."
-date: "2026-03-21"
+date: "2026-03-09"
 tags: ["churnkey", "alternatives", "cancel flow", "subscription tools"]
 author: "ChurnRecovery Team"
 readingTime: "7 min read"

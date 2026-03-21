@@ -1,7 +1,7 @@
 ---
 title: "The Complete Guide to Dunning Management for Small Businesses"
 description: "Failed payments silently kill subscription revenue. Here's how dunning management works, what a smart retry strategy looks like, and how to stop passive churn before it compounds."
-date: "2026-03-21"
+date: "2026-02-07"
 tags: ["dunning management small business", "failed payments", "passive churn", "subscription business", "churn recovery"]
 author: "ChurnRecovery Team"
 readingTime: "7 min read"

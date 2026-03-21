@@ -1,7 +1,7 @@
 ---
 title: "Newsletter Creator Case Study: How to Save $3,600/Year on Churn Tools"
 description: "Alex runs a 12,000-subscriber personal finance newsletter on Beehiiv. He was paying $300/month for Churnkey. Here's the real story of what changed when he switched to a free alternative."
-date: "2026-03-21"
+date: "2026-02-06"
 tags: ["case study", "newsletter", "beehiiv", "churnkey", "churn recovery", "newsletter creator"]
 author: "ChurnRecovery Team"
 readingTime: "5 min read"

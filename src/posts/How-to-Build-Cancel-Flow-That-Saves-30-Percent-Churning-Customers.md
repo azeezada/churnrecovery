@@ -1,6 +1,6 @@
 ---
 title: "How to Build a Cancel Flow That Saves 30% of Churning Customers"
-date: "2026-03-20"
+date: "2026-02-10"
 summary: "The psychology and mechanics behind cancel flows that consistently retain 30-40% of churning customers. Real examples, proven patterns, and implementation details."
 tags: ["cancel flow", "churn recovery", "retention", "SaaS"]
 author: "ChurnRecovery"

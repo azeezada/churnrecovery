@@ -1,7 +1,7 @@
 ---
 title: "Stripe Subscription Cancellations: How to Stop Them Before They Happen"
 description: "Stripe is the best payment processor in the world — but it doesn't help you keep subscribers. Here's how to intercept Stripe subscription cancellations before they happen, using a cancel flow."
-date: "2026-03-21"
+date: "2026-02-28"
 tags: ["stripe", "stripe subscription cancellations", "cancel flow", "churn recovery", "subscription business"]
 author: "ChurnRecovery Team"
 readingTime: "6 min read"

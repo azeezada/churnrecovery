@@ -1,7 +1,7 @@
 ---
 title: "How to Set Up a Cancel Flow for Your WooCommerce Subscription Site"
 description: "Step-by-step guide to adding a cancel flow to your WooCommerce + Stripe subscription site. No coding required. Reduce churn and find out exactly why customers are leaving."
-date: "2026-03-21"
+date: "2026-03-12"
 tags: ["woocommerce", "wordpress", "subscriptions", "cancel flow", "stripe", "tutorial"]
 author: "ChurnRecovery Team"
 readingTime: "6 min read"

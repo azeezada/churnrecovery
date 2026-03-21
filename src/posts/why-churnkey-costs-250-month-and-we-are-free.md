@@ -1,6 +1,6 @@
 ---
 title: "Why Churnkey Costs $250/Month and We're Free"
-date: "2026-03-21"
+date: "2026-02-13"
 excerpt: "Churnkey starts at $250/month — and goes up to $825. We charge nothing. Here's the honest reason why, and what that actually means for your subscription business."
 tags: ["pricing", "churnkey", "churn", "small business"]
 author: "ChurnRecovery Team"
