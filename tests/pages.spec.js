@@ -96,6 +96,9 @@ const pages = {
   ],
   for: [
     ['/for/substack', 'Substack'],
+    ['/for/memberful', 'Memberful'],
+    ['/for/stan-store', 'Stan Store'],
+    ['/for/payhip', 'Payhip'],
   ],
 };
 

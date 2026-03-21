@@ -1,5 +1,11 @@
 # Orchestrator Log
 
+## 2026-03-21 — Creator Landing Pages Wave 11 (cr-code-for-pages-wave11 subagent)
+
+- **[FOR-11a] /for/memberful** — Deep indigo/purple accent, targets independent publishers & podcasters, Stripe-native angle, tag: `memberful-creator`, deployed + HTTP 200 verified.
+- **[FOR-11b] /for/stan-store** — Pink/magenta accent, targets 80k+ Stan creators (Creator Pro + Stripe), impulse-cancel pause angle, tag: `stan-store-creator`, deployed + HTTP 200 verified.
+- **[FOR-11c] /for/payhip** — Green accent, targets 130k+ digital product sellers (UK/EU focus), branded dunning + cancel flow angle, tag: `payhip-seller`, deployed + HTTP 200 verified.
+
 ## 2026-03-21 — UX Research Batch (cr-ux-research subagent)
 
 - **[UX-1] Substack Landing Page** — Created `docs/substack-landing-page.md` (333 lines)
@@ -261,6 +267,14 @@
 - **[GHOST-LP]** `/for/ghost` — Dark minimal, Ghost+Stripe native angle, "pay what you can" discount, `ghost-publisher` tag. HTTP 200 ✅
 - All 3 added to sitemap.xml | Build: 102 pages ✅ | Tests: 133/133 ✅ | Deployed + cache purged | Pushed to main
 - WORKQUEUE.md: ✅ creator landing pages added and marked done
+
+## 2026-03-21 — Wave 11, CONTENT worker (cr-content-wave11)
+
+- **[BLOG-1]** `/posts/reduce-churn-online-course-business` — 5 tactics for course sellers (cancel flow, dunning, pause, check-in, community), CTAs to /for/kajabi + /for/teachable. HTTP 200 ✅
+- **[BLOG-2]** `/posts/why-subscribers-cancel` — Top 7 cancellation reasons with response scripts for each, cancel flow as key intervention, CTA to /demo. HTTP 200 ✅
+- **[BLOG-3]** `/posts/membership-site-churn-rate` — Industry benchmarks (5-8% common, 2-3% achievable), churn formula, exit survey guide, CTAs to /for/memberful + /for/circle. HTTP 200 ✅
+- **[WORKQUEUE]** Added 5 new P2/P3 tasks: churn rate calculator SEO page, email nurture sequence, 3 more /for/ pages (Memberful/Stan/Payhip — already in progress), "Churn Recovery Playbook" PDF lead magnet, FAQ/HowTo schema markup for rich results.
+- Build ✅ | Deployed + cache purged | Committed + pushed
 
 ## 2026-03-21 — Wave 10, MARKETING worker (cr-marketing-logos-testimonials)
 

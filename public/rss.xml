@@ -5,7 +5,7 @@
     <link>https://churnrecovery.com/blog</link>
     <description>Insights on churn recovery, payment failures, and SaaS retention</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 21 Mar 2026 05:37:05 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 21 Mar 2026 05:45:31 GMT</lastBuildDate>
     <atom:link href="https://churnrecovery.com/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title><![CDATA[The $50,000/Year SaaS Tool Stack Audit]]></title>
@@ -166,6 +166,20 @@
       <category>tutorial</category>
     </item>
     <item>
+      <title><![CDATA[Membership Site Churn Rate: What's Normal and How to Beat It]]></title>
+      <link>https://churnrecovery.com/posts/membership-site-churn-rate</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/membership-site-churn-rate</guid>
+      <description><![CDATA[]]></description>
+      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
+      <category>membership site churn rate</category>
+      <category>churn</category>
+      <category>memberful</category>
+      <category>circle</category>
+      <category>patreon</category>
+      <category>membership</category>
+      <category>retention</category>
+    </item>
+    <item>
       <title><![CDATA[Newsletter Creator Case Study: How to Save $3,600/Year on Churn Tools]]></title>
       <link>https://churnrecovery.com/posts/newsletter-creator-case-study-saved-3600-year</link>
       <guid isPermaLink="true">https://churnrecovery.com/posts/newsletter-creator-case-study-saved-3600-year</guid>
@@ -190,6 +204,20 @@
       <category>convertkit</category>
       <category>substack</category>
       <category>subscriber retention</category>
+    </item>
+    <item>
+      <title><![CDATA[How to Reduce Churn for Your Online Course Business]]></title>
+      <link>https://churnrecovery.com/posts/reduce-churn-online-course-business</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/reduce-churn-online-course-business</guid>
+      <description><![CDATA[]]></description>
+      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
+      <category>online course</category>
+      <category>churn</category>
+      <category>kajabi</category>
+      <category>teachable</category>
+      <category>thinkific</category>
+      <category>podia</category>
+      <category>retention</category>
     </item>
     <item>
       <title><![CDATA[5 SaaS Dashboard Screenshots That Convert (And What Makes Them Work)]]></title>
@@ -258,6 +286,20 @@
       <category>churnkey</category>
       <category>churn</category>
       <category>small business</category>
+    </item>
+    <item>
+      <title><![CDATA[Why Subscribers Cancel (And How to Stop Them)]]></title>
+      <link>https://churnrecovery.com/posts/why-subscribers-cancel</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/why-subscribers-cancel</guid>
+      <description><![CDATA[]]></description>
+      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
+      <category>subscribers cancel</category>
+      <category>churn</category>
+      <category>newsletter</category>
+      <category>membership</category>
+      <category>coaching</category>
+      <category>retention</category>
+      <category>cancel flow</category>
     </item>
     <item>
       <title><![CDATA[B2B SaaS Churn Benchmarks 2025: What's a Good Churn Rate?]]></title>
