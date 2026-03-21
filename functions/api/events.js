@@ -11,50 +11,55 @@ export async function onRequestPost(context) {
   const rl = rateLimit(request, { maxRequests: 30, windowMs: 60000 })
   if (rl.limited) return rateLimitResponse(rl.retryAfter, request)
 
-  const body = await request.json().catch(() => ({}))
-  const apiKey = request.headers.get('X-API-Key') || body.apiKey
-  const {
-    projectId: bodyProjectId,
-    sessionId,
-    customerId,
-    reason,
-    offerShown,
-    outcome,
-    feedback,
-    mrrCents,
-  } = body
+  try {
+    const body = await request.json().catch(() => ({}))
+    const apiKey = request.headers.get('X-API-Key') || body.apiKey
+    const {
+      projectId: bodyProjectId,
+      sessionId,
+      customerId,
+      reason,
+      offerShown,
+      outcome,
+      feedback,
+      mrrCents,
+    } = body
 
-  let resolvedProjectId = bodyProjectId
+    let resolvedProjectId = bodyProjectId
 
-  if (!resolvedProjectId && apiKey) {
-    const project = await env.DB.prepare('SELECT id FROM projects WHERE api_key = ?').bind(apiKey).first()
-    if (!project) return jsonResponse({ error: 'Invalid API key' }, 403, request, { allowAnyOrigin: true })
-    resolvedProjectId = project.id
+    if (!resolvedProjectId && apiKey) {
+      const project = await env.DB.prepare('SELECT id FROM projects WHERE api_key = ?').bind(apiKey).first()
+      if (!project) return jsonResponse({ error: 'Invalid API key' }, 403, request, { allowAnyOrigin: true })
+      resolvedProjectId = project.id
+    }
+
+    if (!resolvedProjectId) {
+      return jsonResponse({ error: 'projectId or API key required' }, 400, request, { allowAnyOrigin: true })
+    }
+
+    // Validate outcome values
+    const validOutcomes = ['flow_started', 'reason_selected', 'saved', 'cancelled', 'paused', 'downgraded', 'feedback_submitted']
+    const sanitizedOutcome = validOutcomes.includes(outcome) ? outcome : null
+
+    const result = await env.DB.prepare(`
+      INSERT INTO cancel_events (project_id, session_id, customer_id, reason, offer_shown, outcome, feedback, mrr_cents)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+    `).bind(
+      sanitizeString(resolvedProjectId, 50),
+      sanitizeString(sessionId, 50) || null,
+      sanitizeString(customerId, 255) || null,
+      sanitizeString(reason, 100) || null,
+      sanitizeString(offerShown, 50) || null,
+      sanitizedOutcome,
+      sanitizeString(feedback, 2000) || null,
+      mrrCents ? parseInt(mrrCents) || null : null
+    ).run()
+
+    return jsonResponse({ id: result.meta?.last_row_id, recorded: true }, 201, request, { allowAnyOrigin: true })
+  } catch (e) {
+    console.error('[events] POST error:', e)
+    return jsonResponse({ error: 'Failed to record event. Please try again.' }, 500, request, { allowAnyOrigin: true })
   }
-
-  if (!resolvedProjectId) {
-    return jsonResponse({ error: 'projectId or API key required' }, 400, request, { allowAnyOrigin: true })
-  }
-
-  // Validate outcome values
-  const validOutcomes = ['flow_started', 'reason_selected', 'saved', 'cancelled', 'paused', 'downgraded', 'feedback_submitted']
-  const sanitizedOutcome = validOutcomes.includes(outcome) ? outcome : null
-
-  const result = await env.DB.prepare(`
-    INSERT INTO cancel_events (project_id, session_id, customer_id, reason, offer_shown, outcome, feedback, mrr_cents)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-  `).bind(
-    sanitizeString(resolvedProjectId, 50),
-    sanitizeString(sessionId, 50) || null,
-    sanitizeString(customerId, 255) || null,
-    sanitizeString(reason, 100) || null,
-    sanitizeString(offerShown, 50) || null,
-    sanitizedOutcome,
-    sanitizeString(feedback, 2000) || null,
-    mrrCents ? parseInt(mrrCents) || null : null
-  ).run()
-
-  return jsonResponse({ id: result.meta?.last_row_id, recorded: true }, 201, request, { allowAnyOrigin: true })
 }
 
 export async function onRequestGet(context) {

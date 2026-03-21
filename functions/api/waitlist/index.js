@@ -7,8 +7,8 @@ export async function onRequestOptions(context) {
 export async function onRequestPost(context) {
   const { request, env } = context
 
-  // Rate limit: 5 signups per minute per IP
-  const rl = rateLimit(request, { maxRequests: 5, windowMs: 60000 })
+  // Rate limit: 3 signups per hour per IP (prevent abuse/spam)
+  const rl = rateLimit(request, { maxRequests: 3, windowMs: 3600000 })
   if (rl.limited) return rateLimitResponse(rl.retryAfter, request)
 
   try {
