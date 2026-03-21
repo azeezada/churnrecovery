@@ -5,7 +5,7 @@
     <link>https://churnrecovery.com/blog</link>
     <description>Insights on churn recovery, payment failures, and SaaS retention</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 21 Mar 2026 04:08:06 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 21 Mar 2026 04:10:55 GMT</lastBuildDate>
     <atom:link href="https://churnrecovery.com/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title><![CDATA[ChurnRecovery vs Churnkey: The Complete Comparison Guide (2026)]]></title>
@@ -18,6 +18,18 @@
       <category>SaaS tools comparison</category>
       <category>open-source</category>
       <category>pricing</category>
+    </item>
+    <item>
+      <title><![CDATA[Free Alternatives to Churnkey, ProfitWell, and Baremetrics]]></title>
+      <link>https://churnrecovery.com/posts/free-alternatives-churnkey-profitwell-baremetrics</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/free-alternatives-churnkey-profitwell-baremetrics</guid>
+      <description><![CDATA[Churnkey, ProfitWell, and Baremetrics charge hundreds of dollars every month. Here's what to use instead — for free.]]></description>
+      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
+      <category>churnkey alternative</category>
+      <category>profitwell alternative</category>
+      <category>baremetrics alternative</category>
+      <category>free SaaS tools</category>
+      <category>churn recovery</category>
     </item>
     <item>
       <title><![CDATA[I Analyzed 50+ SaaS Pricing Pages — Here's What I Found]]></title>
@@ -54,6 +66,18 @@
       <category>convertkit</category>
       <category>substack</category>
       <category>subscriber retention</category>
+    </item>
+    <item>
+      <title><![CDATA[SaaS Pricing Audit: 7 Tools That Should Cost 90% Less]]></title>
+      <link>https://churnrecovery.com/posts/saas-pricing-audit-tools-that-should-cost-less</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/saas-pricing-audit-tools-that-should-cost-less</guid>
+      <description><![CDATA[Someone decided business software should cost $200–$500/month per tool. They were wrong. Here's the audit.]]></description>
+      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
+      <category>SaaS pricing</category>
+      <category>overpriced software</category>
+      <category>SaaS tools</category>
+      <category>business software</category>
+      <category>churn recovery</category>
     </item>
     <item>
       <title><![CDATA[The $825/Month SaaS Tool That Should Cost $25]]></title>

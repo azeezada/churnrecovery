@@ -3,6 +3,14 @@
 ## 2026-03-21
 
 - Orchestrator started. Reviewed WORKQUEUE.md.
+- **[Content Wave 2]** Spawned cr-content-wave2 subagent to write 2 blog posts from content backlog.
+  - Post 1: `free-alternatives-churnkey-profitwell-baremetrics.md` (~1,200 words) — covers free alternatives to Churnkey, ProfitWell/Paddle Retain, and Baremetrics. Natural CTAs to ChurnRecovery waitlist.
+  - Post 2: `saas-pricing-audit-tools-that-should-cost-less.md` (~1,300 words) — controversial pricing audit covering 7 overpriced B2B SaaS tools. Punchy tone, ChurnRecovery as the counterexample.
+  - Build: ✅ 81 static pages generated, both new posts included
+  - Deploy: ✅ https://e15abe86.churnrecovery.pages.dev (87 new files uploaded)
+  - Verification: ✅ Both post URLs return HTTP 200
+  - WORKQUEUE.md: ✅ Both content backlog items marked done
+  - Commit: `3afbbdb` — "content: add 2 blog posts - free alternatives series + SaaS pricing audit"
 - P0 complete: Homepage UX overhaul (done in prior run)
 - Spawning 3 parallel workers:
   - CODE-1: Fix test runner (npm test hangs)

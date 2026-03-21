@@ -13,7 +13,7 @@ Low-code/no-code business owners: newsletter creators, coaches, online course se
 ### P1 — This Week (gets first user)
 - [ ] **Monitor AlternativeTo performance** — Track clicks, upvotes, comments; engage with community; add to other competitor pages
 - [ ] **CTA clarity audit** — "Get started free" vs "Join waitlist" confusion. Streamline messaging across all pages.
-- [ ] **Interactive demo** — Replace generic "Demo" with actual cancel flow preview (reduce friction before email capture)
+- [✅] **Interactive demo** — Replace generic "Demo" with actual cancel flow preview (reduce friction before email capture)
 - [ ] **Hacker News "Show HN" post** — After Reddit/IH validation, write and post
 - [ ] **Product Hunt launch (April 1st target)** — Launch kit ready at docs/product-hunt-launch.md. Execute pre-launch warm-up starting ~March 25.
 
