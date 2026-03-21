@@ -5,7 +5,7 @@
     <link>https://churnrecovery.com/blog</link>
     <description>Insights on churn recovery, payment failures, and SaaS retention</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 21 Mar 2026 07:06:04 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 21 Mar 2026 07:14:28 GMT</lastBuildDate>
     <atom:link href="https://churnrecovery.com/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title><![CDATA[The $50,000/Year SaaS Tool Stack Audit]]></title>
@@ -94,6 +94,19 @@
       <category>cancel flow</category>
       <category>SaaS tools comparison</category>
       <category>subscription business</category>
+    </item>
+    <item>
+      <title><![CDATA[Churn Prevention Strategies for Coaches and Consultants]]></title>
+      <link>https://churnrecovery.com/posts/churn-prevention-strategies-coaching</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/churn-prevention-strategies-coaching</guid>
+      <description><![CDATA[]]></description>
+      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
+      <category>coaching</category>
+      <category>churn prevention</category>
+      <category>subscriptions</category>
+      <category>retainer</category>
+      <category>kajabi</category>
+      <category>teachable</category>
     </item>
     <item>
       <title><![CDATA[Churnkey Alternatives: 5 Tools to Reduce Subscription Cancellations (Ranked)]]></title>
@@ -268,6 +281,19 @@
       <category>subscriber retention</category>
     </item>
     <item>
+      <title><![CDATA[Online Community Churn: Why Members Leave (And How to Keep Them)]]></title>
+      <link>https://churnrecovery.com/posts/online-community-churn-rate</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/online-community-churn-rate</guid>
+      <description><![CDATA[]]></description>
+      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
+      <category>community</category>
+      <category>churn</category>
+      <category>membership</category>
+      <category>circle</category>
+      <category>mighty networks</category>
+      <category>retention</category>
+    </item>
+    <item>
       <title><![CDATA[How to Reduce Churn for Your Online Course Business]]></title>
       <link>https://churnrecovery.com/posts/reduce-churn-online-course-business</link>
       <guid isPermaLink="true">https://churnrecovery.com/posts/reduce-churn-online-course-business</guid>
@@ -317,6 +343,19 @@
       <category>business</category>
     </item>
     <item>
+      <title><![CDATA[How to Reduce Churn on Your Shopify Subscription Store]]></title>
+      <link>https://churnrecovery.com/posts/shopify-subscription-churn</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/shopify-subscription-churn</guid>
+      <description><![CDATA[]]></description>
+      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
+      <category>shopify</category>
+      <category>subscriptions</category>
+      <category>churn</category>
+      <category>cancel flow</category>
+      <category>stripe</category>
+      <category>ecommerce</category>
+    </item>
+    <item>
       <title><![CDATA[Stripe Subscription Cancellations: How to Stop Them Before They Happen]]></title>
       <link>https://churnrecovery.com/posts/stripe-subscription-cancellations-how-to-stop-them</link>
       <guid isPermaLink="true">https://churnrecovery.com/posts/stripe-subscription-cancellations-how-to-stop-them</guid>
@@ -338,6 +377,19 @@
       <category>churn</category>
       <category>revenue</category>
       <category>small business</category>
+    </item>
+    <item>
+      <title><![CDATA[What Is Voluntary vs Involuntary Churn? (And How to Reduce Both)]]></title>
+      <link>https://churnrecovery.com/posts/voluntary-vs-involuntary-churn</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/voluntary-vs-involuntary-churn</guid>
+      <description><![CDATA[]]></description>
+      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
+      <category>churn</category>
+      <category>voluntary churn</category>
+      <category>involuntary churn</category>
+      <category>dunning</category>
+      <category>stripe</category>
+      <category>subscription</category>
     </item>
     <item>
       <title><![CDATA[What Is a Cancel Flow? (And Why Every Subscription Business Needs One)]]></title>
@@ -374,6 +426,19 @@
       <category>coaching</category>
       <category>retention</category>
       <category>cancel flow</category>
+    </item>
+    <item>
+      <title><![CDATA[How to Set Up a Cancel Flow for Your WooCommerce Subscription Site]]></title>
+      <link>https://churnrecovery.com/posts/woocommerce-subscription-cancel-flow</link>
+      <guid isPermaLink="true">https://churnrecovery.com/posts/woocommerce-subscription-cancel-flow</guid>
+      <description><![CDATA[]]></description>
+      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
+      <category>woocommerce</category>
+      <category>wordpress</category>
+      <category>subscriptions</category>
+      <category>cancel flow</category>
+      <category>stripe</category>
+      <category>tutorial</category>
     </item>
     <item>
       <title><![CDATA[B2B SaaS Churn Benchmarks 2025: What's a Good Churn Rate?]]></title>
