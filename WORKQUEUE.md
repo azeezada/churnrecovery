@@ -29,6 +29,7 @@ Low-code/no-code business owners: newsletter creators, coaches, online course se
 
 ### P3 — Ongoing (continuous improvement)
 - [✅] 2 blog posts per week (comparison pages, content marketing) — DONE 2026-03-21. Published: "Chargebee Retain vs Churnkey vs ChurnRecovery" + "5 Cancellation Emails That Win Back Subscribers"
+- [✅] **3 SEO blog posts targeting non-technical business owners** — DONE 2026-03-21. Published: "How to Reduce Churn for Your Online Course Business" (/posts/reduce-churn-online-course-business), "Why Subscribers Cancel (And How to Stop Them)" (/posts/why-subscribers-cancel), "Membership Site Churn Rate: What's Normal and How to Beat It" (/posts/membership-site-churn-rate). All 3 return HTTP 200.
 - [✅] Monitor Google Search Console for indexing — DONE 2026-03-21. Full guide at docs/google-search-console-monitoring.md: sitemap submission, coverage errors, weekly checklist, CTR monitoring, query analysis.
 - [✅] Collect real testimonials from early users — DONE 2026-03-21. Full playbook at docs/testimonial-collection-playbook.md: timing signals, 3 outreach templates, outcome-based prompts, format guide, display placements, incentive strategy, legal notes.
 - [x] Error handling + rate limiting improvements
@@ -51,6 +52,18 @@ Low-code/no-code business owners: newsletter creators, coaches, online course se
 - [✅] **3 blog posts + Recurly/Zuora comparison pages (2026-03-21)** — Ghost vs Substack vs Beehiiv (/posts/ghost-vs-substack-vs-beehiiv-paid-subscribers), Kajabi cancel flow tutorial (/posts/kajabi-cancel-flow-setup-without-coding), Subscription leaking revenue (/posts/subscription-business-leaking-revenue-every-month), + /compare/recurly and /compare/zuora live.
 - [✅] **Guest post on SaaS founder newsletters about churn recovery strategies** — DONE 2026-03-21. Full strategy at docs/guest-post-strategy.md: 15 target publications with contact methods + angles, 3 pitch templates, 3 article concepts fully outlined, outreach tracking table.
 - [✅] **Reach out to Stripe/Paddle for integration marketplace listing** — DONE 2026-03-21. Full strategy at docs/integration-marketplace-strategy.md: Stripe Partner + App Marketplace (step-by-step checklists), Paddle Marketplace, Zapier public app, Make.com — with copy bank, technical requirements, and prioritized timeline.
+
+### New P2/P3 Tasks — Growth Opportunities (Added 2026-03-21)
+
+- [ ] **P2: Churn rate calculator landing page** — Interactive tool at `/tools/churn-calculator` already exists, but there's no SEO-optimized landing page driving traffic to it. Create a dedicated page with "membership site churn rate calculator" as target keyword, embed the tool, and add educational content around it. High-intent search traffic (people calculating churn are already in pain-aware mode).
+
+- [ ] **P2: Email nurture sequence for waitlist signups** — We collect emails but have no drip sequence after signup. Build a 5-email onboarding sequence: Day 1 (what ChurnRecovery does), Day 3 (case study / social proof), Day 7 (cancel flow walk-through), Day 14 (objection handling — "it's free, really?"), Day 21 (urgency / launch offer). ConvertKit integration is already wired — just needs the sequence written and tagged.
+
+- [ ] **P2: Creator landing pages: Memberful, Stan Store, Payhip** — Already identified in docs/next-for-pages-plan.md. Priority: Memberful first (Stripe-required, strong brand alignment), then Stan Store (80k creators), then Payhip. All three have audiences that match our ICP and don't have dedicated landing pages yet.
+
+- [ ] **P3: "Churn Recovery Playbook" lead magnet PDF** — A downloadable PDF ("The Membership Site Churn Recovery Playbook") that compiles the best tactics from our blog posts into a single resource. Gate it behind email capture on a dedicated landing page. Drives list growth from organic blog traffic that's otherwise bouncing after reading.
+
+- [ ] **P3: Schema markup (FAQ + HowTo) for all blog posts** — Our blog posts answer specific questions but don't have structured data. Adding FAQ schema to posts like "Why Subscribers Cancel" and HowTo schema to posts like "How to Reduce Churn" could unlock Google rich results, increasing CTR from search without changing rankings. Low effort, asymmetric upside.
 
 ## UX Research Opportunities
 - ✅ **User interview plan** — Newsletter creators, course sellers, small SaaS founders currently paying for churn tools — docs/user-interview-plan.md (2026-03-21)

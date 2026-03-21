@@ -262,6 +262,13 @@
 - All 3 added to sitemap.xml | Build: 102 pages ✅ | Tests: 133/133 ✅ | Deployed + cache purged | Pushed to main
 - WORKQUEUE.md: ✅ creator landing pages added and marked done
 
+## 2026-03-21 — Wave 10, MARKETING worker (cr-marketing-logos-testimonials)
+
+- **[LOGO-WALL]** — `docs/customer-logo-wall-strategy.md` created. Email/DM permission templates, "Trusted by" vs "As seen in" framing, fallback options, milestone timeline. `components/LogoWall.js` built with greyed placeholder slots (Newsletter Creator, Course Seller, SaaS Founder, Coach, Membership Site), hover color reveal, renders nothing if `logos=[]`. Added to `pages/index.js` after hero, hidden until real logos arrive.
+- **[VIDEO-TESTIMONIALS]** — `docs/video-testimonial-playbook.md` created. 5 timing triggers, outreach templates, 3-question Loom script, display placement guide, Loom/Testimonial.to/Vocal Video comparison, hosting guide, permission language, 30-day action plan.
+- **[NEXT-FOR-PAGES]** — `docs/next-for-pages-plan.md` created. Key finding: Gumroad/Lemon Squeezy/Whop are MoR platforms (excluded — creators don't own Stripe). Top 3 to build: `/for/memberful` (P1), `/for/stan-store` (P2), `/for/payhip` (P3). Full copy angles included.
+- Build: ✅ | Committed + pushed to main
+
 ## 2026-03-21 — Wave 10, CODE worker (cr-code-convertkit-perf)
 
 - **[CONVERTKIT]** — Wired ConvertKit API to waitlist handler. `subscribeToConvertKit()` fires post-D1-save, maps source param to tags (product-hunt-waitlist, reddit-waitlist, etc. + all /for/ pages). Non-fatal: D1 save always completes even if ConvertKit is down. `.env.example` updated with `CONVERTKIT_API_KEY` + `CONVERTKIT_FORM_ID`.
@@ -295,3 +302,10 @@
 - **[VIDEO-TESTIMONIALS]** Created `docs/video-testimonial-playbook.md` — trigger timing (first save, 7d, 30d, ROI confirmed), email + Twitter DM templates, 3-question prompt script, display placement guide (homepage/pricing//for/ pages), Loom vs Testimonial.to vs Vocal Video comparison, hosting (YouTube unlisted vs Cloudflare Stream), permission language, 30-day action plan.
 - **[FOR-PAGES-RESEARCH]** Created `docs/next-for-pages-plan.md` — analyzed 9 creator platform candidates: excluded Gumroad/Lemon Squeezy/Whop (MoR, no direct Stripe), excluded Transistor.fm (no creator billing); top 3 to build: `/for/memberful` (Stripe-required, independent publishers/podcasters), `/for/stan-store` (80k creators, Stripe-connected), `/for/payhip` (130k+ sellers, own Stripe); full page copy direction for each.
 - Build: ✅ static export passes | WORKQUEUE.md ✅ | Pushed to main
+
+## 2026-03-21 — SEO Blog Posts Batch (cr-content-wave11 subagent)
+
+- **[CONTENT-1] "How to Reduce Churn for Your Online Course Business"** — 1,100-word SEO post targeting "reduce churn online course"; 5 tactics (cancel flow, dunning emails, pause option, check-in emails, community); CTAs to /for/kajabi and /for/teachable; deployed at /posts/reduce-churn-online-course-business (HTTP 200).
+- **[CONTENT-2] "Why Subscribers Cancel (And How to Stop Them)"** — 1,100-word SEO post targeting "why subscribers cancel"; 7 cancellation reasons with response scripts; cancel flow as top intervention; CTA to /demo; deployed at /posts/why-subscribers-cancel (HTTP 200).
+- **[CONTENT-3] "Membership Site Churn Rate: What's Normal and How to Beat It"** — 1,200-word SEO post targeting "membership site churn rate"; benchmarks (5-8% common, 2-3% achievable), churn formula, exit survey guide; CTAs to /for/memberful and /for/circle; deployed at /posts/membership-site-churn-rate (HTTP 200).
+- **[WORKQUEUE] 5 new P2/P3 tasks added** — Churn rate calculator landing page, email nurture sequence, Memberful/Stan/Payhip landing pages, lead magnet PDF, schema markup for blog posts.
