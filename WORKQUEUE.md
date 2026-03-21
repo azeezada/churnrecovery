@@ -53,6 +53,12 @@ Low-code/no-code business owners: newsletter creators, coaches, online course se
 - [✅] **Guest post on SaaS founder newsletters about churn recovery strategies** — DONE 2026-03-21. Full strategy at docs/guest-post-strategy.md: 15 target publications with contact methods + angles, 3 pitch templates, 3 article concepts fully outlined, outreach tracking table.
 - [✅] **Reach out to Stripe/Paddle for integration marketplace listing** — DONE 2026-03-21. Full strategy at docs/integration-marketplace-strategy.md: Stripe Partner + App Marketplace (step-by-step checklists), Paddle Marketplace, Zapier public app, Make.com — with copy bank, technical requirements, and prioritized timeline.
 
+### Marketing Wave 12 (Added 2026-03-21)
+
+- [✅] **Twitter/X thread templates** — DONE 2026-03-21. 5 ready-to-post threads at docs/twitter-thread-templates.md: cancel flow math, Churnkey pricing comparison, cancel flow pattern analysis, ROI math, and building-in-public thread. Each formatted with tweet numbers + char counts + posting tips.
+- [✅] **Referral & affiliate strategy** — DONE 2026-03-21. Full strategy at docs/referral-affiliate-strategy.md: referral program design (free-tier-compatible perks + Pro early access), UTM + ConvertKit tracking implementation, 3 affiliate channels (newsletter sponsorships, podcast pitches, content swaps), 20 target newsletters, first 10 partner categories with outreach templates.
+- [✅] **Launch announcement email** — DONE 2026-03-21. Full launch email at docs/launch-announcement-email.md: 5 subject line A/B variants, plain-text + HTML-friendly versions, 7-day follow-up sequence, founder-voice tone (no corporate hype), ConvertKit personalization tokens.
+
 ### New P2/P3 Tasks — Growth Opportunities (Added 2026-03-21)
 
 - [✅] **P2: Churn rate calculator landing page** — DONE 2026-03-21. `/tools/churn-rate-calculator` deployed (HTTP 200). Full SEO meta, embedded ChurnCalculator, educational benchmarks by membership type, 5-step reduction guide, 7-question FAQ with JSON-LD FAQPage schema, WebApplication schema, waitlist CTAs. Added to sitemap.
