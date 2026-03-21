@@ -25,7 +25,7 @@ Low-code/no-code business owners: newsletter creators, coaches, online course se
 - ✅ **Substack-specific landing page** — Implemented at /for/substack — newsletter creator angle, pain points, how-it-works, benefits, FAQ, dual waitlist forms with `substack-creator` tag — deployed + HTTP 200 verified (2026-03-21)
 
 ### P3 — Ongoing (continuous improvement)
-- [ ] 2 blog posts per week (comparison pages, content marketing)
+- [✅] 2 blog posts per week (comparison pages, content marketing) — DONE 2026-03-21. Published: "Chargebee Retain vs Churnkey vs ChurnRecovery" + "5 Cancellation Emails That Win Back Subscribers"
 - [ ] Monitor Google Search Console for indexing
 - [ ] Collect real testimonials from early users
 - [x] Error handling + rate limiting improvements
@@ -43,7 +43,7 @@ Low-code/no-code business owners: newsletter creators, coaches, online course se
 - [✅] **"Churn Recovery ROI Calculator"** — Interactive tool. DONE 2026-03-21. Published at /tools/roi-calculator. Real-time sliders, vs-Churnkey verdict, CTA.
 - [x] **Newsletter creator case study series** — Targeting Beehiiv, ConvertKit, Substack creators (published 2026-03-21)
 - [x] **"SaaS Pricing Audit: Tools That Should Cost 90% Less"** — Controversial take
-- [ ] Case study template: "How [Company] Saved $4,800/year by Switching from Churnkey"
+- [✅] Case study template: "How [Company] Saved $4,800/year by Switching from Churnkey" — DONE 2026-03-21. Template at docs/case-study-template.md.
 - [x] "The $50,000/Year SaaS Tool Stack Audit" — broader market positioning (published 2026-03-21)
 - [✅] **Guest post on SaaS founder newsletters about churn recovery strategies** — DONE 2026-03-21. Full strategy at docs/guest-post-strategy.md: 15 target publications with contact methods + angles, 3 pitch templates, 3 article concepts fully outlined, outreach tracking table.
 - [✅] **Reach out to Stripe/Paddle for integration marketplace listing** — DONE 2026-03-21. Full strategy at docs/integration-marketplace-strategy.md: Stripe Partner + App Marketplace (step-by-step checklists), Paddle Marketplace, Zapier public app, Make.com — with copy bank, technical requirements, and prioritized timeline.
