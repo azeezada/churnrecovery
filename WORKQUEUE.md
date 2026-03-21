@@ -38,6 +38,16 @@ Low-code/no-code business owners: newsletter creators, coaches, online course se
 - [✅] Community engagement in SaaS founder groups — DONE 2026-03-21. Full playbook at docs/community-engagement-playbook.md: 15 communities, weekly content calendar, 10 comment templates, 5 post templates, engagement rules, tracking spreadsheet, UTM strategy.
 - [✅] Video testimonials from beta users — Full playbook at docs/video-testimonial-playbook.md: timing, outreach templates, prompt script, display placements, tool comparison (Loom/Testimonial.to/Vocal Video), hosting options, legal. (2026-03-21)
 
+- [✅] **Wave 13 — 4 new /for/ pages + 3 blog posts** — DONE 2026-03-21. Deployed + verified HTTP 200.
+  - /for/stripe (Stripe direct users, most important — targets "stripe churn recovery" + "stripe cancel flow")
+  - /for/squarespace (Squarespace + Stripe subscription sellers)
+  - /for/chargebee (Chargebee Retain alternative for small businesses)
+  - /for/lemon-squeezy (Honest MoR limitation guide + switching path)
+  - posts: stripe-subscription-cancellations-how-to-stop-them
+  - posts: dunning-management-guide-small-business
+  - posts: cancel-flow-templates (5 ready-to-use templates)
+  - All 4 /for/ pages added to sitemap at priority 0.9
+
 ## Content Ideas Backlog
 - [x] **Screenshot guide series** — "5 SaaS Dashboard Screenshots That Convert" using our mockups as examples (published 2026-03-21)
 - [x] **"Building in Public: 48 Hours to Product Screenshots"** — Behind-scenes content (published 2026-03-21)

@@ -411,3 +411,31 @@
 - Build passes, 134 tests pass (5 pre-existing failures unrelated to this work)
 - Deployed + verified live build fingerprint on churnrecovery.com
 - Commit: `37fda2f` — "marketing: 3 new compare pages + SEO gap analysis + press kit"
+
+---
+
+## Wave 13 — 4 New /for/ Pages + 3 Blog Posts
+**Date:** 2026-03-21
+**Commit:** ccf96a1 — "content: 4 new /for/ pages + 3 blog posts wave 13"
+
+### New /for/ Landing Pages
+- `/for/stripe` — Most important page. Audience: any business using Stripe directly. Accent: #635BFF (Stripe purple). Key message: "Stripe processes payments. We save them." Targets keywords: "stripe churn recovery", "stripe cancel flow". Full hero + pain points + math section + how it works + use case grid + pricing + 8 FAQs. Tag: `stripe-direct`
+- `/for/squarespace` — Audience: Squarespace subscription/membership sellers using Stripe. Accent: #000000 (Squarespace black/white). Key message: "Squarespace doesn't give you a cancel flow. We add one in 10 minutes." Tag: `squarespace-seller`
+- `/for/chargebee` — Audience: Small businesses on Chargebee priced out of Chargebee Retain ($500+/mo). Accent: #FF6B35 (Chargebee orange). Key message: "Get Chargebee Retain features for $0/month." Includes side-by-side comparison table. Tag: `chargebee-user`
+- `/for/lemon-squeezy` — Honest MoR limitation page. Accent: #FFD234 (Lemon Squeezy yellow). Three paths: use own Stripe plan, migrate subscriptions to Stripe, or join waitlist for future native integration. Tag: `lemon-squeezy-seller`
+
+### New Blog Posts
+- `/posts/stripe-subscription-cancellations-how-to-stop-them` — ~1,100 words. Keyword: "stripe subscription cancellations". CTAs → /for/stripe and /demo
+- `/posts/dunning-management-guide-small-business` — ~1,200 words. Keyword: "dunning management small business". Internal links to /for/stripe, /for/kajabi, /for/chargebee. CTA → waitlist
+- `/posts/cancel-flow-templates` — ~1,100 words. Keyword: "cancel flow templates". 5 copy-paste templates (newsletter, course, coaching, membership, SaaS). CTA → /demo
+
+### Sitemap
+- All 4 /for/ pages added to `scripts/generate-sitemap.mjs` at priority 0.9 (vs 0.8 for older pages)
+- 3 new posts auto-added by sitemap generator (reads src/posts/*.md)
+- Total sitemap URLs: 113
+
+### Verification
+- Build passes: ✅ (138 pages generated)
+- Tests: 139 pass, 2 pre-existing flaky failures (homepage CTA AB test — unrelated to this work)
+- HTTP 200 verified on all 7 new URLs on live churnrecovery.com
+- Deploy fingerprint: build-1774076754-b81a9aae confirmed on both pages.dev URL and churnrecovery.com
