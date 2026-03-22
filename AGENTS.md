@@ -45,16 +45,17 @@ git push origin main
 
 ## Known Issues
 - **Test runner hangs**: `npm test` starts `serve` in background via `pretest` but never kills it. Tests may hang indefinitely. Workaround: run `npx serve out -p 3050 -L &` manually, run `npx playwright test`, then kill serve. Or add a timeout. UPDATE: pretest script removed, Playwright webServer config handles lifecycle now. 247 tests run in ~30s.
-- **1,770 inline styles**: Migration to shadcn/ui + Tailwind is planned but not done yet. Use design tokens from `lib/design-tokens.js` for now.
+- **1,770 inline styles**: Migrated to Tailwind. shadcn/ui + Magic UI migration in progress for component library polish.
 - **Stale `.next` cache**: If build fails with ENOENT rename errors, run `rm -rf .next` and rebuild. This happens when pages are added/moved between builds.
 - **Clerk tests**: Previously 2 flaky Clerk preload link tests. Suite now at 247/247 passing (integration tests added). If Clerk tests flake again, not a blocker.
 - **Concurrent WORKQUEUE edits**: Multiple agents editing WORKQUEUE.md simultaneously causes edit failures. Agents should retry once on edit failure, or use append-only updates.
+- **CF Pages env vars with direct upload**: Env vars set via `PATCH /pages/projects/<name>` API only apply to GitHub-triggered builds. `wrangler pages deploy` (direct upload) does NOT inherit those. Must use `wrangler pages secret put` for secrets in direct-deploy Pages Functions.
 
-## Current Phase: DISTRIBUTION (not building)
-As of 2026-03-21, we have 100+ pages, 20+ blog posts, 15+ landing pages, 247 tests (all passing), full Tailwind migration, and zero users. **STOP BUILDING NEW PAGES. START DISTRIBUTING.** Any new code work should be: analytics, conversion tracking, email automation, or fixing bugs. No more /for/ pages. No more blog posts. The content library is massive — now it needs eyeballs.
+## Current Phase: HARDENING + DISTRIBUTION
+As of 2026-03-22, we have 100+ pages, 20+ blog posts, 15+ landing pages, 247 tests (all passing), full Tailwind migration, production Clerk auth with JWKS verification, UTM tracking, and zero users. **Phase priority: (1) Finish hardening — wire remaining dashboard pages to D1, security testing. (2) Get Dawood to do the 3 manual actions blocking distribution. (3) UI polish with shadcn/Magic UI.** No more /for/ pages. No more blog posts.
 
 ## Priority Rule
-When picking work from WORKQUEUE.md, **always start with the highest-priority 🤖-tagged item**. Items marked 🤖🔥 are both agent-doable AND overdue — they MUST be done before any other work. Do not skip P0 items to work on P1/P2 items. The analytics snippet and UTM capture have been P0 for 3+ days — this is unacceptable.
+When picking work from WORKQUEUE.md, **always start with the highest-priority 🤖-tagged item**. Items marked 🤖🔥 are both agent-doable AND overdue — they MUST be done before any other work. Do not skip P0 items to work on P1/P2 items. **Completed P0s (2026-03-22): JWKS verification, Clerk production keys, UTM capture, waitlist→signup migration.** Remaining agent-doable P0s: D1 wiring, security testing, shadcn/UI migration.
 
 ## Do NOT
 - Skip tests ("I'll test later" = never)
