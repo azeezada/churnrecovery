@@ -1,4 +1,4 @@
-import { jsonResponse, handleCors, getUserId, rateLimit, rateLimitResponse, sanitizeString } from './_shared.js'
+import { jsonResponse, handleCors, getUserId, rateLimit, rateLimitResponse, sanitizeString, withErrorHandling } from './_shared.js'
 
 export async function onRequestOptions(context) {
   return handleCors(context.request, { allowAnyOrigin: true })
@@ -62,21 +62,25 @@ export async function onRequestPost(context) {
   }
 }
 
-export async function onRequestGet(context) {
+export const onRequestGet = withErrorHandling(async (context) => {
   const { request, env } = context
   const userId = await getUserId(request, env)
-  if (!userId) return jsonResponse({ error: 'Unauthorized' }, 401, request)
+  if (!userId) return jsonResponse({ error: 'Unauthorized', code: 'UNAUTHORIZED' }, 401, request)
+
+  // Rate limit: 60 per minute
+  const rl = rateLimit(request, { maxRequests: 60, windowMs: 60000 })
+  if (rl.limited) return rateLimitResponse(rl.retryAfter, request)
 
   const url = new URL(request.url)
   const projectId = url.searchParams.get('projectId')
   const limit = Math.min(parseInt(url.searchParams.get('limit') || '50') || 50, 200)
   const offset = Math.max(parseInt(url.searchParams.get('offset') || '0') || 0, 0)
 
-  if (!projectId) return jsonResponse({ error: 'projectId required' }, 400, request)
+  if (!projectId) return jsonResponse({ error: 'projectId required', code: 'VALIDATION_ERROR' }, 400, request)
 
   const project = await env.DB.prepare('SELECT * FROM projects WHERE id = ?').bind(projectId).first()
   if (!project || project.user_id !== userId) {
-    return jsonResponse({ error: 'Forbidden' }, 403, request)
+    return jsonResponse({ error: 'Forbidden', code: 'FORBIDDEN' }, 403, request)
   }
 
   const { results } = await env.DB.prepare(`
@@ -85,4 +89,4 @@ export async function onRequestGet(context) {
   `).bind(projectId, limit, offset).all()
 
   return jsonResponse({ events: results }, 200, request)
-}
+})

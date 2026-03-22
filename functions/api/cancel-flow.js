@@ -1,4 +1,4 @@
-import { jsonResponse, handleCors, getUserId, generateId, defaultFlow, rateLimit, rateLimitResponse, sanitizeString } from './_shared.js'
+import { jsonResponse, handleCors, getUserId, generateId, defaultFlow, rateLimit, rateLimitResponse, sanitizeString, withErrorHandling } from './_shared.js'
 
 export async function onRequestOptions(context) {
   // GET is public (widget), POST is authenticated — allow any origin for OPTIONS
@@ -39,15 +39,19 @@ export async function onRequestGet(context) {
   }
 }
 
-export async function onRequestPost(context) {
+export const onRequestPost = withErrorHandling(async (context) => {
   const { request, env } = context
   const userId = await getUserId(request, env)
-  if (!userId) return jsonResponse({ error: 'Unauthorized' }, 401, request)
+  if (!userId) return jsonResponse({ error: 'Unauthorized', code: 'UNAUTHORIZED' }, 401, request)
+
+  // Rate limit: 10 per minute for config saves
+  const rl = rateLimit(request, { maxRequests: 10, windowMs: 60000 })
+  if (rl.limited) return rateLimitResponse(rl.retryAfter, request)
 
   const body = await request.json().catch(() => ({}))
   const { projectId, reasons } = body
 
-  if (!projectId) return jsonResponse({ error: 'projectId required' }, 400, request)
+  if (!projectId) return jsonResponse({ error: 'projectId required', code: 'VALIDATION_ERROR' }, 400, request)
 
   // Verify project ownership
   const project = await env.DB.prepare('SELECT * FROM projects WHERE id = ?').bind(projectId).first()
@@ -98,4 +102,4 @@ export async function onRequestPost(context) {
   }
 
   return jsonResponse({ saved: true, flow: parsedFlow }, 200, request)
-}
+})

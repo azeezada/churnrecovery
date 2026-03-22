@@ -261,7 +261,7 @@ export function rateLimit(request, { maxRequests = 60, windowMs = 60000 } = {}) 
 }
 
 export function rateLimitResponse(retryAfter, request) {
-  return new Response(JSON.stringify({ error: 'Too many requests' }), {
+  return new Response(JSON.stringify({ error: 'Too many requests', code: 'RATE_LIMITED' }), {
     status: 429,
     headers: {
       'Content-Type': 'application/json',
@@ -292,6 +292,28 @@ export function sanitizeProject(project) {
     ...safe,
     has_stripe_key: !!stripe_secret_key,
     has_webhook_secret: !!stripe_webhook_secret,
+  }
+}
+
+/**
+ * Wrap a Cloudflare Pages Function handler with consistent error handling.
+ * Catches unhandled errors and returns a standard JSON error response.
+ *
+ * Usage:
+ *   export const onRequestGet = withErrorHandling(async (context) => { ... })
+ */
+export function withErrorHandling(handler) {
+  return async (context) => {
+    try {
+      return await handler(context)
+    } catch (err) {
+      console.error(`[API] Unhandled error in ${context.request.method} ${new URL(context.request.url).pathname}:`, err.message || err)
+      return jsonResponse(
+        { error: 'Internal server error', code: 'INTERNAL_ERROR' },
+        500,
+        context.request
+      )
+    }
   }
 }
 

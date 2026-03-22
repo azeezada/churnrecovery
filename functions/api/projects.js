@@ -1,13 +1,17 @@
-import { jsonResponse, handleCors, getUserId, generateId, generateApiKey, sanitizeProject, sanitizeString, rateLimit, rateLimitResponse } from './_shared.js'
+import { jsonResponse, handleCors, getUserId, generateId, generateApiKey, sanitizeProject, sanitizeString, rateLimit, rateLimitResponse, withErrorHandling } from './_shared.js'
 
 export async function onRequestOptions(context) {
   return handleCors(context.request)
 }
 
-export async function onRequestGet(context) {
+export const onRequestGet = withErrorHandling(async (context) => {
   const { request, env } = context
   const userId = await getUserId(request, env)
-  if (!userId) return jsonResponse({ error: 'Unauthorized' }, 401, request)
+  if (!userId) return jsonResponse({ error: 'Unauthorized', code: 'UNAUTHORIZED' }, 401, request)
+
+  // Rate limit: 60 per minute
+  const rl = rateLimit(request, { maxRequests: 60, windowMs: 60000 })
+  if (rl.limited) return rateLimitResponse(rl.retryAfter, request)
 
   const { results } = await env.DB.prepare(
     'SELECT * FROM projects WHERE user_id = ? ORDER BY created_at DESC'
@@ -15,12 +19,12 @@ export async function onRequestGet(context) {
 
   // Strip sensitive fields from response
   return jsonResponse({ projects: results.map(sanitizeProject) }, 200, request)
-}
+})
 
-export async function onRequestPost(context) {
+export const onRequestPost = withErrorHandling(async (context) => {
   const { request, env } = context
   const userId = await getUserId(request, env)
-  if (!userId) return jsonResponse({ error: 'Unauthorized' }, 401, request)
+  if (!userId) return jsonResponse({ error: 'Unauthorized', code: 'UNAUTHORIZED' }, 401, request)
 
   // Rate limit project creation: 5 per minute
   const rl = rateLimit(request, { maxRequests: 5, windowMs: 60000 })
@@ -37,19 +41,23 @@ export async function onRequestPost(context) {
 
   const project = await env.DB.prepare('SELECT * FROM projects WHERE id = ?').bind(id).first()
   return jsonResponse(sanitizeProject({ ...project, api_key: apiKey }), 201, request)
-}
+})
 
-export async function onRequestPut(context) {
+export const onRequestPut = withErrorHandling(async (context) => {
   const { request, env } = context
   const userId = await getUserId(request, env)
-  if (!userId) return jsonResponse({ error: 'Unauthorized' }, 401, request)
+  if (!userId) return jsonResponse({ error: 'Unauthorized', code: 'UNAUTHORIZED' }, 401, request)
+
+  // Rate limit: 10 per minute for mutations
+  const rl = rateLimit(request, { maxRequests: 10, windowMs: 60000 })
+  if (rl.limited) return rateLimitResponse(rl.retryAfter, request)
 
   const body = await request.json().catch(() => ({}))
   const { projectId } = body
 
   const project = await env.DB.prepare('SELECT * FROM projects WHERE id = ?').bind(projectId || '').first()
   if (!project || project.user_id !== userId) {
-    return jsonResponse({ error: 'Project not found' }, 404, request)
+    return jsonResponse({ error: 'Project not found', code: 'NOT_FOUND' }, 404, request)
   }
 
   const fields = []
@@ -64,7 +72,7 @@ export async function onRequestPut(context) {
     // Validate Stripe key format
     const key = body.stripe_secret_key
     if (key && !key.match(/^(sk_test_|sk_live_|rk_test_|rk_live_)/)) {
-      return jsonResponse({ error: 'Invalid Stripe key format' }, 400, request)
+      return jsonResponse({ error: 'Invalid Stripe key format', code: 'VALIDATION_ERROR' }, 400, request)
     }
     fields.push('stripe_secret_key = ?')
     values.push(sanitizeString(key, 255) || null)
@@ -72,7 +80,7 @@ export async function onRequestPut(context) {
   if (body.stripe_webhook_secret !== undefined) {
     const secret = body.stripe_webhook_secret
     if (secret && !secret.startsWith('whsec_')) {
-      return jsonResponse({ error: 'Invalid webhook secret format' }, 400, request)
+      return jsonResponse({ error: 'Invalid webhook secret format', code: 'VALIDATION_ERROR' }, 400, request)
     }
     fields.push('stripe_webhook_secret = ?')
     values.push(sanitizeString(secret, 255) || null)
@@ -80,7 +88,7 @@ export async function onRequestPut(context) {
   if (body.webhook_url !== undefined) {
     const url = body.webhook_url
     if (url && !url.match(/^https:\/\//)) {
-      return jsonResponse({ error: 'Webhook URL must use HTTPS' }, 400, request)
+      return jsonResponse({ error: 'Webhook URL must use HTTPS', code: 'VALIDATION_ERROR' }, 400, request)
     }
     fields.push('webhook_url = ?')
     values.push(sanitizeString(url, 500) || null)
@@ -94,21 +102,25 @@ export async function onRequestPut(context) {
 
   const updated = await env.DB.prepare('SELECT * FROM projects WHERE id = ?').bind(projectId).first()
   return jsonResponse(sanitizeProject(updated), 200, request)
-}
+})
 
-export async function onRequestDelete(context) {
+export const onRequestDelete = withErrorHandling(async (context) => {
   const { request, env } = context
   const userId = await getUserId(request, env)
-  if (!userId) return jsonResponse({ error: 'Unauthorized' }, 401, request)
+  if (!userId) return jsonResponse({ error: 'Unauthorized', code: 'UNAUTHORIZED' }, 401, request)
+
+  // Rate limit: 10 per minute for mutations
+  const rl = rateLimit(request, { maxRequests: 10, windowMs: 60000 })
+  if (rl.limited) return rateLimitResponse(rl.retryAfter, request)
 
   const body = await request.json().catch(() => ({}))
   const { projectId } = body
 
   const project = await env.DB.prepare('SELECT * FROM projects WHERE id = ?').bind(projectId || '').first()
   if (!project || project.user_id !== userId) {
-    return jsonResponse({ error: 'Project not found' }, 404, request)
+    return jsonResponse({ error: 'Project not found', code: 'NOT_FOUND' }, 404, request)
   }
 
   await env.DB.prepare('DELETE FROM projects WHERE id = ?').bind(projectId).run()
   return jsonResponse({ deleted: true }, 200, request)
-}
+})
