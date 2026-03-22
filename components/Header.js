@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { useState } from 'react'
 import { useAuthUser } from '../lib/useAuthUser'
+import { Button } from './ui/button'
 
 const navLinks = [
   { href: '/features', label: 'Features' },
@@ -40,17 +41,17 @@ export default function Header() {
         {/* CTA + contact + mobile toggle */}
         <div className="flex items-center gap-2">
           {isSignedIn ? (
-            <Link href="/app/dashboard" className="bg-brand-accent text-brand-white px-[18px] py-2 rounded-[7px] font-semibold no-underline text-sm whitespace-nowrap header-cta">
-              Dashboard
-            </Link>
+            <Button asChild size="sm" className="whitespace-nowrap header-cta rounded-[7px] no-underline">
+              <Link href="/app/dashboard">Dashboard</Link>
+            </Button>
           ) : (
             <>
-              <Link href="/app/sign-in" className="text-brand-gray no-underline text-sm font-medium px-3 py-2 header-signin">
-                Sign in
-              </Link>
-              <Link href="/app/sign-up" className="bg-brand-accent text-brand-white px-[18px] py-2 rounded-[7px] font-semibold no-underline text-sm whitespace-nowrap header-cta">
-                Get Started Free
-              </Link>
+              <Button asChild variant="ghost" size="sm" className="header-signin text-brand-gray no-underline">
+                <Link href="/app/sign-in">Sign in</Link>
+              </Button>
+              <Button asChild size="sm" className="whitespace-nowrap header-cta rounded-[7px] no-underline">
+                <Link href="/app/sign-up">Get Started Free</Link>
+              </Button>
             </>
           )}
           <button
@@ -74,20 +75,22 @@ export default function Header() {
             </Link>
           ))}
           {isSignedIn ? (
-            <Link href="/app/dashboard" onClick={() => setMobileOpen(false)}
-              className="block mt-4 bg-brand-accent text-brand-white p-3 rounded-lg font-bold no-underline text-center text-[15px]">
-              Dashboard →
-            </Link>
+            <Button asChild className="w-full mt-4 rounded-lg no-underline text-[15px]">
+              <Link href="/app/dashboard" onClick={() => setMobileOpen(false)}>
+                Dashboard →
+              </Link>
+            </Button>
           ) : (
             <>
               <Link href="/app/sign-in" onClick={() => setMobileOpen(false)}
                 className="block py-3 border-b border-brand-border text-base font-medium text-brand-text no-underline">
                 Sign in
               </Link>
-              <Link href="/app/sign-up" onClick={() => setMobileOpen(false)}
-                className="block mt-4 bg-brand-accent text-brand-white p-3 rounded-lg font-bold no-underline text-center text-[15px]">
-                Get Started Free →
-              </Link>
+              <Button asChild className="w-full mt-4 rounded-lg no-underline text-[15px]">
+                <Link href="/app/sign-up" onClick={() => setMobileOpen(false)}>
+                  Get Started Free →
+                </Link>
+              </Button>
             </>
           )}
         </div>

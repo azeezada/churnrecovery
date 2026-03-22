@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { Button } from './ui/button'
 
 /**
  * SignUpCTA — replaces WaitlistForm across the site.
@@ -21,20 +22,27 @@ export default function SignUpCTA({ source = 'homepage', dark = false, compact =
         </p>
       )}
       <div className={`flex gap-3 ${compact ? 'flex-col' : 'flex-row justify-center'} items-center flex-wrap`}>
-        <Link
-          href={signUpUrl}
-          className={`${compact ? 'px-5 py-2.5 text-[0.88rem]' : 'px-7 py-3.5 text-[0.95rem]'} rounded-lg border-none font-sans font-bold text-brand-white bg-brand-accent no-underline inline-flex items-center gap-2 transition-opacity hover:opacity-90`}
+        <Button
+          asChild
+          size={compact ? 'sm' : 'lg'}
+          className={`font-bold no-underline ${compact ? 'text-[0.88rem]' : 'text-[0.95rem]'}`}
         >
-          Get Started Free →
-        </Link>
-        <Link
-          href="/demo"
-          className={`${compact ? 'px-5 py-2.5 text-[0.88rem]' : 'px-6 py-3 text-[0.9rem]'} rounded-lg border font-sans font-medium no-underline inline-flex items-center gap-2 ${
-            dark ? 'border-[rgba(255,255,255,0.2)] text-[rgba(255,255,255,0.8)]' : 'border-brand-border text-brand-gray'
+          <Link href={signUpUrl}>
+            Get Started Free →
+          </Link>
+        </Button>
+        <Button
+          asChild
+          variant="outline"
+          size={compact ? 'sm' : 'default'}
+          className={`no-underline ${
+            dark ? 'border-[rgba(255,255,255,0.2)] text-[rgba(255,255,255,0.8)]' : ''
           }`}
         >
-          See Demo
-        </Link>
+          <Link href="/demo">
+            See Demo
+          </Link>
+        </Button>
       </div>
       <p className={`font-sans text-xs mt-3 mb-0 ${dark ? 'text-[rgba(255,255,255,0.6)]' : 'text-brand-gray'}`}>
         {subtext || 'Free forever · No credit card · Set up in 5 minutes'}

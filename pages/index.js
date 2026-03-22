@@ -3,6 +3,7 @@ import Head from 'next/head'
 import { getAllPosts } from '../lib/posts'
 import SignUpCTA from '../components/SignUpCTA'
 import LogoWall from '../components/LogoWall'
+import { AnimatedHero, AnimatedHeroText } from '../components/ui/animated-hero'
 
 // ─── How It Works Step ────────────────────────────────────────────────────
 function Step({ number, title, description, screenshot, screenshotAlt }) {
@@ -107,41 +108,44 @@ export default function Home({ posts }) {
       {/* ── HERO ─────────────────────────────────────────────────────────── */}
       <section className="bg-brand-bg border-b border-brand-border pt-[100px]">
         <div className="max-w-[1200px] mx-auto px-5 sm:px-6 lg:px-8 pt-[80px] pb-[72px]">
-          {/* Eyebrow */}
-          <div className="inline-flex items-center gap-2 bg-brand-accent/[0.09] border border-brand-accent/25 rounded-full py-[5px] px-3.5 mb-8">
-            <span className="w-1.5 h-1.5 rounded-full bg-brand-accent inline-block" />
-            <span className="font-sans text-[0.8rem] sm:text-[0.78rem] font-semibold text-brand-accent tracking-[0.06em] uppercase">
-              Free Forever · No Per-Recovery Fees
-            </span>
-          </div>
-
-          {/* Headline */}
-          <h1 className="hero-heading text-brand-text m-0 mb-6 max-w-[760px]">
-            Your subscribers are leaving.<br />
-            <span className="text-brand-accent">Most would stay if you asked.</span>
-          </h1>
-
-          {/* Subheadline */}
-          <p className="font-sans text-[clamp(1.15rem,2.5vw,1.35rem)] text-gray-700 m-0 mb-10 max-w-[600px] leading-[1.55]">
-            Every month, subscribers cancel and payments fail — silently costing you
-            thousands. ChurnRecovery catches them before they&apos;re gone, wins them back
-            automatically, and it&apos;s <strong className="text-brand-text">completely free</strong>.
-          </p>
-
-          {/* CTAs */}
-          <div className="flex gap-3 flex-wrap items-center">
-            <a href="/app/sign-up" className="btn-accent min-h-[44px] flex items-center">
-              Start Saving Subscribers →
-            </a>
-            <Link href="/demo" className="btn-outline min-h-[44px] flex items-center">
-              See how it works
-            </Link>
-          </div>
-
-          {/* Micro-line */}
-          <p className="font-sans text-base text-gray-600 mt-5 mb-0">
-            Works with newsletters, courses, coaching, memberships — any subscription business.
-          </p>
+          <AnimatedHero
+            eyebrow={
+              <div className="inline-flex items-center gap-2 bg-brand-accent/[0.09] border border-brand-accent/25 rounded-full py-[5px] px-3.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-brand-accent inline-block" />
+                <span className="font-sans text-[0.8rem] sm:text-[0.78rem] font-semibold text-brand-accent tracking-[0.06em] uppercase">
+                  Free Forever · No Per-Recovery Fees
+                </span>
+              </div>
+            }
+            headline={
+              <h1 className="hero-heading text-brand-text m-0 max-w-[760px]">
+                Your subscribers are leaving.<br />
+                <AnimatedHeroText>Most would stay if you asked.</AnimatedHeroText>
+              </h1>
+            }
+            subheadline={
+              <p className="font-sans text-[clamp(1.15rem,2.5vw,1.35rem)] text-gray-700 m-0 max-w-[600px] leading-[1.55]">
+                Every month, subscribers cancel and payments fail — silently costing you
+                thousands. ChurnRecovery catches them before they&apos;re gone, wins them back
+                automatically, and it&apos;s <strong className="text-brand-text">completely free</strong>.
+              </p>
+            }
+            cta={
+              <>
+                <div className="flex gap-3 flex-wrap items-center">
+                  <a href="/app/sign-up" className="btn-accent min-h-[44px] flex items-center">
+                    Start Saving Subscribers →
+                  </a>
+                  <Link href="/demo" className="btn-outline min-h-[44px] flex items-center">
+                    See how it works
+                  </Link>
+                </div>
+                <p className="font-sans text-base text-gray-600 mt-5 mb-0">
+                  Works with newsletters, courses, coaching, memberships — any subscription business.
+                </p>
+              </>
+            }
+          />
         </div>
 
         {/* ── Hero Product Screenshot ─────────────────────────────────── */}

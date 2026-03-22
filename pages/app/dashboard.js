@@ -10,6 +10,8 @@ import {
   getAnalytics,
 } from '../../lib/localStore'
 import { apiFetch } from '../../lib/useApi'
+import { Card } from '../../components/ui/card'
+import { Badge } from '../../components/ui/badge'
 
 function Skeleton({ width = '100%', height = '1rem', className = '', style = {} }) {
   return (
@@ -33,7 +35,7 @@ function StatCard({ label, value, change, changeLabel, color, loading }) {
     : color === '#D97757' ? 'text-brand-accent'
     : 'text-brand-text'
   return (
-    <div className="bg-brand-white border border-brand-border rounded-xl p-6">
+    <Card className="p-6">
       <div className="text-[0.78rem] text-brand-gray-light font-medium mb-2 uppercase tracking-[0.05em]">
         {label}
       </div>
@@ -49,7 +51,7 @@ function StatCard({ label, value, change, changeLabel, color, loading }) {
           {isPositive ? '↑' : '↓'} {Math.abs(change)}% {changeLabel || 'vs last month'}
         </div>
       )}
-    </div>
+    </Card>
   )
 }
 
