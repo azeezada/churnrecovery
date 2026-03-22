@@ -19,9 +19,12 @@ jobs:
         run: npm run build
       - name: Install Playwright
         run: npx playwright install chromium
-      - name: Test
-        run: npm test
+      - name: Run unit tests
+        run: npx playwright test --project=unit
+      - name: Run integration tests
+        run: npx playwright test --project=integration
       - name: Deploy to Cloudflare Pages
+        if: success()
         uses: cloudflare/pages-action@v1
         with:
           apiToken: ${{ secrets.CF_PAGES_API_TOKEN }}

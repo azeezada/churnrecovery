@@ -18,7 +18,16 @@ module.exports = defineConfig({
   },
   projects: [
     {
-      name: 'chromium',
+      name: 'unit',
+      testMatch: /tests\/[^/]+\.spec\.js$/,
+      use: { browserName: 'chromium' },
+    },
+    {
+      name: 'integration',
+      testDir: './tests/integration',
+      testMatch: /\.spec\.js$/,
+      timeout: 30000,
+      retries: 2,
       use: { browserName: 'chromium' },
     },
   ],
