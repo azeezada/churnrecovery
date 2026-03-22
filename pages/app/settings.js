@@ -10,6 +10,7 @@ import {
   getSettings,
   saveSettings,
 } from '../../lib/localStore'
+import { apiFetch } from '../../lib/useApi'
 
 function Section({ title, description, children }) {
   return (
@@ -61,17 +62,38 @@ export default function SettingsPage() {
   const [copied, setCopied] = useState(false)
   const [saving, setSaving] = useState(false)
   const [saveMsg, setSaveMsg] = useState(null)
+  const [usingRealData, setUsingRealData] = useState(false)
 
+  // Load project — try API first, fall back to localStore
   useEffect(() => {
-    const projects = getProjects()
-    if (projects.length > 0) {
-      const p = projects[0]
-      setProject(p)
-      setProjectName(p.name || 'My Project')
-      const s = getSettings(p.id)
-      setWebhookUrl(s.webhookUrl || '')
-      setStripeConnected(s.stripeConnected || false)
+    async function loadProject() {
+      try {
+        const data = await apiFetch('/api/projects')
+        if (data.projects && data.projects.length > 0) {
+          const p = data.projects[0]
+          setProject(p)
+          setProjectName(p.name || 'My Project')
+          // D1 projects return webhook_url and has_stripe_key from sanitizeProject()
+          setWebhookUrl(p.webhook_url || '')
+          setStripeConnected(p.has_stripe_key || false)
+          setUsingRealData(true)
+          return
+        }
+      } catch {
+        // API unavailable
+      }
+      // Fall back to localStore
+      const projects = getProjects()
+      if (projects.length > 0) {
+        const p = projects[0]
+        setProject(p)
+        setProjectName(p.name || 'My Project')
+        const s = getSettings(p.id)
+        setWebhookUrl(s.webhookUrl || '')
+        setStripeConnected(s.stripeConnected || false)
+      }
     }
+    loadProject()
   }, [])
 
   const copyApiKey = () => {
@@ -81,28 +103,115 @@ export default function SettingsPage() {
     setTimeout(() => setCopied(false), 2000)
   }
 
-  const handleSave = () => {
+  // Save project name + webhook URL via PUT /api/projects
+  const handleSave = async () => {
     if (!project) return
     setSaving(true)
     setSaveMsg(null)
-    updateProject(project.id, { name: projectName })
-    saveSettings(project.id, { webhookUrl, stripeConnected })
-    setTimeout(() => {
+    try {
+      if (usingRealData) {
+        const updated = await apiFetch('/api/projects', {
+          method: 'PUT',
+          body: {
+            projectId: project.id,
+            name: projectName,
+            webhook_url: webhookUrl || null,
+          },
+        })
+        setProject(updated)
+        setProjectName(updated.name || 'My Project')
+        setWebhookUrl(updated.webhook_url || '')
+        setSaveMsg({ type: 'success', text: 'Settings saved!' })
+      } else {
+        updateProject(project.id, { name: projectName })
+        saveSettings(project.id, { webhookUrl, stripeConnected })
+        setSaveMsg({ type: 'success', text: 'Settings saved!' })
+      }
+    } catch (err) {
+      setSaveMsg({ type: 'error', text: err.message || 'Failed to save settings.' })
+    } finally {
       setSaving(false)
-      setSaveMsg({ type: 'success', text: 'Settings saved!' })
       setTimeout(() => setSaveMsg(null), 3000)
-    }, 400)
+    }
   }
 
-  const handleStripeConnect = () => {
-    setStripeConnected(true)
-    if (project) saveSettings(project.id, { webhookUrl, stripeConnected: true })
+  // Connect Stripe via PUT /api/projects with stripe_secret_key
+  const handleStripeConnect = async () => {
+    if (!stripeKey) return
+    setSaving(true)
+    setSaveMsg(null)
+    try {
+      if (usingRealData) {
+        const updated = await apiFetch('/api/projects', {
+          method: 'PUT',
+          body: {
+            projectId: project.id,
+            stripe_secret_key: stripeKey,
+          },
+        })
+        setProject(updated)
+        setStripeConnected(updated.has_stripe_key || false)
+        setStripeKey('')
+        setSaveMsg({ type: 'success', text: 'Stripe connected successfully!' })
+      } else {
+        setStripeConnected(true)
+        if (project) saveSettings(project.id, { webhookUrl, stripeConnected: true })
+        setSaveMsg({ type: 'success', text: 'Stripe connected (local only).' })
+      }
+    } catch (err) {
+      setSaveMsg({ type: 'error', text: err.message || 'Failed to connect Stripe.' })
+    } finally {
+      setSaving(false)
+      setTimeout(() => setSaveMsg(null), 3000)
+    }
   }
 
-  const handleDelete = () => {
+  // Disconnect Stripe via PUT /api/projects with stripe_secret_key: null
+  const handleStripeDisconnect = async () => {
+    setSaving(true)
+    setSaveMsg(null)
+    try {
+      if (usingRealData) {
+        const updated = await apiFetch('/api/projects', {
+          method: 'PUT',
+          body: {
+            projectId: project.id,
+            stripe_secret_key: null,
+          },
+        })
+        setProject(updated)
+        setStripeConnected(updated.has_stripe_key || false)
+        setSaveMsg({ type: 'success', text: 'Stripe disconnected.' })
+      } else {
+        setStripeConnected(false)
+        if (project) saveSettings(project.id, { webhookUrl, stripeConnected: false })
+        setSaveMsg({ type: 'success', text: 'Stripe disconnected.' })
+      }
+    } catch (err) {
+      setSaveMsg({ type: 'error', text: err.message || 'Failed to disconnect Stripe.' })
+    } finally {
+      setSaving(false)
+      setTimeout(() => setSaveMsg(null), 3000)
+    }
+  }
+
+  // Delete project via DELETE /api/projects with body { projectId }
+  const handleDelete = async () => {
     if (!project) return
     if (!confirm(`Delete project "${project.name}"? This cannot be undone.`)) return
-    deleteProject(project.id)
+    try {
+      if (usingRealData) {
+        await apiFetch('/api/projects', {
+          method: 'DELETE',
+          body: { projectId: project.id },
+        })
+      } else {
+        deleteProject(project.id)
+      }
+    } catch {
+      // Fall back to local delete on error
+      deleteProject(project.id)
+    }
     router.push('/app/dashboard')
   }
 
@@ -195,11 +304,9 @@ export default function SettingsPage() {
                 </div>
               </div>
               <button
-                onClick={() => {
-                  setStripeConnected(false)
-                  if (project) saveSettings(project.id, { webhookUrl, stripeConnected: false })
-                }}
-                className="ml-auto px-3.5 py-1.5 rounded-md border border-brand-border bg-brand-white cursor-pointer text-[0.78rem] text-brand-red font-sans"
+                onClick={handleStripeDisconnect}
+                disabled={saving}
+                className="ml-auto px-3.5 py-1.5 rounded-md border border-brand-border bg-brand-white cursor-pointer text-[0.78rem] text-brand-red font-sans disabled:opacity-60 disabled:cursor-not-allowed"
               >
                 Disconnect
               </button>
@@ -216,11 +323,21 @@ export default function SettingsPage() {
               />
               <button
                 onClick={handleStripeConnect}
-                className="px-6 py-2.5 rounded-lg bg-[#635BFF] text-brand-white border-none cursor-pointer font-semibold text-[0.88rem] font-sans flex items-center gap-2"
+                disabled={saving || !stripeKey}
+                className="px-6 py-2.5 rounded-lg bg-[#635BFF] text-brand-white border-none cursor-pointer font-semibold text-[0.88rem] font-sans flex items-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
               >
                 💳 Connect Stripe
               </button>
             </>
+          )}
+          {saveMsg && (
+            <div className={`mt-3 px-3 py-2 rounded-md text-[0.82rem] font-sans ${
+              saveMsg.type === 'success'
+                ? 'bg-brand-green-light text-brand-green'
+                : 'bg-[#FEF2F2] text-brand-red'
+            }`}>
+              {saveMsg.text}
+            </div>
           )}
         </Section>
 
