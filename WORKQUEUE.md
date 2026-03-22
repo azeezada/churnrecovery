@@ -28,16 +28,16 @@ Low-code/no-code business owners: newsletter creators, coaches, online course se
 - [ ] **Social media presence (DAWOOD ACTION)** — Create/claim Twitter/X account for ChurnRecovery. Start posting threads from docs/twitter-thread-templates.md. The content exists, just needs to be published.
 
 ### P2 — Next 2 Weeks (growth + retention)
-- [ ] **Automated email nurture for new users** — 5-email sequence written at docs/email-nurture-sequence.md. Needs Resend implementation to actually send. Triggered after Clerk sign-up via webhook.
+- [x] **✅ Automated email nurture for new users** — 5-email onboarding sequence implemented via Resend `scheduled_at`. Emails at Day 0 (welcome), Day 3 (social proof), Day 7 (education), Day 14 (objection handling), Day 21 (conversion CTA). All triggered from Clerk `user.created` webhook. Build passed. ⚠️ DAWOOD: Verify `dawood@churnrecovery.com` sender domain in Resend dashboard. Commit 2026-03-22.
 - [ ] **Stripe App Marketplace listing** — Strategy at docs/integration-marketplace-strategy.md. High-leverage: Stripe users searching for churn tools find us directly.
 - [ ] **Guest posts on SaaS newsletters** — Strategy + pitches at docs/guest-post-strategy.md. 15 targets identified. Start outreach.
 - [ ] **Collect first testimonials** — Playbook at docs/testimonial-collection-playbook.md. Need actual users first (blocked by P0).
 - [ ] **Community engagement** — Playbook at docs/community-engagement-playbook.md. 15 communities identified. Start participating (not spamming).
 
 ### P3 — Ongoing (continuous improvement)
-- [ ] Error handling + rate limiting improvements
-- [ ] E2E test coverage for new features (current: 247 tests, all passing)
-- [ ] Performance optimization — docs/performance-todo.md has items
+- [x] **✅ Error handling + rate limiting improvements** — `withErrorHandling()` wrapper added to all API routes. Standard error format `{ error, code }` across all endpoints. Rate limiting expanded: 13 endpoints now covered (PUT/DELETE/GET routes that lacked it). 318 tests pass. Build passed. Commit 2026-03-22.
+- [x] **✅ E2E test coverage for new features** — 7 new tests added for Clerk webhook handler (signature validation, rate limiting, event handling) + rate limiting tests for new endpoints. Total: 325 tests passing (up from 318). Commit 2026-03-22.
+- [x] **✅ Performance optimization — WebP images** — 9 screenshots + logo converted to WebP (60-70% size reduction). page/index.js and pages/launch.js updated to reference WebP. ~500KB savings in page payload. Build passed. Commit `aeb47a4` 2026-03-22.
 - [ ] Video testimonials from beta users (blocked by having beta users)
 
 ## What's Been Built (Summary)
