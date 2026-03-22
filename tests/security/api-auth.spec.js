@@ -126,6 +126,14 @@ test.describe('API Auth — JWT forgery detection (live)', () => {
     const res = await request.get(`${LIVE_URL}/api/projects`, {
       headers: { Authorization: `Bearer ${VALID_LOOKING_TOKEN}` },
     });
+
+    // ⚠️  SECURITY FINDING: This test will FAIL if CLERK_JWKS_URL is not set in
+    // Cloudflare Pages environment variables. When unset, _shared.js previously
+    // fell back to unverified JWT decode (accepted any Clerk-issuer JWT without
+    // cryptographic verification). The fallback has been REMOVED in _shared.js
+    // (now returns null when CLERK_JWKS_URL is not set).
+    // ACTION REQUIRED: Set CLERK_JWKS_URL in CF Pages env vars and redeploy.
+    //
     // Must reject — signature won't verify against real JWKS
     expect(res.status()).toBe(401);
   });
@@ -174,6 +182,8 @@ test.describe('API Auth — JWT forgery detection (live)', () => {
 
   test('JWT with algorithm none returns 401', async ({ request }) => {
     // "alg: none" attack — should be rejected
+    // ⚠️  SECURITY FINDING: This test will FAIL if CLERK_JWKS_URL is not set.
+    // See note on "forged JWT" test above. Requires deploy of _shared.js fix.
     const noneToken = buildFakeJwt(
       { sub: 'attacker', iss: 'https://clerk.churnrecovery.com', exp: now + 3600 },
       { alg: 'none', typ: 'JWT' }

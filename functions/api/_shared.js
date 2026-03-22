@@ -215,15 +215,11 @@ export async function getUserId(request, env) {
       return payload.sub
     }
 
-    // Fallback: structural + claims validation (no crypto) — acceptable only
-    // until CLERK_JWKS_URL is set in CF Pages env. Logs a warning.
-    console.warn('[AUTH] CLERK_JWKS_URL not set — falling back to unverified JWT decode. Set this env var ASAP.')
-    const parts = token.split('.')
-    if (parts.length !== 3) return null
-    const payload = JSON.parse(atob(parts[1].replace(/-/g, '+').replace(/_/g, '/')))
-    if (payload.exp && payload.exp < Math.floor(Date.now() / 1000)) return null
-    if (!payload.iss || !payload.iss.includes('clerk')) return null
-    return payload.sub || null
+    // Security: No CLERK_JWKS_URL configured — deny ALL requests.
+    // Accepting unverified JWTs is a critical auth bypass vulnerability.
+    // Set CLERK_JWKS_URL in Cloudflare Pages environment variables.
+    console.error('[AUTH] CLERK_JWKS_URL not set — denying all JWT auth. Configure this env var in CF Pages.')
+    return null
   } catch (err) {
     console.error('[AUTH] JWT verification failed:', err.message)
     return null

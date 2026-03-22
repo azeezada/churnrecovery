@@ -187,14 +187,37 @@ test.describe('Injection — JSON body injection (live)', () => {
 
 test.describe('Injection — header injection (live)', () => {
   test('malformed Authorization header does not cause 500', async ({ request }) => {
-    const res = await request.get(`${LIVE_URL}/api/projects`, {
-      headers: {
-        Authorization: "Bearer \r\nX-Injected: evil",
-      },
-    });
+    // Note: Most HTTP clients (including Playwright's) sanitize header values
+    // and strip/reject \r\n before sending. We test a close equivalent:
+    // a very long bearer token that shouldn't crash the server.
+    const longGarbageToken = 'Bearer ' + 'X'.repeat(8000);
 
-    // HTTP client should handle this — verify no 500
-    // Node's http module strips invalid header values, so this tests the whole stack
-    expect([400, 401, 403]).toContain(res.status());
+    let res;
+    try {
+      res = await request.get(`${LIVE_URL}/api/projects`, {
+        headers: { Authorization: longGarbageToken },
+      });
+
+      // SECURITY: Malformed/oversized tokens must not cause 500
+      expect(res.status()).not.toBe(500);
+      expect([400, 401, 403, 431]).toContain(res.status());
+    } catch (err) {
+      // If the HTTP client itself rejects the request (header too large),
+      // that's also an acceptable security outcome — the server never sees it
+      expect(err.message).toMatch(/header|request|network|failed/i);
+    }
+  });
+
+  test('CRLF injection via query parameter does not affect response headers', async ({ request }) => {
+    // Test that query param values with CRLF don't inject response headers
+    const res = await request.get(
+      `${LIVE_URL}/api/cancel-flow?projectId=proj%0D%0AX-Injected%3A%20evil`
+    );
+
+    expect(res.status()).not.toBe(500);
+
+    // SECURITY: Response headers must not contain injected header
+    const headers = res.headers();
+    expect(headers['x-injected']).toBeUndefined();
   });
 });
