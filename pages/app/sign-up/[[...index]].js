@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import dynamic from 'next/dynamic'
 import { isClerkEnabled } from '../../../lib/auth'
+import { getUTMForClerk } from '../../../lib/utm'
 import ClerkErrorBoundary from '../../../components/ClerkErrorBoundary'
 
 // Dynamic import so Clerk only loads client-side (safe for static export)
@@ -81,6 +82,7 @@ export default function SignUpPage() {
             routing="path"
             signInUrl="/app/sign-in"
             afterSignUpUrl="/app/dashboard"
+            unsafeMetadata={typeof window !== 'undefined' ? getUTMForClerk() : {}}
             appearance={{ variables: { colorPrimary: '#D97757', fontFamily: '"Instrument Sans", sans-serif' } }}
           />
         </ClerkErrorBoundary>
