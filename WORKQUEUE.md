@@ -6,17 +6,17 @@ Low-code/no-code business owners: newsletter creators, coaches, online course se
 ## Priority Tiers
 
 ### P0 — Do Now (blocks user acquisition)
-- [ ] **🤖 Add Cloudflare Web Analytics snippet** — Just a `<script>` tag in `_document.js` or `_app.js`. Free, no signup needed (uses the existing CF account). This is the minimum to know which pages get traffic. **Agent can do this RIGHT NOW.** Get the beacon token from CF dashboard or use the site token approach.
-- [ ] **🤖 Add UTM parameter capture to waitlist form** — When someone hits `/for/substack?utm_source=reddit`, store that source in D1 alongside the signup. Without this we can't tell which marketing channel works.
-- [ ] **🚨 Execute manual marketing submissions** — IH post (docs/indie-hackers-post-final.md), BetaList (marketing/betalist-submission.md), Reddit posts (docs/reddit-execution-playbook.md) are ALL written and ready. Dawood needs to paste and publish. **This has been the #1 blocker for days.** MANUAL ACTION REQUIRED.
-- [ ] **Product Hunt launch prep (April 1 target)** — Pre-launch checklist at docs/product-hunt-prelaunch-checklist.md. Day-by-day from March 25 → April 1. Key tasks: gather 5+ upvoter commitments, prep launch day assets, coordinate timing per docs/launch-timing-analysis.md (Tuesday April 7 may be better per analysis). **Decision needed: April 1 or April 7?** ⏰ March 25 is 4 days away.
+- [ ] **🤖🔥 Add Cloudflare Web Analytics snippet** — Just add `<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token":"SITE_TOKEN"}'></script>` to `pages/_app.js` or `pages/_document.js`. Get the beacon token from CF dashboard → Web Analytics → Add site. **This has been P0 for 2+ days and is STILL not done. Any agent touching this project should do this FIRST before anything else.** Without analytics we are flying blind.
+- [ ] **🤖🔥 Add UTM parameter capture to waitlist form** — When someone hits `/for/substack?utm_source=reddit`, parse `window.location.search` and store utm_source/utm_medium/utm_campaign in the waitlist signup payload to D1. Without this we can't tell which marketing channel works. **Also 2+ days old and undone.**
+- [ ] **🚨 Execute manual marketing submissions (DAWOOD ACTION)** — IH post (docs/indie-hackers-post-final.md), BetaList (marketing/betalist-submission.md), Reddit posts (docs/reddit-execution-playbook.md) are ALL written and ready. Dawood needs to paste and publish. **This has been the #1 blocker for 3+ days.** MANUAL ACTION REQUIRED. Nothing else matters if nobody sees the site.
+- [ ] **Product Hunt launch prep (April 7 target)** — Pre-launch checklist at docs/product-hunt-prelaunch-checklist.md. Per docs/launch-timing-analysis.md, Tuesday April 7 is the better launch day. Prep window: March 25–April 6. Key tasks: gather 5+ upvoter commitments, prep launch day assets, finalize tagline + first comment. ⏰ Prep starts in 3 days.
+- [ ] **🤖 Google Search Console sitemap submission** — Sitemap has 118 URLs but needs to be submitted to GSC and monitored. Pages won't rank until indexed. Moved from P1 because SEO is the primary long-term channel and indexing takes weeks — every day of delay costs.
 
 ### P1 — This Week (first users → first signal)
 - [ ] **Waitlist signup funnel audit** — Test every waitlist form on every landing page. Verify D1 writes work, ConvertKit tags fire, source tracking is accurate. One broken form = lost signups we'll never know about.
 - [ ] **Internal linking pass** — 20+ blog posts and 15+ /for/ pages exist but may not cross-link well. Each post should link to 2-3 relevant /for/ pages and vice versa. SEO multiplier.
-- [ ] **Sitemap submission to Google Search Console** — Sitemap exists (100 URLs) but needs to be submitted + monitored per docs/google-search-console-monitoring.md. Pages won't rank until indexed.
 - [ ] **Set up Resend for waitlist confirmation emails** — Waitlist signups should get an instant confirmation email. Currently silent after signup = bad UX.
-- [ ] **Social media presence** — Create/claim Twitter/X account for ChurnRecovery. Start posting threads from docs/twitter-thread-templates.md. The content exists, just needs to be published.
+- [ ] **Social media presence (DAWOOD ACTION)** — Create/claim Twitter/X account for ChurnRecovery. Start posting threads from docs/twitter-thread-templates.md. The content exists, just needs to be published.
 
 ### P2 — Next 2 Weeks (growth + retention)
 - [ ] **Automated email nurture for waitlist** — 5-email sequence written at docs/email-nurture-sequence.md. Needs Resend/ConvertKit implementation to actually send.
@@ -59,4 +59,6 @@ Everything below is DONE. This is not a todo list — it's context for what exis
 - [x] Review agent performance — concurrent edit failures documented in AGENTS.md
 - [x] Update AGENTS.md with stale cache fix + known issues
 - [x] Improve deploy-and-verify pipeline — added cache-clear step (2026-03-21)
-- [ ] **Review: Are we building too much before validating?** — 100+ pages, 20+ blog posts, 15+ landing pages... but zero users. The next phase must be distribution, not more building.
+- [x] **Review: Are we building too much before validating?** — YES. 100+ pages, 20+ blog posts, 15+ landing pages, zero users. Distribution phase declared in AGENTS.md. ✅
+- [x] Meta review 2026-03-22 00:04 — Added priority enforcement rule to AGENTS.md, promoted GSC submission to P0, updated PH target to April 7, flagged analytics+UTM as 3-day overdue
+- [ ] **Recurring problem: P0 agent tasks not being picked up** — CF Web Analytics and UTM capture have been P0 for 3+ days. Orchestrator runs but doesn't prioritize them. Added 🔥 flag and priority rule to AGENTS.md. Monitor if this fixes it next cycle.

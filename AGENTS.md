@@ -53,6 +53,9 @@ git push origin main
 ## Current Phase: DISTRIBUTION (not building)
 As of 2026-03-21, we have 100+ pages, 20+ blog posts, 15+ landing pages, 142 tests (all passing), full Tailwind migration, and zero users. **STOP BUILDING NEW PAGES. START DISTRIBUTING.** Any new code work should be: analytics, conversion tracking, email automation, or fixing bugs. No more /for/ pages. No more blog posts. The content library is massive — now it needs eyeballs.
 
+## Priority Rule
+When picking work from WORKQUEUE.md, **always start with the highest-priority 🤖-tagged item**. Items marked 🤖🔥 are both agent-doable AND overdue — they MUST be done before any other work. Do not skip P0 items to work on P1/P2 items. The analytics snippet and UTM capture have been P0 for 3+ days — this is unacceptable.
+
 ## Do NOT
 - Skip tests ("I'll test later" = never)
 - Claim something is deployed without verifying the live URL
@@ -67,6 +70,6 @@ As of 2026-03-21, we have 100+ pages, 20+ blog posts, 15+ landing pages, 142 tes
 ## Key Files
 - `STATE.json` — project state and task queue
 - `PRODUCT_ARCHITECTURE.md` — architecture decisions
-- `tests/` — Playwright test suite (105 tests)
+- `tests/` — Playwright test suite (142 tests, all passing)
 - `scripts/deploy-and-verify.sh` — deploy with fingerprint verification
 - `.env.local` — credentials (never commit this)
