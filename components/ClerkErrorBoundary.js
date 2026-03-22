@@ -25,11 +25,11 @@ export default class ClerkErrorBoundary extends Component {
         <div className="bg-white border border-brand-border rounded-2xl p-10 max-w-[400px] w-full text-center">
           <div className="text-[2rem] mb-4">{isSignUp ? '🚀' : '🔑'}</div>
           <h1 className="text-[1.3rem] font-bold text-brand-text m-0 mb-3 tracking-[-0.03em]">
-            {isSignUp ? 'Sign Up Coming Soon' : 'Sign In Coming Soon'}
+            {isSignUp ? 'Unable to Load Sign Up' : 'Unable to Load Sign In'}
           </h1>
           <p className="text-[0.88rem] text-brand-gray leading-[1.6] m-0 mb-6">
-            We&apos;re setting up authentication for ChurnRecovery.
-            In the meantime, you can explore the product in demo mode.
+            There was a problem loading authentication.
+            Please refresh the page or try again in a moment.
           </p>
           <a
             href="/app/dashboard"

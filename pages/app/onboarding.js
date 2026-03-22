@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 import Link from 'next/link'
 import AppLayout from '../../components/AppLayout'
 import { useAuthUser } from '../../lib/useAuthUser'
+import { useAuthGuard } from '../../lib/useAuthGuard'
 import { createProject, getCancelFlow, saveCancelFlow } from '../../lib/localStore'
 import { apiFetch } from '../../lib/useApi'
 
@@ -434,6 +435,7 @@ function Step4({ formData, onFinish, onBack }) {
 }
 
 export default function OnboardingPage() {
+  const { isReady } = useAuthGuard()
   const { user, isLoaded } = useAuthUser()
   const [currentStep, setCurrentStep] = useState(1)
   const [formData, setFormData] = useState({})
@@ -449,6 +451,8 @@ export default function OnboardingPage() {
   const prevStep = () => {
     setCurrentStep(prev => prev - 1)
   }
+
+  if (!isReady) return null
 
   return (
     <>

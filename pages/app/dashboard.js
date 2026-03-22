@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import AppLayout from '../../components/AppLayout'
 import { useAuthUser } from '../../lib/useAuthUser'
+import { useAuthGuard } from '../../lib/useAuthGuard'
 import {
   getProjects,
   createProject,
@@ -128,6 +129,7 @@ function RecentEventRow({ event }) {
 }
 
 export default function DashboardPage() {
+  const { isReady } = useAuthGuard()
   const { user, isLoaded } = useAuthUser()
   const [projects, setProjects] = useState([])
   const [activeProject, setActiveProject] = useState(null)
@@ -230,6 +232,9 @@ export default function DashboardPage() {
     if (!cents) return '$0'
     return '$' + (cents / 100).toLocaleString('en-US', { maximumFractionDigits: 0 })
   }
+
+  // Redirect unauthenticated users to sign-in (no-op in demo mode)
+  if (!isReady) return null
 
   return (
     <>
