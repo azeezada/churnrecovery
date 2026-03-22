@@ -1,141 +1,17 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import { useState, useEffect } from 'react'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import PainCard from '../../components/for/PainCard'
 import HowStep from '../../components/for/HowStep'
 import BenefitCard from '../../components/for/BenefitCard'
 import FAQItem from '../../components/for/FAQItem'
+import SignUpCTA from '../../components/SignUpCTA'
 
 const ACCENT = '#ec4899'
 const ACCENT_LIGHT = '#f9a8d4'
 const ACCENT_BG = 'rgba(236,72,153,0.08)'
 const ACCENT_DARK_BG = 'rgba(236,72,153,0.15)'
-
-function StanWaitlistForm({ dark = false }) {
-  const [email, setEmail] = useState('')
-  const [status, setStatus] = useState('idle')
-  const [count, setCount] = useState(null)
-  const [error, setError] = useState('')
-
-  useEffect(() => {
-    fetch('/api/waitlist/count')
-      .then(r => r.json())
-      .then(d => { if (d.count > 0) setCount(d.count) })
-      .catch(() => {})
-  }, [])
-
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    if (!email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.trim())) {
-      setError('Please enter a valid email address')
-      return
-    }
-    setStatus('loading')
-    setError('')
-    try {
-      const res = await fetch('/api/waitlist', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: email.trim(), source: 'stan-store-lp', tag: 'stan-store-creator' }),
-      })
-      const data = await res.json()
-      if (res.status === 201) {
-        setStatus('success')
-        if (data.count) setCount(data.count)
-      } else if (data.duplicate) {
-        setStatus('duplicate')
-      } else {
-        setStatus('error')
-        setError(data.error || 'Something went wrong. Please try again.')
-      }
-    } catch {
-      setStatus('error')
-      setError('Network error. Please check your connection.')
-    }
-  }
-
-  const bgColor = dark ? 'rgba(255,255,255,0.08)' : '#FFFFFF'
-  const borderColor = dark ? 'rgba(255,255,255,0.15)' : '#E5E5E5'
-  const textColor = dark ? '#FFFFFF' : '#191919'
-  const subtextColor = dark ? 'rgba(255,255,255,0.6)' : '#666666'
-
-  if (status === 'success' || status === 'duplicate') {
-    return (
-      <div style={{
-        background: dark ? 'rgba(45,122,79,0.15)' : '#EDF7F1',
-        border: `1px solid ${dark ? 'rgba(45,122,79,0.3)' : '#C6E6D4'}`,
-      }} className="text-center p-6 rounded-xl">
-        <div className="text-[2rem] mb-2">
-          {status === 'duplicate' ? '👋' : '🎉'}
-        </div>
-        <p style={{ color: dark ? '#FFFFFF' : '#191919' }} className="font-sans font-bold text-base m-0 mb-[6px]">
-          {status === 'duplicate' ? "You're already on the list!" : "You're in! We'll be in touch soon."}
-        </p>
-        <p style={{ color: subtextColor }} className="font-serif text-[0.85rem] m-0">
-          {status === 'duplicate'
-            ? "We've got your email — we'll reach out when we launch."
-            : 'Free beta access for Stan Store creators. We\'ll email you when we\'re ready.'}
-        </p>
-        {count && (
-          <p style={{ color: subtextColor }} className="font-sans text-xs mt-[10px] mb-0 mx-0">
-            Join {count.toLocaleString()} creators on the waitlist
-          </p>
-        )}
-      </div>
-    )
-  }
-
-  return (
-    <div>
-      <form onSubmit={handleSubmit} className="flex flex-col gap-[10px]">
-        <input
-          type="email"
-          value={email}
-          onChange={e => setEmail(e.target.value)}
-          placeholder="your@email.com"
-          required
-          autoComplete="email"
-          aria-label="Email address"
-          style={{
-            border: `1px solid ${error ? '#DC2626' : borderColor}`,
-            background: bgColor,
-            color: textColor,
-          }}
-          className="py-[13px] px-4 rounded-lg font-sans text-[0.95rem] outline-none"
-        />
-        <button
-          type="submit"
-          disabled={status === 'loading'}
-          style={{
-            background: status === 'loading' ? '#999999' : ACCENT,
-            cursor: status === 'loading' ? 'not-allowed' : 'pointer',
-          }}
-          className="py-[14px] px-7 rounded-lg border-none text-white font-sans font-bold text-base transition-[background] duration-150"
-        >
-          {status === 'loading' ? 'Joining...' : 'Stop the Churn — Join Free →'}
-        </button>
-        <input type="hidden" name="source" value="stan-store-lp" />
-        <input type="hidden" name="tag" value="stan-store-creator" />
-      </form>
-      {error && (
-        <p className="font-sans text-[0.8rem] text-red-600 mt-2 mb-0">
-          ⚠ {error}
-        </p>
-      )}
-      <div className="flex gap-4 mt-3 flex-wrap">
-        <span style={{ color: subtextColor }} className="font-sans text-[0.78rem]">🆓 Free during beta</span>
-        <span style={{ color: subtextColor }} className="font-sans text-[0.78rem]">🔒 No credit card required</span>
-        {count && (
-          <span style={{ color: subtextColor }} className="font-sans text-[0.78rem]">
-            <span className="text-[#2D7A4F]">●</span> {count.toLocaleString()} on waitlist
-          </span>
-        )}
-      </div>
-    </div>
-  )
-}
 
 export default function StanStoreLandingPage() {
   return (
@@ -184,7 +60,7 @@ export default function StanStoreLandingPage() {
             </p>
 
             <div className="max-w-[480px] mx-auto mb-6">
-              <StanWaitlistForm dark={true} />
+              <SignUpCTA source="for-stan-store" dark={true} />
             </div>
 
             <div className="flex gap-5 justify-center flex-wrap">
@@ -461,11 +337,11 @@ export default function StanStoreLandingPage() {
               <span style={{ color: ACCENT_LIGHT }}>Give Them a Reason to Stay.</span>
             </h2>
             <p className="font-serif text-base text-[rgba(255,255,255,0.7)] m-0 mb-9 leading-[1.7]">
-              Join the waitlist. Be first to add a cancel recovery flow to your Stan Store. Free to start — works with Creator Pro, no Stan approval needed.
+              Sign up for free. Add a cancel recovery flow to your Stan Store. Free to start — works with Creator Pro, no Stan approval needed.
             </p>
 
             <div className="max-w-[480px] mx-auto">
-              <StanWaitlistForm dark={true} />
+              <SignUpCTA source="for-stan-store" dark={true} />
             </div>
 
             <div className="flex gap-6 justify-center mt-6 flex-wrap">

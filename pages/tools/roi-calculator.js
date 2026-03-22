@@ -114,7 +114,7 @@ export default function ROICalculatorPage() {
           <div className="flex gap-6 items-center">
             <Link href="/tools/churn-calculator" className="text-brand-gray no-underline text-[0.9rem]">Churn Calculator</Link>
             <Link href="/demo" className="text-brand-gray no-underline text-[0.9rem]">Demo</Link>
-            <a href="/#waitlist" className="bg-brand-accent text-brand-white px-[18px] py-2 rounded-[6px] no-underline text-[0.85rem] font-semibold">Join Waitlist</a>
+            <a href="/app/sign-up" className="bg-brand-accent text-brand-white px-[18px] py-2 rounded-[6px] no-underline text-[0.85rem] font-semibold">Get Started Free</a>
           </div>
         </nav>
 
@@ -290,7 +290,7 @@ export default function ROICalculatorPage() {
               href="https://tally.so/r/churnrecovery"
               className="inline-block bg-brand-accent text-brand-white px-9 py-[15px] rounded-lg font-sans font-bold text-base no-underline tracking-[-0.01em]"
             >
-              Join Waitlist — Free →
+              Get Started Free →
             </a>
             <p className="font-sans text-[0.78rem] text-[rgba(255,255,255,0.4)] mt-4">
               Already using a churn tool?{' '}

@@ -1,81 +1,9 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
-
-function WaitlistForm({ dark = false }) {
-  const [email, setEmail] = useState('')
-  const [status, setStatus] = useState('idle')
-  const [count, setCount] = useState(null)
-  const [error, setError] = useState('')
-
-  useEffect(() => {
-    fetch('/api/waitlist/count')
-      .then(r => r.json())
-      .then(d => { if (d.count > 0) setCount(d.count) })
-      .catch(() => {})
-  }, [])
-
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    if (!email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.trim())) {
-      setError('Please enter a valid email address')
-      return
-    }
-    setStatus('loading')
-    setError('')
-    try {
-      const res = await fetch('/api/waitlist', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: email.trim(), source: 'squarespace-lp', tag: 'squarespace-seller' }),
-      })
-      const data = await res.json()
-      if (res.status === 201) { setStatus('success'); if (data.count) setCount(data.count) }
-      else if (data.duplicate) { setStatus('duplicate') }
-      else { setStatus('error'); setError(data.error || 'Something went wrong.') }
-    } catch { setStatus('error'); setError('Network error. Please try again.') }
-  }
-
-  const bgColor = dark ? 'rgba(255,255,255,0.08)' : '#FFFFFF'
-  const borderColor = dark ? 'rgba(255,255,255,0.15)' : '#E5E5E5'
-  const textColor = dark ? '#FFFFFF' : '#191919'
-  const subtextColor = dark ? 'rgba(255,255,255,0.6)' : '#666666'
-
-  if (status === 'success' || status === 'duplicate') {
-    return (
-      <div className="text-center p-6 rounded-xl" style={{ background: dark ? 'rgba(45,122,79,0.15)' : '#EDF7F1', border: `1px solid ${dark ? 'rgba(45,122,79,0.3)' : '#C6E6D4'}` }}>
-        <div className="text-[2rem] mb-2">{status === 'duplicate' ? '👋' : '🎉'}</div>
-        <p className="font-sans font-bold text-base m-0 mb-[6px]" style={{ color: dark ? '#FFFFFF' : '#191919' }}>
-          {status === 'duplicate' ? "You're already on the list!" : "You're in!"}
-        </p>
-        <p className="font-serif text-sm m-0" style={{ color: subtextColor }}>
-          We&apos;ll reach out when your Squarespace cancel flow is ready.
-        </p>
-      </div>
-    )
-  }
-
-  return (
-    <div>
-      <form onSubmit={handleSubmit} className="flex flex-col gap-[10px]">
-        <input type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="your@email.com" required autoComplete="email"
-          className="px-4 py-[13px] rounded-lg font-sans text-[0.95rem] outline-none" style={{ border: `1px solid ${error ? '#DC2626' : borderColor}`, background: bgColor, color: textColor }} />
-        <button type="submit" disabled={status === 'loading'}
-          className="py-[14px] px-7 rounded-lg border-none font-sans font-bold text-base" style={{ background: status === 'loading' ? '#999999' : (dark ? '#FFFFFF' : '#000000'), color: dark ? '#000000' : '#FFFFFF', cursor: status === 'loading' ? 'not-allowed' : 'pointer' }}>
-          {status === 'loading' ? 'Joining...' : 'Add a Cancel Flow to Squarespace →'}
-        </button>
-      </form>
-      {error && <p className="font-sans text-[0.8rem] text-[#DC2626] mt-2 mb-0">⚠ {error}</p>}
-      <div className="flex gap-4 mt-3 flex-wrap">
-        <span className="font-sans text-[0.78rem]" style={{ color: subtextColor }}>🆓 Free during beta</span>
-        <span className="font-sans text-[0.78rem]" style={{ color: subtextColor }}>🔒 No credit card required</span>
-        {count && <span className="font-sans text-[0.78rem]" style={{ color: subtextColor }}><span className="text-[#2D7A4F]">●</span> {count.toLocaleString()} on waitlist</span>}
-      </div>
-    </div>
-  )
-}
+import SignUpCTA from '../../components/SignUpCTA'
 
 function PainCard({ icon, title, stat, statLabel, description }) {
   return (
@@ -174,7 +102,7 @@ export default function SquarespaceLandingPage() {
             </p>
 
             <div className="max-w-[480px] mx-auto mb-6">
-              <WaitlistForm dark={true} />
+              <SignUpCTA source="for-squarespace" dark={true} />
             </div>
 
             <div className="flex gap-5 justify-center flex-wrap">
@@ -301,10 +229,10 @@ export default function SquarespaceLandingPage() {
               Be Ready.
             </h2>
             <p className="font-serif text-base text-[rgba(255,255,255,0.7)] m-0 mb-9 leading-[1.7]">
-              Join the waitlist and be first to protect your Squarespace subscription revenue with a real cancel flow. Free to start.
+              Sign up for free and be first to protect your Squarespace subscription revenue with a real cancel flow. Free to start.
             </p>
             <div className="max-w-[480px] mx-auto">
-              <WaitlistForm dark={true} />
+              <SignUpCTA source="for-squarespace" dark={true} />
             </div>
             <div className="flex gap-6 justify-center mt-6 flex-wrap">
               <span className="font-sans text-[0.78rem] text-[rgba(255,255,255,0.4)]">Free during beta</span>

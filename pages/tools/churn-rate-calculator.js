@@ -29,7 +29,7 @@ const faqItems = [
   },
   {
     q: 'Is this calculator free to use?',
-    a: 'Yes — completely free, no signup required. ChurnRecovery\'s cancel flow tool is also free (we\'re in early access). We believe founders shouldn\'t have to pay $250/month just to stop losing customers. Use the calculator, understand your numbers, then join the waitlist if you want to plug the leak.',
+    a: 'Yes — completely free, no signup required. ChurnRecovery\'s cancel flow tool is also free (we\'re in free access). We believe founders shouldn\'t have to pay $250/month just to stop losing customers. Use the calculator, understand your numbers, then sign up for free if you want to plug the leak.',
   },
 ]
 
@@ -112,7 +112,7 @@ export default function ChurnRateCalculatorPage() {
           <div className="flex gap-6 items-center">
             <Link href="/demo" className="text-[#666] no-underline text-[0.9rem]">Demo</Link>
             <Link href="/blog" className="text-[#666] no-underline text-[0.9rem]">Blog</Link>
-            <a href="/#waitlist" className="bg-[#D97757] text-white px-[18px] py-2 rounded-[6px] no-underline text-[0.85rem] font-semibold">Join Waitlist</a>
+            <a href="/app/sign-up" className="bg-[#D97757] text-white px-[18px] py-2 rounded-[6px] no-underline text-[0.85rem] font-semibold">Get Started Free</a>
           </div>
         </nav>
 
@@ -159,7 +159,7 @@ export default function ChurnRateCalculatorPage() {
               ChurnRecovery intercepts cancellations with the right offer — a pause, a discount, a downgrade. Founders using cancel flows save 25–45% of churning members automatically. It's free.
             </p>
             <a href="https://tally.so/r/churnrecovery" className="inline-block bg-[#D97757] text-white px-8 py-[14px] rounded-lg font-sans font-bold text-base no-underline tracking-[-0.01em]">
-              Join the Waitlist — It's Free
+              Get Started Free — It's Free
             </a>
             <p className="font-sans text-[0.78rem] text-[#999] mt-3">
               No credit card. No commitment. Cancel flows that actually work.
@@ -421,10 +421,10 @@ export default function ChurnRateCalculatorPage() {
             Ready to stop losing members?
           </h2>
           <p className="font-serif text-base text-white/70 mb-8 max-w-[460px] mx-auto leading-[1.7]">
-            Join the waitlist for ChurnRecovery — the free cancel flow platform for membership sites, communities, and SaaS founders.
+            Sign up for free for ChurnRecovery — the free cancel flow platform for membership sites, communities, and SaaS founders.
           </p>
           <a href="https://tally.so/r/churnrecovery" className="inline-block bg-[#D97757] text-white px-8 py-[14px] rounded-lg font-sans font-bold text-base no-underline tracking-[-0.01em]">
-            Join the Waitlist — Free
+            Get Started Free — Free
           </a>
           <p className="font-sans text-[0.78rem] text-white/40 mt-[14px]">
             No credit card. No commitment. Set up in minutes.

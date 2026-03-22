@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
-import WaitlistForm from '../../components/WaitlistForm'
+import SignUpCTA from '../../components/SignUpCTA'
 import { useCases, getUseCaseBySlug, getAllUseCaseSlugs } from '../../lib/use-cases'
 
 export async function getStaticPaths() {
@@ -191,7 +191,7 @@ export default function UseCaseDetailPage({ useCase, others }) {
             <p className="font-serif text-[0.95rem] text-white/65 leading-[1.7] mt-0 mb-7">
               Free to use. No contracts. Set up in under 30 minutes.
             </p>
-            <WaitlistForm source={`use-case-${useCase.slug}`} />
+            <SignUpCTA source={`use-case-${useCase.slug}`} />
           </div>
         </section>
 

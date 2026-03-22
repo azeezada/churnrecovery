@@ -1,144 +1,17 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import { useState, useEffect } from 'react'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import PainCard from '../../components/for/PainCard'
 import HowStep from '../../components/for/HowStep'
 import BenefitCard from '../../components/for/BenefitCard'
 import FAQItem from '../../components/for/FAQItem'
+import SignUpCTA from '../../components/SignUpCTA'
 
 const ACCENT = '#0099FF'
 const ACCENT_LIGHT = '#33AAFF'
 const ACCENT_DARK_BG = 'rgba(0,153,255,0.15)'
 const ACCENT_BG = 'rgba(0,153,255,0.08)'
-
-function WixWaitlistForm({ dark = false }) {
-  const [email, setEmail] = useState('')
-  const [status, setStatus] = useState('idle')
-  const [count, setCount] = useState(null)
-  const [error, setError] = useState('')
-
-  useEffect(() => {
-    fetch('/api/waitlist/count')
-      .then(r => r.json())
-      .then(d => { if (d.count > 0) setCount(d.count) })
-      .catch(() => {})
-  }, [])
-
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    if (!email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.trim())) {
-      setError('Please enter a valid email address')
-      return
-    }
-    setStatus('loading')
-    setError('')
-    try {
-      const res = await fetch('/api/waitlist', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          email: email.trim(),
-          source: 'wix-lp',
-          tag: 'wix-seller',
-        }),
-      })
-      const data = await res.json()
-      if (res.status === 201) {
-        setStatus('success')
-        if (data.count) setCount(data.count)
-      } else if (data.duplicate) {
-        setStatus('duplicate')
-      } else {
-        setStatus('error')
-        setError(data.error || 'Something went wrong. Please try again.')
-      }
-    } catch {
-      setStatus('error')
-      setError('Network error. Please check your connection.')
-    }
-  }
-
-  const bgColor = dark ? 'rgba(255,255,255,0.08)' : '#FFFFFF'
-  const borderColor = dark ? 'rgba(255,255,255,0.15)' : '#E5E5E5'
-  const textColor = dark ? '#FFFFFF' : '#191919'
-  const subtextColor = dark ? 'rgba(255,255,255,0.6)' : '#666666'
-
-  if (status === 'success' || status === 'duplicate') {
-    return (
-      <div className="text-center p-6 rounded-xl" style={{
-        background: dark ? 'rgba(45,122,79,0.15)' : '#EDF7F1',
-        border: `1px solid ${dark ? 'rgba(45,122,79,0.3)' : '#C6E6D4'}`,
-      }}>
-        <div className="text-[2rem] mb-2">
-          {status === 'duplicate' ? '👋' : '🎉'}
-        </div>
-        <p className="font-sans font-bold text-base m-0 mb-[6px]" style={{ color: dark ? '#FFFFFF' : '#191919' }}>
-          {status === 'duplicate' ? "You're already on the list!" : "You're in! We'll be in touch soon."}
-        </p>
-        <p className="font-serif text-[0.85rem] m-0" style={{ color: subtextColor }}>
-          {status === 'duplicate'
-            ? "We've got your email — we'll reach out when we launch."
-            : "Free beta access for Wix sellers. We'll email you when we're ready."}
-        </p>
-        {count && (
-          <p className="font-sans text-xs mt-[10px] mb-0 mx-0" style={{ color: subtextColor }}>
-            Join {count.toLocaleString()} sellers on the waitlist
-          </p>
-        )}
-      </div>
-    )
-  }
-
-  return (
-    <div>
-      <form onSubmit={handleSubmit} className="flex flex-col gap-[10px]">
-        <input
-          type="email"
-          value={email}
-          onChange={e => setEmail(e.target.value)}
-          placeholder="your@email.com"
-          required
-          autoComplete="email"
-          aria-label="Email address"
-          className="py-[13px] px-4 rounded-lg font-sans text-[0.95rem] outline-none"
-          style={{
-            border: `1px solid ${error ? '#DC2626' : borderColor}`,
-            background: bgColor, color: textColor,
-          }}
-        />
-        <button
-          type="submit"
-          disabled={status === 'loading'}
-          className="py-[14px] px-7 rounded-lg border-none text-white font-sans font-bold text-base transition-[background] duration-150"
-          style={{
-            background: status === 'loading' ? '#999999' : ACCENT,
-            cursor: status === 'loading' ? 'not-allowed' : 'pointer',
-          }}
-        >
-          {status === 'loading' ? 'Joining...' : 'Stop the Cancellations — Join Free →'}
-        </button>
-        <input type="hidden" name="source" value="wix-lp" />
-        <input type="hidden" name="tag" value="wix-seller" />
-      </form>
-      {error && (
-        <p className="font-sans text-[0.8rem] text-[#DC2626] mt-[8px] mb-0">
-          ⚠ {error}
-        </p>
-      )}
-      <div className="flex gap-[16px] mt-[12px] flex-wrap">
-        <span className="font-sans text-[0.78rem]" style={{ color: subtextColor }}>🆓 Free during beta</span>
-        <span className="font-sans text-[0.78rem]" style={{ color: subtextColor }}>🔒 No credit card required</span>
-        {count && (
-          <span className="font-sans text-[0.78rem]" style={{ color: subtextColor }}>
-            <span className="text-[#2D7A4F]">●</span> {count.toLocaleString()} on waitlist
-          </span>
-        )}
-      </div>
-    </div>
-  )
-}
 
 export default function WixLandingPage() {
   return (
@@ -180,7 +53,7 @@ export default function WixLandingPage() {
             </p>
 
             <div className="max-w-[480px] mx-auto mb-[24px]">
-              <WixWaitlistForm dark={true} />
+              <SignUpCTA source="for-wix" dark={true} />
             </div>
 
             <div className="flex gap-[20px] justify-center flex-wrap">
@@ -399,11 +272,11 @@ export default function WixLandingPage() {
               <span className="text-[#33AAFF]">Will You Be Ready?</span>
             </h2>
             <p className="font-serif text-[1rem] text-[rgba(255,255,255,0.7)] mb-[36px] leading-[1.7]">
-              Join the waitlist. Be first to protect your Wix subscription revenue with automated churn recovery. Free to start — no Wix approval needed.
+              Sign up for free. Protect your Wix subscription revenue with automated churn recovery. Free to start — no Wix approval needed.
             </p>
 
             <div className="max-w-[480px] mx-auto">
-              <WixWaitlistForm dark={true} />
+              <SignUpCTA source="for-wix" dark={true} />
             </div>
 
             <div className="flex gap-[24px] justify-center mt-[24px] flex-wrap">

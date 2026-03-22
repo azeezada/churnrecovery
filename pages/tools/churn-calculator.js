@@ -54,7 +54,7 @@ export default function ChurnCalculatorPage() {
           <div className="nav-links flex gap-6 items-center">
             <Link href="/demo" className="text-brand-gray no-underline text-[0.9rem]">Demo</Link>
             <Link href="/blog" className="text-brand-gray no-underline text-[0.9rem]">Blog</Link>
-            <a href="/#waitlist" className="bg-brand-accent text-brand-white px-[18px] py-2 rounded-[6px] no-underline text-[0.85rem] font-semibold">Join Waitlist</a>
+            <a href="/app/sign-up" className="bg-brand-accent text-brand-white px-[18px] py-2 rounded-[6px] no-underline text-[0.85rem] font-semibold">Get Started Free</a>
           </div>
         </nav>
 
@@ -185,10 +185,10 @@ export default function ChurnCalculatorPage() {
             Stop watching revenue walk out the door.
           </h2>
           <p className="font-serif text-base text-[rgba(255,255,255,0.7)] mb-8 max-w-[460px] mx-auto leading-[1.7]">
-            Join the waitlist for early access to ChurnRecovery — the free churn recovery platform built for SaaS founders.
+            Get started free with ChurnRecovery — the free churn recovery platform built for SaaS founders.
           </p>
-          <a href="https://tally.so/r/churnrecovery" className="inline-block bg-brand-accent text-brand-white px-8 py-[14px] rounded-lg font-sans font-bold text-base no-underline tracking-[-0.01em]">
-            Join the Waitlist — Free
+          <a href="/app/sign-up" className="inline-block bg-brand-accent text-brand-white px-8 py-[14px] rounded-lg font-sans font-bold text-base no-underline tracking-[-0.01em]">
+            Get Started Free →
           </a>
         </section>
       </div>

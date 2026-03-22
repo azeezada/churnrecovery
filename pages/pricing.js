@@ -89,8 +89,8 @@ export default function Pricing() {
             Every feature, every integration, unlimited customers. No monthly fees, no per-recovery charges, no revenue share.
           </p>
           <div className="pricing-hero-btns flex gap-3 justify-center flex-wrap">
-            <Link href="/#waitlist" className="bg-brand-accent text-brand-white px-8 py-3.5 rounded-lg font-bold no-underline text-base">
-              Join Waitlist →
+            <Link href="/app/sign-up" className="bg-brand-accent text-brand-white px-8 py-3.5 rounded-lg font-bold no-underline text-base">
+              Get Started Free →
             </Link>
             <Link href="/demo" className="bg-brand-white text-brand-text px-8 py-3.5 rounded-lg font-semibold no-underline text-base border-2 border-brand-border">
               See live demo
@@ -147,8 +147,8 @@ export default function Pricing() {
             <div className="text-[15px] text-brand-gray">
               No credit card. No contracts. Start recovering churn in hours.
             </div>
-            <Link href="/#waitlist" className="bg-brand-accent text-brand-white px-7 py-3 rounded-lg font-bold no-underline text-[15px]">
-              Join the waitlist →
+            <Link href="/app/sign-up" className="bg-brand-accent text-brand-white px-7 py-3 rounded-lg font-bold no-underline text-[15px]">
+              Get Started Free →
             </Link>
           </div>
         </div>
@@ -220,11 +220,11 @@ export default function Pricing() {
             Start recovering churn today — for free
           </h2>
           <p className="text-lg text-white/70 max-w-[520px] mx-auto mb-9 font-serif">
-            Join the waitlist. Be among the first to try ChurnRecovery when we launch.
+            Start recovering customers today — completely free, forever.
           </p>
           <div className="flex gap-3 justify-center flex-wrap">
-            <Link href="/#waitlist" className="bg-brand-accent text-brand-white px-8 py-3.5 rounded-lg font-bold no-underline text-base">
-              Join Waitlist →
+            <Link href="/app/sign-up" className="bg-brand-accent text-brand-white px-8 py-3.5 rounded-lg font-bold no-underline text-base">
+              Get Started Free →
             </Link>
             <Link href="/tools/churn-calculator" className="bg-white/10 text-brand-white px-8 py-3.5 rounded-lg font-semibold no-underline text-base border border-white/20">
               Calculate your savings

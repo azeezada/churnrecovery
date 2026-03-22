@@ -1,81 +1,9 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
-
-function WaitlistForm({ dark = false }) {
-  const [email, setEmail] = useState('')
-  const [status, setStatus] = useState('idle')
-  const [count, setCount] = useState(null)
-  const [error, setError] = useState('')
-
-  useEffect(() => {
-    fetch('/api/waitlist/count')
-      .then(r => r.json())
-      .then(d => { if (d.count > 0) setCount(d.count) })
-      .catch(() => {})
-  }, [])
-
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    if (!email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.trim())) {
-      setError('Please enter a valid email address')
-      return
-    }
-    setStatus('loading')
-    setError('')
-    try {
-      const res = await fetch('/api/waitlist', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: email.trim(), source: 'lemon-squeezy-lp', tag: 'lemon-squeezy-seller' }),
-      })
-      const data = await res.json()
-      if (res.status === 201) { setStatus('success'); if (data.count) setCount(data.count) }
-      else if (data.duplicate) { setStatus('duplicate') }
-      else { setStatus('error'); setError(data.error || 'Something went wrong.') }
-    } catch { setStatus('error'); setError('Network error. Please try again.') }
-  }
-
-  const bgColor = dark ? 'rgba(255,255,255,0.08)' : '#FFFFFF'
-  const borderColor = dark ? 'rgba(255,255,255,0.15)' : '#E5E5E5'
-  const textColor = dark ? '#FFFFFF' : '#191919'
-  const subtextColor = dark ? 'rgba(255,255,255,0.6)' : '#666666'
-
-  if (status === 'success' || status === 'duplicate') {
-    return (
-      <div className="text-center p-6 rounded-xl" style={{ background: dark ? 'rgba(45,122,79,0.15)' : '#EDF7F1', border: `1px solid ${dark ? 'rgba(45,122,79,0.3)' : '#C6E6D4'}` }}>
-        <div className="text-[2rem] mb-2">{status === 'duplicate' ? '👋' : '🎉'}</div>
-        <p className="font-sans font-bold text-base m-0 mb-[6px]" style={{ color: dark ? '#FFFFFF' : '#191919' }}>
-          {status === 'duplicate' ? "You're already on the list!" : "You're in!"}
-        </p>
-        <p className="font-serif text-sm m-0" style={{ color: subtextColor }}>
-          We&apos;ll let you know when ChurnRecovery supports your setup.
-        </p>
-      </div>
-    )
-  }
-
-  return (
-    <div>
-      <form onSubmit={handleSubmit} className="flex flex-col gap-[10px]">
-        <input type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="your@email.com" required autoComplete="email"
-          className="px-4 py-[13px] rounded-lg font-sans text-[0.95rem] outline-none" style={{ border: `1px solid ${error ? '#DC2626' : borderColor}`, background: bgColor, color: textColor }} />
-        <button type="submit" disabled={status === 'loading'}
-          className="py-[14px] px-7 rounded-lg border-none font-sans font-bold text-base text-[#1A1000]" style={{ background: status === 'loading' ? '#999999' : '#FFD234', cursor: status === 'loading' ? 'not-allowed' : 'pointer' }}>
-          {status === 'loading' ? 'Joining...' : 'Get Notified When We Support Lemon Squeezy →'}
-        </button>
-      </form>
-      {error && <p className="font-sans text-[0.8rem] text-[#DC2626] mt-2 mb-0">⚠ {error}</p>}
-      <div className="flex gap-4 mt-3 flex-wrap">
-        <span className="font-sans text-[0.78rem]" style={{ color: subtextColor }}>🆓 Free during beta</span>
-        <span className="font-sans text-[0.78rem]" style={{ color: subtextColor }}>🔒 No credit card required</span>
-        {count && <span className="font-sans text-[0.78rem]" style={{ color: subtextColor }}><span className="text-[#2D7A4F]">●</span> {count.toLocaleString()} on waitlist</span>}
-      </div>
-    </div>
-  )
-}
+import SignUpCTA from '../../components/SignUpCTA'
 
 function PainCard({ icon, title, stat, statLabel, description }) {
   return (
@@ -182,7 +110,7 @@ export default function LemonSqueezyLandingPage() {
             </div>
 
             <div className="max-w-[480px] mx-auto mb-6">
-              <WaitlistForm dark={true} />
+              <SignUpCTA source="for-lemon-squeezy" dark={true} />
             </div>
 
             <div className="flex gap-5 justify-center flex-wrap">
@@ -226,7 +154,7 @@ export default function LemonSqueezyLandingPage() {
             <div className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-5">
               <HowStep number="A" icon="🔗" title="Use Lemon Squeezy with Your Own Stripe" description="Some Lemon Squeezy plans allow you to connect your own Stripe account instead of using their merchant-of-record setup. If you're on one of those plans, ChurnRecovery connects directly to your Stripe and works as normal." callout="✓ Check your Lemon Squeezy plan settings for 'custom Stripe' or 'BYOS' options." />
               <HowStep number="B" icon="🔀" title="Move Subscriptions to Direct Stripe" description="Keep Lemon Squeezy for one-time digital products (where their tax handling is great). Migrate your subscription products to direct Stripe billing. Then connect ChurnRecovery for full cancel flow coverage." callout="💡 Many creators use both: LS for products, Stripe for subscriptions." />
-              <HowStep number="C" icon="📬" title="Join the Waitlist Anyway" description="We're actively exploring native Lemon Squeezy integration. It's technically complex because of the merchant-of-record structure, but we're working on it. Join the waitlist and we'll tell you the moment it's possible." callout="🔔 We'll reach out first when Lemon Squeezy support lands." />
+              <HowStep number="C" icon="📬" title="Get Started Free Anyway" description="We're actively exploring native Lemon Squeezy integration. It's technically complex because of the merchant-of-record structure, but we're working on it. Sign up for free and we'll tell you the moment it's possible." callout="🔔 We'll reach out first when Lemon Squeezy support lands." />
             </div>
           </div>
         </section>
@@ -277,10 +205,10 @@ export default function LemonSqueezyLandingPage() {
               <span className="text-[#FFD234]">Subscription Revenue?</span>
             </h2>
             <p className="font-serif text-base text-[rgba(255,255,255,0.7)] m-0 mb-9 leading-[1.7]">
-              Join the waitlist. Whether you&apos;re on Lemon Squeezy now or thinking about moving to direct Stripe, we&apos;ll help you set up a cancel flow that saves subscribers automatically.
+              Sign up for free. Whether you&apos;re on Lemon Squeezy now or thinking about moving to direct Stripe, we&apos;ll help you set up a cancel flow that saves subscribers automatically.
             </p>
             <div className="max-w-[480px] mx-auto">
-              <WaitlistForm dark={true} />
+              <SignUpCTA source="for-lemon-squeezy" dark={true} />
             </div>
             <div className="flex gap-6 justify-center mt-6 flex-wrap">
               <span className="font-sans text-[0.78rem] text-[rgba(255,255,255,0.4)]">Free during beta</span>

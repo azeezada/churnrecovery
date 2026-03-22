@@ -39,8 +39,8 @@ export default function IntegrationsIndex() {
               ChurnRecovery gives you cancel flows and payment recovery — completely free.
             </p>
             <div className="hero-ctas flex gap-3 justify-center flex-wrap">
-              <Link href="/#waitlist" className="inline-block bg-brand-accent text-brand-white font-sans font-bold text-[0.95rem] py-[14px] px-7 rounded-lg no-underline">
-                Join Waitlist — It's Free
+              <Link href="/app/sign-up" className="inline-block bg-brand-accent text-brand-white font-sans font-bold text-[0.95rem] py-[14px] px-7 rounded-lg no-underline">
+                Get Started Free →
               </Link>
               <Link href="/docs" className="inline-block bg-transparent text-brand-text font-sans font-semibold text-[0.95rem] py-[14px] px-7 rounded-lg no-underline border border-brand-border">
                 View docs
@@ -137,8 +137,8 @@ export default function IntegrationsIndex() {
             <p className="font-serif text-[1.05rem] text-white/70 mt-0 mb-8 leading-[1.7]">
               Free for all payment processors. No credit card required. No monthly fee — ever.
             </p>
-            <Link href="/#waitlist" className="inline-block bg-brand-accent text-brand-white font-sans font-bold text-base py-4 px-9 rounded-lg no-underline">
-              Join Waitlist — It's Free
+            <Link href="/app/sign-up" className="inline-block bg-brand-accent text-brand-white font-sans font-bold text-base py-4 px-9 rounded-lg no-underline">
+              Get Started Free →
             </Link>
           </div>
         </div>

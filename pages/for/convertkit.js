@@ -1,154 +1,9 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
-
-// ─── Waitlist Form (convertkit/Kit-specific) ────────────────────────────────
-function KitWaitlistForm({ dark = false }) {
-  const [email, setEmail] = useState('')
-  const [newsletterName, setNewsletterName] = useState('')
-  const [status, setStatus] = useState('idle')
-  const [count, setCount] = useState(null)
-  const [error, setError] = useState('')
-
-  useEffect(() => {
-    fetch('/api/waitlist/count')
-      .then(r => r.json())
-      .then(d => { if (d.count > 0) setCount(d.count) })
-      .catch(() => {})
-  }, [])
-
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    if (!email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.trim())) {
-      setError('Please enter a valid email address')
-      return
-    }
-    setStatus('loading')
-    setError('')
-    try {
-      const res = await fetch('/api/waitlist', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          email: email.trim(),
-          source: 'convertkit-lp',
-          tag: 'convertkit-creator',
-          newsletterName: newsletterName.trim(),
-        }),
-      })
-      const data = await res.json()
-      if (res.status === 201) {
-        setStatus('success')
-        if (data.count) setCount(data.count)
-      } else if (data.duplicate) {
-        setStatus('duplicate')
-      } else {
-        setStatus('error')
-        setError(data.error || 'Something went wrong. Please try again.')
-      }
-    } catch {
-      setStatus('error')
-      setError('Network error. Please check your connection.')
-    }
-  }
-
-  const bgColor = dark ? 'rgba(255,255,255,0.08)' : '#FFFFFF'
-  const borderColor = dark ? 'rgba(255,255,255,0.15)' : '#E5E5E5'
-  const textColor = dark ? '#FFFFFF' : '#191919'
-  const subtextColor = dark ? 'rgba(255,255,255,0.6)' : '#666666'
-
-  if (status === 'success' || status === 'duplicate') {
-    return (
-      <div className="text-center p-6 rounded-xl" style={{
-        background: dark ? 'rgba(45,122,79,0.15)' : '#EDF7F1',
-        border: `1px solid ${dark ? 'rgba(45,122,79,0.3)' : '#C6E6D4'}`,
-      }}>
-        <div className="text-[2rem] mb-2">
-          {status === 'duplicate' ? '👋' : '🎉'}
-        </div>
-        <p className="font-sans font-bold text-base m-0 mb-[6px]" style={{ color: dark ? '#FFFFFF' : '#191919' }}>
-          {status === 'duplicate' ? "You're already on the list!" : "You're in! We'll be in touch soon."}
-        </p>
-        <p className="font-serif text-[0.85rem] m-0" style={{ color: subtextColor }}>
-          {status === 'duplicate'
-            ? "We've got your email — we'll reach out when we launch."
-            : "Free beta access for Kit creators. We'll email you when we're ready."}
-        </p>
-        {count && (
-          <p className="font-sans text-xs mt-[10px] mb-0 mx-0" style={{ color: subtextColor }}>
-            Join {count.toLocaleString()} newsletter creators on the waitlist
-          </p>
-        )}
-      </div>
-    )
-  }
-
-  return (
-    <div>
-      <form onSubmit={handleSubmit} className="flex flex-col gap-2.5">
-        <input
-          type="email"
-          value={email}
-          onChange={e => setEmail(e.target.value)}
-          placeholder="your@email.com"
-          required
-          autoComplete="email"
-          aria-label="Email address"
-          className="py-[13px] px-4 rounded-lg font-sans text-[0.95rem] outline-none"
-          style={{
-            border: `1px solid ${error ? '#DC2626' : borderColor}`,
-            background: bgColor, color: textColor,
-          }}
-        />
-        <input
-          type="text"
-          value={newsletterName}
-          onChange={e => setNewsletterName(e.target.value)}
-          placeholder="Your newsletter name (optional)"
-          aria-label="Newsletter name"
-          className="py-[13px] px-4 rounded-lg font-sans text-[0.95rem] outline-none"
-          style={{
-            border: `1px solid ${borderColor}`,
-            background: bgColor, color: textColor,
-          }}
-        />
-        <button
-          type="submit"
-          disabled={status === 'loading'}
-          className="py-3.5 px-7 rounded-lg border-none text-white font-sans font-bold text-base transition-[background] duration-150"
-          style={{
-            background: status === 'loading' ? '#999999' : '#D97757',
-            cursor: status === 'loading' ? 'not-allowed' : 'pointer',
-          }}
-        >
-          {status === 'loading' ? 'Joining...' : 'Keep My Kit Subscribers →'}
-        </button>
-        <input type="hidden" name="source" value="convertkit-lp" />
-        <input type="hidden" name="tag" value="convertkit-creator" />
-      </form>
-      {error && (
-        <p className="font-sans text-[0.8rem] text-[#DC2626] mt-2">
-          ⚠ {error}
-        </p>
-      )}
-      <div className="flex gap-4 mt-3 flex-wrap">
-        <span className="font-sans text-[0.78rem]" style={{ color: subtextColor }}>
-          🆓 Free during beta
-        </span>
-        <span className="font-sans text-[0.78rem]" style={{ color: subtextColor }}>
-          🔒 No credit card required
-        </span>
-        {count && (
-          <span className="font-sans text-[0.78rem]" style={{ color: subtextColor }}>
-            <span className="text-[#2D7A4F]">●</span> {count.toLocaleString()} on waitlist
-          </span>
-        )}
-      </div>
-    </div>
-  )
-}
+import SignUpCTA from '../../components/SignUpCTA'
 
 function PainCard({ icon, title, stat, statLabel, description }) {
   return (
@@ -279,7 +134,7 @@ export default function ConvertKitLandingPage() {
             </p>
 
             <div className="max-w-[480px] mx-auto mb-6">
-              <KitWaitlistForm dark={true} />
+              <SignUpCTA source="for-convertkit" dark={true} />
             </div>
 
             <div className="flex gap-5 justify-center flex-wrap">
@@ -527,12 +382,12 @@ export default function ConvertKitLandingPage() {
               <br /><span className="text-[#93C5FD]">Are You Catching Them?</span>
             </h2>
             <p className="font-serif text-base text-[rgba(255,255,255,0.7)] m-0 mb-9 leading-[1.7]">
-              Join the waitlist. Get free beta access to stop Kit cancellations automatically.
+              Sign up for free. Get free beta access to stop Kit cancellations automatically.
               Designed for newsletter creators, coaches, and subscription business owners.
             </p>
 
             <div className="max-w-[480px] mx-auto">
-              <KitWaitlistForm dark={true} />
+              <SignUpCTA source="for-convertkit" dark={true} />
             </div>
 
             <div className="flex gap-6 justify-center mt-6 flex-wrap">

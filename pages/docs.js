@@ -61,7 +61,7 @@ function Nav() {
         <Link href="/docs" className="text-brand-accent no-underline text-[0.9rem] font-sans font-semibold">Docs</Link>
         <Link href="/demo" className="text-brand-gray no-underline text-[0.9rem] font-sans">Demo</Link>
         <Link href="/blog" className="text-brand-gray no-underline text-[0.9rem] font-sans">Blog</Link>
-        <a href="/#waitlist" className="bg-brand-accent text-white px-[18px] py-2 rounded-md no-underline text-[0.85rem] font-semibold font-sans">Join Waitlist</a>
+        <a href="/app/sign-up" className="bg-brand-accent text-white px-[18px] py-2 rounded-md no-underline text-[0.85rem] font-semibold font-sans">Get Started Free</a>
       </div>
     </nav>
   )
@@ -700,11 +700,11 @@ function SubscriptionSettings({ user }) {
                 Ready to integrate?
               </h2>
               <p className="font-serif text-[0.9rem] text-white/65 mt-0 mb-6 leading-[1.7]">
-                Join the waitlist to get your API key. Most teams are live in under an hour.
+                Sign up to get your API key. Most teams are live in under an hour.
               </p>
               <div className="flex gap-3 justify-center flex-wrap">
-                <a href="https://tally.so/r/churnrecovery" className="inline-block bg-brand-accent text-white px-7 py-3 rounded-lg font-sans font-bold text-[0.95rem] no-underline">
-                  Get API Key — Free
+                <a href="/app/sign-up" className="inline-block bg-brand-accent text-white px-7 py-3 rounded-lg font-sans font-bold text-[0.95rem] no-underline">
+                  Get Started Free →
                 </a>
                 <Link href="/demo" className="inline-block bg-transparent text-white/70 px-7 py-3 rounded-lg font-sans font-semibold text-[0.95rem] no-underline border border-white/20">
                   Try the Demo →

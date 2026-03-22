@@ -91,7 +91,7 @@ export default function AlternativePage({ competitor }) {
             <Link href={`/compare/${competitor.slug}`} className="text-brand-gray no-underline text-[0.9rem]">
               Full Comparison →
             </Link>
-            <a href="/#waitlist" className="bg-brand-accent text-brand-white px-[18px] py-2 rounded-[6px] no-underline text-[0.85rem] font-semibold">Join Waitlist</a>
+            <a href="/app/sign-up" className="bg-brand-accent text-brand-white px-[18px] py-2 rounded-[6px] no-underline text-[0.85rem] font-semibold">Get Started Free</a>
           </div>
         </nav>
 
@@ -123,8 +123,8 @@ export default function AlternativePage({ competitor }) {
           </p>
 
           <div className="flex gap-4 flex-wrap mb-10">
-            <a href="#waitlist" className="inline-block bg-brand-accent text-brand-white px-7 py-[14px] rounded-lg font-sans font-bold text-base no-underline tracking-[-0.01em]">
-              Join Waitlist — It's Free
+            <a href="/app/sign-up" className="inline-block bg-brand-accent text-brand-white px-7 py-[14px] rounded-lg font-sans font-bold text-base no-underline tracking-[-0.01em]">
+              Get Started Free →
             </a>
             <Link href={`/compare/${competitor.slug}`} className="inline-block bg-transparent text-brand-text px-7 py-[14px] rounded-lg font-sans font-semibold text-base no-underline border border-brand-border">
               See Full Comparison →
@@ -201,15 +201,15 @@ export default function AlternativePage({ competitor }) {
         </section>
 
         {/* CTA */}
-        <section id="waitlist" className="bg-brand-text py-20 px-6 text-center">
+        <section className="bg-brand-text py-20 px-6 text-center">
           <h2 className="font-sans font-bold text-brand-white tracking-[-0.03em] mb-4 text-[clamp(1.5rem,4vw,2.2rem)]">
             Ready to switch from {competitor.name}?
           </h2>
           <p className="font-serif text-base text-[rgba(255,255,255,0.7)] mb-8 max-w-[460px] mx-auto leading-[1.7]">
-            Join the waitlist and get early access to the churn recovery tool that doesn't cost you anything.
+            Start using the churn recovery tool that doesn't cost you anything.
           </p>
-          <a href="https://tally.so/r/churnrecovery" className="inline-block bg-brand-accent text-brand-white px-8 py-[14px] rounded-lg font-sans font-bold text-base no-underline tracking-[-0.01em]">
-            Join the Waitlist — It's Free
+          <a href="/app/sign-up" className="inline-block bg-brand-accent text-brand-white px-8 py-[14px] rounded-lg font-sans font-bold text-base no-underline tracking-[-0.01em]">
+            Get Started Free →
           </a>
           <div className="mt-5">
             <Link href={`/compare/${competitor.slug}`} className="font-sans text-[0.85rem] text-[rgba(255,255,255,0.5)] no-underline">

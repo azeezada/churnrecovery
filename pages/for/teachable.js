@@ -1,143 +1,9 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
-
-// ─── Waitlist Form (teachable-specific) ─────────────────────────────────────
-function TeachableWaitlistForm({ dark = false }) {
-  const [email, setEmail] = useState('')
-  const [status, setStatus] = useState('idle')
-  const [count, setCount] = useState(null)
-  const [error, setError] = useState('')
-
-  useEffect(() => {
-    fetch('/api/waitlist/count')
-      .then(r => r.json())
-      .then(d => { if (d.count > 0) setCount(d.count) })
-      .catch(() => {})
-  }, [])
-
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    if (!email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.trim())) {
-      setError('Please enter a valid email address')
-      return
-    }
-    setStatus('loading')
-    setError('')
-    try {
-      const res = await fetch('/api/waitlist', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          email: email.trim(),
-          source: 'teachable-lp',
-          tag: 'teachable-creator',
-        }),
-      })
-      const data = await res.json()
-      if (res.status === 201) {
-        setStatus('success')
-        if (data.count) setCount(data.count)
-      } else if (data.duplicate) {
-        setStatus('duplicate')
-      } else {
-        setStatus('error')
-        setError(data.error || 'Something went wrong. Please try again.')
-      }
-    } catch {
-      setStatus('error')
-      setError('Network error. Please check your connection.')
-    }
-  }
-
-  const bgColor = dark ? 'rgba(255,255,255,0.08)' : '#FFFFFF'
-  const borderColor = dark ? 'rgba(255,255,255,0.15)' : '#E5E5E5'
-  const textColor = dark ? '#FFFFFF' : '#191919'
-  const subtextColor = dark ? 'rgba(255,255,255,0.6)' : '#666666'
-
-  if (status === 'success' || status === 'duplicate') {
-    return (
-      <div
-        className="text-center p-6 rounded-xl"
-        style={{
-          background: dark ? 'rgba(26,158,110,0.15)' : '#E8F9F3',
-          border: `1px solid ${dark ? 'rgba(26,158,110,0.3)' : '#A8E8D0'}`,
-        }}
-      >
-        <div className="text-[2rem] mb-2">
-          {status === 'duplicate' ? '👋' : '🎉'}
-        </div>
-        <p className="font-sans font-bold text-base m-0 mb-[6px]" style={{ color: dark ? '#FFFFFF' : '#191919' }}>
-          {status === 'duplicate' ? "You're already on the list!" : "You're in! We'll be in touch soon."}
-        </p>
-        <p className="font-serif text-[0.85rem] m-0" style={{ color: subtextColor }}>
-          {status === 'duplicate'
-            ? "We've got your email — we'll reach out when we launch."
-            : "Free beta access for Teachable creators. We'll email you when we're ready."}
-        </p>
-        {count && (
-          <p className="font-sans text-[0.75rem] mt-2.5 mb-0 mx-0" style={{ color: subtextColor }}>
-            Join {count.toLocaleString()} course creators on the waitlist
-          </p>
-        )}
-      </div>
-    )
-  }
-
-  return (
-    <div>
-      <form onSubmit={handleSubmit} className="flex flex-col gap-2.5">
-        <input
-          type="email"
-          value={email}
-          onChange={e => setEmail(e.target.value)}
-          placeholder="your@email.com"
-          required
-          autoComplete="email"
-          aria-label="Email address"
-          className="py-[13px] px-4 rounded-lg font-sans text-[0.95rem] outline-none"
-          style={{
-            border: `1px solid ${error ? '#DC2626' : borderColor}`,
-            background: bgColor, color: textColor,
-          }}
-        />
-        <button
-          type="submit"
-          disabled={status === 'loading'}
-          className="py-3.5 px-7 rounded-lg border-none font-sans font-bold text-base text-white transition-[background] duration-150"
-          style={{
-            background: status === 'loading' ? '#999999' : '#1A9E6E',
-            cursor: status === 'loading' ? 'not-allowed' : 'pointer',
-          }}
-        >
-          {status === 'loading' ? 'Joining...' : 'Recover My Course Revenue →'}
-        </button>
-        <input type="hidden" name="source" value="teachable-lp" />
-        <input type="hidden" name="tag" value="teachable-creator" />
-      </form>
-      {error && (
-        <p className="font-sans text-[0.8rem] text-[#DC2626] mt-2 mb-0 mx-0">
-          ⚠ {error}
-        </p>
-      )}
-      <div className="flex gap-4 mt-3 flex-wrap">
-        <span className="font-sans text-[0.78rem]" style={{ color: subtextColor }}>
-          🆓 Free during beta
-        </span>
-        <span className="font-sans text-[0.78rem]" style={{ color: subtextColor }}>
-          🔒 No credit card required
-        </span>
-        {count && (
-          <span className="font-sans text-[0.78rem]" style={{ color: subtextColor }}>
-            <span className="text-[#1A9E6E]">●</span> {count.toLocaleString()} on waitlist
-          </span>
-        )}
-      </div>
-    </div>
-  )
-}
+import SignUpCTA from '../../components/SignUpCTA'
 
 // ─── Pain card ──────────────────────────────────────────────────────────────
 function PainCard({ icon, title, stat, statLabel, description }) {
@@ -277,7 +143,7 @@ export default function TeachableLandingPage() {
             </p>
 
             <div className="max-w-[480px] mx-auto mb-6">
-              <TeachableWaitlistForm dark={true} />
+              <SignUpCTA source="for-teachable" dark={true} />
             </div>
 
             <div className="flex gap-5 justify-center flex-wrap">
@@ -377,7 +243,7 @@ export default function TeachableLandingPage() {
                 &ldquo;Does Teachable support this?&rdquo;
               </p>
               <p className="font-serif text-[0.88rem] text-[#666666] m-0 mb-2.5 leading-[1.7]">
-                Teachable has its own payment system, but many creators on Pro and Business plans use Stripe. ChurnRecovery integrates at the Stripe level for those plans. We&apos;re actively expanding support for all Teachable payment types — join the waitlist to get early access.
+                Teachable has its own payment system, but many creators on Pro and Business plans use Stripe. ChurnRecovery integrates at the Stripe level for those plans. We&apos;re actively expanding support for all Teachable payment types — sign up for free to get notified.
               </p>
               <Link href="/docs" className="font-sans text-[0.82rem] text-[#1A9E6E] no-underline font-semibold">
                 Check compatibility for your plan →
@@ -491,7 +357,7 @@ export default function TeachableLandingPage() {
             {[
               {
                 q: 'Does this work with Teachable?',
-                a: "Teachable has its own payment system by default, but many advanced plan users integrate Stripe directly. ChurnRecovery works with Teachable's Stripe integration. We're also building native support for Teachable's payment system — join the waitlist for early access.",
+                a: "Teachable has its own payment system by default, but many advanced plan users integrate Stripe directly. ChurnRecovery works with Teachable's Stripe integration. We're also building native support for Teachable's payment system — sign up for free to get notified.",
               },
               {
                 q: 'Do I need a developer to set this up?',
@@ -527,11 +393,11 @@ export default function TeachableLandingPage() {
               <span className="text-[#34C98A]">Give Them a Reason to Stay.</span>
             </h2>
             <p className="font-serif text-base text-[rgba(255,255,255,0.7)] m-0 mb-9 leading-[1.7]">
-              Join the waitlist. Free beta access for Teachable course creators. Be the first to turn cancellation moments into conversations — and revenue saved.
+              Sign up for free. Free for Teachable course creators. Be the first to turn cancellation moments into conversations — and revenue saved.
             </p>
 
             <div className="max-w-[480px] mx-auto">
-              <TeachableWaitlistForm dark={true} />
+              <SignUpCTA source="for-teachable" dark={true} />
             </div>
 
             <div className="flex gap-6 justify-center mt-6 flex-wrap">

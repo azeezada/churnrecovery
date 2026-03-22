@@ -48,8 +48,8 @@ export default function Header() {
               <Link href="/app/sign-in" className="text-brand-gray no-underline text-sm font-medium px-3 py-2 header-signin">
                 Sign in
               </Link>
-              <Link href="/#waitlist" className="bg-brand-accent text-brand-white px-[18px] py-2 rounded-[7px] font-semibold no-underline text-sm whitespace-nowrap header-cta">
-                Join Waitlist
+              <Link href="/app/sign-up" className="bg-brand-accent text-brand-white px-[18px] py-2 rounded-[7px] font-semibold no-underline text-sm whitespace-nowrap header-cta">
+                Get Started Free
               </Link>
             </>
           )}
@@ -84,9 +84,9 @@ export default function Header() {
                 className="block py-3 border-b border-brand-border text-base font-medium text-brand-text no-underline">
                 Sign in
               </Link>
-              <Link href="/#waitlist" onClick={() => setMobileOpen(false)}
+              <Link href="/app/sign-up" onClick={() => setMobileOpen(false)}
                 className="block mt-4 bg-brand-accent text-brand-white p-3 rounded-lg font-bold no-underline text-center text-[15px]">
-                Join Waitlist →
+                Get Started Free →
               </Link>
             </>
           )}

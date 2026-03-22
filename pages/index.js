@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Head from 'next/head'
 import { getAllPosts } from '../lib/posts'
-import WaitlistForm from '../components/WaitlistForm'
+import SignUpCTA from '../components/SignUpCTA'
 import LogoWall from '../components/LogoWall'
 
 // ─── How It Works Step ────────────────────────────────────────────────────
@@ -130,7 +130,7 @@ export default function Home({ posts }) {
 
           {/* CTAs */}
           <div className="flex gap-3 flex-wrap items-center">
-            <a href="#waitlist" className="btn-accent min-h-[44px] flex items-center">
+            <a href="/app/sign-up" className="btn-accent min-h-[44px] flex items-center">
               Start Saving Subscribers →
             </a>
             <Link href="/demo" className="btn-outline min-h-[44px] flex items-center">
@@ -399,18 +399,18 @@ export default function Home({ posts }) {
         </div>
       </section>
 
-      {/* ── EARLY ACCESS CTA ─────────────────────────────────────────────── */}
+      {/* ── GET STARTED CTA ──────────────────────────────────────────────── */}
       <section className="bg-brand-bg border-b border-brand-border">
         <div className="max-w-[700px] mx-auto px-5 sm:px-6 lg:px-8 py-[72px] text-center">
-          <span className="eyebrow text-brand-accent block mb-3">Early access</span>
+          <span className="eyebrow text-brand-accent block mb-3">Start today</span>
           <h2 className="font-sans text-[clamp(1.4rem,3vw,1.8rem)] font-semibold text-brand-text tracking-[-0.02em] mt-3 mb-4 mx-0">
-            Be among the first to try ChurnRecovery
+            Start recovering churned customers in minutes
           </h2>
           <p className="font-sans text-base text-gray-700 m-0 mb-8 leading-[1.65] max-w-[520px] mx-auto">
-            We&apos;re building ChurnRecovery in the open. Join the waitlist and get free access before anyone else — plus help shape the product with your feedback.
+            Start recovering churned customers in minutes — completely free.
           </p>
-          <a href="#waitlist" className="btn-accent min-h-[44px] inline-flex items-center">
-            Join the Waitlist — It&apos;s Free →
+          <a href="/app/sign-up" className="btn-accent min-h-[44px] inline-flex items-center">
+            Get Started Free →
           </a>
         </div>
       </section>
@@ -459,8 +459,8 @@ export default function Home({ posts }) {
         </div>
       </section>
 
-      {/* ── WAITLIST / CTA ───────────────────────────────────────────────── */}
-      <section id="waitlist" className="bg-brand-text border-b border-brand-border">
+      {/* ── SIGN UP / CTA ────────────────────────────────────────────────── */}
+      <section className="bg-brand-text border-b border-brand-border">
         <div className="max-w-[1200px] mx-auto px-5 sm:px-6 lg:px-8 py-[80px] grid grid-cols-1 gap-10">
           <div className="max-w-[560px]">
             <h2 className="font-sans text-[clamp(1.8rem,4vw,2.75rem)] font-semibold text-brand-white tracking-[-0.03em] m-0 mb-4 leading-[1.1]">
@@ -468,11 +468,11 @@ export default function Home({ posts }) {
               <span className="text-brand-accent">Start recovering revenue.</span>
             </h2>
             <p className="font-sans text-lg text-[#aaaaaa] m-0 mb-8 leading-[1.6]">
-              Join the waitlist and we&apos;ll set you up — no credit card, no sales calls,
+              Start recovering customers today — no credit card, no sales calls,
               no surprises. Just a simple tool that saves your subscribers.
             </p>
 
-            <WaitlistForm source="homepage" dark={true} />
+            <SignUpCTA source="homepage" />
 
             <p className="font-sans text-base text-[#888888] mt-4">
               Not ready to sign up?{' '}

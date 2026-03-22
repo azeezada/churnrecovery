@@ -1,82 +1,9 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
-
-function StripeWaitlistForm({ dark = false }) {
-  const [email, setEmail] = useState('')
-  const [status, setStatus] = useState('idle')
-  const [count, setCount] = useState(null)
-  const [error, setError] = useState('')
-
-  useEffect(() => {
-    fetch('/api/waitlist/count')
-      .then(r => r.json())
-      .then(d => { if (d.count > 0) setCount(d.count) })
-      .catch(() => {})
-  }, [])
-
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    if (!email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.trim())) {
-      setError('Please enter a valid email address')
-      return
-    }
-    setStatus('loading')
-    setError('')
-    try {
-      const res = await fetch('/api/waitlist', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: email.trim(), source: 'stripe-lp', tag: 'stripe-direct' }),
-      })
-      const data = await res.json()
-      if (res.status === 201) { setStatus('success'); if (data.count) setCount(data.count) }
-      else if (data.duplicate) { setStatus('duplicate') }
-      else { setStatus('error'); setError(data.error || 'Something went wrong.') }
-    } catch { setStatus('error'); setError('Network error. Please try again.') }
-  }
-
-  const bgColor = dark ? 'rgba(255,255,255,0.08)' : '#FFFFFF'
-  const borderColor = dark ? 'rgba(255,255,255,0.15)' : '#E5E5E5'
-  const textColor = dark ? '#FFFFFF' : '#191919'
-  const subtextColor = dark ? 'rgba(255,255,255,0.6)' : '#666666'
-
-  if (status === 'success' || status === 'duplicate') {
-    return (
-      <div className="text-center p-6 rounded-xl" style={{ background: dark ? 'rgba(45,122,79,0.15)' : '#EDF7F1', border: `1px solid ${dark ? 'rgba(45,122,79,0.3)' : '#C6E6D4'}` }}>
-        <div className="text-[2rem] mb-2">{status === 'duplicate' ? '👋' : '🎉'}</div>
-        <p className="font-sans font-bold text-base m-0 mb-[6px]" style={{ color: dark ? '#FFFFFF' : '#191919' }}>
-          {status === 'duplicate' ? "You're already on the list!" : "You're in! We'll be in touch."}
-        </p>
-        <p className="font-serif text-sm m-0" style={{ color: subtextColor }}>
-          Free beta access. We&apos;ll email you when your Stripe cancel flow is ready to go.
-        </p>
-        {count && <p className="font-sans text-xs mt-[10px] mb-0" style={{ color: subtextColor }}>Join {count.toLocaleString()} businesses on the waitlist</p>}
-      </div>
-    )
-  }
-
-  return (
-    <div>
-      <form onSubmit={handleSubmit} className="flex flex-col gap-[10px]">
-        <input type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="your@email.com" required autoComplete="email"
-          className="px-4 py-[13px] rounded-lg font-sans text-[0.95rem] outline-none" style={{ border: `1px solid ${error ? '#DC2626' : borderColor}`, background: bgColor, color: textColor }} />
-        <button type="submit" disabled={status === 'loading'}
-          className="py-[14px] px-7 rounded-lg border-none font-sans font-bold text-base text-white transition-[background] duration-150" style={{ background: status === 'loading' ? '#999999' : '#635BFF', cursor: status === 'loading' ? 'not-allowed' : 'pointer' }}>
-          {status === 'loading' ? 'Joining...' : 'Stop Stripe Churn for Free →'}
-        </button>
-      </form>
-      {error && <p className="font-sans text-[0.8rem] text-[#DC2626] mt-2 mb-0">⚠ {error}</p>}
-      <div className="flex gap-4 mt-3 flex-wrap">
-        <span className="font-sans text-[0.78rem]" style={{ color: subtextColor }}>🆓 Free during beta</span>
-        <span className="font-sans text-[0.78rem]" style={{ color: subtextColor }}>🔒 No credit card required</span>
-        {count && <span className="font-sans text-[0.78rem]" style={{ color: subtextColor }}><span className="text-[#2D7A4F]">●</span> {count.toLocaleString()} on waitlist</span>}
-      </div>
-    </div>
-  )
-}
+import SignUpCTA from '../../components/SignUpCTA'
 
 function PainCard({ icon, title, stat, statLabel, description }) {
   return (
@@ -182,7 +109,7 @@ export default function StripeLandingPage() {
             </p>
 
             <div className="max-w-[500px] mx-auto mb-7">
-              <StripeWaitlistForm dark={true} />
+              <SignUpCTA source="for-stripe" dark={true} />
             </div>
 
             <div className="flex gap-6 justify-center flex-wrap">
@@ -397,11 +324,11 @@ export default function StripeLandingPage() {
               <span className="text-[#8B85FF]">Are You Ready to Save Them?</span>
             </h2>
             <p className="font-serif text-base text-[rgba(255,255,255,0.65)] m-0 mb-9 leading-[1.7]">
-              Join the waitlist. Be first to add a cancel flow to your Stripe subscriptions — for free. 10-minute setup, no code, no developer.
+              Sign up for free. Add a cancel flow to your Stripe subscriptions — for free. 10-minute setup, no code, no developer.
             </p>
 
             <div className="max-w-[500px] mx-auto mb-7">
-              <StripeWaitlistForm dark={true} />
+              <SignUpCTA source="for-stripe" dark={true} />
             </div>
 
             <div className="flex gap-6 justify-center flex-wrap mb-8">

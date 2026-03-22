@@ -17,7 +17,7 @@ const quotes = [
 ]
 
 const stats = [
-  { label: 'Waitlist Members', value: '[PLACEHOLDER]', note: 'and growing' },
+  { label: 'Active Users', value: '[PLACEHOLDER]', note: 'and growing' },
   { label: 'Supported Platforms', value: '10+', note: 'Stripe-connected tools' },
   { label: 'Avg. Save Rate', value: '~30%', note: 'of at-risk subscribers' },
   { label: 'Setup Time', value: '15 min', note: 'no code required' },
@@ -49,7 +49,7 @@ export default function PressPage() {
           </Link>
           <div className="flex gap-6 items-center">
             <Link href="/blog" className="text-[#666666] no-underline text-[0.9rem]">Blog</Link>
-            <a href="/#waitlist" className="bg-[#D97757] text-white px-[18px] py-2 rounded-[6px] no-underline text-[0.85rem] font-semibold">Join Waitlist</a>
+            <a href="/app/sign-up" className="bg-[#D97757] text-white px-[18px] py-2 rounded-[6px] no-underline text-[0.85rem] font-semibold">Get Started Free</a>
           </div>
         </nav>
 
@@ -162,7 +162,7 @@ export default function PressPage() {
             ))}
           </div>
           <p className="font-[Instrument_Sans,sans-serif] text-[0.8rem] text-[#999999] mt-4">
-            * Waitlist count is a placeholder. Contact press@churnrecovery.com for current verified figures.
+            * User count is a placeholder. Contact press@churnrecovery.com for current verified figures.
           </p>
         </section>
 

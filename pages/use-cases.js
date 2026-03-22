@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
-import WaitlistForm from '../components/WaitlistForm'
+import SignUpCTA from '../components/SignUpCTA'
 
 const useCases = [
   {
@@ -360,8 +360,8 @@ export default function UseCasesPage() {
             with the right offers, messaging, and timing for your customers.
           </p>
           <div className="flex gap-3 justify-center flex-wrap">
-            <Link href="/#waitlist" className="bg-brand-accent text-brand-white py-3 px-7 rounded-lg no-underline font-sans font-semibold text-[0.95rem]">
-              Join Waitlist
+            <Link href="/app/sign-up" className="bg-brand-accent text-brand-white py-3 px-7 rounded-lg no-underline font-sans font-semibold text-[0.95rem]">
+              Get Started Free
             </Link>
             <Link href="/demo" className="bg-brand-white text-brand-text py-3 px-7 rounded-lg no-underline font-sans font-semibold text-[0.95rem] border border-brand-border">
               See how it works
@@ -477,7 +477,7 @@ export default function UseCasesPage() {
               Whether you're a B2B SaaS company or a solo newsletter creator,
               ChurnRecovery is free to use. No plans. No usage limits. No catch.
             </p>
-            <WaitlistForm source="use-cases" />
+            <SignUpCTA source="use-cases" />
           </div>
         </section>
 

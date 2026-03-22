@@ -1,156 +1,9 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
-
-// ─── Waitlist Form (beehiiv-specific) ──────────────────────────────────────
-function BeehiivWaitlistForm({ dark = false }) {
-  const [email, setEmail] = useState('')
-  const [newsletterName, setNewsletterName] = useState('')
-  const [status, setStatus] = useState('idle')
-  const [count, setCount] = useState(null)
-  const [error, setError] = useState('')
-
-  useEffect(() => {
-    fetch('/api/waitlist/count')
-      .then(r => r.json())
-      .then(d => { if (d.count > 0) setCount(d.count) })
-      .catch(() => {})
-  }, [])
-
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    if (!email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.trim())) {
-      setError('Please enter a valid email address')
-      return
-    }
-    setStatus('loading')
-    setError('')
-    try {
-      const res = await fetch('/api/waitlist', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          email: email.trim(),
-          source: 'beehiiv-lp',
-          tag: 'beehiiv-creator',
-          newsletterName: newsletterName.trim(),
-        }),
-      })
-      const data = await res.json()
-      if (res.status === 201) {
-        setStatus('success')
-        if (data.count) setCount(data.count)
-      } else if (data.duplicate) {
-        setStatus('duplicate')
-      } else {
-        setStatus('error')
-        setError(data.error || 'Something went wrong. Please try again.')
-      }
-    } catch {
-      setStatus('error')
-      setError('Network error. Please check your connection.')
-    }
-  }
-
-  const bgColor = dark ? 'rgba(255,255,255,0.08)' : '#FFFFFF'
-  const borderColor = dark ? 'rgba(255,255,255,0.15)' : '#E5E5E5'
-  const textColor = dark ? '#FFFFFF' : '#191919'
-  const subtextColor = dark ? 'rgba(255,255,255,0.6)' : '#666666'
-
-  if (status === 'success' || status === 'duplicate') {
-    return (
-      <div className="text-center p-6 rounded-xl" style={{
-        background: dark ? 'rgba(45,122,79,0.15)' : '#EDF7F1',
-        border: `1px solid ${dark ? 'rgba(45,122,79,0.3)' : '#C6E6D4'}`,
-      }}>
-        <div className="text-[2rem] mb-2">
-          {status === 'duplicate' ? '👋' : '🎉'}
-        </div>
-        <p className="font-sans font-bold text-base mb-1.5" style={{ color: dark ? '#FFFFFF' : '#191919' }}>
-          {status === 'duplicate' ? "You're already on the list!" : "You're in! We'll be in touch soon."}
-        </p>
-        <p className="font-serif text-[0.85rem] m-0" style={{ color: subtextColor }}>
-          {status === 'duplicate'
-            ? "We've got your email — we'll reach out when we launch."
-            : "Free beta access for Beehiiv creators. We'll email you when we're ready."}
-        </p>
-        {count && (
-          <p className="font-sans text-xs mt-2.5" style={{ color: subtextColor }}>
-            Join {count.toLocaleString()} newsletter creators on the waitlist
-          </p>
-        )}
-      </div>
-    )
-  }
-
-  return (
-    <div>
-      <form onSubmit={handleSubmit} className="flex flex-col gap-2.5">
-        <input
-          type="email"
-          value={email}
-          onChange={e => setEmail(e.target.value)}
-          placeholder="your@email.com"
-          required
-          autoComplete="email"
-          aria-label="Email address"
-          className="py-[13px] px-4 rounded-lg font-sans text-[0.95rem] outline-none"
-          style={{
-            border: `1px solid ${error ? '#DC2626' : borderColor}`,
-            background: bgColor,
-            color: textColor,
-          }}
-        />
-        <input
-          type="text"
-          value={newsletterName}
-          onChange={e => setNewsletterName(e.target.value)}
-          placeholder="Your newsletter name (optional)"
-          aria-label="Newsletter name"
-          className="py-[13px] px-4 rounded-lg font-sans text-[0.95rem] outline-none"
-          style={{
-            border: `1px solid ${borderColor}`,
-            background: bgColor,
-            color: textColor,
-          }}
-        />
-        <button
-          type="submit"
-          disabled={status === 'loading'}
-          className="py-3.5 px-7 rounded-lg border-none text-white font-sans font-bold text-base transition-[background] duration-150"
-          style={{
-            background: status === 'loading' ? '#999999' : '#D97757',
-            cursor: status === 'loading' ? 'not-allowed' : 'pointer',
-          }}
-        >
-          {status === 'loading' ? 'Joining...' : 'Protect My Beehiiv Revenue →'}
-        </button>
-        <input type="hidden" name="source" value="beehiiv-lp" />
-        <input type="hidden" name="tag" value="beehiiv-creator" />
-      </form>
-      {error && (
-        <p className="font-sans text-[0.8rem] text-[#DC2626] mt-2">
-          ⚠ {error}
-        </p>
-      )}
-      <div className="flex gap-4 mt-3 flex-wrap">
-        <span className="font-sans text-[0.78rem]" style={{ color: subtextColor }}>
-          🆓 Free during beta
-        </span>
-        <span className="font-sans text-[0.78rem]" style={{ color: subtextColor }}>
-          🔒 No credit card required
-        </span>
-        {count && (
-          <span className="font-sans text-[0.78rem]" style={{ color: subtextColor }}>
-            <span className="text-[#2D7A4F]">●</span> {count.toLocaleString()} on waitlist
-          </span>
-        )}
-      </div>
-    </div>
-  )
-}
+import SignUpCTA from '../../components/SignUpCTA'
 
 function PainCard({ icon, title, stat, statLabel, description }) {
   return (
@@ -281,7 +134,7 @@ export default function BeehiivLandingPage() {
             </p>
 
             <div className="max-w-[480px] mx-auto mb-6">
-              <BeehiivWaitlistForm dark={true} />
+              <SignUpCTA source="for-beehiiv" dark={true} />
             </div>
 
             <div className="flex gap-5 justify-center flex-wrap">
@@ -529,12 +382,12 @@ export default function BeehiivLandingPage() {
               <br /><span className="text-[#FFE066]">Are You Going to Catch Them?</span>
             </h2>
             <p className="font-serif text-base text-[rgba(255,255,255,0.7)] mb-9 leading-[1.7]">
-              Join the waitlist. Be first to stop Beehiiv cancellations automatically.
-              Free beta access for newsletter creators who sign up today.
+              Sign up for free. Start stopping Beehiiv cancellations automatically.
+              Free for newsletter creators .
             </p>
 
             <div className="max-w-[480px] mx-auto">
-              <BeehiivWaitlistForm dark={true} />
+              <SignUpCTA source="for-beehiiv" dark={true} />
             </div>
 
             <div className="flex gap-6 justify-center mt-6 flex-wrap">

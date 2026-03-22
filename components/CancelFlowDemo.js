@@ -436,12 +436,10 @@ export default function CancelFlowDemo({ compact = false }) {
             ChurnRecovery is free. Add this cancel flow to your subscription business in under a day.
           </p>
           <a
-            href="https://tally.so/r/churnrecovery"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/app/sign-up"
             className="inline-block bg-brand-accent text-brand-white py-3 px-7 rounded-[9px] font-sans font-bold text-[0.92rem] no-underline tracking-[-0.01em]"
           >
-            Add this to your site — Join waitlist →
+            Get Started Free →
           </a>
         </div>
       )}

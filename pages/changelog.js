@@ -254,7 +254,7 @@ export default function ChangelogPage() {
               for deeper dives into our decisions and technical choices.
             </p>
             <Link href="/app/sign-up" className="inline-block bg-brand-accent text-brand-white px-6 py-[10px] rounded-lg no-underline font-sans font-semibold text-[0.9rem]">
-              Join Waitlist — It's Free
+              Get Started Free →
             </Link>
           </div>
         </section>

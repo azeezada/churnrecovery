@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import dynamic from 'next/dynamic'
 import { isClerkEnabled } from '../../../lib/auth'
+import ClerkErrorBoundary from '../../../components/ClerkErrorBoundary'
 
 // Dynamic import so Clerk only loads client-side (safe for static export)
 const ClerkSignIn = dynamic(
@@ -58,13 +59,15 @@ export default function SignInPage() {
         <a href="/" className="font-[800] text-[1.4rem] text-brand-text no-underline mb-8 tracking-[-0.03em]">
           ChurnRecovery
         </a>
-        <ClerkSignIn
-          path="/app/sign-in"
-          routing="path"
-          signUpUrl="/app/sign-up"
-          afterSignInUrl="/app/dashboard"
-          appearance={{ variables: { colorPrimary: '#D97757', fontFamily: '"Instrument Sans", sans-serif' } }}
-        />
+        <ClerkErrorBoundary mode="sign-in">
+          <ClerkSignIn
+            path="/app/sign-in"
+            routing="path"
+            signUpUrl="/app/sign-up"
+            afterSignInUrl="/app/dashboard"
+            appearance={{ variables: { colorPrimary: '#D97757', fontFamily: '"Instrument Sans", sans-serif' } }}
+          />
+        </ClerkErrorBoundary>
       </div>
     </>
   )

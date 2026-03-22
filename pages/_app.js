@@ -91,6 +91,15 @@ export default function MyApp({ Component, pageProps }) {
             }),
           }}
         />
+
+        {/* Cloudflare Web Analytics - Privacy-first analytics */}
+        {process.env.NEXT_PUBLIC_CF_WEB_ANALYTICS_TOKEN && (
+          <script
+            defer
+            src='https://static.cloudflareinsights.com/beacon.min.js'
+            data-cf-beacon={`{"token": "${process.env.NEXT_PUBLIC_CF_WEB_ANALYTICS_TOKEN}"}`}
+          />
+        )}
       </Head>
       {isAppPage ? (
         <Component {...pageProps} />

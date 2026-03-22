@@ -55,7 +55,7 @@ export default function DemoPage() {
           <div className="demo-nav-links flex gap-6 items-center flex-wrap">
             <Link href="/blog" className="demo-nav-text text-brand-gray no-underline text-[0.9rem]">Blog</Link>
             <Link href="/compare/churnkey" className="demo-nav-text text-brand-gray no-underline text-[0.9rem]">Compare</Link>
-            <a href="/#waitlist" className="bg-brand-accent text-brand-white px-[18px] py-2 rounded-md no-underline text-[0.85rem] font-semibold whitespace-nowrap">Join Waitlist</a>
+            <a href="/app/sign-up" className="bg-brand-accent text-brand-white px-[18px] py-2 rounded-md no-underline text-[0.85rem] font-semibold whitespace-nowrap">Get Started Free</a>
           </div>
         </nav>
 
@@ -248,10 +248,10 @@ cancelButton.addEventListener('click', async (e) => {
             Ready to stop losing customers?
           </h2>
           <p className="font-serif text-base text-white/70 max-w-[460px] mx-auto mb-8 leading-[1.7]">
-            Join the waitlist and be first to integrate ChurnRecovery. Free forever. No credit card required.
+            Start recovering customers today. Free forever. No credit card required.
           </p>
-          <a href="https://tally.so/r/churnrecovery" className="inline-block bg-brand-accent text-brand-white px-8 py-3.5 rounded-lg font-sans font-bold text-base no-underline tracking-[-0.01em]">
-            Join the Waitlist — It's Free
+          <a href="/app/sign-up" className="inline-block bg-brand-accent text-brand-white px-8 py-3.5 rounded-lg font-sans font-bold text-base no-underline tracking-[-0.01em]">
+            Get Started Free →
           </a>
           <div className="mt-5">
             <Link href="/compare/churnkey" className="font-sans text-[0.85rem] text-white/40 no-underline">

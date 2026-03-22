@@ -122,7 +122,7 @@ function Nav() {
         <Link href="/docs" className="text-brand-gray no-underline text-[0.9rem] font-sans">Docs</Link>
         <Link href="/demo" className="text-brand-gray no-underline text-[0.9rem] font-sans">Demo</Link>
         <Link href="/blog" className="text-brand-gray no-underline text-[0.9rem] font-sans">Blog</Link>
-        <a href="/#waitlist" className="bg-brand-accent text-brand-white py-2 px-[18px] rounded-md no-underline text-[0.85rem] font-semibold font-sans">Join Waitlist</a>
+        <a href="/app/sign-up" className="bg-brand-accent text-brand-white py-2 px-[18px] rounded-md no-underline text-[0.85rem] font-semibold font-sans">Get Started Free</a>
       </div>
     </nav>
   )
@@ -240,8 +240,8 @@ export default function FeaturesPage() {
               ChurnRecovery is free. The only difference is our business model — we believe churn recovery tools should be accessible to every SaaS company, not just the ones that can afford $10k/year in software.
             </p>
             <div className="flex gap-4 justify-center flex-wrap">
-              <a href="/#waitlist" className="inline-block bg-brand-accent text-brand-white px-8 py-3.5 rounded-lg font-sans font-bold text-base no-underline tracking-[-0.01em]">
-                Join Waitlist — Free
+              <a href="/app/sign-up" className="inline-block bg-brand-accent text-brand-white px-8 py-3.5 rounded-lg font-sans font-bold text-base no-underline tracking-[-0.01em]">
+                Get Started Free →
               </a>
               <Link href="/compare/churnkey" className="inline-block bg-transparent text-white/70 px-8 py-3.5 rounded-lg font-sans font-semibold text-base no-underline border border-white/20">
                 See Full Comparison →
@@ -283,11 +283,11 @@ export default function FeaturesPage() {
             Ready to start recovering customers?
           </h2>
           <p className="font-serif text-base text-brand-gray mb-7 leading-[1.7]">
-            Join the waitlist and be among the first to go live. Free forever.
+            Start recovering customers today — completely free, forever.
           </p>
           <div className="flex gap-3 justify-center flex-wrap">
-            <a href="/#waitlist" className="bg-brand-accent text-brand-white px-7 py-[13px] rounded-lg font-sans font-bold text-[0.95rem] no-underline">
-              Join Waitlist
+            <a href="/app/sign-up" className="bg-brand-accent text-brand-white px-7 py-[13px] rounded-lg font-sans font-bold text-[0.95rem] no-underline">
+              Get Started Free
             </a>
             <Link href="/demo" className="bg-brand-bg text-brand-text px-7 py-[13px] rounded-lg font-sans font-semibold text-[0.95rem] no-underline border border-brand-border">
               Try the Demo →

@@ -230,7 +230,7 @@ export default function AboutPage() {
               Builders. Founders. Former churners.
             </div>
             <p className="text-[14px] text-[#444444] leading-[1.65] font-[Merriweather,serif] m-0">
-              We're currently in early access. Follow our journey and join the waitlist to be part of the founding user community.
+              Start recovering churned customers today — completely free. Join the founding user community and help shape the product.
             </p>
           </div>
         </div>
@@ -266,11 +266,11 @@ export default function AboutPage() {
             Join us in fixing churn
           </h2>
           <p className="text-[16px] text-[rgba(255,255,255,0.85)] mb-[32px] max-w-[480px] mx-auto font-[Merriweather,serif] leading-[1.7]">
-            Join the waitlist for ChurnRecovery. Help us shape the product. Keep your feedback loop short with the people building it.
+            Start recovering customers today. Help us shape the product. Keep your feedback loop short with the people building it.
           </p>
           <div className="flex gap-[12px] justify-center flex-wrap">
-            <Link href="/#waitlist" className="bg-[#FFFFFF] text-[#D97757] px-[32px] py-[14px] rounded-[8px] font-bold no-underline text-[16px]">
-              Join Waitlist →
+            <Link href="/app/sign-up" className="bg-[#FFFFFF] text-[#D97757] px-[32px] py-[14px] rounded-[8px] font-bold no-underline text-[16px]">
+              Get Started Free →
             </Link>
             <Link href="/demo" className="bg-[rgba(255,255,255,0.15)] text-[#FFFFFF] px-[32px] py-[14px] rounded-[8px] font-semibold no-underline text-[16px] border border-[rgba(255,255,255,0.3)]">
               See it in action

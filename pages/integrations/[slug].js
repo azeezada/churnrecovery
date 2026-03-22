@@ -186,8 +186,8 @@ export default function IntegrationPage({ integration }) {
                 <div className="text-[2rem] mb-3">🚀</div>
                 <h3 className="font-sans text-base font-bold text-brand-white mt-0 mb-2">Ready to get started?</h3>
                 <p className="font-serif text-[0.88rem] text-white/70 mt-0 mb-4 leading-[1.6]">Free forever. No credit card. Set up in {integration.setupTime}.</p>
-                <Link href="/#waitlist" className="block bg-brand-accent text-brand-white font-sans font-bold text-[0.9rem] py-3 px-5 rounded-lg no-underline text-center">
-                  Join Waitlist →
+                <Link href="/app/sign-up" className="block bg-brand-accent text-brand-white font-sans font-bold text-[0.9rem] py-3 px-5 rounded-lg no-underline text-center">
+                  Get Started Free →
                 </Link>
               </div>
 
@@ -221,8 +221,8 @@ export default function IntegrationPage({ integration }) {
               Most SaaS companies recover 20–30% of would-be churners with cancel flows.
               ChurnRecovery makes this free for {integration.name} users.
             </p>
-            <Link href="/#waitlist" className="inline-block bg-brand-accent text-brand-white font-sans font-bold text-base py-[14px] px-8 rounded-lg no-underline">
-              Join Waitlist — It's Free
+            <Link href="/app/sign-up" className="inline-block bg-brand-accent text-brand-white font-sans font-bold text-base py-[14px] px-8 rounded-lg no-underline">
+              Get Started Free →
             </Link>
           </div>
         </div>

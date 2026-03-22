@@ -27,7 +27,7 @@ function Nav() {
         <Link href="/docs" className="text-[#666] no-underline text-[0.9rem] font-sans">Docs</Link>
         <Link href="/templates" className="text-[#D97757] no-underline text-[0.9rem] font-sans font-semibold">Templates</Link>
         <Link href="/blog" className="text-[#666] no-underline text-[0.9rem] font-sans">Blog</Link>
-        <a href="/#waitlist" className="bg-[#D97757] text-white px-[18px] py-2 rounded-[6px] no-underline text-[0.85rem] font-semibold font-sans">Join Waitlist</a>
+        <a href="/app/sign-up" className="bg-[#D97757] text-white px-[18px] py-2 rounded-[6px] no-underline text-[0.85rem] font-semibold font-sans">Get Started Free</a>
       </div>
     </nav>
   )
@@ -315,11 +315,11 @@ export default function TemplatePage({ template }) {
             Use this template — free
           </h2>
           <p className="font-serif text-[0.95rem] text-white/65 mb-6 leading-[1.7]">
-            Copy the code above, join the waitlist for your API key, and start saving customers today.
+            Copy the code above and start saving customers today — completely free.
           </p>
           <div className="flex gap-3 justify-center flex-wrap">
-            <a href="/#waitlist" className="inline-block bg-[#D97757] text-white py-[13px] px-7 rounded-lg font-sans font-bold text-[0.95rem] no-underline">
-              Join Waitlist
+            <a href="/app/sign-up" className="inline-block bg-[#D97757] text-white py-[13px] px-7 rounded-lg font-sans font-bold text-[0.95rem] no-underline">
+              Get Started Free →
             </a>
             <Link href="/docs" className="inline-block bg-transparent text-white/70 py-[13px] px-7 rounded-lg font-sans font-semibold text-[0.95rem] no-underline border border-white/20">
               Read the Docs →

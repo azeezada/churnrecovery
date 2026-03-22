@@ -123,7 +123,7 @@ export default function ComparePage({ competitor }) {
           </Link>
           <div className="compare-nav-links flex gap-6 items-center flex-wrap">
             <Link href="/blog" className="compare-nav-text text-[#666666] no-underline text-[0.9rem]">Blog</Link>
-            <a href="/#waitlist" className="bg-[#D97757] text-white px-[18px] py-2 rounded-[6px] no-underline text-[0.85rem] font-semibold whitespace-nowrap">Join Waitlist</a>
+            <a href="/app/sign-up" className="bg-[#D97757] text-white px-[18px] py-2 rounded-[6px] no-underline text-[0.85rem] font-semibold whitespace-nowrap">Get Started Free</a>
           </div>
         </nav>
         <style>{`
@@ -343,15 +343,15 @@ export default function ComparePage({ competitor }) {
         </section>
 
         {/* CTA */}
-        <section id="waitlist" className="bg-[#191919] px-6 py-20 text-center">
+        <section className="bg-[#191919] px-6 py-20 text-center">
           <h2 className="font-[Instrument_Sans,sans-serif] font-bold text-white tracking-[-0.03em] m-0 mb-4 text-[clamp(1.5rem,4vw,2.2rem)]">
             Stop paying for churn recovery.
           </h2>
           <p className="font-[Merriweather,serif] text-base text-[rgba(255,255,255,0.7)] m-0 mb-8 max-w-[460px] mx-auto leading-[1.7]">
-            ChurnRecovery gives you everything {competitor.name} charges for — at zero cost. Join the waitlist for early access.
+            ChurnRecovery gives you everything {competitor.name} charges for — at zero cost. Start for free today.
           </p>
-          <a href="https://tally.so/r/churnrecovery" className="inline-block bg-[#D97757] text-white px-8 py-[14px] rounded-lg font-[Instrument_Sans,sans-serif] font-bold text-base no-underline tracking-[-0.01em]">
-            Join the Waitlist — It's Free
+          <a href="/app/sign-up" className="inline-block bg-[#D97757] text-white px-8 py-[14px] rounded-lg font-[Instrument_Sans,sans-serif] font-bold text-base no-underline tracking-[-0.01em]">
+            Get Started Free →
           </a>
         </section>
       </div>

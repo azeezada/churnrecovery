@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
-import WaitlistForm from '../../components/WaitlistForm'
+import SignUpCTA from '../../components/SignUpCTA'
 
 const chapters = [
   {
@@ -238,9 +238,9 @@ export default function ChurnRecoveryPlaybook() {
                 {/* Email form */}
                 <div className="bg-brand-white rounded-xl p-[22px] shadow-[0_4px_24px_rgba(0,0,0,0.12)]">
                   <p className="font-sans text-[0.82rem] font-semibold text-brand-text mb-3 text-center">
-                    Enter your email to get instant access ↓
+                    Get instant access — free ↓
                   </p>
-                  <WaitlistForm source="playbook-download" />
+                  <SignUpCTA source="playbook-download" compact />
                 </div>
               </div>
 
@@ -338,7 +338,7 @@ export default function ChurnRecoveryPlaybook() {
               Download the free playbook and start reducing churn this week. No fluff, no upsells — just the tactics that work.
             </p>
             <div className="bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] rounded-xl p-6">
-              <WaitlistForm source="playbook-download" dark={true} />
+              <SignUpCTA source="playbook-download" dark={true} />
             </div>
             <p className="font-sans text-[0.72rem] text-[rgba(255,255,255,0.35)] mt-[14px]">
               500+ membership site owners have already downloaded this guide.

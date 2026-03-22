@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
-import WaitlistForm from '../../components/WaitlistForm'
+import Link from 'next/link'
 
 // Map known referral codes to display names
 const CODE_NAMES = {
@@ -43,7 +43,7 @@ export default function ReferralPage() {
     <>
       <Head>
         <title>You've been invited to ChurnRecovery</title>
-        <meta name="description" content="Join the ChurnRecovery waitlist and get Founding Member perks when we launch." />
+        <meta name="description" content="Sign up for ChurnRecovery free and get Founding Member perks as an early user." />
         <meta name="robots" content="noindex" />
       </Head>
 
@@ -67,9 +67,9 @@ export default function ReferralPage() {
           </h1>
 
           <p className="font-serif text-base text-brand-gray leading-[1.7] mb-8">
-            {inviterText} Join the waitlist and we'll give you{' '}
+            {inviterText} Sign up free and get{' '}
             <strong className="text-brand-accent">Founding Member perks</strong>{' '}
-            when we launch.
+            as an early user.
           </p>
 
           {/* Referral code badge */}
@@ -80,9 +80,14 @@ export default function ReferralPage() {
             </div>
           )}
 
-          {/* Waitlist form */}
+          {/* Sign up CTA */}
           <div className="text-left">
-            <WaitlistForm source="referral" referralCode={code} />
+            <Link
+              href={code ? `/app/sign-up?ref=${code}` : '/app/sign-up'}
+              className="inline-block bg-brand-accent text-brand-white px-7 py-3.5 rounded-lg font-sans font-bold text-[0.95rem] no-underline"
+            >
+              Get Started Free →
+            </Link>
           </div>
 
           {/* Perks list */}

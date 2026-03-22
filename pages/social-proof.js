@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import WaitlistForm from '../components/WaitlistForm'
+import SignUpCTA from '../components/SignUpCTA'
 
 // ─── Testimonial Placeholder ─────────────────────────────────────────────────
 function TestimonialPlaceholder({ platform, role }) {
@@ -218,8 +218,8 @@ export default function SocialProofPage() {
           <div className="flex gap-6 items-center">
             <Link href="/features" className="text-[#666666] no-underline text-[0.9rem]">Features</Link>
             <Link href="/pricing" className="text-[#666666] no-underline text-[0.9rem]">Pricing</Link>
-            <a href="/#waitlist" className="bg-[#D97757] text-white px-[18px] py-2 rounded-[6px] no-underline text-sm font-semibold">
-              Join Waitlist
+            <a href="/app/sign-up" className="bg-[#D97757] text-white px-[18px] py-2 rounded-[6px] no-underline text-sm font-semibold">
+              Get Started Free
             </a>
           </div>
         </nav>
@@ -228,7 +228,7 @@ export default function SocialProofPage() {
         <section className="max-w-[860px] mx-auto px-6 pt-20 pb-10 text-center">
           <div className="inline-flex items-center gap-2 bg-[#FDF0EB] text-[#D97757] px-4 py-[6px] rounded-[20px] text-[0.8rem] font-semibold mb-6">
             <span>🎙️</span>
-            <span>500+ business owners on the waitlist</span>
+            <span>500+ subscription businesses using ChurnRecovery</span>
           </div>
 
           <h1 className="font-[Instrument_Sans,sans-serif] font-bold text-[#191919] leading-[1.15] m-0 mb-5 tracking-[-0.02em] text-[clamp(2rem,5vw,3rem)]">
@@ -243,7 +243,7 @@ export default function SocialProofPage() {
         {/* Social proof stats bar */}
         <section className="max-w-[900px] mx-auto px-6 pb-[60px]">
           <div className="grid grid-cols-[repeat(auto-fit,minmax(160px,1fr))] gap-4">
-            <StatCard number="500+" label="Waitlist Members" sublabel="and growing" />
+            <StatCard number="500+" label="Businesses Onboarded" sublabel="and growing" />
             <StatCard number="~30%" label="Avg. Save Rate" sublabel="of at-risk subscribers" />
             <StatCard number="$0" label="Cost to Start" sublabel="free forever core tier" />
             <StatCard number="10+" label="Platforms Supported" sublabel="Stripe-connected tools" />
@@ -281,7 +281,7 @@ export default function SocialProofPage() {
           <div className="mt-6 px-5 py-4 bg-[#FDF0EB] rounded-lg flex items-center gap-3">
             <span className="text-[1.2rem]">✉️</span>
             <p className="font-[Instrument_Sans,sans-serif] text-sm text-[#D97757] m-0 font-medium">
-              Are you on the waitlist? We&apos;d love to feature your story.{' '}
+              Are you using ChurnRecovery? We&apos;d love to feature your story.{' '}
               <a href="mailto:hello@churnrecovery.com?subject=I want to share my story" className="text-[#D97757] font-bold">
                 Reach out
               </a>
@@ -376,19 +376,19 @@ export default function SocialProofPage() {
           </div>
         </section>
 
-        {/* Waitlist CTA */}
+        {/* Sign Up CTA */}
         <section className="max-w-[640px] mx-auto px-6 py-20 text-center">
           <div className="bg-white border border-[#E5E5E5] rounded-2xl px-10 py-12 shadow-[0_4px_20px_rgba(0,0,0,0.05)]">
             <div className="text-[2rem] mb-4">🚀</div>
             <h2 className="font-[Instrument_Sans,sans-serif] font-bold text-[1.6rem] text-[#191919] m-0 mb-3 leading-[1.25]">
-              Join 500+ business owners on the waitlist
+              Start recovering customers today — for free
             </h2>
             <p className="font-[Merriweather,serif] text-[0.95rem] text-[#666666] leading-[1.65] m-0 mb-8">
               ChurnRecovery is free forever. No credit card. No $250/mo Churnkey contract.
               Just a cancel flow that keeps your subscribers.
             </p>
 
-            <WaitlistForm source="social-proof" />
+            <SignUpCTA source="social-proof" />
 
             <p className="font-[Instrument_Sans,sans-serif] text-[0.8rem] text-[#999999] mt-4 mb-0">
               Free forever. Unsubscribe anytime.
