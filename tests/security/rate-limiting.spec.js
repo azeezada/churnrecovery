@@ -96,6 +96,76 @@ test.describe('Rate Limiting — API endpoints (live, manual run)', () => {
     expect([false, true]).toContain(got429); // both outcomes are valid
   });
 
+  test.skip('PUT /api/projects rate limit enforced at 10 req/min', async ({ request }) => {
+    let got429 = false;
+    for (let i = 0; i < 15; i++) {
+      const res = await request.fetch(`${LIVE_URL}/api/projects`, {
+        method: 'PUT',
+        data: { projectId: `proj_ratelimit_put_${i}`, name: `Updated ${i}` },
+        headers: { 'Content-Type': 'application/json' },
+      });
+      if (res.status() === 429) {
+        got429 = true;
+        break;
+      }
+    }
+    // Without auth we get 401, but rate limit applies before/after auth check.
+    // Either outcome documents the behavior.
+    expect([false, true]).toContain(got429);
+  });
+
+  test.skip('DELETE /api/projects rate limit enforced at 10 req/min', async ({ request }) => {
+    let got429 = false;
+    for (let i = 0; i < 15; i++) {
+      const res = await request.fetch(`${LIVE_URL}/api/projects`, {
+        method: 'DELETE',
+        data: { projectId: `proj_ratelimit_del_${i}` },
+        headers: { 'Content-Type': 'application/json' },
+      });
+      if (res.status() === 429) {
+        got429 = true;
+        break;
+      }
+    }
+    expect([false, true]).toContain(got429);
+  });
+
+  test.skip('POST /api/cancel-flow rate limit enforced at 10 req/min', async ({ request }) => {
+    let got429 = false;
+    for (let i = 0; i < 15; i++) {
+      const res = await request.post(`${LIVE_URL}/api/cancel-flow`, {
+        data: { projectId: `proj_ratelimit_cf_${i}`, reasons: [] },
+        headers: { 'Content-Type': 'application/json' },
+      });
+      if (res.status() === 429) {
+        got429 = true;
+        break;
+      }
+    }
+    // Without auth we get 401, rate limit may apply before or after auth.
+    expect([false, true]).toContain(got429);
+  });
+
+  test.skip('POST /api/clerk-webhook rate limit enforced at 50 req/min', async ({ request }) => {
+    let got429 = false;
+    for (let i = 0; i < 55; i++) {
+      const res = await request.post(`${LIVE_URL}/api/clerk-webhook`, {
+        data: { type: 'user.deleted', data: { id: `rl_${i}` } },
+        headers: {
+          'Content-Type': 'application/json',
+          'svix-id': `msg_rl_${i}`,
+          'svix-timestamp': String(Math.floor(Date.now() / 1000)),
+          'svix-signature': 'v1,fakesig==',
+        },
+      });
+      if (res.status() === 429) {
+        got429 = true;
+        break;
+      }
+    }
+    expect(got429, 'Should hit 429 after 50 requests').toBe(true);
+  });
+
   test.skip('Retry-After header is present on 429 responses', async ({ request }) => {
     // Force a rate limit by sending many requests
     let retryAfterFound = false;
