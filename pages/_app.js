@@ -41,9 +41,9 @@ export default function MyApp({ Component, pageProps }) {
     signInUrl: '/app/sign-in',
     signUpUrl: '/app/sign-up',
     afterSignInUrl: '/app/dashboard',
-    afterSignUpUrl: '/app/dashboard',
+    afterSignUpUrl: '/app/onboarding',
     signInForceRedirectUrl: '/app/dashboard',
-    signUpForceRedirectUrl: '/app/dashboard',
+    signUpForceRedirectUrl: '/app/onboarding',
   } : {}
 
   return (

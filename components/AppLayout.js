@@ -1,6 +1,8 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import { useEffect } from 'react'
 import { isClerkEnabled } from '../lib/auth'
+import { useAuthUser } from '../lib/useAuthUser'
 
 const navItems = [
   { href: '/app/dashboard', label: 'Dashboard', icon: '📊' },
@@ -33,6 +35,23 @@ function UserArea() {
 
 export default function AppLayout({ children, title }) {
   const router = useRouter()
+  const { user, isLoaded } = useAuthUser()
+
+  // Client-side auth guard: redirect unauthenticated users to sign-in
+  useEffect(() => {
+    if (isClerkEnabled() && isLoaded && !user) {
+      router.replace('/app/sign-in')
+    }
+  }, [isLoaded, user, router])
+
+  // Show nothing while auth state is loading (prevents flash of protected content)
+  if (isClerkEnabled() && !isLoaded) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-brand-bg">
+        <div className="text-brand-gray text-sm font-sans">Loading...</div>
+      </div>
+    )
+  }
 
   return (
     <div className="flex min-h-screen bg-[#F5F4F0] font-sans">

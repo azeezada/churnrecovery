@@ -37,7 +37,7 @@ function DemoSignIn() {
           Authentication Not Configured
         </h1>
         <p className="text-[0.88rem] text-brand-gray leading-[1.6] m-0 mb-6">
-          To enable sign-in, add your Clerk publishable key to <code className="bg-[#f5f5f5] px-1.5 py-[2px] rounded">. env.local</code>.
+          To enable sign-in, add your Clerk publishable key to <code className="bg-[#f5f5f5] px-1.5 py-[2px] rounded">.env.local</code>.
         </p>
         <a href="https://clerk.com" target="_blank" rel="noopener noreferrer" className="inline-block bg-brand-accent text-white px-5 py-[10px] rounded-lg no-underline text-[0.88rem] font-semibold mb-4">
           Get Clerk Keys (Free)

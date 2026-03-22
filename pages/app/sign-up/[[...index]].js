@@ -16,7 +16,7 @@ const ClerkSignUp = dynamic(
         signInUrl="/app/sign-in"
         signUpUrl="/app/sign-up"
         afterSignInUrl="/app/dashboard"
-        afterSignUpUrl="/app/dashboard"
+        afterSignUpUrl="/app/onboarding"
       >
         <SignUp {...props} />
       </ClerkProvider>
@@ -81,7 +81,7 @@ export default function SignUpPage() {
             path="/app/sign-up"
             routing="path"
             signInUrl="/app/sign-in"
-            afterSignUpUrl="/app/dashboard"
+            afterSignUpUrl="/app/onboarding"
             unsafeMetadata={typeof window !== 'undefined' ? getUTMForClerk() : {}}
             appearance={{ variables: { colorPrimary: '#D97757', fontFamily: '"Instrument Sans", sans-serif' } }}
           />
