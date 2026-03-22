@@ -5,9 +5,13 @@ Low-code/no-code business owners: newsletter creators, coaches, online course se
 
 ## Priority Tiers
 
-### P0 — Do Now (blocks user acquisition)
+### P0 — Do Now (blocks real users)
+- [x] **✅ Remove all waitlist language → "Get Started Free"** — 44+ pages updated, all CTAs point to /app/sign-up. SignUpCTA component created. Dead WaitlistForm code removed (~2,400 lines). Committed 2026-03-22.
+- [ ] **🤖🔥 Wire dashboard pages to D1 API** — `cancel-flow.js`, `settings.js`, `onboarding.js` still use localStorage only. Must use `apiFetch()` like `dashboard.js` and `analytics.js` already do. Without this, cancel flow configs are lost if user switches browser/device. **CRITICAL for real users.**
+- [ ] **🔑 Switch Clerk to production keys** — Currently using `pk_test_*`. Need `pk_live_*` from Clerk Dashboard → Production. Update `.env.local` + CF Pages env vars + redeploy. **DAWOOD ACTION: Create Clerk production instance.**
+- [ ] **🔐 Add JWT signature verification** — `getUserId()` in `functions/api/_shared.js` decodes JWT without verifying signature. Anyone can forge auth. Must verify against Clerk JWKS endpoint.
 - [ ] **🤖🔥 Add Cloudflare Web Analytics snippet** — Just add `<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token":"SITE_TOKEN"}'></script>` to `pages/_app.js` or `pages/_document.js`. Get the beacon token from CF dashboard → Web Analytics → Add site. **This has been P0 for 2+ days and is STILL not done. Any agent touching this project should do this FIRST before anything else.** Without analytics we are flying blind.
-- [ ] **🤖🔥 Add UTM parameter capture to waitlist form** — When someone hits `/for/substack?utm_source=reddit`, parse `window.location.search` and store utm_source/utm_medium/utm_campaign in the waitlist signup payload to D1. Without this we can't tell which marketing channel works. **Also 2+ days old and undone.**
+- [ ] **🤖🔥 Add UTM parameter capture** — When someone hits `/for/substack?utm_source=reddit`, capture UTM params and pass them to Clerk sign-up metadata or store in D1 project record. Without this we can't tell which marketing channel works.
 - [ ] **🚨 Execute manual marketing submissions (DAWOOD ACTION)** — IH post (docs/indie-hackers-post-final.md), BetaList (marketing/betalist-submission.md), Reddit posts (docs/reddit-execution-playbook.md) are ALL written and ready. Dawood needs to paste and publish. **This has been the #1 blocker for 3+ days.** MANUAL ACTION REQUIRED. Nothing else matters if nobody sees the site.
 - [ ] **Product Hunt launch prep (April 7 target)** — Pre-launch checklist at docs/product-hunt-prelaunch-checklist.md. Per docs/launch-timing-analysis.md, Tuesday April 7 is the better launch day. Prep window: March 25–April 6. Key tasks: gather 5+ upvoter commitments, prep launch day assets, finalize tagline + first comment. ⏰ Prep starts in 3 days.
 - [ ] **🤖 Google Search Console sitemap submission** — Sitemap has 118 URLs but needs to be submitted to GSC and monitored. Pages won't rank until indexed. Moved from P1 because SEO is the primary long-term channel and indexing takes weeks — every day of delay costs.
