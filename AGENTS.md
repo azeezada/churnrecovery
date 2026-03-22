@@ -44,14 +44,14 @@ git push origin main
 - You synthesize results and do the final deploy + verify
 
 ## Known Issues
-- **Test runner hangs**: `npm test` starts `serve` in background via `pretest` but never kills it. Tests may hang indefinitely. Workaround: run `npx serve out -p 3050 -L &` manually, run `npx playwright test`, then kill serve. Or add a timeout. UPDATE: pretest script removed, Playwright webServer config handles lifecycle now. 105 tests run in ~12s.
+- **Test runner hangs**: `npm test` starts `serve` in background via `pretest` but never kills it. Tests may hang indefinitely. Workaround: run `npx serve out -p 3050 -L &` manually, run `npx playwright test`, then kill serve. Or add a timeout. UPDATE: pretest script removed, Playwright webServer config handles lifecycle now. 142 tests run in ~16s.
 - **1,770 inline styles**: Migration to shadcn/ui + Tailwind is planned but not done yet. Use design tokens from `lib/design-tokens.js` for now.
 - **Stale `.next` cache**: If build fails with ENOENT rename errors, run `rm -rf .next` and rebuild. This happens when pages are added/moved between builds.
-- **2 flaky Clerk tests**: `auth.spec.js` Clerk preload link tests are known-flaky (103/105 pass). Not a blocker.
+- **Clerk tests**: Previously 2 flaky Clerk preload link tests. Suite now at 142/142 passing. If Clerk tests flake again, not a blocker.
 - **Concurrent WORKQUEUE edits**: Multiple agents editing WORKQUEUE.md simultaneously causes edit failures. Agents should retry once on edit failure, or use append-only updates.
 
 ## Current Phase: DISTRIBUTION (not building)
-As of 2026-03-21, we have 100+ pages, 20+ blog posts, 15+ landing pages, 141 tests, full Tailwind migration, and zero users. **STOP BUILDING NEW PAGES. START DISTRIBUTING.** Any new code work should be: analytics, conversion tracking, email automation, or fixing bugs. No more /for/ pages. No more blog posts. The content library is massive — now it needs eyeballs.
+As of 2026-03-21, we have 100+ pages, 20+ blog posts, 15+ landing pages, 142 tests (all passing), full Tailwind migration, and zero users. **STOP BUILDING NEW PAGES. START DISTRIBUTING.** Any new code work should be: analytics, conversion tracking, email automation, or fixing bugs. No more /for/ pages. No more blog posts. The content library is massive — now it needs eyeballs.
 
 ## Do NOT
 - Skip tests ("I'll test later" = never)

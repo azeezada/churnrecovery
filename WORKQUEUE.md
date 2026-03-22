@@ -6,9 +6,10 @@ Low-code/no-code business owners: newsletter creators, coaches, online course se
 ## Priority Tiers
 
 ### P0 — Do Now (blocks user acquisition)
+- [ ] **🤖 Add Cloudflare Web Analytics snippet** — Just a `<script>` tag in `_document.js` or `_app.js`. Free, no signup needed (uses the existing CF account). This is the minimum to know which pages get traffic. **Agent can do this RIGHT NOW.** Get the beacon token from CF dashboard or use the site token approach.
+- [ ] **🤖 Add UTM parameter capture to waitlist form** — When someone hits `/for/substack?utm_source=reddit`, store that source in D1 alongside the signup. Without this we can't tell which marketing channel works.
 - [ ] **🚨 Execute manual marketing submissions** — IH post (docs/indie-hackers-post-final.md), BetaList (marketing/betalist-submission.md), Reddit posts (docs/reddit-execution-playbook.md) are ALL written and ready. Dawood needs to paste and publish. **This has been the #1 blocker for days.** MANUAL ACTION REQUIRED.
-- [ ] **Product Hunt launch prep (April 1 target)** — Pre-launch checklist at docs/product-hunt-prelaunch-checklist.md. Day-by-day from March 25 → April 1. Key tasks: gather 5+ upvoter commitments, prep launch day assets, coordinate timing per docs/launch-timing-analysis.md (Tuesday April 7 may be better per analysis). **Decision needed: April 1 or April 7?**
-- [ ] **Set up basic analytics/conversion tracking** — We have 100+ pages, 15+ /for/ pages, a waitlist form, and zero visibility into what's working. Need: Cloudflare Web Analytics (free), waitlist signup source tracking in D1, UTM parameter capture. Without this, all the content is flying blind.
+- [ ] **Product Hunt launch prep (April 1 target)** — Pre-launch checklist at docs/product-hunt-prelaunch-checklist.md. Day-by-day from March 25 → April 1. Key tasks: gather 5+ upvoter commitments, prep launch day assets, coordinate timing per docs/launch-timing-analysis.md (Tuesday April 7 may be better per analysis). **Decision needed: April 1 or April 7?** ⏰ March 25 is 4 days away.
 
 ### P1 — This Week (first users → first signal)
 - [ ] **Waitlist signup funnel audit** — Test every waitlist form on every landing page. Verify D1 writes work, ConvertKit tags fire, source tracking is accurate. One broken form = lost signups we'll never know about.
@@ -26,7 +27,7 @@ Low-code/no-code business owners: newsletter creators, coaches, online course se
 
 ### P3 — Ongoing (continuous improvement)
 - [ ] Error handling + rate limiting improvements
-- [ ] E2E test coverage for new features (current: 141 tests)
+- [ ] E2E test coverage for new features (current: 142 tests, all passing)
 - [ ] Performance optimization — docs/performance-todo.md has items
 - [ ] Video testimonials from beta users (blocked by having beta users)
 
@@ -43,7 +44,7 @@ Everything below is DONE. This is not a todo list — it's context for what exis
 
 **Marketing docs (ready to execute):** IH post, Reddit playbook, BetaList submission, HN Show post, PH launch kit, podcast outreach, guest post pitches, Twitter threads, community engagement playbook, press kit
 
-**Technical:** Stripe webhooks, dunning emails (Resend), cancel flow widget, referral tracking, A/B testing, schema markup (FAQ + HowTo), ConvertKit integration, D1 database
+**Technical:** Stripe webhooks, dunning emails (Resend), cancel flow widget, referral tracking, A/B testing, schema markup (FAQ + HowTo), ConvertKit integration, D1 database, 142 Playwright tests (all passing)
 
 **Design:** Migrated to shadcn/ui + Tailwind (1,770 inline styles eliminated), mobile UX audit complete, all P1/P2 fixes applied
 
