@@ -212,7 +212,7 @@ export default function LaunchPage() {
                 <span className="font-sans text-[0.75rem] text-brand-gray ml-2">Dashboard — Revenue Recovered</span>
               </div>
               <img
-                src="/screenshots/product-dashboard-improved.png"
+                src="/screenshots/product-dashboard-improved.webp"
                 alt="ChurnRecovery dashboard showing recovered revenue, save rates, and churn analytics"
                 className="w-full h-auto block"
               />
@@ -226,7 +226,7 @@ export default function LaunchPage() {
                   <span className="font-sans text-[0.75rem] text-brand-gray ml-2">Cancel Flow Builder</span>
                 </div>
                 <img
-                  src="/screenshots/product-flow-builder.png"
+                  src="/screenshots/product-flow-builder.webp"
                   alt="ChurnRecovery no-code cancel flow builder"
                   className="w-full h-auto block"
                 />
@@ -239,7 +239,7 @@ export default function LaunchPage() {
                   <span className="font-sans text-[0.75rem] text-brand-gray ml-2">Email Recovery Sequences</span>
                 </div>
                 <img
-                  src="/screenshots/product-email-sequences.png"
+                  src="/screenshots/product-email-sequences.webp"
                   alt="ChurnRecovery automated dunning email sequences for failed payments"
                   className="w-full h-auto block"
                 />

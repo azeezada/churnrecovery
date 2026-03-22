@@ -161,7 +161,7 @@ export default function Home({ posts }) {
               </span>
             </div>
             <img
-              src="/screenshots/homepage-hero.png"
+              src="/screenshots/homepage-hero.webp"
               alt="ChurnRecovery dashboard showing recovered revenue, active cancel flows, and subscriber analytics — all in one place"
               className="w-full h-auto block"
             />
@@ -274,21 +274,21 @@ export default function Home({ posts }) {
               number="1"
               title="Connect your payment provider"
               description="Link your Stripe, Paddle, or other payment account. Takes about 60 seconds — just click 'connect' and authorize."
-              screenshot="/screenshots/product-flow-builder.png"
+              screenshot="/screenshots/product-flow-builder.webp"
               screenshotAlt="ChurnRecovery cancel flow builder — customize save offers, pause options, and cancellation reasons with a visual editor"
             />
             <Step
               number="2"
               title="Choose what to offer"
               description="Pick from proven templates: offer a discount, suggest a pause, switch their plan, or ask for feedback. Customize the message in your voice. No design skills needed."
-              screenshot="/screenshots/product-dashboard-improved.png"
+              screenshot="/screenshots/product-dashboard-improved.webp"
               screenshotAlt="ChurnRecovery dashboard showing recovered revenue metrics, subscriber save rate, and payment recovery statistics"
             />
             <Step
               number="3"
               title="Start recovering revenue"
               description="That's it. When someone tries to cancel, they'll see your custom save flow. When a payment fails, we handle retries and reminders. You just watch the recovered revenue in your dashboard."
-              screenshot="/screenshots/product-email-sequences.png"
+              screenshot="/screenshots/product-email-sequences.webp"
               screenshotAlt="ChurnRecovery automated email sequences — dunning emails for failed payments sent at the right time to recover subscribers"
             />
           </div>
