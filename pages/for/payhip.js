@@ -346,6 +346,50 @@ export default function PayhipLandingPage() {
           </div>
         </section>
 
+
+        {/* ─── SECTION 6.5: RELATED RESOURCES ──────────────────────────── */}
+        <section className="py-[60px] px-6 bg-brand-white border-t border-brand-border">
+          <div className="max-w-[720px] mx-auto">
+            <h2 className="font-sans font-bold text-[1.2rem] text-brand-text mb-6 tracking-[-0.01em]">
+              📖 Related Reading
+            </h2>
+            <div className="grid gap-3">
+              <a
+                href="/posts/reduce-churn-online-course-business"
+                className="block bg-brand-bg border border-brand-border rounded-[10px] p-5 hover:border-brand-accent/40 transition-colors no-underline group"
+              >
+                <div className="font-sans font-semibold text-[0.92rem] text-brand-text group-hover:text-brand-accent transition-colors mb-1">
+                  How to Reduce Churn in Your Online Course Business
+                </div>
+                <div className="font-serif text-[0.82rem] text-brand-gray leading-[1.5]">
+                  Tactics for Payhip course and product creators
+                </div>
+              </a>
+              <a
+                href="/posts/what-is-a-cancel-flow"
+                className="block bg-brand-bg border border-brand-border rounded-[10px] p-5 hover:border-brand-accent/40 transition-colors no-underline group"
+              >
+                <div className="font-sans font-semibold text-[0.92rem] text-brand-text group-hover:text-brand-accent transition-colors mb-1">
+                  What Is a Cancel Flow?
+                </div>
+                <div className="font-serif text-[0.82rem] text-brand-gray leading-[1.5]">
+                  The retention layer every subscription needs
+                </div>
+              </a>
+              <a
+                href="/posts/subscription-business-leaking-revenue-every-month"
+                className="block bg-brand-bg border border-brand-border rounded-[10px] p-5 hover:border-brand-accent/40 transition-colors no-underline group"
+              >
+                <div className="font-sans font-semibold text-[0.92rem] text-brand-text group-hover:text-brand-accent transition-colors mb-1">
+                  Your Subscription Business Is Leaking Revenue
+                </div>
+                <div className="font-serif text-[0.82rem] text-brand-gray leading-[1.5]">
+                  Why 3% monthly churn is a silent killer
+                </div>
+              </a>
+            </div>
+          </div>
+        </section>
         {/* ─── FINAL CTA ────────────────────────────────────────────────── */}
         <section
           className="bg-[linear-gradient(135deg,#071a12_0%,#0d2e1e_100%)] py-20 px-6"

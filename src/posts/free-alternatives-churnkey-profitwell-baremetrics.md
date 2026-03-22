@@ -140,3 +140,11 @@ ChurnRecovery does that. And it does it for free.
 **[Join the waitlist and get early access →](/)**
 
 No $250/month commitment. No enterprise contract. Just a tool that helps you keep the subscribers you've already earned.
+
+---
+
+## Get ChurnRecovery Free for Your Platform
+
+- [ChurnRecovery for Stripe](/for/stripe)
+- [ChurnRecovery for Substack](/for/substack)
+- [ChurnRecovery for Kajabi](/for/kajabi)

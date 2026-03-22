@@ -385,6 +385,50 @@ export default function GhostLandingPage() {
           </div>
         </section>
 
+
+        {/* ─── SECTION 6.5: RELATED RESOURCES ──────────────────────────── */}
+        <section className="py-[60px] px-6 bg-brand-white border-t border-brand-border">
+          <div className="max-w-[720px] mx-auto">
+            <h2 className="font-sans font-bold text-[1.2rem] text-brand-text mb-6 tracking-[-0.01em]">
+              📖 Related Reading
+            </h2>
+            <div className="grid gap-3">
+              <a
+                href="/posts/ghost-vs-substack-vs-beehiiv-paid-subscribers"
+                className="block bg-brand-bg border border-brand-border rounded-[10px] p-5 hover:border-brand-accent/40 transition-colors no-underline group"
+              >
+                <div className="font-sans font-semibold text-[0.92rem] text-brand-text group-hover:text-brand-accent transition-colors mb-1">
+                  Ghost vs Substack vs Beehiiv: Paid Subscribers Compared
+                </div>
+                <div className="font-serif text-[0.82rem] text-brand-gray leading-[1.5]">
+                  How Ghost stacks up for paid newsletter retention
+                </div>
+              </a>
+              <a
+                href="/posts/newsletter-creator-guide-reducing-churn"
+                className="block bg-brand-bg border border-brand-border rounded-[10px] p-5 hover:border-brand-accent/40 transition-colors no-underline group"
+              >
+                <div className="font-sans font-semibold text-[0.92rem] text-brand-text group-hover:text-brand-accent transition-colors mb-1">
+                  The Newsletter Creator's Guide to Reducing Churn
+                </div>
+                <div className="font-serif text-[0.82rem] text-brand-gray leading-[1.5]">
+                  6 tactics for Ghost newsletter operators
+                </div>
+              </a>
+              <a
+                href="/posts/cancellation-emails-that-win-back-subscribers"
+                className="block bg-brand-bg border border-brand-border rounded-[10px] p-5 hover:border-brand-accent/40 transition-colors no-underline group"
+              >
+                <div className="font-sans font-semibold text-[0.92rem] text-brand-text group-hover:text-brand-accent transition-colors mb-1">
+                  5 Cancellation Emails That Actually Win Back Subscribers
+                </div>
+                <div className="font-serif text-[0.82rem] text-brand-gray leading-[1.5]">
+                  Win-back templates for any newsletter platform
+                </div>
+              </a>
+            </div>
+          </div>
+        </section>
         {/* ─── SECTION 7: FINAL CTA ────────────────────────────────────── */}
         <section className="bg-[linear-gradient(135deg,#0A0C0E_0%,#15171A_100%)] py-20 px-6">
           <div className="max-w-[600px] mx-auto text-center">

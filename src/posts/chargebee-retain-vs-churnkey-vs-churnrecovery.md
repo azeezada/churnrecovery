@@ -136,3 +136,10 @@ The question isn't whether to use a cancel flow. It's whether you want to pay $2
 You don't have to.
 
 **[Try ChurnRecovery free — no credit card required →](/#waitlist)**
+
+---
+
+## Try ChurnRecovery Free on Your Platform
+
+- [ChurnRecovery for Chargebee (free)](/for/chargebee)
+- [ChurnRecovery for Stripe (free)](/for/stripe)

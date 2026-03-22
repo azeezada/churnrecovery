@@ -151,3 +151,11 @@ You don't need to solve everything at once. Even addressing one type of churn me
 [Book a free demo →](/demo) and we'll walk through your specific setup, look at your churn data together, and show you exactly what ChurnRecovery would do for your numbers.
 
 Also see: [Involuntary Churn Recovery Guide →](/posts/Involuntary-Churn-Recovery) and [Payment Failure Recovery →](/posts/Payment-Failure-Recovery)
+
+---
+
+## Fix Churn on Your Platform
+
+- [ChurnRecovery for Stripe businesses](/for/stripe)
+- [ChurnRecovery for Chargebee](/for/chargebee)
+- [ChurnRecovery for Kajabi](/for/kajabi)

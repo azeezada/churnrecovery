@@ -370,4 +370,14 @@ Every day without dunning is money you're leaving on the table. Start with the b
 
 ---
 
+
+
+---
+
+## Platform-Specific Recovery Guides
+
+- [Dunning & recovery for Stripe businesses](/for/stripe)
+- [ChurnRecovery for Chargebee](/for/chargebee)
+- [ChurnRecovery for Lemon Squeezy](/for/lemon-squeezy)
+
 *ChurnRecovery provides free dunning and payment recovery for SaaS companies. [Join the waitlist](/) — it's free, forever.*

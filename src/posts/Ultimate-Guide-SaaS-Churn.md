@@ -286,3 +286,12 @@ Churn recovery isn't glamorous, but it's one of the highest-leverage things a Sa
 ---
 
 *ChurnRecovery is a free, open-source churn recovery platform for SaaS companies. [Join the waitlist](/) to get early access.*
+
+---
+
+## ChurnRecovery Works With Your Stack
+
+- [Stripe businesses](/for/stripe)
+- [Kajabi course creators](/for/kajabi)
+- [Newsletter creators](/for/substack)
+- [Chargebee billing](/for/chargebee)

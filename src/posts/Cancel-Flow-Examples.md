@@ -457,4 +457,14 @@ The most important thing is to start. Every day without a cancel flow is a day y
 
 ---
 
+
+
+---
+
+## Build This for Your Platform
+
+- [Kajabi cancel flow setup (no coding)](/for/kajabi)
+- [Stripe cancel flow guide](/for/stripe)
+- [Substack cancel flow options](/for/substack)
+
 *ChurnRecovery provides free, open-source cancel flow components for SaaS companies. [Get early access](/) — no credit card, no per-recovery fees.*

@@ -153,4 +153,15 @@ Or [join the ChurnRecovery waitlist](/waitlist) to get early access and set up y
 
 ---
 
+
+
+---
+
+## Set Up a Cancel Flow on Your Platform
+
+- [Set up a cancel flow for Kajabi →](/for/kajabi)
+- [Cancel flows for Stripe businesses →](/for/stripe)
+- [Cancel flows for Substack →](/for/substack)
+- [Cancel flows for Teachable →](/for/teachable)
+
 *ChurnRecovery is free churn recovery software for newsletter creators, coaches, course sellers, and subscription businesses. No credit card required.*

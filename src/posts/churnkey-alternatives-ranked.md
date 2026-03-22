@@ -186,3 +186,11 @@ If you're under $100k MRR, using Stripe, and trying to figure out why customers 
 ---
 
 *Pricing information is current as of March 2026. Tool pricing and features change — always verify on the vendor's website before purchasing.*
+
+---
+
+## ChurnRecovery on Your Platform
+
+- [ChurnRecovery for Stripe (free)](/for/stripe)
+- [ChurnRecovery for Kajabi (free)](/for/kajabi)
+- [ChurnRecovery for Chargebee (free)](/for/chargebee)

@@ -314,6 +314,50 @@ export default function StripeLandingPage() {
           </div>
         </section>
 
+
+        {/* ─── SECTION 6.5: RELATED RESOURCES ──────────────────────────── */}
+        <section className="py-[60px] px-6 bg-brand-white border-t border-brand-border">
+          <div className="max-w-[720px] mx-auto">
+            <h2 className="font-sans font-bold text-[1.2rem] text-brand-text mb-6 tracking-[-0.01em]">
+              📖 Related Reading
+            </h2>
+            <div className="grid gap-3">
+              <a
+                href="/posts/voluntary-vs-involuntary-churn"
+                className="block bg-brand-bg border border-brand-border rounded-[10px] p-5 hover:border-brand-accent/40 transition-colors no-underline group"
+              >
+                <div className="font-sans font-semibold text-[0.92rem] text-brand-text group-hover:text-brand-accent transition-colors mb-1">
+                  Voluntary vs Involuntary Churn: What's the Difference?
+                </div>
+                <div className="font-serif text-[0.82rem] text-brand-gray leading-[1.5]">
+                  How to tackle both types of churn for Stripe businesses
+                </div>
+              </a>
+              <a
+                href="/posts/Payment-Failure-Recovery"
+                className="block bg-brand-bg border border-brand-border rounded-[10px] p-5 hover:border-brand-accent/40 transition-colors no-underline group"
+              >
+                <div className="font-sans font-semibold text-[0.92rem] text-brand-text group-hover:text-brand-accent transition-colors mb-1">
+                  Payment Failure Recovery: The Complete Guide
+                </div>
+                <div className="font-serif text-[0.82rem] text-brand-gray leading-[1.5]">
+                  Smart retry strategies and dunning best practices
+                </div>
+              </a>
+              <a
+                href="/posts/Involuntary-Churn-Recovery"
+                className="block bg-brand-bg border border-brand-border rounded-[10px] p-5 hover:border-brand-accent/40 transition-colors no-underline group"
+              >
+                <div className="font-sans font-semibold text-[0.92rem] text-brand-text group-hover:text-brand-accent transition-colors mb-1">
+                  Involuntary Churn Recovery: What Actually Works
+                </div>
+                <div className="font-serif text-[0.82rem] text-brand-gray leading-[1.5]">
+                  Technical guide to recovering failed Stripe payments
+                </div>
+              </a>
+            </div>
+          </div>
+        </section>
         {/* FINAL CTA */}
         <section className="relative overflow-hidden bg-[linear-gradient(135deg,#0D0C1A_0%,#1A1640_100%)] py-20 px-6">
           <div className="absolute -top-[100px] -right-[100px] w-[500px] h-[500px] rounded-full pointer-events-none bg-[radial-gradient(circle,rgba(99,91,255,0.15)_0%,transparent_70%)]" />

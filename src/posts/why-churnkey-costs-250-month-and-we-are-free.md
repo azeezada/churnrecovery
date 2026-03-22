@@ -130,3 +130,11 @@ If the answer was "the price," that answer just changed.
 ---
 
 *ChurnRecovery is free churn recovery software built for newsletter creators, coaches, course sellers, and small subscription businesses. No credit card required.*
+
+---
+
+## Get ChurnRecovery Free for Your Platform
+
+- [Stripe businesses](/for/stripe)
+- [Substack creators](/for/substack)
+- [Kajabi course sellers](/for/kajabi)

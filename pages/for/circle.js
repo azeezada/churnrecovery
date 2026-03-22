@@ -385,6 +385,50 @@ export default function CircleLandingPage() {
           </div>
         </section>
 
+
+        {/* ─── SECTION 6.5: RELATED RESOURCES ──────────────────────────── */}
+        <section className="py-[60px] px-6 bg-brand-white border-t border-brand-border">
+          <div className="max-w-[720px] mx-auto">
+            <h2 className="font-sans font-bold text-[1.2rem] text-brand-text mb-6 tracking-[-0.01em]">
+              📖 Related Reading
+            </h2>
+            <div className="grid gap-3">
+              <a
+                href="/posts/online-community-churn-rate"
+                className="block bg-brand-bg border border-brand-border rounded-[10px] p-5 hover:border-brand-accent/40 transition-colors no-underline group"
+              >
+                <div className="font-sans font-semibold text-[0.92rem] text-brand-text group-hover:text-brand-accent transition-colors mb-1">
+                  Online Community Churn: Why Members Leave
+                </div>
+                <div className="font-serif text-[0.82rem] text-brand-gray leading-[1.5]">
+                  Deep dive into community-specific churn patterns
+                </div>
+              </a>
+              <a
+                href="/posts/membership-site-churn-rate"
+                className="block bg-brand-bg border border-brand-border rounded-[10px] p-5 hover:border-brand-accent/40 transition-colors no-underline group"
+              >
+                <div className="font-sans font-semibold text-[0.92rem] text-brand-text group-hover:text-brand-accent transition-colors mb-1">
+                  Membership Site Churn Rate: What's Normal?
+                </div>
+                <div className="font-serif text-[0.82rem] text-brand-gray leading-[1.5]">
+                  Benchmarks for community platforms like Circle
+                </div>
+              </a>
+              <a
+                href="/posts/how-to-retain-paying-members"
+                className="block bg-brand-bg border border-brand-border rounded-[10px] p-5 hover:border-brand-accent/40 transition-colors no-underline group"
+              >
+                <div className="font-sans font-semibold text-[0.92rem] text-brand-text group-hover:text-brand-accent transition-colors mb-1">
+                  How to Retain Paying Members
+                </div>
+                <div className="font-serif text-[0.82rem] text-brand-gray leading-[1.5]">
+                  Tactics proven to work for online communities
+                </div>
+              </a>
+            </div>
+          </div>
+        </section>
         {/* ─── FINAL CTA ───────────────────────────────────────────────── */}
         <section className="bg-[linear-gradient(135deg,#1C0A00_0%,#2E1500_100%)] py-20 px-6">
           <div className="max-w-[600px] mx-auto text-center">

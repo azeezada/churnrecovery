@@ -247,3 +247,11 @@ A: Honestly, Churnkey has a more mature product right now. They've been building
 ---
 
 *ChurnRecovery is free, open-source churn recovery for SaaS companies. [Join the waitlist](/) — we'll never charge for the core product.*
+
+---
+
+## Start Free on Your Platform
+
+- [ChurnRecovery for Stripe businesses](/for/stripe)
+- [ChurnRecovery for Substack](/for/substack)
+- [ChurnRecovery for Kajabi](/for/kajabi)

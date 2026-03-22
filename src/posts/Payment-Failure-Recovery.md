@@ -84,3 +84,10 @@ These four things take a week to implement and will meaningfully move your reten
 ---
 
 **Next time:** We'll cover proactive retention — how to identify at-risk users before they even think about canceling.
+
+---
+
+## Recovery for Your Platform
+
+- [Payment recovery for Stripe subscriptions](/for/stripe)
+- [ChurnRecovery for Chargebee billing](/for/chargebee)

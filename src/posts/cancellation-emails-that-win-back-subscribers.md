@@ -221,3 +221,11 @@ The average ChurnRecovery user saves 18–24% of customers who initiate a cancel
 ---
 
 **Want to see how it works?** [Watch a live demo of ChurnRecovery in action →](/demo)
+
+---
+
+## Using ChurnRecovery for Your Platform
+
+- [ChurnRecovery for Substack](/for/substack)
+- [ChurnRecovery for Ghost](/for/ghost)
+- [ChurnRecovery for Memberful](/for/memberful)

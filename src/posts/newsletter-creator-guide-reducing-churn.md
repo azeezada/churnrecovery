@@ -151,4 +151,14 @@ The tactics above aren't complicated. They don't require expensive tools or adva
 
 ---
 
+
+
+---
+
+## Tools for Your Platform
+
+- [ChurnRecovery for Substack creators](/for/substack)
+- [ChurnRecovery for Ghost newsletters](/for/ghost)
+- [ChurnRecovery for ConvertKit creators](/for/convertkit)
+
 *If you're running a paid newsletter and want a simple, free cancel flow tool that handles the exit survey, pause offers, and win-back sequence automatically, check out [ChurnRecovery](/waitlist). Free during beta, no credit card required.*

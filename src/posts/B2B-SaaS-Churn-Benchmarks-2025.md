@@ -268,3 +268,11 @@ No monthly fees. No setup fees. No per-recovery charges.
 ---
 
 *How does your churn rate compare? [Try our free churn calculator](/tools/churn-calculator) to see how much revenue you're losing — and how much you could recover.*
+
+---
+
+## ChurnRecovery for Your Billing Stack
+
+- [Stripe-powered SaaS](/for/stripe)
+- [Chargebee billing](/for/chargebee)
+- [Lemon Squeezy subscriptions](/for/lemon-squeezy)

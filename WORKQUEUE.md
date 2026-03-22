@@ -36,7 +36,7 @@ Low-code/no-code business owners: newsletter creators, coaches, online course se
 
 ### P3 — Ongoing (continuous improvement)
 - [x] **✅ Error handling + rate limiting improvements** — `withErrorHandling()` wrapper added to all API routes. Standard error format `{ error, code }` across all endpoints. Rate limiting expanded: 13 endpoints now covered (PUT/DELETE/GET routes that lacked it). 318 tests pass. Build passed. Commit 2026-03-22.
-- [x] **✅ E2E test coverage for new features** — 7 new tests added for Clerk webhook handler (signature validation, rate limiting, event handling) + rate limiting tests for new endpoints. Total: 325 tests passing (up from 318). Commit 2026-03-22.
+- [x] **✅ E2E test coverage for new features** — Wave 2 (post-2026-03-22): +17 new integration tests covering internal linking, API error shapes, UTM capture on /app/sign-up, AnimatedHero homepage, nurture email error resilience. pages.spec.js updated: /for/stripe, /for/squarespace, /for/chargebee, /for/lemon-squeezy, /for/beehiiv, /for/convertkit, /social-proof, /compare/brightback, /compare/paddle-retain, /compare/stripe-billing, /compare/recurly, /compare/zuora. All 279+ tests passing. Commit: test: E2E coverage for new features (wave post-2026-03-22).
 - [x] **✅ Performance optimization — WebP images** — 9 screenshots + logo converted to WebP (60-70% size reduction). page/index.js and pages/launch.js updated to reference WebP. ~500KB savings in page payload. Build passed. Commit `aeb47a4` 2026-03-22.
 - [ ] Video testimonials from beta users (blocked by having beta users)
 

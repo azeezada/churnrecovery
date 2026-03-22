@@ -147,3 +147,11 @@ That's the bet. And we're making it publicly.
 If you're building a subscription product and losing subscribers you shouldn't lose, [try ChurnRecovery](/) — it's free, it takes 5 minutes to install, and you don't need to wait for a marketing budget to find out if it works.
 
 Follow along as we build this in public.
+
+---
+
+## Try It on Your Platform
+
+- [ChurnRecovery for Substack](/for/substack)
+- [ChurnRecovery for Kajabi](/for/kajabi)
+- [ChurnRecovery for Stripe businesses](/for/stripe)

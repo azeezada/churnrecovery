@@ -138,3 +138,11 @@ Then, when you're ready to plug the leak, [join the ChurnRecovery waitlist](/wai
 ---
 
 *The leak is quiet. The cost is real. The fix is free.*
+
+---
+
+## ChurnRecovery for Your Platform
+
+- [Substack creators](/for/substack)
+- [Kajabi course sellers](/for/kajabi)
+- [Stripe-powered businesses](/for/stripe)

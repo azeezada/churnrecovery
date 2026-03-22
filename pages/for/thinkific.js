@@ -360,6 +360,50 @@ export default function ThinkificLandingPage() {
           </div>
         </section>
 
+
+        {/* ─── SECTION 6.5: RELATED RESOURCES ──────────────────────────── */}
+        <section className="py-[60px] px-6 bg-brand-white border-t border-brand-border">
+          <div className="max-w-[720px] mx-auto">
+            <h2 className="font-sans font-bold text-[1.2rem] text-brand-text mb-6 tracking-[-0.01em]">
+              📖 Related Reading
+            </h2>
+            <div className="grid gap-3">
+              <a
+                href="/posts/reduce-churn-online-course-business"
+                className="block bg-brand-bg border border-brand-border rounded-[10px] p-5 hover:border-brand-accent/40 transition-colors no-underline group"
+              >
+                <div className="font-sans font-semibold text-[0.92rem] text-brand-text group-hover:text-brand-accent transition-colors mb-1">
+                  How to Reduce Churn in Your Online Course Business
+                </div>
+                <div className="font-serif text-[0.82rem] text-brand-gray leading-[1.5]">
+                  Retention tactics for Thinkific course creators
+                </div>
+              </a>
+              <a
+                href="/posts/Cancel-Flow-Examples"
+                className="block bg-brand-bg border border-brand-border rounded-[10px] p-5 hover:border-brand-accent/40 transition-colors no-underline group"
+              >
+                <div className="font-sans font-semibold text-[0.92rem] text-brand-text group-hover:text-brand-accent transition-colors mb-1">
+                  7 Cancel Flow Examples That Actually Save Customers
+                </div>
+                <div className="font-serif text-[0.82rem] text-brand-gray leading-[1.5]">
+                  Real patterns you can implement for any course platform
+                </div>
+              </a>
+              <a
+                href="/posts/churn-prevention-strategies-coaching"
+                className="block bg-brand-bg border border-brand-border rounded-[10px] p-5 hover:border-brand-accent/40 transition-colors no-underline group"
+              >
+                <div className="font-sans font-semibold text-[0.92rem] text-brand-text group-hover:text-brand-accent transition-colors mb-1">
+                  Churn Prevention Strategies for Coaches
+                </div>
+                <div className="font-serif text-[0.82rem] text-brand-gray leading-[1.5]">
+                  Relevant tactics for knowledge-product businesses
+                </div>
+              </a>
+            </div>
+          </div>
+        </section>
         {/* ─── FINAL CTA ───────────────────────────────────────────────── */}
         <section className="py-[80px] px-6 bg-[linear-gradient(135deg,#1A0A3E_0%,#2D1A5E_100%)]">
           <div className="max-w-[600px] mx-auto text-center">

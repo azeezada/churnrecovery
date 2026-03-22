@@ -147,3 +147,11 @@ Your job isn't to beg them to stay — it's to be present at that moment with th
 Most people don't hate you when they cancel. They're just doing the math in a rushed moment. Give them a better option, and a surprising number will take it.
 
 [See the cancel flow in action →](/demo)
+
+---
+
+## See How ChurnRecovery Handles This
+
+- [Newsletter creators on Substack](/for/substack)
+- [Patreon creators](/for/patreon)
+- [Community builders on Circle](/for/circle)

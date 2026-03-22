@@ -145,3 +145,10 @@ ChurnRecovery is our attempt at a different answer: a tool that costs what it co
 **[Join the ChurnRecovery waitlist — free, no credit card →](/)**
 
 Your margins will thank you.
+
+---
+
+## ChurnRecovery: Free for Your Platform
+
+- [ChurnRecovery for Stripe (free)](/for/stripe)
+- [ChurnRecovery for Kajabi (free)](/for/kajabi)

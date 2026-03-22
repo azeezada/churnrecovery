@@ -52,6 +52,11 @@ const pages = {
     ['/compare/profitwell', 'vs ProfitWell'],
     ['/compare/raaft', 'vs Raaft'],
     ['/compare/stunning', 'vs Stunning'],
+    ['/compare/brightback', 'vs Brightback'],
+    ['/compare/paddle-retain', 'vs Paddle Retain'],
+    ['/compare/stripe-billing', 'vs Stripe Billing'],
+    ['/compare/recurly', 'vs Recurly'],
+    ['/compare/zuora', 'vs Zuora'],
   ],
   alternatives: [
     ['/alternatives/baremetrics', 'Baremetrics Alternative'],
@@ -101,6 +106,15 @@ const pages = {
     ['/for/memberful', 'Memberful'],
     ['/for/stan-store', 'Stan Store'],
     ['/for/payhip', 'Payhip'],
+    ['/for/stripe', 'Stripe'],
+    ['/for/squarespace', 'Squarespace'],
+    ['/for/chargebee', 'Chargebee'],
+    ['/for/lemon-squeezy', 'Lemon Squeezy'],
+    ['/for/beehiiv', 'Beehiiv'],
+    ['/for/convertkit', 'ConvertKit'],
+  ],
+  socialProof: [
+    ['/social-proof', 'Social Proof'],
   ],
 };
 

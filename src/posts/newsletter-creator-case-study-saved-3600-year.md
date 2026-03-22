@@ -137,3 +137,11 @@ A cancel flow that saves 10–20% of your churning subscribers is worth setting 
 ---
 
 *ChurnRecovery is free for newsletter creators and subscription businesses. Set up your cancel flow in about 10 minutes — no monthly fees. [Join the waitlist →](/#waitlist)*
+
+---
+
+## Set This Up for Your Newsletter
+
+- [ChurnRecovery for Substack](/for/substack)
+- [ChurnRecovery for Ghost](/for/ghost)
+- [ChurnRecovery for ConvertKit/Kit](/for/convertkit)
