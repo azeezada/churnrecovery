@@ -1,34 +1,36 @@
 # Product Hunt Pre-Launch Warm-Up Checklist
-*Target launch: April 1, 2026 (Wednesday 12:01 AM PST)*
-*Warm-up window: March 25–31, 2026*
+*Target launch: **Tuesday, April 7, 2026** at 12:01 AM PST*
+*Warm-up window: March 31–April 6, 2026*
+
+> **Why April 7?** April 1 is April Fools' Day — serious launches get mocked. April 7 (Tuesday) is the optimal PH day with no holidays or conflicts. See `docs/launch-timing-analysis.md`.
 
 Reference: Full launch kit is at `docs/product-hunt-launch.md`
 
 ---
 
-## Day-by-Day Checklist: March 25–31
+## Day-by-Day Checklist: March 31–April 6
 
 ---
 
-### 📅 Tuesday, March 25 — "Plant the flag"
+### 📅 Tuesday, March 31 — "Plant the flag"
 
 **Goal:** Get the PH upcoming page live and tell your warmest audience first.
 
-- [ ] **Create PH upcoming page**
+- [ ] **Create PH upcoming page (DAWOOD ACTION)**
   - Go to producthunt.com → Submit → "Upcoming"
   - Fill: Product name "ChurnRecovery", tagline: "Stop losing subscribers. No dev team required."
   - Description: Use the 209-char version from `docs/product-hunt-launch.md` Section 2
   - Add your profile photo + bio (builds trust before launch)
-  - Set launch date: April 1, 2026
+  - Set launch date: April 7, 2026
   - Upload at minimum: 1 hero screenshot (product dashboard) + 1 thumbnail logo
 
-- [ ] **Add PH upcoming link to Twitter/X bio**
-  - Bio update: "Building @ChurnRecovery — free churn recovery for subscription businesses 🚀 Launching on Product Hunt April 1 👇 [upcoming link]"
+- [ ] **Add PH upcoming link to Twitter/X bio (DAWOOD ACTION)**
+  - Bio update: "Building @ChurnRecovery — free churn recovery for subscription businesses 🚀 Launching on Product Hunt April 7 👇 [upcoming link]"
 
-- [ ] **Email your waitlist — Week 1 warm-up**
+- [ ] **Email your list — Week 1 warm-up (DAWOOD ACTION)**
   - Subject: `We're launching on Product Hunt in 7 days 🚀`
   - Body (keep it personal, 4–5 sentences):
-    > "Hey [first name] — quick heads up: we're launching ChurnRecovery on Product Hunt next Wednesday, April 1st. No joke.
+    > "Hey [first name] — quick heads up: we're launching ChurnRecovery on Product Hunt next Tuesday, April 7th.
     >
     > You're one of the first people who showed interest in what we're building — having your support on launch day would mean a lot. Product Hunt is one of the best ways to get real feedback and early users, and every upvote genuinely matters.
     >
@@ -36,12 +38,12 @@ Reference: Full launch kit is at `docs/product-hunt-launch.md`
     >
     > — Dawood"
 
-- [ ] **DM 5 warmest IH connections** (people who commented on your posts, upvoted, reached out)
-  - Message: "Hey [name] — we're launching on Product Hunt April 1st. Would love your support when it's live. I'll DM you the link on launch morning!"
+- [ ] **DM 5 warmest IH connections (DAWOOD ACTION)** (people who commented on your posts, upvoted, reached out)
+  - Message: "Hey [name] — we're launching on Product Hunt April 7th. Would love your support when it's live. I'll DM you the link on launch morning!"
 
-- [ ] **Post on Twitter/X (personal account)**
+- [ ] **Post on Twitter/X — personal account (DAWOOD ACTION)**
   ```
-  We're launching on @ProductHunt next Wednesday 🚀
+  We're launching on @ProductHunt next Tuesday 🚀
 
   ChurnRecovery — free cancel flows + dunning for subscription businesses.
   (Yes, free. Churnkey charges $825/mo for this.)
@@ -51,16 +53,17 @@ Reference: Full launch kit is at `docs/product-hunt-launch.md`
 
 ---
 
-### 📅 Wednesday, March 26 — "Build the assets"
+### 📅 Wednesday, April 1 — "Build the assets"
 
 **Goal:** Get all 7 gallery assets ready. This is the day most founders skip — don't.
 
-- [ ] **Gallery assets status check**
+- [ ] **Gallery assets status check (DAWOOD ACTION)**
   - Review the 7 assets listed in `docs/product-hunt-launch.md` Section 5
   - Priority order: Cancel flow GIF → Dashboard PNG → Pricing comparison PNG → Flow builder PNG
   - If GIF isn't ready: record a Loom of the demo page, then convert with Gifski (free, great quality)
+  - **Note:** The live site at churnrecovery.com already has screenshot infrastructure — check `/public/screenshots/` for existing assets you can use.
 
-- [ ] **Write and save launch-day tweets as drafts** (do NOT schedule — PH doesn't like that)
+- [ ] **Write and save launch-day tweets as drafts (DAWOOD ACTION)** (do NOT schedule — PH doesn't like that)
   - Tweet 1 (12:05 AM): `"We're live on @ProductHunt! 🚀 [link]"`
   - Tweet 2 (9 AM): The maker story thread (3 tweets)
   - Tweet 3 (2 PM): Milestone update (`"We're #X on PH with Y upvotes 🙏"`)
@@ -68,37 +71,37 @@ Reference: Full launch kit is at `docs/product-hunt-launch.md`
 - [ ] **Draft the maker comment** (copy it from Section 4 of launch kit — you'll paste this at 12:01 AM)
   - Save in a Notes/TextEdit doc. Don't lose it.
 
-- [ ] **Hunter outreach — DM round 1**
+- [ ] **Hunter outreach — DM round 1 (DAWOOD ACTION)**
   - Message Kevin William David on Twitter: direct, friendly, brief (template in Section 7 of launch kit)
   - Message Sharath Kuruganty on Twitter
   - Message Josh Howarth
-  - You do NOT need all 5 to respond — just need one confirmed by March 27
+  - You do NOT need all 5 to respond — just need one confirmed by April 3rd
 
-- [ ] **IH teaser post** (if your IH post isn't live yet, post it now)
-  - Short post: "Soft-launching ChurnRecovery — churn recovery for bootstrappers. Launching on PH April 1st, would love feedback before then: [site link]"
+- [ ] **IH teaser post (DAWOOD ACTION)** (if your IH post isn't live yet, post it now)
+  - Short post: "Soft-launching ChurnRecovery — churn recovery for bootstrappers. Launching on PH April 7th, would love feedback before then: [site link]"
 
 ---
 
-### 📅 Thursday, March 27 — "Decision day"
+### 📅 Thursday, April 2 — "Decision day"
 
 **Goal:** Hunter confirmed OR commit to self-hunt. No more waffling.
 
-- [ ] **Hunter decision — hard deadline 5 PM PST**
+- [ ] **Hunter decision — hard deadline 5 PM PST (DAWOOD ACTION)**
   - If Kevin/Sharath confirmed: send them all 7 gallery assets, the listing copy, and offer a 15-min walkthrough
   - If no response: self-hunt. It's fine. Many successful launches are self-hunted.
 
-- [ ] **Finalize PH listing copy**
+- [ ] **Finalize PH listing copy (DAWOOD ACTION)**
   - Tagline (47 chars): `Stop losing subscribers. No dev team required.`
   - Description (209 chars): From Section 2 of launch kit
   - Topics: SaaS, Email, Subscriptions, No Code, Productivity
 
-- [ ] **Upload all gallery assets to PH**
+- [ ] **Upload all gallery assets to PH (DAWOOD ACTION)**
   - In the listing draft, upload all 7 assets in order
   - Preview: how does the listing look? Does the hero GIF autoplay?
 
-- [ ] **Twitter teaser post**
+- [ ] **Twitter teaser post (DAWOOD ACTION)**
   ```
-  Launching on @ProductHunt this Wednesday (April 1 — not a joke) 🗓️
+  Launching on @ProductHunt this Tuesday (April 7) 🗓️
 
   ChurnRecovery helps subscription businesses stop losing customers at cancellation.
 
@@ -114,13 +117,13 @@ Reference: Full launch kit is at `docs/product-hunt-launch.md`
 
 ---
 
-### 📅 Friday, March 28 — "Dry run day"
+### 📅 Friday, April 3 — "Dry run day"
 
 **Goal:** Simulate launch day. Find any issues before they're real.
 
-- [ ] **Dry run the PH listing**
+- [ ] **Dry run the PH listing (DAWOOD ACTION)**
   - Open the draft, click through every section, verify all 7 assets display correctly
-  - Click all links — site, demo, compare page
+  - Click all links — site, demo, compare page, /launch page
   - Check: does the PH listing load on mobile?
 
 - [ ] **Prepare Slack community messages** (draft, don't send)
@@ -134,25 +137,25 @@ Reference: Full launch kit is at `docs/product-hunt-launch.md`
   - r/SideProject title: `"I launched a free alternative to Churnkey ($825/mo churn recovery) — feedback welcome [Show PH]"`
   - r/SaaS title: `"Built free cancel flows + dunning for bootstrappers — Show PH launch"`
 
-- [ ] **Set alarm** for 11:55 PM PST on March 31st
+- [ ] **Set alarm** for 11:55 PM PST on April 6th
   - Use your phone + laptop backup
   - The PH reset is at midnight PST — you lose hours by sleeping through it
 
-- [ ] **DM follow-up** to anyone who said "remind me when you launch" over past weeks
+- [ ] **DM follow-up (DAWOOD ACTION)** to anyone who said "remind me when you launch" over past weeks
 
-- [ ] **IH post update** (if you have an existing IH post)
-  - Add comment: "Quick update — we're launching on Product Hunt this coming Wednesday, April 1st! Here's the link to notify: [PH upcoming link]"
+- [ ] **IH post update (DAWOOD ACTION)** (if you have an existing IH post)
+  - Add comment: "Quick update — we're launching on Product Hunt this coming Tuesday, April 7th! Here's the link to notify: [PH upcoming link]"
 
 ---
 
-### 📅 Saturday, March 29 — "Buffer day"
+### 📅 Saturday, April 4 — "Buffer day"
 
 **Goal:** Rest. Tie up loose ends. Nothing major.
 
-- [ ] **Verify PH listing is set to "Scheduled" for April 1st 12:01 AM PST**
+- [ ] **Verify PH listing is set to "Scheduled" for April 7th 12:01 AM PST (DAWOOD ACTION)**
   - If it shows a different time: PH uses PST, not your local timezone. Double-check.
 
-- [ ] **One final teaser tweet**
+- [ ] **One final teaser tweet (DAWOOD ACTION)**
   ```
   3 days until we launch on @ProductHunt 🚀
 
@@ -173,7 +176,7 @@ Reference: Full launch kit is at `docs/product-hunt-launch.md`
 
 ---
 
-### 📅 Sunday, March 30 — "Final prep"
+### 📅 Sunday, April 5 — "Final prep"
 
 **Goal:** Everything is locked. Nothing left to do except wait.
 
@@ -186,10 +189,10 @@ Reference: Full launch kit is at `docs/product-hunt-launch.md`
 - [ ] **Twitter drafts saved ✓**
 - [ ] **Alarm set for 11:55 PM PST ✓**
 
-- [ ] **Final email to waitlist** (optional, day-before warmup)
+- [ ] **Final email to list (DAWOOD ACTION)** (optional, day-before warmup)
   - Subject: `Tomorrow is the day 🚀`
   - Body:
-    > "Tomorrow morning (April 1st, I promise it's not a joke), ChurnRecovery goes live on Product Hunt.
+    > "Tomorrow morning (April 7th), ChurnRecovery goes live on Product Hunt.
     >
     > I'll send you the link the moment it's up. Your upvote takes 2 seconds and genuinely makes a difference for a bootstrapped product.
     >
@@ -200,18 +203,18 @@ Reference: Full launch kit is at `docs/product-hunt-launch.md`
 
 ---
 
-### 📅 Monday, March 31 — "Launch eve"
+### 📅 Monday, April 6 — "Launch eve"
 
 **Goal:** Clear the decks. No new decisions.
 
 - [ ] Nothing new to do — all prep is done
 - [ ] Optional: 30-min social media sweep — like/comment on IH posts to build goodwill pre-launch
 - [ ] 11:55 PM PST: Wake up (or stay awake). Coffee ready.
-- [ ] **12:01 AM April 1**: Follow the minute-by-minute from `docs/product-hunt-launch.md` Section 9
+- [ ] **12:01 AM April 7**: Follow the minute-by-minute from `docs/product-hunt-launch.md` Section 9
 
 ---
 
-## Launch Day Minute-by-Minute (April 1)
+## Launch Day Minute-by-Minute (April 7)
 
 *From `docs/product-hunt-launch.md` Section 9 — reproduced here for quick reference*
 
@@ -238,7 +241,7 @@ Reference: Full launch kit is at `docs/product-hunt-launch.md`
 | **5:00 PM** | Final push — tweet, any communities missed |
 | **8:00 PM** | Wind down. Most votes come in before 6 PM. |
 | **11:00 PM** | Final comment sweep. Thank everyone. |
-| **12:00 AM (April 2)** | Done. Note final rank, upvotes, signups. |
+| **12:00 AM (April 8)** | Done. Note final rank, upvotes, signups. |
 
 ---
 
@@ -248,14 +251,14 @@ Reference: Full launch kit is at `docs/product-hunt-launch.md`
 
 | Date | Platform | Content |
 |------|----------|---------|
-| March 25 | Twitter | "Launching on PH in 7 days — here's the upcoming page" |
-| March 25 | IH | Short update post + PH upcoming link |
-| March 26 | Twitter | "Working on our PH gallery assets today — here's a sneak peek of the cancel flow GIF" |
-| March 27 | Twitter | "PH launch confirmed for April 1st. Not a joke. Come support free churn recovery for bootstrappers" |
-| March 28 | IH | Comment on existing IH post with PH update |
-| March 29 | Twitter | "3 days out. Here's what we built and why it's free" (short thread) |
-| March 30 | Twitter | "Tomorrow is the day 🚀 — see you at midnight PST" |
-| March 31 | Twitter | "Going live in [X] hours on Product Hunt. Link drops at midnight PST." |
+| March 31 | Twitter | "Launching on PH in 7 days — here's the upcoming page" |
+| March 31 | IH | Short update post + PH upcoming link |
+| April 1 | Twitter | "Working on our PH gallery assets today — here's a sneak peek of the cancel flow GIF" |
+| April 2 | Twitter | "PH launch confirmed for April 7th. Come support free churn recovery for bootstrappers" |
+| April 3 | IH | Comment on existing IH post with PH update |
+| April 4 | Twitter | "3 days out. Here's what we built and why it's free" (short thread) |
+| April 5 | Twitter | "Tomorrow is the day 🚀 — see you at midnight PST" |
+| April 6 | Twitter | "Going live in [X] hours on Product Hunt. Link drops at midnight PST." |
 
 ---
 
@@ -263,25 +266,25 @@ Reference: Full launch kit is at `docs/product-hunt-launch.md`
 
 ### Template A — IH connections who commented on your post
 
-> "Hey [name] — you left a comment on my IH post a while back and it was super helpful. Quick heads up: we're launching on Product Hunt this Wednesday (April 1st). Would mean a lot if you could support us when we go live — I'll DM you the link when it drops!"
+> "Hey [name] — you left a comment on my IH post a while back and it was super helpful. Quick heads up: we're launching on Product Hunt this Tuesday (April 7th). Would mean a lot if you could support us when we go live — I'll DM you the link when it drops!"
 
 ---
 
 ### Template B — Twitter followers who engaged with ChurnRecovery content
 
-> "Hey [name] — noticed you liked/RT'd something I posted about ChurnRecovery. We're launching on Product Hunt this Wednesday and I'd love your support! I'll tweet the link at midnight PST. Thanks for following along 🙏"
+> "Hey [name] — noticed you liked/RT'd something I posted about ChurnRecovery. We're launching on Product Hunt this Tuesday and I'd love your support! I'll tweet the link at midnight PST. Thanks for following along 🙏"
 
 ---
 
 ### Template C — Founders you know personally (Slack/Discord/email)
 
-> "Hey [name]! Quick thing — we're launching ChurnRecovery on Product Hunt this Wednesday. It's a free alternative to Churnkey for bootstrapped SaaS/creators. Would love your upvote if it's something you find useful. Happy to return the favor when you launch something! [PH upcoming link]"
+> "Hey [name]! Quick thing — we're launching ChurnRecovery on Product Hunt this Tuesday. It's a free alternative to Churnkey for bootstrapped SaaS/creators. Would love your upvote if it's something you find useful. Happy to return the favor when you launch something! [PH upcoming link]"
 
 ---
 
 ### Template D — Cold outreach to relevant PH community members
 
-> "Hi [name] — I've followed your work on [thing they built]. We're a small team launching free churn recovery on Product Hunt this Wednesday (April 1st). Given you've built subscription products, I think you'd appreciate what we're doing. Would love your support! [PH upcoming link]"
+> "Hi [name] — I've followed your work on [thing they built]. We're a small team launching free churn recovery on Product Hunt this Tuesday (April 7th). Given you've built subscription products, I think you'd appreciate what we're doing. Would love your support! [PH upcoming link]"
 
 ---
 
@@ -301,12 +304,14 @@ Reference: Full launch kit is at `docs/product-hunt-launch.md`
    - **Name:** ChurnRecovery
    - **Tagline:** Stop losing subscribers. No dev team required. (47 chars)
    - **Description:** ChurnRecovery helps newsletter creators, coaches, and subscription businesses stop losing customers at cancellation. Smart cancel flows, failed payment recovery, and exit surveys — free. No developers needed.
-   - **Website:** https://churnrecovery.com
+   - **Website:** https://churnrecovery.com/launch
    - **Topics:** SaaS, Email, Subscriptions, No Code, Productivity
 3. Upload thumbnail (your logo, 240×240px minimum)
-4. Set date to April 1, 2026
+4. Set date to April 7, 2026
 5. Click "Go Upcoming" — this creates the notify list
 6. Share the `upcoming.producthunt.com/[your-product]` link everywhere
+
+> **Note:** Use `https://churnrecovery.com/launch` as the PH listing URL — it's a dedicated landing page optimized for PH traffic with UTM tracking.
 
 ---
 
@@ -321,5 +326,5 @@ Reference: Full launch kit is at `docs/product-hunt-launch.md`
 
 ---
 
-*Document created: 2026-03-21*
+*Document updated: 2026-03-22 — Target date changed from April 1 to April 7 (April 1 is April Fools' Day; Tuesday April 7 is optimal per `docs/launch-timing-analysis.md`)*
 *Use in conjunction with `docs/product-hunt-launch.md` for the full launch playbook.*

@@ -1,7 +1,7 @@
 # ChurnRecovery — Product Hunt Launch Kit
-*Target Launch Date: April 1, 2026 (Wednesday)*
+*Target Launch Date: **Tuesday, April 7, 2026** at 12:01 AM PST*
 
-> April 1st is a Wednesday — historically one of Product Hunt's highest-traffic days. Not a joke.
+> **Why April 7?** April 1 is April Fools' Day — serious product launches get confused for jokes and mocked. April 7 (Tuesday) is the optimal Product Hunt day with no conflicts. Tuesday is historically the highest-traffic PH day. See `docs/launch-timing-analysis.md`.
 
 ---
 
@@ -86,7 +86,7 @@ Prepare these 7 assets before launch. Target size: 1270×760px (PH standard). GI
 ## 6. Launch Day Checklist
 
 ### ⏰ Time to Launch
-- **12:01 AM PST on April 1st** — Product Hunt resets at midnight PST. Launching at 12:01 AM gives you a full 24 hours to accumulate upvotes. Every hour you delay is lost.
+- **12:01 AM PST on April 7th** — Product Hunt resets at midnight PST. Launching at 12:01 AM gives you a full 24 hours to accumulate upvotes. Every hour you delay is lost.
 - Set an alarm. Do not sleep through it.
 
 ### 📣 Communities to Notify (Launch Day, staggered)
@@ -116,7 +116,7 @@ Prepare these 7 assets before launch. Target size: 1270×760px (PH standard). GI
 Contact potential hunters by March 28th (4 days before). See Section 7 for the list.
 
 **The ask email/DM (short):**
-> Hi [Name], I'm launching ChurnRecovery on Product Hunt April 1st — it's a free churn recovery tool for subscription businesses (free alternative to Churnkey's $825/mo). Would you be open to hunting it? Happy to provide all assets, copy, and a personal walkthrough. The PH community you've built would be a perfect fit.
+> Hi [Name], I'm launching ChurnRecovery on Product Hunt April 7th — it's a free churn recovery tool for subscription businesses (free alternative to Churnkey's $825/mo). Would you be open to hunting it? Happy to provide all assets, copy, and a personal walkthrough. The PH community you've built would be a perfect fit.
 
 ### 💬 Reply Strategy for Early Comments
 - **Reply within 5 minutes** of any comment in the first 6 hours
@@ -185,9 +185,9 @@ A top hunter with 10k+ followers adds real credibility and distribution on PH. B
 
 ### Saturday–Sunday, March 30–31
 - [ ] All assets uploaded to PH
-- [ ] Listing set to "Scheduled" for April 1st 12:01 AM PST
+- [ ] Listing set to "Scheduled" for April 7th 12:01 AM PST
 - [ ] Set alarm for midnight PST
-- [ ] Clear your schedule for April 1st — you need to be available all day to reply to comments
+- [ ] Clear your schedule for April 7th — you need to be available all day to reply to comments
 
 ---
 
@@ -270,7 +270,7 @@ All times PST.
 - [ ] 7 gallery assets prepared and uploaded
 - [ ] Hunter confirmed OR decision to self-hunt made by March 27
 - [ ] Maker comment drafted and saved
-- [ ] PH listing scheduled for April 1st 12:01 AM PST
+- [ ] PH listing scheduled for April 7th 12:01 AM PST
 - [ ] Email list DM drafted
 - [ ] Slack community messages drafted
 - [ ] IH post live before PH launch

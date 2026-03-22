@@ -25,6 +25,7 @@ const staticPages = [
   { path: '/app/sign-up', priority: '0.5', changefreq: 'monthly' },
   { path: '/use-cases', priority: '0.9', changefreq: 'monthly' },
   { path: '/changelog', priority: '0.7', changefreq: 'weekly' },
+  { path: '/launch', priority: '0.9', changefreq: 'monthly' },
 ]
 
 // Comparison pages

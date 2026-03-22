@@ -2,6 +2,7 @@ import Head from 'next/head'
 import { useState, useEffect } from 'react'
 import AppLayout from '../../components/AppLayout'
 import { getProjects, getCancelFlow, saveCancelFlow } from '../../lib/localStore'
+import { apiFetch } from '../../lib/useApi'
 
 const defaultReasons = [
   { id: 'too-expensive', label: 'Too expensive', icon: '💰', offerType: 'discount', offerValue: 30, offerDuration: 3 },
@@ -271,17 +272,45 @@ export default function CancelFlowPage() {
   const [saving, setSaving] = useState(false)
   const [saved, setSaved] = useState(false)
   const [projectId, setProjectId] = useState(null)
+  const [usingRealData, setUsingRealData] = useState(false)
 
-  // Load project + existing flow config from localStore
+  // Load project + existing flow config — try API first, fall back to localStore
   useEffect(() => {
-    const projects = getProjects()
-    if (projects.length === 0) return
-    const pid = projects[0].id
-    setProjectId(pid)
-    const flow = getCancelFlow(pid)
-    if (flow && flow.reasons && flow.reasons.length > 0) {
-      setReasons(flow.reasons)
+    async function loadData() {
+      try {
+        const data = await apiFetch('/api/projects')
+        if (data.projects && data.projects.length > 0) {
+          const pid = data.projects[0].id
+          setProjectId(pid)
+          setUsingRealData(true)
+          try {
+            const flowData = await apiFetch(`/api/cancel-flow?projectId=${pid}`)
+            if (flowData && flowData.reasons && flowData.reasons.length > 0) {
+              setReasons(flowData.reasons)
+            }
+          } catch {
+            // Fall back to localStore for cancel flow
+            const flow = getCancelFlow(pid)
+            if (flow && flow.reasons && flow.reasons.length > 0) {
+              setReasons(flow.reasons)
+            }
+          }
+          return
+        }
+      } catch {
+        // API unavailable
+      }
+      // Fall back to localStore
+      const projects = getProjects()
+      if (projects.length === 0) return
+      const pid = projects[0].id
+      setProjectId(pid)
+      const flow = getCancelFlow(pid)
+      if (flow && flow.reasons && flow.reasons.length > 0) {
+        setReasons(flow.reasons)
+      }
     }
+    loadData()
   }, [])
 
   const updateReason = (index, updated) => {
@@ -305,14 +334,25 @@ export default function CancelFlowPage() {
     }])
   }
 
-  const handleSave = () => {
+  const handleSave = async () => {
     setSaving(true)
-    saveCancelFlow(projectId || 'default', reasons)
-    setTimeout(() => {
-      setSaving(false)
-      setSaved(true)
-      setTimeout(() => setSaved(false), 3000)
-    }, 300)
+    const pid = projectId || 'default'
+    if (usingRealData) {
+      try {
+        await apiFetch('/api/cancel-flow', {
+          method: 'POST',
+          body: { projectId: pid, reasons },
+        })
+      } catch {
+        // Fall back to localStore on API error
+        saveCancelFlow(pid, reasons)
+      }
+    } else {
+      saveCancelFlow(pid, reasons)
+    }
+    setSaving(false)
+    setSaved(true)
+    setTimeout(() => setSaved(false), 3000)
   }
 
   return (

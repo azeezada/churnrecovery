@@ -3,17 +3,17 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import AppLayout from '../../components/AppLayout'
 import { getProjects, createProject, deleteProject } from '../../lib/localStore'
+import { apiFetch } from '../../lib/useApi'
 
 function ProjectCard({ project, onDelete }) {
   const [deleting, setDeleting] = useState(false)
   const [showKey, setShowKey] = useState(false)
   const [copied, setCopied] = useState(false)
 
-  const handleDelete = () => {
+  const handleDelete = async () => {
     if (!confirm(`Delete project "${project.name}"? This cannot be undone.`)) return
     setDeleting(true)
-    deleteProject(project.id)
-    onDelete(project.id)
+    await onDelete(project.id)
     setDeleting(false)
   }
 
@@ -116,24 +116,67 @@ export default function ProjectsPage() {
   const [newName, setNewName] = useState('')
   const [showForm, setShowForm] = useState(false)
   const [error, setError] = useState(null)
+  const [usingRealData, setUsingRealData] = useState(false)
 
+  // Load projects — try API first, fall back to localStore
   useEffect(() => {
-    setProjects(getProjects())
-    setLoading(false)
+    async function loadProjects() {
+      setLoading(true)
+      try {
+        const data = await apiFetch('/api/projects')
+        if (data.projects && data.projects.length > 0) {
+          setProjects(data.projects)
+          setUsingRealData(true)
+        } else {
+          setProjects(getProjects())
+          setUsingRealData(false)
+        }
+      } catch {
+        setProjects(getProjects())
+        setUsingRealData(false)
+      } finally {
+        setLoading(false)
+      }
+    }
+    loadProjects()
   }, [])
 
-  const handleCreate = (e) => {
+  const handleCreate = async (e) => {
     e.preventDefault()
     if (!newName.trim()) return
     setCreating(true)
-    const project = createProject(newName.trim())
-    setProjects(prev => [...prev, project])
+    try {
+      if (usingRealData) {
+        const project = await apiFetch('/api/projects', {
+          method: 'POST',
+          body: { name: newName.trim() },
+        })
+        setProjects(prev => [...prev, project])
+      } else {
+        const project = createProject(newName.trim())
+        setProjects(prev => [...prev, project])
+      }
+    } catch {
+      // Fall back to localStore on API error
+      const project = createProject(newName.trim())
+      setProjects(prev => [...prev, project])
+    }
     setNewName('')
     setShowForm(false)
     setCreating(false)
   }
 
-  const handleDelete = (id) => {
+  const handleDelete = async (id) => {
+    if (usingRealData) {
+      try {
+        await apiFetch(`/api/projects?id=${id}`, { method: 'DELETE' })
+      } catch {
+        // Fall back to localStore on API error
+        deleteProject(id)
+      }
+    } else {
+      deleteProject(id)
+    }
     setProjects(projects.filter(p => p.id !== id))
   }
 

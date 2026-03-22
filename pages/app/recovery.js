@@ -2,6 +2,7 @@ import Head from 'next/head'
 import { useState, useEffect } from 'react'
 import AppLayout from '../../components/AppLayout'
 import { getProjects } from '../../lib/localStore'
+import { apiFetch } from '../../lib/useApi'
 
 // Generate realistic-looking demo failed payment data
 function makeDemoPayments() {
@@ -273,11 +274,27 @@ export default function RecoveryPage() {
   const [selectedPayment, setSelectedPayment] = useState(null)
   const [loading, setLoading] = useState(true)
 
+  // Load projects — try API first, fall back to localStore
   useEffect(() => {
-    const ps = getProjects()
-    setProjects(ps)
-    if (ps.length > 0) setSelectedProject(ps[0])
-    setLoading(false)
+    async function loadProjects() {
+      try {
+        const data = await apiFetch('/api/projects')
+        if (data.projects && data.projects.length > 0) {
+          setProjects(data.projects)
+          setSelectedProject(data.projects[0])
+          setLoading(false)
+          return
+        }
+      } catch {
+        // API unavailable
+      }
+      // Fall back to localStore
+      const ps = getProjects()
+      setProjects(ps)
+      if (ps.length > 0) setSelectedProject(ps[0])
+      setLoading(false)
+    }
+    loadProjects()
   }, [])
 
   useEffect(() => {

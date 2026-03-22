@@ -5,6 +5,7 @@ import Link from 'next/link'
 import AppLayout from '../../components/AppLayout'
 import { useAuthUser } from '../../lib/useAuthUser'
 import { createProject, getCancelFlow, saveCancelFlow } from '../../lib/localStore'
+import { apiFetch } from '../../lib/useApi'
 
 const FLOW_TEMPLATES = [
   {
@@ -246,14 +247,34 @@ function Step3({ formData, onNext, onBack }) {
   useEffect(() => {
     // Create the project when we reach step 3
     if (!project) {
-      const newProject = createProject(formData.projectName)
-
-      // Save the selected flow template
-      if (formData.customReasons?.length > 0) {
-        saveCancelFlow(newProject.id, formData.customReasons)
+      async function createAndSave() {
+        let newProject = null
+        try {
+          newProject = await apiFetch('/api/projects', {
+            method: 'POST',
+            body: { name: formData.projectName, url: formData.websiteUrl },
+          })
+          // Save the selected flow template via API
+          if (formData.customReasons?.length > 0) {
+            try {
+              await apiFetch('/api/cancel-flow', {
+                method: 'POST',
+                body: { projectId: newProject.id, reasons: formData.customReasons },
+              })
+            } catch {
+              saveCancelFlow(newProject.id, formData.customReasons)
+            }
+          }
+        } catch {
+          // Fall back to localStore
+          newProject = createProject(formData.projectName)
+          if (formData.customReasons?.length > 0) {
+            saveCancelFlow(newProject.id, formData.customReasons)
+          }
+        }
+        setProject(newProject)
       }
-
-      setProject(newProject)
+      createAndSave()
     }
   }, [formData, project])
 

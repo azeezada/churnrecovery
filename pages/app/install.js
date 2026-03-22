@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import AppLayout from '../../components/AppLayout'
 import { getProjects, createProject } from '../../lib/localStore'
+import { apiFetch } from '../../lib/useApi'
 
 function CodeBlock({ title, language, children, onCopy }) {
   const [copied, setCopied] = useState(false)
@@ -91,12 +92,27 @@ export default function InstallPage() {
   const [testResult, setTestResult] = useState(null)
   const [loaded, setLoaded] = useState(false)
 
-  // Load projects to get real API key
+  // Load projects — try API first, fall back to localStore
   useEffect(() => {
-    const allProjects = getProjects()
-    setProjects(allProjects)
-    if (allProjects.length > 0) setProject(allProjects[0])
-    setLoaded(true)
+    async function loadProjects() {
+      try {
+        const data = await apiFetch('/api/projects')
+        if (data.projects && data.projects.length > 0) {
+          setProjects(data.projects)
+          setProject(data.projects[0])
+          setLoaded(true)
+          return
+        }
+      } catch {
+        // API unavailable
+      }
+      // Fall back to localStore
+      const allProjects = getProjects()
+      setProjects(allProjects)
+      if (allProjects.length > 0) setProject(allProjects[0])
+      setLoaded(true)
+    }
+    loadProjects()
   }, [])
 
   const projectId = project?.id || 'proj_YOUR_PROJECT_ID'

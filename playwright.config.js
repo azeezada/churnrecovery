@@ -30,5 +30,13 @@ module.exports = defineConfig({
       retries: 2,
       use: { browserName: 'chromium' },
     },
+    {
+      name: 'security',
+      testDir: './tests/security',
+      testMatch: /\.spec\.js$/,
+      timeout: 30000,
+      retries: 1,
+      use: { browserName: 'chromium' },
+    },
   ],
 });

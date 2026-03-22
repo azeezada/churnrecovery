@@ -5,6 +5,7 @@ import Link from 'next/link'
 import AppLayout from '../../components/AppLayout'
 import { useAuthUser } from '../../lib/useAuthUser'
 import { getProjects, getSettings, saveSettings } from '../../lib/localStore'
+import { apiFetch } from '../../lib/useApi'
 
 function ConnectedState({ stripeAccount, onDisconnect, loading }) {
   return (
@@ -195,17 +196,35 @@ export default function ConnectStripePage() {
     }
   }, [activeProject])
 
-  // Load projects and settings
+  // Load projects and settings — try API first, fall back to localStore
   useEffect(() => {
-    const allProjects = getProjects()
-    setProjects(allProjects)
-
-    if (allProjects.length > 0) {
-      const project = allProjects[0] // Use first project for now
-      setActiveProject(project)
-      const projectSettings = getSettings(project.id)
-      setSettings(projectSettings)
+    async function loadData() {
+      try {
+        const data = await apiFetch('/api/projects')
+        if (data.projects && data.projects.length > 0) {
+          const allProjects = data.projects
+          setProjects(allProjects)
+          const project = allProjects[0]
+          setActiveProject(project)
+          // TODO: Load settings from /api/settings when endpoint exists
+          const projectSettings = getSettings(project.id)
+          setSettings(projectSettings)
+          return
+        }
+      } catch {
+        // API unavailable
+      }
+      // Fall back to localStore
+      const allProjects = getProjects()
+      setProjects(allProjects)
+      if (allProjects.length > 0) {
+        const project = allProjects[0]
+        setActiveProject(project)
+        const projectSettings = getSettings(project.id)
+        setSettings(projectSettings)
+      }
     }
+    loadData()
   }, [])
 
   const handleOAuthCallback = async (code, state) => {
