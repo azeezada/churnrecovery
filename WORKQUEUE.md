@@ -23,8 +23,8 @@ Low-code/no-code business owners: newsletter creators, coaches, online course se
 
 ### P1 — This Week (first users → first signal)
 - [x] **✅ Sign-up funnel audit** — Full funnel traced and fixed. Issues found: `afterSignUpUrl` pointed to dashboard (bypassing onboarding) → fixed to `/app/onboarding`; `signUpForceRedirectUrl` in `_app.js` also fixed; typo in sign-in page fixed; AppLayout missing auth guard → added. Build passes. Commit `8f7dc32` (2026-03-22).
-- [ ] **Internal linking pass** — 20+ blog posts and 15+ /for/ pages exist but may not cross-link well. Each post should link to 2-3 relevant /for/ pages and vice versa. SEO multiplier.
-- [ ] **Set up Resend for welcome emails** — New sign-ups should get an instant welcome email with next steps. Currently silent after signup = bad UX. Welcome email sequence already written (see scripts).
+- [x] **✅ Internal linking pass** — 12 blog posts updated with 3 /for/ page links each (36 new internal links). All 19 /for/ pages already had blog cross-links. Build passed. Commit via Claude Code worker 2026-03-22.
+- [x] **✅ Set up Resend for welcome emails** — Clerk webhook handler at `functions/api/clerk-webhook.js` created. Svix-style signature verification via Web Crypto API (edge-compatible). Sends welcome email with next steps on `user.created`. Build passed. ⚠️ DAWOOD ACTION: (1) Create Clerk webhook endpoint pointing to `https://churnrecovery.app/api/clerk-webhook` with `user.created` event, (2) Set `CLERK_WEBHOOK_SECRET` + `RESEND_API_KEY` in Cloudflare Pages env vars. Commit via Claude Code worker 2026-03-22.
 - [ ] **Social media presence (DAWOOD ACTION)** — Create/claim Twitter/X account for ChurnRecovery. Start posting threads from docs/twitter-thread-templates.md. The content exists, just needs to be published.
 
 ### P2 — Next 2 Weeks (growth + retention)
