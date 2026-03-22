@@ -6,7 +6,7 @@ export async function onRequestOptions(context) {
 
 export async function onRequestGet(context) {
   const { request, env } = context
-  const userId = getUserId(request)
+  const userId = await getUserId(request, env)
   if (!userId) return jsonResponse({ error: 'Unauthorized' }, 401, request)
 
   const { results } = await env.DB.prepare(
@@ -19,7 +19,7 @@ export async function onRequestGet(context) {
 
 export async function onRequestPost(context) {
   const { request, env } = context
-  const userId = getUserId(request)
+  const userId = await getUserId(request, env)
   if (!userId) return jsonResponse({ error: 'Unauthorized' }, 401, request)
 
   // Rate limit project creation: 5 per minute
@@ -41,7 +41,7 @@ export async function onRequestPost(context) {
 
 export async function onRequestPut(context) {
   const { request, env } = context
-  const userId = getUserId(request)
+  const userId = await getUserId(request, env)
   if (!userId) return jsonResponse({ error: 'Unauthorized' }, 401, request)
 
   const body = await request.json().catch(() => ({}))
@@ -98,7 +98,7 @@ export async function onRequestPut(context) {
 
 export async function onRequestDelete(context) {
   const { request, env } = context
-  const userId = getUserId(request)
+  const userId = await getUserId(request, env)
   if (!userId) return jsonResponse({ error: 'Unauthorized' }, 401, request)
 
   const body = await request.json().catch(() => ({}))

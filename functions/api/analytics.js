@@ -6,7 +6,7 @@ export async function onRequestOptions(context) {
 
 export async function onRequestGet(context) {
   const { request, env } = context
-  const userId = getUserId(request)
+  const userId = await getUserId(request, env)
   if (!userId) return jsonResponse({ error: 'Unauthorized' }, 401, request)
 
   const url = new URL(request.url)

@@ -41,7 +41,7 @@ export async function onRequestGet(context) {
 
 export async function onRequestPost(context) {
   const { request, env } = context
-  const userId = getUserId(request)
+  const userId = await getUserId(request, env)
   if (!userId) return jsonResponse({ error: 'Unauthorized' }, 401, request)
 
   const body = await request.json().catch(() => ({}))

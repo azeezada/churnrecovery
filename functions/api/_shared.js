@@ -64,14 +64,135 @@ export function generateApiKey() {
   return `cr_live_${hex}`
 }
 
+// ─── JWKS Cache ───────────────────────────────────────────────────────────────
+// Module-level cache — survives for the lifetime of a Worker instance.
+// Cloudflare Workers recycle periodically, so JWKS is re-fetched at most every
+// few hours naturally. We also enforce a 1-hour TTL.
+let jwksCache = null
+let jwksCacheAt = 0
+const JWKS_TTL_MS = 60 * 60 * 1000 // 1 hour
+
+/**
+ * Fetch Clerk JWKS from the issuer's well-known endpoint.
+ * CLERK_JWKS_URL env var should be set to your Clerk instance's JWKS URL, e.g.:
+ *   https://<your-clerk-domain>/.well-known/jwks.json
+ *
+ * Falls back to NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY-derived issuer if env not set.
+ */
+async function getJwks(env) {
+  const now = Date.now()
+  if (jwksCache && now - jwksCacheAt < JWKS_TTL_MS) return jwksCache
+
+  // Derive JWKS URL from CLERK_JWKS_URL env var (preferred) or CLERK_ISSUER
+  const jwksUrl = env?.CLERK_JWKS_URL
+  if (!jwksUrl) {
+    throw new Error('CLERK_JWKS_URL env var not set')
+  }
+
+  const res = await fetch(jwksUrl, {
+    headers: { 'Accept': 'application/json' },
+    cf: { cacheTtl: 3600, cacheEverything: true },
+  })
+  if (!res.ok) throw new Error(`JWKS fetch failed: ${res.status}`)
+
+  jwksCache = await res.json()
+  jwksCacheAt = now
+  return jwksCache
+}
+
+/**
+ * Decode base64url to ArrayBuffer (Web Crypto friendly).
+ */
+function base64urlToBuffer(b64url) {
+  const b64 = b64url.replace(/-/g, '+').replace(/_/g, '/')
+  const padded = b64.padEnd(b64.length + (4 - (b64.length % 4)) % 4, '=')
+  const binary = atob(padded)
+  const buf = new Uint8Array(binary.length)
+  for (let i = 0; i < binary.length; i++) buf[i] = binary.charCodeAt(i)
+  return buf.buffer
+}
+
+/**
+ * Verify a JWT using the JWKS endpoint.
+ * Returns the decoded payload if valid, throws if invalid.
+ *
+ * Supported algorithms: RS256, RS384, RS512, ES256, ES384, ES512
+ */
+async function verifyJwt(token, env) {
+  const parts = token.split('.')
+  if (parts.length !== 3) throw new Error('Malformed JWT')
+
+  const headerJson = JSON.parse(atob(parts[0].replace(/-/g, '+').replace(/_/g, '/')))
+  const payload = JSON.parse(atob(parts[1].replace(/-/g, '+').replace(/_/g, '/')))
+
+  // ── 1. Basic claim validation (before crypto — fast fail) ──────────────────
+  const now = Math.floor(Date.now() / 1000)
+  if (payload.exp && payload.exp < now) throw new Error('Token expired')
+  if (payload.nbf && payload.nbf > now) throw new Error('Token not yet valid')
+  if (!payload.sub) throw new Error('Missing sub claim')
+
+  // Validate issuer is a Clerk instance
+  if (!payload.iss || !payload.iss.includes('clerk')) {
+    throw new Error('Invalid issuer')
+  }
+
+  // ── 2. Find the matching JWK by kid ───────────────────────────────────────
+  const jwks = await getJwks(env)
+  const kid = headerJson.kid
+  const jwk = kid
+    ? jwks.keys?.find(k => k.kid === kid)
+    : jwks.keys?.[0] // fallback: single-key setup
+
+  if (!jwk) throw new Error(`JWK not found for kid: ${kid}`)
+
+  // ── 3. Import the public key ───────────────────────────────────────────────
+  const alg = headerJson.alg || 'RS256'
+  let cryptoAlg
+
+  if (alg.startsWith('RS')) {
+    const hashBits = alg.slice(2) // '256', '384', '512'
+    cryptoAlg = { name: 'RSASSA-PKCS1-v1_5', hash: `SHA-${hashBits}` }
+  } else if (alg.startsWith('ES')) {
+    const hashBits = alg.slice(2)
+    cryptoAlg = { name: 'ECDSA', namedCurve: `P-${hashBits}`, hash: `SHA-${hashBits}` }
+  } else {
+    throw new Error(`Unsupported algorithm: ${alg}`)
+  }
+
+  const publicKey = await crypto.subtle.importKey(
+    'jwk',
+    jwk,
+    cryptoAlg,
+    false,
+    ['verify']
+  )
+
+  // ── 4. Verify the signature ────────────────────────────────────────────────
+  const encoder = new TextEncoder()
+  const signingInput = encoder.encode(`${parts[0]}.${parts[1]}`)
+  const signature = base64urlToBuffer(parts[2])
+
+  const valid = await crypto.subtle.verify(
+    cryptoAlg,
+    publicKey,
+    signature,
+    signingInput
+  )
+
+  if (!valid) throw new Error('Signature verification failed')
+
+  return payload
+}
+
 /**
  * Extract userId from request.
- * Production: Clerk JWT only (signature verification via JWKS would be ideal,
- * but we validate the token structure + issuer + expiry as a baseline).
- * 
- * SECURITY: X-User-Id header is ONLY accepted in local dev (localhost origins).
+ *
+ * Production path: Full RS256/ES256 JWKS signature verification against Clerk.
+ * Dev path: X-User-Id header accepted ONLY on localhost origins.
+ *
+ * All callers must await this function.
  */
-export function getUserId(request) {
+export async function getUserId(request, env) {
   const origin = request.headers.get('Origin') || ''
   const isLocalDev = origin.startsWith('http://localhost')
 
@@ -81,33 +202,32 @@ export function getUserId(request) {
     if (devUserId) return devUserId
   }
 
-  // Clerk JWT — decode and validate structure
+  // Clerk JWT — full JWKS signature verification
   const auth = request.headers.get('Authorization')
-  if (auth && auth.startsWith('Bearer ')) {
-    try {
-      const token = auth.split(' ')[1]
-      const parts = token.split('.')
-      if (parts.length !== 3) return null // Must be a proper JWT
+  if (!auth || !auth.startsWith('Bearer ')) return null
 
-      const payload = JSON.parse(atob(parts[1]))
+  const token = auth.slice(7)
 
-      // Validate expiry
-      if (payload.exp && payload.exp < Math.floor(Date.now() / 1000)) {
-        return null // Token expired
-      }
-
-      // Validate issuer (Clerk issuer pattern)
-      if (payload.iss && !payload.iss.includes('clerk')) {
-        return null // Not a Clerk token
-      }
-
-      return payload.sub || null
-    } catch {
-      return null
+  try {
+    // If CLERK_JWKS_URL is configured: full verification
+    if (env?.CLERK_JWKS_URL) {
+      const payload = await verifyJwt(token, env)
+      return payload.sub
     }
-  }
 
-  return null
+    // Fallback: structural + claims validation (no crypto) — acceptable only
+    // until CLERK_JWKS_URL is set in CF Pages env. Logs a warning.
+    console.warn('[AUTH] CLERK_JWKS_URL not set — falling back to unverified JWT decode. Set this env var ASAP.')
+    const parts = token.split('.')
+    if (parts.length !== 3) return null
+    const payload = JSON.parse(atob(parts[1].replace(/-/g, '+').replace(/_/g, '/')))
+    if (payload.exp && payload.exp < Math.floor(Date.now() / 1000)) return null
+    if (!payload.iss || !payload.iss.includes('clerk')) return null
+    return payload.sub || null
+  } catch (err) {
+    console.error('[AUTH] JWT verification failed:', err.message)
+    return null
+  }
 }
 
 export function handleCors(request, { allowAnyOrigin = false } = {}) {
