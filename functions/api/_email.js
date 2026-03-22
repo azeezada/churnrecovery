@@ -12,9 +12,11 @@ const FROM_ADDRESS = 'ChurnRecovery <noreply@churnrecovery.com>'
  * @param {string} options.subject - Email subject
  * @param {string} options.html - HTML body
  * @param {string} [options.text] - Plain text body (optional fallback)
+ * @param {string} [options.from] - Custom from address (defaults to FROM_ADDRESS)
+ * @param {string} [options.scheduledAt] - ISO 8601 datetime to schedule the email
  * @param {Object} env - Cloudflare Worker env bindings
  */
-export async function sendEmail({ to, subject, html, text }, env) {
+export async function sendEmail({ to, subject, html, text, from, scheduledAt }, env) {
   const apiKey = env?.RESEND_API_KEY
 
   if (!apiKey) {
@@ -22,18 +24,20 @@ export async function sendEmail({ to, subject, html, text }, env) {
     console.log('[Email] DEV MODE — Email not sent (no RESEND_API_KEY)')
     console.log(`[Email] To: ${to}`)
     console.log(`[Email] Subject: ${subject}`)
+    if (scheduledAt) console.log(`[Email] Scheduled at: ${scheduledAt}`)
     console.log(`[Email] Body preview: ${(text || html || '').slice(0, 200)}`)
     return { success: true, dev: true }
   }
 
   try {
     const payload = {
-      from: FROM_ADDRESS,
+      from: from || FROM_ADDRESS,
       to: [to],
       subject,
       html,
     }
     if (text) payload.text = text
+    if (scheduledAt) payload.scheduled_at = scheduledAt
 
     const response = await fetch('https://api.resend.com/emails', {
       method: 'POST',
@@ -51,7 +55,7 @@ export async function sendEmail({ to, subject, html, text }, env) {
     }
 
     const result = await response.json()
-    console.log('[Email] Sent successfully via Resend:', result.id)
+    console.log('[Email] Sent successfully via Resend:', result.id, scheduledAt ? `(scheduled: ${scheduledAt})` : '')
     return { success: true, id: result.id }
   } catch (err) {
     console.error('[Email] Failed to send:', err.message)
