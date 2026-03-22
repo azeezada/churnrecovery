@@ -10,20 +10,20 @@ Low-code/no-code business owners: newsletter creators, coaches, online course se
 - [ ] **🤖🔥 Wire dashboard pages to D1 API** — `cancel-flow.js`, `settings.js`, `onboarding.js` still use localStorage only. Must use `apiFetch()` like `dashboard.js` and `analytics.js` already do. Without this, cancel flow configs are lost if user switches browser/device. **CRITICAL for real users.**
 - [ ] **🔑 Switch Clerk to production keys** — Currently using `pk_test_*`. Need `pk_live_*` from Clerk Dashboard → Production. Update `.env.local` + CF Pages env vars + redeploy. **DAWOOD ACTION: Create Clerk production instance.**
 - [ ] **🔐 Add JWT signature verification** — `getUserId()` in `functions/api/_shared.js` decodes JWT without verifying signature. Anyone can forge auth. Must verify against Clerk JWKS endpoint.
-- [ ] **🤖🔥 Add Cloudflare Web Analytics snippet** — Just add `<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token":"SITE_TOKEN"}'></script>` to `pages/_app.js` or `pages/_document.js`. Get the beacon token from CF dashboard → Web Analytics → Add site. **This has been P0 for 2+ days and is STILL not done. Any agent touching this project should do this FIRST before anything else.** Without analytics we are flying blind.
-- [ ] **🤖🔥 Add UTM parameter capture** — When someone hits `/for/substack?utm_source=reddit`, capture UTM params and pass them to Clerk sign-up metadata or store in D1 project record. Without this we can't tell which marketing channel works.
+- [ ] **🤖🔥 Add Cloudflare Web Analytics snippet** — Just add `<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token":"SITE_TOKEN"}'></script>` to `pages/_app.js` or `pages/_document.js`. Get the beacon token from CF dashboard → Web Analytics → Add site. **This has been P0 for 4+ days and is STILL not done. Any agent touching this project should do this FIRST before anything else.** Without analytics we are flying blind. NOTE: This requires DAWOOD to create the beacon token in CF dashboard, OR agent can try `CF_API_TOKEN` to create it via API.
+- [ ] **🤖🔥 Add UTM parameter capture** — When someone hits `/for/substack?utm_source=reddit`, capture UTM params (utm_source, utm_medium, utm_campaign) to localStorage on page load, then pass them to Clerk sign-up metadata via `unsafeMetadata` or store in D1 on project creation. Without this we can't tell which marketing channel works. **4+ days overdue.**
 - [ ] **🚨 Execute manual marketing submissions (DAWOOD ACTION)** — IH post (docs/indie-hackers-post-final.md), BetaList (marketing/betalist-submission.md), Reddit posts (docs/reddit-execution-playbook.md) are ALL written and ready. Dawood needs to paste and publish. **This has been the #1 blocker for 3+ days.** MANUAL ACTION REQUIRED. Nothing else matters if nobody sees the site.
 - [ ] **Product Hunt launch prep (April 7 target)** — Pre-launch checklist at docs/product-hunt-prelaunch-checklist.md. Per docs/launch-timing-analysis.md, Tuesday April 7 is the better launch day. Prep window: March 25–April 6. Key tasks: gather 5+ upvoter commitments, prep launch day assets, finalize tagline + first comment. ⏰ Prep starts in 3 days.
 - [ ] **🤖 Google Search Console sitemap submission** — Sitemap has 118 URLs but needs to be submitted to GSC and monitored. Pages won't rank until indexed. Moved from P1 because SEO is the primary long-term channel and indexing takes weeks — every day of delay costs.
 
 ### P1 — This Week (first users → first signal)
-- [ ] **Waitlist signup funnel audit** — Test every waitlist form on every landing page. Verify D1 writes work, ConvertKit tags fire, source tracking is accurate. One broken form = lost signups we'll never know about.
+- [ ] **Sign-up funnel audit** — Waitlist replaced with "Get Started Free" (Clerk sign-up). Test the full flow: landing page CTA → /app/sign-up → Clerk registration → redirect to dashboard → onboarding. Verify it works on mobile + desktop. One broken step = lost users we'll never know about.
 - [ ] **Internal linking pass** — 20+ blog posts and 15+ /for/ pages exist but may not cross-link well. Each post should link to 2-3 relevant /for/ pages and vice versa. SEO multiplier.
-- [ ] **Set up Resend for waitlist confirmation emails** — Waitlist signups should get an instant confirmation email. Currently silent after signup = bad UX.
+- [ ] **Set up Resend for welcome emails** — New sign-ups should get an instant welcome email with next steps. Currently silent after signup = bad UX. Welcome email sequence already written (see scripts).
 - [ ] **Social media presence (DAWOOD ACTION)** — Create/claim Twitter/X account for ChurnRecovery. Start posting threads from docs/twitter-thread-templates.md. The content exists, just needs to be published.
 
 ### P2 — Next 2 Weeks (growth + retention)
-- [ ] **Automated email nurture for waitlist** — 5-email sequence written at docs/email-nurture-sequence.md. Needs Resend/ConvertKit implementation to actually send.
+- [ ] **Automated email nurture for new users** — 5-email sequence written at docs/email-nurture-sequence.md. Needs Resend implementation to actually send. Triggered after Clerk sign-up via webhook.
 - [ ] **Stripe App Marketplace listing** — Strategy at docs/integration-marketplace-strategy.md. High-leverage: Stripe users searching for churn tools find us directly.
 - [ ] **Guest posts on SaaS newsletters** — Strategy + pitches at docs/guest-post-strategy.md. 15 targets identified. Start outreach.
 - [ ] **Collect first testimonials** — Playbook at docs/testimonial-collection-playbook.md. Need actual users first (blocked by P0).
@@ -31,7 +31,7 @@ Low-code/no-code business owners: newsletter creators, coaches, online course se
 
 ### P3 — Ongoing (continuous improvement)
 - [ ] Error handling + rate limiting improvements
-- [ ] E2E test coverage for new features (current: 142 tests, all passing)
+- [ ] E2E test coverage for new features (current: 247 tests, all passing)
 - [ ] Performance optimization — docs/performance-todo.md has items
 - [ ] Video testimonials from beta users (blocked by having beta users)
 
@@ -65,4 +65,5 @@ Everything below is DONE. This is not a todo list — it's context for what exis
 - [x] Improve deploy-and-verify pipeline — added cache-clear step (2026-03-21)
 - [x] **Review: Are we building too much before validating?** — YES. 100+ pages, 20+ blog posts, 15+ landing pages, zero users. Distribution phase declared in AGENTS.md. ✅
 - [x] Meta review 2026-03-22 00:04 — Added priority enforcement rule to AGENTS.md, promoted GSC submission to P0, updated PH target to April 7, flagged analytics+UTM as 3-day overdue
-- [ ] **Recurring problem: P0 agent tasks not being picked up** — CF Web Analytics and UTM capture have been P0 for 3+ days. Orchestrator runs but doesn't prioritize them. Added 🔥 flag and priority rule to AGENTS.md. Monitor if this fixes it next cycle.
+- [x] Meta review 2026-03-22 04:04 — Updated test counts (247), identified root cause of P0 stalling (worker crons disabled, orchestrator not spawning), updated waitlist→sign-up language in queue, flagged analytics+UTM as 4+ days overdue
+- [ ] **Recurring problem: P0 agent tasks not being picked up** — CF Web Analytics and UTM capture have been P0 for **4+ days**. Root cause: orchestrator cron is a systemEvent that checks if orchestrator subagent is alive, but no orchestrator subagent has been running. The 3 track crons (Code, Marketing, UX) are all DISABLED. Either re-enable them or ensure the orchestrator safety net actually spawns workers. **This is the #1 systemic failure.**
