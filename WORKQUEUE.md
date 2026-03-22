@@ -7,12 +7,15 @@ Low-code/no-code business owners: newsletter creators, coaches, online course se
 
 ### P0 — Do Now (blocks real users)
 - [x] **✅ Remove all waitlist language → "Get Started Free"** — 44+ pages updated, all CTAs point to /app/sign-up. SignUpCTA component created. Dead WaitlistForm code removed (~2,400 lines). Committed 2026-03-22.
-- [ ] **🤖🔥 Wire dashboard pages to D1 API** — `cancel-flow.js`, `settings.js`, `onboarding.js` still use localStorage only. Must use `apiFetch()` like `dashboard.js` and `analytics.js` already do. Without this, cancel flow configs are lost if user switches browser/device. **CRITICAL for real users.**
+- [x] **✅ Wire dashboard pages to D1 API** — `settings.js` wired to D1 via PUT/DELETE `/api/projects`; loads `webhook_url` + `has_stripe_key` from API. `cancel-flow.js` and `onboarding.js` were already API-wired. All 3 pages persist data across browsers/devices. Fixed delete bug (was using query param, now uses body). Commit `f0b37b7` (2026-03-22).
 - [x] **✅ Switch Clerk to production keys** — Production instance created, keys swapped, deployed. Commit `72e2aca` (2026-03-22).
 - [x] **✅ JWT signature verification** — JWKS RS256/ES256 verification with edge caching. Forged JWTs → 401. Commits `44e14f3`, `9fd5d1c` (2026-03-22).
-- [ ] **🔑 Add Cloudflare Web Analytics snippet (DAWOOD ACTION)** — Need beacon token from CF dashboard → Web Analytics → Add site. Once Dawood provides the token, agent adds `<script>` tag to `_document.js`. **5+ days waiting on token.**
-- [x] **✅ UTM parameter capture** — First/last-touch attribution implemented. Commit `47607af` (2026-03-22).
-- [ ] **🚨 Execute manual marketing submissions (DAWOOD ACTION)** — IH post (docs/indie-hackers-post-final.md), BetaList (marketing/betalist-submission.md), Reddit posts (docs/reddit-execution-playbook.md) are ALL written and ready. Dawood needs to paste and publish. **This has been the #1 blocker for 3+ days.** MANUAL ACTION REQUIRED. Nothing else matters if nobody sees the site.
+- [ ] **🔑 Add Cloudflare Web Analytics snippet (DAWOOD ACTION)** — Need beacon token from CF dashboard → Web Analytics → Add site. API token lacks RUM permissions. **5+ days waiting.**
+- [x] **✅ UTM parameter capture** — First/last-touch attribution. Commit `47607af` (2026-03-22).
+- [ ] **🚨 Execute manual marketing submissions (DAWOOD ACTION)** — IH, BetaList, Reddit — content ready. **4+ days waiting on human to post.**
+- [x] **✅ Next.js 15 + React 19 upgrade** — From 14.0.0/18.2.0 → 15.5.14/19.2.4. Build passes, 264 tests green.
+- [x] **✅ TypeScript config** — tsconfig.json added, mixed JS/TS supported.
+- [x] **✅ Clerk widget render tests** — 11 new tests verifying actual widget rendering. 264 total.
 - [ ] **Product Hunt launch prep (April 7 target)** — Pre-launch checklist at docs/product-hunt-prelaunch-checklist.md. Per docs/launch-timing-analysis.md, Tuesday April 7 is the better launch day. Prep window: March 25–April 6. Key tasks: gather 5+ upvoter commitments, prep launch day assets, finalize tagline + first comment. ⏰ Prep starts in 3 days.
 - [ ] **🤖 Google Search Console sitemap submission** — Sitemap has 118 URLs but needs to be submitted to GSC and monitored. Pages won't rank until indexed. Moved from P1 because SEO is the primary long-term channel and indexing takes weeks — every day of delay costs.
 - [ ] **🤖🔥 UI migration: shadcn/ui + Magic UI + TypeScript + Next.js 15** — Migrate the app UI to shadcn/ui (buttons, forms, modals, data tables for dashboard) and marketing pages to Magic UI (animated hero sections, bento grids, testimonials). Add TypeScript. Upgrade to Next.js 15. Current stack is plain JSX + Tailwind with no component library — looks unpolished. This is a solved problem. See research notes: shadcn for app chrome, Magic UI for landing page wow-factor. **ACTIVELY WORKING — Dawood priority.**
