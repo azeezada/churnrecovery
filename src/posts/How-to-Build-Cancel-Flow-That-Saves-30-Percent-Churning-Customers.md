@@ -323,6 +323,12 @@ If you don't have a cancel flow yet, start simple:
 
 **For enterprises:** Consider tools like Churnkey (expensive but feature-rich) or ProfitWell Retain (percentage-based pricing).
 
+## Set Up a Cancel Flow on Your Platform
+
+- [Cancel flow for Stripe subscriptions](/for/stripe)
+- [Cancel flow for Substack newsletters](/for/substack)
+- [Cancel flow for Kajabi memberships](/for/kajabi)
+
 ## The Bottom Line
 
 A well-designed cancel flow is one of the highest-ROI features you can build. If you're losing 100 customers per month and can save 30 of them with a cancel flow, that's **$30,000+ in monthly recurring revenue** (assuming $100/month average).

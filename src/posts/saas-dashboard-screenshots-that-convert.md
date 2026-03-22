@@ -126,4 +126,10 @@ Audit your own product screenshots against these five criteria:
 
 If you're building a subscription product and want to see what good product screenshot design looks like in practice, [check out ChurnRecovery's cancel flow editor](/). It's the kind of UI that converts visitors — which, if you think about it, is exactly what it does for the subscription businesses that use it.
 
+## See ChurnRecovery in Action
+
+- [ChurnRecovery for Substack](/for/substack)
+- [ChurnRecovery for Ghost](/for/ghost)
+- [ChurnRecovery for Stripe](/for/stripe)
+
 Good screenshots are a multiplier. Same traffic, same copy, better screenshots = more signups. It's one of the highest-leverage improvements on your landing page — and it doesn't require writing a word.

@@ -104,6 +104,12 @@ These models take inputs like your location, user location, legal entity, etc.
 * **Guidance:** Set up legal entities in countries you are focused on and update the providers.
 * **Redundancy:** Using at least two payment processors is a good idea. One will inevitably go down. They all claim 99.99% uptime, but across a long enough timeline, you'll have outages.
 
+## Protect Revenue on Your Platform
+
+- [Churn recovery for Stripe subscriptions](/for/stripe)
+- [Churn recovery for Substack newsletters](/for/substack)
+- [Churn recovery for Memberful memberships](/for/memberful)
+
 ---
 
 Hope that helps. More than happy to answer any questions.

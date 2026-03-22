@@ -177,6 +177,12 @@ If you're building a subscription business and churn is a real problem (not just
 
 ChurnRecovery is free to try — it covers the core features that actually move numbers for most businesses. If you're a newsletter creator, SaaS founder, or subscription business owner who hasn't done this yet, that's where I'd start.
 
+## Get Started on Your Platform
+
+- [ChurnRecovery for Stripe](/for/stripe)
+- [ChurnRecovery for Substack](/for/substack)
+- [ChurnRecovery for Ghost](/for/ghost)
+
 [→ Join the ChurnRecovery waitlist and get early access](/waitlist)
 
 ---

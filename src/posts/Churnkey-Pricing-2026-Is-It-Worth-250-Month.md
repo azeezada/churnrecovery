@@ -280,6 +280,12 @@ For most early and mid-stage SaaS companies, starting with a free alternative li
 
 **The real question isn't whether Churnkey is good** — it's whether it's $250+/month better than the alternatives. For most companies, the answer is no.
 
+## Try ChurnRecovery on Your Platform
+
+- [ChurnRecovery for Stripe](/for/stripe)
+- [ChurnRecovery for Chargebee](/for/chargebee)
+- [ChurnRecovery for Lemon Squeezy](/for/lemon-squeezy)
+
 ---
 
 *Want to try churn prevention without the $250/month commitment? [ChurnRecovery offers the same core features for free](https://churnrecovery.com) — setup takes 15 minutes and works with any billing system.*

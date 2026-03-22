@@ -264,6 +264,12 @@ ChurnRecovery is [free to start](/). You can set up one of these cancel flows to
 
 **Update the copy seasonally.** A cancel flow that references "your summer break" in December won't convert as well. Small tweaks keep it feeling current and personal.
 
+## Deploy These Templates on Your Platform
+
+- [Cancel flow for Ghost newsletters](/for/ghost)
+- [Cancel flow for Beehiiv newsletters](/for/beehiiv)
+- [Cancel flow for Kajabi courses](/for/kajabi)
+
 ---
 
 *ChurnRecovery lets you launch any of these cancel flow templates in minutes. [Join the waitlist](/). Free during beta — no credit card required.*

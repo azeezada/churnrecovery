@@ -137,6 +137,12 @@ We care about that promise. Not because it makes us look good at launch, but bec
 
 If you're building something for real people, your screenshots should look like it.
 
+## ChurnRecovery Works With
+
+- [ChurnRecovery for Substack creators](/for/substack)
+- [ChurnRecovery for Ghost publishers](/for/ghost)
+- [ChurnRecovery for Beehiiv newsletters](/for/beehiiv)
+
 ---
 
 *ChurnRecovery is a free churn recovery tool for newsletter creators and subscription businesses. Set up your cancel flow in 10 minutes — no monthly fees, no developer required. [Join the waitlist →](/#waitlist)*

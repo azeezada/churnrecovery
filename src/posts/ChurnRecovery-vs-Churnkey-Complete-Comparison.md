@@ -240,6 +240,12 @@ The choice isn't just about features—it's about sustainable unit economics. Ev
 
 **Ready to save $3,000-$9,900/year?**
 
+## Set Up ChurnRecovery on Your Platform
+
+- [ChurnRecovery for Stripe](/for/stripe)
+- [ChurnRecovery for Chargebee](/for/chargebee)
+- [ChurnRecovery for Lemon Squeezy](/for/lemon-squeezy)
+
 - **Try ChurnRecovery:** [churnrecovery.com](https://churnrecovery.com?utm_source=blog&utm_campaign=vs-churnkey)
 - **See live comparison:** [churnrecovery.com/compare/churnkey](https://churnrecovery.com/compare/churnkey)  
 - **View source code:** [github.com/dawoodazeeza/churnrecovery](https://github.com/dawoodazeeza/churnrecovery)

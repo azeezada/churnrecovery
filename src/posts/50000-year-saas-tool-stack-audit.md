@@ -168,6 +168,12 @@ Why does it get this expensive? Three patterns repeat constantly:
 **For churn specifically:**
 [ChurnRecovery](/) is free. Not a trial. Not a freemium tier. Free. If you're paying $250+/month for Churnkey, that's $3,000/year you can recover immediately. [See how it compares →](/blog/ChurnRecovery-vs-Churnkey-Complete-Comparison)
 
+## ChurnRecovery Works With Your Stack
+
+- [ChurnRecovery for Stripe](/for/stripe)
+- [ChurnRecovery for Chargebee](/for/chargebee)
+- [ChurnRecovery for Lemon Squeezy](/for/lemon-squeezy)
+
 ---
 
 ## The Bottom Line

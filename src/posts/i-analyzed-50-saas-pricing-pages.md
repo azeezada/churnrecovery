@@ -142,6 +142,12 @@ And if you're specifically looking for churn recovery tools for a small subscrip
 
 The market has priced you out by accident. You don't have to accept it.
 
+## Free Churn Recovery for Your Platform
+
+- [ChurnRecovery for Substack](/for/substack)
+- [ChurnRecovery for Kajabi](/for/kajabi)
+- [ChurnRecovery for Chargebee](/for/chargebee)
+
 ---
 
 *[ChurnRecovery](https://churnrecovery.com) is free churn recovery software for newsletter creators, coaches, course sellers, and small subscription businesses.*

@@ -180,6 +180,12 @@ It's free. No monthly fee. You keep every dollar recovered.
 
 ---
 
+## Recover Price-Sensitive Subscribers on Your Platform
+
+- [ChurnRecovery for Stripe](/for/stripe)
+- [ChurnRecovery for Chargebee](/for/chargebee)
+- [ChurnRecovery for Substack](/for/substack)
+
 ## The Bottom Line
 
 SaaS pricing isn't just a number — it's a constant negotiation with your customers' perception of value. Every price increase, feature gate, and billing cycle is a moment where customers decide whether to stay or leave.

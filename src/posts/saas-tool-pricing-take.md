@@ -126,6 +126,12 @@ The question was never whether this technology works — it does, and the data i
 
 Now you can.
 
+## Get Started on Your Platform
+
+- [ChurnRecovery for Stripe](/for/stripe)
+- [ChurnRecovery for Lemon Squeezy](/for/lemon-squeezy)
+- [ChurnRecovery for Substack](/for/substack)
+
 ---
 
 *ChurnRecovery is free churn recovery software for small subscription businesses. [Get started here →](https://churnrecovery.com)*
