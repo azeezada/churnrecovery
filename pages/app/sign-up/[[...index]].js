@@ -7,8 +7,16 @@ import ClerkErrorBoundary from '../../../components/ClerkErrorBoundary'
 const ClerkSignUp = dynamic(
   () => import('@clerk/nextjs').then(mod => {
     const { SignUp, ClerkProvider } = mod;
+    // Static export requires its own ClerkProvider for dynamic imports.
+    // We pass signInUrl/signUpUrl to override Clerk Account Portal redirects.
     const WrappedSignUp = (props) => (
-      <ClerkProvider publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}>
+      <ClerkProvider
+        publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}
+        signInUrl="/app/sign-in"
+        signUpUrl="/app/sign-up"
+        afterSignInUrl="/app/dashboard"
+        afterSignUpUrl="/app/dashboard"
+      >
         <SignUp {...props} />
       </ClerkProvider>
     );

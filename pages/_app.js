@@ -26,8 +26,21 @@ export default function MyApp({ Component, pageProps }) {
   const canonicalPath = router.asPath.split('?')[0].split('#')[0]
   const canonicalUrl = `https://churnrecovery.com${canonicalPath === '/' ? '' : canonicalPath}`
 
+  // Override Clerk's Account Portal URLs to use our custom embedded pages.
+  // Without this, Clerk's production environment config redirects to
+  // accounts.churnrecovery.com instead of rendering the embedded <SignIn>/<SignUp>.
+  const clerkProps = clerkEnabled ? {
+    ...pageProps,
+    signInUrl: '/app/sign-in',
+    signUpUrl: '/app/sign-up',
+    afterSignInUrl: '/app/dashboard',
+    afterSignUpUrl: '/app/dashboard',
+    signInForceRedirectUrl: '/app/dashboard',
+    signUpForceRedirectUrl: '/app/dashboard',
+  } : {}
+
   return (
-    <AuthProvider {...(clerkEnabled ? pageProps : {})}>
+    <AuthProvider {...clerkProps}>
       <Head>
         <link rel="canonical" href={canonicalUrl} />
         <link rel="icon" href="/logo.png" />
