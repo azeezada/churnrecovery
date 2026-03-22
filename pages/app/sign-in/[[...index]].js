@@ -5,8 +5,17 @@ import ClerkErrorBoundary from '../../../components/ClerkErrorBoundary'
 
 // Dynamic import so Clerk only loads client-side (safe for static export)
 const ClerkSignIn = dynamic(
-  () => import('@clerk/nextjs').then(mod => mod.SignIn),
-  { ssr: false }
+  () => import('@clerk/nextjs').then(mod => {
+    const { SignIn, ClerkProvider } = mod;
+    // Wrap SignIn in its own ClerkProvider for static export compatibility
+    const WrappedSignIn = (props) => (
+      <ClerkProvider publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}>
+        <SignIn {...props} />
+      </ClerkProvider>
+    );
+    return { default: WrappedSignIn };
+  }),
+  { ssr: false, loading: () => <div style={{minHeight:'400px',display:'flex',alignItems:'center',justifyContent:'center'}}>Loading...</div> }
 )
 
 function DemoSignIn() {

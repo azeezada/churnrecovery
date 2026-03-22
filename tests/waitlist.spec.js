@@ -1,63 +1,34 @@
 // @ts-check
 const { test, expect } = require('@playwright/test');
 
-test.describe('waitlist email signup', () => {
-  test('waitlist section exists and form is interactive', async ({ page }) => {
+test.describe('sign-up CTA on homepage', () => {
+  test('homepage has "Get Started Free" CTA linking to /app/sign-up', async ({ page }) => {
     await page.goto('/', { waitUntil: 'domcontentloaded' });
 
-    // Scroll to waitlist section
-    const waitlistSection = page.locator('#waitlist');
-    await expect(waitlistSection).toBeVisible();
-    await waitlistSection.scrollIntoViewIfNeeded();
+    // Find "Get Started Free" CTA buttons/links
+    const cta = page.locator('a').filter({ hasText: /get started free/i });
+    const count = await cta.count();
+    expect(count).toBeGreaterThan(0);
 
-    // Find email input
-    const emailInput = waitlistSection.locator('input[type="email"]');
-    await expect(emailInput).toBeVisible();
-    expect(await emailInput.getAttribute('placeholder')).toBe('you@company.com');
-
-    // Find submit button
-    const submitButton = waitlistSection.locator('button[type="submit"]');
-    await expect(submitButton).toBeVisible();
-    await expect(submitButton).toHaveText(/Join Waitlist|Start Saving Subscribers/);
-
-    // Type an email
-    await emailInput.fill('test@example.com');
-    expect(await emailInput.inputValue()).toBe('test@example.com');
+    // First CTA should link to sign-up
+    const href = await cta.first().getAttribute('href');
+    expect(href).toContain('/app/sign-up');
   });
 
-  test('waitlist form submits and shows response', async ({ page }) => {
+  test('homepage has "Sign in" link in header', async ({ page }) => {
     await page.goto('/', { waitUntil: 'domcontentloaded' });
 
-    const waitlistSection = page.locator('#waitlist');
-    const emailInput = waitlistSection.locator('input[type="email"]');
-    const submitButton = waitlistSection.locator('button[type="submit"]');
+    const signIn = page.locator('header a').filter({ hasText: /sign in/i });
+    await expect(signIn).toBeVisible();
+    const href = await signIn.getAttribute('href');
+    expect(href).toBe('/app/sign-in');
+  });
 
-    await emailInput.fill('playwright-test@example.com');
-    
-    // Listen for any network request from form submit
-    const responsePromise = page.waitForResponse(
-      (response) => response.url().includes('waitlist') || response.url().includes('api'),
-      { timeout: 5000 }
-    ).catch(() => null);
+  test('homepage does NOT contain "Join Waitlist" language', async ({ page }) => {
+    await page.goto('/', { waitUntil: 'domcontentloaded' });
 
-    await submitButton.click();
-
-    // Either the form submits and we get a response, or the form state changes
-    // (e.g., success message, button text change, or input clears)
-    // Wait briefly for any UI change
-    await page.waitForTimeout(1000);
-
-    // The form should show some kind of feedback — either success text or changed state
-    // This is a soft check since the API might not be running locally
-    const buttonText = await submitButton.textContent();
-    const inputValue = await emailInput.inputValue();
-    
-    // At minimum, the form should have attempted something
-    // (button text changed, input cleared, or a message appeared)
-    const hasChanged = buttonText !== 'Join Waitlist' || inputValue === '';
-    const successMessage = await page.locator('text=/thank|success|joined|added|received/i').count();
-    
-    // This test documents the behavior — pass if form is interactive
-    expect(true).toBe(true);
+    const bodyText = await page.textContent('body');
+    expect(bodyText.toLowerCase()).not.toContain('join waitlist');
+    expect(bodyText.toLowerCase()).not.toContain('join the waitlist');
   });
 });

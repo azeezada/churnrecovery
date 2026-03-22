@@ -3,26 +3,23 @@ const { test, expect } = require('@playwright/test');
 const { mockSignedIn, mockSignedOut } = require('../helpers/mock-auth');
 
 test.describe('Journey 1: New user onboarding', () => {
-  test('homepage has waitlist signup form', async ({ page }) => {
+  test('homepage has "Get Started Free" sign-up CTA', async ({ page }) => {
     await page.goto('/', { waitUntil: 'domcontentloaded' });
 
-    const waitlistSection = page.locator('#waitlist');
-    await expect(waitlistSection).toBeVisible();
+    const cta = page.locator('a').filter({ hasText: /get started free/i });
+    const count = await cta.count();
+    expect(count).toBeGreaterThan(0);
 
-    const emailInput = waitlistSection.locator('input[type="email"]');
-    await expect(emailInput).toBeVisible();
-
-    const submitButton = waitlistSection.locator('button[type="submit"]');
-    await expect(submitButton).toBeVisible();
+    // CTA should link to sign-up
+    const href = await cta.first().getAttribute('href');
+    expect(href).toContain('/app/sign-up');
   });
 
-  test('can enter email in waitlist form', async ({ page }) => {
+  test('homepage has sign-in link in header', async ({ page }) => {
     await page.goto('/', { waitUntil: 'domcontentloaded' });
 
-    const waitlistSection = page.locator('#waitlist');
-    const emailInput = waitlistSection.locator('input[type="email"]');
-    await emailInput.fill('newuser@example.com');
-    expect(await emailInput.inputValue()).toBe('newuser@example.com');
+    const signIn = page.locator('header a').filter({ hasText: /sign in/i });
+    await expect(signIn).toBeVisible();
   });
 
   test('sign-up page is accessible from homepage', async ({ page }) => {
@@ -155,7 +152,7 @@ test.describe('Journey 3: Public pages (no auth)', () => {
     expect(bodyText).toMatch(/feature|benefit/i);
 
     // Pricing or CTA
-    expect(bodyText).toMatch(/pricing|free|start|waitlist/i);
+    expect(bodyText).toMatch(/pricing|free|start|sign up/i);
   });
 
   test('/pricing renders comparison table', async ({ page }) => {

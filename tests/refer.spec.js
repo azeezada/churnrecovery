@@ -31,17 +31,12 @@ test.describe('/refer page', () => {
     expect(body).toContain('Founding Member');
   });
 
-  test('referral landing page includes waitlist form after hydration', async ({ page }) => {
+  test('referral landing page includes sign-up CTA after hydration', async ({ page }) => {
     await page.goto('/refer/%5Bcode%5D', { waitUntil: 'networkidle' });
 
-    // After JS hydration, the WaitlistForm should be rendered
-    const emailInput = page.locator('input[type="email"]');
-    // Use a longer timeout since the page hydrates client-side
-    await expect(emailInput).toBeVisible({ timeout: 8000 });
-
-    // Submit button should also be visible
-    const submitButton = page.locator('button[type="submit"]');
-    await expect(submitButton).toBeVisible();
+    // After JS hydration, there should be a sign-up link
+    const signUpLink = page.locator('a[href*="/app/sign-up"]');
+    await expect(signUpLink.first()).toBeVisible({ timeout: 8000 });
   });
 
   test('referral link generator page loads and generates link', async ({ page }) => {

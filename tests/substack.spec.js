@@ -25,28 +25,21 @@ test.describe('Substack landing page (/for/substack)', () => {
     expect(bodyText).toMatch(/newsletter|creator|subscriber/i);
   });
 
-  test('has "Join Waitlist" CTA', async ({ page }) => {
+  test('has "Get Started Free" CTA', async ({ page }) => {
     await page.goto('/for/substack', { waitUntil: 'domcontentloaded' });
 
-    // At least one "Join Waitlist" link or button
-    const cta = page.locator('a, button').filter({ hasText: /join waitlist/i }).first();
+    // At least one "Get Started Free" link or button
+    const cta = page.locator('a, button').filter({ hasText: /get started free/i }).first();
     await expect(cta).toBeVisible();
   });
 
-  test('has a waitlist form or email capture element', async ({ page }) => {
+  test('has a sign-up CTA linking to /app/sign-up', async ({ page }) => {
     await page.goto('/for/substack', { waitUntil: 'domcontentloaded' });
 
-    // Check for a form element or email input
-    const form = page.locator('form');
-    const emailInput = page.locator('input[type="email"]');
-    const hasForm = (await form.count()) > 0;
-    const hasEmailInput = (await emailInput.count()) > 0;
-
-    // At minimum there should be a CTA link pointing to waitlist
-    const waitlistLink = page.locator('a[href*="waitlist"], a[href*="tally"]');
-    const hasWaitlistLink = (await waitlistLink.count()) > 0;
-
-    expect(hasForm || hasEmailInput || hasWaitlistLink).toBe(true);
+    // Check for sign-up link
+    const signUpLink = page.locator('a[href*="/app/sign-up"]');
+    const count = await signUpLink.count();
+    expect(count).toBeGreaterThan(0);
   });
 
   test('no error text in body', async ({ page }) => {

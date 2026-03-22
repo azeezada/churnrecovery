@@ -70,10 +70,10 @@ test.describe('ROI Calculator (/tools/roi-calculator)', () => {
     expect(after).not.toContain('Internal Server Error');
   });
 
-  test('has "Join Waitlist" CTA button', async ({ page }) => {
+  test('has "Get Started Free" CTA button', async ({ page }) => {
     await page.goto('/tools/roi-calculator', { waitUntil: 'domcontentloaded' });
 
-    const cta = page.locator('a, button').filter({ hasText: /join waitlist/i }).first();
+    const cta = page.locator('a, button').filter({ hasText: /get started free/i }).first();
     await expect(cta).toBeVisible();
   });
 });
