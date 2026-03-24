@@ -29,10 +29,10 @@ Low-code/no-code business owners: newsletter creators, coaches, online course se
 
 ### P2 — Next 2 Weeks (growth + retention)
 - [x] **✅ Automated email nurture for new users** — 5-email onboarding sequence implemented via Resend `scheduled_at`. Emails at Day 0 (welcome), Day 3 (social proof), Day 7 (education), Day 14 (objection handling), Day 21 (conversion CTA). All triggered from Clerk `user.created` webhook. Build passed. ⚠️ DAWOOD: Verify `dawood@churnrecovery.com` sender domain in Resend dashboard. Commit 2026-03-22.
-- [ ] **Stripe App Marketplace listing** — Strategy at docs/integration-marketplace-strategy.md. High-leverage: Stripe users searching for churn tools find us directly.
-- [ ] **Guest posts on SaaS newsletters** — Strategy + pitches at docs/guest-post-strategy.md. 15 targets identified. Start outreach.
-- [ ] **Collect first testimonials** — Playbook at docs/testimonial-collection-playbook.md. Need actual users first (blocked by P0).
-- [ ] **Community engagement** — Playbook at docs/community-engagement-playbook.md. 15 communities identified. Start participating (not spamming).
+- [ ] **🚨 DAWOOD ACTION — Stripe App Marketplace listing** — Strategy at docs/integration-marketplace-strategy.md. High-leverage: Stripe users searching for churn tools find us directly.
+- [ ] **🚨 DAWOOD ACTION — Guest posts on SaaS newsletters** — Strategy + pitches at docs/guest-post-strategy.md. 15 targets identified. Start outreach.
+- [ ] **🚨 DAWOOD ACTION — Collect first testimonials** — Playbook at docs/testimonial-collection-playbook.md. Need actual users first.
+- [ ] **🚨 DAWOOD ACTION — Community engagement** — Playbook at docs/community-engagement-playbook.md. 15 communities identified. Start participating (not spamming).
 
 ### P3 — Ongoing (continuous improvement)
 - [x] **✅ Error handling + rate limiting improvements** — `withErrorHandling()` wrapper added to all API routes. Standard error format `{ error, code }` across all endpoints. Rate limiting expanded: 13 endpoints now covered (PUT/DELETE/GET routes that lacked it). 318 tests pass. Build passed. Commit 2026-03-22.
@@ -72,4 +72,12 @@ Everything below is DONE. This is not a todo list — it's context for what exis
 - [x] Meta review 2026-03-22 00:04 — Added priority enforcement rule to AGENTS.md, promoted GSC submission to P0, updated PH target to April 7, flagged analytics+UTM as 3-day overdue
 - [x] Meta review 2026-03-22 04:04 — Updated test counts (247), identified root cause of P0 stalling (worker crons disabled, orchestrator not spawning), updated waitlist→sign-up language in queue, flagged analytics+UTM as 4+ days overdue
 - [x] **Recurring problem: P0 agent tasks not being picked up** — Partially resolved. UTM capture, JWKS verification, Clerk production keys, and waitlist removal all completed 2026-03-22 via orchestrator + main session collaboration. Remaining systemic issue: 3 track crons still disabled, orchestrator safety net spawns but workers often error on concurrent WORKQUEUE edits.
-- [ ] **Reduce Dawood-blocked items** — 3 P0 items require Dawood action: CF Web Analytics token, marketing submissions, and Product Hunt prep. Need to consolidate these into a clear "Dawood TODO" ping so they don't rot.
+- [x] **Reduce Dawood-blocked items** — ✅ Created `docs/dawood-todo.md` with prioritized, step-by-step instructions for all manual actions. Created `docs/launch-checklist.md` with timeline for PH April 7 launch. 2026-03-24.
+
+### Maintenance Check — 2026-03-24
+- **Build:** `npm run build` passes clean
+- **Tests:** 383 passed, 12 skipped, 0 failed (Playwright)
+- **Live site:** https://churnrecovery.com returns HTTP 200
+- **Technical debt:** None identified — build and tests clean
+- **Docs created:** `docs/dawood-todo.md` (all manual actions), `docs/launch-checklist.md` (PH April 7 timeline)
+- **Remaining blockers:** All unchecked items are DAWOOD ACTION — no agent-automatable work remains
