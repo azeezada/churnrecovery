@@ -205,6 +205,11 @@ export default function SocialProofPage() {
           name="description"
           content="Testimonials, community reactions, and press mentions for ChurnRecovery — the free churn recovery tool for newsletters, coaches, and subscription businesses."
         />
+        <meta property="og:title" content="What People Are Saying — ChurnRecovery" />
+        <meta property="og:description" content="Testimonials, community reactions, and press mentions for ChurnRecovery — the free churn recovery tool for newsletters, coaches, and subscription businesses." />
+        <meta property="og:url" content="https://churnrecovery.com/social-proof" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://churnrecovery.com/og/default.svg" />
         <link rel="canonical" href="https://churnrecovery.com/social-proof" />
       </Head>
 

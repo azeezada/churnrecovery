@@ -38,6 +38,11 @@ export default function PressPage() {
       <Head>
         <title>Press Kit — ChurnRecovery</title>
         <meta name="description" content="Press kit, media assets, founder quotes, and brand guidelines for ChurnRecovery — the free churn recovery platform for subscription businesses." />
+        <meta property="og:title" content="Press Kit — ChurnRecovery" />
+        <meta property="og:description" content="Press kit, media assets, founder quotes, and brand guidelines for ChurnRecovery — the free churn recovery platform for subscription businesses." />
+        <meta property="og:url" content="https://churnrecovery.com/press" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://churnrecovery.com/og/default.svg" />
         <link rel="canonical" href="https://churnrecovery.com/press" />
       </Head>
 

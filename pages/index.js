@@ -100,9 +100,11 @@ export default function Home({ posts }) {
         <meta property="og:description" content="Your subscribers are leaving — but most would stay if you asked the right way. Free churn recovery for subscription businesses." />
         <meta property="og:url" content="https://churnrecovery.com" />
         <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://churnrecovery.com/og/home.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="ChurnRecovery — Stop Losing Subscribers You Already Earned" />
         <meta name="twitter:description" content="Your subscribers are leaving — but most would stay if you asked the right way. Free churn recovery for subscription businesses." />
+        <meta name="twitter:image" content="https://churnrecovery.com/og/home.png" />
       </Head>
 
       {/* ── HERO ─────────────────────────────────────────────────────────── */}
