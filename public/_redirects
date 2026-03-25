@@ -1,3 +1,8 @@
 # Cloudflare Pages redirect rules
+
+# Clerk auth catch-all routes (SSO callbacks, verify, etc.)
+/app/sign-up/* /app/sign-up/index.html 200
+/app/sign-in/* /app/sign-in/index.html 200
+
 # Referral catch-all: /refer/anycode → /refer/[code] (the static SPA shell)
 /refer/:code /refer/[code] 200

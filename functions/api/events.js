@@ -1,4 +1,5 @@
 import { jsonResponse, handleCors, getUserId, rateLimit, rateLimitResponse, sanitizeString, withErrorHandling } from './_shared.js'
+import { notifyWebhooks } from './webhook-subscriptions.js'
 
 export async function onRequestOptions(context) {
   return handleCors(context.request, { allowAnyOrigin: true })
@@ -54,6 +55,29 @@ export async function onRequestPost(context) {
       sanitizeString(feedback, 2000) || null,
       mrrCents ? parseInt(mrrCents) || null : null
     ).run()
+
+    // Fan-out to registered webhooks (fire-and-forget, never blocks response)
+    if (resolvedProjectId && sanitizedOutcome && env.DB) {
+      // Map internal outcomes to webhook event types
+      const outcomeToEvent = {
+        flow_started: 'cancellation_attempt',
+        saved: 'subscriber_retained',
+        cancelled: 'subscriber_cancelled',
+        paused: 'subscriber_paused',
+      }
+      const webhookEvent = outcomeToEvent[sanitizedOutcome]
+      if (webhookEvent) {
+        // Run fan-out without awaiting — don't delay the response
+        notifyWebhooks(env.DB, resolvedProjectId, webhookEvent, {
+          sessionId: sanitizeString(sessionId, 50) || null,
+          customerId: sanitizeString(customerId, 255) || null,
+          reason: sanitizeString(reason, 100) || null,
+          offerShown: sanitizeString(offerShown, 50) || null,
+          outcome: sanitizedOutcome,
+          mrrCents: mrrCents ? parseInt(mrrCents) || null : null,
+        }).catch(err => console.error('[events] webhook fan-out failed:', err.message))
+      }
+    }
 
     return jsonResponse({ id: result.meta?.last_row_id, recorded: true }, 201, request, { allowAnyOrigin: true })
   } catch (e) {

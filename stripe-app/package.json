@@ -1,0 +1,19 @@
+{
+  "name": "churnrecovery-stripe-app",
+  "version": "0.1.0",
+  "description": "ChurnRecovery Stripe Dashboard Extension — recover churning subscribers without leaving Stripe",
+  "private": true,
+  "scripts": {
+    "build": "stripe-app build",
+    "start": "stripe-app start",
+    "lint": "tsc --noEmit",
+    "package": "stripe-app bundle"
+  },
+  "dependencies": {
+    "@stripe/ui-extension-sdk": "^0.26.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.0",
+    "typescript": "^5.0.0"
+  }
+}

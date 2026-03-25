@@ -287,11 +287,17 @@ export function sanitizeString(str, maxLength = 1000) {
  */
 export function sanitizeProject(project) {
   if (!project) return project
-  const { stripe_secret_key, stripe_webhook_secret, ...safe } = project
+  const {
+    stripe_secret_key,
+    stripe_webhook_secret,
+    stripe_connect_access_token,
+    ...safe
+  } = project
   return {
     ...safe,
     has_stripe_key: !!stripe_secret_key,
     has_webhook_secret: !!stripe_webhook_secret,
+    stripe_connected: !!safe.stripe_connect_account_id,
   }
 }
 

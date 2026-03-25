@@ -1,13 +1,12 @@
 import Head from 'next/head'
-import { useState, useEffect } from 'react'
-import { useRouter } from 'next/router'
+import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import AppLayout from '../../components/AppLayout'
 import { useAuthUser } from '../../lib/useAuthUser'
-import { getProjects, getSettings, saveSettings } from '../../lib/localStore'
+import { getProjects } from '../../lib/localStore'
 import { apiFetch } from '../../lib/useApi'
 
-function ConnectedState({ stripeAccount, onDisconnect, loading }) {
+function ConnectedState({ accountId, connectedAt, livemode, onDisconnect, loading }) {
   return (
     <div className="bg-brand-green-light border border-brand-green rounded-xl p-6 mb-6">
       <div className="flex items-start gap-4">
@@ -23,14 +22,21 @@ function ConnectedState({ stripeAccount, onDisconnect, loading }) {
             and manage subscription changes when users accept your offers.
           </p>
 
-          <div className="bg-white/60 rounded-lg px-4 py-3 mb-4">
+          <div className="bg-white/60 rounded-lg px-4 py-3 mb-2">
             <div className="text-[0.8rem] text-brand-green font-semibold mb-1">
               Connected Account
             </div>
             <div className="text-[0.85rem] text-brand-green font-mono">
-              {stripeAccount?.account_id || 'acct_1234567890abcdef'}
+              {accountId || 'acct_...'}
             </div>
           </div>
+
+          {connectedAt && (
+            <div className="text-[0.75rem] text-brand-green opacity-70 mb-4 pl-1">
+              Connected {new Date(connectedAt).toLocaleDateString()} •{' '}
+              {livemode ? '🟢 Live mode' : '🟡 Test mode'}
+            </div>
+          )}
 
           <div className="bg-white/60 rounded-lg p-4 mb-4">
             <h4 className="text-[0.9rem] font-semibold text-brand-green m-0 mb-2 font-sans">
@@ -90,7 +96,7 @@ function DisconnectedState({ onConnect, loading, error }) {
 
         <p className="font-serif text-[0.95rem] text-brand-gray m-0 mb-8 leading-[1.7] max-w-[500px] mx-auto">
           Connect your Stripe account to automatically apply retention offers and track revenue impact.
-          Your data stays secure and we only access what's necessary for churn recovery.
+          Your data stays secure and we only access what&apos;s necessary for churn recovery.
         </p>
 
         <button
@@ -167,94 +173,94 @@ function DisconnectedState({ onConnect, loading, error }) {
 }
 
 export default function ConnectStripePage() {
-  const { user, isLoaded } = useAuthUser()
-  const router = useRouter()
+  const { isLoaded } = useAuthUser()
   const [projects, setProjects] = useState([])
   const [activeProject, setActiveProject] = useState(null)
-  const [settings, setSettings] = useState(null)
+  const [connectState, setConnectState] = useState(null) // { connected, account_id, connected_at, livemode }
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
+  const callbackProcessed = useRef(false)
 
-  // Handle OAuth callback
+  // Load projects from API, fall back to localStore
   useEffect(() => {
+    async function loadProjects() {
+      try {
+        const data = await apiFetch('/api/projects')
+        if (data.projects && data.projects.length > 0) {
+          setProjects(data.projects)
+          setActiveProject(data.projects[0])
+          return
+        }
+      } catch {
+        // fall through to localStore
+      }
+      const local = getProjects()
+      setProjects(local)
+      if (local.length > 0) setActiveProject(local[0])
+    }
+    loadProjects()
+  }, [])
+
+  // When project is selected, fetch Stripe Connect status from API
+  useEffect(() => {
+    if (!activeProject) return
+    async function loadConnectStatus() {
+      try {
+        const data = await apiFetch(`/api/stripe-connect?project_id=${activeProject.id}`)
+        setConnectState({
+          connected: data.connected,
+          account_id: data.account_id,
+          connected_at: data.connected_at,
+          livemode: data.livemode,
+        })
+      } catch {
+        // API not available — fall back to not connected
+        setConnectState({ connected: false, account_id: null, connected_at: null, livemode: false })
+      }
+    }
+    loadConnectStatus()
+  }, [activeProject])
+
+  // Handle OAuth callback (code + state in URL)
+  useEffect(() => {
+    if (!activeProject || callbackProcessed.current) return
+
     const urlParams = new URLSearchParams(window.location.search)
     const code = urlParams.get('code')
     const state = urlParams.get('state')
     const errorParam = urlParams.get('error')
+    const errorDesc = urlParams.get('error_description')
+
+    // Clean up URL immediately
+    if (code || errorParam) {
+      window.history.replaceState({}, document.title, window.location.pathname)
+    }
 
     if (errorParam) {
-      setError(`Stripe connection failed: ${errorParam}`)
-      // Clean up URL
-      window.history.replaceState({}, document.title, window.location.pathname)
+      setError(`Stripe connection failed: ${errorDesc || errorParam}`)
       return
     }
 
-    if (code && state && activeProject) {
+    if (code && state) {
+      callbackProcessed.current = true
       handleOAuthCallback(code, state)
-      // Clean up URL
-      window.history.replaceState({}, document.title, window.location.pathname)
     }
-  }, [activeProject])
-
-  // Load projects and settings — try API first, fall back to localStore
-  useEffect(() => {
-    async function loadData() {
-      try {
-        const data = await apiFetch('/api/projects')
-        if (data.projects && data.projects.length > 0) {
-          const allProjects = data.projects
-          setProjects(allProjects)
-          const project = allProjects[0]
-          setActiveProject(project)
-          // TODO: Load settings from /api/settings when endpoint exists
-          const projectSettings = getSettings(project.id)
-          setSettings(projectSettings)
-          return
-        }
-      } catch {
-        // API unavailable
-      }
-      // Fall back to localStore
-      const allProjects = getProjects()
-      setProjects(allProjects)
-      if (allProjects.length > 0) {
-        const project = allProjects[0]
-        setActiveProject(project)
-        const projectSettings = getSettings(project.id)
-        setSettings(projectSettings)
-      }
-    }
-    loadData()
-  }, [])
+  }, [activeProject]) // eslint-disable-line react-hooks/exhaustive-deps
 
   const handleOAuthCallback = async (code, state) => {
-    if (!activeProject) return
-
     setLoading(true)
     setError(null)
-
     try {
-      // In a real implementation, this would call your backend API
-      // For now, we'll simulate a successful connection
-      await new Promise(resolve => setTimeout(resolve, 2000)) // Simulate API call
-
-      const mockStripeAccount = {
-        account_id: 'acct_' + Math.random().toString(36).slice(2, 16),
-        connected_at: new Date().toISOString(),
-        charges_enabled: true,
-        details_submitted: true,
-        display_name: 'Demo Business'
-      }
-
-      const updatedSettings = {
-        ...settings,
-        stripeConnected: true,
-        stripeAccount: mockStripeAccount
-      }
-
-      saveSettings(activeProject.id, updatedSettings)
-      setSettings(updatedSettings)
-
+      const data = await apiFetch('/api/stripe-connect', {
+        method: 'POST',
+        body: { code, state },
+      })
+      setConnectState({
+        connected: true,
+        account_id: data.account_id,
+        connected_at: data.connected_at,
+        livemode: data.livemode,
+      })
     } catch (err) {
       setError(err.message || 'Failed to connect Stripe account')
     } finally {
@@ -262,60 +268,48 @@ export default function ConnectStripePage() {
     }
   }
 
-  const handleConnect = () => {
+  const handleConnect = async () => {
     if (!activeProject) return
-
     setLoading(true)
     setError(null)
-
-    // Generate OAuth state for security
-    const state = Math.random().toString(36).slice(2, 16)
-
-    // In a real implementation, you'd redirect to Stripe's OAuth URL
-    const stripeOAuthUrl = `https://connect.stripe.com/oauth/authorize?` +
-      `response_type=code&` +
-      `client_id=${process.env.NEXT_PUBLIC_STRIPE_CLIENT_ID || 'ca_demo123'}&` +
-      `scope=read_write&` +
-      `redirect_uri=${encodeURIComponent(window.location.origin + '/app/connect-stripe')}&` +
-      `state=${state}`
-
-    // For demo purposes, we'll simulate the OAuth flow
-    setTimeout(() => {
-      const searchParams = new URLSearchParams({
-        code: 'ac_' + Math.random().toString(36).slice(2, 16),
-        state: state
-      })
-      const newUrl = `${window.location.pathname}?${searchParams.toString()}`
-      window.history.pushState({}, '', newUrl)
-
-      // Trigger the callback handler
-      handleOAuthCallback(searchParams.get('code'), searchParams.get('state'))
-    }, 1000)
-
-    // In production, you'd use:
-    // window.location.href = stripeOAuthUrl
+    try {
+      const data = await apiFetch(`/api/stripe-connect?project_id=${activeProject.id}`)
+      if (data.oauth_url) {
+        // Redirect to Stripe's OAuth page
+        window.location.href = data.oauth_url
+      } else {
+        setError('Could not start Stripe connection. Please try again.')
+        setLoading(false)
+      }
+    } catch (err) {
+      setError(err.message || 'Failed to start Stripe connection')
+      setLoading(false)
+    }
   }
 
-  const handleDisconnect = () => {
+  const handleDisconnect = async () => {
     if (!confirm('Are you sure you want to disconnect Stripe? This will disable automatic offer fulfillment.')) {
       return
     }
-
+    if (!activeProject) return
     setLoading(true)
-
-    setTimeout(() => {
-      const updatedSettings = {
-        ...settings,
-        stripeConnected: false,
-        stripeAccount: null
-      }
-      saveSettings(activeProject.id, updatedSettings)
-      setSettings(updatedSettings)
+    setError(null)
+    try {
+      await apiFetch('/api/stripe-connect', {
+        method: 'DELETE',
+        body: { project_id: activeProject.id },
+      })
+      setConnectState({ connected: false, account_id: null, connected_at: null, livemode: false })
+    } catch (err) {
+      setError(err.message || 'Failed to disconnect Stripe account')
+    } finally {
       setLoading(false)
-    }, 1000)
+    }
   }
 
-  if (!isLoaded || !activeProject || !settings) {
+  const isReady = isLoaded && activeProject && connectState !== null
+
+  if (!isReady) {
     return (
       <>
         <Head>
@@ -344,9 +338,7 @@ export default function ConnectStripePage() {
               onChange={e => {
                 const project = projects.find(p => p.id === e.target.value)
                 setActiveProject(project)
-                if (project) {
-                  setSettings(getSettings(project.id))
-                }
+                setConnectState(null)
               }}
               className="px-3 py-1.5 rounded-md border border-brand-border font-sans text-[0.85rem] bg-brand-white text-brand-text"
             >
@@ -358,9 +350,11 @@ export default function ConnectStripePage() {
         )}
 
         <div className="max-w-[700px]">
-          {settings.stripeConnected ? (
+          {connectState.connected ? (
             <ConnectedState
-              stripeAccount={settings.stripeAccount}
+              accountId={connectState.account_id}
+              connectedAt={connectState.connected_at}
+              livemode={connectState.livemode}
               onDisconnect={handleDisconnect}
               loading={loading}
             />

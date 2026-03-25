@@ -1,0 +1,56 @@
+{
+  "id": "com.churnrecovery.app",
+  "version": "0.1.0",
+  "name": "ChurnRecovery",
+  "icon": "./src/assets/icon.png",
+  "permissions": [
+    {
+      "type": "object_read",
+      "object": "subscription"
+    },
+    {
+      "type": "object_read",
+      "object": "customer"
+    },
+    {
+      "type": "object_read",
+      "object": "invoice"
+    },
+    {
+      "type": "secret_write",
+      "name": "churnrecovery_project_id"
+    }
+  ],
+  "ui_extension": {
+    "views": [
+      {
+        "viewport": "stripe.dashboard.customer.detail.main",
+        "component": "CustomerView"
+      },
+      {
+        "viewport": "stripe.dashboard.subscription.detail.main",
+        "component": "SubscriptionView"
+      },
+      {
+        "viewport": "stripe.dashboard.invoice.detail.main",
+        "component": "InvoiceView"
+      },
+      {
+        "viewport": "stripe.dashboard.home.shortcut",
+        "component": "HomeShortcut"
+      }
+    ],
+    "actions": [],
+    "content_security_policy": {
+      "connect-src": ["https://churnrecovery.com"]
+    }
+  },
+  "post_install_action": {
+    "type": "external",
+    "url": "https://churnrecovery.com/app/connect-stripe?from=stripe_app"
+  },
+  "support_url": "https://churnrecovery.com/docs",
+  "privacy_policy_url": "https://churnrecovery.com/privacy",
+  "terms_of_service_url": "https://churnrecovery.com/terms",
+  "distribution_type": "public"
+}
