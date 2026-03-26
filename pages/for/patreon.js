@@ -123,7 +123,7 @@ export default function PatreonLandingPage() {
 
           <div className="max-w-[720px] mx-auto text-center relative z-[1]">
             <div className="inline-flex items-center gap-1.5 bg-[rgba(255,66,77,0.2)] border border-[rgba(255,66,77,0.4)] rounded-full py-1.5 px-4 font-sans text-[0.78rem] font-semibold text-[#FCA5A5] mb-7">
-              <span>✓</span> For Content Creators · Free During Beta
+              <span>✓</span> For Content Creators · 30-Day Free Trial
             </div>
 
             <h1 className="lp-hero-heading text-brand-white m-0 mb-5">
@@ -143,7 +143,7 @@ export default function PatreonLandingPage() {
 
             <div className="flex gap-5 justify-center flex-wrap">
               <span className="font-sans text-[0.8rem] text-white/50">
-                🆓 Free forever under $1k/month MRR
+                🆓 30-day free trial — no credit card required
               </span>
               <span className="font-sans text-[0.8rem] text-white/50">
                 💡 Works with your own Stripe subscriptions
@@ -300,7 +300,7 @@ export default function PatreonLandingPage() {
               <BenefitCard icon="📉" title="Discount Offers at the Cancel Moment" description="One-time discount when someone starts to cancel. Keeping them at a lower tier beats losing them to Patreon completely." />
               <BenefitCard icon="📊" title="Revenue Recovery Dashboard" description="See exactly how much revenue you've protected on your direct subscriptions. Track save rates and what works." />
               <BenefitCard icon="🔓" title="Platform Independence" description="Own your subscriber list. Own the cancel flow. Keep more of what you earn. No platform can take that away." />
-              <BenefitCard icon="🆓" title="Free Under $1k/Month MRR" description="Just getting your direct subscription started? ChurnRecovery is free until you hit $1k/month in recurring revenue." />
+              <BenefitCard icon="🆓" title="$20/month — Flat" description="30-day free trial, then $20/month. All features included. No per-subscriber fees." />
               <BenefitCard icon="🔒" title="No Code Required" description="Connect Stripe, write your message, go live. 10 minutes. Step-by-step guide included. No developer needed." />
             </div>
           </div>

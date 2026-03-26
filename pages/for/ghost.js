@@ -130,7 +130,7 @@ export default function GhostLandingPage() {
           <div className="max-w-[720px] mx-auto text-center relative z-[1]">
             {/* Trust badge */}
             <div className="inline-flex items-center gap-1.5 bg-[rgba(160,173,184,0.12)] border border-[rgba(160,173,184,0.25)] rounded-full py-1.5 px-4 font-sans text-[0.78rem] font-semibold text-[#C8D5E0] mb-[28px]">
-              <span>✓</span> Free for Ghost Publishers · Connects via Stripe in 3 Clicks
+              <span>✓</span> 30-Day Free Trial · Connects via Stripe in 3 Clicks
             </div>
 
             <h1 className="font-sans font-extrabold text-[clamp(2.2rem,5vw,3.5rem)] text-white m-0 mb-5 leading-[1.15] tracking-[-0.02em]">
@@ -148,7 +148,7 @@ export default function GhostLandingPage() {
 
             <div className="flex gap-5 justify-center flex-wrap">
               <span className="font-sans text-[0.8rem] text-[rgba(255,255,255,0.45)]">
-                🆓 Free — far less than Ghost Pro ($36+/mo)
+                🆓 $20/month — far less than Ghost Pro ($36+/mo)
               </span>
               <span className="font-sans text-[0.8rem] text-[rgba(255,255,255,0.45)]">
                 ⚡ Connect Stripe in 3 clicks
@@ -296,8 +296,8 @@ export default function GhostLandingPage() {
               />
               <BenefitCard
                 icon="🆓"
-                title="Starts Free"
-                description="Ghost Pro starts at $36/month. ChurnRecovery starts free — and only costs money when your publication is large enough for it to matter. No catch."
+                title="$20/month — Flat"
+                description="Ghost Pro starts at $36/month. ChurnRecovery is just $20/month with a 30-day free trial. All features included."
               />
               <BenefitCard
                 icon="⚡"
@@ -315,32 +315,23 @@ export default function GhostLandingPage() {
               Less Than Ghost Pro. Keeps More of Your Revenue.
             </h2>
             <p className="font-serif text-base text-[#666666] leading-[1.7] m-0 mb-8">
-              Ghost Pro starts at $36/month to host your publication. ChurnRecovery starts free
+              Ghost Pro starts at $36/month to host your publication. ChurnRecovery is just $20/month
               — and helps you keep the memberships you&apos;ve worked hard to earn.
             </p>
 
-            <div className="grid grid-cols-2 gap-3 mb-7">
-              {[
-                { tier: 'Starter', price: '$0/month', range: 'Free to start', highlight: true },
-                { tier: 'Growth', price: '$29/month', range: 'Up to $5k MRR' },
-                { tier: 'Pro', price: '$79/month', range: 'Up to $20k MRR' },
-                { tier: 'Enterprise', price: 'Custom', range: 'Above $20k MRR' },
-              ].map(({ tier, price, range, highlight }) => (
-                <div key={tier} className={`rounded-[10px] p-[18px] relative ${highlight ? 'bg-[#F0F2F4] border border-[#15171A]' : 'bg-[#FAF9F5] border border-[#E5E5E5]'}`}>
-                  {highlight && (
-                    <div className="absolute top-[-10px] left-1/2 -translate-x-1/2 bg-[#15171A] text-white font-sans text-[0.7rem] font-bold py-[3px] px-2.5 rounded-full">
-                      START HERE
-                    </div>
-                  )}
-                  <div className="font-sans font-bold text-[#191919] text-[0.9rem]">{tier}</div>
-                  <div className={`font-sans font-extrabold text-[1.4rem] my-1 ${highlight ? 'text-[#15171A]' : 'text-[#191919]'}`}>{price}</div>
-                  <div className="font-serif text-[0.78rem] text-[#666666]">{range}</div>
+            <div className="max-w-[380px] mx-auto mb-7">
+              <div className="rounded-[10px] p-[18px] relative bg-[#F0F2F4] border border-[#15171A]">
+                <div className="absolute top-[-10px] left-1/2 -translate-x-1/2 bg-[#15171A] text-white font-sans text-[0.7rem] font-bold py-[3px] px-2.5 rounded-full">
+                  SIMPLE PRICING
                 </div>
-              ))}
+                <div className="font-sans font-bold text-[#191919] text-[0.9rem]">All Features</div>
+                <div className="font-sans font-extrabold text-[1.4rem] my-1 text-[#15171A]">$20/month</div>
+                <div className="font-serif text-[0.78rem] text-[#666666]">30-day free trial · No credit card required</div>
+              </div>
             </div>
 
             <div className="bg-[#EDF7F1] border border-[#C6E6D4] rounded-[10px] py-3.5 px-5 font-sans text-[0.88rem] text-[#2D7A4F] mb-6">
-              You&apos;re already paying for Ghost Pro ($36+/mo). ChurnRecovery is free to start — and pays for itself the first time you save a reader who would have churned.
+              You&apos;re already paying for Ghost Pro ($36+/mo). ChurnRecovery is just $20/month — and pays for itself the first time you save a reader who would have churned.
             </div>
           </div>
         </section>
@@ -377,7 +368,7 @@ export default function GhostLandingPage() {
               },
               {
                 q: 'How much does it cost?',
-                a: "Free to start. Our free tier covers smaller publications — no credit card required. You only pay when your Ghost publication grows to the point where a paid plan makes sense. Compare that to Churnkey at $250+/month.",
+                a: "$20/month after a 30-day free trial. No credit card required to start. All features included — no per-subscriber fees. Compare that to Churnkey at $250+/month.",
               },
             ].map(faq => (
               <FAQItem key={faq.q} q={faq.q} a={faq.a} />
@@ -437,7 +428,7 @@ export default function GhostLandingPage() {
               <span className="text-[#C8D5E0]">Don&apos;t Let Them Leave in Silence.</span>
             </h2>
             <p className="font-serif text-base text-[rgba(255,255,255,0.65)] m-0 mb-9 leading-[1.7]">
-              Sign up for free. Free for Ghost publishers. Be first to give your readers a reason to stay — with a pause, a discount, or just a real conversation.
+              Start your free trial. Give your readers a reason to stay — with a pause, a discount, or just a real conversation. $20/month after 30 days.
             </p>
 
             <div className="max-w-[480px] mx-auto">
@@ -446,7 +437,7 @@ export default function GhostLandingPage() {
 
             <div className="flex gap-6 justify-center mt-6 flex-wrap">
               <span className="font-sans text-[0.78rem] text-[rgba(255,255,255,0.4)]">
-                Free during beta
+                30-day free trial
               </span>
               <span className="font-sans text-[0.78rem] text-[rgba(255,255,255,0.4)]">
                 Cancel anytime

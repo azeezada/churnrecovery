@@ -72,8 +72,12 @@ export default function ROICalculatorPage() {
   const revenueRecoveredMonthly = revenueLostMonthly * (recoveryRate / 100)
   const revenueRecoveredAnnual = revenueRecoveredMonthly * 12
 
+  // ChurnRecovery cost
+  const churnRecoveryCostMonthly = 20
+  const churnRecoveryCostAnnual = 20 * 12
+
   // vs doing nothing (paying nothing, recovering nothing)
-  const netVsNothingAnnual = revenueRecoveredAnnual // ChurnRecovery is free
+  const netVsNothingAnnual = revenueRecoveredAnnual - churnRecoveryCostAnnual
 
   // vs Churnkey at $250/mo
   const churnkeyCostAnnual = 250 * 12 // $3,000/year
@@ -85,7 +89,7 @@ export default function ROICalculatorPage() {
 
   const verdict = netVsChurnkeyAnnual > 0
     ? `ChurnRecovery saves you ${fmtDollar(netVsChurnkeyAnnual)}/year vs. Churnkey`
-    : `ChurnRecovery recovers ${fmtDollar(revenueRecoveredAnnual)}/year — free`
+    : `ChurnRecovery recovers ${fmtDollar(revenueRecoveredAnnual)}/year at just $20/month`
 
   const title = 'Churn Recovery ROI Calculator — Does Your Tool Actually Pay For Itself?'
   const description = 'Find out if your cancel-flow tool is worth the cost — or if you\'re paying $250/mo to recover $300. Real numbers, instant results. Free calculator.'
@@ -114,14 +118,14 @@ export default function ROICalculatorPage() {
           <div className="flex gap-6 items-center">
             <Link href="/tools/churn-calculator" className="text-brand-gray no-underline text-[0.9rem]">Churn Calculator</Link>
             <Link href="/demo" className="text-brand-gray no-underline text-[0.9rem]">Demo</Link>
-            <a href="/app/sign-up" className="bg-brand-accent text-brand-white px-[18px] py-2 rounded-[6px] no-underline text-[0.85rem] font-semibold">Get Started Free</a>
+            <a href="/app/sign-up" className="bg-brand-accent text-brand-white px-[18px] py-2 rounded-[6px] no-underline text-[0.85rem] font-semibold">Start Free Trial</a>
           </div>
         </nav>
 
         {/* Hero */}
         <section className="max-w-[760px] mx-auto pt-[60px] px-6 pb-12 text-center">
           <div className="inline-block bg-[#F0EBE5] text-brand-accent px-[14px] py-1 rounded text-[0.72rem] font-bold uppercase tracking-[0.08em] mb-5">
-            Free Tool
+            Free Calculator
           </div>
           <h1 className="font-sans text-[clamp(1.8rem,5vw,2.8rem)] font-extrabold text-brand-text tracking-[-0.04em] mb-4 leading-[1.15]">
             Does your churn tool actually pay for itself?
@@ -223,7 +227,7 @@ export default function ROICalculatorPage() {
 
               {/* ChurnRecovery results */}
               <div className="bg-brand-green-light rounded-2xl border border-[#A7F3D0] p-6">
-                <h2 className="font-sans text-[0.78rem] font-bold text-brand-green uppercase tracking-[0.06em] mb-4">With ChurnRecovery (free)</h2>
+                <h2 className="font-sans text-[0.78rem] font-bold text-brand-green uppercase tracking-[0.06em] mb-4">With ChurnRecovery ($20/mo)</h2>
                 <div className="flex flex-wrap gap-3">
                   <ResultCard
                     label="Revenue recovered / month"
@@ -234,7 +238,7 @@ export default function ROICalculatorPage() {
                   <ResultCard
                     label="Net annual savings"
                     value={fmtDollar(netVsNothingAnnual)}
-                    sub="vs. no cancel flow at all"
+                    sub="vs. no cancel flow (after $20/mo cost)"
                     positive={true}
                     highlight={false}
                   />
@@ -247,7 +251,7 @@ export default function ROICalculatorPage() {
                 <p className="font-sans text-[0.8rem] text-brand-gray mb-4">
                   Churnkey costs ${fmt(250 * 12)}/year.
                   {toolCost > 0 && ` You're currently paying $${fmt(toolCost * 12)}/year on tools.`}
-                  {' '}ChurnRecovery costs $0.
+                  {' '}ChurnRecovery costs $240/year ($20/mo).
                 </p>
 
                 <div className="mb-4">
@@ -280,17 +284,16 @@ export default function ROICalculatorPage() {
           {/* CTA */}
           <div className="bg-brand-text rounded-2xl pt-12 px-10 pb-12 text-center mt-8">
             <h2 className="font-sans text-[clamp(1.4rem,3.5vw,2rem)] font-extrabold text-brand-white tracking-[-0.03em] mb-3">
-              Start recovering subscribers free
+              Start your free trial
             </h2>
             <p className="font-serif text-base text-[rgba(255,255,255,0.65)] mb-7 leading-[1.7]">
-              No monthly fee. No per-subscriber charges. No hidden costs.
-              Just a cancel flow that saves subscribers — and keeps 100% of recovered revenue in your pocket.
+              30-day free trial. Then $20/month — flat. No per-subscriber charges, no per-recovery fees. Every dollar you recover stays with you.
             </p>
             <a
               href="https://tally.so/r/churnrecovery"
               className="inline-block bg-brand-accent text-brand-white px-9 py-[15px] rounded-lg font-sans font-bold text-base no-underline tracking-[-0.01em]"
             >
-              Get Started Free →
+              Start Free Trial →
             </a>
             <p className="font-sans text-[0.78rem] text-[rgba(255,255,255,0.4)] mt-4">
               Already using a churn tool?{' '}
@@ -319,8 +322,8 @@ export default function ROICalculatorPage() {
               a tiny fraction of what the tool costs.
             </p>
             <p className="font-serif text-base text-brand-gray leading-[1.8]">
-              ChurnRecovery is free because we believe the tool should serve the business —
-              not the other way around. Every dollar you recover stays with you.
+              ChurnRecovery costs $20/month — a fraction of enterprise tools. At that price,
+              it pays for itself if it saves just one subscriber.
             </p>
           </div>
         </section>
@@ -335,7 +338,7 @@ export default function ROICalculatorPage() {
               { href: '/tools/churn-calculator', label: '→ Churn Revenue Calculator' },
               { href: '/demo', label: '→ See the cancel flow demo' },
               { href: '/compare/churnkey', label: '→ ChurnRecovery vs Churnkey' },
-              { href: '/pricing', label: '→ See our pricing (it\'s $0)' },
+              { href: '/pricing', label: '→ See our pricing ($20/mo)' },
               { href: '/posts/Ultimate-Guide-SaaS-Churn', label: '→ Ultimate churn guide' },
             ].map(link => (
               <Link key={link.href} href={link.href} className="block py-3 px-4 border border-brand-border rounded-lg font-sans text-[0.85rem] text-brand-text no-underline font-medium">

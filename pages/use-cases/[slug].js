@@ -27,7 +27,7 @@ export default function UseCaseDetailPage({ useCase, others }) {
         <title>{useCase.title} — ChurnRecovery Use Cases</title>
         <meta name="description" content={`ChurnRecovery for ${useCase.title}: ${useCase.subtitle}. ${useCase.heroStat} ${useCase.heroLabel}. See cancel flow strategies, typical save rates, and code examples.`} />
         <meta property="og:title" content={`${useCase.title} Churn Recovery — ChurnRecovery`} />
-        <meta property="og:description" content={`${useCase.subtitle}. Avg save rate: ${useCase.metrics[0].value}. Free to use.`} />
+        <meta property="og:description" content={`${useCase.subtitle}. Avg save rate: ${useCase.metrics[0].value}. $20/month — 30-day free trial.`} />
         <meta property="og:url" content={`https://churnrecovery.com/use-cases/${useCase.slug}`} />
         <meta property="og:image" content="https://churnrecovery.com/og/use-cases.svg" />
         <meta name="twitter:card" content="summary_large_image" />
@@ -189,7 +189,7 @@ export default function UseCaseDetailPage({ useCase, others }) {
               Ready to recover {useCase.title} churn?
             </h2>
             <p className="font-serif text-[0.95rem] text-white/65 leading-[1.7] mt-0 mb-7">
-              Free to use. No contracts. Set up in under 30 minutes.
+              30-day free trial. $20/month after. Set up in under 30 minutes.
             </p>
             <SignUpCTA source={`use-case-${useCase.slug}`} />
           </div>

@@ -1,17 +1,15 @@
 ---
-title: "Why Churnkey Costs $250/Month and We're Free"
+title: "Why Churnkey Costs $250/Month and We Cost $20"
 date: "2026-02-13"
-excerpt: "Churnkey starts at $250/month — and goes up to $825. We charge nothing. Here's the honest reason why, and what that actually means for your subscription business."
+excerpt: "Churnkey starts at $250/month — and goes up to $825. We charge $20/month flat. Here's the honest reason why, and what that actually means for your subscription business."
 tags: ["pricing", "churnkey", "churn", "small business"]
 author: "ChurnRecovery Team"
 readingTime: "7 min read"
 ---
 
-When people see that ChurnRecovery is free, the first question is usually: "What's the catch?"
+When people see that ChurnRecovery is $20/month, the first question is usually: "How can it be that much cheaper?"
 
-It's a fair question. We live in an era of freemium-bait, where "free" means "free until you actually want to use the thing." So let me answer it directly — no fine print, no buried gotcha.
-
-But first, let's talk about why Churnkey charges what it does, because that story is actually the key to understanding why we can offer what we offer.
+It's a fair question. A 12x price difference sounds like there must be a 12x difference in features. There isn't. So let me explain what's actually going on — because the story behind Churnkey's pricing is the key to understanding why we can charge what we charge.
 
 ---
 
@@ -27,7 +25,7 @@ Their starter plan is $250/month. Their most popular plan is $825/month. And yes
 
 So where does the price come from?
 
-It's not infrastructure — storing a popup configuration and triggering an email webhook costs pennies. It's not engineering complexity — these features aren't technically difficult to build. 
+It's not infrastructure — storing a popup configuration and triggering an email webhook costs pennies. It's not engineering complexity — these features aren't technically difficult to build.
 
 The price comes from **who they built the product for**.
 
@@ -51,11 +49,11 @@ Here's the math that doesn't make sense:
 - Churnkey starter plan: $250/month
 - That's **8.3% of your entire revenue** going to a churn tool
 
-No rational business decision leads you there. A 5% improvement in churn retention would need to save you $250+ in recurring revenue *per month just to break even*. At 300 subscribers, that means keeping 2.5 subscribers per month who would have otherwise left. Maybe doable. But the math is tight, the risk is real, and there's no free trial to verify it works for you before you commit.
+No rational business decision leads you there. A 5% improvement in churn retention would need to save you $250+ in recurring revenue *per month just to break even*. At 300 subscribers, that means keeping 2.5 subscribers per month who would have otherwise left. Maybe doable. But the math is tight, the risk is real, and there's no way to verify it works for you before you commit.
 
 So most small subscription businesses don't use churn recovery tools at all. They just lose customers quietly, month after month, and assume it's normal.
 
-It's not normal. It's expensive. And it's a solved problem — just not an accessible one.
+It's not normal. It's expensive. And it's a solved problem — just not an accessible one. Until now.
 
 ---
 
@@ -67,21 +65,21 @@ When you're doing $50k MRR, a 10% churn rate is uncomfortable but survivable. Wh
 
 And yet the entire market had priced these exact people out.
 
-We built ChurnRecovery to fix that. Cancel flows, payment failure recovery, churn analytics — the same core features, accessible to anyone running a subscription business, regardless of size.
+We built ChurnRecovery to fix that. Cancel flows, payment failure recovery, churn analytics — the same core features, accessible to anyone running a subscription business, regardless of size. For $20/month flat.
 
 The technical cost of running these features for a small business is very low. We built our infrastructure accordingly. And we made the decision to not turn low infrastructure costs into high margins extracted from people who can least afford it.
 
 ---
 
-## "Okay, But How Do You Make Money?"
+## "Why $20 and Not Free?"
 
-Fair. Sustainable businesses need revenue, and we're not running a charity.
+Because sustainable products need revenue. A tool you depend on to recover your revenue should be built by a company that can afford to maintain it, improve it, and support it long-term.
 
-Here's our honest answer: we're in early access. We're building something that we believe will earn revenue over time — from businesses that grow into larger tiers, from optional premium features that go beyond the core, from relationships built when businesses are small and maintained as they scale.
+$20/month lets us do that. It covers infrastructure, funds development, and keeps the lights on — without needing to charge $250/month or take a cut of your recovered revenue.
 
-We're not interested in the extract-maximum-value-now model. We've seen what that does to products and to the people who use them.
+It also means we're aligned with you: we succeed when you stay. Not when we extract maximum value from your growth.
 
-What we're building is the tool we wish existed when we started. The one that doesn't gatekeep basic retention features behind enterprise pricing. The one that's there for you when you have 50 subscribers, not just when you have 50,000.
+And we make it easy to try: **30-day free trial, no credit card required.** Use every feature. See the results. If ChurnRecovery doesn't pay for itself in the first month (it will), you walk away having lost nothing.
 
 ---
 
@@ -97,15 +95,16 @@ Here's the comparison, straight:
 - Minimum 6-12 month commitment on many plans
 - Revenue percentage on top of monthly fee
 
-**ChurnRecovery: Free**
+**ChurnRecovery: $20/month**
 - Cancel flows ✓
 - Failed payment recovery ✓
 - Churn analytics ✓
 - Stripe integration ✓
-- No commitment
+- No commitment — cancel anytime
 - No percentage of recovered revenue
+- 30-day free trial included
 
-The features are the same. The price is not.
+The features are the same. The price is not. You save $2,760/year.
 
 ---
 
@@ -119,9 +118,9 @@ The question isn't whether this technology works. It does. The data from busines
 
 The question is: what's stopping you from turning it on today?
 
-If the answer was "the price," that answer just changed.
+If the answer was "the price," that answer just changed. $20/month. All features. No catch.
 
-[Get started with ChurnRecovery →](https://churnrecovery.com)
+[Start your free trial →](https://churnrecovery.com)
 
 ---
 
@@ -129,11 +128,11 @@ If the answer was "the price," that answer just changed.
 
 ---
 
-*ChurnRecovery is free churn recovery software built for newsletter creators, coaches, course sellers, and small subscription businesses. No credit card required.*
+*ChurnRecovery is $20/month churn recovery software built for newsletter creators, coaches, course sellers, and small subscription businesses. 30-day free trial, no credit card required.*
 
 ---
 
-## Get ChurnRecovery Free for Your Platform
+## Try ChurnRecovery on Your Platform
 
 - [Stripe businesses](/for/stripe)
 - [Substack creators](/for/substack)

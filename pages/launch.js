@@ -25,7 +25,7 @@ const features = [
 ]
 
 const competitors = [
-  { name: 'ChurnRecovery', price: '$0 / forever', highlight: true },
+  { name: 'ChurnRecovery', price: '$20 / month', highlight: true },
   { name: 'Churnkey', price: '$250 – $825 / mo', highlight: false },
   { name: 'ProfitWell Retain', price: '$149 – $499 / mo', highlight: false },
   { name: 'Churnbuster', price: '$47 – $197 / mo', highlight: false },
@@ -51,7 +51,7 @@ const testimonials = [
 
 export default function LaunchPage() {
   const title = 'ChurnRecovery — Free Churn Recovery for Subscription Businesses | Product Hunt Launch'
-  const description = 'Stop losing subscribers. Cancel flows, dunning emails, and exit surveys — completely free. The $825/mo alternative that costs $0.'
+  const description = 'Stop losing subscribers. Cancel flows, dunning emails, and exit surveys — starting at $20/month. The $825/mo alternative for a fraction of the cost.'
 
   return (
     <>
@@ -102,7 +102,7 @@ export default function LaunchPage() {
               href="/app/sign-up?source=product-hunt-launch&utm_source=producthunt&utm_medium=launch-page&utm_campaign=ph-april-2026"
               className="bg-brand-accent text-brand-white px-[18px] py-2 rounded-md no-underline text-[0.85rem] font-semibold whitespace-nowrap hover:opacity-90 transition-opacity"
             >
-              Get Started Free →
+              Start Free Trial →
             </a>
           </div>
         </nav>
@@ -125,7 +125,7 @@ export default function LaunchPage() {
           </h1>
 
           <p className="fade-up fade-up-2 font-serif text-[1.15rem] text-brand-gray leading-[1.7] max-w-[600px] mx-auto mb-4">
-            ChurnRecovery gives you smart cancel flows, failed payment recovery, and exit surveys — the same tools Churnkey charges $825/month for — completely free.
+            ChurnRecovery gives you smart cancel flows, failed payment recovery, and exit surveys — the same tools Churnkey charges $825/month for — for a fraction of the cost — just $20/month.
           </p>
 
           <p className="fade-up fade-up-2 font-sans text-[0.95rem] text-brand-gray leading-[1.6] max-w-[520px] mx-auto mb-10">
@@ -137,7 +137,7 @@ export default function LaunchPage() {
               href="/app/sign-up?source=product-hunt-launch&utm_source=producthunt&utm_medium=launch-page&utm_campaign=ph-april-2026"
               className="px-8 py-4 rounded-lg bg-brand-accent text-brand-white no-underline font-bold text-[1rem] hover:opacity-90 transition-opacity w-full sm:w-auto text-center"
             >
-              Get Started Free →
+              Start Free Trial →
             </a>
             <Link
               href="/demo"
@@ -148,7 +148,7 @@ export default function LaunchPage() {
           </div>
 
           <p className="font-sans text-xs text-brand-gray-light mb-0 mt-2">
-            Free forever · No credit card · Stripe connects in 1 click
+            30-day free trial · No credit card · Stripe connects in 1 click
           </p>
         </section>
 
@@ -300,17 +300,17 @@ export default function LaunchPage() {
         <section className="max-w-[860px] mx-auto px-6 pb-24">
           <div className="bg-brand-accent rounded-2xl px-8 py-12 text-center">
             <h2 className="font-sans text-[clamp(1.6rem,4vw,2.2rem)] font-extrabold text-brand-white tracking-[-0.03em] mb-4">
-              Start recovering revenue today — free
+              Start recovering revenue today
             </h2>
             <p className="font-serif text-[rgba(255,255,255,0.85)] text-[1rem] leading-[1.7] mb-8 max-w-[480px] mx-auto">
-              No credit card. No trial period. No pricing games. Just connect Stripe and start saving customers.
+              30-day free trial. No credit card required. No pricing games. Just connect Stripe and start saving customers.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <a
                 href="/app/sign-up?source=product-hunt-launch&utm_source=producthunt&utm_medium=launch-page-cta&utm_campaign=ph-april-2026"
                 className="px-8 py-4 rounded-lg bg-brand-white text-brand-accent no-underline font-bold text-[1rem] hover:opacity-90 transition-opacity"
               >
-                Get Started Free →
+                Start Free Trial →
               </a>
               <a
                 href="https://www.producthunt.com/posts/churnrecovery"
@@ -322,7 +322,7 @@ export default function LaunchPage() {
               </a>
             </div>
             <p className="font-sans text-[0.8rem] text-[rgba(255,255,255,0.6)] mt-5 mb-0">
-              Free forever for small teams · Set up in 15 minutes
+              30-day free trial · $20/month · Set up in 15 minutes
             </p>
           </div>
         </section>

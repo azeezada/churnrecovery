@@ -116,7 +116,7 @@ In 2025 data from subscription analytics platforms:
 
 **This is critical:** If you're losing $50K/year to churn, up to $20K of that might be recoverable with basic dunning — automated retry logic, payment method update emails, and SMS reminders.
 
-ChurnRecovery handles this automatically. Unlike tools that charge per recovery, we're free — meaning recovering $20K costs you nothing.
+ChurnRecovery handles this automatically. Unlike tools that charge per recovery, we're $20/month — meaning recovering $20K costs you almost nothing.
 
 ---
 
@@ -247,7 +247,7 @@ The questions that matter:
 - Are you in the top quartile for your segment and ARR tier?
 - Are you capturing the low-hanging fruit of involuntary churn recovery?
 
-If you're not recovering failed payments and you don't have a cancel flow, start there. These are the highest-ROI churn interventions available — and with tools like ChurnRecovery, they're free to implement.
+If you're not recovering failed payments and you don't have a cancel flow, start there. These are the highest-ROI churn interventions available — and with tools like ChurnRecovery, they're affordable to implement — ChurnRecovery starts at $20/month.
 
 ---
 

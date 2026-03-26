@@ -145,4 +145,4 @@ If you're building something for real people, your screenshots should look like 
 
 ---
 
-*ChurnRecovery is a free churn recovery tool for newsletter creators and subscription businesses. Set up your cancel flow in 10 minutes — no monthly fees, no developer required. [Join the waitlist →](/#waitlist)*
+*ChurnRecovery is a $20/month churn recovery tool for newsletter creators and subscription businesses. Set up your cancel flow in 10 minutes — 30-day free trial, no developer required. [Join the waitlist →](/#waitlist)*

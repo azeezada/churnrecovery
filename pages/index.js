@@ -94,16 +94,16 @@ export default function Home({ posts }) {
     <>
       <Head>
         <title>ChurnRecovery — Stop Losing Subscribers You Already Earned</title>
-        <meta name="description" content="Your subscribers are canceling and their payments are failing — but most of them would stay if you asked the right way. ChurnRecovery saves them automatically. Free forever." />
+        <meta name="description" content="Your subscribers are canceling and their payments are failing — but most of them would stay if you asked the right way. ChurnRecovery saves them automatically. 30-day free trial, then $20/month." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta property="og:title" content="ChurnRecovery — Stop Losing Subscribers You Already Earned" />
-        <meta property="og:description" content="Your subscribers are leaving — but most would stay if you asked the right way. Free churn recovery for subscription businesses." />
+        <meta property="og:description" content="Your subscribers are leaving — but most would stay if you asked the right way. Cancel flows, payment recovery, and analytics — $20/month." />
         <meta property="og:url" content="https://churnrecovery.com" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://churnrecovery.com/og/home.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="ChurnRecovery — Stop Losing Subscribers You Already Earned" />
-        <meta name="twitter:description" content="Your subscribers are leaving — but most would stay if you asked the right way. Free churn recovery for subscription businesses." />
+        <meta name="twitter:description" content="Your subscribers are leaving — but most would stay if you asked the right way. Cancel flows, payment recovery, and analytics — $20/month." />
         <meta name="twitter:image" content="https://churnrecovery.com/og/home.png" />
       </Head>
 
@@ -115,7 +115,7 @@ export default function Home({ posts }) {
               <div className="inline-flex items-center gap-2 bg-brand-accent/[0.09] border border-brand-accent/25 rounded-full py-[5px] px-3.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-brand-accent inline-block" />
                 <span className="font-sans text-[0.8rem] sm:text-[0.78rem] font-semibold text-brand-accent tracking-[0.06em] uppercase">
-                  Free Forever · No Per-Recovery Fees
+                  30-day free trial · No credit card required
                 </span>
               </div>
             }
@@ -127,9 +127,10 @@ export default function Home({ posts }) {
             }
             subheadline={
               <p className="font-sans text-[clamp(1.15rem,2.5vw,1.35rem)] text-gray-700 m-0 max-w-[600px] leading-[1.55]">
-                Every month, subscribers cancel and payments fail — silently costing you
-                thousands. ChurnRecovery catches them before they&apos;re gone, wins them back
-                automatically, and it&apos;s <strong className="text-brand-text">completely free</strong>.
+                If you have 500 subscribers at $10/month and 5% monthly churn, you&apos;re
+                losing <strong className="text-brand-text">$250 every month — $3,000/year</strong> — to
+                cancellations alone. ChurnRecovery catches them before they&apos;re gone and
+                wins them back automatically. <strong className="text-brand-text">$20/month after a 30-day free trial</strong>.
               </p>
             }
             cta={
@@ -199,9 +200,9 @@ export default function Home({ posts }) {
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-6 max-w-[900px] mx-auto text-center">
             {[
-              { number: '5–10%', label: 'of payments fail every month' },
-              { number: '~70%', label: 'of failed payments can be recovered' },
-              { number: '20–40%', label: 'of cancels can be saved with the right offer' },
+              { number: '5–10%', label: 'of payments fail every month — that\'s $500–$1,000/mo lost on a $10k MRR business' },
+              { number: '~70%', label: 'of failed payments can be recovered — thousands in revenue you\'re leaving on the table' },
+              { number: '20–40%', label: 'of cancels can be saved with the right offer — a $50k MRR business could save $10k–$20k/year' },
             ].map((stat, i) => (
               <div key={i}>
                 <div className="font-sans text-[2.2rem] font-semibold text-brand-accent tracking-[-0.03em] leading-none">
@@ -229,33 +230,33 @@ export default function Home({ posts }) {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             <BenefitCard
               emoji="🛑"
-              title="Save subscribers who try to cancel"
-              description="When a subscriber clicks 'cancel,' they see a friendly screen that asks why — then offers the right solution. A pause, a discount, a plan switch. You decide what to offer."
+              title="Subscribers cancel on impulse — and you lose them forever"
+              description="Most cancels happen on a bad day. ChurnRecovery intercepts that moment with a friendly screen that asks why — then offers the right save: a pause, a discount, a plan switch. You decide what to offer."
             />
             <BenefitCard
               emoji="💳"
-              title="Recover failed payments automatically"
-              description="Expired cards, bank declines, insufficient funds — ChurnRecovery retries payments at the right time and reminds subscribers to update their info before they even notice."
+              title="Failed payments silently drain your revenue every month"
+              description="Expired cards, bank declines, insufficient funds — you're losing subscribers who never meant to leave. ChurnRecovery retries payments at the right time and reminds subscribers to update their info before they even notice."
             />
             <BenefitCard
               emoji="📊"
-              title="See why people are leaving"
-              description="Stop guessing. Get clear data on why subscribers cancel, which offers work best, and how much revenue you've recovered — all in a simple dashboard."
+              title="You're flying blind on why people leave"
+              description="Without data, you can't fix churn — you can only watch it happen. ChurnRecovery shows you exactly why subscribers cancel, which offers work best, and how much revenue you've recovered."
             />
             <BenefitCard
               emoji="⚡"
-              title="Set up in 5 minutes, not 5 hours"
-              description="Copy one line into your site, connect your payment provider, and you're live. No hiring a developer. No complicated setup. Works with Stripe, Paddle, and more."
+              title="Enterprise tools take weeks to set up"
+              description="You don't have an engineering team to integrate complex retention software. ChurnRecovery takes 5 minutes: copy one line into your site, connect your payment provider, and you're live."
             />
             <BenefitCard
               emoji="💰"
-              title="It's free. Seriously."
-              description="Other tools charge $250–$800/month for this. We don't charge anything — no monthly fee, no per-subscriber fee, no 'upgrade to unlock' tricks. Free means free."
+              title="$20/month. No per-subscriber fees. No revenue share."
+              description="Cancel flows, payment recovery, and analytics — $20/month. No per-subscriber fees, no per-recovery fees, no 'upgrade to unlock' tricks. Your cost stays flat no matter how much you grow."
             />
             <BenefitCard
               emoji="🎨"
-              title="Matches your brand"
-              description="The cancel flow and recovery emails match your business. Your subscribers see your colors, your logo, your voice — not a generic popup from some tool they've never heard of."
+              title="Generic popups erode trust with your audience"
+              description="Your subscribers should see your colors, your logo, your voice — not a generic popup from some tool they've never heard of. ChurnRecovery's cancel flow and recovery emails match your brand completely."
             />
           </div>
         </div>
@@ -353,49 +354,32 @@ export default function Home({ posts }) {
         </div>
       </section>
 
-      {/* ── COST COMPARISON ──────────────────────────────────────────────── */}
+      {/* ── VALUE PROP ──────────────────────────────────────────────── */}
       <section className="bg-brand-white border-b border-brand-border">
         <div className="max-w-[800px] mx-auto px-5 sm:px-6 lg:px-8 py-[72px] text-center">
-          <span className="eyebrow text-brand-accent">The price difference</span>
+          <span className="eyebrow text-brand-accent">Simple, affordable pricing</span>
           <h2 className="section-heading text-brand-text mt-3 mb-5 mx-0">
-            Other churn tools cost $250–$825/month. We cost $0.
+            Cancel flows, payment recovery, and analytics — $20/month.
           </h2>
           <p className="font-sans text-lg text-gray-700 leading-[1.7] m-0 mb-10 max-w-[600px] mx-auto">
-            Tools like Churnkey, ProfitWell, and Churnbuster charge hundreds per month.
-            That&apos;s money that eats into the very revenue they&apos;re supposed to recover.
-            ChurnRecovery gives you the same features — cancel flows, payment recovery,
-            analytics — for free.
+            No per-subscriber fees. No revenue share. Cancel anytime.
+            Most churn tools charge $250–$825/month — ChurnRecovery is 10–40x cheaper
+            with the same features.
           </p>
 
-          {/* Side by side price cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-[600px] mx-auto">
-            <div className="py-8 px-6 rounded-xl border-2 border-brand-accent bg-brand-white">
-              <div className="font-sans text-sm font-semibold text-brand-accent tracking-[0.06em] uppercase mb-2">
-                ChurnRecovery
-              </div>
-              <div className="font-sans text-[3rem] font-bold text-brand-text tracking-[-0.03em]">
-                $0
-              </div>
-              <div className="font-sans text-base text-gray-600 mt-1">
-                per month, forever
-              </div>
-              <div className="font-sans text-sm text-brand-green font-semibold mt-3">
-                ✓ All features included
-              </div>
+          {/* Value prop card */}
+          <div className="max-w-[480px] mx-auto py-8 px-6 rounded-xl border-2 border-brand-accent bg-brand-white">
+            <div className="font-sans text-sm font-semibold text-brand-accent tracking-[0.06em] uppercase mb-2">
+              ChurnRecovery
             </div>
-            <div className="py-8 px-6 rounded-xl border border-brand-border bg-[#fafafa]">
-              <div className="font-sans text-sm font-semibold text-gray-500 tracking-[0.06em] uppercase mb-2">
-                Other tools
-              </div>
-              <div className="font-sans text-[3rem] font-bold text-gray-600 tracking-[-0.03em] line-through decoration-brand-red">
-                $500
-              </div>
-              <div className="font-sans text-base text-gray-500 mt-1">
-                average per month
-              </div>
-              <div className="font-sans text-sm text-brand-red font-semibold mt-3">
-                = $6,000/year you could save
-              </div>
+            <div className="font-sans text-[3rem] font-bold text-brand-text tracking-[-0.03em]">
+              $20
+            </div>
+            <div className="font-sans text-base text-gray-600 mt-1">
+              per month · 30-day free trial
+            </div>
+            <div className="font-sans text-sm text-brand-green font-semibold mt-3">
+              ✓ All features included · No credit card to start
             </div>
           </div>
 
@@ -413,10 +397,10 @@ export default function Home({ posts }) {
             Start recovering churned customers in minutes
           </h2>
           <p className="font-sans text-base text-gray-700 m-0 mb-8 leading-[1.65] max-w-[520px] mx-auto">
-            Start recovering churned customers in minutes — completely free.
+            Start recovering churned customers in minutes — 30-day free trial, no credit card required.
           </p>
           <a href="/app/sign-up" className="btn-accent min-h-[44px] inline-flex items-center">
-            Get Started Free →
+            Start Free Trial →
           </a>
         </div>
       </section>
@@ -433,8 +417,8 @@ export default function Home({ posts }) {
 
           {[
             {
-              q: 'How is this actually free?',
-              a: 'We make money from optional premium features down the road (like white-label branding and priority support). The core product — cancel flows, payment recovery, analytics — will always be free.'
+              q: 'Why only $20/month?',
+              a: 'We charge a flat $20/month because your success shouldn\'t increase your costs. No per-subscriber fees, no per-recovery fees, no revenue share. The price stays the same whether you have 100 subscribers or 100,000.'
             },
             {
               q: 'Do I need a developer to set this up?',

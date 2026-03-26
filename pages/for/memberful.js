@@ -47,7 +47,7 @@ export default function MemberfulLandingPage() {
               style={{ color: ACCENT_LIGHT }}
               className="inline-flex items-center gap-[6px] bg-[rgba(99,102,241,0.15)] border border-[rgba(99,102,241,0.35)] rounded-full py-[6px] px-4 font-sans text-[0.78rem] font-semibold mb-7"
             >
-              <span>✓</span> Built for Memberful Creators · Free During Beta
+              <span>✓</span> Built for Memberful Creators · 30-Day Free Trial
             </div>
 
             <h1 className="font-sans font-extrabold text-[clamp(2.2rem,5vw,3.5rem)] text-white m-0 mb-5 leading-[1.15] tracking-[-0.02em]">
@@ -249,28 +249,19 @@ export default function MemberfulLandingPage() {
               Priced for Independent Creators
             </h2>
             <p className="font-serif text-base text-[#666] leading-[1.7] m-0 mb-8">
-              Memberful charges per-subscriber after free tier. ChurnRecovery starts free — and pays for itself the first time you save a subscriber.
+              Memberful charges per-subscriber after free tier. ChurnRecovery is a flat $20/month — and pays for itself the first time you save a subscriber.
             </p>
 
-            <div className="grid grid-cols-2 gap-3 mb-7">
-              {[
-                { tier: 'Starter', price: '$0/month', range: 'Free to start', highlight: true },
-                { tier: 'Growth', price: '$29/month', range: 'Up to $5k MRR' },
-                { tier: 'Pro', price: '$79/month', range: 'Up to $20k MRR' },
-                { tier: 'Enterprise', price: 'Custom', range: 'Above $20k MRR' },
-              ].map(({ tier, price, range, highlight }) => (
-                <div key={tier} style={{
-                  background: highlight ? ACCENT_BG : '#FAF9F5',
-                  border: `1px solid ${highlight ? ACCENT : '#E5E5E5'}`,
-                }} className="rounded-[10px] p-[18px] relative">
-                  {highlight && (
-                    <div style={{ background: ACCENT }} className="absolute -top-[10px] left-1/2 -translate-x-1/2 text-white font-sans text-[0.7rem] font-bold py-[3px] px-[10px] rounded-full">START HERE</div>
-                  )}
-                  <div className="font-sans font-bold text-[#191919] text-[0.9rem]">{tier}</div>
-                  <div style={{ color: highlight ? ACCENT : '#191919' }} className="font-sans font-extrabold text-[1.4rem] my-1">{price}</div>
-                  <div className="font-serif text-[0.78rem] text-[#666]">{range}</div>
-                </div>
-              ))}
+            <div className="max-w-[380px] mx-auto mb-7">
+              <div style={{
+                background: ACCENT_BG,
+                border: `1px solid ${ACCENT}`,
+              }} className="rounded-[10px] p-[18px] relative">
+                <div style={{ background: ACCENT }} className="absolute -top-[10px] left-1/2 -translate-x-1/2 text-white font-sans text-[0.7rem] font-bold py-[3px] px-[10px] rounded-full">SIMPLE PRICING</div>
+                <div className="font-sans font-bold text-[#191919] text-[0.9rem]">All Features</div>
+                <div style={{ color: ACCENT }} className="font-sans font-extrabold text-[1.4rem] my-1">$20/month</div>
+                <div className="font-serif text-[0.78rem] text-[#666]">30-day free trial · No credit card required</div>
+              </div>
             </div>
 
             <div className="bg-[#EDF7F1] border border-[#C6E6D4] rounded-[10px] py-[14px] px-5 font-sans text-[0.88rem] text-[#2D7A4F] mb-6">
@@ -382,7 +373,7 @@ export default function MemberfulLandingPage() {
               <br /><span style={{ color: ACCENT_LIGHT }}>Will You Be Ready?</span>
             </h2>
             <p className="font-serif text-base text-[rgba(255,255,255,0.7)] m-0 mb-9 leading-[1.7]">
-              Sign up for free. Protect your Memberful membership revenue with automated cancel recovery. Free to start — no Memberful approval, no code.
+              Start your free trial. Protect your Memberful membership revenue with automated cancel recovery. $20/month after 30 days — no Memberful approval, no code.
             </p>
 
             <div className="max-w-[480px] mx-auto">
@@ -390,7 +381,7 @@ export default function MemberfulLandingPage() {
             </div>
 
             <div className="flex gap-6 justify-center mt-6 flex-wrap">
-              <span className="font-sans text-[0.78rem] text-[rgba(255,255,255,0.45)]">Free during beta</span>
+              <span className="font-sans text-[0.78rem] text-[rgba(255,255,255,0.45)]">30-day free trial</span>
               <span className="font-sans text-[0.78rem] text-[rgba(255,255,255,0.45)]">Cancel anytime</span>
               <span className="font-sans text-[0.78rem] text-[rgba(255,255,255,0.45)]">No spam, ever</span>
             </div>

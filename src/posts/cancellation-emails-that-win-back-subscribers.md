@@ -216,7 +216,7 @@ You don't need a developer to set it up. If you can connect a Zapier integration
 
 The average ChurnRecovery user saves 18–24% of customers who initiate a cancellation. On a $10k MRR business, that's $1,800–$2,400/month that would have walked out the door.
 
-**[Join the waitlist and start recovering revenue for free →](/#waitlist)**
+**[Join the waitlist and start recovering revenue — start your free trial →](/#waitlist)**
 
 ---
 

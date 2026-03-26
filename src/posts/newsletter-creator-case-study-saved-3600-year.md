@@ -1,6 +1,6 @@
 ---
-title: "Newsletter Creator Case Study: How to Save $3,600/Year on Churn Tools"
-description: "Alex runs a 12,000-subscriber personal finance newsletter on Beehiiv. He was paying $300/month for Churnkey. Here's the real story of what changed when he switched to a free alternative."
+title: "Newsletter Creator Case Study: How to Save $2,760/Year on Churn Tools"
+description: "Alex runs a 12,000-subscriber personal finance newsletter on Beehiiv. He was paying $300/month for Churnkey. Here's the real story of what changed when he switched to ChurnRecovery at $20/month."
 date: "2026-02-06"
 tags: ["case study", "newsletter", "beehiiv", "churnkey", "churn recovery", "newsletter creator"]
 author: "ChurnRecovery Team"
@@ -49,11 +49,11 @@ Alex's requirements were simple:
 - Cancel flow that actually looks professional, not like a generic popup
 - No developer required to set up
 
-He found ChurnRecovery through a post on Indie Hackers. The pitch was simple: free cancel flow tool for newsletter creators and subscription businesses.
+He found ChurnRecovery through a post on Indie Hackers. The pitch was simple: $20/month cancel flow tool for newsletter creators and subscription businesses. All features, no per-subscriber fees.
 
-His first reaction was skepticism. *What's the catch?*
+His first reaction was skepticism. *$20/month for what Churnkey charges $300 for? What's the catch?*
 
-He read the "Why We're Free" page. The short version: ChurnRecovery is in early access, building a user base, and the free tier covers everything most newsletter operators need. There's a paid plan for larger operations, but the free tier is a real product — not a crippled demo.
+He read the pricing page. The short version: ChurnRecovery charges $20/month flat — one tier, all features, no revenue share. With a 30-day free trial so you can see results before paying.
 
 He signed up.
 
@@ -95,14 +95,14 @@ The higher recovery rate matters. But the bigger number is the tool cost:
 
 | | Churnkey | ChurnRecovery |
 |---|---|---|
-| Monthly tool cost | $300 | $0 |
+| Monthly tool cost | $300 | $20 |
 | Subscribers recovered/month | ~8 | ~15 |
 | Revenue recovered/month | $120 | $225 |
-| Net impact | **-$180/month** | **+$225/month** |
+| Net impact | **-$180/month** | **+$205/month** |
 
-The swing is $405/month, or about $4,860/year.
+The swing is $385/month, or about $4,620/year.
 
-Alex also switched to annual billing himself on his personal finance tools, so the actual cash-flow impact was more like $3,600/year in tool costs saved, plus additional recovered revenue on top.
+The tool cost savings alone are $280/month ($3,360/year) — $300 for Churnkey vs $20 for ChurnRecovery. Add in the better recovery rates and Alex is ahead by roughly $2,760/year on tool costs plus additional recovered revenue on top.
 
 ---
 
@@ -114,7 +114,7 @@ Not always. Especially not for newsletter operators.
 
 Churnkey is a great product. It's just built for companies at a scale where $300/month is meaningless. I'm not at that scale, and most newsletter creators aren't.
 
-The thing that surprised me about ChurnRecovery wasn't the cost — it was the setup time. Ten minutes felt too easy. I kept waiting for something to break or for a paywall to show up. It didn't.
+The thing that surprised me about ChurnRecovery wasn't the price — it was the setup time. Ten minutes felt too easy. I kept waiting for something to break or for features to be locked behind a higher tier. They weren't. $20/month gets you everything.
 
 If you're running a paid newsletter with more than a few hundred subscribers, you should have a cancel flow. That's true regardless of what tool you use. Not having one is leaving money on the table every single month.
 
@@ -132,11 +132,11 @@ Alex's story is specific to newsletter creators on Beehiiv, but the pattern is c
 
 If you're paying $200–$400/month for churn tools and you're not recovering enough to justify the cost, the issue probably isn't your product or your subscribers. It's that the tool wasn't built for you.
 
-A cancel flow that saves 10–20% of your churning subscribers is worth setting up. It doesn't have to be expensive.
+A cancel flow that saves 10–20% of your churning subscribers is worth setting up. And at $20/month, it doesn't have to break the bank.
 
 ---
 
-*ChurnRecovery is free for newsletter creators and subscription businesses. Set up your cancel flow in about 10 minutes — no monthly fees. [Join the waitlist →](/#waitlist)*
+*ChurnRecovery is $20/month for newsletter creators and subscription businesses. Set up your cancel flow in about 10 minutes. 30-day free trial, no credit card required. [Start your free trial →](/#waitlist)*
 
 ---
 

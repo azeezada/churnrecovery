@@ -102,20 +102,20 @@ function FAQItem({ q, a }) {
 }
 
 // ─── Main Page ───────────────────────────────────────────────────────────────
-export default function KajabiLandingPage() {
+export default function CoachingLandingPage() {
   return (
     <>
       <Head>
-        <title>Stop Losing Kajabi Members at the Cancel Screen | ChurnRecovery</title>
-        <meta name="description" content="ChurnRecovery connects to your Kajabi Stripe account and intercepts cancellations in real-time. Offer a pause, a discount, or ask why — before they're gone. 30-day free trial, then $20/month." />
-        <link rel="canonical" href="https://churnrecovery.com/for/kajabi" />
-        <meta property="og:title" content="Stop Losing Kajabi Members at the Cancel Screen | ChurnRecovery" />
-        <meta property="og:description" content="Kajabi memberships run on Stripe. ChurnRecovery connects directly and intercepts cancellations before they happen. No code, no Kajabi approval needed." />
-        <meta property="og:url" content="https://churnrecovery.com/for/kajabi" />
+        <title>Churn Recovery for Coaching Businesses | ChurnRecovery</title>
+        <meta name="description" content="High-ticket coaching clients leave silently — and each one costs you $200–$2,000/month. ChurnRecovery connects to Stripe and intercepts cancellations before they're final. 30-day free trial, then $20/month." />
+        <link rel="canonical" href="https://churnrecovery.com/for/coaching" />
+        <meta property="og:title" content="Churn Recovery for Coaching Businesses | ChurnRecovery" />
+        <meta property="og:description" content="Every coaching client who cancels takes hundreds or thousands in monthly recurring revenue with them. ChurnRecovery plugs into Stripe to catch cancellations before they happen — no code required." />
+        <meta property="og:url" content="https://churnrecovery.com/for/coaching" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Stop Losing Kajabi Members at the Cancel Screen" />
-        <meta name="twitter:description" content="Most Kajabi creators don't realize they can intercept cancellations. ChurnRecovery plugs directly into Stripe — no code, no Kajabi approval." />
+        <meta name="twitter:title" content="Churn Recovery for Coaching Businesses | ChurnRecovery" />
+        <meta name="twitter:description" content="High-ticket coaching clients cancel silently. ChurnRecovery intercepts cancellations through Stripe and gives you one last chance to save the relationship." />
       </Head>
 
       <Header />
@@ -124,7 +124,7 @@ export default function KajabiLandingPage() {
 
         {/* ─── SECTION 1: HERO ─────────────────────────────────────────── */}
         <section className="bg-[linear-gradient(135deg,#1A1200_0%,#2D1E00_50%,#1A1200_100%)] pt-20 px-6 pb-[100px] relative overflow-hidden">
-          {/* Kajabi gold glow */}
+          {/* Amber gold glow */}
           <div className="absolute top-[-80px] right-[-80px] w-[400px] h-[400px] rounded-full bg-[radial-gradient(circle,rgba(232,160,0,0.15)_0%,transparent_70%)] pointer-events-none" />
 
           <div className="max-w-[720px] mx-auto text-center relative z-[1]">
@@ -134,24 +134,24 @@ export default function KajabiLandingPage() {
             </div>
 
             <h1 className="font-sans font-extrabold text-[clamp(2.2rem,5vw,3.5rem)] text-white m-0 mb-5 leading-[1.15] tracking-[-0.02em]">
-              Stop Losing Kajabi Members<br />
-              <span className="text-[#F5C842]">at the Cancel Screen</span>
+              Your High-Ticket Clients Are Leaving<br />
+              <span className="text-[#F5C842]">Without Saying a Word</span>
             </h1>
 
             <p className="font-serif text-[clamp(1rem,2.5vw,1.2rem)] text-[rgba(255,255,255,0.75)] m-0 mb-10 leading-[1.7] max-w-[600px] ml-auto mr-auto">
-              Most Kajabi creators don&apos;t realize it — but their memberships run on Stripe. That means you can intercept cancellations with a smooth cancel flow: a pause offer, a discount, or a simple &quot;why are you leaving?&quot; All without touching Kajabi&apos;s settings.
+              Each coaching client who cancels takes $200–$2,000 in monthly recurring revenue with them. The personal relationship you&apos;ve built makes a well-timed cancel flow far more effective than in any other business. ChurnRecovery connects through Stripe and gives you one last chance to save it.
             </p>
 
             <div className="max-w-[480px] mx-auto mb-6">
-              <SignUpCTA source="for-kajabi" dark={true} />
+              <SignUpCTA source="for-coaching" dark={true} />
             </div>
 
             <div className="flex gap-5 justify-center flex-wrap">
               <span className="font-sans text-[0.8rem] text-[rgba(255,255,255,0.5)]">
-                🆓 30-day free trial available — no Kajabi approval needed
+                🆓 30-day free trial — no code required
               </span>
               <span className="font-sans text-[0.8rem] text-[rgba(255,255,255,0.5)]">
-                ⚡ 3 steps, no code
+                ⚡ 3 steps, works with any platform using Stripe
               </span>
             </div>
 
@@ -171,30 +171,30 @@ export default function KajabiLandingPage() {
                 The Hidden Revenue Leak
               </div>
               <h2 className="font-sans font-extrabold text-[clamp(1.8rem,4vw,2.5rem)] text-[#191919] m-0 mb-4 tracking-[-0.02em]">
-                Every Kajabi Cancellation =<br />Lost Recurring Revenue
+                Every Coaching Client Who Leaves =<br />Hundreds of Dollars Gone Monthly
               </h2>
               <p className="font-serif text-base text-[#666666] max-w-[540px] mx-auto leading-[1.7]">
-                Kajabi gives you beautiful course pages — but zero protection against members walking out the door. Right now, they can cancel in seconds and you&apos;ll never know why.
+                High-ticket coaching is the hardest business to recover from churn. One client cancelling can erase weeks of acquisition effort. And right now, they can walk away in seconds — and you&apos;ll never know why.
               </p>
             </div>
 
             <div className="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-5">
               <PainCard
                 icon="👻"
-                title="Invisible Churn"
-                stat="3–8%"
-                statLabel="of members cancel every month — silently"
-                description="There's no warning before a member cancels. No signal. No chance to intervene. One minute they're in your community, the next they're gone — and you find out in a Stripe email."
+                title="High-Ticket Clients Vanish Silently"
+                stat="$200–$2,000"
+                statLabel="lost per client per month — without warning"
+                description="Coaching clients don&apos;t send a note before they cancel. One day they&apos;re on a call with you, the next their subscription has quietly lapsed. By the time you notice in Stripe, it&apos;s already too late to intervene."
               />
               <PainCard
-                icon="🚪"
-                title="No Win-Back Offer"
-                description="When a Kajabi member clicks &quot;Cancel Membership,&quot; they hit a dead end. No pause option. No discount. No &quot;here's what you'll miss.&quot; Just an immediate, silent goodbye."
+                icon="🤝"
+                title="No Chance for Personal Intervention"
+                description="You built a real relationship with this client. That relationship is your biggest asset at the cancel screen — but without a cancel flow, that moment never happens. They click cancel and disappear before you can even offer to talk."
               />
               <PainCard
-                icon="❓"
-                title="No Insight Into Why"
-                description="Was it price? Time? The content itself? You'll never know. Without an exit survey, you're guessing — which means you can't fix what's driving your members away."
+                icon="💳"
+                title="Failed Payments Go Unnoticed"
+                description="Involuntary churn is just as damaging. A card decline quietly ends a $500/month retainer and neither you nor your client may realize for weeks. Every day of delay is revenue that&apos;s gone for good."
               />
             </div>
           </div>
@@ -208,10 +208,10 @@ export default function KajabiLandingPage() {
                 3 Steps, No Code
               </div>
               <h2 className="font-sans font-extrabold text-[clamp(1.8rem,4vw,2.5rem)] text-[#191919] m-0 mb-4 tracking-[-0.02em]">
-                Works With Kajabi in Minutes
+                Works With Your Coaching Platform in Minutes
               </h2>
               <p className="font-serif text-base text-[#666666] max-w-[480px] mx-auto leading-[1.7]">
-                Kajabi uses Stripe for payments. ChurnRecovery connects to Stripe — not Kajabi. No plugins, no approval needed.
+                Most coaching platforms — Kajabi, Teachable, Thinkific, custom setups — process payments through Stripe. ChurnRecovery connects to Stripe directly. No plugin, no approval needed.
               </p>
             </div>
 
@@ -220,31 +220,31 @@ export default function KajabiLandingPage() {
                 number="1"
                 icon="🔗"
                 title="Connect Your Stripe Account"
-                description="Log into ChurnRecovery and connect your Stripe account with one click. We read cancellation signals from Stripe — the same payment processor Kajabi uses under the hood."
-                callout="✓ No Kajabi settings to change. No developer needed."
+                description="Log into ChurnRecovery and connect your Stripe account with one click. We listen for cancellation signals from Stripe — the same payment processor your coaching platform relies on under the hood."
+                callout="✓ No platform settings to change. No developer needed."
               />
               <HowStep
                 number="2"
                 icon="⚡"
                 title="We Catch Cancellations Instantly"
-                description="The moment a member initiates a cancellation, ChurnRecovery fires before it's final. We intercept the Stripe event and trigger your custom recovery flow — automatically."
+                description="The moment a client initiates a cancellation, ChurnRecovery fires before it&apos;s final. We intercept the Stripe event and trigger your custom recovery flow — leveraging the trust your client already has in you."
               />
               <HowStep
                 number="3"
                 icon="💬"
-                title="Your Offer, Your Message — Automated"
-                description="Members see a personalized message from you: a pause option, a special discount, or a quick exit survey. Set it up once. It runs forever."
-                callout="🎯 Average recovery rate: 20–35% of at-risk members"
+                title="Your Offer, Your Voice — Automated"
+                description="Clients see a personalized message: a pause option, a discount on their retainer, or a quick question about why they&apos;re leaving. Set it up once. It runs every time a cancellation is triggered."
+                callout="🎯 Average recovery rate: 20–35% of at-risk clients"
               />
             </div>
 
             {/* Technical callout */}
             <div className="mt-8 bg-[rgba(232,160,0,0.05)] border border-[rgba(232,160,0,0.25)] border-l-4 border-l-[#E8A000] rounded-[10px] py-5 px-6 max-w-[680px] mx-auto">
               <p className="font-sans font-bold text-[#191919] m-0 mb-2 text-[0.95rem]">
-                &ldquo;Does Kajabi even let you do this?&rdquo;
+                &ldquo;Does this work with my coaching platform?&rdquo;
               </p>
               <p className="font-serif text-[0.88rem] text-[#666666] m-0 mb-2.5 leading-[1.7]">
-                Yes — because ChurnRecovery works at the Stripe level, not the Kajabi level. Kajabi uses Stripe to process your membership payments. By connecting directly to your Stripe account, we can listen for cancellation events and respond — completely outside Kajabi&apos;s ecosystem.
+                If your coaching clients pay through Stripe — whether via Kajabi, a custom checkout, or a payment link — ChurnRecovery works. We operate at the Stripe level, not the platform level. That means no waiting for app approvals, no plugin installs, no API keys from your coaching tool.
               </p>
               <Link href="/docs" className="font-sans text-[0.82rem] text-[#E8A000] no-underline font-semibold">
                 Technical integration docs →
@@ -270,7 +270,7 @@ export default function KajabiLandingPage() {
                 What You Get
               </div>
               <h2 className="font-sans font-extrabold text-[clamp(1.8rem,4vw,2.5rem)] text-[#191919] m-0 tracking-[-0.02em]">
-                Everything to Protect Your Membership Revenue
+                Everything to Protect Your Coaching Revenue
               </h2>
             </div>
 
@@ -278,32 +278,32 @@ export default function KajabiLandingPage() {
               <BenefitCard
                 icon="⏸"
                 title="Pause Offer"
-                description="Give members the option to pause instead of cancel. Many people leave during a busy month — not because they hate your content."
+                description="Give clients the option to pause instead of cancel. Coaching clients often need a break — not a permanent exit. A pause keeps the relationship alive and the revenue on the books."
               />
               <BenefitCard
                 icon="🏷"
-                title="Discount Offer"
-                description="Automatically offer a 20% discount or 1 month free to at-risk members. Keeping them at a discount beats losing them forever."
+                title="Personal Discount Offers"
+                description="Automatically offer a reduced rate to clients on the fence. The personal trust you&apos;ve built makes a one-time discount far more compelling than it would be with any other subscription product."
               />
               <BenefitCard
                 icon="📋"
                 title="Exit Survey"
-                description="Find out why members leave with a quick 1-question survey. Use the answers to improve your course, community, and content."
+                description="Understand exactly why clients are leaving with a quick 1-question survey. Is it price, results, time, or something else? Use the answers to improve your offer and reduce future churn."
               />
               <BenefitCard
                 icon="📊"
                 title="Dashboard Insights"
-                description="Track how much revenue you've saved, which offers work best, and your overall churn recovery rate — all in one dashboard."
+                description="See how much revenue you&apos;ve saved, which recovery offers perform best, and your overall churn rate — all in a single dashboard built for solo coaches and small teams."
               />
               <BenefitCard
                 icon="🆓"
                 title="$20/month — Flat"
-                description="30-day free trial, then $20/month. All features included — no per-subscriber fees. Cancel anytime."
+                description="30-day free trial, then $20/month. All features included — no per-client fees, no percentage of recovered revenue. One flat rate, no surprises."
               />
               <BenefitCard
-                icon="🚫"
-                title="No Kajabi Approval Needed"
-                description="This works entirely through Stripe. No Kajabi plugin, no app store approval, no waiting. Connect and go."
+                icon="🔌"
+                title="Works With Any Coaching Platform Using Stripe"
+                description="Kajabi, Teachable, Thinkific, Podia, custom payment links — if your clients pay through Stripe, ChurnRecovery works. No platform-specific integrations or approvals needed."
               />
             </div>
           </div>
@@ -313,10 +313,10 @@ export default function KajabiLandingPage() {
         <section className="py-20 px-6 bg-white">
           <div className="max-w-[680px] mx-auto text-center">
             <h2 className="font-sans font-extrabold text-[clamp(1.8rem,4vw,2.5rem)] text-[#191919] m-0 mb-5 tracking-[-0.02em]">
-              A Fraction of What Kajabi Costs You
+              One Recovered Client Pays for a Year
             </h2>
             <p className="font-serif text-base text-[#666666] leading-[1.7] m-0 mb-8">
-              Kajabi charges $119/month just to run your courses. ChurnRecovery is just $20/month — and helps you actually keep the revenue you&apos;re earning.
+              At $20/month, ChurnRecovery costs $240/year. If you charge $200/month per client, recovering just one client for two months covers the entire year. At $500 or $1,000/month per client, recovering a single cancellation pays for ChurnRecovery many times over.
             </p>
 
             <div className="max-w-[380px] mx-auto mb-7">
@@ -331,7 +331,7 @@ export default function KajabiLandingPage() {
             </div>
 
             <div className="bg-[#EDF7F1] border border-[#C6E6D4] rounded-[10px] py-3.5 px-5 font-sans text-[0.88rem] text-[#2D7A4F] mb-6">
-              Compare to Kajabi ($119–$399/mo) which has zero built-in churn recovery. ChurnRecovery is just $20/month and pays for itself the first time you save a member.
+              Recovering just one $200/month coaching client for two months pays for the entire year. For higher-ticket clients, the math is even more compelling — recovering one $1,000/month retainer covers 4 years of ChurnRecovery.
             </div>
           </div>
         </section>
@@ -341,45 +341,44 @@ export default function KajabiLandingPage() {
           <div className="max-w-[720px] mx-auto">
             <div className="text-center mb-10">
               <h2 className="font-sans font-extrabold text-[clamp(1.8rem,4vw,2.5rem)] text-[#191919] m-0 tracking-[-0.02em]">
-                Questions From Kajabi Creators
+                Questions From Coaches
               </h2>
             </div>
 
             {[
               {
-                q: 'Does this work with Kajabi?',
-                a: "Yes. Kajabi processes payments through Stripe. ChurnRecovery connects to your Stripe account directly and listens for cancellation events. No Kajabi API access needed — it works entirely at the Stripe level.",
+                q: 'Does this work for both 1-on-1 and group coaching?',
+                a: "Yes. ChurnRecovery works with any recurring subscription processed through Stripe — whether you charge individual coaching clients or run a group program with monthly membership fees. The cancel flow triggers for any Stripe subscription cancellation.",
               },
               {
-                q: 'Will Kajabi block this?',
-                a: "No. ChurnRecovery operates at the Stripe level, not inside Kajabi. Kajabi has no visibility into or control over Stripe webhook events. This is like setting up a smoke detector in a building — the landlord doesn't need to approve it.",
+                q: 'My clients have a personal relationship with me. Will a cancel flow feel impersonal?',
+                a: "Not at all — in fact, the opposite. You control every word in your cancel flow message. Write it in your own voice, reference your program by name, and make the offer feel like it&apos;s coming directly from you. Most coaches find their clients respond better to a cancel flow than they expect, precisely because the relationship is already strong.",
               },
               {
-                q: 'Do I need developer help to set this up?',
-                a: "Not at all. If you can click a button and copy-paste a URL, you can set this up. It takes about 5–10 minutes, and we have step-by-step guides with screenshots for every step.",
+                q: 'What coaching platforms does ChurnRecovery support?',
+                a: "Any platform that processes payments through Stripe. This includes Kajabi, Teachable, Thinkific, Podia, Circle, and any custom setup using Stripe Checkout or Stripe payment links. If Stripe is involved, ChurnRecovery works — no platform-specific integration needed.",
               },
               {
-                q: 'What if my Kajabi membership is at a lower price point?',
-                a: "Even recovering 1–2 members per month at $47 or $97/month adds up fast. At lower price points, it's even more important to have a cancel flow — because volume matters more.",
+                q: 'Do I need a developer to set this up?',
+                a: "No. If you can click a button and copy a URL, you can set this up in 5–10 minutes. We have step-by-step guides with screenshots. No code, no API configuration, no developer required.",
               },
               {
-                q: 'Can I customize the cancel flow message?',
-                a: "Completely. Your message, your offer, your tone. We provide templates designed for course creators and coaches, but you can edit every word. Your members will feel like they're hearing from you — not a software company.",
+                q: 'What if a client really does want to cancel — will the cancel flow just frustrate them?',
+                a: "If a client genuinely wants to leave, they leave — the cancel flow just adds one respectful moment before the decision is final. And you still capture their exit survey response. The 20–35% recovery rate means most clients who see the flow either didn&apos;t know about the pause option or were on the fence about price.",
               },
               {
-                q: 'Does ChurnRecovery work with Kajabi memberships and courses?',
-                a: "Yes — any Kajabi product that uses Stripe for recurring billing. This includes membership sites, coaching programs, mastermind groups, and any subscription-based Kajabi offer.",
+                q: 'Can I offer a pause for clients who just need a break?',
+                a: "Yes — pause offers are one of the most effective tools for coaching businesses. Coaching clients often cancel during a busy period, a vacation, or a life change — not because they&apos;re unhappy. A pause keeps the relationship intact and means they come back when they&apos;re ready, rather than going through the effort of re-enrolling.",
               },
               {
-                q: "What happens if someone still cancels after seeing the offer?",
-                a: "That's fine. If they want to leave, they leave. You still get their exit survey response — which is more than you had before. And you've made the attempt, which 20–35% of people respond to positively.",
+                q: 'How does ChurnRecovery handle failed payments?',
+                a: "ChurnRecovery listens for Stripe events including failed payment signals. When a card declines, you can trigger automated recovery flows — including a notification to the client and a smooth path to update their payment method. Involuntary churn (failed payments) accounts for a significant portion of coaching client losses and is often entirely preventable.",
               },
             ].map(faq => (
               <FAQItem key={faq.q} q={faq.q} a={faq.a} />
             ))}
           </div>
         </section>
-
 
         {/* ─── SECTION 6.5: RELATED RESOURCES ──────────────────────────── */}
         <section className="py-[60px] px-6 bg-brand-white border-t border-brand-border">
@@ -389,25 +388,14 @@ export default function KajabiLandingPage() {
             </h2>
             <div className="grid gap-3">
               <a
-                href="/posts/kajabi-cancel-flow-setup-without-coding"
+                href="/posts/coaching-business-churn"
                 className="block bg-brand-bg border border-brand-border rounded-[10px] p-5 hover:border-brand-accent/40 transition-colors no-underline group"
               >
                 <div className="font-sans font-semibold text-[0.92rem] text-brand-text group-hover:text-brand-accent transition-colors mb-1">
-                  How to Set Up a Cancel Flow for Kajabi (No Coding)
+                  How to Reduce Churn in Your Coaching Business
                 </div>
                 <div className="font-serif text-[0.82rem] text-brand-gray leading-[1.5]">
-                  Step-by-step guide with copy-paste scripts
-                </div>
-              </a>
-              <a
-                href="/posts/reduce-churn-online-course-business"
-                className="block bg-brand-bg border border-brand-border rounded-[10px] p-5 hover:border-brand-accent/40 transition-colors no-underline group"
-              >
-                <div className="font-sans font-semibold text-[0.92rem] text-brand-text group-hover:text-brand-accent transition-colors mb-1">
-                  How to Reduce Churn in Your Online Course Business
-                </div>
-                <div className="font-serif text-[0.82rem] text-brand-gray leading-[1.5]">
-                  Tactics specific to course creators and educators
+                  Tactics specific to 1-on-1 and group coaching programs
                 </div>
               </a>
               <a
@@ -418,25 +406,37 @@ export default function KajabiLandingPage() {
                   What Is a Cancel Flow? (And Why You Need One)
                 </div>
                 <div className="font-serif text-[0.82rem] text-brand-gray leading-[1.5]">
-                  The case for adding a cancel flow to any membership
+                  The case for adding a cancel flow to any subscription business
+                </div>
+              </a>
+              <a
+                href="/posts/Involuntary-Churn-Recovery"
+                className="block bg-brand-bg border border-brand-border rounded-[10px] p-5 hover:border-brand-accent/40 transition-colors no-underline group"
+              >
+                <div className="font-sans font-semibold text-[0.92rem] text-brand-text group-hover:text-brand-accent transition-colors mb-1">
+                  Involuntary Churn Recovery: Recovering Failed Payments
+                </div>
+                <div className="font-serif text-[0.82rem] text-brand-gray leading-[1.5]">
+                  How to recover coaching clients lost to card declines and payment failures
                 </div>
               </a>
             </div>
           </div>
         </section>
+
         {/* ─── SECTION 7: FINAL CTA ────────────────────────────────────── */}
         <section className="bg-[linear-gradient(135deg,#1A1200_0%,#2D1E00_100%)] py-20 px-6">
           <div className="max-w-[600px] mx-auto text-center">
             <h2 className="font-sans font-extrabold text-[clamp(1.8rem,4vw,2.6rem)] text-white m-0 mb-5 leading-[1.2] tracking-[-0.02em]">
-              A Kajabi Member Is About to Cancel.<br />
+              A Coaching Client Is About to Cancel.<br />
               <span className="text-[#F5C842]">Will You Be Ready?</span>
             </h2>
             <p className="font-serif text-base text-[rgba(255,255,255,0.7)] m-0 mb-9 leading-[1.7]">
-              Start your free trial. Protect your Kajabi membership revenue with automated churn recovery. $20/month after 30 days — no Kajabi approval needed.
+              Start your free trial. Protect your coaching revenue with an automated cancel flow that works through Stripe. $20/month after 30 days — no platform approval, no code, no credit card required to start.
             </p>
 
             <div className="max-w-[480px] mx-auto">
-              <SignUpCTA source="for-kajabi" dark={true} />
+              <SignUpCTA source="for-coaching" dark={true} />
             </div>
 
             <div className="flex gap-6 justify-center mt-6 flex-wrap">

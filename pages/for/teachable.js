@@ -130,7 +130,7 @@ export default function TeachableLandingPage() {
           <div className="max-w-[720px] mx-auto text-center relative z-[1]">
             {/* Trust badge */}
             <div className="inline-flex items-center gap-1.5 bg-[rgba(26,158,110,0.15)] border border-[rgba(26,158,110,0.35)] rounded-full py-1.5 px-4 font-sans text-[0.78rem] font-semibold text-[#34C98A] mb-[28px]">
-              <span>✓</span> Free for Teachable Creators · No Credit Card Required
+              <span>✓</span> 30-Day Free Trial · No Credit Card Required
             </div>
 
             <h1 className="font-sans font-extrabold text-[clamp(2.2rem,5vw,3.5rem)] text-white m-0 mb-5 leading-[1.15] tracking-[-0.02em]">
@@ -148,7 +148,7 @@ export default function TeachableLandingPage() {
 
             <div className="flex gap-5 justify-center flex-wrap">
               <span className="font-sans text-[0.8rem] text-[rgba(255,255,255,0.5)]">
-                🆓 Free to start — save your first student today
+                ⚡ 30-day free trial — save your first student today
               </span>
               <span className="font-sans text-[0.8rem] text-[rgba(255,255,255,0.5)]">
                 ⚡ No code required
@@ -243,7 +243,7 @@ export default function TeachableLandingPage() {
                 &ldquo;Does Teachable support this?&rdquo;
               </p>
               <p className="font-serif text-[0.88rem] text-[#666666] m-0 mb-2.5 leading-[1.7]">
-                Teachable has its own payment system, but many creators on Pro and Business plans use Stripe. ChurnRecovery integrates at the Stripe level for those plans. We&apos;re actively expanding support for all Teachable payment types — sign up for free to get notified.
+                Teachable has its own payment system, but many creators on Pro and Business plans use Stripe. ChurnRecovery integrates at the Stripe level for those plans. We&apos;re actively expanding support for all Teachable payment types — start your free trial to get notified.
               </p>
               <Link href="/docs" className="font-sans text-[0.82rem] text-[#1A9E6E] no-underline font-semibold">
                 Check compatibility for your plan →
@@ -312,24 +312,21 @@ export default function TeachableLandingPage() {
         <section className="py-20 px-6 bg-white">
           <div className="max-w-[680px] mx-auto text-center">
             <h2 className="font-sans font-extrabold text-[clamp(1.8rem,4vw,2.5rem)] text-[#191919] m-0 mb-5 tracking-[-0.02em]">
-              Simple Pricing. Free to Start.
+              Simple Pricing.
             </h2>
             <p className="font-serif text-base text-[#666666] leading-[1.7] m-0 mb-8">
-              Start free and grow into a paid plan only when your course revenue grows.
+              Start with a 30-day free trial, then $20/month.
               No contracts, no gotchas.
             </p>
 
-            <div className="grid grid-cols-2 gap-3 mb-7">
+            <div className="max-w-[380px] mx-auto mb-7">
               {[
-                { tier: 'Starter', price: '$0/month', range: 'Free to start', highlight: true },
-                { tier: 'Growth', price: '$29/month', range: 'Up to $5k MRR' },
-                { tier: 'Pro', price: '$79/month', range: 'Up to $20k MRR' },
-                { tier: 'Enterprise', price: 'Custom', range: 'Above $20k MRR' },
+                { tier: 'All Features', price: '$20/month', range: '30-day free trial', highlight: true },
               ].map(({ tier, price, range, highlight }) => (
                 <div key={tier} className={`rounded-[10px] p-[18px] relative ${highlight ? 'bg-[#E8F9F3] border border-[#1A9E6E]' : 'bg-[#FAF9F5] border border-[#E5E5E5]'}`}>
                   {highlight && (
                     <div className="absolute top-[-10px] left-1/2 -translate-x-1/2 bg-[#1A9E6E] text-white font-sans text-[0.7rem] font-bold py-[3px] px-2.5 rounded-full">
-                      START HERE
+                      SIMPLE PRICING
                     </div>
                   )}
                   <div className="font-sans font-bold text-[#191919] text-[0.9rem]">{tier}</div>
@@ -340,7 +337,7 @@ export default function TeachableLandingPage() {
             </div>
 
             <div className="bg-[#EDF7F1] border border-[#C6E6D4] rounded-[10px] py-3.5 px-5 font-sans text-[0.88rem] text-[#2D7A4F] mb-6">
-              Compare to Churnkey ($250+/mo) or ProfitWell Retain ($400+/mo). ChurnRecovery pays for itself the first time you save a student.
+              Compare to Churnkey ($250+/mo) or ProfitWell Retain ($400+/mo). At $20/month, ChurnRecovery pays for itself the first time you save a student.
             </div>
           </div>
         </section>
@@ -357,7 +354,7 @@ export default function TeachableLandingPage() {
             {[
               {
                 q: 'Does this work with Teachable?',
-                a: "Teachable has its own payment system by default, but many advanced plan users integrate Stripe directly. ChurnRecovery works with Teachable's Stripe integration. We're also building native support for Teachable's payment system — sign up for free to get notified.",
+                a: "Teachable has its own payment system by default, but many advanced plan users integrate Stripe directly. ChurnRecovery works with Teachable's Stripe integration. We're also building native support for Teachable's payment system — start your free trial to get notified.",
               },
               {
                 q: 'Do I need a developer to set this up?',
@@ -437,7 +434,7 @@ export default function TeachableLandingPage() {
               <span className="text-[#34C98A]">Give Them a Reason to Stay.</span>
             </h2>
             <p className="font-serif text-base text-[rgba(255,255,255,0.7)] m-0 mb-9 leading-[1.7]">
-              Sign up for free. Free for Teachable course creators. Be the first to turn cancellation moments into conversations — and revenue saved.
+              Start your 30-day free trial. Be the first to turn cancellation moments into conversations — and revenue saved.
             </p>
 
             <div className="max-w-[480px] mx-auto">
@@ -446,7 +443,7 @@ export default function TeachableLandingPage() {
 
             <div className="flex gap-6 justify-center mt-6 flex-wrap">
               <span className="font-sans text-[0.78rem] text-[rgba(255,255,255,0.45)]">
-                Free during beta
+                30-day free trial
               </span>
               <span className="font-sans text-[0.78rem] text-[rgba(255,255,255,0.45)]">
                 Cancel anytime

@@ -139,7 +139,7 @@ export default function ConvertKitLandingPage() {
 
             <div className="flex gap-5 justify-center flex-wrap">
               <span className="font-sans text-[0.8rem] text-[rgba(255,255,255,0.5)]">
-                🆓 Free for newsletters under $1k/month MRR
+                🆓 30-day free trial — no credit card required
               </span>
               <span className="font-sans text-[0.8rem] text-[rgba(255,255,255,0.5)]">
                 ⚡ 10-minute setup via Stripe
@@ -286,8 +286,8 @@ export default function ConvertKitLandingPage() {
               />
               <BenefitCard
                 icon="🆓"
-                title="Free Until You're Earning"
-                description="Free for newsletters under $1k/month MRR. No trial period. No credit card. Risk nothing — there's only upside."
+                title="$20/month — Flat"
+                description="30-day free trial, then $20/month. All features included. No per-subscriber fees. Cancel anytime."
               />
             </div>
           </div>
@@ -300,28 +300,19 @@ export default function ConvertKitLandingPage() {
               Simple Pricing for Creators
             </h2>
             <p className="font-serif text-base text-[#666666] leading-[1.7] m-0 mb-8">
-              Free until you hit $1,000/month MRR. Scales with your newsletter — never a barrier to getting started.
+              One simple price. 30-day free trial to get started — no credit card required.
             </p>
 
-            <div className="grid grid-cols-2 gap-3 mb-7">
-              {[
-                { tier: 'Starter', price: '$0/month', range: 'Under $1k MRR', highlight: true },
-                { tier: 'Growth', price: '$29/month', range: 'Up to $5k MRR' },
-                { tier: 'Pro', price: '$79/month', range: 'Up to $20k MRR' },
-                { tier: 'Enterprise', price: 'Custom', range: 'Above $20k MRR' },
-              ].map(({ tier, price, range, highlight }) => (
-                <div key={tier} className="rounded-[10px] p-[18px] relative" style={{
-                  background: highlight ? '#FDF4F0' : '#FAF9F5',
-                  border: `1px solid ${highlight ? '#D97757' : '#E5E5E5'}`,
-                }}>
-                  {highlight && (
-                    <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-[#D97757] text-white font-sans text-[0.7rem] font-bold py-[3px] px-2.5 rounded-full">START HERE</div>
-                  )}
-                  <div className="font-sans font-bold text-[#191919] text-[0.9rem]">{tier}</div>
-                  <div className="font-sans font-extrabold text-[1.4rem] my-1" style={{ color: highlight ? '#D97757' : '#191919' }}>{price}</div>
-                  <div className="font-serif text-[0.78rem] text-[#666666]">{range}</div>
-                </div>
-              ))}
+            <div className="max-w-[380px] mx-auto mb-7">
+              <div className="rounded-[10px] p-[18px] relative" style={{
+                background: '#FDF4F0',
+                border: '1px solid #D97757',
+              }}>
+                <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-[#D97757] text-white font-sans text-[0.7rem] font-bold py-[3px] px-2.5 rounded-full">SIMPLE PRICING</div>
+                <div className="font-sans font-bold text-[#191919] text-[0.9rem]">All Features</div>
+                <div className="font-sans font-extrabold text-[1.4rem] my-1" style={{ color: '#D97757' }}>$20/month</div>
+                <div className="font-serif text-[0.78rem] text-[#666666]">30-day free trial · No credit card required</div>
+              </div>
             </div>
 
             <div className="bg-[#EDF7F1] border border-[#C6E6D4] rounded-[10px] py-3.5 px-5 font-sans text-[0.88rem] text-[#2D7A4F] mb-6">
@@ -366,7 +357,7 @@ export default function ConvertKitLandingPage() {
               },
               {
                 q: 'Can I cancel ChurnRecovery?',
-                a: "Yes, any time. No contracts. The free tier is free forever — just disconnect the webhook if you want to stop. Zero risk.",
+                a: "Yes, any time. No contracts. Just disconnect the webhook if you want to stop. Zero risk.",
               },
             ].map(faq => (
               <FAQItem key={faq.q} q={faq.q} a={faq.a} />
@@ -426,7 +417,7 @@ export default function ConvertKitLandingPage() {
               <br /><span className="text-[#93C5FD]">Are You Catching Them?</span>
             </h2>
             <p className="font-serif text-base text-[rgba(255,255,255,0.7)] m-0 mb-9 leading-[1.7]">
-              Sign up for free. Get free beta access to stop Kit cancellations automatically.
+              Start your free trial. Stop Kit cancellations automatically.
               Designed for newsletter creators, coaches, and subscription business owners.
             </p>
 
@@ -436,7 +427,7 @@ export default function ConvertKitLandingPage() {
 
             <div className="flex gap-6 justify-center mt-6 flex-wrap">
               <span className="font-sans text-[0.78rem] text-[rgba(255,255,255,0.45)]">
-                Free during beta
+                30-day free trial
               </span>
               <span className="font-sans text-[0.78rem] text-[rgba(255,255,255,0.45)]">
                 Cancel anytime

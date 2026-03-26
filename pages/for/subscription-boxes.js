@@ -102,20 +102,20 @@ function FAQItem({ q, a }) {
 }
 
 // ─── Main Page ───────────────────────────────────────────────────────────────
-export default function KajabiLandingPage() {
+export default function SubscriptionBoxesLandingPage() {
   return (
     <>
       <Head>
-        <title>Stop Losing Kajabi Members at the Cancel Screen | ChurnRecovery</title>
-        <meta name="description" content="ChurnRecovery connects to your Kajabi Stripe account and intercepts cancellations in real-time. Offer a pause, a discount, or ask why — before they're gone. 30-day free trial, then $20/month." />
-        <link rel="canonical" href="https://churnrecovery.com/for/kajabi" />
-        <meta property="og:title" content="Stop Losing Kajabi Members at the Cancel Screen | ChurnRecovery" />
-        <meta property="og:description" content="Kajabi memberships run on Stripe. ChurnRecovery connects directly and intercepts cancellations before they happen. No code, no Kajabi approval needed." />
-        <meta property="og:url" content="https://churnrecovery.com/for/kajabi" />
+        <title>Stop Losing Subscription Box Customers Before They Cancel | ChurnRecovery</title>
+        <meta name="description" content="Subscription box businesses run on thin margins — every lost subscriber hurts. ChurnRecovery intercepts cancellations via Stripe and Shopify, offering a skip, a discount, or an exit survey before they're gone. 30-day free trial, then $20/month." />
+        <link rel="canonical" href="https://churnrecovery.com/for/subscription-boxes" />
+        <meta property="og:title" content="Stop Losing Subscription Box Customers Before They Cancel | ChurnRecovery" />
+        <meta property="og:description" content="Physical subscription businesses can't afford silent churn. ChurnRecovery connects to Stripe and Shopify to recover subscribers before they cancel — no code required." />
+        <meta property="og:url" content="https://churnrecovery.com/for/subscription-boxes" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Stop Losing Kajabi Members at the Cancel Screen" />
-        <meta name="twitter:description" content="Most Kajabi creators don't realize they can intercept cancellations. ChurnRecovery plugs directly into Stripe — no code, no Kajabi approval." />
+        <meta name="twitter:title" content="Stop Losing Subscription Box Customers Before They Cancel" />
+        <meta name="twitter:description" content="Thin margins mean you can't afford silent churn. ChurnRecovery plugs into Stripe and Shopify to intercept cancellations — no code, no waiting." />
       </Head>
 
       <Header />
@@ -124,7 +124,7 @@ export default function KajabiLandingPage() {
 
         {/* ─── SECTION 1: HERO ─────────────────────────────────────────── */}
         <section className="bg-[linear-gradient(135deg,#1A1200_0%,#2D1E00_50%,#1A1200_100%)] pt-20 px-6 pb-[100px] relative overflow-hidden">
-          {/* Kajabi gold glow */}
+          {/* Amber glow */}
           <div className="absolute top-[-80px] right-[-80px] w-[400px] h-[400px] rounded-full bg-[radial-gradient(circle,rgba(232,160,0,0.15)_0%,transparent_70%)] pointer-events-none" />
 
           <div className="max-w-[720px] mx-auto text-center relative z-[1]">
@@ -134,21 +134,21 @@ export default function KajabiLandingPage() {
             </div>
 
             <h1 className="font-sans font-extrabold text-[clamp(2.2rem,5vw,3.5rem)] text-white m-0 mb-5 leading-[1.15] tracking-[-0.02em]">
-              Stop Losing Kajabi Members<br />
-              <span className="text-[#F5C842]">at the Cancel Screen</span>
+              Your Subscribers Cancel Silently.<br />
+              <span className="text-[#F5C842]">Your Margins Can&apos;t Afford That.</span>
             </h1>
 
             <p className="font-serif text-[clamp(1rem,2.5vw,1.2rem)] text-[rgba(255,255,255,0.75)] m-0 mb-10 leading-[1.7] max-w-[600px] ml-auto mr-auto">
-              Most Kajabi creators don&apos;t realize it — but their memberships run on Stripe. That means you can intercept cancellations with a smooth cancel flow: a pause offer, a discount, or a simple &quot;why are you leaving?&quot; All without touching Kajabi&apos;s settings.
+              Subscription box businesses already have thin margins — you&apos;ve bought the inventory, packed the box, and lined up fulfillment. When a subscriber cancels without warning, that revenue is gone and the box is still on its way. ChurnRecovery intercepts cancellations via Stripe and Shopify before they&apos;re final, so you can offer a skip, a discount, or ask why they&apos;re leaving.
             </p>
 
             <div className="max-w-[480px] mx-auto mb-6">
-              <SignUpCTA source="for-kajabi" dark={true} />
+              <SignUpCTA source="for-subscription-boxes" dark={true} />
             </div>
 
             <div className="flex gap-5 justify-center flex-wrap">
               <span className="font-sans text-[0.8rem] text-[rgba(255,255,255,0.5)]">
-                🆓 30-day free trial available — no Kajabi approval needed
+                🆓 30-day free trial — works with Shopify &amp; Stripe
               </span>
               <span className="font-sans text-[0.8rem] text-[rgba(255,255,255,0.5)]">
                 ⚡ 3 steps, no code
@@ -171,30 +171,30 @@ export default function KajabiLandingPage() {
                 The Hidden Revenue Leak
               </div>
               <h2 className="font-sans font-extrabold text-[clamp(1.8rem,4vw,2.5rem)] text-[#191919] m-0 mb-4 tracking-[-0.02em]">
-                Every Kajabi Cancellation =<br />Lost Recurring Revenue
+                Every Subscription Box Cancellation =<br />Wasted Inventory and Lost Revenue
               </h2>
               <p className="font-serif text-base text-[#666666] max-w-[540px] mx-auto leading-[1.7]">
-                Kajabi gives you beautiful course pages — but zero protection against members walking out the door. Right now, they can cancel in seconds and you&apos;ll never know why.
+                Physical subscriptions are harder to run than digital ones — higher costs, more logistics, thinner margins. When a subscriber cancels without warning, you often lose money on that final box. Yet most subscription box businesses have no protection at the cancel screen.
               </p>
             </div>
 
             <div className="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-5">
               <PainCard
-                icon="👻"
-                title="Invisible Churn"
-                stat="3–8%"
-                statLabel="of members cancel every month — silently"
-                description="There's no warning before a member cancels. No signal. No chance to intervene. One minute they're in your community, the next they're gone — and you find out in a Stripe email."
+                icon="📦"
+                title="Failed Payments Waste Inventory"
+                stat="5–10%"
+                statLabel="of subscription box revenue lost to failed payments monthly"
+                description="You&apos;ve already sourced the products, packed the box, and arranged fulfillment — then the card declines. Without automated failed payment recovery, that box ships at a loss or sits in your warehouse."
+              />
+              <PainCard
+                icon="📉"
+                title="High Churn in Physical Subscriptions"
+                description="Physical subscription boxes churn faster than digital products. Subscribers cancel after a bad box, a price increase, or simply when life gets busy. Without a cancel flow, there&apos;s no chance to win them back."
               />
               <PainCard
                 icon="🚪"
-                title="No Win-Back Offer"
-                description="When a Kajabi member clicks &quot;Cancel Membership,&quot; they hit a dead end. No pause option. No discount. No &quot;here's what you'll miss.&quot; Just an immediate, silent goodbye."
-              />
-              <PainCard
-                icon="❓"
-                title="No Insight Into Why"
-                description="Was it price? Time? The content itself? You'll never know. Without an exit survey, you're guessing — which means you can't fix what's driving your members away."
+                title="No Intervention Before Cancel"
+                description="Right now, a subscriber can hit &quot;Cancel Subscription&quot; and walk out in seconds. No offer to skip a month. No discount. No &quot;wait, here&apos;s what&apos;s coming next box.&quot; Just a silent cancellation you find out about later."
               />
             </div>
           </div>
@@ -208,10 +208,10 @@ export default function KajabiLandingPage() {
                 3 Steps, No Code
               </div>
               <h2 className="font-sans font-extrabold text-[clamp(1.8rem,4vw,2.5rem)] text-[#191919] m-0 mb-4 tracking-[-0.02em]">
-                Works With Kajabi in Minutes
+                Works With Shopify and Stripe in Minutes
               </h2>
               <p className="font-serif text-base text-[#666666] max-w-[480px] mx-auto leading-[1.7]">
-                Kajabi uses Stripe for payments. ChurnRecovery connects to Stripe — not Kajabi. No plugins, no approval needed.
+                Most subscription box platforms — Shopify, ReCharge, Bold Subscriptions — run billing through Stripe. ChurnRecovery connects to Stripe directly. No new platform, no developer, no waiting.
               </p>
             </div>
 
@@ -220,31 +220,31 @@ export default function KajabiLandingPage() {
                 number="1"
                 icon="🔗"
                 title="Connect Your Stripe Account"
-                description="Log into ChurnRecovery and connect your Stripe account with one click. We read cancellation signals from Stripe — the same payment processor Kajabi uses under the hood."
-                callout="✓ No Kajabi settings to change. No developer needed."
+                description="Log into ChurnRecovery and connect your Stripe account with one click. Whether you use Shopify Subscriptions, ReCharge, or direct Stripe billing, we listen for cancellation signals at the payment layer."
+                callout="✓ Works with Shopify, ReCharge, Bold, and direct Stripe billing."
               />
               <HowStep
                 number="2"
                 icon="⚡"
                 title="We Catch Cancellations Instantly"
-                description="The moment a member initiates a cancellation, ChurnRecovery fires before it's final. We intercept the Stripe event and trigger your custom recovery flow — automatically."
+                description="The moment a subscriber initiates a cancellation, ChurnRecovery fires before it&apos;s final. We intercept the Stripe cancellation event and trigger your custom recovery flow — automatically, every time."
               />
               <HowStep
                 number="3"
                 icon="💬"
                 title="Your Offer, Your Message — Automated"
-                description="Members see a personalized message from you: a pause option, a special discount, or a quick exit survey. Set it up once. It runs forever."
-                callout="🎯 Average recovery rate: 20–35% of at-risk members"
+                description="Subscribers see a personalized message: skip this month, get 20% off their next box, or a quick survey asking why they&apos;re leaving. Set it up once. It runs in the background forever."
+                callout="🎯 Average recovery rate: 20–35% of at-risk subscribers"
               />
             </div>
 
             {/* Technical callout */}
             <div className="mt-8 bg-[rgba(232,160,0,0.05)] border border-[rgba(232,160,0,0.25)] border-l-4 border-l-[#E8A000] rounded-[10px] py-5 px-6 max-w-[680px] mx-auto">
               <p className="font-sans font-bold text-[#191919] m-0 mb-2 text-[0.95rem]">
-                &ldquo;Does Kajabi even let you do this?&rdquo;
+                &ldquo;Does this work with my Shopify subscription app?&rdquo;
               </p>
               <p className="font-serif text-[0.88rem] text-[#666666] m-0 mb-2.5 leading-[1.7]">
-                Yes — because ChurnRecovery works at the Stripe level, not the Kajabi level. Kajabi uses Stripe to process your membership payments. By connecting directly to your Stripe account, we can listen for cancellation events and respond — completely outside Kajabi&apos;s ecosystem.
+                Yes — if your subscriptions are billed through Stripe (which most Shopify subscription apps use), ChurnRecovery connects at the Stripe level. That means ReCharge, Bold Subscriptions, Shopify Subscriptions, and most other apps are all supported. No app store installation required.
               </p>
               <Link href="/docs" className="font-sans text-[0.82rem] text-[#E8A000] no-underline font-semibold">
                 Technical integration docs →
@@ -270,40 +270,40 @@ export default function KajabiLandingPage() {
                 What You Get
               </div>
               <h2 className="font-sans font-extrabold text-[clamp(1.8rem,4vw,2.5rem)] text-[#191919] m-0 tracking-[-0.02em]">
-                Everything to Protect Your Membership Revenue
+                Everything to Protect Your Subscription Revenue
               </h2>
             </div>
 
             <div className="grid grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-3.5">
               <BenefitCard
-                icon="⏸"
-                title="Pause Offer"
-                description="Give members the option to pause instead of cancel. Many people leave during a busy month — not because they hate your content."
+                icon="⏭"
+                title="Skip-a-Month Offer"
+                description="Give subscribers the option to skip their next box instead of cancelling outright. It&apos;s the most powerful retention tool for physical subscriptions — many people cancel during busy or tight months, not because they dislike your product."
               />
               <BenefitCard
                 icon="🏷"
                 title="Discount Offer"
-                description="Automatically offer a 20% discount or 1 month free to at-risk members. Keeping them at a discount beats losing them forever."
+                description="Automatically offer a discount on the next box to at-risk subscribers. Even a small price reduction keeps them in your pipeline — and a long-term subscriber is worth far more than a one-time saving."
               />
               <BenefitCard
                 icon="📋"
                 title="Exit Survey"
-                description="Find out why members leave with a quick 1-question survey. Use the answers to improve your course, community, and content."
+                description="Find out exactly why subscribers leave — bad box, price, too much stuff, changed interests. Exit survey data from real cancellations is the most valuable product feedback you can collect."
               />
               <BenefitCard
                 icon="📊"
-                title="Dashboard Insights"
-                description="Track how much revenue you've saved, which offers work best, and your overall churn recovery rate — all in one dashboard."
+                title="Recovery Dashboard"
+                description="Track saved revenue, recovery rates by offer type, and common cancellation reasons — all in one place. Know exactly how much ChurnRecovery is earning you each month."
               />
               <BenefitCard
                 icon="🆓"
-                title="$20/month — Flat"
-                description="30-day free trial, then $20/month. All features included — no per-subscriber fees. Cancel anytime."
+                title="$20/Month — Flat"
+                description="30-day free trial, then $20/month. All features included — no per-subscriber fees, no percentage of recovered revenue. For thin-margin businesses, a flat fee matters."
               />
               <BenefitCard
-                icon="🚫"
-                title="No Kajabi Approval Needed"
-                description="This works entirely through Stripe. No Kajabi plugin, no app store approval, no waiting. Connect and go."
+                icon="🛒"
+                title="Works With Shopify and Stripe"
+                description="Compatible with Shopify Subscriptions, ReCharge, Bold Subscriptions, and any subscription tool that processes payments through Stripe. No new platform to learn."
               />
             </div>
           </div>
@@ -313,10 +313,10 @@ export default function KajabiLandingPage() {
         <section className="py-20 px-6 bg-white">
           <div className="max-w-[680px] mx-auto text-center">
             <h2 className="font-sans font-extrabold text-[clamp(1.8rem,4vw,2.5rem)] text-[#191919] m-0 mb-5 tracking-[-0.02em]">
-              A Fraction of What Kajabi Costs You
+              $20/Month Pays for Itself With One Saved Subscriber
             </h2>
             <p className="font-serif text-base text-[#666666] leading-[1.7] m-0 mb-8">
-              Kajabi charges $119/month just to run your courses. ChurnRecovery is just $20/month — and helps you actually keep the revenue you&apos;re earning.
+              Subscription box businesses run on thin margins. A flat $20/month fee means you keep everything you recover. Save one subscriber at $39/month and ChurnRecovery has already paid for itself — twice over.
             </p>
 
             <div className="max-w-[380px] mx-auto mb-7">
@@ -331,7 +331,7 @@ export default function KajabiLandingPage() {
             </div>
 
             <div className="bg-[#EDF7F1] border border-[#C6E6D4] rounded-[10px] py-3.5 px-5 font-sans text-[0.88rem] text-[#2D7A4F] mb-6">
-              Compare to Kajabi ($119–$399/mo) which has zero built-in churn recovery. ChurnRecovery is just $20/month and pays for itself the first time you save a member.
+              Unlike percentage-based tools that take a cut of your recovered revenue, ChurnRecovery charges a flat $20/month. On thin subscription box margins, that difference adds up fast.
             </div>
           </div>
         </section>
@@ -341,45 +341,44 @@ export default function KajabiLandingPage() {
           <div className="max-w-[720px] mx-auto">
             <div className="text-center mb-10">
               <h2 className="font-sans font-extrabold text-[clamp(1.8rem,4vw,2.5rem)] text-[#191919] m-0 tracking-[-0.02em]">
-                Questions From Kajabi Creators
+                Questions From Subscription Box Operators
               </h2>
             </div>
 
             {[
               {
-                q: 'Does this work with Kajabi?',
-                a: "Yes. Kajabi processes payments through Stripe. ChurnRecovery connects to your Stripe account directly and listens for cancellation events. No Kajabi API access needed — it works entirely at the Stripe level.",
+                q: 'Does this work with Shopify subscriptions?',
+                a: "Yes. If your Shopify subscription app processes payments through Stripe — which includes ReCharge, Bold Subscriptions, Shopify Subscriptions, and most others — ChurnRecovery connects at the Stripe level and intercepts cancellations automatically. No Shopify app installation needed.",
               },
               {
-                q: 'Will Kajabi block this?',
-                a: "No. ChurnRecovery operates at the Stripe level, not inside Kajabi. Kajabi has no visibility into or control over Stripe webhook events. This is like setting up a smoke detector in a building — the landlord doesn't need to approve it.",
+                q: 'What about failed payment recovery?',
+                a: "ChurnRecovery helps with voluntary cancellations — when a subscriber actively chooses to cancel. For failed payments (involuntary churn), Stripe's built-in Smart Retries handle automatic retries, and ChurnRecovery's dashboard helps you monitor recovery rates across both types.",
               },
               {
-                q: 'Do I need developer help to set this up?',
-                a: "Not at all. If you can click a button and copy-paste a URL, you can set this up. It takes about 5–10 minutes, and we have step-by-step guides with screenshots for every step.",
+                q: 'Can I offer a skip instead of a discount?',
+                a: "Absolutely. For subscription boxes, the skip-a-month offer is often more effective than a discount — it keeps the subscriber in your pipeline without cutting into already-thin margins. You can configure which offers appear and in what order.",
               },
               {
-                q: 'What if my Kajabi membership is at a lower price point?',
-                a: "Even recovering 1–2 members per month at $47 or $97/month adds up fast. At lower price points, it's even more important to have a cancel flow — because volume matters more.",
+                q: 'Do I need a developer to set this up?',
+                a: "No. Setup takes about 5–10 minutes and requires no code. You connect your Stripe account, customize your cancel flow message and offers, and you&apos;re live. We have step-by-step guides with screenshots for every common subscription platform.",
               },
               {
-                q: 'Can I customize the cancel flow message?',
-                a: "Completely. Your message, your offer, your tone. We provide templates designed for course creators and coaches, but you can edit every word. Your members will feel like they're hearing from you — not a software company.",
+                q: 'What if my subscription box is lower-priced?',
+                a: "Even at $25–$35/month price points, recovering 2–3 subscribers per month more than covers the $20/month ChurnRecovery fee. And the exit survey data you collect is valuable regardless of price point — it tells you which boxes or themes are driving cancellations.",
               },
               {
-                q: 'Does ChurnRecovery work with Kajabi memberships and courses?',
-                a: "Yes — any Kajabi product that uses Stripe for recurring billing. This includes membership sites, coaching programs, mastermind groups, and any subscription-based Kajabi offer.",
+                q: 'Can I customize the cancel flow for my brand?',
+                a: "Completely. Your message, your tone, your offer. Subscription box customers respond best to copy that feels personal and specific to your box — we give you full control over every word, plus templates designed for physical subscription businesses.",
               },
               {
-                q: "What happens if someone still cancels after seeing the offer?",
-                a: "That's fine. If they want to leave, they leave. You still get their exit survey response — which is more than you had before. And you've made the attempt, which 20–35% of people respond to positively.",
+                q: "What if they still cancel after seeing the offer?",
+                a: "That&apos;s fine — if they want to leave, they leave. But you still capture their exit survey response, which is real product feedback you can act on. And 20–35% of subscribers who see a recovery offer choose to stay or pause, which is revenue you would have lost with no cancel flow at all.",
               },
             ].map(faq => (
               <FAQItem key={faq.q} q={faq.q} a={faq.a} />
             ))}
           </div>
         </section>
-
 
         {/* ─── SECTION 6.5: RELATED RESOURCES ──────────────────────────── */}
         <section className="py-[60px] px-6 bg-brand-white border-t border-brand-border">
@@ -389,25 +388,25 @@ export default function KajabiLandingPage() {
             </h2>
             <div className="grid gap-3">
               <a
-                href="/posts/kajabi-cancel-flow-setup-without-coding"
+                href="/posts/Involuntary-Churn-Recovery"
                 className="block bg-brand-bg border border-brand-border rounded-[10px] p-5 hover:border-brand-accent/40 transition-colors no-underline group"
               >
                 <div className="font-sans font-semibold text-[0.92rem] text-brand-text group-hover:text-brand-accent transition-colors mb-1">
-                  How to Set Up a Cancel Flow for Kajabi (No Coding)
+                  Involuntary Churn Recovery: Failed Payments and What to Do
                 </div>
                 <div className="font-serif text-[0.82rem] text-brand-gray leading-[1.5]">
-                  Step-by-step guide with copy-paste scripts
+                  How to recover revenue lost to declined cards and expired payment methods
                 </div>
               </a>
               <a
-                href="/posts/reduce-churn-online-course-business"
+                href="/posts/subscription-business-leaking-revenue-every-month"
                 className="block bg-brand-bg border border-brand-border rounded-[10px] p-5 hover:border-brand-accent/40 transition-colors no-underline group"
               >
                 <div className="font-sans font-semibold text-[0.92rem] text-brand-text group-hover:text-brand-accent transition-colors mb-1">
-                  How to Reduce Churn in Your Online Course Business
+                  Is Your Subscription Business Leaking Revenue Every Month?
                 </div>
                 <div className="font-serif text-[0.82rem] text-brand-gray leading-[1.5]">
-                  Tactics specific to course creators and educators
+                  The silent ways subscription businesses lose money without realizing it
                 </div>
               </a>
               <a
@@ -418,25 +417,26 @@ export default function KajabiLandingPage() {
                   What Is a Cancel Flow? (And Why You Need One)
                 </div>
                 <div className="font-serif text-[0.82rem] text-brand-gray leading-[1.5]">
-                  The case for adding a cancel flow to any membership
+                  The case for adding a cancel flow to any subscription business
                 </div>
               </a>
             </div>
           </div>
         </section>
+
         {/* ─── SECTION 7: FINAL CTA ────────────────────────────────────── */}
         <section className="bg-[linear-gradient(135deg,#1A1200_0%,#2D1E00_100%)] py-20 px-6">
           <div className="max-w-[600px] mx-auto text-center">
             <h2 className="font-sans font-extrabold text-[clamp(1.8rem,4vw,2.6rem)] text-white m-0 mb-5 leading-[1.2] tracking-[-0.02em]">
-              A Kajabi Member Is About to Cancel.<br />
-              <span className="text-[#F5C842]">Will You Be Ready?</span>
+              A Subscriber Is About to Cancel.<br />
+              <span className="text-[#F5C842]">The Box Is Already Packed.</span>
             </h2>
             <p className="font-serif text-base text-[rgba(255,255,255,0.7)] m-0 mb-9 leading-[1.7]">
-              Start your free trial. Protect your Kajabi membership revenue with automated churn recovery. $20/month after 30 days — no Kajabi approval needed.
+              Start your free trial today. Protect your subscription box revenue with automated churn recovery that works with Shopify and Stripe. $20/month after 30 days — flat fee, no percentage cuts.
             </p>
 
             <div className="max-w-[480px] mx-auto">
-              <SignUpCTA source="for-kajabi" dark={true} />
+              <SignUpCTA source="for-subscription-boxes" dark={true} />
             </div>
 
             <div className="flex gap-6 justify-center mt-6 flex-wrap">

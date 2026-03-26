@@ -265,7 +265,7 @@ The market for churn recovery tools has exploded, but most options are expensive
 - **Brightback:** Cancel flow optimization. Acquired by Chargebee.
 
 **Free/open-source options:**
-- **ChurnRecovery:** Free, open-source cancel flows + dunning + analytics. MIT licensed, self-hostable.
+- **ChurnRecovery:** $20/month, open-source cancel flows + dunning + analytics. MIT licensed, self-hostable.
 - **Custom build:** Build your own with Stripe webhooks. High effort, full control.
 
 The key insight: you don't need to spend $250+/month on churn recovery tooling. The core patterns — retry logic, email sequences, cancel flows — are well-understood and can be implemented affordably.
@@ -285,7 +285,7 @@ Churn recovery isn't glamorous, but it's one of the highest-leverage things a Sa
 
 ---
 
-*ChurnRecovery is a free, open-source churn recovery platform for SaaS companies. [Join the waitlist](/) to get early access.*
+*ChurnRecovery is a $20/month, open-source churn recovery platform for SaaS companies. [Start your free trial](/) to get early access.*
 
 ---
 

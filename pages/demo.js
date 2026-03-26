@@ -5,7 +5,7 @@ import CancelFlowDemo from '../components/CancelFlowDemo'
 
 export default function DemoPage() {
   const title = 'See ChurnRecovery in Action — Interactive Cancel Flow Demo'
-  const description = 'Try a live cancel flow demo. See how ChurnRecovery presents the right offer at the right moment to save canceling customers — completely free.'
+  const description = 'Try a live cancel flow demo. See how ChurnRecovery presents the right offer at the right moment to save canceling customers — $20/month with a 30-day free trial.'
 
   return (
     <>
@@ -55,7 +55,7 @@ export default function DemoPage() {
           <div className="demo-nav-links flex gap-6 items-center flex-wrap">
             <Link href="/blog" className="demo-nav-text text-brand-gray no-underline text-[0.9rem]">Blog</Link>
             <Link href="/compare/churnkey" className="demo-nav-text text-brand-gray no-underline text-[0.9rem]">Compare</Link>
-            <a href="/app/sign-up" className="bg-brand-accent text-brand-white px-[18px] py-2 rounded-md no-underline text-[0.85rem] font-semibold whitespace-nowrap">Get Started Free</a>
+            <a href="/app/sign-up" className="bg-brand-accent text-brand-white px-[18px] py-2 rounded-md no-underline text-[0.85rem] font-semibold whitespace-nowrap">Start Free Trial</a>
           </div>
         </nav>
 
@@ -166,8 +166,8 @@ export default function DemoPage() {
           </div>
           <div className="grid grid-cols-[repeat(auto-fill,minmax(180px,1fr))] gap-6 text-center">
             {[
-              { stat: '67%', label: 'Average save rate with targeted offers', color: 'text-brand-accent' },
-              { stat: '$0', label: 'Cost to run ChurnRecovery, forever', color: 'text-brand-green' },
+              { stat: 'Up to 30%', label: 'Save rate with targeted offers', color: 'text-brand-accent' },
+              { stat: '$20/mo', label: '10–40x cheaper than alternatives', color: 'text-brand-green' },
               { stat: '< 1 day', label: 'Typical integration time', color: 'text-brand-text' },
               { stat: '2-5x', label: 'ROI vs doing nothing', color: 'text-brand-text' },
             ].map(item => (
@@ -248,10 +248,10 @@ cancelButton.addEventListener('click', async (e) => {
             Ready to stop losing customers?
           </h2>
           <p className="font-serif text-base text-white/70 max-w-[460px] mx-auto mb-8 leading-[1.7]">
-            Start recovering customers today. Free forever. No credit card required.
+            Start recovering customers today. 30-day free trial, then $20/month. No credit card required.
           </p>
           <a href="/app/sign-up" className="inline-block bg-brand-accent text-brand-white px-8 py-3.5 rounded-lg font-sans font-bold text-base no-underline tracking-[-0.01em]">
-            Get Started Free →
+            Start Free Trial →
           </a>
           <div className="mt-5">
             <Link href="/compare/churnkey" className="font-sans text-[0.85rem] text-white/40 no-underline">

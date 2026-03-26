@@ -4,7 +4,7 @@ import ChurnCalculator from '../../components/ChurnCalculator'
 
 export default function ChurnCalculatorPage() {
   const title = 'SaaS Churn Revenue Calculator — How Much Are You Losing?'
-  const description = 'Calculate how much revenue you\'re losing to churn every month. See how much ChurnRecovery could save you — for free. Takes 30 seconds.'
+  const description = 'Calculate how much revenue you\'re losing to churn every month. See how much ChurnRecovery could save you — starting at $20/month. Takes 30 seconds.'
 
   return (
     <>
@@ -54,14 +54,14 @@ export default function ChurnCalculatorPage() {
           <div className="nav-links flex gap-6 items-center">
             <Link href="/demo" className="text-brand-gray no-underline text-[0.9rem]">Demo</Link>
             <Link href="/blog" className="text-brand-gray no-underline text-[0.9rem]">Blog</Link>
-            <a href="/app/sign-up" className="bg-brand-accent text-brand-white px-[18px] py-2 rounded-[6px] no-underline text-[0.85rem] font-semibold">Get Started Free</a>
+            <a href="/app/sign-up" className="bg-brand-accent text-brand-white px-[18px] py-2 rounded-[6px] no-underline text-[0.85rem] font-semibold">Start Free Trial</a>
           </div>
         </nav>
 
         {/* Hero */}
         <section className="max-w-[760px] mx-auto pt-[60px] px-6 pb-12 text-center">
           <div className="inline-block bg-[#F0EBE5] text-brand-accent px-[14px] py-1 rounded text-[0.72rem] font-bold uppercase tracking-[0.08em] mb-5">
-            Free Tool
+            Free Calculator
           </div>
           <h1 className="font-sans text-[clamp(1.8rem,5vw,2.8rem)] font-extrabold text-brand-text tracking-[-0.04em] mb-4 leading-[1.15]">
             How much revenue are you losing to churn?
@@ -138,7 +138,7 @@ export default function ChurnCalculatorPage() {
               },
               {
                 q: 'How does ChurnRecovery compare to Churnkey at $250/mo?',
-                a: 'On features, they\'re comparable — Churnkey is a solid product. The difference is cost. If you\'re recovering $500/mo in revenue, Churnkey takes half of it. ChurnRecovery keeps 100% in your pocket. At any MRR level, free wins.',
+                a: 'On features, they\'re comparable — Churnkey is a solid product. The difference is cost. ChurnRecovery is $20/month — flat. No per-subscriber fees. At any MRR level, $20/month vs $250/month is obvious.',
               },
               {
                 q: 'What about involuntary churn (failed payments)?',
@@ -185,10 +185,10 @@ export default function ChurnCalculatorPage() {
             Stop watching revenue walk out the door.
           </h2>
           <p className="font-serif text-base text-[rgba(255,255,255,0.7)] mb-8 max-w-[460px] mx-auto leading-[1.7]">
-            Get started free with ChurnRecovery — the free churn recovery platform built for SaaS founders.
+            Start your free trial of ChurnRecovery — the affordable churn recovery platform built for SaaS founders.
           </p>
           <a href="/app/sign-up" className="inline-block bg-brand-accent text-brand-white px-8 py-[14px] rounded-lg font-sans font-bold text-base no-underline tracking-[-0.01em]">
-            Get Started Free →
+            Start Free Trial →
           </a>
         </section>
       </div>

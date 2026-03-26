@@ -433,13 +433,13 @@ export default function CancelFlowDemo({ compact = false }) {
             Want this on your site?
           </p>
           <p className="font-serif text-[0.85rem] text-white/65 m-0 mb-5 leading-[1.6]">
-            ChurnRecovery is free. Add this cancel flow to your subscription business in under a day.
+            Add this cancel flow to your subscription business in under a day. $20/month after a 30-day free trial.
           </p>
           <a
             href="/app/sign-up"
             className="inline-block bg-brand-accent text-brand-white py-3 px-7 rounded-[9px] font-sans font-bold text-[0.92rem] no-underline tracking-[-0.01em]"
           >
-            Get Started Free →
+            Start Free Trial →
           </a>
         </div>
       )}

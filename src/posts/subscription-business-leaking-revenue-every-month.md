@@ -93,7 +93,7 @@ A cancel flow intercepts that moment and presents options:
 
 The math is compelling: if your cancel flow saves 20% of cancellations at $29/month, and you have 15 cancellations per month, you're saving 3 subscribers × $29 × 12 = **$1,044/year** — from a one-time setup.
 
-**ChurnRecovery is a free tool built specifically for this.** It works with any Stripe-based subscription — newsletters, memberships, courses, SaaS products — and gives you pause offers, discount flows, and exit surveys without any coding.
+**ChurnRecovery is a $20/month tool (with a 30-day free trial) built specifically for this.** It works with any Stripe-based subscription — newsletters, memberships, courses, SaaS products — and gives you pause offers, discount flows, and exit surveys without any coding.
 
 ### 3. Understand why people actually leave
 
@@ -133,11 +133,11 @@ Don't want to do the math yourself? We built a free tool for it.
 
 Go to [churnrecovery.com/tools/roi-calculator](/tools/roi-calculator) and enter your subscriber count, average revenue per subscriber, and current churn rate. The calculator shows you exactly how much you're leaking — and how much a cancel flow would recover.
 
-Then, when you're ready to plug the leak, [join the ChurnRecovery waitlist](/waitlist). Free during beta. Works with any Stripe-based subscription.
+Then, when you're ready to plug the leak, [join the ChurnRecovery waitlist](/waitlist). 30-day free trial, no credit card required. Works with any Stripe-based subscription.
 
 ---
 
-*The leak is quiet. The cost is real. The fix is free.*
+*The leak is quiet. The cost is real. The fix is affordable.*
 
 ---
 

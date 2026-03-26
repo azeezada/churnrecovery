@@ -43,7 +43,7 @@ Let's look at seven of the worst offenders.
 
 **Why it's overpriced:** The underlying technology is a redirect and some conditional logic. It's valuable — good cancel flows can save meaningful revenue — but the infrastructure cost to run this is not $250/month per customer. That price reflects the VC math and "enterprise retention software" positioning, not the actual cost of the product.
 
-**What to use instead:** [ChurnRecovery](/) does the same thing — cancel flows, payment failure recovery, churn analytics — for free. It's open-source and built on the explicit premise that churn recovery tools should be accessible to businesses that aren't already doing millions in ARR.
+**What to use instead:** [ChurnRecovery](/) does the same thing — cancel flows, payment failure recovery, churn analytics — for $20/month. It's open-source and built on the explicit premise that churn recovery tools should be accessible to businesses that aren't already doing millions in ARR.
 
 ---
 
@@ -103,7 +103,7 @@ Let's look at seven of the worst offenders.
 
 **Why it's overpriced:** When ProfitWell was independent, much of it was free — a good-faith attempt to offer analytics to the market. Post-acquisition, it became enterprise software with enterprise pricing, largely inaccessible to the small businesses that needed it most.
 
-**What to use instead:** [ChurnRecovery](/) again. Free, open-source, built specifically for subscription businesses that don't have a growth team or a $500/month tool budget.
+**What to use instead:** [ChurnRecovery](/) again. $20/month, open-source, built specifically for subscription businesses that don't have a growth team or a $500/month tool budget.
 
 ---
 
@@ -130,7 +130,7 @@ Here's a framework for evaluating every tool in your stack:
 
 Often the answer is yes — and the alternative is 80–90% as good for 10–20% of the price.
 
-For churn and subscription recovery specifically, the answer is **ChurnRecovery** — and it's not 80% as good. It's comparable to Churnkey and Paddle Retain, built for exactly the businesses that can't afford $250–$500/month just to keep the customers they've already won.
+For churn and subscription recovery specifically, the answer is **ChurnRecovery** — and it's not 80% as good. It's comparable to Churnkey and Paddle Retain at $20/month, built for exactly the businesses that can't afford $250–$500/month just to keep the customers they've already won.
 
 ---
 
@@ -140,15 +140,15 @@ Pull up your credit card statement. Add up every SaaS tool you're paying for. Th
 
 For most tools on most stacks, the honest answer is the latter.
 
-ChurnRecovery is our attempt at a different answer: a tool that costs what it costs to run (approximately zero) and charges accordingly.
+ChurnRecovery is our attempt at a different answer: a tool that charges $20/month flat — no per-subscriber fees, no revenue share, no usage limits.
 
-**[Join the ChurnRecovery waitlist — free, no credit card →](/)**
+**[Start your ChurnRecovery free trial — 30 days free, no credit card →](/)**
 
 Your margins will thank you.
 
 ---
 
-## ChurnRecovery: Free for Your Platform
+## ChurnRecovery: $20/Month for Your Platform
 
-- [ChurnRecovery for Stripe (free)](/for/stripe)
-- [ChurnRecovery for Kajabi (free)](/for/kajabi)
+- [ChurnRecovery for Stripe](/for/stripe)
+- [ChurnRecovery for Kajabi](/for/kajabi)

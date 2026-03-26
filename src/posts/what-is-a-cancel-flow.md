@@ -149,7 +149,7 @@ Setting one up doesn't require a developer, doesn't require complex software, an
 
 **[Try a live demo to see what your cancel flow could look like →](/demo)**
 
-Or [join the ChurnRecovery waitlist](/waitlist) to get early access and set up your first cancel flow free.
+Or [join the ChurnRecovery waitlist](/waitlist) to get early access and set up your first cancel flow.
 
 ---
 
@@ -164,4 +164,4 @@ Or [join the ChurnRecovery waitlist](/waitlist) to get early access and set up y
 - [Cancel flows for Substack →](/for/substack)
 - [Cancel flows for Teachable →](/for/teachable)
 
-*ChurnRecovery is free churn recovery software for newsletter creators, coaches, course sellers, and subscription businesses. No credit card required.*
+*ChurnRecovery is $20/month churn recovery software for newsletter creators, coaches, course sellers, and subscription businesses. No credit card required.*

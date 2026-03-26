@@ -5,12 +5,12 @@ const values = [
   {
     icon: '🔓',
     title: 'Radically open',
-    body: 'ChurnRecovery is free and open source. The code that runs your cancel flows is code you can read, fork, and run yourself. No black boxes, no vendor lock-in.',
+    body: 'ChurnRecovery is open source. The code that runs your cancel flows is code you can read, fork, and run yourself. No black boxes, no vendor lock-in.',
   },
   {
     icon: '⚖️',
     title: 'Fair by design',
-    body: 'Charging per recovery creates a perverse incentive: the tool wins more when you lose customers. We broke that model. Free is the only pricing that aligns our interests with yours.',
+    body: 'We charge a flat $20/month because your success shouldn\'t increase your costs. No per-subscriber fees, no per-recovery fees, no revenue share. The price stays the same whether you save 10 subscribers or 10,000.',
   },
   {
     icon: '🛠️',
@@ -43,7 +43,7 @@ const timeline = [
   {
     date: 'Early 2026',
     title: 'ChurnRecovery launches',
-    body: 'Today, ChurnRecovery is a full platform: cancel flows, payment recovery, analytics, templates — everything Churnkey offers, free forever. No per-recovery fees. No monthly minimum.',
+    body: 'Today, ChurnRecovery is a full platform: cancel flows, payment recovery, analytics, templates — everything competitors charge $250–$825/month for, at $20/month with a 30-day free trial. No per-recovery fees. No usage limits.',
   },
 ]
 
@@ -52,9 +52,9 @@ export default function AboutPage() {
     <div className="bg-[#FAF9F5] min-h-screen font-[Instrument_Sans,sans-serif]">
       <Head>
         <title>About ChurnRecovery — Our Mission and Founding Story</title>
-        <meta name="description" content="ChurnRecovery is a free, open-source churn recovery platform. Learn why we built it, what we believe, and our commitment to making retention tools accessible to every SaaS company." />
-        <meta property="og:title" content="About ChurnRecovery — Free Churn Recovery for SaaS" />
-        <meta property="og:description" content="We believe churn recovery tools should be free. Learn our founding story and mission." />
+        <meta name="description" content="ChurnRecovery is an affordable, open-source churn recovery platform at $20/month. Learn why we built it, what we believe, and our commitment to making retention tools accessible to every subscription business." />
+        <meta property="og:title" content="About ChurnRecovery — Affordable Churn Recovery for SaaS" />
+        <meta property="og:description" content="We believe churn recovery tools shouldn't cost more than they recover. Learn our founding story and mission." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://churnrecovery.com/about" />
         <meta property="og:image" content="https://churnrecovery.com/og/default.svg" />
@@ -64,7 +64,7 @@ export default function AboutPage() {
           "@context": "https://schema.org",
           "@type": "AboutPage",
           "name": "About ChurnRecovery",
-          "description": "ChurnRecovery is a free, open-source churn recovery platform for SaaS companies.",
+          "description": "ChurnRecovery is an affordable, open-source churn recovery platform for subscription businesses. $20/month.",
           "url": "https://churnrecovery.com/about",
           "publisher": {
             "@type": "Organization",
@@ -81,14 +81,14 @@ export default function AboutPage() {
             Our mission
           </div>
           <h1 className="font-[Merriweather,serif] font-bold text-[#191919] mb-[24px] leading-[1.2] text-[clamp(32px,5vw,48px)]">
-            Churn recovery should be free.<br />
-            <span className="text-[#D97757]">We built it that way.</span>
+            Churn recovery shouldn&apos;t cost more than it recovers.<br />
+            <span className="text-[#D97757]">So we built one for $20/month.</span>
           </h1>
           <p className="text-[19px] text-[#444444] leading-[1.75] font-[Merriweather,serif] mb-[20px] max-w-[640px]">
-            ChurnRecovery is an open-source platform for cancel flow interception, payment recovery, and win-back automation. We built it because the tools we needed were too expensive — and we refuse to pass that cost on to other founders.
+            ChurnRecovery is an open-source platform for cancel flow interception, payment recovery, and win-back automation. We built it because the tools we needed were too expensive — so we made one that&apos;s 10–40x cheaper.
           </p>
           <p className="text-[20px] leading-[1.6] font-[Instrument_Sans,sans-serif] max-w-[640px] font-bold px-[20px] py-[16px] bg-[#EDF7F1] rounded-[10px] border-l-[4px] border-l-[#2D7A4F] text-[#2D7A4F]">
-            Free. Open source. Built for engineers who want to own their retention stack.
+            $20/month. Open source. Built for engineers who want to own their retention stack.
           </p>
         </div>
       </div>
@@ -216,7 +216,7 @@ export default function AboutPage() {
           Who's building this
         </h2>
         <p className="text-[16px] text-[#444444] leading-[1.8] font-[Merriweather,serif] mb-[32px]">
-          ChurnRecovery is built by a small team of founders who've shipped SaaS products and lived the churn problem firsthand. We're not a VC-backed company with a retention sales team — we're builders who got frustrated with expensive tooling and decided to fix it.
+          ChurnRecovery is built by Dawood Azeeza and a small team of engineers who&apos;ve shipped SaaS products and lived the churn problem firsthand. We&apos;re not a VC-backed company with a retention sales team — we&apos;re builders who got frustrated with expensive tooling and decided to fix it.
         </p>
         <div className="bg-[#FFFFFF] border border-[#E5E5E5] rounded-[12px] p-[32px] flex items-center gap-[24px] founder-card">
           <div className="w-[72px] h-[72px] rounded-full flex items-center justify-center text-[28px] text-[#FFFFFF] font-bold shrink-0 bg-gradient-to-br from-[#D97757] to-[#C4603D]">
@@ -230,7 +230,7 @@ export default function AboutPage() {
               Builders. Founders. Former churners.
             </div>
             <p className="text-[14px] text-[#444444] leading-[1.65] font-[Merriweather,serif] m-0">
-              Start recovering churned customers today — completely free. Join the founding user community and help shape the product.
+              Start your 30-day free trial and join the founding user community. Help shape the product with direct access to the team building it.
             </p>
           </div>
         </div>
@@ -240,7 +240,7 @@ export default function AboutPage() {
       <div className="max-w-[800px] mx-auto mt-[72px] px-[32px]">
         <div className="stats-grid grid grid-cols-[repeat(3,1fr)] gap-[24px]">
           {[
-            { value: '$0', label: 'Monthly fee. Forever.', sub: 'Not free trial — free product' },
+            { value: '$20', label: 'Per month. All features.', sub: '30-day free trial, no credit card required' },
             { value: '6+', label: 'Payment processors', sub: 'Stripe, Paddle, Braintree, and more' },
             { value: '100%', label: 'Open source SDK', sub: 'MIT license, fork freely' },
           ].map((stat, i) => (
@@ -270,7 +270,7 @@ export default function AboutPage() {
           </p>
           <div className="flex gap-[12px] justify-center flex-wrap">
             <Link href="/app/sign-up" className="bg-[#FFFFFF] text-[#D97757] px-[32px] py-[14px] rounded-[8px] font-bold no-underline text-[16px]">
-              Get Started Free →
+              Start Free Trial →
             </Link>
             <Link href="/demo" className="bg-[rgba(255,255,255,0.15)] text-[#FFFFFF] px-[32px] py-[14px] rounded-[8px] font-semibold no-underline text-[16px] border border-[rgba(255,255,255,0.3)]">
               See it in action

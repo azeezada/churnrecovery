@@ -102,20 +102,20 @@ function FAQItem({ q, a }) {
 }
 
 // ─── Main Page ───────────────────────────────────────────────────────────────
-export default function KajabiLandingPage() {
+export default function NewslettersLandingPage() {
   return (
     <>
       <Head>
-        <title>Stop Losing Kajabi Members at the Cancel Screen | ChurnRecovery</title>
-        <meta name="description" content="ChurnRecovery connects to your Kajabi Stripe account and intercepts cancellations in real-time. Offer a pause, a discount, or ask why — before they're gone. 30-day free trial, then $20/month." />
-        <link rel="canonical" href="https://churnrecovery.com/for/kajabi" />
-        <meta property="og:title" content="Stop Losing Kajabi Members at the Cancel Screen | ChurnRecovery" />
-        <meta property="og:description" content="Kajabi memberships run on Stripe. ChurnRecovery connects directly and intercepts cancellations before they happen. No code, no Kajabi approval needed." />
-        <meta property="og:url" content="https://churnrecovery.com/for/kajabi" />
+        <title>Churn Recovery for Paid Newsletters | ChurnRecovery</title>
+        <meta name="description" content="Failed payments and silent cancellations are killing your newsletter revenue — and your platform has zero tools to stop it. ChurnRecovery connects to Stripe and recovers subscribers automatically. 30-day free trial, then $20/month." />
+        <link rel="canonical" href="https://churnrecovery.com/for/newsletters" />
+        <meta property="og:title" content="Churn Recovery for Paid Newsletters | ChurnRecovery" />
+        <meta property="og:description" content="Substack, beehiiv, Ghost, and ConvertKit have no cancel flow. ChurnRecovery connects directly to Stripe and intercepts cancellations before they happen. No code required." />
+        <meta property="og:url" content="https://churnrecovery.com/for/newsletters" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Stop Losing Kajabi Members at the Cancel Screen" />
-        <meta name="twitter:description" content="Most Kajabi creators don't realize they can intercept cancellations. ChurnRecovery plugs directly into Stripe — no code, no Kajabi approval." />
+        <meta name="twitter:title" content="Churn Recovery for Paid Newsletters | ChurnRecovery" />
+        <meta name="twitter:description" content="Newsletter platforms give you zero churn tools. ChurnRecovery plugs directly into Stripe — works with Substack, beehiiv, Ghost, and ConvertKit." />
       </Head>
 
       <Header />
@@ -124,7 +124,7 @@ export default function KajabiLandingPage() {
 
         {/* ─── SECTION 1: HERO ─────────────────────────────────────────── */}
         <section className="bg-[linear-gradient(135deg,#1A1200_0%,#2D1E00_50%,#1A1200_100%)] pt-20 px-6 pb-[100px] relative overflow-hidden">
-          {/* Kajabi gold glow */}
+          {/* Amber glow */}
           <div className="absolute top-[-80px] right-[-80px] w-[400px] h-[400px] rounded-full bg-[radial-gradient(circle,rgba(232,160,0,0.15)_0%,transparent_70%)] pointer-events-none" />
 
           <div className="max-w-[720px] mx-auto text-center relative z-[1]">
@@ -134,21 +134,21 @@ export default function KajabiLandingPage() {
             </div>
 
             <h1 className="font-sans font-extrabold text-[clamp(2.2rem,5vw,3.5rem)] text-white m-0 mb-5 leading-[1.15] tracking-[-0.02em]">
-              Stop Losing Kajabi Members<br />
-              <span className="text-[#F5C842]">at the Cancel Screen</span>
+              Your Paid Subscribers Are<br />
+              <span className="text-[#F5C842]">Silently Churning Right Now</span>
             </h1>
 
             <p className="font-serif text-[clamp(1rem,2.5vw,1.2rem)] text-[rgba(255,255,255,0.75)] m-0 mb-10 leading-[1.7] max-w-[600px] ml-auto mr-auto">
-              Most Kajabi creators don&apos;t realize it — but their memberships run on Stripe. That means you can intercept cancellations with a smooth cancel flow: a pause offer, a discount, or a simple &quot;why are you leaving?&quot; All without touching Kajabi&apos;s settings.
+              Substack, beehiiv, Ghost, and ConvertKit were built to help you grow — not to help you keep the subscribers you already have. When a paid reader clicks cancel, there&apos;s no offer, no pause option, no exit survey. Just silence. ChurnRecovery fixes that.
             </p>
 
             <div className="max-w-[480px] mx-auto mb-6">
-              <SignUpCTA source="for-kajabi" dark={true} />
+              <SignUpCTA source="for-newsletters" dark={true} />
             </div>
 
             <div className="flex gap-5 justify-center flex-wrap">
               <span className="font-sans text-[0.8rem] text-[rgba(255,255,255,0.5)]">
-                🆓 30-day free trial available — no Kajabi approval needed
+                🆓 30-day free trial — works with all major newsletter platforms
               </span>
               <span className="font-sans text-[0.8rem] text-[rgba(255,255,255,0.5)]">
                 ⚡ 3 steps, no code
@@ -171,30 +171,30 @@ export default function KajabiLandingPage() {
                 The Hidden Revenue Leak
               </div>
               <h2 className="font-sans font-extrabold text-[clamp(1.8rem,4vw,2.5rem)] text-[#191919] m-0 mb-4 tracking-[-0.02em]">
-                Every Kajabi Cancellation =<br />Lost Recurring Revenue
+                Newsletter Platforms Give You<br />Zero Churn Protection
               </h2>
               <p className="font-serif text-base text-[#666666] max-w-[540px] mx-auto leading-[1.7]">
-                Kajabi gives you beautiful course pages — but zero protection against members walking out the door. Right now, they can cancel in seconds and you&apos;ll never know why.
+                You spend months building an audience, converting free readers to paid — and then watch them quietly leave with no chance to save them. Newsletter tools are great at acquisition. They&apos;re silent on retention.
               </p>
             </div>
 
             <div className="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-5">
               <PainCard
                 icon="👻"
-                title="Invisible Churn"
-                stat="3–8%"
-                statLabel="of members cancel every month — silently"
-                description="There's no warning before a member cancels. No signal. No chance to intervene. One minute they're in your community, the next they're gone — and you find out in a Stripe email."
+                title="Silent Subscriber Loss"
+                stat="3–7%"
+                statLabel="of paid subscribers cancel every month on average"
+                description="Paid newsletter churn is invisible. You get a Stripe notification that a subscriber cancelled — no context, no warning, no chance to intervene. Month after month, your MRR slowly bleeds."
               />
               <PainCard
-                icon="🚪"
-                title="No Win-Back Offer"
-                description="When a Kajabi member clicks &quot;Cancel Membership,&quot; they hit a dead end. No pause option. No discount. No &quot;here's what you'll miss.&quot; Just an immediate, silent goodbye."
+                icon="💳"
+                title="Failed Payments You Never See"
+                description="Credit cards expire. Banks decline charges. When a payment fails on Substack or beehiiv, your subscriber downgrades silently to free — and most never come back. Involuntary churn is often bigger than voluntary churn."
               />
               <PainCard
-                icon="❓"
-                title="No Insight Into Why"
-                description="Was it price? Time? The content itself? You'll never know. Without an exit survey, you're guessing — which means you can't fix what's driving your members away."
+                icon="🚫"
+                title="No Cancel Flow on Any Newsletter Platform"
+                description="Substack, beehiiv, Ghost, and ConvertKit all send cancelling subscribers straight to a confirmation screen. There is no pause option, no discount, no &quot;why are you leaving?&quot; — just an instant goodbye."
               />
             </div>
           </div>
@@ -208,10 +208,10 @@ export default function KajabiLandingPage() {
                 3 Steps, No Code
               </div>
               <h2 className="font-sans font-extrabold text-[clamp(1.8rem,4vw,2.5rem)] text-[#191919] m-0 mb-4 tracking-[-0.02em]">
-                Works With Kajabi in Minutes
+                Works With Your Newsletter Platform in Minutes
               </h2>
               <p className="font-serif text-base text-[#666666] max-w-[480px] mx-auto leading-[1.7]">
-                Kajabi uses Stripe for payments. ChurnRecovery connects to Stripe — not Kajabi. No plugins, no approval needed.
+                Every major newsletter platform uses Stripe for paid subscriptions. ChurnRecovery connects to Stripe — not your platform. No plugins, no approval needed.
               </p>
             </div>
 
@@ -220,31 +220,31 @@ export default function KajabiLandingPage() {
                 number="1"
                 icon="🔗"
                 title="Connect Your Stripe Account"
-                description="Log into ChurnRecovery and connect your Stripe account with one click. We read cancellation signals from Stripe — the same payment processor Kajabi uses under the hood."
-                callout="✓ No Kajabi settings to change. No developer needed."
+                description="Log into ChurnRecovery and connect your Stripe account with one click. We read cancellation signals from Stripe — the same payment processor your newsletter platform uses under the hood."
+                callout="✓ No platform settings to change. No developer needed."
               />
               <HowStep
                 number="2"
                 icon="⚡"
-                title="We Catch Cancellations Instantly"
-                description="The moment a member initiates a cancellation, ChurnRecovery fires before it's final. We intercept the Stripe event and trigger your custom recovery flow — automatically."
+                title="We Intercept Cancellations Instantly"
+                description="The moment a paid subscriber initiates a cancellation, ChurnRecovery fires before it&apos;s final. We intercept the Stripe event and trigger your custom recovery flow — automatically, in real time."
               />
               <HowStep
                 number="3"
                 icon="💬"
-                title="Your Offer, Your Message — Automated"
-                description="Members see a personalized message from you: a pause option, a special discount, or a quick exit survey. Set it up once. It runs forever."
-                callout="🎯 Average recovery rate: 20–35% of at-risk members"
+                title="Your Offer, Your Voice — Automated"
+                description="Subscribers see a message from you: a pause option, a special discount, or a quick &quot;why are you leaving?&quot; survey. Set it up once. It runs for every future cancellation."
+                callout="🎯 Average recovery rate: 20–35% of at-risk subscribers"
               />
             </div>
 
             {/* Technical callout */}
             <div className="mt-8 bg-[rgba(232,160,0,0.05)] border border-[rgba(232,160,0,0.25)] border-l-4 border-l-[#E8A000] rounded-[10px] py-5 px-6 max-w-[680px] mx-auto">
               <p className="font-sans font-bold text-[#191919] m-0 mb-2 text-[0.95rem]">
-                &ldquo;Does Kajabi even let you do this?&rdquo;
+                Works with Substack, beehiiv, Ghost, and ConvertKit
               </p>
               <p className="font-serif text-[0.88rem] text-[#666666] m-0 mb-2.5 leading-[1.7]">
-                Yes — because ChurnRecovery works at the Stripe level, not the Kajabi level. Kajabi uses Stripe to process your membership payments. By connecting directly to your Stripe account, we can listen for cancellation events and respond — completely outside Kajabi&apos;s ecosystem.
+                All four platforms process paid subscriptions through Stripe. By connecting directly to your Stripe account, ChurnRecovery intercepts cancellation events regardless of which newsletter tool your subscribers are using — completely outside the platform&apos;s ecosystem.
               </p>
               <Link href="/docs" className="font-sans text-[0.82rem] text-[#E8A000] no-underline font-semibold">
                 Technical integration docs →
@@ -270,7 +270,7 @@ export default function KajabiLandingPage() {
                 What You Get
               </div>
               <h2 className="font-sans font-extrabold text-[clamp(1.8rem,4vw,2.5rem)] text-[#191919] m-0 tracking-[-0.02em]">
-                Everything to Protect Your Membership Revenue
+                Everything to Protect Your Newsletter Revenue
               </h2>
             </div>
 
@@ -278,32 +278,32 @@ export default function KajabiLandingPage() {
               <BenefitCard
                 icon="⏸"
                 title="Pause Offer"
-                description="Give members the option to pause instead of cancel. Many people leave during a busy month — not because they hate your content."
+                description="Give subscribers the option to pause instead of cancel. Many readers leave during a busy stretch — not because they don&apos;t value your work."
               />
               <BenefitCard
                 icon="🏷"
                 title="Discount Offer"
-                description="Automatically offer a 20% discount or 1 month free to at-risk members. Keeping them at a discount beats losing them forever."
+                description="Automatically offer a 20% discount or 1 month free to at-risk subscribers. Keeping them at a discount is far better than losing them permanently."
               />
               <BenefitCard
                 icon="📋"
                 title="Exit Survey"
-                description="Find out why members leave with a quick 1-question survey. Use the answers to improve your course, community, and content."
+                description="Find out why subscribers leave with a quick 1-question survey. Use the answers to improve your content, frequency, and pricing strategy."
               />
               <BenefitCard
                 icon="📊"
                 title="Dashboard Insights"
-                description="Track how much revenue you've saved, which offers work best, and your overall churn recovery rate — all in one dashboard."
+                description="Track how much MRR you&apos;ve saved, which offers convert best, and your overall recovery rate — all in one clean dashboard."
               />
               <BenefitCard
                 icon="🆓"
                 title="$20/month — Flat"
-                description="30-day free trial, then $20/month. All features included — no per-subscriber fees. Cancel anytime."
+                description="30-day free trial, then $20/month. All features included — no per-subscriber fees, no percentage of revenue. Cancel anytime."
               />
               <BenefitCard
-                icon="🚫"
-                title="No Kajabi Approval Needed"
-                description="This works entirely through Stripe. No Kajabi plugin, no app store approval, no waiting. Connect and go."
+                icon="🌐"
+                title="Works Across All Newsletter Platforms"
+                description="One integration covers Substack, beehiiv, Ghost, ConvertKit, and any other platform that uses Stripe. Switch platforms without re-configuring anything."
               />
             </div>
           </div>
@@ -313,10 +313,10 @@ export default function KajabiLandingPage() {
         <section className="py-20 px-6 bg-white">
           <div className="max-w-[680px] mx-auto text-center">
             <h2 className="font-sans font-extrabold text-[clamp(1.8rem,4vw,2.5rem)] text-[#191919] m-0 mb-5 tracking-[-0.02em]">
-              A Fraction of What Kajabi Costs You
+              Less Than One Subscriber&apos;s Monthly Fee
             </h2>
             <p className="font-serif text-base text-[#666666] leading-[1.7] m-0 mb-8">
-              Kajabi charges $119/month just to run your courses. ChurnRecovery is just $20/month — and helps you actually keep the revenue you&apos;re earning.
+              ChurnRecovery costs $20/month — flat. If you recover even one $10/month subscriber per month, it pays for itself twice over. Most creators recover dozens.
             </p>
 
             <div className="max-w-[380px] mx-auto mb-7">
@@ -331,7 +331,7 @@ export default function KajabiLandingPage() {
             </div>
 
             <div className="bg-[#EDF7F1] border border-[#C6E6D4] rounded-[10px] py-3.5 px-5 font-sans text-[0.88rem] text-[#2D7A4F] mb-6">
-              Compare to Kajabi ($119–$399/mo) which has zero built-in churn recovery. ChurnRecovery is just $20/month and pays for itself the first time you save a member.
+              Newsletter platforms charge you nothing extra — because they offer zero churn tools. ChurnRecovery is just $20/month and pays for itself the first time you save a subscriber.
             </div>
           </div>
         </section>
@@ -341,45 +341,44 @@ export default function KajabiLandingPage() {
           <div className="max-w-[720px] mx-auto">
             <div className="text-center mb-10">
               <h2 className="font-sans font-extrabold text-[clamp(1.8rem,4vw,2.5rem)] text-[#191919] m-0 tracking-[-0.02em]">
-                Questions From Kajabi Creators
+                Questions From Newsletter Creators
               </h2>
             </div>
 
             {[
               {
-                q: 'Does this work with Kajabi?',
-                a: "Yes. Kajabi processes payments through Stripe. ChurnRecovery connects to your Stripe account directly and listens for cancellation events. No Kajabi API access needed — it works entirely at the Stripe level.",
+                q: 'Does this work with Substack?',
+                a: "Yes. Substack processes paid subscriptions through Stripe. ChurnRecovery connects to your Stripe account directly and listens for cancellation events. No Substack API access, no Substack approval — it works entirely at the Stripe level.",
               },
               {
-                q: 'Will Kajabi block this?',
-                a: "No. ChurnRecovery operates at the Stripe level, not inside Kajabi. Kajabi has no visibility into or control over Stripe webhook events. This is like setting up a smoke detector in a building — the landlord doesn't need to approve it.",
+                q: 'Does this work with beehiiv?',
+                a: "Yes. beehiiv's paid subscription feature uses Stripe for payment processing. Connect your Stripe account to ChurnRecovery and it will intercept cancellations from beehiiv paid subscribers automatically.",
+              },
+              {
+                q: 'Does this work with Ghost?',
+                a: "Yes. Ghost memberships and paid subscriptions run on Stripe. ChurnRecovery connects directly to Stripe — so it works with Ghost whether you&apos;re on Ghost.org or self-hosted.",
+              },
+              {
+                q: 'Does this work with ConvertKit (Kit)?',
+                a: "Yes. ConvertKit's paid newsletter and community features use Stripe for billing. ChurnRecovery hooks into Stripe and catches cancellation events regardless of which platform initiated the subscription.",
+              },
+              {
+                q: 'Will my subscribers see third-party branding?',
+                a: "No. Your cancel flow is fully branded with your newsletter name, your message, and your tone. Subscribers see a message from you — not from ChurnRecovery. We stay invisible.",
               },
               {
                 q: 'Do I need developer help to set this up?',
-                a: "Not at all. If you can click a button and copy-paste a URL, you can set this up. It takes about 5–10 minutes, and we have step-by-step guides with screenshots for every step.",
+                a: "Not at all. If you can copy-paste a URL and click a few buttons, you can set this up in under 10 minutes. We have step-by-step guides with screenshots for Substack, beehiiv, Ghost, and ConvertKit.",
               },
               {
-                q: 'What if my Kajabi membership is at a lower price point?',
-                a: "Even recovering 1–2 members per month at $47 or $97/month adds up fast. At lower price points, it's even more important to have a cancel flow — because volume matters more.",
-              },
-              {
-                q: 'Can I customize the cancel flow message?',
-                a: "Completely. Your message, your offer, your tone. We provide templates designed for course creators and coaches, but you can edit every word. Your members will feel like they're hearing from you — not a software company.",
-              },
-              {
-                q: 'Does ChurnRecovery work with Kajabi memberships and courses?',
-                a: "Yes — any Kajabi product that uses Stripe for recurring billing. This includes membership sites, coaching programs, mastermind groups, and any subscription-based Kajabi offer.",
-              },
-              {
-                q: "What happens if someone still cancels after seeing the offer?",
-                a: "That's fine. If they want to leave, they leave. You still get their exit survey response — which is more than you had before. And you've made the attempt, which 20–35% of people respond to positively.",
+                q: "What if a subscriber still cancels after seeing the offer?",
+                a: "That&apos;s fine. If they want to leave, they leave. You still capture their exit survey response — which is more than you had before. And 20–35% of people who see a well-crafted offer will reconsider.",
               },
             ].map(faq => (
               <FAQItem key={faq.q} q={faq.q} a={faq.a} />
             ))}
           </div>
         </section>
-
 
         {/* ─── SECTION 6.5: RELATED RESOURCES ──────────────────────────── */}
         <section className="py-[60px] px-6 bg-brand-white border-t border-brand-border">
@@ -389,54 +388,66 @@ export default function KajabiLandingPage() {
             </h2>
             <div className="grid gap-3">
               <a
-                href="/posts/kajabi-cancel-flow-setup-without-coding"
+                href="/posts/newsletter-creator-guide-reducing-churn"
                 className="block bg-brand-bg border border-brand-border rounded-[10px] p-5 hover:border-brand-accent/40 transition-colors no-underline group"
               >
                 <div className="font-sans font-semibold text-[0.92rem] text-brand-text group-hover:text-brand-accent transition-colors mb-1">
-                  How to Set Up a Cancel Flow for Kajabi (No Coding)
+                  The Newsletter Creator&apos;s Guide to Reducing Churn
                 </div>
                 <div className="font-serif text-[0.82rem] text-brand-gray leading-[1.5]">
-                  Step-by-step guide with copy-paste scripts
+                  Tactics for paid newsletter creators to retain more subscribers
                 </div>
               </a>
               <a
-                href="/posts/reduce-churn-online-course-business"
+                href="/posts/ghost-vs-substack-vs-beehiiv-paid-subscribers"
                 className="block bg-brand-bg border border-brand-border rounded-[10px] p-5 hover:border-brand-accent/40 transition-colors no-underline group"
               >
                 <div className="font-sans font-semibold text-[0.92rem] text-brand-text group-hover:text-brand-accent transition-colors mb-1">
-                  How to Reduce Churn in Your Online Course Business
+                  Ghost vs Substack vs beehiiv: Which Platform Loses Fewer Paid Subscribers?
                 </div>
                 <div className="font-serif text-[0.82rem] text-brand-gray leading-[1.5]">
-                  Tactics specific to course creators and educators
+                  A deep comparison of how the major newsletter platforms handle paid subscriber churn
                 </div>
               </a>
               <a
-                href="/posts/what-is-a-cancel-flow"
+                href="/posts/newsletter-creator-case-study-saved-3600-year"
                 className="block bg-brand-bg border border-brand-border rounded-[10px] p-5 hover:border-brand-accent/40 transition-colors no-underline group"
               >
                 <div className="font-sans font-semibold text-[0.92rem] text-brand-text group-hover:text-brand-accent transition-colors mb-1">
-                  What Is a Cancel Flow? (And Why You Need One)
+                  Case Study: How One Newsletter Creator Saved $3,600/Year
                 </div>
                 <div className="font-serif text-[0.82rem] text-brand-gray leading-[1.5]">
-                  The case for adding a cancel flow to any membership
+                  Real numbers from a creator who added a cancel flow to their paid newsletter
+                </div>
+              </a>
+              <a
+                href="/posts/cancellation-emails-that-win-back-subscribers"
+                className="block bg-brand-bg border border-brand-border rounded-[10px] p-5 hover:border-brand-accent/40 transition-colors no-underline group"
+              >
+                <div className="font-sans font-semibold text-[0.92rem] text-brand-text group-hover:text-brand-accent transition-colors mb-1">
+                  Cancellation Emails That Win Back Subscribers
+                </div>
+                <div className="font-serif text-[0.82rem] text-brand-gray leading-[1.5]">
+                  Copy-and-paste email templates for winning back cancelled newsletter subscribers
                 </div>
               </a>
             </div>
           </div>
         </section>
+
         {/* ─── SECTION 7: FINAL CTA ────────────────────────────────────── */}
         <section className="bg-[linear-gradient(135deg,#1A1200_0%,#2D1E00_100%)] py-20 px-6">
           <div className="max-w-[600px] mx-auto text-center">
             <h2 className="font-sans font-extrabold text-[clamp(1.8rem,4vw,2.6rem)] text-white m-0 mb-5 leading-[1.2] tracking-[-0.02em]">
-              A Kajabi Member Is About to Cancel.<br />
+              A Paid Subscriber Is About to Cancel.<br />
               <span className="text-[#F5C842]">Will You Be Ready?</span>
             </h2>
             <p className="font-serif text-base text-[rgba(255,255,255,0.7)] m-0 mb-9 leading-[1.7]">
-              Start your free trial. Protect your Kajabi membership revenue with automated churn recovery. $20/month after 30 days — no Kajabi approval needed.
+              Start your free trial. Protect your newsletter revenue with automated churn recovery. $20/month after 30 days — works with Substack, beehiiv, Ghost, and ConvertKit.
             </p>
 
             <div className="max-w-[480px] mx-auto">
-              <SignUpCTA source="for-kajabi" dark={true} />
+              <SignUpCTA source="for-newsletters" dark={true} />
             </div>
 
             <div className="flex gap-6 justify-center mt-6 flex-wrap">

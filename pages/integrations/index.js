@@ -15,7 +15,7 @@ export default function IntegrationsIndex() {
     <>
       <Head>
         <title>Integrations — ChurnRecovery works with Stripe, Paddle, Braintree & more</title>
-        <meta name="description" content="ChurnRecovery integrates natively with Stripe, Paddle, Braintree, Chargebee, Recurly, and any custom billing system. Free cancel flows for every payment processor." />
+        <meta name="description" content="ChurnRecovery integrates natively with Stripe, Paddle, Braintree, Chargebee, Recurly, and any custom billing system. Cancel flows and payment recovery for every payment processor." />
         <meta property="og:title" content="Integrations — ChurnRecovery" />
         <meta property="og:description" content="Native integrations with every major payment processor. Set up cancel flows and payment recovery in minutes." />
         <meta property="og:image" content="https://churnrecovery.com/og/integrations.svg" />
@@ -36,11 +36,11 @@ export default function IntegrationsIndex() {
             </h1>
             <p className="font-serif text-[1.15rem] text-brand-gray leading-[1.7] mt-0 mb-9">
               Whether you're on Stripe, Paddle, Braintree, or a custom billing system,
-              ChurnRecovery gives you cancel flows and payment recovery — completely free.
+              ChurnRecovery gives you cancel flows and payment recovery — $20/month with a 30-day free trial.
             </p>
             <div className="hero-ctas flex gap-3 justify-center flex-wrap">
               <Link href="/app/sign-up" className="inline-block bg-brand-accent text-brand-white font-sans font-bold text-[0.95rem] py-[14px] px-7 rounded-lg no-underline">
-                Get Started Free →
+                Start Free Trial →
               </Link>
               <Link href="/docs" className="inline-block bg-transparent text-brand-text font-sans font-semibold text-[0.95rem] py-[14px] px-7 rounded-lg no-underline border border-brand-border">
                 View docs
@@ -135,10 +135,10 @@ export default function IntegrationsIndex() {
           <div className="mt-16 text-center py-16 px-6 bg-brand-text rounded-2xl">
             <h2 className="font-sans text-[1.8rem] font-extrabold text-brand-white mt-0 mb-4">Start recovering revenue today</h2>
             <p className="font-serif text-[1.05rem] text-white/70 mt-0 mb-8 leading-[1.7]">
-              Free for all payment processors. No credit card required. No monthly fee — ever.
+              Works with all major payment processors. 30-day free trial. $20/month after — no per-subscriber fees.
             </p>
             <Link href="/app/sign-up" className="inline-block bg-brand-accent text-brand-white font-sans font-bold text-base py-4 px-9 rounded-lg no-underline">
-              Get Started Free →
+              Start Free Trial →
             </Link>
           </div>
         </div>

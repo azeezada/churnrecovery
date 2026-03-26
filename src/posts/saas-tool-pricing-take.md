@@ -102,9 +102,11 @@ The solution is: stop accepting "enterprise pricing for everyone" as the default
 
 When a tool charges $825/month for technology that costs less than $10/month to run, that's a business decision, not a necessity. They're choosing to price out small businesses. You don't have to accept that choice.
 
-There are alternatives. Some of them are free.
+There are alternatives. And some of them are a lot closer to that $25 number.
 
-[ChurnRecovery](https://churnrecovery.com) does everything described in this post — cancel flows, dunning emails, churn analytics — and it costs nothing. It's free because we think churn recovery should be accessible to the newsletter creator with 400 subscribers, not just the SaaS company with $5M ARR.
+[ChurnRecovery](https://churnrecovery.com) does everything described in this post — cancel flows, dunning emails, churn analytics — for $20/month. Flat. No per-subscriber fees, no revenue share, no usage limits. That's $240/year instead of $9,900.
+
+Remember the title of this post? "The $825/Month SaaS Tool That Should Cost $25." We're $20. Close enough — and the features are the same.
 
 Our philosophy is simple: the tools that help you keep your customers shouldn't be luxury items. A $10/month subscriber is real money to a solo founder. Saving one cancellation per week is the difference between growing and stagnating.
 
@@ -124,7 +126,7 @@ That's it. The tool runs in the background. The next time a customer clicks "Can
 
 The question was never whether this technology works — it does, and the data is clear. The question was always whether you could afford to access it.
 
-Now you can.
+Now you can. $20/month. 30-day free trial. No credit card required.
 
 ## Get Started on Your Platform
 
@@ -134,4 +136,4 @@ Now you can.
 
 ---
 
-*ChurnRecovery is free churn recovery software for small subscription businesses. [Get started here →](https://churnrecovery.com)*
+*ChurnRecovery is $20/month churn recovery software for small subscription businesses. [Start your free trial →](https://churnrecovery.com)*

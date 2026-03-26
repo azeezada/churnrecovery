@@ -92,7 +92,7 @@ When a member clicks "cancel," a good cancel flow:
 
 This single change saves **20–35% of cancellation attempts** in most membership businesses. The math is simple: if you have 500 members and 30 try to cancel this month, saving 8 of them (27%) is $240–$800 in retained monthly revenue.
 
-ChurnRecovery is a free tool that adds exactly this cancel flow to Memberful, Circle, and Patreon integrations. Setup takes under 10 minutes. [See it for Memberful →](/for/memberful) or [for Circle →](/for/circle)
+ChurnRecovery is a $20/month tool (30-day free trial) that adds exactly this cancel flow to Memberful, Circle, and Patreon integrations. Setup takes under 10 minutes. [See it for Memberful →](/for/memberful) or [for Circle →](/for/circle)
 
 ### 3. They make onboarding a priority
 
@@ -148,7 +148,7 @@ That's it. Three questions, 2 minutes. Run the data monthly. You'll see patterns
 If you're sitting at 7%+ monthly churn, here's a prioritized action plan:
 
 **Week 1: Stop the bleeding**
-- Set up a cancel flow (free with ChurnRecovery — pause + discount + downgrade options)
+- Set up a cancel flow ($20/month with ChurnRecovery — pause + discount + downgrade options)
 - Add an exit survey to every cancellation
 
 **Month 1: Audit onboarding**
@@ -191,7 +191,7 @@ And the compounding effect works in your favor once churn drops: members stay lo
 
 If you're on Memberful, Circle, or Patreon and you don't have a cancel flow yet — that's the first thing to fix. It's the highest-ROI retention move with the lowest implementation effort.
 
-ChurnRecovery adds a free cancel flow to your existing setup. No coding, no developer required.
+ChurnRecovery adds a cancel flow to your existing setup. No coding, no developer required.
 
-[Set up your free cancel flow for Memberful →](/for/memberful)
-[Set up your free cancel flow for Circle →](/for/circle)
+[Set up your cancel flow for Memberful →](/for/memberful)
+[Set up your cancel flow for Circle →](/for/circle)

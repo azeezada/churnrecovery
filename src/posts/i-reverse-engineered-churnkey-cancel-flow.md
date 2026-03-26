@@ -1,6 +1,6 @@
 ---
 title: "I Reverse-Engineered Churnkey's Cancel Flow"
-description: "What does Churnkey's $825/month actually give you? I dug into their cancel flow feature-by-feature and compared it to what you can get for free. Here's the honest breakdown."
+description: "What does Churnkey's $825/month actually give you? I dug into their cancel flow feature-by-feature and compared it to what you can get for $20/month. Here's the honest breakdown."
 date: "2026-02-26"
 tags: ["churnkey", "cancel flow", "churn recovery", "comparison", "pricing"]
 author: "ChurnRecovery Team"
@@ -99,7 +99,7 @@ This is genuinely elegant. The personalization element is what separates a good 
 
 ## What ChurnRecovery Does (And What It Costs)
 
-Full disclosure: I'm the person behind ChurnRecovery, which is a free alternative to Churnkey. So take this comparison with appropriate skepticism — but I'll try to be honest about the differences.
+Full disclosure: I'm the person behind ChurnRecovery, which is a $20/month alternative to Churnkey. So take this comparison with appropriate skepticism — but I'll try to be honest about the differences.
 
 **What ChurnRecovery includes:**
 - ✅ Cancel flow with exit survey
@@ -123,7 +123,7 @@ Full disclosure: I'm the person behind ChurnRecovery, which is a free alternativ
 
 ## Feature-by-Feature: Churnkey vs ChurnRecovery
 
-| Feature | Churnkey (Starter, $250/mo) | ChurnRecovery (Free) |
+| Feature | Churnkey (Starter, $250/mo) | ChurnRecovery ($20/mo) |
 |---|---|---|
 | Cancel flow with survey | ✅ | ✅ |
 | Personalized offers | ✅ | ✅ |
@@ -169,13 +169,13 @@ For businesses under $30-50k MRR, I'd seriously question whether $825/month in t
 
 If you're building a subscription business and churn is a real problem (not just theoretical):
 
-1. **Start free.** Add a basic cancel flow with a pause option and a discount offer. Measure your save rate. Most businesses have no cancel flow at all — just this step alone can recover 10-20% of would-be churners.
+1. **Start with a free trial.** Add a basic cancel flow with a pause option and a discount offer. Measure your save rate. Most businesses have no cancel flow at all — just this step alone can recover 10-20% of would-be churners.
 
 2. **Learn what your customers say.** The survey data is the most valuable part of a cancel flow. Knowing *why* people leave tells you what to fix in the product.
 
 3. **Scale your tooling to your scale.** If you're doing $100k+ MRR and you've validated that cancel flows work for your business, then paying for Churnkey makes sense. The ROI is clear. Before that, it's pre-mature optimization.
 
-ChurnRecovery is free to try — it covers the core features that actually move numbers for most businesses. If you're a newsletter creator, SaaS founder, or subscription business owner who hasn't done this yet, that's where I'd start.
+ChurnRecovery is $20/month with a 30-day free trial — it covers the core features that actually move numbers for most businesses. If you're a newsletter creator, SaaS founder, or subscription business owner who hasn't done this yet, that's where I'd start.
 
 ## Get Started on Your Platform
 

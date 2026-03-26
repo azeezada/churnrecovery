@@ -119,8 +119,8 @@ Each of these has a specific response that can retain the relationship. The key 
 **[See how ChurnRecovery works for coaches →](/for/kajabi)**  
 **[Watch a live demo →](/demo)**
 
-Then [join the waitlist](/waitlist) for free early access.
+Then [join the waitlist](/waitlist) for early access.
 
 ---
 
-*ChurnRecovery is free churn recovery software for subscription businesses. Works with Stripe, Kajabi, Teachable, and any platform that processes payments through Stripe.*
+*ChurnRecovery is $20/month churn recovery software for subscription businesses. Works with Stripe, Kajabi, Teachable, and any platform that processes payments through Stripe.*

@@ -1,6 +1,6 @@
 ---
 title: "How to Reduce Churn for Your Online Course Business"
-description: "Running a course on Kajabi, Teachable, Thinkific, or Podia? Here are 5 concrete tactics to reduce churn for your online course business — including one you can set up for free today."
+description: "Running a course on Kajabi, Teachable, Thinkific, or Podia? Here are 5 concrete tactics to reduce churn for your online course business — including one you can set up today."
 date: "2026-02-10"
 tags: ["online course", "churn", "kajabi", "teachable", "thinkific", "podia", "retention"]
 author: "ChurnRecovery Team"
@@ -31,7 +31,7 @@ Here's what a basic cancel flow covers:
 - **Problem survey** — "What's not working? We'll fix it."
 - **Downgrade offer** — "Switch to the basics plan instead."
 
-ChurnRecovery is a free tool built specifically for this. You connect your Stripe account (which Kajabi and Teachable use under the hood), and your cancel page goes from a dead end to a retention opportunity. No coding required. [Try it free for Kajabi →](/for/kajabi) or [for Teachable →](/for/teachable).
+ChurnRecovery is a $20/month tool built specifically for this. You connect your Stripe account (which Kajabi and Teachable use under the hood), and your cancel page goes from a dead end to a retention opportunity. No coding required. [Try it for Kajabi →](/for/kajabi) or [for Teachable →](/for/teachable).
 
 ---
 
@@ -112,7 +112,7 @@ At 4% churn, you're only losing 8 subscribers/month. That's **$580/month** less 
 
 Don't try to implement all 5 at once. Start with the highest-leverage fix:
 
-1. **Today:** Set up a cancel flow with ChurnRecovery (free, no coding). This alone saves 20–35% of people trying to cancel.
+1. **Today:** Set up a cancel flow with ChurnRecovery ($20/month, no coding). This alone saves 20–35% of people trying to cancel.
 2. **This week:** Add a dunning email sequence via your platform's automation.
 3. **This month:** Launch a community or strengthen the one you have.
 

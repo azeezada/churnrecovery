@@ -11,7 +11,7 @@ const features = [
 ]
 
 const comparisons = [
-  { name: 'ChurnRecovery', price: '$0 / forever', highlight: true, users: 'Unlimited', flows: 'Unlimited', integrations: 'All', support: 'Community + Email' },
+  { name: 'ChurnRecovery', price: '$20 / month', highlight: true, users: 'Unlimited', flows: 'Unlimited', integrations: 'All', support: 'Community + Email' },
   { name: 'Churnkey', price: '$250 – $825 / mo', highlight: false, users: 'Limited', flows: 'Unlimited', integrations: 'Stripe only', support: 'Email' },
   { name: 'ProfitWell Retain', price: '$149 – $499 / mo', highlight: false, users: 'Limited', flows: 'Limited', integrations: 'Some', support: 'Email' },
   { name: 'Churnbuster', price: '$47 – $197 / mo', highlight: false, users: 'Unlimited', flows: 'Basic', integrations: 'Stripe only', support: 'Email' },
@@ -19,12 +19,12 @@ const comparisons = [
 
 const faqs = [
   {
-    q: 'Is this actually free? What\'s the catch?',
-    a: 'Yes, genuinely free. We make money through optional managed services, priority support plans, and enterprise contracts with large teams. The core product — cancel flows, payment recovery, analytics — is free for everyone, forever. We believe the best way to build trust is to give real value upfront.'
+    q: 'Why only $20/month?',
+    a: 'We charge a flat $20/month because your success shouldn\'t increase your costs. No per-subscriber fees, no per-recovery fees, no revenue share. Whether you have 100 subscribers or 100,000, the price stays the same. That\'s $240/year — compared to $3,000–$10,000/year for alternatives.'
   },
   {
     q: 'How do you compare to Churnkey?',
-    a: 'Churnkey starts at $250/month and goes up to $825+/month. ChurnRecovery has the same core features at $0. If you\'re paying more than $50/month in SaaS fees per recovered churner, the math already works in our favor. We also support more payment processors out of the box.'
+    a: 'Churnkey starts at $250/month and goes up to $825+/month. ChurnRecovery has the same core features at $20/month — that\'s 10–40x cheaper. We also support more payment processors out of the box.'
   },
   {
     q: 'What payment processors do you support?',
@@ -48,7 +48,7 @@ const faqs = [
   },
   {
     q: 'Is there a limit on the number of customers or recoveries?',
-    a: 'No limits. Whether you\'re recovering 10 churners or 10,000 per month, the product is the same. We don\'t charge per-recovery fees or take a percentage of saved revenue.'
+    a: 'No limits. Whether you\'re recovering 10 churners or 10,000 per month, the product is the same. No per-recovery fees, no usage caps.'
   },
 ]
 
@@ -56,22 +56,22 @@ export default function Pricing() {
   return (
     <div className="bg-brand-bg min-h-screen font-sans">
       <Head>
-        <title>Pricing — ChurnRecovery is Free Forever | No Monthly Fees</title>
-        <meta name="description" content="ChurnRecovery is completely free. Cancel flows, payment recovery, analytics, and integrations at $0/month — no catch, no per-recovery fees, no revenue share." />
-        <meta property="og:title" content="Pricing — ChurnRecovery is Free Forever" />
-        <meta property="og:description" content="Cancel flows, payment recovery, analytics at $0/month. No catch." />
+        <title>Pricing — ChurnRecovery | $20/month, 30-Day Free Trial</title>
+        <meta name="description" content="ChurnRecovery: $20/month for cancel flows, payment recovery, analytics, and integrations. 30-day free trial, no credit card required. 10-40x cheaper than alternatives." />
+        <meta property="og:title" content="Pricing — ChurnRecovery | $20/month" />
+        <meta property="og:description" content="Cancel flows, payment recovery, analytics — $20/month. 30-day free trial." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://churnrecovery.com/pricing" />
         <meta property="og:image" content="https://churnrecovery.com/og/pricing.svg" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="ChurnRecovery — Free Churn Recovery Platform" />
+        <meta name="twitter:title" content="ChurnRecovery — $20/month Churn Recovery Platform" />
         <link rel="canonical" href="https://churnrecovery.com/pricing" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Product",
           "name": "ChurnRecovery",
-          "description": "Free churn recovery platform for SaaS",
-          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+          "description": "Affordable churn recovery platform for subscription businesses",
+          "offers": { "@type": "Offer", "price": "20", "priceCurrency": "USD" }
         })}} />
       </Head>
 
@@ -79,18 +79,18 @@ export default function Pricing() {
       <div className="border-b border-brand-border bg-brand-white">
         <div className="pricing-hero max-w-[1100px] mx-auto px-8 pt-[72px] pb-16 text-center">
           <div className="inline-block bg-brand-green-light text-brand-green rounded-[20px] px-4 py-1.5 text-[13px] font-semibold mb-5 tracking-[0.02em]">
-            ✓ Always free — no credit card required
+            ✓ 30-day free trial — no credit card required
           </div>
           <h1 className="font-serif text-[clamp(36px,6vw,58px)] font-bold text-brand-text mb-5 leading-[1.1]">
-            Simple pricing.<br />
-            <span className="text-brand-accent">It's free.</span>
+            One plan. $20/month.<br />
+            <span className="text-brand-accent">Everything included.</span>
           </h1>
           <p className="text-[20px] text-brand-gray max-w-[560px] mx-auto mb-9 leading-relaxed font-serif">
-            Every feature, every integration, unlimited customers. No monthly fees, no per-recovery charges, no revenue share.
+            Every feature, every integration, unlimited customers. No per-subscriber fees, no per-recovery charges, no revenue share. 10–40x cheaper than alternatives.
           </p>
           <div className="pricing-hero-btns flex gap-3 justify-center flex-wrap">
             <Link href="/app/sign-up" className="bg-brand-accent text-brand-white px-8 py-3.5 rounded-lg font-bold no-underline text-base">
-              Get Started Free →
+              Start Free Trial →
             </Link>
             <Link href="/demo" className="bg-brand-white text-brand-text px-8 py-3.5 rounded-lg font-semibold no-underline text-base border-2 border-brand-border">
               See live demo
@@ -109,17 +109,17 @@ export default function Pricing() {
                 ChurnRecovery
               </div>
               <div className="flex items-baseline gap-2">
-                <span className="text-brand-white text-[56px] font-extrabold leading-none">$0</span>
+                <span className="text-brand-white text-[56px] font-extrabold leading-none">$20</span>
                 <span className="text-white/80 text-lg">/month</span>
               </div>
               <div className="text-white/90 text-[15px] mt-2">
-                Forever. No hidden fees.
+                30-day free trial. No credit card required to start.
               </div>
             </div>
             <div className="text-right">
-              <div className="text-brand-white text-sm mb-1">Compare to Churnkey:</div>
-              <div className="text-white/70 text-2xl font-bold line-through">$3,000–$9,900/yr</div>
-              <div className="text-brand-white text-sm mt-1">You save thousands every year</div>
+              <div className="text-brand-white text-sm mb-1">Compare to alternatives:</div>
+              <div className="text-white/70 text-2xl font-bold line-through">$250–$825/mo</div>
+              <div className="text-brand-white text-sm mt-1">10–40x cheaper than competitors</div>
             </div>
           </div>
 
@@ -145,10 +145,10 @@ export default function Pricing() {
           {/* CTA strip */}
           <div className="pricing-cta-strip bg-[#F5F5F0] border-t border-brand-border px-10 py-6 flex items-center justify-between flex-wrap gap-4">
             <div className="text-[15px] text-brand-gray">
-              No credit card. No contracts. Start recovering churn in hours.
+              No credit card required. No contracts. Start recovering churn in hours.
             </div>
             <Link href="/app/sign-up" className="bg-brand-accent text-brand-white px-7 py-3 rounded-lg font-bold no-underline text-[15px]">
-              Get Started Free →
+              Start Free Trial →
             </Link>
           </div>
         </div>
@@ -160,7 +160,7 @@ export default function Pricing() {
           How we stack up
         </h2>
         <p className="text-brand-gray text-center mb-9 text-base">
-          Same features. Zero monthly cost.
+          Same features. 10–40x less expensive.
         </p>
         <div className="bg-brand-white rounded-xl border border-brand-border overflow-hidden overflow-x-auto [-webkit-overflow-scrolling:touch]">
           <table className="w-full min-w-[480px] border-collapse text-[15px]">
@@ -201,7 +201,7 @@ export default function Pricing() {
           Frequently asked questions
         </h2>
         <p className="text-brand-gray text-center mb-12 text-base">
-          Still skeptical? We get it.
+          Straightforward answers about pricing.
         </p>
         <div className="flex flex-col">
           {faqs.map((faq, i) => (
@@ -217,14 +217,14 @@ export default function Pricing() {
       <div className="max-w-[1100px] mx-auto my-16 px-8">
         <div className="bg-brand-text rounded-2xl px-10 py-14 text-center text-brand-white">
           <h2 className="font-serif text-[clamp(28px,4vw,42px)] font-bold mb-4">
-            Start recovering churn today — for free
+            Start recovering churn today
           </h2>
           <p className="text-lg text-white/70 max-w-[520px] mx-auto mb-9 font-serif">
-            Start recovering customers today — completely free, forever.
+            30-day free trial. $20/month after. No credit card required to start.
           </p>
           <div className="flex gap-3 justify-center flex-wrap">
             <Link href="/app/sign-up" className="bg-brand-accent text-brand-white px-8 py-3.5 rounded-lg font-bold no-underline text-base">
-              Get Started Free →
+              Start Free Trial →
             </Link>
             <Link href="/tools/churn-calculator" className="bg-white/10 text-brand-white px-8 py-3.5 rounded-lg font-semibold no-underline text-base border border-white/20">
               Calculate your savings

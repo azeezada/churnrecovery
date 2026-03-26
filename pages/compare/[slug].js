@@ -32,7 +32,7 @@ function FeatureRow({ label, crValue, themValue }) {
 export default function ComparePage({ competitor }) {
   if (!competitor) return null
 
-  const title = `ChurnRecovery vs ${competitor.name}: Honest Comparison (2025)`
+  const title = `ChurnRecovery vs ${competitor.name}: Honest Comparison (2026)`
   const description = `How does ChurnRecovery compare to ${competitor.name}? Feature-by-feature breakdown covering pricing, cancel flows, integrations, and developer experience.`
 
   return (
@@ -74,7 +74,7 @@ export default function ComparePage({ competitor }) {
                   name: `Is ChurnRecovery better than ${competitor.name}?`,
                   acceptedAnswer: {
                     '@type': 'Answer',
-                    text: `ChurnRecovery and ${competitor.name} both offer churn prevention features including cancel flows and payment failure recovery. The key difference is pricing: ChurnRecovery is free to start with no per-MRR fees, while ${competitor.name} ${competitor.pricing ? `starts at ${competitor.pricing.label}` : 'charges based on your MRR'}. For small subscription businesses (newsletters, online courses, membership sites), ChurnRecovery is typically the better fit. See the full feature comparison above.`,
+                    text: `ChurnRecovery and ${competitor.name} both offer churn prevention features including cancel flows and payment failure recovery. The key difference is pricing: ChurnRecovery is $20/month with no per-MRR fees, while ${competitor.name} ${competitor.pricing ? `starts at ${competitor.pricing.label}` : 'charges based on your MRR'}. For small subscription businesses (newsletters, online courses, membership sites), ChurnRecovery is typically the better fit. See the full feature comparison above.`,
                   },
                 },
                 {
@@ -82,15 +82,15 @@ export default function ComparePage({ competitor }) {
                   name: `What does ${competitor.name} cost compared to ChurnRecovery?`,
                   acceptedAnswer: {
                     '@type': 'Answer',
-                    text: `${competitor.name} ${competitor.pricing ? `is priced at ${competitor.pricing.label}${competitor.pricing.notes ? '. ' + competitor.pricing.notes : ''}` : 'uses MRR-based pricing that scales with your revenue'}. ChurnRecovery is free — no trial period, no per-MRR fee, no feature gates on the core product (cancel flows, payment failure recovery, analytics). Premium features like A/B testing and advanced reporting are planned as optional paid upgrades.`,
+                    text: `${competitor.name} ${competitor.pricing ? `is priced at ${competitor.pricing.label}${competitor.pricing.notes ? '. ' + competitor.pricing.notes : ''}` : 'uses MRR-based pricing that scales with your revenue'}. ChurnRecovery is $20/month — all features included, no per-MRR fee, no per-subscriber fee, no usage limits. Start with a 30-day free trial, no credit card required.`,
                   },
                 },
                 {
                   '@type': 'Question',
-                  name: `Does ChurnRecovery have a free tier unlike ${competitor.name}?`,
+                  name: `How does ChurnRecovery's pricing compare to ${competitor.name}?`,
                   acceptedAnswer: {
                     '@type': 'Answer',
-                    text: `Yes. ChurnRecovery's core product is free with no limits on subscribers, cancel flows, or payment recovery emails. ${competitor.name} ${competitor.features && competitor.features.freeTier && !competitor.features.freeTier.them ? 'does not offer a free tier' : 'offers limited free access'}. ChurnRecovery is built for subscription businesses of all sizes — from 50-subscriber newsletters to established membership sites.`,
+                    text: `ChurnRecovery offers a 30-day free trial with full access — no credit card required. After the trial, it's $20/month for all features with no limits on subscribers, cancel flows, or payment recovery emails. ${competitor.name} ${competitor.features && competitor.features.freeTier && !competitor.features.freeTier.them ? 'does not offer a free tier' : 'offers limited free access'}. ChurnRecovery is built for subscription businesses of all sizes — from 50-subscriber newsletters to established membership sites.`,
                   },
                 },
                 {
@@ -123,7 +123,7 @@ export default function ComparePage({ competitor }) {
           </Link>
           <div className="compare-nav-links flex gap-6 items-center flex-wrap">
             <Link href="/blog" className="compare-nav-text text-[#666666] no-underline text-[0.9rem]">Blog</Link>
-            <a href="/app/sign-up" className="bg-[#D97757] text-white px-[18px] py-2 rounded-[6px] no-underline text-[0.85rem] font-semibold whitespace-nowrap">Get Started Free</a>
+            <a href="/app/sign-up" className="bg-[#D97757] text-white px-[18px] py-2 rounded-[6px] no-underline text-[0.85rem] font-semibold whitespace-nowrap">Start Free Trial</a>
           </div>
         </nav>
         <style>{`
@@ -167,7 +167,7 @@ export default function ComparePage({ competitor }) {
             {/* ChurnRecovery */}
             <div className="border-2 border-[#D97757] rounded-xl p-6 bg-white">
               <div className="font-[Instrument_Sans,sans-serif] font-bold text-base text-[#191919] mb-1">ChurnRecovery</div>
-              <div className="font-[Instrument_Sans,sans-serif] text-[0.82rem] text-[#D97757] font-bold mb-3">FREE — Always</div>
+              <div className="font-[Instrument_Sans,sans-serif] text-[0.82rem] text-[#D97757] font-bold mb-3">$20 / month</div>
               <ul className="list-none p-0 m-0">
                 {['Cancel flows', 'Failed payment recovery', 'Open source', 'Developer API', 'A/B testing'].map(item => (
                   <li key={item} className="font-[Instrument_Sans,sans-serif] text-[0.85rem] text-[#2D7A4F] py-[3px] flex items-center gap-[6px]">
@@ -238,13 +238,13 @@ export default function ComparePage({ competitor }) {
                   ChurnRecovery
                 </div>
                 <div className="font-[Instrument_Sans,sans-serif] text-[2.5rem] font-extrabold text-[#D97757] tracking-[-0.04em] leading-none mb-2">
-                  $0
+                  $20
                 </div>
                 <div className="font-[Instrument_Sans,sans-serif] text-[0.85rem] text-[#666666] mb-4">
-                  Forever. No credit card required.
+                  per month. 30-day free trial.
                 </div>
                 <div className="font-[Instrument_Sans,sans-serif] text-[0.85rem] text-[#2D7A4F] font-semibold">
-                  ✓ Full feature access on free tier
+                  ✓ All features. No per-subscriber fees.
                 </div>
               </div>
 
@@ -259,11 +259,43 @@ export default function ComparePage({ competitor }) {
                   {competitor.pricing.entry > 0 ? 'per month, entry plan' : 'Pricing varies'}
                 </div>
                 <div className="font-[Instrument_Sans,sans-serif] text-[0.85rem] text-[#C0392B] font-semibold">
-                  ✗ No free tier
+                  ✗ 10-40x more expensive
                 </div>
               </div>
             </div>
           </div>
+        </section>
+
+        {/* What $20/month gets you */}
+        <section className="max-w-[800px] mx-auto px-6 pb-12">
+          <h2 className="font-[Instrument_Sans,sans-serif] text-[1.4rem] font-bold text-[#191919] tracking-[-0.02em] mb-4">
+            What $20/month gets you that {competitor.name} charges {competitor.pricing.entry > 0 ? `$${competitor.pricing.entry}/month` : competitor.pricing.label} for
+          </h2>
+          <p className="font-[Merriweather,serif] text-[0.95rem] text-[#666666] mb-6 leading-[1.7]">
+            ChurnRecovery costs $240/year.{' '}
+            {competitor.pricing.entry > 0
+              ? `${competitor.name} costs $${competitor.pricing.entry * 12}/year at its entry price — that's ${Math.round(competitor.pricing.entry / 20)}x more.`
+              : `${competitor.name} pricing scales with your MRR — and adds up fast.`}
+            {' '}Here's what you get for $20/month:
+          </p>
+          <div className="grid grid-cols-2 gap-3 mb-4">
+            {[
+              'Cancel flows with pause, discount & downgrade offers',
+              'Failed payment recovery with smart retries',
+              'A/B testing across flow variants',
+              'Full analytics dashboard',
+              'Developer API & SDK',
+              'Unlimited subscribers — no per-seat fees',
+            ].map(item => (
+              <div key={item} className="flex items-start gap-2 font-[Instrument_Sans,sans-serif] text-[0.85rem] text-[#191919] py-2">
+                <span className="text-[#2D7A4F] font-bold shrink-0">✓</span>
+                {item}
+              </div>
+            ))}
+          </div>
+          <p className="font-[Merriweather,serif] text-[0.88rem] text-[#666666] leading-[1.7] italic">
+            If ChurnRecovery saves even one $20+ subscriber per month, it pays for itself.
+          </p>
         </section>
 
         {/* About the competitor */}
@@ -345,13 +377,13 @@ export default function ComparePage({ competitor }) {
         {/* CTA */}
         <section className="bg-[#191919] px-6 py-20 text-center">
           <h2 className="font-[Instrument_Sans,sans-serif] font-bold text-white tracking-[-0.03em] m-0 mb-4 text-[clamp(1.5rem,4vw,2.2rem)]">
-            Stop paying for churn recovery.
+            Churn recovery shouldn't cost more than it recovers.
           </h2>
           <p className="font-[Merriweather,serif] text-base text-[rgba(255,255,255,0.7)] m-0 mb-8 max-w-[460px] mx-auto leading-[1.7]">
-            ChurnRecovery gives you everything {competitor.name} charges for — at zero cost. Start for free today.
+            ChurnRecovery gives you everything {competitor.name} charges for — at a fraction of the price. $20/month, all features included.
           </p>
           <a href="/app/sign-up" className="inline-block bg-[#D97757] text-white px-8 py-[14px] rounded-lg font-[Instrument_Sans,sans-serif] font-bold text-base no-underline tracking-[-0.01em]">
-            Get Started Free →
+            Start Free Trial →
           </a>
         </section>
       </div>

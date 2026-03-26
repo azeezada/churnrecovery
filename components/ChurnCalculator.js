@@ -79,6 +79,7 @@ export default function ChurnCalculator() {
   const annualChurnedRevenue = monthlyChurnedRevenue * 12
   const monthlySaved = monthlyChurnedRevenue * (saveRate / 100)
   const annualSaved = monthlySaved * 12
+  const churnRecoveryCostAnnual = 20 * 12
   const costOfCompetitor = 250 * 12
   const netBenefitVsCompetitor = annualSaved - costOfCompetitor
 
@@ -100,20 +101,20 @@ export default function ChurnCalculator() {
 
       <div className="grid grid-cols-2 gap-3 mb-3">
         <ResultCard label="Monthly revenue recoverable" value={formatCurrency(monthlySaved)} sublabel={`At ${saveRate}% save rate`} highlight />
-        <ResultCard label="Annual revenue recoverable" value={formatCurrency(annualSaved)} sublabel="With ChurnRecovery — free" highlight />
+        <ResultCard label="Annual revenue recoverable" value={formatCurrency(annualSaved)} sublabel="With ChurnRecovery ($20/mo)" highlight />
       </div>
 
       <div className="bg-brand-green-light border border-[#B8DFC9] rounded-xl px-6 py-5 mb-3">
         <div className="font-sans text-[0.75rem] font-bold uppercase tracking-[0.08em] text-brand-green mb-2.5">
-          ChurnRecovery vs. paying $250/mo for Churnkey
+          ChurnRecovery ($20/mo) vs. Churnkey ($250/mo)
         </div>
         <div className="grid grid-cols-2 gap-4">
           <div>
             <div className="font-sans font-extrabold text-2xl text-brand-green tracking-[-0.03em]">
-              {formatCurrency(annualSaved)}
+              {formatCurrency(annualSaved - churnRecoveryCostAnnual)}
             </div>
             <div className="font-sans text-[0.78rem] text-brand-green mt-[3px]">
-              Net gain with ChurnRecovery (free)
+              Net gain with ChurnRecovery ($20/mo)
             </div>
           </div>
           <div>
@@ -130,10 +131,10 @@ export default function ChurnCalculator() {
 
       <div className="text-center pt-2">
         <p className="font-serif text-[0.88rem] text-brand-gray mb-4 leading-relaxed">
-          {formatCurrency(annualSaved)} per year — completely free with ChurnRecovery.
+          {formatCurrency(annualSaved - 240)} net per year with ChurnRecovery at $20/month.
         </p>
         <a href="https://tally.so/r/churnrecovery" className="inline-block bg-brand-accent text-brand-white px-7 py-3 rounded-lg font-sans font-bold text-[0.92rem] no-underline tracking-[-0.01em]">
-          Start Recovering Revenue — Free
+          Start Free Trial →
         </a>
       </div>
     </div>

@@ -123,7 +123,7 @@ export default function ReferralGenerator() {
           {slug && (
             <div className="mt-5 p-[14px_16px] bg-brand-green-light border border-[#C6E6D4] rounded-lg">
               <p className="font-sans text-[0.82rem] text-brand-green m-0">
-                💡 <strong>Share tip:</strong> "Check out ChurnRecovery — it's free and saves canceling subscribers automatically. Sign up through my link: {referralUrl}"
+                💡 <strong>Share tip:</strong> "Check out ChurnRecovery — it's just $20/month with a free trial and saves canceling subscribers automatically. Sign up through my link: {referralUrl}"
               </p>
             </div>
           )}

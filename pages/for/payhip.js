@@ -18,7 +18,7 @@ export default function PayhipLandingPage() {
     <>
       <Head>
         <title>Keep More Payhip Subscribers. Add a Cancel Recovery Flow. | ChurnRecovery</title>
-        <meta name="description" content="Payhip doesn't do retention. ChurnRecovery does. Connect your Stripe account and start recovering failed payments and cancellations automatically — free to start." />
+        <meta name="description" content="Payhip doesn't do retention. ChurnRecovery does. Connect your Stripe account and start recovering failed payments and cancellations automatically — 30-day free trial." />
         <link rel="canonical" href="https://churnrecovery.com/for/payhip" />
         <meta property="og:title" content="Keep More Payhip Subscribers. Add a Cancel Recovery Flow. | ChurnRecovery" />
         <meta property="og:description" content="Payhip connects to your Stripe for subscriptions. ChurnRecovery plugs into that Stripe and intercepts cancellations and failed payments — automatically, in your brand." />
@@ -26,7 +26,7 @@ export default function PayhipLandingPage() {
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Keep More Payhip Subscribers. Add a Cancel Recovery Flow." />
-        <meta name="twitter:description" content="130k+ Payhip sellers have no cancel recovery. ChurnRecovery adds one — branded dunning emails, pause offers, and exit surveys. Free to start." />
+        <meta name="twitter:description" content="130k+ Payhip sellers have no cancel recovery. ChurnRecovery adds one — branded dunning emails, pause offers, and exit surveys. $20/month, 30-day free trial." />
       </Head>
 
       <Header />
@@ -47,7 +47,7 @@ export default function PayhipLandingPage() {
               style={{ color: ACCENT_LIGHT }}
               className="inline-flex items-center gap-[6px] bg-[rgba(16,185,129,0.15)] border border-[rgba(16,185,129,0.35)] rounded-full py-[6px] px-4 font-sans text-[0.78rem] font-semibold mb-7"
             >
-              <span>✓</span> Built for Payhip Sellers · Free During Beta
+              <span>✓</span> Built for Payhip Sellers · 30-Day Free Trial
             </div>
 
             <h1 className="font-sans font-extrabold text-[clamp(2.2rem,5vw,3.5rem)] text-white m-0 mb-5 leading-[1.15] tracking-[-0.02em]">
@@ -245,10 +245,10 @@ export default function PayhipLandingPage() {
         <section className="py-20 px-6 bg-white">
           <div className="max-w-[680px] mx-auto text-center">
             <h2 className="font-sans font-extrabold text-[clamp(1.8rem,4vw,2.5rem)] text-[#191919] m-0 mb-5 tracking-[-0.02em]">
-              Free for Payhip Sellers
+              Simple Pricing for Payhip Sellers
             </h2>
             <p className="font-serif text-base text-[#666] leading-[1.7] m-0 mb-8">
-              130,000+ Payhip sellers sell digital products. If you have subscriptions, you&apos;re losing revenue to churn you could recover. ChurnRecovery starts free.
+              130,000+ Payhip sellers sell digital products. If you have subscriptions, you&apos;re losing revenue to churn you could recover. Start with a 30-day free trial — $20/month after.
             </p>
 
             <div
@@ -270,19 +270,16 @@ export default function PayhipLandingPage() {
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-3 mb-7">
+            <div className="flex justify-center mb-7">
               {[
-                { tier: 'Starter', price: '$0/month', range: 'Free to start', highlight: true },
-                { tier: 'Growth', price: '$29/month', range: 'Up to $5k MRR' },
-                { tier: 'Pro', price: '$79/month', range: 'Up to $20k MRR' },
-                { tier: 'Enterprise', price: 'Custom', range: 'Above $20k MRR' },
+                { tier: 'All Features', price: '$20/month', range: '30-day free trial', highlight: true },
               ].map(({ tier, price, range, highlight }) => (
                 <div key={tier} style={{
                   background: highlight ? ACCENT_BG : '#FAF9F5',
                   border: `1px solid ${highlight ? ACCENT : '#E5E5E5'}`,
-                }} className="rounded-[10px] p-[18px] relative">
+                }} className="rounded-[10px] p-[18px] relative w-full max-w-[320px]">
                   {highlight && (
-                    <div style={{ background: ACCENT }} className="absolute -top-[10px] left-1/2 -translate-x-1/2 text-white font-sans text-[0.7rem] font-bold py-[3px] px-[10px] rounded-full">START HERE</div>
+                    <div style={{ background: ACCENT }} className="absolute -top-[10px] left-1/2 -translate-x-1/2 text-white font-sans text-[0.7rem] font-bold py-[3px] px-[10px] rounded-full">SIMPLE PRICING</div>
                   )}
                   <div className="font-sans font-bold text-[#191919] text-[0.9rem]">{tier}</div>
                   <div style={{ color: highlight ? ACCENT : '#191919' }} className="font-sans font-extrabold text-[1.4rem] my-1">{price}</div>
@@ -400,7 +397,7 @@ export default function PayhipLandingPage() {
               <span style={{ color: ACCENT_LIGHT }}>Don&apos;t Let Them Slip Away.</span>
             </h2>
             <p className="font-serif text-base text-[rgba(255,255,255,0.7)] m-0 mb-9 leading-[1.7]">
-              Sign up for free. Add automatic cancel recovery and dunning to your Payhip store. Free to start — no Payhip approval, no code, no credit card.
+              Start your free trial. Add automatic cancel recovery and dunning to your Payhip store. 30-day free trial — no Payhip approval, no code, no credit card.
             </p>
 
             <div className="max-w-[480px] mx-auto">
@@ -408,7 +405,7 @@ export default function PayhipLandingPage() {
             </div>
 
             <div className="flex gap-6 justify-center mt-6 flex-wrap">
-              <span className="font-sans text-[0.78rem] text-[rgba(255,255,255,0.45)]">Free during beta</span>
+              <span className="font-sans text-[0.78rem] text-[rgba(255,255,255,0.45)]">30-day free trial</span>
               <span className="font-sans text-[0.78rem] text-[rgba(255,255,255,0.45)]">Cancel anytime</span>
               <span className="font-sans text-[0.78rem] text-[rgba(255,255,255,0.45)]">No spam, ever</span>
             </div>

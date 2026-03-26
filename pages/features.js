@@ -7,6 +7,7 @@ const features = [
     icon: '🚪',
     colorClass: 'text-brand-accent',
     colorLightBg: 'bg-[#FDF4EF]',
+    painStatement: 'Every unintercepted cancel is revenue you\'ll never get back. 20–40% of subscribers who click "cancel" would stay if you asked the right way.',
     items: [
       {
         title: 'Smart Cancel Interception',
@@ -35,6 +36,7 @@ const features = [
     icon: '📊',
     colorClass: 'text-brand-blue',
     colorLightBg: 'bg-brand-blue-light',
+    painStatement: 'You can\'t fix what you can\'t measure. Without churn analytics, you\'re guessing why subscribers leave — and guessing wrong costs thousands.',
     items: [
       {
         title: 'Save Rate Dashboard',
@@ -63,6 +65,7 @@ const features = [
     icon: '📧',
     colorClass: 'text-brand-green',
     colorLightBg: 'bg-brand-green-light',
+    painStatement: 'A canceled subscriber isn\'t gone forever — but without a win-back sequence, they might as well be. Most businesses never follow up.',
     items: [
       {
         title: 'Automated Win-Back Email Sequences',
@@ -86,6 +89,7 @@ const features = [
     icon: '🔗',
     colorClass: 'text-brand-purple',
     colorLightBg: 'bg-brand-purple-light',
+    painStatement: 'Complex integrations that take weeks to set up mean weeks of lost revenue. ChurnRecovery connects in minutes, not months.',
     items: [
       {
         title: 'One-Line JavaScript SDK',
@@ -122,15 +126,15 @@ function Nav() {
         <Link href="/docs" className="text-brand-gray no-underline text-[0.9rem] font-sans">Docs</Link>
         <Link href="/demo" className="text-brand-gray no-underline text-[0.9rem] font-sans">Demo</Link>
         <Link href="/blog" className="text-brand-gray no-underline text-[0.9rem] font-sans">Blog</Link>
-        <a href="/app/sign-up" className="bg-brand-accent text-brand-white py-2 px-[18px] rounded-md no-underline text-[0.85rem] font-semibold font-sans">Get Started Free</a>
+        <a href="/app/sign-up" className="bg-brand-accent text-brand-white py-2 px-[18px] rounded-md no-underline text-[0.85rem] font-semibold font-sans">Start Free Trial</a>
       </div>
     </nav>
   )
 }
 
 export default function FeaturesPage() {
-  const title = 'Features — ChurnRecovery Free SaaS Churn Reduction Platform'
-  const description = 'Everything you need to stop losing customers. Cancel flow interception, smart offers, churn analytics, win-back emails, and Stripe integration — all completely free.'
+  const title = 'Features — ChurnRecovery SaaS Churn Reduction Platform'
+  const description = 'Everything you need to stop losing customers. Cancel flow interception, smart offers, churn analytics, win-back emails, and Stripe integration — $20/month with a 30-day free trial.'
 
   return (
     <>
@@ -172,7 +176,7 @@ export default function FeaturesPage() {
             Everything you need to stop losing customers
           </h1>
           <p className="font-serif text-[1.15rem] text-brand-gray leading-[1.7] max-w-[600px] mx-auto mb-10">
-            ChurnRecovery is a complete churn reduction platform — cancel flow interception, analytics, win-back automation, and deep integrations. Completely free, forever.
+            ChurnRecovery is a complete churn reduction platform — cancel flow interception, analytics, win-back automation, and deep integrations. 30-day free trial, then $20/month.
           </p>
 
           {/* Category jump links */}
@@ -203,6 +207,11 @@ export default function FeaturesPage() {
                     {category.category}
                   </span>
                 </div>
+                {category.painStatement && (
+                  <p className="font-serif text-[0.95rem] text-brand-gray leading-[1.7] max-w-[600px] mt-2 mb-0">
+                    {category.painStatement}
+                  </p>
+                )}
               </div>
 
               {/* Feature grid */}
@@ -230,18 +239,18 @@ export default function FeaturesPage() {
           </section>
         ))}
 
-        {/* Comparison callout */}
+        {/* CTA callout */}
         <section className="bg-brand-text py-20 px-6">
           <div className="max-w-[900px] mx-auto text-center">
             <h2 className="font-sans text-[clamp(1.5rem,4vw,2.2rem)] font-bold text-brand-white tracking-[-0.03em] mb-4">
-              Churnkey charges $825/mo for the same features
+              All of this for $20/month.
             </h2>
             <p className="font-serif text-base text-white/65 max-w-[520px] mx-auto mb-8 leading-[1.7]">
-              ChurnRecovery is free. The only difference is our business model — we believe churn recovery tools should be accessible to every SaaS company, not just the ones that can afford $10k/year in software.
+              Start your free trial — 30 days, full access, no credit card required. Cancel flows, payment recovery, analytics, and integrations. No per-subscriber fees. No revenue share.
             </p>
             <div className="flex gap-4 justify-center flex-wrap">
               <a href="/app/sign-up" className="inline-block bg-brand-accent text-brand-white px-8 py-3.5 rounded-lg font-sans font-bold text-base no-underline tracking-[-0.01em]">
-                Get Started Free →
+                Start Free Trial →
               </a>
               <Link href="/compare/churnkey" className="inline-block bg-transparent text-white/70 px-8 py-3.5 rounded-lg font-sans font-semibold text-base no-underline border border-white/20">
                 See Full Comparison →
@@ -266,7 +275,7 @@ export default function FeaturesPage() {
                 'Win-back email sequences', 'Failed payment recovery', 'Re-engagement offers',
                 'JavaScript SDK', 'REST API', 'Stripe integration', 'Paddle integration',
                 'Webhooks', 'Slack notifications', 'Custom branding', 'White-label mode',
-                'GDPR compliant', 'SOC 2 (planned)', 'Unlimited customers', 'Free forever',
+                'GDPR compliant', 'SOC 2 (planned)', 'Unlimited customers', '30-day free trial',
               ].map(item => (
                 <div key={item} className="flex items-center gap-2.5 px-3.5 py-2.5 rounded-md bg-brand-white border border-brand-border">
                   <span className="text-brand-green font-bold text-[0.9rem]">✓</span>
@@ -283,11 +292,11 @@ export default function FeaturesPage() {
             Ready to start recovering customers?
           </h2>
           <p className="font-serif text-base text-brand-gray mb-7 leading-[1.7]">
-            Start recovering customers today — completely free, forever.
+            Start recovering customers today — 30-day free trial, then $20/month.
           </p>
           <div className="flex gap-3 justify-center flex-wrap">
             <a href="/app/sign-up" className="bg-brand-accent text-brand-white px-7 py-[13px] rounded-lg font-sans font-bold text-[0.95rem] no-underline">
-              Get Started Free
+              Start Free Trial
             </a>
             <Link href="/demo" className="bg-brand-bg text-brand-text px-7 py-[13px] rounded-lg font-sans font-semibold text-[0.95rem] no-underline border border-brand-border">
               Try the Demo →

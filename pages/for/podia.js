@@ -121,7 +121,7 @@ export default function PodiaLandingPage() {
 
           <div className="max-w-[720px] mx-auto text-center relative z-[1]">
             <div className="inline-flex items-center gap-1.5 bg-[rgba(79,70,229,0.2)] border border-[rgba(79,70,229,0.4)] rounded-full py-1.5 px-4 font-sans text-[0.78rem] font-semibold text-[#A5B4FC] mb-7">
-              <span>✓</span> Built for Podia Creators · Free During Beta
+              <span>✓</span> Built for Podia Creators · 30-Day Free Trial
             </div>
 
             <h1 className="font-sans font-extrabold text-[clamp(2.2rem,5vw,3.5rem)] text-white m-0 mb-5 leading-[1.15] tracking-[-0.02em]">
@@ -140,7 +140,7 @@ export default function PodiaLandingPage() {
 
             <div className="flex gap-5 justify-center flex-wrap">
               <span className="font-sans text-[0.8rem] text-[rgba(255,255,255,0.5)]">
-                🆓 Free forever for stores under $1k/month MRR
+                🆓 30-day free trial — no credit card required
               </span>
               <span className="font-sans text-[0.8rem] text-[rgba(255,255,255,0.5)]">
                 ⚡ Set up in 10 minutes
@@ -292,8 +292,8 @@ export default function PodiaLandingPage() {
               />
               <BenefitCard
                 icon="🆓"
-                title="Free Under $1k/Month MRR"
-                description="If your Podia store earns under $1,000/month in recurring revenue, ChurnRecovery is completely free."
+                title="$20/month — Flat"
+                description="30-day free trial, then $20/month. All features included — no per-subscriber fees. Cancel anytime."
               />
               <BenefitCard
                 icon="🔒"
@@ -311,22 +311,19 @@ export default function PodiaLandingPage() {
               Priced for Creators, Not Enterprises
             </h2>
             <p className="font-serif text-base text-[#666666] leading-[1.7] m-0 mb-8">
-              Free under $1k/month. Scales with your Podia revenue — not against it.
+              30-day free trial. $20/month after. All features included.
             </p>
 
-            <div className="grid grid-cols-2 gap-3 mb-7">
+            <div className="max-w-[380px] mx-auto mb-7">
               {[
-                { tier: 'Starter', price: '$0/month', range: 'Under $1k MRR', highlight: true },
-                { tier: 'Growth', price: '$29/month', range: 'Up to $5k MRR' },
-                { tier: 'Pro', price: '$79/month', range: 'Up to $20k MRR' },
-                { tier: 'Enterprise', price: 'Custom', range: 'Above $20k MRR' },
+                { tier: 'All Features', price: '$20/month', range: '30-day free trial', highlight: true },
               ].map(({ tier, price, range, highlight }) => (
                 <div key={tier} className="rounded-[10px] p-[18px] relative" style={{
                   background: highlight ? '#EEF2FF' : '#FAF9F5',
                   border: `1px solid ${highlight ? '#4F46E5' : '#E5E5E5'}`,
                 }}>
                   {highlight && (
-                    <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-[#4F46E5] text-white font-sans text-[0.7rem] font-bold py-[3px] px-2.5 rounded-full">START HERE FREE</div>
+                    <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-[#4F46E5] text-white font-sans text-[0.7rem] font-bold py-[3px] px-2.5 rounded-full">SIMPLE PRICING</div>
                   )}
                   <div className="font-sans font-bold text-[#191919] text-[0.9rem]">{tier}</div>
                   <div className="font-sans font-extrabold text-[1.4rem] my-1" style={{ color: highlight ? '#4F46E5' : '#191919' }}>{price}</div>
@@ -336,7 +333,7 @@ export default function PodiaLandingPage() {
             </div>
 
             <div className="bg-[#EDF7F1] border border-[#C6E6D4] rounded-[10px] py-3.5 px-5 font-sans text-[0.88rem] text-[#2D7A4F] mb-6">
-              Churnkey charges $100–$800/month. ProfitWell Retain starts at $400+. We start free. 😊
+              Churnkey charges $100–$800/month. ProfitWell Retain starts at $400+. ChurnRecovery is just $20/month.
             </div>
           </div>
         </section>
@@ -377,7 +374,7 @@ export default function PodiaLandingPage() {
               },
               {
                 q: "What if it doesn't work for me?",
-                a: "Cancel anytime. No contracts, no lock-in. The free tier is free forever — there's nothing to lose by trying.",
+                a: "Cancel anytime. No contracts, no lock-in. Start with a 30-day free trial — there's nothing to lose.",
               },
             ].map(faq => (
               <FAQItem key={faq.q} q={faq.q} a={faq.a} />
@@ -437,7 +434,7 @@ export default function PodiaLandingPage() {
               <br /><span className="text-[#A5B4FC]">Are You Going to Catch It?</span>
             </h2>
             <p className="font-serif text-base text-[rgba(255,255,255,0.7)] m-0 mb-9 leading-[1.7]">
-              Sign up for free. Free for Podia creators — no credit card, no contracts.
+              Start your 30-day free trial — no credit card, no contracts.
             </p>
 
             <div className="max-w-[480px] mx-auto">
@@ -446,7 +443,7 @@ export default function PodiaLandingPage() {
 
             <div className="flex gap-6 justify-center mt-6 flex-wrap">
               <span className="font-sans text-[0.78rem] text-[rgba(255,255,255,0.45)]">
-                Free during beta
+                30-day free trial
               </span>
               <span className="font-sans text-[0.78rem] text-[rgba(255,255,255,0.45)]">
                 Cancel anytime

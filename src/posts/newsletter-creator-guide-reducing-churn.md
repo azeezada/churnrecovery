@@ -133,7 +133,7 @@ But you have more control than you think over the *surrounding* experience:
 
 3. **A dedicated cancel page**: Some platforms let you redirect subscribers to a URL when they cancel. Use this to show a pause option, a downsell, or a feedback form.
 
-For newsletters and subscription businesses that want a more automated version of this — a cancel flow that intercepts the cancellation moment and presents options — ChurnRecovery is a free tool built exactly for this. It works with Stripe-based subscriptions (which many Ghost and Beehiiv paid newsletters use) and captures the exit survey data automatically.
+For newsletters and subscription businesses that want a more automated version of this — a cancel flow that intercepts the cancellation moment and presents options — ChurnRecovery is a $20/month tool built exactly for this. It works with Stripe-based subscriptions (which many Ghost and Beehiiv paid newsletters use) and captures the exit survey data automatically.
 
 [→ See how ChurnRecovery works for newsletter creators](/waitlist)
 
@@ -161,4 +161,4 @@ The tactics above aren't complicated. They don't require expensive tools or adva
 - [ChurnRecovery for Ghost newsletters](/for/ghost)
 - [ChurnRecovery for ConvertKit creators](/for/convertkit)
 
-*If you're running a paid newsletter and want a simple, free cancel flow tool that handles the exit survey, pause offers, and win-back sequence automatically, check out [ChurnRecovery](/waitlist). Free during beta, no credit card required.*
+*If you're running a paid newsletter and want a simple, $20/month cancel flow tool that handles the exit survey, pause offers, and win-back sequence automatically, check out [ChurnRecovery](/waitlist). 30-day free trial, no credit card required.*

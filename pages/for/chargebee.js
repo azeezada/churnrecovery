@@ -66,16 +66,16 @@ export default function ChargbeeLandingPage() {
   return (
     <>
       <Head>
-        <title>Get Chargebee Retain Features for $0/Month | ChurnRecovery</title>
-        <meta name="description" content="Chargebee Retain costs $500+/month and requires an enterprise contract. ChurnRecovery gives you the same cancel flow, pause offers, and exit surveys — free to start. Works with your existing Stripe." />
+        <title>Get Chargebee Retain Features for $20/Month | ChurnRecovery</title>
+        <meta name="description" content="Chargebee Retain costs $500+/month and requires an enterprise contract. ChurnRecovery gives you the same cancel flow, pause offers, and exit surveys — 30-day free trial, then $20/month. Works with your existing Stripe." />
         <link rel="canonical" href="https://churnrecovery.com/for/chargebee" />
-        <meta property="og:title" content="Get Chargebee Retain Features for $0/Month" />
-        <meta property="og:description" content="Chargebee Retain starts at $500/month. ChurnRecovery is free. Both connect to Stripe and add a cancel flow to your subscriptions — we just don't charge enterprise prices for it." />
+        <meta property="og:title" content="Get Chargebee Retain Features for $20/Month" />
+        <meta property="og:description" content="Chargebee Retain starts at $500/month. ChurnRecovery is $20/month with a 30-day free trial. Both connect to Stripe and add a cancel flow to your subscriptions — we just don't charge enterprise prices for it." />
         <meta property="og:url" content="https://churnrecovery.com/for/chargebee" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Get Chargebee Retain Features for $0/Month | ChurnRecovery" />
-        <meta name="twitter:description" content="Skip the $500/mo Chargebee Retain contract. ChurnRecovery adds cancel flows, pause offers, and churn analytics to your Stripe subscriptions for free." />
+        <meta name="twitter:title" content="Get Chargebee Retain Features for $20/Month | ChurnRecovery" />
+        <meta name="twitter:description" content="Skip the $500/mo Chargebee Retain contract. ChurnRecovery adds cancel flows, pause offers, and churn analytics to your Stripe subscriptions for $20/month." />
       </Head>
 
       <Header />
@@ -93,11 +93,11 @@ export default function ChargbeeLandingPage() {
 
             <h1 className="font-sans font-extrabold text-white m-0 mb-5 leading-[1.15] tracking-[-0.02em] text-[clamp(2.2rem,5vw,3.5rem)]">
               Get Chargebee Retain Features<br />
-              <span className="text-[#FF6B35]">for $0/Month.</span>
+              <span className="text-[#FF6B35]">for $20/Month.</span>
             </h1>
 
             <p className="font-serif text-[rgba(255,255,255,0.7)] m-0 mb-7 leading-[1.7] max-w-[600px] mx-auto text-[clamp(1rem,2.5vw,1.2rem)]">
-              Chargebee Retain costs $500+ per month and requires you to talk to their sales team. ChurnRecovery gives you cancel flows, pause offers, and exit surveys — the exact same retention tools — free to start. Works with your existing Stripe account.
+              Chargebee Retain costs $500+ per month and requires you to talk to their sales team. ChurnRecovery gives you cancel flows, pause offers, and exit surveys — the exact same retention tools — for just $20/month with a 30-day free trial. Works with your existing Stripe account.
             </p>
 
             {/* Price comparison */}
@@ -109,8 +109,8 @@ export default function ChargbeeLandingPage() {
               </div>
               <div className="bg-[rgba(255,107,53,0.15)] border border-[#FF6B35] rounded-[10px] p-[14px] text-center">
                 <div className="font-sans text-xs text-[rgba(255,255,255,0.7)] mb-1">ChurnRecovery</div>
-                <div className="font-sans font-extrabold text-[1.4rem] text-[#FF6B35]">$0/mo</div>
-                <div className="font-sans text-[0.7rem] text-[rgba(255,255,255,0.5)]">Free to start, no contract</div>
+                <div className="font-sans font-extrabold text-[1.4rem] text-[#FF6B35]">$20/mo</div>
+                <div className="font-sans text-[0.7rem] text-[rgba(255,255,255,0.5)]">30-day free trial, no contract</div>
               </div>
             </div>
 
@@ -119,7 +119,7 @@ export default function ChargbeeLandingPage() {
             </div>
 
             <div className="flex gap-5 justify-center flex-wrap">
-              <span className="font-sans text-[0.8rem] text-[rgba(255,255,255,0.4)]">🆓 Free during beta</span>
+              <span className="font-sans text-[0.8rem] text-[rgba(255,255,255,0.4)]">🆓 30-day free trial</span>
               <span className="font-sans text-[0.8rem] text-[rgba(255,255,255,0.4)]">⚡ Works with existing Stripe</span>
               <span className="font-sans text-[0.8rem] text-[rgba(255,255,255,0.4)]">🚫 No sales calls</span>
             </div>
@@ -202,7 +202,7 @@ export default function ChargbeeLandingPage() {
                 { feature: 'Discount offer at cancel screen', cr: '✅ Yes', cb: '✅ Yes' },
                 { feature: 'Exit survey', cr: '✅ Yes', cb: '✅ Yes' },
                 { feature: 'Works with Stripe', cr: '✅ Yes', cb: '✅ Yes' },
-                { feature: 'Starting price', cr: '🆓 $0/month', cb: '💸 $500+/month' },
+                { feature: 'Starting price', cr: '🆓 $20/month', cb: '💸 $500+/month' },
                 { feature: 'Sales call required', cr: '🚫 No', cb: '📞 Yes' },
                 { feature: 'Enterprise contract', cr: '🚫 No', cb: '📄 Yes' },
                 { feature: 'Setup time', cr: '⚡ 10 minutes', cb: '⏳ Days/weeks' },
@@ -230,7 +230,7 @@ export default function ChargbeeLandingPage() {
               <BenefitCard icon="🏷" title="Discount at Cancel Screen" description="Automatically offer a discount to price-sensitive subscribers the moment they click cancel — when they're most likely to accept it." />
               <BenefitCard icon="📋" title="Exit Survey" description="A one-question exit survey tells you exactly why subscribers are leaving. Fix the right problems instead of guessing." />
               <BenefitCard icon="📊" title="Recovery Analytics" description="Track saved revenue, offer acceptance rates, and churn reasons — all in a clean dashboard that shows you what's working." />
-              <BenefitCard icon="🆓" title="Free to Start" description="$0 to get started. No credit card required. No sales call. No waiting. Just connect Stripe and set up your cancel flow." />
+              <BenefitCard icon="🆓" title="30-Day Free Trial" description="Try it free for 30 days. No credit card required. No sales call. No waiting. Just connect Stripe and set up your cancel flow. $20/month after." />
               <BenefitCard icon="⚡" title="10-Minute Setup" description="Connect Stripe, choose your offer, go live. No developer needed. No Chargebee configuration to touch. Just your Stripe account." />
             </div>
           </div>
@@ -248,8 +248,8 @@ export default function ChargbeeLandingPage() {
             {[
               { q: 'Does ChurnRecovery work alongside Chargebee?', a: "Yes, completely. ChurnRecovery connects to your Stripe account, which is the same payment processor Chargebee uses. Both tools can be connected to the same Stripe account simultaneously — Chargebee handles billing management, ChurnRecovery handles cancellation recovery. They don't interfere with each other." },
               { q: "Will this break anything in Chargebee?", a: "No. ChurnRecovery listens to Stripe webhook events but doesn't modify your subscriptions unless a subscriber accepts an offer (like a pause or discount). Even then, the change happens through Stripe's API, which Chargebee syncs with. Your Chargebee dashboard stays accurate." },
-              { q: 'Is ChurnRecovery really free?', a: "During our beta, yes — completely free. No credit card, no trial, no surprise bills. We're building our user base and collecting feedback. After beta, we'll have paid plans, but we'll grandfather in beta users at favorable rates and give you plenty of notice." },
-              { q: "What's the difference between ChurnRecovery and Chargebee Retain?", a: "Functionally, they're very similar — both add a cancel flow, pause offers, and exit surveys to your subscriptions. The difference is price and accessibility. Chargebee Retain starts at $500/month and requires an enterprise sales process. ChurnRecovery is free to start and takes 10 minutes to set up." },
+              { q: 'How much does ChurnRecovery cost?', a: "$20/month after a 30-day free trial. No credit card required to start. All features included — cancel flows, pause offers, exit surveys, and analytics. No per-subscriber fees, no enterprise contracts." },
+              { q: "What's the difference between ChurnRecovery and Chargebee Retain?", a: "Functionally, they're very similar — both add a cancel flow, pause offers, and exit surveys to your subscriptions. The difference is price and accessibility. Chargebee Retain starts at $500/month and requires an enterprise sales process. ChurnRecovery is $20/month with a 30-day free trial and takes 10 minutes to set up." },
               { q: 'What if I want to move away from Chargebee entirely?', a: "That's a bigger conversation, but ChurnRecovery actually works better with direct Stripe billing (without a billing platform layer). If you're considering migrating from Chargebee to Stripe directly, we can work with you on that transition. Either way, ChurnRecovery will work with your setup." },
             ].map(faq => <FAQItem key={faq.q} q={faq.q} a={faq.a} />)}
           </div>
@@ -304,16 +304,16 @@ export default function ChargbeeLandingPage() {
           <div className="max-w-[600px] mx-auto text-center">
             <h2 className="font-sans font-extrabold text-white m-0 mb-5 leading-[1.2] tracking-[-0.02em] text-[clamp(1.8rem,4vw,2.6rem)]">
               Stop Paying $500/Month<br />
-              <span className="text-[#FF6B35]">for Features You Can Get Free.</span>
+              <span className="text-[#FF6B35]">for Features That Cost $20/Month.</span>
             </h2>
             <p className="font-serif text-base text-[rgba(255,255,255,0.7)] m-0 mb-9 leading-[1.7]">
-              Sign up for free. Get cancel flows, pause offers, and exit surveys — the same tools as Chargebee Retain, at zero cost. No sales call. No contract. Just better retention.
+              Start your free trial. Get cancel flows, pause offers, and exit surveys — the same tools as Chargebee Retain, for $20/month. No sales call. No contract. Just better retention.
             </p>
             <div className="max-w-[480px] mx-auto">
               <SignUpCTA source="for-chargebee" dark={true} />
             </div>
             <div className="flex gap-6 justify-center mt-6 flex-wrap">
-              <span className="font-sans text-[0.78rem] text-[rgba(255,255,255,0.4)]">Free during beta</span>
+              <span className="font-sans text-[0.78rem] text-[rgba(255,255,255,0.4)]">30-day free trial</span>
               <span className="font-sans text-[0.78rem] text-[rgba(255,255,255,0.4)]">No sales call</span>
               <span className="font-sans text-[0.78rem] text-[rgba(255,255,255,0.4)]">Cancel anytime</span>
             </div>

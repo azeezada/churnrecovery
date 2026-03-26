@@ -61,7 +61,7 @@ Most teams end up on a mid-tier Mixpanel plan around **$200–$500/month** once 
 
 ---
 
-### 4. Churn Recovery — $0–$3,600/year
+### 4. Churn Recovery — $240–$3,600/year
 
 **The go-to:** Churnkey or ProfitWell Retain
 
@@ -69,12 +69,12 @@ This is where things get interesting. The "standard" recommendation here is Chur
 
 ProfitWell Retain is percentage-based and can cost even more as you grow.
 
-**Or:** You use **ChurnRecovery**, which is genuinely free. Same cancel flows, same win-back sequences, same churn analytics. Zero dollars. Not a freemium tier — actually free, because we make money if we recover your customers, not by charging you a monthly fee regardless of results.
+**Or:** You use **ChurnRecovery** at **$20/month**. Same cancel flows, same win-back sequences, same churn analytics. No per-subscriber fees, no revenue share, no usage limits. One flat price.
 
 **Annual cost with Churnkey: ~$3,000–$3,600**
-**Annual cost with ChurnRecovery: $0**
+**Annual cost with ChurnRecovery: $240**
 
-That's real money back in your pocket.
+That's $2,760–$3,360/year back in your pocket.
 
 ---
 
@@ -129,12 +129,12 @@ This is the wildcard. A lean SaaS on Vercel + Railway + PlanetScale might spend 
 | CRM | $6,000 | $14,400 |
 | Email | $1,800 | $7,200 |
 | Analytics | $2,400 | $6,000 |
-| Churn recovery | $3,000 | $3,600 |
+| Churn recovery | $240 | $3,600 |
 | Support | $4,800 | $9,600 |
 | Payments/billing | $3,000 | $6,600 |
 | Auth | $1,200 | $3,600 |
 | Hosting | $2,400 | $18,000 |
-| **Total** | **$24,600** | **$69,000** |
+| **Total** | **$21,840** | **$69,000** |
 
 The low end is "you've been aggressive about alternatives from day one." The high end is "you picked the first thing that worked and never revisited it."
 
@@ -166,7 +166,7 @@ Why does it get this expensive? Three patterns repeat constantly:
 5. Cancel anything you've been meaning to cancel but haven't
 
 **For churn specifically:**
-[ChurnRecovery](/) is free. Not a trial. Not a freemium tier. Free. If you're paying $250+/month for Churnkey, that's $3,000/year you can recover immediately. [See how it compares →](/blog/ChurnRecovery-vs-Churnkey-Complete-Comparison)
+[ChurnRecovery](/) is $20/month. All features, no per-recovery fees. If you're paying $250+/month for Churnkey, that's $2,760/year you can save immediately. 30-day free trial to prove it works. [See how it compares →](/blog/ChurnRecovery-vs-Churnkey-Complete-Comparison)
 
 ## ChurnRecovery Works With Your Stack
 

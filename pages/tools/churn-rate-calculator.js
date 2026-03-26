@@ -29,7 +29,7 @@ const faqItems = [
   },
   {
     q: 'Is this calculator free to use?',
-    a: 'Yes — completely free, no signup required. ChurnRecovery\'s cancel flow tool is also free (we\'re in free access). We believe founders shouldn\'t have to pay $250/month just to stop losing customers. Use the calculator, understand your numbers, then sign up for free if you want to plug the leak.',
+    a: 'Yes — the calculator is completely free, no signup required. ChurnRecovery\'s cancel flow tool starts with a 30-day free trial, then $20/month — flat. We believe founders shouldn\'t have to pay $250/month just to stop losing customers. Use the calculator, understand your numbers, then start your free trial if you want to plug the leak.',
   },
 ]
 
@@ -112,7 +112,7 @@ export default function ChurnRateCalculatorPage() {
           <div className="flex gap-6 items-center">
             <Link href="/demo" className="text-[#666] no-underline text-[0.9rem]">Demo</Link>
             <Link href="/blog" className="text-[#666] no-underline text-[0.9rem]">Blog</Link>
-            <a href="/app/sign-up" className="bg-[#D97757] text-white px-[18px] py-2 rounded-[6px] no-underline text-[0.85rem] font-semibold">Get Started Free</a>
+            <a href="/app/sign-up" className="bg-[#D97757] text-white px-[18px] py-2 rounded-[6px] no-underline text-[0.85rem] font-semibold">Start Free Trial</a>
           </div>
         </nav>
 
@@ -128,7 +128,7 @@ export default function ChurnRateCalculatorPage() {
         {/* Hero */}
         <section className="max-w-[760px] mx-auto pt-12 px-6 pb-10 text-center">
           <div className="inline-block bg-[#F0EBE5] text-[#D97757] px-[14px] py-1 rounded-[4px] text-[0.72rem] font-bold uppercase tracking-[0.08em] mb-5">
-            Free Membership Tool
+            Free Calculator
           </div>
           <h1 className="font-sans font-extrabold text-[#191919] tracking-[-0.04em] mb-4 leading-[1.15] text-[clamp(1.8rem,5vw,2.8rem)]">
             Membership Site Churn Rate Calculator
@@ -156,13 +156,13 @@ export default function ChurnRateCalculatorPage() {
               Now that you know your churn cost — do something about it
             </h2>
             <p className="font-serif text-[0.95rem] text-[#666] leading-[1.7] mb-7">
-              ChurnRecovery intercepts cancellations with the right offer — a pause, a discount, a downgrade. Founders using cancel flows save 25–45% of churning members automatically. It's free.
+              ChurnRecovery intercepts cancellations with the right offer — a pause, a discount, a downgrade. Founders using cancel flows save 25–45% of churning members automatically. 30-day free trial, then $20/month.
             </p>
             <a href="https://tally.so/r/churnrecovery" className="inline-block bg-[#D97757] text-white px-8 py-[14px] rounded-lg font-sans font-bold text-base no-underline tracking-[-0.01em]">
-              Get Started Free — It's Free
+              Start Free Trial →
             </a>
             <p className="font-sans text-[0.78rem] text-[#999] mt-3">
-              No credit card. No commitment. Cancel flows that actually work.
+              No credit card required. 30-day free trial. Cancel flows that actually work.
             </p>
           </div>
         </section>
@@ -269,7 +269,7 @@ export default function ChurnRateCalculatorPage() {
               {
                 number: '03',
                 title: 'Implement a cancel flow before members leave',
-                body: 'Most cancellation decisions are emotional and reversible. A cancel flow intercepts the moment someone clicks "cancel" and presents the right offer — a month\'s pause, a 20% discount, a lighter tier. This alone saves 25–45% of would-be churners. It\'s the highest-ROI retention lever available to membership sites, and it\'s what ChurnRecovery automates for free.',
+                body: 'Most cancellation decisions are emotional and reversible. A cancel flow intercepts the moment someone clicks "cancel" and presents the right offer — a month\'s pause, a 20% discount, a lighter tier. This alone saves 25–45% of would-be churners. It\'s the highest-ROI retention lever available to membership sites, and it\'s what ChurnRecovery automates starting at $20/month.',
               },
               {
                 number: '04',
@@ -421,13 +421,13 @@ export default function ChurnRateCalculatorPage() {
             Ready to stop losing members?
           </h2>
           <p className="font-serif text-base text-white/70 mb-8 max-w-[460px] mx-auto leading-[1.7]">
-            Sign up for free for ChurnRecovery — the free cancel flow platform for membership sites, communities, and SaaS founders.
+            Start your free trial of ChurnRecovery — the affordable cancel flow platform for membership sites, communities, and SaaS founders.
           </p>
           <a href="https://tally.so/r/churnrecovery" className="inline-block bg-[#D97757] text-white px-8 py-[14px] rounded-lg font-sans font-bold text-base no-underline tracking-[-0.01em]">
-            Get Started Free — Free
+            Start Free Trial →
           </a>
           <p className="font-sans text-[0.78rem] text-white/40 mt-[14px]">
-            No credit card. No commitment. Set up in minutes.
+            No credit card required. 30-day free trial. Set up in minutes.
           </p>
         </section>
       </div>

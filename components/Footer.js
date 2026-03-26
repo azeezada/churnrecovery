@@ -15,7 +15,6 @@ const footerLinks = {
     { label: 'Blog', href: '/blog' },
     { label: 'Documentation', href: '/docs' },
     { label: 'Use Cases', href: '/use-cases' },
-    { label: 'Changelog', href: '/changelog' },
     { label: 'Churn Guide', href: '/posts/Ultimate-Guide-SaaS-Churn' },
     { label: 'Cancel Flow Examples', href: '/posts/Cancel-Flow-Examples' },
   ],
@@ -28,9 +27,6 @@ const footerLinks = {
   ],
   Company: [
     { label: 'About', href: '/about' },
-    { label: 'Press', href: '/press' },
-    { label: 'Social Proof', href: '/social-proof' },
-    { label: 'Changelog', href: '/changelog' },
     { label: 'Status', href: '/status' },
     { label: 'GitHub', href: 'https://github.com/churnrecovery', target: '_blank' },
     { label: 'Contact', href: 'mailto:hello@churnrecovery.com' },
@@ -53,7 +49,7 @@ export default function Footer() {
               </span>
             </Link>
             <p className="font-serif text-sm text-brand-gray mt-3 leading-relaxed max-w-[240px]">
-              Free churn recovery for SaaS. Stop losing customers to failed payments and cancel flows.
+              Churn recovery for SaaS. Cancel flows, payment recovery, and analytics — $20/month.
             </p>
             <div className="mt-5 flex gap-3">
               <a
@@ -94,11 +90,10 @@ export default function Footer() {
         {/* Bottom row: copyright + legal */}
         <div className="border-t border-brand-border pt-6 flex flex-wrap justify-between items-center gap-4">
           <p className="font-sans text-xs text-brand-gray-light m-0">
-            © {currentYear} ChurnRecovery. Free forever. Open source.
+            © {currentYear} ChurnRecovery. 30-day free trial · $20/month after.
           </p>
           <div className="flex gap-6">
             {[
-              { label: 'Design Exploration', href: '/styles' },
               { label: 'Privacy', href: '/privacy' },
               { label: 'Terms', href: '/terms' },
               { label: 'RSS', href: '/rss.xml' },

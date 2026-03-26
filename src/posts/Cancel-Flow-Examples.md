@@ -451,7 +451,7 @@ If your post-save retention is low (customers churn again within 30 days), your 
 
 You don't need to build all 7 patterns on day one. Start with Pattern 1 (reason-based offers) and Pattern 4 (pause option). These two alone can save 15-25% of voluntary cancellations.
 
-Tools like [ChurnRecovery](/) make this easier by providing pre-built cancel flow components that you can customize and deploy with a single script tag — completely free.
+Tools like [ChurnRecovery](/) make this easier by providing pre-built cancel flow components that you can customize and deploy with a single script tag — with a 30-day free trial.
 
 The most important thing is to start. Every day without a cancel flow is a day you're losing customers you could have saved.
 
@@ -467,4 +467,4 @@ The most important thing is to start. Every day without a cancel flow is a day y
 - [Stripe cancel flow guide](/for/stripe)
 - [Substack cancel flow options](/for/substack)
 
-*ChurnRecovery provides free, open-source cancel flow components for SaaS companies. [Get early access](/) — no credit card, no per-recovery fees.*
+*ChurnRecovery provides $20/month, open-source cancel flow components for SaaS companies. [Get early access](/) — no per-recovery fees.*

@@ -61,7 +61,7 @@ function Nav() {
         <Link href="/docs" className="text-brand-accent no-underline text-[0.9rem] font-sans font-semibold">Docs</Link>
         <Link href="/demo" className="text-brand-gray no-underline text-[0.9rem] font-sans">Demo</Link>
         <Link href="/blog" className="text-brand-gray no-underline text-[0.9rem] font-sans">Blog</Link>
-        <a href="/app/sign-up" className="bg-brand-accent text-white px-[18px] py-2 rounded-md no-underline text-[0.85rem] font-semibold font-sans">Get Started Free</a>
+        <a href="/app/sign-up" className="bg-brand-accent text-white px-[18px] py-2 rounded-md no-underline text-[0.85rem] font-semibold font-sans">Start Free Trial</a>
       </div>
     </nav>
   )
@@ -679,7 +679,7 @@ function SubscriptionSettings({ user }) {
 
               <div className="grid gap-4 mt-6">
                 {[
-                  { q: 'Is it really free?', a: 'Yes. ChurnRecovery is completely free — no usage limits, no feature gates, no hidden fees. We monetize through optional premium add-ons (custom branding removal, SLA guarantees, dedicated support) that most teams won\'t need.' },
+                  { q: 'What does ChurnRecovery cost?', a: 'ChurnRecovery is $20/month — flat. No per-subscriber fees, no per-recovery fees, no usage limits. Start with a 30-day free trial, no credit card required.' },
                   { q: 'What billing providers do you support?', a: 'Stripe is natively integrated with automatic offer application. Paddle support is in beta. For other providers (Chargebee, Recurly, Braintree), you can use our REST API and webhooks for manual integration.' },
                   { q: 'Does it work with server-side rendering?', a: 'Yes. The SDK detects the environment automatically. On the server, initialization is a no-op. The cancel flow modal only renders client-side. Full support for Next.js, Nuxt, Remix, and SvelteKit.' },
                   { q: 'How does the A/B testing work?', a: 'Define multiple offers per cancel reason, and ChurnRecovery automatically splits traffic and tracks acceptance rates. Results are statistically validated — we\'ll tell you when a variant reaches significance.' },
@@ -704,7 +704,7 @@ function SubscriptionSettings({ user }) {
               </p>
               <div className="flex gap-3 justify-center flex-wrap">
                 <a href="/app/sign-up" className="inline-block bg-brand-accent text-white px-7 py-3 rounded-lg font-sans font-bold text-[0.95rem] no-underline">
-                  Get Started Free →
+                  Start Free Trial →
                 </a>
                 <Link href="/demo" className="inline-block bg-transparent text-white/70 px-7 py-3 rounded-lg font-sans font-semibold text-[0.95rem] no-underline border border-white/20">
                   Try the Demo →

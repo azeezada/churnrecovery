@@ -17,13 +17,13 @@ Here's the honest breakdown of what we're doing, what's working, and what we're 
 
 ---
 
-## Why We're Free (And Why That's the Strategy)
+## Why We're $20/Month (And Why That's the Strategy)
 
 The churn recovery tool market has a pricing problem. Churnkey starts at $250/month. ProfitWell Retain charges a percentage of every dollar they recover. That's fine if you're a $100K MRR company. It's insane if you're a bootstrapped SaaS doing $3K/month or a newsletter creator with 500 paid subscribers.
 
-ChurnRecovery is free. Not "free trial" free. Free as in: you use it, you recover subscribers, you pay nothing until you're scaling.
+ChurnRecovery is $20/month. Flat. All features. No per-subscriber fees, no revenue share. With a 30-day free trial so you can prove the value before you pay a cent.
 
-That's not charity — it's positioning. Being free is the marketing strategy. When the alternative is $250/month, "free" is a headline that writes itself.
+That's not charity — it's positioning. Being 10-40x cheaper than every alternative is the marketing strategy. When the competition starts at $250/month, "$20/month" is a headline that writes itself.
 
 ---
 
@@ -53,7 +53,7 @@ We've published ~20 blog posts since launch. Not thin content — real, useful a
 - *"The Ultimate Guide to SaaS Churn"* — targeting the category-level query
 - *"Churnkey Pricing 2026: Is $250/Month Worth It?"* — comparison content that ranks when people are evaluating tools
 - *"How to Build a Cancel Flow That Saves 30% of Churning Customers"* — tactical, immediately useful
-- *"Free Alternatives to Churnkey, ProfitWell, and Baremetrics"* — explicit comparison targeting competitor brand searches
+- *"Affordable Alternatives to Churnkey, ProfitWell, and Baremetrics"* — explicit comparison targeting competitor brand searches
 
 The SEO strategy is intentionally narrow: own "churn recovery" queries for small businesses, newsletter creators, and bootstrapped SaaS. We're not trying to rank for "enterprise churn management software."
 
@@ -127,7 +127,7 @@ After all of this:
 - **Traffic:** Growing. Not viral-growing, but consistent upward curve.
 - **Signups:** Early-stage. Handful per week from organic sources.
 - **What I'm most confident about:** SEO + comparison content will compound over 6–12 months.
-- **What I'm least confident about:** Whether free is enough of a differentiator once more competitors notice the market.
+- **What I'm least confident about:** Whether being 10x cheaper is enough of a differentiator once more competitors notice the market.
 - **Biggest lesson so far:** The product has to sell itself. Every piece of marketing we do is just getting people to a product that either converts them or doesn't. If the product isn't self-evident, more marketing won't fix it.
 
 ---
@@ -144,7 +144,7 @@ That's the bet. And we're making it publicly.
 
 ---
 
-If you're building a subscription product and losing subscribers you shouldn't lose, [try ChurnRecovery](/) — it's free, it takes 5 minutes to install, and you don't need to wait for a marketing budget to find out if it works.
+If you're building a subscription product and losing subscribers you shouldn't lose, [try ChurnRecovery](/) — it's $20/month with a 30-day free trial, it takes 5 minutes to install, and you don't need to wait for a marketing budget to find out if it works.
 
 Follow along as we build this in public.
 

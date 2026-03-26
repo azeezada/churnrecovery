@@ -102,20 +102,20 @@ function FAQItem({ q, a }) {
 }
 
 // ─── Main Page ───────────────────────────────────────────────────────────────
-export default function KajabiLandingPage() {
+export default function CommunitiesLandingPage() {
   return (
     <>
       <Head>
-        <title>Stop Losing Kajabi Members at the Cancel Screen | ChurnRecovery</title>
-        <meta name="description" content="ChurnRecovery connects to your Kajabi Stripe account and intercepts cancellations in real-time. Offer a pause, a discount, or ask why — before they're gone. 30-day free trial, then $20/month." />
-        <link rel="canonical" href="https://churnrecovery.com/for/kajabi" />
-        <meta property="og:title" content="Stop Losing Kajabi Members at the Cancel Screen | ChurnRecovery" />
-        <meta property="og:description" content="Kajabi memberships run on Stripe. ChurnRecovery connects directly and intercepts cancellations before they happen. No code, no Kajabi approval needed." />
-        <meta property="og:url" content="https://churnrecovery.com/for/kajabi" />
+        <title>Stop Losing Community Members at the Cancel Screen | ChurnRecovery</title>
+        <meta name="description" content="Circle, Skool, and Mighty Networks have zero built-in churn prevention. ChurnRecovery connects through Stripe and catches cancellations before they happen. 30-day free trial, then $20/month." />
+        <link rel="canonical" href="https://churnrecovery.com/for/communities" />
+        <meta property="og:title" content="Stop Losing Community Members at the Cancel Screen | ChurnRecovery" />
+        <meta property="og:description" content="Community platforms like Circle, Skool, and Mighty Networks have no cancel flow. ChurnRecovery connects directly through Stripe and intercepts cancellations before they happen." />
+        <meta property="og:url" content="https://churnrecovery.com/for/communities" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Stop Losing Kajabi Members at the Cancel Screen" />
-        <meta name="twitter:description" content="Most Kajabi creators don't realize they can intercept cancellations. ChurnRecovery plugs directly into Stripe — no code, no Kajabi approval." />
+        <meta name="twitter:title" content="Stop Losing Community Members at the Cancel Screen" />
+        <meta name="twitter:description" content="Circle, Skool, and Mighty Networks have no churn tools. ChurnRecovery plugs directly into Stripe — no code, no platform approval needed." />
       </Head>
 
       <Header />
@@ -124,7 +124,7 @@ export default function KajabiLandingPage() {
 
         {/* ─── SECTION 1: HERO ─────────────────────────────────────────── */}
         <section className="bg-[linear-gradient(135deg,#1A1200_0%,#2D1E00_50%,#1A1200_100%)] pt-20 px-6 pb-[100px] relative overflow-hidden">
-          {/* Kajabi gold glow */}
+          {/* Amber glow */}
           <div className="absolute top-[-80px] right-[-80px] w-[400px] h-[400px] rounded-full bg-[radial-gradient(circle,rgba(232,160,0,0.15)_0%,transparent_70%)] pointer-events-none" />
 
           <div className="max-w-[720px] mx-auto text-center relative z-[1]">
@@ -134,21 +134,21 @@ export default function KajabiLandingPage() {
             </div>
 
             <h1 className="font-sans font-extrabold text-[clamp(2.2rem,5vw,3.5rem)] text-white m-0 mb-5 leading-[1.15] tracking-[-0.02em]">
-              Stop Losing Kajabi Members<br />
-              <span className="text-[#F5C842]">at the Cancel Screen</span>
+              Your Community Members Are Churning Silently.<br />
+              <span className="text-[#F5C842]">Your Platform Won&apos;t Tell You.</span>
             </h1>
 
             <p className="font-serif text-[clamp(1rem,2.5vw,1.2rem)] text-[rgba(255,255,255,0.75)] m-0 mb-10 leading-[1.7] max-w-[600px] ml-auto mr-auto">
-              Most Kajabi creators don&apos;t realize it — but their memberships run on Stripe. That means you can intercept cancellations with a smooth cancel flow: a pause offer, a discount, or a simple &quot;why are you leaving?&quot; All without touching Kajabi&apos;s settings.
+              Circle, Skool, Mighty Networks — these platforms are great at building community, but terrible at preventing members from leaving. They offer zero cancel flows, zero win-back tools, and zero exit surveys. ChurnRecovery fixes that, through Stripe, in minutes.
             </p>
 
             <div className="max-w-[480px] mx-auto mb-6">
-              <SignUpCTA source="for-kajabi" dark={true} />
+              <SignUpCTA source="for-communities" dark={true} />
             </div>
 
             <div className="flex gap-5 justify-center flex-wrap">
               <span className="font-sans text-[0.8rem] text-[rgba(255,255,255,0.5)]">
-                🆓 30-day free trial available — no Kajabi approval needed
+                🆓 30-day free trial — no platform approval needed
               </span>
               <span className="font-sans text-[0.8rem] text-[rgba(255,255,255,0.5)]">
                 ⚡ 3 steps, no code
@@ -171,30 +171,30 @@ export default function KajabiLandingPage() {
                 The Hidden Revenue Leak
               </div>
               <h2 className="font-sans font-extrabold text-[clamp(1.8rem,4vw,2.5rem)] text-[#191919] m-0 mb-4 tracking-[-0.02em]">
-                Every Kajabi Cancellation =<br />Lost Recurring Revenue
+                Every Community Cancellation =<br />Lost Recurring Revenue
               </h2>
               <p className="font-serif text-base text-[#666666] max-w-[540px] mx-auto leading-[1.7]">
-                Kajabi gives you beautiful course pages — but zero protection against members walking out the door. Right now, they can cancel in seconds and you&apos;ll never know why.
+                Community platforms focus on engagement — not retention. When a member decides to leave, they click cancel and they&apos;re gone. No intervention. No offer. No feedback. Just silence.
               </p>
             </div>
 
             <div className="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-5">
               <PainCard
                 icon="👻"
-                title="Invisible Churn"
-                stat="3–8%"
-                statLabel="of members cancel every month — silently"
-                description="There's no warning before a member cancels. No signal. No chance to intervene. One minute they're in your community, the next they're gone — and you find out in a Stripe email."
+                title="Members Disengage, Then Cancel"
+                stat="5–10%"
+                statLabel="of community members churn every month without warning"
+                description="Community members don&apos;t rage-quit — they quietly stop showing up, then cancel weeks later. By the time you notice, they&apos;re already gone. There&apos;s no alert, no signal, no second chance."
               />
               <PainCard
                 icon="🚪"
-                title="No Win-Back Offer"
-                description="When a Kajabi member clicks &quot;Cancel Membership,&quot; they hit a dead end. No pause option. No discount. No &quot;here's what you'll miss.&quot; Just an immediate, silent goodbye."
+                title="No Cancel Flow on Circle, Skool, or Mighty Networks"
+                description="Circle, Skool, and Mighty Networks all let members cancel instantly with zero friction. No pause option. No discount offer. No &quot;are you sure?&quot; Just an immediate cancellation — and a lost subscriber."
               />
               <PainCard
-                icon="❓"
-                title="No Insight Into Why"
-                description="Was it price? Time? The content itself? You'll never know. Without an exit survey, you're guessing — which means you can't fix what's driving your members away."
+                icon="💳"
+                title="Failed Payments Cause Silent Loss"
+                description="Involuntary churn is just as painful. When a payment fails, most community platforms simply cancel the membership after a few retries. ChurnRecovery intercepts failed payments too — giving members a chance to update before they lose access."
               />
             </div>
           </div>
@@ -208,10 +208,10 @@ export default function KajabiLandingPage() {
                 3 Steps, No Code
               </div>
               <h2 className="font-sans font-extrabold text-[clamp(1.8rem,4vw,2.5rem)] text-[#191919] m-0 mb-4 tracking-[-0.02em]">
-                Works With Kajabi in Minutes
+                Works With Your Community Platform in Minutes
               </h2>
               <p className="font-serif text-base text-[#666666] max-w-[480px] mx-auto leading-[1.7]">
-                Kajabi uses Stripe for payments. ChurnRecovery connects to Stripe — not Kajabi. No plugins, no approval needed.
+                Circle, Skool, and Mighty Networks all use Stripe for payments. ChurnRecovery connects to Stripe — not your community platform. No plugins, no approval needed.
               </p>
             </div>
 
@@ -220,20 +220,20 @@ export default function KajabiLandingPage() {
                 number="1"
                 icon="🔗"
                 title="Connect Your Stripe Account"
-                description="Log into ChurnRecovery and connect your Stripe account with one click. We read cancellation signals from Stripe — the same payment processor Kajabi uses under the hood."
-                callout="✓ No Kajabi settings to change. No developer needed."
+                description="Log into ChurnRecovery and connect your Stripe account with one click. We read cancellation signals from Stripe — the same payment processor that powers Circle, Skool, and Mighty Networks memberships."
+                callout="✓ No platform settings to change. No developer needed."
               />
               <HowStep
                 number="2"
                 icon="⚡"
                 title="We Catch Cancellations Instantly"
-                description="The moment a member initiates a cancellation, ChurnRecovery fires before it's final. We intercept the Stripe event and trigger your custom recovery flow — automatically."
+                description="The moment a member initiates a cancellation, ChurnRecovery fires before it&apos;s final. We intercept the Stripe event and trigger your custom recovery flow — automatically, in real time."
               />
               <HowStep
                 number="3"
                 icon="💬"
                 title="Your Offer, Your Message — Automated"
-                description="Members see a personalized message from you: a pause option, a special discount, or a quick exit survey. Set it up once. It runs forever."
+                description="Members see a personalized message from you: a pause option, a special discount, or a quick exit survey asking why they&apos;re leaving. Set it up once. It runs forever."
                 callout="🎯 Average recovery rate: 20–35% of at-risk members"
               />
             </div>
@@ -241,10 +241,10 @@ export default function KajabiLandingPage() {
             {/* Technical callout */}
             <div className="mt-8 bg-[rgba(232,160,0,0.05)] border border-[rgba(232,160,0,0.25)] border-l-4 border-l-[#E8A000] rounded-[10px] py-5 px-6 max-w-[680px] mx-auto">
               <p className="font-sans font-bold text-[#191919] m-0 mb-2 text-[0.95rem]">
-                &ldquo;Does Kajabi even let you do this?&rdquo;
+                &ldquo;Does this work with Circle, Skool, and Mighty Networks?&rdquo;
               </p>
               <p className="font-serif text-[0.88rem] text-[#666666] m-0 mb-2.5 leading-[1.7]">
-                Yes — because ChurnRecovery works at the Stripe level, not the Kajabi level. Kajabi uses Stripe to process your membership payments. By connecting directly to your Stripe account, we can listen for cancellation events and respond — completely outside Kajabi&apos;s ecosystem.
+                Yes — all three. Circle, Skool, and Mighty Networks use Stripe to process membership payments. ChurnRecovery connects directly to your Stripe account and listens for cancellation events — completely outside your community platform&apos;s ecosystem. No integration approval, no plugin required.
               </p>
               <Link href="/docs" className="font-sans text-[0.82rem] text-[#E8A000] no-underline font-semibold">
                 Technical integration docs →
@@ -270,40 +270,40 @@ export default function KajabiLandingPage() {
                 What You Get
               </div>
               <h2 className="font-sans font-extrabold text-[clamp(1.8rem,4vw,2.5rem)] text-[#191919] m-0 tracking-[-0.02em]">
-                Everything to Protect Your Membership Revenue
+                Everything to Protect Your Community Revenue
               </h2>
             </div>
 
             <div className="grid grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-3.5">
               <BenefitCard
                 icon="⏸"
-                title="Pause Offer"
-                description="Give members the option to pause instead of cancel. Many people leave during a busy month — not because they hate your content."
+                title="Pause Offer for Seasonal Members"
+                description="Community engagement ebbs and flows. Give members the option to pause for a month instead of canceling outright — ideal for communities with seasonal rhythms or busy periods."
               />
               <BenefitCard
                 icon="🏷"
                 title="Discount Offer"
-                description="Automatically offer a 20% discount or 1 month free to at-risk members. Keeping them at a discount beats losing them forever."
+                description="Automatically offer a discount or a free month to members who are on the fence. Keeping them at a reduced rate beats losing them — and their network effect — entirely."
               />
               <BenefitCard
                 icon="📋"
-                title="Exit Survey"
-                description="Find out why members leave with a quick 1-question survey. Use the answers to improve your course, community, and content."
+                title="Exit Survey to Understand Community Gaps"
+                description="Find out exactly why members are leaving: too expensive, not enough value, community not active enough? Exit survey data tells you what to fix so you can stop losing members for the same reason twice."
               />
               <BenefitCard
                 icon="📊"
                 title="Dashboard Insights"
-                description="Track how much revenue you've saved, which offers work best, and your overall churn recovery rate — all in one dashboard."
+                description="Track how much revenue you&apos;ve saved, which recovery offers perform best, and your overall churn rate — all in one clean dashboard built for community operators."
               />
               <BenefitCard
                 icon="🆓"
                 title="$20/month — Flat"
-                description="30-day free trial, then $20/month. All features included — no per-subscriber fees. Cancel anytime."
+                description="30-day free trial, then $20/month. All features included — no per-member fees, no percentage of revenue taken. Cancel anytime."
               />
               <BenefitCard
-                icon="🚫"
-                title="No Kajabi Approval Needed"
-                description="This works entirely through Stripe. No Kajabi plugin, no app store approval, no waiting. Connect and go."
+                icon="🌐"
+                title="Works Across Community Platforms"
+                description="Running Circle today, thinking about switching to Skool? ChurnRecovery works with any community platform that processes payments through Stripe — so your churn recovery setup moves with you."
               />
             </div>
           </div>
@@ -313,10 +313,10 @@ export default function KajabiLandingPage() {
         <section className="py-20 px-6 bg-white">
           <div className="max-w-[680px] mx-auto text-center">
             <h2 className="font-sans font-extrabold text-[clamp(1.8rem,4vw,2.5rem)] text-[#191919] m-0 mb-5 tracking-[-0.02em]">
-              A Fraction of What Kajabi Costs You
+              One Recovered Member Pays for a Year
             </h2>
             <p className="font-serif text-base text-[#666666] leading-[1.7] m-0 mb-8">
-              Kajabi charges $119/month just to run your courses. ChurnRecovery is just $20/month — and helps you actually keep the revenue you&apos;re earning.
+              At $20/month flat, ChurnRecovery pays for itself the first time it saves a member. Most community operators recover dozens of members per month — at zero additional cost.
             </p>
 
             <div className="max-w-[380px] mx-auto mb-7">
@@ -331,7 +331,7 @@ export default function KajabiLandingPage() {
             </div>
 
             <div className="bg-[#EDF7F1] border border-[#C6E6D4] rounded-[10px] py-3.5 px-5 font-sans text-[0.88rem] text-[#2D7A4F] mb-6">
-              Compare to Kajabi ($119–$399/mo) which has zero built-in churn recovery. ChurnRecovery is just $20/month and pays for itself the first time you save a member.
+              Circle, Skool, and Mighty Networks charge nothing for churn tools — because they don&apos;t have any. ChurnRecovery fills the gap for $20/month and pays for itself the first time you save a member.
             </div>
           </div>
         </section>
@@ -341,38 +341,38 @@ export default function KajabiLandingPage() {
           <div className="max-w-[720px] mx-auto">
             <div className="text-center mb-10">
               <h2 className="font-sans font-extrabold text-[clamp(1.8rem,4vw,2.5rem)] text-[#191919] m-0 tracking-[-0.02em]">
-                Questions From Kajabi Creators
+                Questions From Community Operators
               </h2>
             </div>
 
             {[
               {
-                q: 'Does this work with Kajabi?',
-                a: "Yes. Kajabi processes payments through Stripe. ChurnRecovery connects to your Stripe account directly and listens for cancellation events. No Kajabi API access needed — it works entirely at the Stripe level.",
+                q: 'Does this work with Circle?',
+                a: "Yes. Circle processes membership payments through Stripe. ChurnRecovery connects to your Stripe account directly and intercepts cancellation events before they finalize. No Circle API access or approval needed — it works entirely at the Stripe level.",
               },
               {
-                q: 'Will Kajabi block this?',
-                a: "No. ChurnRecovery operates at the Stripe level, not inside Kajabi. Kajabi has no visibility into or control over Stripe webhook events. This is like setting up a smoke detector in a building — the landlord doesn't need to approve it.",
+                q: 'Does this work with Skool?',
+                a: "Yes. Skool uses Stripe for paid community memberships. ChurnRecovery connects to Stripe and catches cancellations in real time — completely outside Skool's ecosystem. No Skool plugin or developer required.",
               },
               {
-                q: 'Do I need developer help to set this up?',
-                a: "Not at all. If you can click a button and copy-paste a URL, you can set this up. It takes about 5–10 minutes, and we have step-by-step guides with screenshots for every step.",
+                q: 'What about Discord-based communities?',
+                a: "If your Discord community charges memberships through Stripe — whether directly or via a tool like Memberful, Whop, or a custom checkout — ChurnRecovery can intercept those cancellations. The key is that billing flows through Stripe.",
               },
               {
-                q: 'What if my Kajabi membership is at a lower price point?',
-                a: "Even recovering 1–2 members per month at $47 or $97/month adds up fast. At lower price points, it's even more important to have a cancel flow — because volume matters more.",
+                q: 'Do I need to change my community platform to use this?',
+                a: "Not at all. ChurnRecovery works through Stripe, not through your community platform. You keep Circle, Skool, Mighty Networks, or whatever you&apos;re using. All you do is connect your Stripe account to ChurnRecovery — that&apos;s it.",
               },
               {
-                q: 'Can I customize the cancel flow message?',
-                a: "Completely. Your message, your offer, your tone. We provide templates designed for course creators and coaches, but you can edit every word. Your members will feel like they're hearing from you — not a software company.",
+                q: 'Does it work with Mighty Networks?',
+                a: "Yes. Mighty Networks uses Stripe for paid plan billing. ChurnRecovery plugs into Stripe directly, so it catches cancellations on Mighty Networks memberships the same way it does for any other Stripe-powered community platform.",
               },
               {
-                q: 'Does ChurnRecovery work with Kajabi memberships and courses?',
-                a: "Yes — any Kajabi product that uses Stripe for recurring billing. This includes membership sites, coaching programs, mastermind groups, and any subscription-based Kajabi offer.",
+                q: 'Can I customize what members see when they try to cancel?',
+                a: "Completely. Your message, your offer, your tone. You can offer a pause, a discount, a free month, or just ask a single exit survey question. We provide templates designed for community operators, but every word is editable. Your members will feel like they&apos;re hearing from you directly.",
               },
               {
-                q: "What happens if someone still cancels after seeing the offer?",
-                a: "That's fine. If they want to leave, they leave. You still get their exit survey response — which is more than you had before. And you've made the attempt, which 20–35% of people respond to positively.",
+                q: "What if a member still cancels after seeing the offer?",
+                a: "That&apos;s fine. If they want to leave, they leave. You still capture their exit survey response — which tells you why your community isn&apos;t retaining them. And 20–35% of members who see an offer do stay, so the attempt is always worth making.",
               },
             ].map(faq => (
               <FAQItem key={faq.q} q={faq.q} a={faq.a} />
@@ -389,25 +389,14 @@ export default function KajabiLandingPage() {
             </h2>
             <div className="grid gap-3">
               <a
-                href="/posts/kajabi-cancel-flow-setup-without-coding"
+                href="/posts/membership-site-churn-rate"
                 className="block bg-brand-bg border border-brand-border rounded-[10px] p-5 hover:border-brand-accent/40 transition-colors no-underline group"
               >
                 <div className="font-sans font-semibold text-[0.92rem] text-brand-text group-hover:text-brand-accent transition-colors mb-1">
-                  How to Set Up a Cancel Flow for Kajabi (No Coding)
+                  What Is a Good Membership Site Churn Rate?
                 </div>
                 <div className="font-serif text-[0.82rem] text-brand-gray leading-[1.5]">
-                  Step-by-step guide with copy-paste scripts
-                </div>
-              </a>
-              <a
-                href="/posts/reduce-churn-online-course-business"
-                className="block bg-brand-bg border border-brand-border rounded-[10px] p-5 hover:border-brand-accent/40 transition-colors no-underline group"
-              >
-                <div className="font-sans font-semibold text-[0.92rem] text-brand-text group-hover:text-brand-accent transition-colors mb-1">
-                  How to Reduce Churn in Your Online Course Business
-                </div>
-                <div className="font-serif text-[0.82rem] text-brand-gray leading-[1.5]">
-                  Tactics specific to course creators and educators
+                  Benchmarks and tactics for online community operators
                 </div>
               </a>
               <a
@@ -418,25 +407,37 @@ export default function KajabiLandingPage() {
                   What Is a Cancel Flow? (And Why You Need One)
                 </div>
                 <div className="font-serif text-[0.82rem] text-brand-gray leading-[1.5]">
-                  The case for adding a cancel flow to any membership
+                  The case for adding a cancel flow to any membership or community
+                </div>
+              </a>
+              <a
+                href="/posts/Involuntary-Churn-Recovery"
+                className="block bg-brand-bg border border-brand-border rounded-[10px] p-5 hover:border-brand-accent/40 transition-colors no-underline group"
+              >
+                <div className="font-sans font-semibold text-[0.92rem] text-brand-text group-hover:text-brand-accent transition-colors mb-1">
+                  Involuntary Churn Recovery: How to Win Back Failed Payments
+                </div>
+                <div className="font-serif text-[0.82rem] text-brand-gray leading-[1.5]">
+                  Stop losing members to failed payments and card declines
                 </div>
               </a>
             </div>
           </div>
         </section>
+
         {/* ─── SECTION 7: FINAL CTA ────────────────────────────────────── */}
         <section className="bg-[linear-gradient(135deg,#1A1200_0%,#2D1E00_100%)] py-20 px-6">
           <div className="max-w-[600px] mx-auto text-center">
             <h2 className="font-sans font-extrabold text-[clamp(1.8rem,4vw,2.6rem)] text-white m-0 mb-5 leading-[1.2] tracking-[-0.02em]">
-              A Kajabi Member Is About to Cancel.<br />
+              A Community Member Is About to Cancel.<br />
               <span className="text-[#F5C842]">Will You Be Ready?</span>
             </h2>
             <p className="font-serif text-base text-[rgba(255,255,255,0.7)] m-0 mb-9 leading-[1.7]">
-              Start your free trial. Protect your Kajabi membership revenue with automated churn recovery. $20/month after 30 days — no Kajabi approval needed.
+              Start your free trial. Protect your community&apos;s recurring revenue with automated churn recovery. $20/month after 30 days — works with Circle, Skool, Mighty Networks, and any Stripe-powered community.
             </p>
 
             <div className="max-w-[480px] mx-auto">
-              <SignUpCTA source="for-kajabi" dark={true} />
+              <SignUpCTA source="for-communities" dark={true} />
             </div>
 
             <div className="flex gap-6 justify-center mt-6 flex-wrap">

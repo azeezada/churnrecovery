@@ -109,7 +109,7 @@ That's not churn you recover. It's churn you prevent.
 
 ## How ChurnRecovery Fills This Gap
 
-ChurnRecovery is a free tool built specifically for the cancel moment. Because it works at the Stripe level — not at the platform level — it works equally well whether your newsletter is on Ghost, Substack, Beehiiv, or anywhere else that uses Stripe for payments.
+ChurnRecovery is a $20/month tool (with a 30-day free trial) built specifically for the cancel moment. Because it works at the Stripe level — not at the platform level — it works equally well whether your newsletter is on Ghost, Substack, Beehiiv, or anywhere else that uses Stripe for payments.
 
 Here's what happens when a subscriber cancels:
 
@@ -142,7 +142,7 @@ The platforms will keep improving. But the cancel moment gap has been there for 
 
 ---
 
-*ChurnRecovery is free during beta. Works with Ghost, Substack, Beehiiv, and any Stripe-based subscription — no credit card required.*
+*ChurnRecovery is $20/month after a 30-day free trial. Works with Ghost, Substack, Beehiiv, and any Stripe-based subscription — no credit card required.*
 
 [→ Join the waitlist](/waitlist)
 

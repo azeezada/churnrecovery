@@ -114,7 +114,7 @@ export default function LemonSqueezyLandingPage() {
             </div>
 
             <div className="flex gap-5 justify-center flex-wrap">
-              <span className="font-sans text-[0.8rem] text-[rgba(255,255,255,0.4)]">🆓 Free during beta</span>
+              <span className="font-sans text-[0.8rem] text-[rgba(255,255,255,0.4)]">🆓 30-day free trial</span>
               <span className="font-sans text-[0.8rem] text-[rgba(255,255,255,0.4)]">⚡ Works with direct Stripe</span>
             </div>
           </div>
@@ -154,7 +154,7 @@ export default function LemonSqueezyLandingPage() {
             <div className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-5">
               <HowStep number="A" icon="🔗" title="Use Lemon Squeezy with Your Own Stripe" description="Some Lemon Squeezy plans allow you to connect your own Stripe account instead of using their merchant-of-record setup. If you're on one of those plans, ChurnRecovery connects directly to your Stripe and works as normal." callout="✓ Check your Lemon Squeezy plan settings for 'custom Stripe' or 'BYOS' options." />
               <HowStep number="B" icon="🔀" title="Move Subscriptions to Direct Stripe" description="Keep Lemon Squeezy for one-time digital products (where their tax handling is great). Migrate your subscription products to direct Stripe billing. Then connect ChurnRecovery for full cancel flow coverage." callout="💡 Many creators use both: LS for products, Stripe for subscriptions." />
-              <HowStep number="C" icon="📬" title="Get Started Free Anyway" description="We're actively exploring native Lemon Squeezy integration. It's technically complex because of the merchant-of-record structure, but we're working on it. Sign up for free and we'll tell you the moment it's possible." callout="🔔 We'll reach out first when Lemon Squeezy support lands." />
+              <HowStep number="C" icon="📬" title="Start Your Free Trial Anyway" description="We're actively exploring native Lemon Squeezy integration. It's technically complex because of the merchant-of-record structure, but we're working on it. Start your free trial and we'll tell you the moment it's possible." callout="🔔 We'll reach out first when Lemon Squeezy support lands." />
             </div>
           </div>
         </section>
@@ -173,7 +173,7 @@ export default function LemonSqueezyLandingPage() {
               <BenefitCard icon="📊" title="Better Revenue Data" description="See exactly what's happening with your MRR, churn rate, and subscriber LTV — directly in Stripe or connected tools. Not filtered through a third-party platform." />
               <BenefitCard icon="💸" title="Lower Fees on Higher Volume" description="Lemon Squeezy charges 5% + payment fees. Direct Stripe is 2.9% + 30¢. At scale, that difference pays for a lot of tools." />
               <BenefitCard icon="🔧" title="Integrates With Everything" description="Stripe connects directly with ChurnRecovery, your email platform, your analytics, and hundreds of other tools. No middleware, no translation layer." />
-              <BenefitCard icon="🆓" title="ChurnRecovery Is Free to Start" description="Once you're on direct Stripe, ChurnRecovery is free during beta. The cancel flow you add can pay for the migration cost in the first month." />
+              <BenefitCard icon="🆓" title="ChurnRecovery Is $20/month" description="Once you're on direct Stripe, ChurnRecovery is just $20/month with a 30-day free trial. The cancel flow you add can pay for the migration cost in the first month." />
             </div>
           </div>
         </section>
@@ -249,13 +249,13 @@ export default function LemonSqueezyLandingPage() {
               <span className="text-[#FFD234]">Subscription Revenue?</span>
             </h2>
             <p className="font-serif text-base text-[rgba(255,255,255,0.7)] m-0 mb-9 leading-[1.7]">
-              Sign up for free. Whether you&apos;re on Lemon Squeezy now or thinking about moving to direct Stripe, we&apos;ll help you set up a cancel flow that saves subscribers automatically.
+              Start your free trial. Whether you&apos;re on Lemon Squeezy now or thinking about moving to direct Stripe, we&apos;ll help you set up a cancel flow that saves subscribers automatically. $20/month after 30 days.
             </p>
             <div className="max-w-[480px] mx-auto">
               <SignUpCTA source="for-lemon-squeezy" dark={true} />
             </div>
             <div className="flex gap-6 justify-center mt-6 flex-wrap">
-              <span className="font-sans text-[0.78rem] text-[rgba(255,255,255,0.4)]">Free during beta</span>
+              <span className="font-sans text-[0.78rem] text-[rgba(255,255,255,0.4)]">30-day free trial</span>
               <span className="font-sans text-[0.78rem] text-[rgba(255,255,255,0.4)]">No spam, ever</span>
             </div>
           </div>

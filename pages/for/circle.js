@@ -121,7 +121,7 @@ export default function CircleLandingPage() {
 
           <div className="max-w-[720px] mx-auto text-center relative z-[1]">
             <div className="inline-flex items-center gap-1.5 bg-[rgba(249,115,22,0.2)] border border-[rgba(249,115,22,0.4)] rounded-full py-1.5 px-4 font-sans text-[0.78rem] font-semibold text-[#FDBA74] mb-7">
-              <span>✓</span> Built for Circle Communities · Free During Beta
+              <span>✓</span> Built for Circle Communities · 30-Day Free Trial
             </div>
 
             <h1 className="font-sans font-extrabold text-[clamp(2.2rem,5vw,3.5rem)] text-white mb-5 leading-[1.15] tracking-[-0.02em]">
@@ -140,7 +140,7 @@ export default function CircleLandingPage() {
 
             <div className="flex gap-5 justify-center flex-wrap">
               <span className="font-sans text-[0.8rem] text-[rgba(255,255,255,0.5)]">
-                🆓 Free forever under $1k/month MRR
+                🆓 30-day free trial — no credit card required
               </span>
               <span className="font-sans text-[0.8rem] text-[rgba(255,255,255,0.5)]">
                 ⏸ Pause beats cancel every time
@@ -292,8 +292,8 @@ export default function CircleLandingPage() {
               />
               <BenefitCard
                 icon="🆓"
-                title="Free Under $1k/Month MRR"
-                description="Growing your Circle community? ChurnRecovery is free until you hit $1k/month in recurring revenue."
+                title="$20/month — Flat"
+                description="One simple price after your 30-day free trial. All features included, no per-subscriber fees."
               />
               <BenefitCard
                 icon="🔒"
@@ -311,32 +311,23 @@ export default function CircleLandingPage() {
               Fair Pricing for Community Builders
             </h2>
             <p className="font-serif text-base text-[#666666] leading-[1.7] mb-8">
-              Free while you build. Scales affordably when your community grows.
+              One simple price. 30-day free trial to start.
             </p>
 
-            <div className="grid grid-cols-2 gap-3 mb-7">
-              {[
-                { tier: 'Starter', price: '$0/month', range: 'Under $1k MRR', highlight: true },
-                { tier: 'Growth', price: '$29/month', range: 'Up to $5k MRR' },
-                { tier: 'Pro', price: '$79/month', range: 'Up to $20k MRR' },
-                { tier: 'Enterprise', price: 'Custom', range: 'Above $20k MRR' },
-              ].map(({ tier, price, range, highlight }) => (
-                <div key={tier} className="rounded-[10px] p-[18px] relative" style={{
-                  background: highlight ? '#FFF7ED' : '#FAF9F5',
-                  border: `1px solid ${highlight ? '#F97316' : '#E5E5E5'}`,
-                }}>
-                  {highlight && (
-                    <div className="absolute top-[-10px] left-1/2 -translate-x-1/2 bg-[#F97316] text-white font-sans text-[0.7rem] font-bold py-[3px] px-2.5 rounded-full">START HERE FREE</div>
-                  )}
-                  <div className="font-sans font-bold text-[#191919] text-[0.9rem]">{tier}</div>
-                  <div className="font-sans font-extrabold text-[1.4rem] my-1" style={{ color: highlight ? '#F97316' : '#191919' }}>{price}</div>
-                  <div className="font-serif text-[0.78rem] text-[#666666]">{range}</div>
-                </div>
-              ))}
+            <div className="max-w-[380px] mx-auto mb-7">
+              <div className="rounded-[10px] p-[18px] relative" style={{
+                background: '#FFF7ED',
+                border: '1px solid #F97316',
+              }}>
+                <div className="absolute top-[-10px] left-1/2 -translate-x-1/2 bg-[#F97316] text-white font-sans text-[0.7rem] font-bold py-[3px] px-2.5 rounded-full">SIMPLE PRICING</div>
+                <div className="font-sans font-bold text-[#191919] text-[0.9rem]">All Features</div>
+                <div className="font-sans font-extrabold text-[1.4rem] my-1" style={{ color: '#F97316' }}>$20/month</div>
+                <div className="font-serif text-[0.78rem] text-[#666666]">30-day free trial · No credit card required</div>
+              </div>
             </div>
 
             <div className="bg-[#EDF7F1] border border-[#C6E6D4] rounded-[10px] py-3.5 px-5 font-sans text-[0.88rem] text-[#2D7A4F] mb-6">
-              Enterprise churn tools charge $400–$800/month. We start free and stay affordable. 😊
+              Enterprise churn tools charge $400–$800/month. ChurnRecovery is just $20/month.
             </div>
           </div>
         </section>
@@ -377,7 +368,7 @@ export default function CircleLandingPage() {
               },
               {
                 q: "What if I'm just getting started with paid memberships?",
-                a: "Perfect time to set this up. It takes 10 minutes and it's free under $1k/month. You'll have retention working from your very first paid member.",
+                a: "Perfect time to set this up. It takes 10 minutes and you get a 30-day free trial. You'll have retention working from your very first paid member.",
               },
             ].map(faq => (
               <FAQItem key={faq.q} q={faq.q} a={faq.a} />
@@ -437,7 +428,7 @@ export default function CircleLandingPage() {
               <br /><span className="text-[#FDBA74]">If You Gave Them the Option.</span>
             </h2>
             <p className="font-serif text-base text-[rgba(255,255,255,0.7)] mb-9 leading-[1.7]">
-              Sign up for free. Free for Circle community builders — no credit card required.
+              Start your free trial. $20/month after 30 days — no credit card required to start.
             </p>
 
             <div className="max-w-[480px] mx-auto">
@@ -446,7 +437,7 @@ export default function CircleLandingPage() {
 
             <div className="flex gap-6 justify-center mt-6 flex-wrap">
               <span className="font-sans text-[0.78rem] text-[rgba(255,255,255,0.45)]">
-                Free during beta
+                30-day free trial
               </span>
               <span className="font-sans text-[0.78rem] text-[rgba(255,255,255,0.45)]">
                 Cancel anytime

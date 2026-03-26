@@ -106,15 +106,15 @@ export default function SubstackLandingPage() {
   return (
     <>
       <Head>
-        <title>Free Churn Recovery for Substack Creators | ChurnRecovery</title>
-        <meta name="description" content="Stop losing paid Substack subscribers. ChurnRecovery detects cancellations in real-time and automatically wins them back. Free for newsletters under $1k/month." />
+        <title>Churn Recovery for Substack Creators | ChurnRecovery</title>
+        <meta name="description" content="Stop losing paid Substack subscribers. ChurnRecovery detects cancellations in real-time and automatically wins them back. 30-day free trial, then $20/month." />
         <link rel="canonical" href="https://churnrecovery.com/for/substack" />
-        <meta property="og:title" content="Free Churn Recovery for Substack Creators | ChurnRecovery" />
+        <meta property="og:title" content="Churn Recovery for Substack Creators | ChurnRecovery" />
         <meta property="og:description" content="Catch Substack cancellations in real-time. Automatically win back paid subscribers with personalized offers — no code required." />
         <meta property="og:url" content="https://churnrecovery.com/for/substack" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Free Churn Recovery for Substack Creators" />
+        <meta name="twitter:title" content="Churn Recovery for Substack Creators" />
         <meta name="twitter:description" content="Stop losing paid subscribers silently. ChurnRecovery catches cancellations in real-time." />
       </Head>
 
@@ -130,7 +130,7 @@ export default function SubstackLandingPage() {
           <div className="max-w-[720px] mx-auto text-center relative z-[1]">
             {/* Trust badge */}
             <div className="inline-flex items-center gap-1.5 bg-[rgba(255,103,25,0.15)] border border-[rgba(255,103,25,0.3)] rounded-full py-1.5 px-4 font-sans text-[0.78rem] font-semibold text-[#FF9A6A] mb-7">
-              <span>✓</span> Free for Substack Creators · No Credit Card Required
+              <span>✓</span> 30-Day Free Trial · No Credit Card Required
             </div>
 
             <h1 className="lp-hero-heading text-brand-white m-0 mb-5">
@@ -148,7 +148,7 @@ export default function SubstackLandingPage() {
 
             <div className="flex gap-5 justify-center flex-wrap">
               <span className="font-sans text-[0.8rem] text-white/50">
-                🆓 Free forever for newsletters under $1k/month MRR
+                🆓 30-day free trial — no credit card required
               </span>
               <span className="font-sans text-[0.8rem] text-white/50">
                 ⚡ Takes 10 minutes to set up
@@ -283,7 +283,7 @@ export default function SubstackLandingPage() {
               <BenefitCard icon="📉" title="Discount Offers on Autopilot" description="Offer 20% off or 1 month free to at-risk subscribers. Keep them at a discount — better than losing them forever." />
               <BenefitCard icon="📊" title="Revenue Recovery Dashboard" description="See exactly how much revenue you've saved. Track which messages work. Know your recovery rate." />
               <BenefitCard icon="🏷" title="Substack-Specific Templates" description="Pre-written messages designed for newsletter creators. Warm, personal, not salesy. Sounds like you, not a software company." />
-              <BenefitCard icon="🆓" title="Free for Small Newsletters" description="Under $1k/month MRR? It's free. No catch. We make money when you grow." />
+              <BenefitCard icon="🏷" title="$20/month — Flat" description="30-day free trial, then $20/month. All features included — no per-subscriber fees. Cancel anytime." />
               <BenefitCard icon="🔒" title="No Code Required" description="You write newsletters, not code. We keep it that way. The whole setup takes about 10 minutes, with step-by-step guides." />
             </div>
           </div>
@@ -293,24 +293,20 @@ export default function SubstackLandingPage() {
         <section className="py-[80px] px-6 bg-brand-white">
           <div className="max-w-[680px] mx-auto text-center">
             <h2 className="section-heading-lg text-brand-text m-0 mb-5">
-              Free for Newsletter Creators. Seriously.
+              Simple Pricing for Newsletter Creators
             </h2>
             <p className="font-serif text-base text-brand-gray leading-[1.7] m-0 mb-8">
-              If your Substack earns under $1,000/month, ChurnRecovery is completely free.
-              No trial period. No credit card. No gotchas.
+              30-day free trial, then $20/month. All features included. No credit card required to start.
             </p>
 
-            <div className="grid grid-cols-2 gap-3 mb-7">
+            <div className="max-w-[380px] mx-auto mb-7">
               {[
-                { tier: 'Starter', price: '$0/month', range: 'Under $1k MRR', highlight: true },
-                { tier: 'Growth', price: '$29/month', range: 'Up to $5k MRR' },
-                { tier: 'Pro', price: '$79/month', range: 'Up to $20k MRR' },
-                { tier: 'Enterprise', price: 'Custom', range: 'Above $20k MRR' },
+                { tier: 'All Features', price: '$20/month', range: '30-day free trial', highlight: true },
               ].map(({ tier, price, range, highlight }) => (
                 <div key={tier} className={`rounded-[10px] p-[18px] relative ${highlight ? 'bg-substack-bg border border-brand-accent' : 'bg-brand-bg border border-brand-border'}`}>
                   {highlight && (
                     <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-brand-accent text-brand-white font-sans text-[0.7rem] font-bold py-[3px] px-2.5 rounded-full">
-                      YOU ARE HERE
+                      SIMPLE PRICING
                     </div>
                   )}
                   <div className="font-sans font-bold text-brand-text text-[0.9rem]">{tier}</div>
@@ -351,7 +347,7 @@ export default function SubstackLandingPage() {
               },
               {
                 q: 'What if I only have a few hundred paid subscribers?',
-                a: "That's exactly who this is built for. Even recovering 1–2 subscribers per month at $5–$10 each adds up. And it's free under $1k/month, so there's zero risk.",
+                a: "That's exactly who this is built for. Even recovering 1–2 subscribers per month at $5–$10 each adds up. And with a 30-day free trial, there's zero risk.",
               },
               {
                 q: 'How is this different from what Substack offers?',
@@ -363,7 +359,7 @@ export default function SubstackLandingPage() {
               },
               {
                 q: "What if it doesn't work for me?",
-                a: "Cancel anytime. No contracts. The free tier is free forever — you have nothing to lose by trying.",
+                a: "Cancel anytime. No contracts. Start with a 30-day free trial — you have nothing to lose.",
               },
             ].map(faq => (
               <FAQItem key={faq.q} q={faq.q} a={faq.a} />
@@ -423,8 +419,8 @@ export default function SubstackLandingPage() {
               <br /><span className="text-[#FF9A6A]">Are You Going to Catch It?</span>
             </h2>
             <p className="font-serif text-base text-white/70 m-0 mb-9 leading-[1.7]">
-              Sign up for free. Start recovering Substack cancellations automatically.
-              Free for newsletter creators .
+              Start your 30-day free trial. Start recovering Substack cancellations automatically.
+              No credit card required.
             </p>
 
             <div className="max-w-[480px] mx-auto">
@@ -432,7 +428,7 @@ export default function SubstackLandingPage() {
             </div>
 
             <div className="flex gap-6 justify-center mt-6 flex-wrap">
-              <span className="font-sans text-[0.78rem] text-white/45">Free during beta</span>
+              <span className="font-sans text-[0.78rem] text-white/45">30-day free trial</span>
               <span className="font-sans text-[0.78rem] text-white/45">Cancel anytime</span>
               <span className="font-sans text-[0.78rem] text-white/45">No spam, ever</span>
             </div>

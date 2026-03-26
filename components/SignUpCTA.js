@@ -28,7 +28,7 @@ export default function SignUpCTA({ source = 'homepage', dark = false, compact =
           className={`font-bold no-underline ${compact ? 'text-[0.88rem]' : 'text-[0.95rem]'}`}
         >
           <Link href={signUpUrl}>
-            Get Started Free →
+            Start Free Trial →
           </Link>
         </Button>
         <Button
@@ -45,7 +45,7 @@ export default function SignUpCTA({ source = 'homepage', dark = false, compact =
         </Button>
       </div>
       <p className={`font-sans text-xs mt-3 mb-0 ${dark ? 'text-[rgba(255,255,255,0.6)]' : 'text-brand-gray'}`}>
-        {subtext || 'Free forever · No credit card · Set up in 5 minutes'}
+        {subtext || '30-day free trial · No credit card required · Set up in 5 minutes'}
       </p>
     </div>
   )

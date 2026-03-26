@@ -133,7 +133,7 @@ The economics get slightly better at scale, but you're still paying a significan
 
 ## Feature Comparison: Churnkey vs. Alternatives
 
-| Feature | Churnkey ($250/mo) | ChurnRecovery (Free) | Stunning ($50/mo) |
+| Feature | Churnkey ($250/mo) | ChurnRecovery ($20/mo) | Stunning ($50/mo) |
 |---------|-------------------|---------------------|------------------|
 | Cancel flows | ✅ Visual editor | ✅ Open source | ❌ Dunning only |
 | Failed payment recovery | ✅ Advanced | ✅ Basic | ✅ Basic |
@@ -174,10 +174,10 @@ If $250-825/month is a significant budget line item, there are more cost-effecti
 ### 4. Simple Use Cases
 If you just need basic cancel flows and dunning, simpler tools or open-source solutions work fine.
 
-## Free and Low-Cost Alternatives to Churnkey
+## Low-Cost Alternatives to Churnkey
 
-### 1. ChurnRecovery (Free)
-- **Cost:** $0 forever
+### 1. ChurnRecovery ($20/month)
+- **Cost:** $20/month
 - **Features:** Cancel flows, failed payment recovery, A/B testing, full API
 - **Best for:** Startups, developers, budget-conscious companies
 - **Setup time:** ~15 minutes
@@ -207,7 +207,7 @@ Based on market trends and competitive pressure, here's what we expect from Chur
 
 ### Likely Changes
 
-**Free tier introduction:** With ChurnRecovery offering a strong free alternative, Churnkey may introduce a limited free plan to capture early-stage customers.
+**Free tier introduction:** With ChurnRecovery offering a strong $20/month alternative, Churnkey may introduce a limited free plan to capture early-stage customers.
 
 **Usage-based options:** The current MRR-based pricing may shift to usage-based (per saved customer or per interaction) to better align costs with value.
 
@@ -229,11 +229,11 @@ Based on market trends and competitive pressure, here's what we expect from Chur
 
 **For enterprise SaaS ($200k+ MRR):** Churnkey's enterprise features and support may justify the cost, especially if you need custom integrations or white-label options.
 
-## Better Approach: Start Free, Upgrade Later
+## Better Approach: Start Affordable, Upgrade Later
 
 Our recommendation for most companies:
 
-1. **Start with a free solution** like ChurnRecovery to validate that churn prevention works for your business
+1. **Start with an affordable solution** like ChurnRecovery to validate that churn prevention works for your business
 2. **Measure the impact** on customer retention and revenue
 3. **Consider upgrading** to Churnkey if you need enterprise features or lack technical resources
 4. **Negotiate annual contracts** for better pricing if you do choose Churnkey
@@ -276,7 +276,7 @@ Churnkey charges premium prices for premium service. Whether it's "worth it" dep
 - You only need basic churn prevention
 - You prefer API-first tools
 
-For most early and mid-stage SaaS companies, starting with a free alternative like ChurnRecovery makes more sense. You can always upgrade to Churnkey later if you outgrow the free option or need enterprise features.
+For most early and mid-stage SaaS companies, starting with a $20/month alternative like ChurnRecovery makes more sense. You can always upgrade to Churnkey later if you outgrow ChurnRecovery or need enterprise features.
 
 **The real question isn't whether Churnkey is good** — it's whether it's $250+/month better than the alternatives. For most companies, the answer is no.
 
@@ -288,4 +288,4 @@ For most early and mid-stage SaaS companies, starting with a free alternative li
 
 ---
 
-*Want to try churn prevention without the $250/month commitment? [ChurnRecovery offers the same core features for free](https://churnrecovery.com) — setup takes 15 minutes and works with any billing system.*
+*Want to try churn prevention without the $250/month commitment? [ChurnRecovery offers the same core features for $20/month — with a 30-day free trial](https://churnrecovery.com). Setup takes 15 minutes and works with any billing system.*

@@ -67,7 +67,7 @@ export default function ReferralPage() {
           </h1>
 
           <p className="font-serif text-base text-brand-gray leading-[1.7] mb-8">
-            {inviterText} Sign up free and get{' '}
+            {inviterText} Start your free trial and get{' '}
             <strong className="text-brand-accent">Founding Member perks</strong>{' '}
             as an early user.
           </p>
@@ -86,7 +86,7 @@ export default function ReferralPage() {
               href={code ? `/app/sign-up?ref=${code}` : '/app/sign-up'}
               className="inline-block bg-brand-accent text-brand-white px-7 py-3.5 rounded-lg font-sans font-bold text-[0.95rem] no-underline"
             >
-              Get Started Free →
+              Start Free Trial →
             </Link>
           </div>
 
@@ -97,7 +97,7 @@ export default function ReferralPage() {
             </p>
             <ul className="list-none p-0 m-0 flex flex-col gap-2">
               {[
-                '✓ Free forever plan — no credit card ever',
+                '✓ 30-day free trial — no credit card required',
                 '✓ Priority access before public launch',
                 '✓ Direct line to the founder',
                 '✓ Shape the product with your feedback',
@@ -112,7 +112,7 @@ export default function ReferralPage() {
 
         {/* Footer */}
         <p className="mt-6 font-sans text-[0.75rem] text-[#999] text-center">
-          ChurnRecovery helps subscription businesses save canceling members — for free.{' '}
+          ChurnRecovery helps subscription businesses save canceling members — starting at $20/month.{' '}
           <a href="/" className="text-brand-accent no-underline">Learn more →</a>
         </p>
       </div>

@@ -22,7 +22,7 @@ function Nav() {
         <Link href="/docs" className="text-brand-gray no-underline text-[0.9rem] font-sans">Docs</Link>
         <Link href="/templates" className="text-brand-accent no-underline text-[0.9rem] font-sans font-semibold">Templates</Link>
         <Link href="/blog" className="text-brand-gray no-underline text-[0.9rem] font-sans">Blog</Link>
-        <a href="/app/sign-up" className="bg-brand-accent text-brand-white px-[18px] py-2 rounded-[6px] no-underline text-[0.85rem] font-semibold font-sans">Get Started Free</a>
+        <a href="/app/sign-up" className="bg-brand-accent text-brand-white px-[18px] py-2 rounded-[6px] no-underline text-[0.85rem] font-semibold font-sans">Start Free Trial</a>
       </div>
     </nav>
   )

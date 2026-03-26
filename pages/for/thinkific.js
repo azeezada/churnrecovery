@@ -123,7 +123,7 @@ export default function ThinkificLandingPage() {
 
           <div className="max-w-[720px] mx-auto text-center relative z-[1]">
             <div className="inline-flex items-center gap-1.5 bg-[rgba(124,58,237,0.2)] border border-[rgba(124,58,237,0.4)] rounded-full py-1.5 px-4 font-sans text-[0.78rem] font-semibold text-[#C4B5FD] mb-7">
-              <span>✓</span> Built for Thinkific Creators · Free During Beta
+              <span>✓</span> Built for Thinkific Creators · 30-Day Free Trial
             </div>
 
             <h1 className="lp-hero-heading text-brand-white m-0 mb-5">
@@ -142,7 +142,7 @@ export default function ThinkificLandingPage() {
 
             <div className="flex gap-5 justify-center flex-wrap">
               <span className="font-sans text-[0.8rem] text-white/50">
-                🆓 Free forever under $1k/month MRR
+                🆓 30-day free trial — no credit card required
               </span>
               <span className="font-sans text-[0.8rem] text-white/50">
                 ⚡ Works natively with Thinkific
@@ -274,7 +274,7 @@ export default function ThinkificLandingPage() {
               <BenefitCard icon="📉" title="Automated Discount Offers" description="One-time discount at the cancel moment. Keep students at a lower price — better than zero." />
               <BenefitCard icon="📊" title="Revenue Recovery Dashboard" description="Track exactly how many students you saved and how much revenue was recovered. See what messages work best." />
               <BenefitCard icon="🎓" title="Course Creator Templates" description="Pre-written messages for subscription courses and membership programs. Warm, personal, effective — and customizable." />
-              <BenefitCard icon="🆓" title="Free Under $1k/Month MRR" description="Building your subscription course business? Free until $1k/month. No credit card, no trial expiration." />
+              <BenefitCard icon="🆓" title="30-Day Free Trial" description="Try ChurnRecovery free for 30 days — no credit card required. $20/month after, with all features included." />
               <BenefitCard icon="🔒" title="No Code Setup" description="Connect Stripe, write your message, go live. No developer. No API calls. Step-by-step guide included." />
             </div>
           </div>
@@ -287,20 +287,17 @@ export default function ThinkificLandingPage() {
               Built for Course Creators — Not Enterprise SaaS
             </h2>
             <p className="font-serif text-base text-brand-gray leading-[1.7] m-0 mb-8">
-              Free while you grow. Scales affordably when you do.
+              30-day free trial. $20/month after. All features included.
             </p>
 
-            <div className="grid grid-cols-2 gap-3 mb-7">
+            <div className="max-w-[380px] mx-auto mb-7">
               {[
-                { tier: 'Starter', price: '$0/month', range: 'Under $1k MRR', highlight: true },
-                { tier: 'Growth', price: '$29/month', range: 'Up to $5k MRR' },
-                { tier: 'Pro', price: '$79/month', range: 'Up to $20k MRR' },
-                { tier: 'Enterprise', price: 'Custom', range: 'Above $20k MRR' },
+                { tier: 'All Features', price: '$20/month', range: '30-day free trial', highlight: true },
               ].map(({ tier, price, range, highlight }) => (
                 <div key={tier} className={`rounded-[10px] p-[18px] relative ${highlight ? 'bg-brand-purple-light border border-brand-purple' : 'bg-brand-bg border border-brand-border'}`}>
                   {highlight && (
                     <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-brand-purple text-brand-white font-sans text-[0.7rem] font-bold py-[3px] px-2.5 rounded-full">
-                      START HERE FREE
+                      SIMPLE PRICING
                     </div>
                   )}
                   <div className="font-sans font-bold text-brand-text text-[0.9rem]">{tier}</div>
@@ -311,7 +308,7 @@ export default function ThinkificLandingPage() {
             </div>
 
             <div className="bg-brand-green-light border border-[#C6E6D4] rounded-[10px] py-3.5 px-5 font-sans text-[0.88rem] text-brand-green mb-6">
-              Enterprise churn tools start at $400–$800/month. ChurnRecovery starts at $0. The math is easy. 😊
+              Enterprise churn tools start at $400–$800/month. ChurnRecovery is just $20/month. The math is easy.
             </div>
           </div>
         </section>
@@ -412,7 +409,7 @@ export default function ThinkificLandingPage() {
               <br /><span className="text-[#C4B5FD]">Will You Be There to Stop It?</span>
             </h2>
             <p className="font-serif text-base text-white/70 m-0 mb-9 leading-[1.7]">
-              Sign up for free. Free for Thinkific course creators — no credit card required.
+              Start your 30-day free trial — no credit card required.
             </p>
 
             <div className="max-w-[480px] mx-auto">
@@ -420,7 +417,7 @@ export default function ThinkificLandingPage() {
             </div>
 
             <div className="flex gap-6 justify-center mt-6 flex-wrap">
-              <span className="font-sans text-[0.78rem] text-white/45">Free during beta</span>
+              <span className="font-sans text-[0.78rem] text-white/45">30-day free trial</span>
               <span className="font-sans text-[0.78rem] text-white/45">Cancel anytime</span>
               <span className="font-sans text-[0.78rem] text-white/45">No spam, ever</span>
             </div>

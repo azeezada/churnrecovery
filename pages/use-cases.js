@@ -11,7 +11,7 @@ const useCases = [
     title: 'B2B SaaS',
     subtitle: 'Recover enterprise and SMB accounts before they churn',
     heroStat: '73%',
-    heroLabel: 'of B2B cancellations are preventable',
+    heroLabel: 'of B2B cancellations may be preventable',
     color: '#2563EB',
     colorBg: '#EFF6FF',
     challenges: [
@@ -58,7 +58,7 @@ const useCases = [
     title: 'Developer Tools',
     subtitle: 'Keep developers subscribed through the eval-to-paid journey',
     heroStat: '58%',
-    heroLabel: 'of dev tool churn happens in the first 90 days',
+    heroLabel: 'of dev tool churn is estimated to occur in the first 90 days',
     color: '#7C3AED',
     colorBg: '#F5F3FF',
     challenges: [
@@ -105,7 +105,7 @@ const useCases = [
     title: 'Media & Subscriptions',
     subtitle: 'Reduce subscriber churn on newsletters, podcasts, and content platforms',
     heroStat: '41%',
-    heroLabel: 'of media cancellations cite "too busy to consume content"',
+    heroLabel: 'of media cancellations may cite "too busy to consume content"',
     color: '#B45309',
     colorBg: '#FFFBEB',
     challenges: [
@@ -152,7 +152,7 @@ const useCases = [
     title: 'E-commerce & Subscriptions',
     subtitle: 'Save subscription box and replenishment customers',
     heroStat: '35%',
-    heroLabel: 'of subscription box cancellations are due to product-fit issues',
+    heroLabel: 'of subscription box cancellations may be due to product-fit issues',
     color: '#047857',
     colorBg: '#ECFDF5',
     challenges: [
@@ -199,7 +199,7 @@ const useCases = [
     title: 'Professional Services & Agencies',
     subtitle: 'Retain retainer clients and prevent project churn',
     heroStat: '62%',
-    heroLabel: 'of agency client churn is relationship-driven, not results-driven',
+    heroLabel: 'of agency client churn may be relationship-driven, not results-driven',
     color: '#6B7280',
     colorBg: '#F9FAFB',
     challenges: [
@@ -246,7 +246,7 @@ const useCases = [
     title: 'Fintech & Financial Tools',
     subtitle: 'Keep users in your financial ecosystem',
     heroStat: '47%',
-    heroLabel: 'of fintech app churn happens after the first bill cycles',
+    heroLabel: 'of fintech app churn is estimated to occur after the first billing cycles',
     color: '#0F766E',
     colorBg: '#F0FDFA',
     challenges: [
@@ -361,7 +361,7 @@ export default function UseCasesPage() {
           </p>
           <div className="flex gap-3 justify-center flex-wrap">
             <Link href="/app/sign-up" className="bg-brand-accent text-brand-white py-3 px-7 rounded-lg no-underline font-sans font-semibold text-[0.95rem]">
-              Get Started Free
+              Start Free Trial
             </Link>
             <Link href="/demo" className="bg-brand-white text-brand-text py-3 px-7 rounded-lg no-underline font-sans font-semibold text-[0.95rem] border border-brand-border">
               See how it works
@@ -471,11 +471,11 @@ export default function UseCasesPage() {
         <section className="bg-brand-text py-20 px-6">
           <div className="max-w-[560px] mx-auto text-center">
             <h2 className="font-sans font-extrabold text-[2rem] text-brand-white mt-0 mb-4 tracking-[-0.03em]">
-              Free for every vertical
+              Churn recovery for every vertical
             </h2>
             <p className="font-serif text-base text-white/70 leading-[1.8] mt-0 mb-8">
               Whether you're a B2B SaaS company or a solo newsletter creator,
-              ChurnRecovery is free to use. No plans. No usage limits. No catch.
+              ChurnRecovery is $20/month — all features, no usage limits. Start with a 30-day free trial.
             </p>
             <SignUpCTA source="use-cases" />
           </div>

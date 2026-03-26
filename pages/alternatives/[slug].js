@@ -48,8 +48,8 @@ function FeatureCard({ icon, title, description }) {
 export default function AlternativePage({ competitor }) {
   if (!competitor) return null
 
-  const title = `Best ${competitor.name} Alternative in 2025 — ChurnRecovery`
-  const description = `Looking for a ${competitor.name} alternative? ChurnRecovery offers cancel flows, failed payment recovery, A/B testing, and a developer API — completely free.`
+  const title = `Best ${competitor.name} Alternative in 2026 — ChurnRecovery`
+  const description = `Looking for a ${competitor.name} alternative? ChurnRecovery offers cancel flows, failed payment recovery, A/B testing, and a developer API — for just $20/month.`
 
   return (
     <>
@@ -91,7 +91,7 @@ export default function AlternativePage({ competitor }) {
             <Link href={`/compare/${competitor.slug}`} className="text-brand-gray no-underline text-[0.9rem]">
               Full Comparison →
             </Link>
-            <a href="/app/sign-up" className="bg-brand-accent text-brand-white px-[18px] py-2 rounded-[6px] no-underline text-[0.85rem] font-semibold">Get Started Free</a>
+            <a href="/app/sign-up" className="bg-brand-accent text-brand-white px-[18px] py-2 rounded-[6px] no-underline text-[0.85rem] font-semibold">Start Free Trial</a>
           </div>
         </nav>
 
@@ -115,16 +115,16 @@ export default function AlternativePage({ competitor }) {
           </div>
 
           <h1 className="font-sans font-extrabold text-brand-text leading-[1.15] tracking-[-0.04em] mb-6 max-w-[720px] text-[clamp(2rem,5.5vw,3.2rem)]">
-            The free alternative to {competitor.name} your SaaS has been waiting for
+            The $20/month alternative to {competitor.name} your SaaS has been waiting for
           </h1>
 
           <p className="font-serif text-[1.15rem] text-brand-gray leading-[1.7] max-w-[600px] mb-10">
-            {competitor.name} starts at {competitor.pricing.label}. ChurnRecovery gives you every feature you need to reduce churn — cancel flows, dunning, A/B testing, analytics — completely free.
+            {competitor.name} starts at {competitor.pricing.label}. ChurnRecovery gives you every feature you need to reduce churn — cancel flows, dunning, A/B testing, analytics — for just $20/month.
           </p>
 
           <div className="flex gap-4 flex-wrap mb-10">
             <a href="/app/sign-up" className="inline-block bg-brand-accent text-brand-white px-7 py-[14px] rounded-lg font-sans font-bold text-base no-underline tracking-[-0.01em]">
-              Get Started Free →
+              Start Free Trial →
             </a>
             <Link href={`/compare/${competitor.slug}`} className="inline-block bg-transparent text-brand-text px-7 py-[14px] rounded-lg font-sans font-semibold text-base no-underline border border-brand-border">
               See Full Comparison →
@@ -134,7 +134,7 @@ export default function AlternativePage({ competitor }) {
           {/* Social proof bar */}
           <div className="flex gap-8 flex-wrap pt-8 border-t border-brand-border">
             {[
-              { stat: '$0/mo', label: 'Forever free' },
+              { stat: '$20/mo', label: '30-day free trial' },
               { stat: '< 1 day', label: 'Integration time' },
               { stat: '100%', label: 'Revenue kept' },
               { stat: 'Open source', label: 'Full transparency' },
@@ -206,10 +206,10 @@ export default function AlternativePage({ competitor }) {
             Ready to switch from {competitor.name}?
           </h2>
           <p className="font-serif text-base text-[rgba(255,255,255,0.7)] mb-8 max-w-[460px] mx-auto leading-[1.7]">
-            Start using the churn recovery tool that doesn't cost you anything.
+            $20/month for everything. Start with a free 30-day trial — no credit card required.
           </p>
           <a href="/app/sign-up" className="inline-block bg-brand-accent text-brand-white px-8 py-[14px] rounded-lg font-sans font-bold text-base no-underline tracking-[-0.01em]">
-            Get Started Free →
+            Start Free Trial →
           </a>
           <div className="mt-5">
             <Link href={`/compare/${competitor.slug}`} className="font-sans text-[0.85rem] text-[rgba(255,255,255,0.5)] no-underline">

@@ -50,7 +50,7 @@ export default function Header() {
                 <Link href="/app/sign-in">Sign in</Link>
               </Button>
               <Button asChild size="sm" className="whitespace-nowrap header-cta rounded-[7px] no-underline">
-                <Link href="/app/sign-up">Get Started Free</Link>
+                <Link href="/app/sign-up">Start Free Trial</Link>
               </Button>
             </>
           )}
@@ -88,7 +88,7 @@ export default function Header() {
               </Link>
               <Button asChild className="w-full mt-4 rounded-lg no-underline text-[15px]">
                 <Link href="/app/sign-up" onClick={() => setMobileOpen(false)}>
-                  Get Started Free →
+                  Start Free Trial →
                 </Link>
               </Button>
             </>

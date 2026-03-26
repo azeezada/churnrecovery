@@ -67,7 +67,7 @@ export default function StripeLandingPage() {
     <>
       <Head>
         <title>Stripe Cancel Flow & Churn Recovery | ChurnRecovery</title>
-        <meta name="description" content="Stripe processes your payments — but it doesn't save them. ChurnRecovery adds a cancel flow to your Stripe subscriptions in 10 minutes. Pause offers, discounts, exit surveys. Free to start." />
+        <meta name="description" content="Stripe processes your payments — but it doesn't save them. ChurnRecovery adds a cancel flow to your Stripe subscriptions in 10 minutes. Pause offers, discounts, exit surveys. $20/month flat." />
         <link rel="canonical" href="https://churnrecovery.com/for/stripe" />
         <meta property="og:title" content="Stripe Processes Payments. We Save Them. | ChurnRecovery" />
         <meta property="og:description" content="Stripe doesn't have a built-in cancel flow. When subscribers cancel, it happens instantly and silently. ChurnRecovery adds the missing layer: a cancel flow with pause offers, discounts, and exit surveys." />
@@ -75,7 +75,7 @@ export default function StripeLandingPage() {
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Stripe Cancel Flow & Churn Recovery | ChurnRecovery" />
-        <meta name="twitter:description" content="Add a cancel flow to your Stripe subscriptions in 10 minutes. Pause offers, discounts, exit surveys. 20–35% of churning subscribers can be saved. Free to start." />
+        <meta name="twitter:description" content="Add a cancel flow to your Stripe subscriptions in 10 minutes. Pause offers, discounts, exit surveys. 20–35% of churning subscribers can be saved. $20/month flat, 30-day free trial." />
         {/* SEO: target stripe churn recovery and stripe cancel flow */}
         <meta name="keywords" content="stripe churn recovery, stripe cancel flow, stripe subscription cancellations, churn recovery stripe, cancel flow stripe" />
       </Head>
@@ -92,7 +92,7 @@ export default function StripeLandingPage() {
 
           <div className="max-w-[760px] mx-auto text-center relative z-[1]">
             <div className="inline-flex items-center gap-[6px] bg-[rgba(99,91,255,0.2)] border border-[rgba(99,91,255,0.4)] rounded-full px-4 py-[6px] font-sans text-[0.78rem] font-semibold text-[#8B85FF] mb-7">
-              <span>⚡</span> Built for Stripe subscriptions · Free to start
+              <span>⚡</span> Built for Stripe subscriptions · $20/month flat
             </div>
 
             <h1 className="font-sans font-extrabold text-white m-0 mb-6 leading-[1.1] tracking-[-0.03em] text-[clamp(2.4rem,6vw,4rem)]">
@@ -113,7 +113,7 @@ export default function StripeLandingPage() {
             </div>
 
             <div className="flex gap-6 justify-center flex-wrap">
-              <span className="font-sans text-[0.8rem] text-[rgba(255,255,255,0.45)]">🆓 Free tier — always</span>
+              <span className="font-sans text-[0.8rem] text-[rgba(255,255,255,0.45)]">💳 $20/month flat</span>
               <span className="font-sans text-[0.8rem] text-[rgba(255,255,255,0.45)]">⚡ 10-minute setup</span>
               <span className="font-sans text-[0.8rem] text-[rgba(255,255,255,0.45)]">🎯 20–35% save rate</span>
             </div>
@@ -228,7 +228,7 @@ export default function StripeLandingPage() {
               <BenefitCard icon="📋" title="Exit Survey — Learn Why People Leave" description="A one-question survey at the cancel screen tells you what Stripe never will: why subscribers are actually leaving. Use that data to improve your product and reduce future churn." />
               <BenefitCard icon="📊" title="Churn Recovery Dashboard" description="Track exactly how much revenue you've saved, which offers work best, and your overall churn recovery rate — in a clean dashboard built for subscription businesses." />
               <BenefitCard icon="🤖" title="Automatic — Runs While You Sleep" description="Set it up once and forget it. Every cancellation attempt triggers your cancel flow automatically, 24/7. No manual work, no chasing individual subscribers." />
-              <BenefitCard icon="🆓" title="Free to Start — No Hidden Costs" description="ChurnRecovery is free during beta. There's no catch, no credit card required, and no percentage-of-revenue fee. You grow, we grow with you." />
+              <BenefitCard icon="💳" title="$20/Month — No Hidden Costs" description="ChurnRecovery is $20/month flat. No per-subscriber fees, no percentage-of-revenue fee, no surprise bills. 30-day free trial to get started." />
             </div>
           </div>
         </section>
@@ -267,18 +267,15 @@ export default function StripeLandingPage() {
               Priced for Real Businesses, Not Enterprises
             </h2>
             <p className="font-serif text-base text-[#666666] leading-[1.7] m-0 mb-8">
-              The tools Stripe doesn&apos;t include shouldn&apos;t cost $500+/month. ChurnRecovery starts free and scales with your business.
+              The tools Stripe doesn&apos;t include shouldn&apos;t cost $500+/month. ChurnRecovery is $20/month — flat pricing that scales with your business.
             </p>
 
-            <div className="grid grid-cols-2 gap-3 mb-7">
+            <div className="max-w-[380px] mx-auto mb-7">
               {[
-                { tier: 'Starter', price: '$0/month', range: 'Free forever', highlight: true },
-                { tier: 'Growth', price: '$29/month', range: 'Up to $5k MRR' },
-                { tier: 'Pro', price: '$79/month', range: 'Up to $20k MRR' },
-                { tier: 'Scale', price: 'Custom', range: 'Above $20k MRR' },
+                { tier: 'All Features', price: '$20/month', range: '30-day free trial', highlight: true },
               ].map(({ tier, price, range, highlight }) => (
                 <div key={tier} className={`rounded-[10px] p-[18px] relative ${highlight ? 'bg-[rgba(99,91,255,0.08)] border border-[#635BFF]' : 'bg-white border border-[#E5E5E5]'}`}>
-                  {highlight && <div className="absolute -top-[10px] left-1/2 -translate-x-1/2 bg-[#635BFF] text-white font-sans text-[0.7rem] font-bold px-[10px] py-[3px] rounded-full">START FREE</div>}
+                  {highlight && <div className="absolute -top-[10px] left-1/2 -translate-x-1/2 bg-[#635BFF] text-white font-sans text-[0.7rem] font-bold px-[10px] py-[3px] rounded-full">SIMPLE PRICING</div>}
                   <div className="font-sans font-bold text-[#191919] text-[0.9rem]">{tier}</div>
                   <div className={`font-sans font-extrabold text-[1.4rem] my-1 ${highlight ? 'text-[#635BFF]' : 'text-[#191919]'}`}>{price}</div>
                   <div className="font-serif text-[0.78rem] text-[#666666]">{range}</div>
@@ -308,7 +305,7 @@ export default function StripeLandingPage() {
               { q: 'What if I use Stripe with a platform like Kajabi, Ghost, or Teachable?', a: "ChurnRecovery works with Stripe regardless of what platform sits on top. If your subscriptions process through Stripe — whether directly or through a platform that uses Stripe — we can integrate with them. See our dedicated pages for Kajabi, Ghost, Teachable, and other platforms." },
               { q: "Can I customize the cancel flow message and offers?", a: "Completely. Your cancel flow can have your brand name, your voice, and your exact offer. You choose whether to show a pause option, a discount, a survey, or a combination. We provide templates, but you can edit every word. Your subscribers will feel like they're hearing from you." },
               { q: 'What happens if a subscriber declines my offer?', a: "They complete the cancellation normally. ChurnRecovery doesn't block cancellations — it gives you a chance to save the subscription first. If they still want to leave, they leave. But you get their exit survey response, which tells you why — and that's data Stripe never gives you." },
-              { q: 'Is ChurnRecovery really free?', a: "During our beta, yes — completely free. No credit card, no surprise bills. We're focused on building the best Stripe churn recovery tool and learning from real users. After beta, we'll offer paid plans, but beta users get favorable rates and advance notice." },
+              { q: 'How much does ChurnRecovery cost?', a: "$20/month with a 30-day free trial. No credit card required to start. No per-subscriber fees, no per-recovery fees. All features included. Cancel anytime." },
               { q: "Does this work for B2B Stripe subscriptions?", a: "Yes. ChurnRecovery works for any Stripe subscription — B2B, B2C, monthly, annual, or usage-based. The cancel flow experience can be customized for your audience: a B2B tool might offer a call with your team instead of a discount, while a B2C product might lead with a pause offer." },
             ].map(faq => <FAQItem key={faq.q} q={faq.q} a={faq.a} />)}
           </div>
@@ -368,7 +365,7 @@ export default function StripeLandingPage() {
               <span className="text-[#8B85FF]">Are You Ready to Save Them?</span>
             </h2>
             <p className="font-serif text-base text-[rgba(255,255,255,0.65)] m-0 mb-9 leading-[1.7]">
-              Sign up for free. Add a cancel flow to your Stripe subscriptions — for free. 10-minute setup, no code, no developer.
+              Add a cancel flow to your Stripe subscriptions in 10 minutes. $20/month flat, 30-day free trial. No code, no developer required.
             </p>
 
             <div className="max-w-[500px] mx-auto mb-7">
@@ -376,7 +373,7 @@ export default function StripeLandingPage() {
             </div>
 
             <div className="flex gap-6 justify-center flex-wrap mb-8">
-              <span className="font-sans text-[0.78rem] text-[rgba(255,255,255,0.4)]">Free during beta</span>
+              <span className="font-sans text-[0.78rem] text-[rgba(255,255,255,0.4)]">30-day free trial</span>
               <span className="font-sans text-[0.78rem] text-[rgba(255,255,255,0.4)]">Cancel anytime</span>
               <span className="font-sans text-[0.78rem] text-[rgba(255,255,255,0.4)]">No spam, ever</span>
             </div>

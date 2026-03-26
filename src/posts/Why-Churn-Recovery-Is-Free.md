@@ -1,17 +1,19 @@
 ---
-title: "Why ChurnRecovery Is Free (And How We Plan to Stay That Way)"
+title: "Why ChurnRecovery Costs $20/Month (And Why That's the Right Price)"
 date: "2026-03-12"
-excerpt: "The business model behind giving away churn recovery tooling for free. No, it's not a bait-and-switch. Here's exactly how it works."
-tags: ["churnrecovery", "open-source", "business-model"]
+excerpt: "Churn recovery tools cost $250–$825/month. We charge $20. Here's exactly why we picked that number — and why it's the right price for subscription businesses of every size."
+tags: ["churnrecovery", "pricing", "business-model"]
 ---
 
-# Why ChurnRecovery Is Free (And How We Plan to Stay That Way)
+# Why ChurnRecovery Costs $20/Month (And Why That's the Right Price)
 
-When we tell people ChurnRecovery is free, the first question is always: "What's the catch?"
+When we tell people ChurnRecovery is $20/month, the first question is usually: "What's the catch?"
 
-Fair question. In SaaS, "free" usually means one of three things: it's a trial, it's freemium with crippled features, or you're the product. ChurnRecovery is none of those.
+Fair question. In SaaS, suspiciously low pricing usually means one of three things: it's a loss leader, the features are crippled, or the price goes up the moment you depend on it. ChurnRecovery is none of those.
 
-This post explains our business model, why we believe churn recovery tooling should be free, and how we plan to sustain it.
+$20/month. One tier. All features. No per-subscriber fees, no per-recovery fees, no usage limits. That's it.
+
+This post explains how we arrived at that price, why we believe it's sustainable, and why the rest of the market is charging 10–40x more for the same thing.
 
 ---
 
@@ -38,64 +40,81 @@ The market has consolidation happening, with churn recovery tooling being absorb
 
 ---
 
-## Our Thesis: Churn Recovery Should Be Infrastructure
+## Our Thesis: Churn Recovery Should Be Affordable Infrastructure
 
 Here's our core belief: **churn recovery is infrastructure, not a premium product.**
 
 Think about it like this. Email delivery used to be expensive. Then SendGrid and Mailgun drove prices toward zero because the marginal cost of sending an email is essentially nothing. Authentication used to be a paid service. Then Auth0 had a generous free tier, and now Clerk and Supabase Auth give it away because the marginal cost is near zero.
 
 Churn recovery follows the same pattern:
-- **Cancel flows** are client-side JavaScript. The cost of serving them is zero.
+- **Cancel flows** are client-side JavaScript. The cost of serving them is minimal.
 - **Dunning emails** are triggered emails. Cost: fractions of a cent.
 - **Retry logic** is API calls to Stripe. Cost: zero (Stripe doesn't charge for retry attempts).
 - **Analytics** is aggregating webhook data. Cost: minimal compute and storage.
 
-The entire churn recovery stack can run on Cloudflare's free tier. The infrastructure cost for serving a customer is effectively zero. So why does it cost $250-$825/month?
+The entire churn recovery stack can run on modern cloud infrastructure for pennies per customer. So why does it cost $250–$825/month?
 
 Because the incumbents priced based on value delivered, not cost of delivery. And that's a legitimate pricing strategy — but it creates an opening for someone willing to compete on price.
 
 ---
 
-## How ChurnRecovery Makes Money (Eventually)
+## Why $20/Month Is the Right Number
 
-We're playing a long game. Here's the honest roadmap:
+We didn't pick $20 out of a hat. Here's the math:
 
-### Phase 1: Build the best free churn recovery platform (Now)
+### It works at every scale
 
-Give away the core product. Cancel flows, dunning, payment recovery, exit surveys, basic analytics. All free, all open source, all self-hostable.
+- **500 subscribers at $10/month ($5K MRR):** $20 is 0.4% of revenue. Recover one subscriber per month and you've 50x'd your investment.
+- **2,000 subscribers at $15/month ($30K MRR):** $20 is 0.07% of revenue. Effectively invisible.
+- **10,000 subscribers at $20/month ($200K MRR):** $20 is 0.01% of revenue. The same features Churnkey charges $825/month for.
 
-The goal: become the default choice for SaaS companies that need churn recovery but can't or won't pay $250+/month.
+At every scale, $20/month is a no-brainer. There's no point where the economics stop working.
 
-### Phase 2: Offer premium features for larger teams (Future)
+### No per-subscriber traps
 
-Once we have a significant user base, we'll offer paid features that matter to bigger companies:
+Most SaaS tools punish you for growing. More contacts? Higher tier. More revenue? Bigger percentage. More recoveries? Larger take rate.
 
-- **Advanced A/B testing** for cancel flow optimization
-- **AI-powered offer recommendations** based on customer behavior patterns
-- **White-glove onboarding** and dedicated support
-- **Custom integrations** for enterprise billing systems
-- **SLA guarantees** for mission-critical deployments
-- **Team collaboration** features (multiple users, approval workflows)
+ChurnRecovery is flat. $20/month whether you have 100 subscribers or 100,000. Your success doesn't increase our price.
 
-The core product stays free forever. Premium features are for companies where churn recovery is a strategic function managed by a dedicated team.
+### It covers our costs with room to build
 
-### Phase 3: Become a platform (Long-term)
-
-The real opportunity isn't in churn recovery alone — it's in the broader retention stack. Companies that use ChurnRecovery for cancel flows will also need:
-
-- Customer health scoring
-- Expansion revenue tools
-- Win-back campaigns
-- Lifecycle email automation
-- Product analytics
-
-We can build or partner for these adjacent tools, creating a retention platform where ChurnRecovery is the entry point.
+Our infrastructure costs per customer are minimal — we're talking cents per month on modern cloud platforms. At $20/month per customer, we can sustain the product, keep improving it, and build a real business without extracting maximum value from every user.
 
 ---
 
-## Why Open Source?
+## How ChurnRecovery Makes Money
 
-We're not just free — we're open source (MIT license). This is a deliberate strategic choice.
+We're building a sustainable business, not running a charity. Here's the honest model:
+
+### Simple, flat pricing
+$20/month gets you everything:
+- Cancel flow builder
+- Dunning / payment recovery
+- Exit surveys
+- Churn analytics dashboard
+- Stripe integration
+- A/B testing for flows
+- Custom CSS styling
+
+No tiers. No upsells on core features. No "contact sales" gates.
+
+### 30-day free trial to prove the value
+We offer a full 30-day free trial — no credit card required. Use every feature. See the results. If ChurnRecovery doesn't recover more than $20/month in its first month (it will), you walk away having lost nothing.
+
+### Optional premium services for larger teams
+For companies that want more hands-on support:
+- **White-glove onboarding** and dedicated support
+- **Custom integrations** for enterprise billing systems
+- **Managed hosting** (we run it for you)
+- **SLA guarantees** for mission-critical deployments
+
+These are optional. The $20/month plan is the real product, not a teaser.
+
+---
+
+## Why Open Source Still Matters
+
+We're not just affordable — we're open source (MIT license). This is a deliberate strategic choice.
 
 ### Trust
 Churn recovery tooling handles sensitive customer interactions. When a customer is about to cancel, what they see matters. With closed-source tools, you're trusting a vendor's code to have the right conversation with your customers. With open source, you can read every line.
@@ -107,95 +126,28 @@ Every SaaS product is different. The cancel flow that works for a project manage
 Open source creates a flywheel. Developers contribute cancel flow templates, integration adapters, and analytics dashboards. The product gets better faster than any single team could build it. Contributors become advocates. Advocates bring users. Users become contributors.
 
 ### Competitive moat
-This is counterintuitive, but open source is actually a competitive advantage. Here's why:
+This is counterintuitive, but open source is actually a competitive advantage:
 
 1. **Incumbents can't copy the model.** Churnkey can't open-source their product without destroying their revenue. We can.
 2. **Community contributions compound.** Every cancel flow template, every billing adapter, every bug fix — it all accumulates.
 3. **Lock-in is impossible.** Customers trust us more because they know they can leave. Paradoxically, this makes them stay longer.
-4. **Hiring pipeline.** Contributors who love the product become the best employees.
 
 ---
 
-## The Economics: How Free Can Work
+## The Comparison That Matters
 
-Let's run the numbers to show this isn't naive optimism.
+| | ChurnRecovery | Churnkey Starter | Churnkey Growth |
+|---|---|---|---|
+| **Monthly cost** | **$20** | $250 | $825 |
+| **Annual cost** | **$240** | $3,000 | $9,900 |
+| **Cancel flows** | ✅ | ✅ | ✅ |
+| **Dunning emails** | ✅ | ✅ | ✅ |
+| **Churn analytics** | ✅ | ✅ | ✅ |
+| **Per-recovery fees** | ❌ None | ✅ Yes | ✅ Yes |
+| **Open source** | ✅ MIT | ❌ | ❌ |
+| **Self-hosting** | ✅ | ❌ | ❌ |
 
-### Infrastructure costs per customer
-
-| Component | Cost |
-|-----------|------|
-| Cancel flow JS (CDN) | ~$0 (Cloudflare free tier) |
-| Webhook processing | ~$0.001/event (Workers free tier) |
-| Data storage | ~$0.01/month (D1 free tier) |
-| Email sending (dunning) | ~$0.001/email (via customer's own ESP) |
-| **Total per customer** | **< $0.05/month** |
-
-At 10,000 free customers, our infrastructure cost is less than $500/month. That's manageable with a small team and minimal funding.
-
-### Revenue model projections
-
-| Metric | Year 1 | Year 2 | Year 3 |
-|--------|--------|--------|--------|
-| Free users | 1,000 | 10,000 | 50,000 |
-| Premium conversion | 0% | 2% | 3% |
-| Premium ARPU | $0 | $99/month | $149/month |
-| Premium MRR | $0 | $19,800 | $223,500 |
-| Infrastructure cost | $50/mo | $500/mo | $2,500/mo |
-
-The math works because the infrastructure cost of the free tier is nearly zero, and premium conversion from a large base generates meaningful revenue.
-
-### Comparison to VC-funded approach
-
-We could raise money and give the product away while burning cash. We choose not to. Instead:
-
-1. **Keep the team small.** 2-3 people can build and maintain the core product.
-2. **Use free infrastructure.** Cloudflare's free tier is remarkably generous.
-3. **Let the community do marketing.** Word-of-mouth from free users is the best marketing.
-4. **Be patient on monetization.** Premium features come when the free base is large enough.
-
-This means slower growth but sustainable economics. We're not racing to raise a Series A. We're building a company that works from day one.
-
----
-
-## What "Free Forever" Actually Means
-
-Let's be specific about our commitment:
-
-**Free forever means:**
-- Cancel flow builder: always free
-- Dunning / payment recovery: always free
-- Exit surveys: always free
-- Basic analytics dashboard: always free
-- Stripe integration: always free
-- Self-hosting: always free
-- MIT license: permanent
-
-**What might be paid in the future:**
-- Advanced A/B testing engine
-- AI offer recommendations
-- Priority support / SLA
-- Enterprise SSO
-- Custom integrations beyond Stripe
-- Advanced analytics and cohort tools
-- Managed hosting (we run it for you)
-
-The core churn recovery workflow — the thing that saves your revenue — will never be paywalled. We're committing to that publicly, in writing, and in our open-source license.
-
----
-
-## Aren't You Just Creating Your Own Competition?
-
-A common concern: "If you're open source, won't someone just take your code and compete with you?"
-
-Yes, they can. And that's fine.
-
-Here's the thing about open-source competition: the project with the most active community wins. Code is easy to fork; community, documentation, integrations, and trust are hard to replicate.
-
-MongoDB is open source. Dozens of MongoDB-compatible databases exist. MongoDB still dominates because they have the ecosystem.
-
-WordPress is open source. Thousands of clones exist. WordPress powers 43% of the web because they have the community.
-
-If someone forks ChurnRecovery and makes it better, that's good for SaaS companies everywhere. Our goal isn't to own churn recovery — it's to make it accessible.
+You save $2,760–$9,660/year. The features are the same. The price is not.
 
 ---
 
@@ -203,9 +155,9 @@ If someone forks ChurnRecovery and makes it better, that's good for SaaS compani
 
 SaaS has a churn problem, and it's getting worse. As the market matures and competition increases, retention becomes more important than acquisition. But the tools to fight churn are priced for companies that already have resources.
 
-Early-stage companies — the ones with $5K-$50K MRR, the ones building in their apartments, the ones who can't afford $250/month for churn tooling — are left to either build their own (expensive in engineer time) or ignore the problem (expensive in lost revenue).
+Early-stage companies — the ones with $5K-$50K MRR, the ones building in their apartments, the ones who can't justify $250/month for churn tooling — are left to either build their own (expensive in engineer time) or ignore the problem (expensive in lost revenue).
 
-We think there should be a third option: a free tool that just works.
+We think there should be a third option: an affordable tool that just works. $20/month. All features. No surprises.
 
 That's ChurnRecovery.
 
@@ -213,44 +165,41 @@ That's ChurnRecovery.
 
 ## What Happens Next
 
-We're currently onboarding SaaS teams for early access. Here's the timeline:
+We're currently onboarding SaaS teams. Here's the timeline:
 
-1. **Now:** Core platform in development. Cancel flows, dunning, basic analytics.
-2. **Q2 2026:** Public beta. Stripe integration, self-hosting docs, community launch.
+1. **Now:** Core platform live. Cancel flows, dunning, analytics, 30-day free trial.
+2. **Q2 2026:** Public launch. Stripe integration, self-hosting docs, community launch.
 3. **Q3 2026:** V1 release. Production-ready, battle-tested, documented.
-4. **Q4 2026:** Premium features begin rolling out for larger teams.
+4. **Q4 2026:** Premium services rolling out for larger teams.
 
-If you're a SaaS company dealing with churn (and you are — everyone is), [join the waitlist](/). We'll reach out with access as soon as your batch opens.
+If you're a SaaS company dealing with churn (and you are — everyone is), [start your free trial](/). You'll see results within the first week.
 
 ---
 
 ## FAQ
 
-**Q: If it's free, who's paying the bills?**
-A: Right now, the founders. Infrastructure costs are minimal (< $100/month on Cloudflare's free tier). Long-term, premium features will fund the company.
+**Q: Why $20/month instead of free?**
+A: Because sustainable businesses need revenue. $20/month lets us keep the product maintained, improve it continuously, and provide real support — without relying on extractive pricing or VC funding. You get a tool you can depend on long-term.
 
 **Q: Can I really self-host this?**
-A: Yes. The entire codebase is MIT licensed. Clone the repo, deploy to your own infrastructure, customize as needed. We'll provide Docker images and deployment guides.
+A: Yes. The entire codebase is MIT licensed. Clone the repo, deploy to your own infrastructure, customize as needed. We provide Docker images and deployment guides.
 
-**Q: Will you sell my data?**
-A: No. Never. We don't even store your customers' personal data on our servers — everything runs client-side or in your own infrastructure.
+**Q: Will you raise the price later?**
+A: We have no plans to. Flat pricing is core to our identity. As we grow, we'll add premium services for companies that want them — but $20/month for the core product is the plan.
 
 **Q: What if you go out of business?**
 A: The code is open source and MIT licensed. It can't be un-open-sourced. Even if ChurnRecovery the company disappears, ChurnRecovery the software lives on.
-
-**Q: Why should I trust a free tool with my cancel flows?**
-A: Because you can read the code. Every line. Every offer logic branch. Every API call. Open source means you never have to trust — you can verify.
 
 **Q: How do you compare to Churnkey technically?**
 A: Honestly, Churnkey has a more mature product right now. They've been building for years. We're newer, but we're iterating fast, and our core cancel flow and dunning features are production-ready. [See the full comparison](/compare/churnkey).
 
 ---
 
-*ChurnRecovery is free, open-source churn recovery for SaaS companies. [Join the waitlist](/) — we'll never charge for the core product.*
+*ChurnRecovery is $20/month churn recovery for SaaS companies. [Start your free trial](/) — 30 days free, no credit card required.*
 
 ---
 
-## Start Free on Your Platform
+## Start Your Free Trial
 
 - [ChurnRecovery for Stripe businesses](/for/stripe)
 - [ChurnRecovery for Substack](/for/substack)

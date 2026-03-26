@@ -26,7 +26,7 @@ Here's the honest breakdown.
 | | **Chargebee Retain** | **Churnkey** | **ChurnRecovery** |
 |---|---|---|---|
 | **Price** | Custom ($$$$) | $250–$825/mo | **Free tier + paid** |
-| **Annual cost** | $10,000–$50,000+ | $3,000–$9,900 | **$0 to start** |
+| **Annual cost** | $10,000–$50,000+ | $3,000–$9,900 | **$20/month** |
 | **Setup time** | Weeks (enterprise onboarding) | Days (dev required) | Hours (no-code) |
 | **Technical skill needed** | High | Medium | **None** |
 | **Best for** | Enterprise ($10M+ ARR) | Mid-market SaaS | Small business, creators |
@@ -135,11 +135,11 @@ The question isn't whether to use a cancel flow. It's whether you want to pay $2
 
 You don't have to.
 
-**[Try ChurnRecovery free — no credit card required →](/#waitlist)**
+**[Start Your ChurnRecovery Free Trial →](/#waitlist)**
 
 ---
 
-## Try ChurnRecovery Free on Your Platform
+## Try ChurnRecovery on Your Platform
 
-- [ChurnRecovery for Chargebee (free)](/for/chargebee)
-- [ChurnRecovery for Stripe (free)](/for/stripe)
+- [ChurnRecovery for Chargebee](/for/chargebee)
+- [ChurnRecovery for Stripe](/for/stripe)

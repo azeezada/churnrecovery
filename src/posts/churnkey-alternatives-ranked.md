@@ -23,7 +23,7 @@ Here are the five best Churnkey alternatives, ranked honestly.
 
 | Tool | Price | Best For |
 |------|-------|----------|
-| **ChurnRecovery** | Free | Small subscription businesses, creators |
+| **ChurnRecovery** | $20/month | Small subscription businesses, creators |
 | **ProfitWell Retain** | % of recovered revenue | Mid-market SaaS |
 | **Chargebee Retain** | $250+/month | Growth-stage SaaS |
 | **Paddle Retain** | Paddle users only | Paddle merchants |
@@ -31,7 +31,7 @@ Here are the five best Churnkey alternatives, ranked honestly.
 
 ---
 
-## 1. ChurnRecovery — Best for Small Businesses (Free)
+## 1. ChurnRecovery — Best for Small Businesses ($20/month)
 
 **Price:** Free during beta  
 **Best for:** Newsletter creators, coaches, course sellers, membership businesses under $100k MRR
@@ -178,7 +178,7 @@ For most small subscription businesses — newsletters, courses, coaching progra
 
 The core functionality is the same: cancel flows, failed payment recovery, exit surveys, churn analytics. The price difference is $250/month vs. free. The setup time difference is a day of engineering work vs. 15 minutes.
 
-If you're under $100k MRR, using Stripe, and trying to figure out why customers are leaving — there's no reason to pay $3,000+/year for tooling when you can start for free.
+If you're under $100k MRR, using Stripe, and trying to figure out why customers are leaving — there's no reason to pay $3,000+/year for tooling when you can start for $20/month.
 
 **[Join the ChurnRecovery waitlist →](/waitlist)**  
 **[Compare ChurnRecovery vs. Churnkey feature-by-feature →](/compare/churnkey)**
@@ -191,6 +191,6 @@ If you're under $100k MRR, using Stripe, and trying to figure out why customers 
 
 ## ChurnRecovery on Your Platform
 
-- [ChurnRecovery for Stripe (free)](/for/stripe)
-- [ChurnRecovery for Kajabi (free)](/for/kajabi)
-- [ChurnRecovery for Chargebee (free)](/for/chargebee)
+- [ChurnRecovery for Stripe](/for/stripe)
+- [ChurnRecovery for Kajabi](/for/kajabi)
+- [ChurnRecovery for Chargebee](/for/chargebee)

@@ -353,7 +353,7 @@ Add a banner to your app that shows when `customer.subscription.status === 'past
 **Hour 8-48: Set up pre-dunning**
 Query your Stripe customers for expiring cards and set up automated warnings.
 
-Or, you can use [ChurnRecovery](/) — a free, open-source platform that handles all of this out of the box. Smart retries, email sequences, in-app prompts, pre-dunning, and analytics. No per-recovery fees, no monthly cost.
+Or, you can use [ChurnRecovery](/) — a $20/month open-source platform that handles all of this out of the box. Smart retries, email sequences, in-app prompts, pre-dunning, and analytics. No per-recovery fees, no usage limits.
 
 ---
 
@@ -380,4 +380,4 @@ Every day without dunning is money you're leaving on the table. Start with the b
 - [ChurnRecovery for Chargebee](/for/chargebee)
 - [ChurnRecovery for Lemon Squeezy](/for/lemon-squeezy)
 
-*ChurnRecovery provides free dunning and payment recovery for SaaS companies. [Join the waitlist](/) — it's free, forever.*
+*ChurnRecovery provides affordable dunning and payment recovery for SaaS companies. [Join the waitlist](/) — 30-day free trial, then $20/month.*

@@ -161,9 +161,9 @@ ChurnRecovery handles the mechanics. You write the offer copy once (use the scri
 
 ## Getting Started
 
-ChurnRecovery is currently in beta and free for early users. We built it specifically for subscription businesses that use Stripe — including Kajabi creators, course sellers, coaching programs, and membership communities.
+ChurnRecovery is available with a 30-day free trial. We built it specifically for subscription businesses that use Stripe — including Kajabi creators, course sellers, coaching programs, and membership communities.
 
-The waitlist is open now. Early access members lock in free access before any pricing changes.
+The waitlist is open now. Get started with a 30-day free trial.
 
 [→ Join the waitlist for early access](/waitlist)
 
