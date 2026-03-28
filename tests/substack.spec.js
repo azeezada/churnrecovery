@@ -25,11 +25,10 @@ test.describe('Substack landing page (/for/substack)', () => {
     expect(bodyText).toMatch(/newsletter|creator|subscriber/i);
   });
 
-  test('has "Get Started Free" CTA', async ({ page }) => {
+  test('has "Start Free Trial" CTA', async ({ page }) => {
     await page.goto('/for/substack', { waitUntil: 'domcontentloaded' });
 
-    // At least one "Get Started Free" link or button
-    const cta = page.locator('a, button').filter({ hasText: /get started free/i }).first();
+    const cta = page.locator('a, button').filter({ hasText: /start free trial/i }).first();
     await expect(cta).toBeVisible();
   });
 

@@ -3,14 +3,13 @@ const { test, expect } = require('@playwright/test');
 const { mockSignedIn, mockSignedOut } = require('../helpers/mock-auth');
 
 test.describe('Journey 1: New user onboarding', () => {
-  test('homepage has "Get Started Free" sign-up CTA', async ({ page }) => {
+  test('homepage has "Start Free Trial" sign-up CTA', async ({ page }) => {
     await page.goto('/', { waitUntil: 'domcontentloaded' });
 
-    const cta = page.locator('a').filter({ hasText: /get started free/i });
+    const cta = page.locator('a').filter({ hasText: /start free trial/i });
     const count = await cta.count();
     expect(count).toBeGreaterThan(0);
 
-    // CTA should link to sign-up
     const href = await cta.first().getAttribute('href');
     expect(href).toContain('/app/sign-up');
   });

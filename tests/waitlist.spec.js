@@ -2,15 +2,13 @@
 const { test, expect } = require('@playwright/test');
 
 test.describe('sign-up CTA on homepage', () => {
-  test('homepage has "Get Started Free" CTA linking to /app/sign-up', async ({ page }) => {
+  test('homepage has "Start Free Trial" CTA linking to /app/sign-up', async ({ page }) => {
     await page.goto('/', { waitUntil: 'domcontentloaded' });
 
-    // Find "Get Started Free" CTA buttons/links
-    const cta = page.locator('a').filter({ hasText: /get started free/i });
+    const cta = page.locator('a').filter({ hasText: /start free trial/i });
     const count = await cta.count();
     expect(count).toBeGreaterThan(0);
 
-    // First CTA should link to sign-up
     const href = await cta.first().getAttribute('href');
     expect(href).toContain('/app/sign-up');
   });
