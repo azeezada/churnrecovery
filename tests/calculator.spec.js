@@ -80,6 +80,6 @@ test.describe('churn calculator', () => {
   test('Churnkey comparison section exists', async ({ page }) => {
     await page.goto('/tools/churn-calculator', { waitUntil: 'domcontentloaded' });
 
-    await expect(page.locator('text=ChurnRecovery vs. paying $250/mo for Churnkey')).toBeVisible();
+    await expect(page.locator('text=How does ChurnRecovery compare to Churnkey')).toBeVisible();
   });
 });

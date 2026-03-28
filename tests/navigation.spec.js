@@ -38,7 +38,6 @@ test.describe('footer navigation', () => {
     { text: 'Blog', path: '/blog' },
     { text: 'Documentation', path: '/docs' },
     { text: 'Use Cases', path: '/use-cases' },
-    { text: 'Changelog', path: '/changelog' },
     { text: 'About', path: '/about' },
   ];
 

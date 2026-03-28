@@ -16,7 +16,6 @@ const pages = {
     ['/demo', 'Demo'],
     ['/docs', 'Docs'],
     ['/blog', 'Blog'],
-    ['/changelog', 'Changelog'],
     ['/status', 'Status'],
     ['/templates', 'Templates'],
     ['/use-cases', 'Use Cases'],
@@ -90,12 +89,6 @@ const pages = {
     ['/use-cases/media-subscriptions', 'Media Subscriptions'],
     ['/use-cases/professional-services', 'Professional Services'],
   ],
-  styles: [
-    ['/styles', 'Styles'],
-    ['/styles/data-forward', 'Data Forward'],
-    ['/styles/developer', 'Developer'],
-    ['/styles/warm-saas', 'Warm SaaS'],
-  ],
   tools: [
     ['/tools/churn-calculator', 'Churn Calculator'],
     ['/tools/roi-calculator', 'ROI Calculator'],
@@ -113,8 +106,9 @@ const pages = {
     ['/for/beehiiv', 'Beehiiv'],
     ['/for/convertkit', 'ConvertKit'],
   ],
-  socialProof: [
-    ['/social-proof', 'Social Proof'],
+  legal: [
+    ['/privacy', 'Privacy'],
+    ['/terms', 'Terms'],
   ],
 };
 
