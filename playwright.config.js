@@ -38,5 +38,15 @@ module.exports = defineConfig({
       retries: 1,
       use: { browserName: 'chromium' },
     },
+    {
+      name: 'visual',
+      testDir: './tests/visual',
+      testMatch: /\.spec\.js$/,
+      timeout: 15000,
+      use: {
+        browserName: 'chromium',
+        viewport: { width: 1280, height: 720 },
+      },
+    },
   ],
 });

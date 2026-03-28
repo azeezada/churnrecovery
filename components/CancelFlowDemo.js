@@ -125,7 +125,7 @@ export default function CancelFlowDemo({ compact = false }) {
         </div>
 
         {/* App content with optional modal overlay */}
-        <div className="relative">
+        <div className="relative overflow-hidden">
           <FakeDashboard blurred={showModal} />
 
           {/* Modal overlay */}
@@ -136,7 +136,7 @@ export default function CancelFlowDemo({ compact = false }) {
                 style={{
                   opacity: isAnimating ? 0 : 1,
                   transform: isAnimating ? 'scale(0.97)' : 'scale(1)',
-                  maxHeight: '85vh',
+                  maxHeight: '100%',
                   overflowY: 'auto',
                   WebkitOverflowScrolling: 'touch',
                 }}
