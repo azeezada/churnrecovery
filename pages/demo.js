@@ -3,6 +3,145 @@ import Link from 'next/link'
 import { useState } from 'react'
 import CancelFlowDemo from '../components/CancelFlowDemo'
 
+function IntegrationSection() {
+  const [tab, setTab] = useState('quick')
+  return (
+    <section className="bg-[#1A1A2E] py-[72px] px-6">
+      <div className="max-w-[760px] mx-auto">
+        <div className="mb-8 text-center">
+          <h2 className="font-sans text-[clamp(1.3rem,3vw,1.8rem)] font-bold text-brand-white tracking-[-0.03em] mb-3">
+            {tab === 'quick' ? 'Up and running in 5 minutes' : 'One line to add it to your app'}
+          </h2>
+          <p className="font-serif text-[0.95rem] text-white/55 leading-[1.7]">
+            {tab === 'quick'
+              ? 'No code required. Connect your payment provider and start saving customers.'
+              : 'Drop in the snippet. Configure your offers. Watch the saves roll in.'}
+          </p>
+        </div>
+
+        {/* Tab switcher */}
+        <div className="flex justify-center gap-2 mb-8">
+          <button
+            onClick={() => setTab('quick')}
+            className={`font-sans text-[0.85rem] font-semibold px-5 py-2.5 rounded-lg border transition-all duration-150 cursor-pointer ${
+              tab === 'quick'
+                ? 'bg-brand-accent text-white border-brand-accent'
+                : 'bg-transparent text-white/50 border-white/15 hover:text-white/70 hover:border-white/25'
+            }`}
+          >
+            Quick Setup
+          </button>
+          <button
+            onClick={() => setTab('dev')}
+            className={`font-sans text-[0.85rem] font-semibold px-5 py-2.5 rounded-lg border transition-all duration-150 cursor-pointer ${
+              tab === 'dev'
+                ? 'bg-brand-accent text-white border-brand-accent'
+                : 'bg-transparent text-white/50 border-white/15 hover:text-white/70 hover:border-white/25'
+            }`}
+          >
+            Developer
+          </button>
+        </div>
+
+        {tab === 'quick' ? (
+          /* Quick Setup — visual walkthrough */
+          <div className="bg-[#0D0D1A] rounded-xl border border-white/10 p-8">
+            <div className="flex flex-col gap-8">
+              {[
+                {
+                  step: '1',
+                  title: 'Sign up and connect Stripe',
+                  desc: 'Create your account (no credit card needed) and authorize your Stripe account with one click. Takes 60 seconds.',
+                },
+                {
+                  step: '2',
+                  title: 'Customize your cancel flow',
+                  desc: 'Use the visual flow builder to pick which offers to show: pause, discount, plan switch. Write the copy in your voice. Match your brand colors.',
+                },
+                {
+                  step: '3',
+                  title: 'Set up payment recovery',
+                  desc: 'Turn on dunning emails with one toggle. We handle retry timing and send branded reminders when cards fail.',
+                },
+                {
+                  step: '4',
+                  title: 'Go live',
+                  desc: 'Paste one embed script into your site. Works with WordPress, Kajabi, Teachable, Shopify, and any platform with custom code support.',
+                },
+              ].map(item => (
+                <div key={item.step} className="flex gap-4 items-start">
+                  <div className="w-8 h-8 rounded-full bg-brand-accent flex items-center justify-center font-sans font-bold text-white text-[0.8rem] shrink-0 mt-0.5">
+                    {item.step}
+                  </div>
+                  <div>
+                    <h3 className="font-sans text-[1rem] font-semibold text-white m-0 mb-1.5">
+                      {item.title}
+                    </h3>
+                    <p className="font-sans text-[0.88rem] text-white/50 m-0 leading-[1.6]">
+                      {item.desc}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="mt-8 pt-6 border-t border-white/[0.08] text-center">
+              <a href="/app/sign-up" className="inline-block bg-brand-accent text-white px-6 py-3 rounded-lg font-sans font-bold text-[0.9rem] no-underline">
+                Start Free Trial →
+              </a>
+            </div>
+          </div>
+        ) : (
+          /* Developer — code snippet */
+          <>
+            <div className="bg-[#0D0D1A] rounded-xl overflow-hidden overflow-x-auto [-webkit-overflow-scrolling:touch] border border-white/10 max-w-full">
+              <div className="bg-white/5 px-4 py-2.5 flex items-center gap-2 border-b border-white/[0.08]">
+                <div className="flex gap-1.5">
+                  <div className="w-2.5 h-2.5 rounded-full bg-[#FF5F57] opacity-70" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-[#FEBC2E] opacity-70" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-[#28C840] opacity-70" />
+                </div>
+                <span className="font-mono text-[0.75rem] text-white/30">
+                  your-app.js
+                </span>
+              </div>
+              <div className="p-6">
+                <pre className="m-0 font-[Fira_Code,Cascadia_Code,Consolas,monospace] text-[0.82rem] leading-[1.7] text-[#E8E8E8] overflow-auto overflow-x-auto [-webkit-overflow-scrolling:touch] max-w-full">
+{`// 1. Add the snippet to your cancel button handler
+import { ChurnRecovery } from '@churnrecovery/js'
+
+// 2. Initialize once
+const cr = new ChurnRecovery({ apiKey: 'your_key' })
+
+// 3. Intercept cancel attempts
+cancelButton.addEventListener('click', async (e) => {
+  e.preventDefault()
+
+  const result = await cr.showCancelFlow({
+    customerId: currentUser.id,
+    planId: currentUser.plan,
+  })
+
+  if (result.action === 'saved') {
+    // Customer accepted offer — apply it
+    await applyOffer(result.offer)
+  } else {
+    // Customer canceled — reason is logged automatically
+    await processCancel()
+  }
+})`}
+                </pre>
+              </div>
+            </div>
+            <p className="font-sans text-[0.82rem] text-white/35 text-center mt-5">
+              Works with React, Vue, vanilla JS, and any backend. REST API + webhooks available.
+            </p>
+          </>
+        )}
+      </div>
+    </section>
+  )
+}
+
 export default function DemoPage() {
   const title = 'See ChurnRecovery in Action — Interactive Cancel Flow Demo'
   const description = 'Try a live cancel flow demo. See how ChurnRecovery presents the right offer at the right moment to save canceling customers — $20/month with a 30-day free trial.'
@@ -55,7 +194,7 @@ export default function DemoPage() {
           <div className="demo-nav-links flex gap-6 items-center flex-wrap">
             <Link href="/blog" className="demo-nav-text text-brand-gray no-underline text-[0.9rem]">Blog</Link>
             <Link href="/compare/churnkey" className="demo-nav-text text-brand-gray no-underline text-[0.9rem]">Compare</Link>
-            <a href="/app/sign-up" className="bg-brand-accent text-brand-white px-[18px] py-2 rounded-md no-underline text-[0.85rem] font-semibold whitespace-nowrap">Start Free Trial</a>
+            <a href="/app/sign-up" className="bg-brand-accent text-brand-white px-[18px] py-2 rounded-md no-underline text-[0.85rem] font-semibold whitespace-nowrap">Start Free Trial →</a>
           </div>
         </nav>
 
@@ -107,7 +246,7 @@ export default function DemoPage() {
                 What happens behind the scenes
               </h2>
               <p className="font-serif text-base text-brand-gray leading-[1.7] max-w-[520px] mx-auto">
-                Every cancel attempt is tracked, analyzed, and turned into actionable insight — whether you save the customer or not.
+                Every cancel attempt generates 12+ data points — reason, plan, tenure, offer shown, offer accepted — whether you save the customer or not.
               </p>
             </div>
             <div className="grid grid-cols-[repeat(auto-fill,minmax(260px,1fr))] gap-5">
@@ -120,7 +259,7 @@ export default function DemoPage() {
                 {
                   icon: '⚡',
                   title: 'Fires in milliseconds',
-                  body: 'ChurnRecovery intercepts the cancel action before it completes. Zero latency, seamless UX. Customers never leave your product to see the flow.',
+                  body: 'ChurnRecovery intercepts the cancel action in under 50ms — before it completes. Zero latency, no page redirect. Customers never leave your product to see the flow.',
                 },
                 {
                   icon: '📊',
@@ -183,64 +322,8 @@ export default function DemoPage() {
           </div>
         </section>
 
-        {/* Integration code snippet */}
-        <section className="bg-[#1A1A2E] py-[72px] px-6">
-          <div className="max-w-[760px] mx-auto">
-            <div className="mb-8 text-center">
-              <h2 className="font-sans text-[clamp(1.3rem,3vw,1.8rem)] font-bold text-brand-white tracking-[-0.03em] mb-3">
-                One line to add it to your app
-              </h2>
-              <p className="font-serif text-[0.95rem] text-white/55 leading-[1.7]">
-                Drop in the snippet. Configure your offers. Watch the saves roll in.
-              </p>
-            </div>
-
-            {/* Code block */}
-            <div className="bg-[#0D0D1A] rounded-xl overflow-hidden overflow-x-auto [-webkit-overflow-scrolling:touch] border border-white/10 max-w-full">
-              <div className="bg-white/5 px-4 py-2.5 flex items-center gap-2 border-b border-white/[0.08]">
-                <div className="flex gap-1.5">
-                  <div className="w-2.5 h-2.5 rounded-full bg-[#FF5F57] opacity-70" />
-                  <div className="w-2.5 h-2.5 rounded-full bg-[#FEBC2E] opacity-70" />
-                  <div className="w-2.5 h-2.5 rounded-full bg-[#28C840] opacity-70" />
-                </div>
-                <span className="font-mono text-[0.75rem] text-white/30">
-                  your-app.js
-                </span>
-              </div>
-              <div className="p-6">
-                <pre className="m-0 font-[Fira_Code,Cascadia_Code,Consolas,monospace] text-[0.82rem] leading-[1.7] text-[#E8E8E8] overflow-auto overflow-x-auto [-webkit-overflow-scrolling:touch] max-w-full">
-{`// 1. Add the snippet to your cancel button handler
-import { ChurnRecovery } from '@churnrecovery/js'
-
-// 2. Initialize once
-const cr = new ChurnRecovery({ apiKey: 'your_key' })
-
-// 3. Intercept cancel attempts
-cancelButton.addEventListener('click', async (e) => {
-  e.preventDefault()
-
-  const result = await cr.showCancelFlow({
-    customerId: currentUser.id,
-    planId: currentUser.plan,
-  })
-
-  if (result.action === 'saved') {
-    // Customer accepted offer — apply it
-    await applyOffer(result.offer)
-  } else {
-    // Customer canceled — reason is logged automatically
-    await processCancel()
-  }
-})`}
-                </pre>
-              </div>
-            </div>
-
-            <p className="font-sans text-[0.82rem] text-white/35 text-center mt-5">
-              Works with React, Vue, vanilla JS, and any backend. REST API + webhooks available.
-            </p>
-          </div>
-        </section>
+        {/* Integration — tabbed: Quick Setup vs Developer */}
+        <IntegrationSection />
 
         {/* CTA */}
         <section className="bg-brand-text py-20 px-6 text-center">
