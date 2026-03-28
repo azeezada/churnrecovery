@@ -154,7 +154,7 @@ Get booked on 3–5 podcast episodes in the creator economy / indie business spa
 >
 > The enterprise tools that solve this (Churnkey, Chargebee Retain) cost $250–500/month — 10x what most creator businesses make in their first year.
 >
-> I built ChurnRecovery to close this gap. Free forever. Works with any Stripe-powered creator platform. 500+ business owners on the waitlist.
+> I built ChurnRecovery to close this gap. $20/month with a 30-day free trial. Works with any Stripe-powered creator platform. 500+ business owners on the waitlist.
 >
 > Happy to talk about the infrastructure layer creator businesses still need, the business model behind free tools, or both. Let me know if this resonates.
 >

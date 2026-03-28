@@ -116,7 +116,7 @@ I spent a week auditing SaaS tool costs for bootstrapped businesses. The pattern
 
 That's not pricing based on value delivered. That's pricing based on psychological leverage.
 
-So I built the alternative: **ChurnRecovery** — free churn recovery for SaaS businesses.
+So I built the alternative: **ChurnRecovery** — affordable churn recovery for SaaS businesses ($20/month with 30-day free trial).
 
 🔗 churnrecovery.com
 
@@ -212,7 +212,7 @@ I decided to prove the point by building the alternative and giving it away.
 - ✅ Open source (MIT licensed)
 - ✅ Self-hosted option
 - ✅ No minimum MRR requirement
-- ✅ $0/month
+- ✅ $20/month with 30-day free trial
 
 ---
 

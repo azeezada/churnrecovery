@@ -109,7 +109,7 @@ A cosmetic but meaningful status badge in their account profile. People love bei
 **What we're offering:** $0 cash (to start) or small budget ($50–$150 per placement) in exchange for a featured placement
 
 **Placement copy template:**
-> **Losing subscribers every month?** ChurnRecovery is a free cancel flow tool for newsletters and subscription businesses. When someone tries to cancel, it shows them a pause or discount offer — and saves 15–25% of them. Free forever for small creators. → churnrecovery.com
+> **Losing subscribers every month?** ChurnRecovery is an affordable cancel flow tool for newsletters and subscription businesses. When someone tries to cancel, it shows them a pause or discount offer — and saves 15–25% of them. $20/month with 30-day free trial. → churnrecovery.com
 
 **Target categories:**
 - Newsletters about running a newsletter business

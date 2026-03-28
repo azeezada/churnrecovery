@@ -13,7 +13,7 @@ Stop losing subscribers. No dev team required.
 *(47 chars)*
 
 **Alternatives (in case A/B testing PH allows):**
-- `Recover churning customers — free forever` (42 chars)
+- `Recover churning customers — $20/month` (39 chars)
 - `Cancel flows & dunning for $0/mo vs $825/mo` (44 chars)
 
 **Why this works for business owners:** It speaks to the fear (losing subscribers), removes the objection (no technical expertise needed), and doesn't bury the lede with jargon like "churn recovery" or "dunning."
@@ -93,7 +93,7 @@ Prepare these 7 assets before launch. Target size: 1270×760px (PH standard). GI
 
 **12:01–6 AM PST (pre-notify the night owls + international):**
 - [ ] Post to **Indie Hackers** (link to PH listing)
-- [ ] Tweet from @dawoodazeeza with PH link — "We're live on Product Hunt! 🚀 Free churn recovery for subscription businesses. Go vote if this would have saved you from Churnkey's $825/mo pricing 👇"
+- [ ] Tweet from @dawoodazeeza with PH link — "We're live on Product Hunt! 🚀 Affordable churn recovery for subscription businesses — $20/month. Go vote if this would have saved you from Churnkey's $825/mo pricing 👇"
 - [ ] Reply to your own tweet thread building the story
 
 **6–9 AM PST (morning rush):**
@@ -116,14 +116,14 @@ Prepare these 7 assets before launch. Target size: 1270×760px (PH standard). GI
 Contact potential hunters by March 28th (4 days before). See Section 7 for the list.
 
 **The ask email/DM (short):**
-> Hi [Name], I'm launching ChurnRecovery on Product Hunt April 7th — it's a free churn recovery tool for subscription businesses (free alternative to Churnkey's $825/mo). Would you be open to hunting it? Happy to provide all assets, copy, and a personal walkthrough. The PH community you've built would be a perfect fit.
+> Hi [Name], I'm launching ChurnRecovery on Product Hunt April 7th — it's an affordable churn recovery tool for subscription businesses ($20/month vs Churnkey's $825/mo). Would you be open to hunting it? Happy to provide all assets, copy, and a personal walkthrough. The PH community you've built would be a perfect fit.
 
 ### 💬 Reply Strategy for Early Comments
 - **Reply within 5 minutes** of any comment in the first 6 hours
 - **Template responses to have ready:**
   - "Thanks for the love! 🙏 [Personalized follow-up question or detail]"
   - For "How does it work?" → brief 3-step answer, link to the GIF
-  - For "What's the catch?" → "No catch — free forever for small teams, paid plans if you scale up. We're betting on volume over margin."
+  - For "What's the catch?" → "No catch — $20/month with a 30-day free trial. All features included. We're 10-40x cheaper than alternatives."
   - For competitors → "Churnkey is great for enterprise. We're built for bootstrappers and creators who can't justify $250+/month."
 - **Don't argue, don't be defensive**
 - **Ask questions back** — "What's your biggest churn challenge right now?" — keeps comment thread active

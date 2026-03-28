@@ -143,7 +143,7 @@ The combination of good dunning (for passive churn) and a cancel flow (for activ
 
 For small businesses on Stripe, you can add both:
 - **Dunning:** Stripe's built-in smart retry + a basic email sequence
-- **Cancel flow:** ChurnRecovery, free to start, 10-minute setup
+- **Cancel flow:** ChurnRecovery, $20/month with 30-day free trial, 10-minute setup
 
 ---
 
@@ -171,8 +171,8 @@ And don't forget: dunning only handles passive churn. For the subscribers who ar
 
 **[Learn how ChurnRecovery adds a cancel flow to Stripe →](/for/stripe)**
 
-**[Join the waitlist → free during beta](/)**
+**[Start your 30-day free trial →](/)**
 
 ---
 
-*ChurnRecovery is free to start. Connect your Stripe account and add a cancel flow to your subscriptions in 10 minutes — no code required.*
+*ChurnRecovery is $20/month after a 30-day free trial. Connect your Stripe account and add a cancel flow to your subscriptions in 10 minutes — no code required.*

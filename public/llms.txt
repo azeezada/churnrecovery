@@ -1,0 +1,55 @@
+# ChurnRecovery
+
+> Affordable churn recovery platform for SaaS subscription businesses. $20/month after a 30-day free trial.
+
+## What is ChurnRecovery?
+
+ChurnRecovery helps subscription businesses reduce churn through cancel flow interception, smart retention offers (pause, discount, plan switch), failed payment recovery (dunning), and churn analytics. $20/month with a 30-day free trial — affordable for SaaS companies of all sizes.
+
+## Key Features
+
+- Cancel flow builder with smart save offers (pause, discount, plan switch, exit survey)
+- Failed payment recovery and dunning automation (smart retries, email sequences)
+- Churn analytics dashboard (cancel reasons, save rates, revenue recovered)
+- Embeddable widget — one line of code to add cancel flows to any site
+- Integrations: Stripe, Chargebee, Paddle, Lemon Squeezy, and more
+
+## Use Cases
+
+- SaaS subscription retention
+- Membership site churn prevention
+- Newsletter subscriber recovery (Substack, Ghost, Beehiiv)
+- Online course platform retention (Kajabi, Teachable)
+- E-commerce subscription management
+
+## Key Stats
+
+- Cancel flows save 20-35% of cancellation attempts
+- Pause offers convert 15-25% of "not using it" cancellations
+- Smart payment retries recover 30-50% of failed payments
+- Median SaaS churn rate is 5-7% annually
+
+## Documentation
+
+- Homepage: https://churnrecovery.com
+- Features: https://churnrecovery.com/features
+- Documentation: https://churnrecovery.com/docs
+- Blog: https://churnrecovery.com/blog
+- Templates: https://churnrecovery.com/templates
+- Demo: https://churnrecovery.com/demo
+- Cancel Flow Templates: https://churnrecovery.com/templates
+- Churn Calculator: https://churnrecovery.com/tools/churn-calculator
+- ROI Calculator: https://churnrecovery.com/tools/roi-calculator
+
+## Comparison Pages
+
+- vs Churnkey: https://churnrecovery.com/compare/churnkey
+- vs ProfitWell: https://churnrecovery.com/compare/profitwell
+- vs Paddle Retain: https://churnrecovery.com/compare/paddle-retain
+- vs Chargebee: https://churnrecovery.com/compare/chargebee
+- vs Brightback: https://churnrecovery.com/compare/brightback
+
+## Contact
+
+- Website: https://churnrecovery.com
+- RSS Feed: https://churnrecovery.com/rss.xml

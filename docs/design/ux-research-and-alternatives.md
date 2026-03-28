@@ -132,9 +132,9 @@
 > "Stop losing customers. Recover them."
 > Subtext about free platform, Churnkey comparison, no credit card
 
-**Stats bar:** 5–10% charges fail monthly, ~70% recoverable, $250/mo Churnkey cost, $0 ChurnRecovery cost
+**Stats bar:** 5–10% charges fail monthly, ~70% recoverable, $250/mo Churnkey cost, $20/mo ChurnRecovery cost
 
-**Features grid:** 6 cards (Cancel Flows, Dunning, Analytics, Integration, Free Forever, Open Source)
+**Features grid:** 6 cards (Cancel Flows, Dunning, Analytics, Integration, $20/month, Open Source)
 
 **Comparison table:** ChurnRecovery vs Churnkey
 
@@ -146,9 +146,9 @@
 
 #### ✅ What Works
 1. **"Stop losing customers. Recover them."** — Clear, punchy headline. Good.
-2. **$0 vs $250/mo framing** — Instantly communicates the value prop. Strong differentiator.
+2. **$20 vs $250/mo framing** — Instantly communicates the value prop. Strong differentiator.
 3. **Comparison table** — Smart move for a challenger brand. Makes the decision concrete.
-4. **"Free Forever" and "Open Source"** — Trust-building differentiators that competitors can't match.
+4. **"$20/month" and "Open Source"** — Trust-building differentiators that competitors can't match.
 5. **Named testimonials** with roles — Better than anonymous quotes.
 
 #### ❌ What Needs Work
@@ -259,7 +259,7 @@ Premium developer-focused aesthetic. Dark background, subtle glows, monospace ac
 │   │   showing cancel flow builder      │     │
 │   └────────────────────────────────────┘     │
 │                                              │
-│   "Free forever · Open source · MIT license" │
+│   "$20/month · Open source · MIT license"     │
 └─────────────────────────────────────────────┘
 ```
 - Gradient glow (violet→blue) behind product screenshot
@@ -474,7 +474,7 @@ White, airy, professional. Gradient accents for warmth. Positions ChurnRecovery 
 │  │                                   │  │
 │  │  [email] [Start Free →]           │  │
 │  │                                   │  │
-│  │  No credit card · Free forever    │  │
+│  │  30-day free trial · $20/month    │  │
 │  └───────────────────────────────────┘  │
 └─────────────────────────────────────────┘
 ```
@@ -631,7 +631,7 @@ Bright, friendly, approachable. Think Notion's warmth meets Figma's playfulness.
 │                                          │
 │  [email] [Yes, Let's Go! 🚀]            │
 │                                          │
-│  Free forever · No credit card · Pinky   │
+│  $20/month · 30-day free trial · No      │
 │  promise 🤞                              │
 └─────────────────────────────────────────┘
 ```

@@ -1,6 +1,6 @@
 # Substack-Specific Landing Page Copy
 ## Route: `/for/substack`
-## Page Title: "Free Churn Recovery for Substack Creators"
+## Page Title: "Affordable Churn Recovery for Substack Creators"
 
 ---
 
@@ -32,7 +32,7 @@ PRIMARY CTA BUTTON: "Protect My Substack Revenue →"
 SECONDARY LINK: "See how it works" (scrolls to demo section)
 
 MICROCOPY BELOW CTA:
-Free forever for newsletters under $1k/month MRR. No setup fee. Takes 10 minutes.
+$20/month with 30-day free trial. No setup fee. Takes 10 minutes.
 ```
 
 ---
@@ -144,8 +144,8 @@ See exactly how much revenue you've saved. Track which messages work. Know your 
 🏷 Substack-Specific Templates
 Pre-written messages designed for newsletter creators. Warm, personal, not salesy.
 
-🆓 Free for Small Newsletters
-Under $1k/month MRR? It's free. No catch. We make money when you grow.
+💰 Affordable for All Newsletters
+$20/month with 30-day free trial. All features included. No catch.
 
 🔒 No Code Required
 You write newsletters, not code. We keep it that way.
@@ -205,22 +205,16 @@ ChurnRecovery is what I wish existed.
 ### Copy:
 
 ```
-HEADLINE: Free for Newsletter Creators. Seriously.
+HEADLINE: Affordable for Newsletter Creators. Seriously.
 
 BODY:
-If your Substack earns under $1,000/month, ChurnRecovery is completely free.
-No trial period. No credit card. No gotchas.
-
-We grow with you:
-• $0/month — under $1k MRR (free forever)
-• $29/month — up to $5k MRR
-• $79/month — up to $20k MRR
-• Custom — above $20k MRR
+ChurnRecovery is $20/month after a 30-day free trial. All features included.
+No credit card to start. No gotchas.
 
 Compare that to Churnkey ($100–$800/month) or ProfitWell Retain ($400+/month).
 You're welcome. 😊
 
-CTA: "Join the Waitlist — It's Free"
+CTA: "Start Your 30-Day Free Trial"
 ```
 
 ---
@@ -255,7 +249,7 @@ Q: Does ChurnRecovery store my subscribers' data?
 A: We receive webhook events from Stripe — subscriber IDs and subscription status. We don't store payment info or email addresses beyond what's needed to trigger your recovery flow. See our privacy policy.
 
 Q: What if it doesn't work for me?
-A: Cancel anytime. No contracts. The free tier is free forever — you have nothing to lose by trying.
+A: Cancel anytime. No contracts. Start with a 30-day free trial — you have nothing to lose by trying.
 ```
 
 ---
@@ -304,7 +298,7 @@ SOCIAL PROOF NUDGE:
 
 ### SEO Metadata
 ```
-title: "Free Churn Recovery for Substack Creators | ChurnRecovery"
+title: "Affordable Churn Recovery for Substack Creators | ChurnRecovery"
 description: "Stop losing paid Substack subscribers. ChurnRecovery detects cancellations in real-time and automatically wins them back. Free for newsletters under $1k/month."
 og:image: /images/substack-og.png (create: newsletter creator + recovery flow visual)
 canonical: https://churnrecovery.com/for/substack

@@ -87,8 +87,19 @@ export default function MyApp({ Component, pageProps }) {
               name: 'ChurnRecovery',
               url: 'https://churnrecovery.com',
               logo: 'https://churnrecovery.com/logo.png',
-              description: 'Free churn recovery platform for SaaS companies. Cancel flow interception, smart offers, analytics, and win-back automation.',
+              description: 'Affordable churn recovery platform for SaaS companies — $20/month. Cancel flow interception, smart offers, analytics, and win-back automation.',
               sameAs: [],
+              knowsAbout: [
+                'churn recovery',
+                'cancel flow',
+                'subscription management',
+                'dunning',
+                'failed payment recovery',
+                'customer retention',
+                'SaaS metrics',
+                'involuntary churn',
+                'voluntary churn',
+              ],
             }),
           }}
         />
@@ -102,7 +113,7 @@ export default function MyApp({ Component, pageProps }) {
               '@type': 'WebSite',
               name: 'ChurnRecovery',
               url: 'https://churnrecovery.com',
-              description: 'Free churn recovery platform for SaaS companies.',
+              description: 'Affordable churn recovery platform for SaaS companies — $20/month with 30-day free trial.',
               potentialAction: {
                 '@type': 'SearchAction',
                 target: 'https://churnrecovery.com/blog?q={search_term_string}',
@@ -119,6 +130,21 @@ export default function MyApp({ Component, pageProps }) {
             src='https://static.cloudflareinsights.com/beacon.min.js'
             data-cf-beacon={`{"token": "${process.env.NEXT_PUBLIC_CF_WEB_ANALYTICS_TOKEN}"}`}
           />
+        )}
+
+        {/* Google Analytics 4 */}
+        {process.env.NEXT_PUBLIC_GA4_MEASUREMENT_ID && (
+          <>
+            <script
+              async
+              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA4_MEASUREMENT_ID}`}
+            />
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${process.env.NEXT_PUBLIC_GA4_MEASUREMENT_ID}');`,
+              }}
+            />
+          </>
         )}
       </Head>
       {isAppPage ? (

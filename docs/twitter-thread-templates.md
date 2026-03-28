@@ -243,9 +243,9 @@ Same outcome as Churnkey. 90% cheaper.
 ---
 
 **7/**
-Will it stay free forever? Honestly, probably not.
+At $20/month with a 30-day free trial, it's 10-40x cheaper than alternatives.
 
-But right now, I'm focused on proving it works for small businesses.
+And I'm focused on keeping it that way for small businesses.
 
 If you're a newsletter, coach, or course creator — this is built for you.
 

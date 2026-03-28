@@ -285,6 +285,6 @@ Good luck out there.
 
 ---
 
-*ChurnRecovery is free churn recovery software for subscription businesses. Cancel flows, payment failure recovery, and analytics — free, open source, no VC money.*
+*ChurnRecovery is affordable churn recovery software for subscription businesses — $20/month after a 30-day free trial. Cancel flows, payment failure recovery, and analytics — open source, no VC money.*
 
 *[churnrecovery.com](https://churnrecovery.com)*

@@ -83,10 +83,10 @@ Check all that apply:
 
 ### Pricing to Display on G2
 
-Select: **Free** (permanent free tier)
+Select: **Paid** ($20/month with 30-day free trial)
 
 Add pricing tiers:
-- **Free:** $0/month — unlimited cancel flows, unlimited dunning emails, up to 500 active subscribers
+- **Standard:** $20/month — unlimited cancel flows, unlimited dunning emails, all features included (30-day free trial)
 - **Growth:** $29/month — unlimited subscribers, priority support, A/B testing, custom branding removed
 - **Scale:** $79/month — everything in Growth + white-label, dedicated onboarding, SLA
 
@@ -125,10 +125,10 @@ Secondary: **Subscription Management Software**
 ### Capterra Product Description (Copy-Paste Ready)
 
 **Short Summary (255 chars):**
-> ChurnRecovery helps small businesses stop losing subscribers. When customers cancel, smart flows offer discounts or pauses. When payments fail, automated emails recover the revenue. Free to use — no monthly fees.
+> ChurnRecovery helps small businesses stop losing subscribers. When customers cancel, smart flows offer discounts or pauses. When payments fail, automated emails recover the revenue. $20/month with 30-day free trial — affordable for any size.
 
 **Full Description:**
-> Running a subscription business means dealing with two problems: customers who cancel, and customers who didn't mean to leave but had a payment fail. Both problems cost you money every month. ChurnRecovery solves both — and unlike the tools designed for enterprise companies, it's free for small and medium businesses.
+> Running a subscription business means dealing with two problems: customers who cancel, and customers who didn't mean to leave but had a payment fail. Both problems cost you money every month. ChurnRecovery solves both — and unlike the tools designed for enterprise companies, it's $20/month with a 30-day free trial — affordable for any size.
 >
 > **For newsletter creators and coaches:**
 > When a subscriber decides to cancel, they see a personalized retention offer instead of an immediate cancellation. You choose what to offer: a discount, a free month, a pause, or just a quick question about why they're leaving. Many who would have left reconsider when given the option.
@@ -142,7 +142,7 @@ Secondary: **Subscription Management Software**
 > **The bottom line:**
 > Businesses using ChurnRecovery recover an average of 20–40% of customers who were about to leave. At $50–$200/month in saved subscriptions per customer, that adds up fast — and the tool costs nothing.
 >
-> Competitors like Churnkey charge $250–$825/month for the same core features. ChurnRecovery is free, forever.
+> Competitors like Churnkey charge $250–$825/month for the same core features. ChurnRecovery is $20/month with a 30-day free trial.
 
 ---
 
@@ -150,7 +150,7 @@ Secondary: **Subscription Management Software**
 
 | Plan | Price | What's Included |
 |------|-------|-----------------|
-| Free | $0/month | Cancel flows, dunning emails, analytics, up to 500 subscribers |
+| Standard | $20/month | Cancel flows, dunning emails, analytics, all features (30-day free trial) |
 | Growth | $29/month | Unlimited subscribers, A/B testing, priority support |
 | Scale | $79/month | White-label, dedicated onboarding, custom integrations, SLA |
 

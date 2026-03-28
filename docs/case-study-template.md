@@ -119,7 +119,7 @@ $[Amount]/month ($[Annual amount]/year)
 
 ## Want Results Like This?
 
-ChurnRecovery is free to start. No credit card required. Most businesses are live within a few hours.
+ChurnRecovery is $20/month after a 30-day free trial. No credit card required to start. Most businesses are live within a few hours.
 
 **[Join the waitlist →](https://churnrecovery.com/#waitlist)**
 

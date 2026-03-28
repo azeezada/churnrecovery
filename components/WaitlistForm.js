@@ -194,7 +194,7 @@ export default function WaitlistForm({ source = 'homepage', dark = false, compac
 
       <div className="flex gap-4 items-center mt-2.5 flex-wrap">
         <span className={`font-sans text-xs ${subtextColor}`}>
-          Free forever · No credit card required
+          30-day free trial · No credit card required
         </span>
         {count && (
           <span className={`font-sans text-xs ${subtextColor} flex items-center gap-1`}>

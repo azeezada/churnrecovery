@@ -25,7 +25,7 @@ I built ChurnRecovery after watching a friend's newsletter business hemorrhage s
 
 ChurnRecovery is a cancel-flow widget + dunning system for subscription businesses. When a customer clicks "cancel," the widget intercepts the action, asks why, and fires the right retention offer (discount, pause, plan change) based on their answer. Failed payment recovery sends smart retry emails at 1/3/7 days. The whole thing is built on Cloudflare Workers + D1 — no servers to manage, edge-native latency, and it handles traffic spikes without a sweat. The widget itself is a ~12KB vanilla JS embed that doesn't require React or any framework.
 
-It's early-stage and free — not "free trial" free, but permanently free for small teams. The business model is optional managed tiers for scale. I'd love early feedback, especially from anyone who's built or evaluated churn tooling before. Live at churnrecovery.com.
+It's early-stage and affordable — $20/month with a 30-day free trial. I'd love early feedback, especially from anyone who's built or evaluated churn tooling before. Live at churnrecovery.com.
 ```
 
 **Word count:** ~180 words. HN sweet spot: 150–200.
@@ -94,7 +94,7 @@ The PH launch kit says to post Show HN at 1:00 PM PST on launch day. That's fine
 
 ### 7. "How is this sustainable as a free product?"
 
-> Fair question. The plan is: free forever for the core product (cancel flows, dunning, analytics), paid tiers for managed services (white-label branding, priority support, SLA, multi-seat teams). The model is similar to Sentry or PostHog — open/free at the base, commercial on top. We're early enough that the goal right now is users, not revenue. If the free tier doesn't work as a business in 12 months, I'll be honest about it. No VC, no pressure to monetize prematurely.
+> The pricing is $20/month after a 30-day free trial — all features included. The model is intentionally simple: one plan, one price, everything you need. At $20/month vs Churnkey's $250+, we're 10-40x cheaper. No VC, no pressure to raise prices. The goal is to build a sustainable product at a price that makes sense for bootstrapped founders.
 
 ---
 

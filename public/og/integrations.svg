@@ -6,6 +6,6 @@
   <text x="80" y="300" font-family="Georgia, serif" font-size="34" fill="#666666">Works with Stripe, Paddle, Braintree,</text>
   <text x="80" y="345" font-family="Georgia, serif" font-size="34" fill="#666666">Chargebee, Recurly &amp; more</text>
   <rect x="80" y="420" width="200" height="56" rx="8" fill="#D97757"/>
-  <text x="180" y="455" font-family="Georgia, serif" font-size="22" fill="white" text-anchor="middle" font-weight="bold">Free forever</text>
+  <text x="180" y="455" font-family="Georgia, serif" font-size="22" fill="white" text-anchor="middle" font-weight="bold">$20/month</text>
   <text x="1100" y="580" font-family="Georgia, serif" font-size="18" fill="#CCCCCC" text-anchor="end">churnrecovery.com</text>
 </svg>

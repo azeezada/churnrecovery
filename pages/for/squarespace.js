@@ -67,7 +67,7 @@ export default function SquarespaceLandingPage() {
     <>
       <Head>
         <title>Squarespace Doesn't Have a Cancel Flow. We Add One in 10 Minutes. | ChurnRecovery</title>
-        <meta name="description" content="Squarespace subscription cancellations are completely silent — no pause offer, no discount, no exit survey. ChurnRecovery connects to your Stripe and adds a cancel flow in 10 minutes. Free to start." />
+        <meta name="description" content="Squarespace subscription cancellations are completely silent — no pause offer, no discount, no exit survey. ChurnRecovery connects to your Stripe and adds a cancel flow in 10 minutes. $20/month with 30-day free trial." />
         <link rel="canonical" href="https://churnrecovery.com/for/squarespace" />
         <meta property="og:title" content="Squarespace Doesn't Have a Cancel Flow. We Add One in 10 Minutes." />
         <meta property="og:description" content="If you sell subscriptions or memberships through Squarespace + Stripe, ChurnRecovery can intercept cancellations before they happen. No code, no plugins needed." />
@@ -106,7 +106,7 @@ export default function SquarespaceLandingPage() {
             </div>
 
             <div className="flex gap-5 justify-center flex-wrap">
-              <span className="font-sans text-[0.8rem] text-[rgba(255,255,255,0.5)]">🆓 Free to start</span>
+              <span className="font-sans text-[0.8rem] text-[rgba(255,255,255,0.5)]">🆓 30-day free trial</span>
               <span className="font-sans text-[0.8rem] text-[rgba(255,255,255,0.5)]">⚡ No code, no plugins</span>
               <span className="font-sans text-[0.8rem] text-[rgba(255,255,255,0.5)]">🔗 Works with Stripe</span>
             </div>
@@ -194,7 +194,7 @@ export default function SquarespaceLandingPage() {
               <BenefitCard icon="🏷" title="Discount Offer" description="Automatically offer a discount to price-sensitive subscribers at the cancel screen — before they're gone. You decide the offer." />
               <BenefitCard icon="📋" title="Exit Survey" description="Find out exactly why people are leaving with a one-question exit survey. This alone is worth the setup — you'll know what to fix." />
               <BenefitCard icon="📊" title="Recovery Dashboard" description="Track saved subscribers, revenue recovered, and which offers work best — all in one clean dashboard." />
-              <BenefitCard icon="🆓" title="Free to Start" description="No credit card. No trial period. ChurnRecovery is free during beta. You pay only when you grow." />
+              <BenefitCard icon="🆓" title="30-Day Free Trial" description="$20/month after a 30-day free trial. No credit card to start. All features included from day one." />
               <BenefitCard icon="🚫" title="No Squarespace Approval" description="No plugin to install. No app marketplace. No waiting. ChurnRecovery works outside of Squarespace entirely, through Stripe." />
             </div>
           </div>
@@ -273,7 +273,7 @@ export default function SquarespaceLandingPage() {
               Be Ready.
             </h2>
             <p className="font-serif text-base text-[rgba(255,255,255,0.7)] m-0 mb-9 leading-[1.7]">
-              Sign up for free and be first to protect your Squarespace subscription revenue with a real cancel flow. Free to start.
+              Start your 30-day free trial and be first to protect your Squarespace subscription revenue with a real cancel flow. $20/month after trial.
             </p>
             <div className="max-w-[480px] mx-auto">
               <SignUpCTA source="for-squarespace" dark={true} />

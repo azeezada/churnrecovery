@@ -90,7 +90,7 @@ export default function LogoWall({ logos = [], showPlaceholders = false }) {
 
         {!hasRealLogos && (
           <p className="font-sans text-[0.82rem] text-brand-gray mt-5">
-            <a href="/app/sign-up" className="text-brand-accent no-underline font-semibold">Get started free</a> — your logo could be here soon.
+            <a href="/app/sign-up" className="text-brand-accent no-underline font-semibold">Start your free trial</a> — your logo could be here soon.
           </p>
         )}
       </div>

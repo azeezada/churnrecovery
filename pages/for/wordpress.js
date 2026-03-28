@@ -213,8 +213,8 @@ export default function WordPressLandingPage() {
               />
               <BenefitCard
                 icon="🆓"
-                title="Free to Start"
-                description="Free during beta — no credit card, no setup fee. Upgrade only when your membership business grows. Our free tier covers small sites completely."
+                title="30-Day Free Trial"
+                description="$20/month after a 30-day free trial — no credit card to start, no setup fee. All features included from day one."
                 accentColor={ACCENT}
               />
               <BenefitCard
@@ -323,7 +323,7 @@ export default function WordPressLandingPage() {
               <span className="text-[#6B8BFF]">Will You Catch Them?</span>
             </h2>
             <p className="font-serif text-[1rem] text-[rgba(255,255,255,0.7)] mb-[36px] leading-[1.7]">
-              Sign up for free. Add a cancel flow to your WordPress membership site — without a WordPress plugin, without a developer, and without touching your existing setup. Free to start.
+              Start your 30-day free trial. Add a cancel flow to your WordPress membership site — without a WordPress plugin, without a developer, and without touching your existing setup. $20/month after trial.
             </p>
 
             <div className="max-w-[480px] mx-auto">

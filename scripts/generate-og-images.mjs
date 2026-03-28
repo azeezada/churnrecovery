@@ -11,7 +11,7 @@ if (!fs.existsSync(outDir)) {
 // Generate SVG-based OG images (these work as OG images since most platforms render SVGs,
 // but we also provide a fallback PNG-like approach with inline SVG data)
 const pages = [
-  { slug: 'default', title: 'ChurnRecovery', subtitle: 'Stop losing customers. Free forever.' },
+  { slug: 'default', title: 'ChurnRecovery', subtitle: 'Stop losing customers. $20/month.' },
   { slug: 'features', title: 'Features', subtitle: 'Everything you need to stop churn' },
   { slug: 'docs', title: 'Developer Docs', subtitle: 'Integrate in under 10 minutes' },
   { slug: 'demo', title: 'Interactive Demo', subtitle: 'See the cancel flow in action' },
@@ -34,7 +34,7 @@ pages.forEach(page => {
   <text x="80" y="200" font-family="system-ui, -apple-system, sans-serif" font-size="72" font-weight="800" fill="#FFFFFF" letter-spacing="-2">${page.title}</text>
   <text x="80" y="270" font-family="Georgia, serif" font-size="28" fill="rgba(255,255,255,0.6)">${page.subtitle}</text>
   <text x="80" y="540" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="700" fill="#D97757">churnrecovery.com</text>
-  <text x="1120" y="540" font-family="system-ui, -apple-system, sans-serif" font-size="18" fill="rgba(255,255,255,0.4)" text-anchor="end">Free forever</text>
+  <text x="1120" y="540" font-family="system-ui, -apple-system, sans-serif" font-size="18" fill="rgba(255,255,255,0.4)" text-anchor="end">$20/month · 30-day free trial</text>
 </svg>`
 
   fs.writeFileSync(path.join(outDir, `${page.slug}.svg`), svg)

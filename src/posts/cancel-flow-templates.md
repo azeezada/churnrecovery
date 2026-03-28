@@ -248,7 +248,7 @@ You have two options for deploying a cancel flow:
 
 **Option 2: Use ChurnRecovery.** Connect your Stripe account, paste your copy into the template fields, and go live in 10 minutes. No code. No developer. The cancel flow runs automatically for every cancellation.
 
-ChurnRecovery is [free to start](/). You can set up one of these cancel flows today and see your first saved subscriber this week.
+ChurnRecovery is [$20/month after a 30-day free trial](/). You can set up one of these cancel flows today and see your first saved subscriber this week.
 
 **[Try the interactive demo →](/demo)** — see exactly what your subscribers would see, with no signup required.
 

@@ -74,15 +74,15 @@ The easiest path to marketplace visibility — no SDK required.
 ### Listing Copy (ready to paste)
 
 **Tagline:**
-> Stop losing subscribers at the cancel button — free churn recovery for Stripe users
+> Stop losing subscribers at the cancel button — affordable churn recovery for Stripe users ($20/month)
 
 **Short description (50 words):**
-> ChurnRecovery adds smart cancel flows to your Stripe subscriptions in minutes. When a customer tries to cancel, show them personalized retention offers — a pause, a discount, or a plan downgrade. Recover churning subscribers automatically. Free forever. No code required.
+> ChurnRecovery adds smart cancel flows to your Stripe subscriptions in minutes. When a customer tries to cancel, show them personalized retention offers — a pause, a discount, or a plan downgrade. Recover churning subscribers automatically. $20/month with 30-day free trial. No code required.
 
 **Full description (100 words):**
 > ChurnRecovery helps subscription businesses and newsletter creators recover subscribers at the moment they decide to cancel. Add a no-code cancel flow to your Stripe account: when someone clicks "cancel," they see targeted retention offers — a pause, a plan switch, or a discount — instead of an instant goodbye. Failed payments are handled with automated recovery emails.
 >
-> Most churn recovery tools start at $250/month. ChurnRecovery is free. No hidden costs, no revenue share. Setup takes 5 minutes.
+> Most churn recovery tools start at $250/month. ChurnRecovery is $20/month with a 30-day free trial. No hidden costs, no revenue share. Setup takes 5 minutes.
 
 **Keywords:** churn recovery, cancel flow, subscription retention, failed payment recovery, Stripe churn
 

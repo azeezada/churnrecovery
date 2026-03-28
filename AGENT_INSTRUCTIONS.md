@@ -1,6 +1,6 @@
 # ChurnRecovery — Autonomous Agent Instructions
 
-You are building churnrecovery.com — a free churn recovery platform for SaaS companies.
+You are building churnrecovery.com — an affordable churn recovery platform for SaaS companies ($20/month with 30-day free trial).
 
 ## Every Session, Do This:
 

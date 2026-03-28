@@ -28,12 +28,12 @@
 - **Terms of service:** https://churnrecovery.com/terms
 
 ### Integration Description (short — for form field)
-> ChurnRecovery adds smart cancel flows and dunning recovery to Stripe subscriptions. When a subscriber tries to cancel, they see personalized retention offers (pause, downgrade, discount) instead of a direct exit. Failed payments trigger a 3-email dunning sequence. No code required. Free forever.
+> ChurnRecovery adds smart cancel flows and dunning recovery to Stripe subscriptions. When a subscriber tries to cancel, they see personalized retention offers (pause, downgrade, discount) instead of a direct exit. Failed payments trigger a 3-email dunning sequence. No code required. $20/month with 30-day free trial.
 
 ### Integration Description (long — for listing page)
 > **Stop losing Stripe subscribers at the cancel button.**
 >
-> ChurnRecovery is a free churn recovery tool purpose-built for Stripe users. It adds two capabilities to your existing Stripe subscription setup:
+> ChurnRecovery is an affordable churn recovery tool purpose-built for Stripe users — $20/month with 30-day free trial. It adds two capabilities to your existing Stripe subscription setup:
 >
 > **1. Smart cancel flows**
 > When a subscriber clicks "Cancel subscription," ChurnRecovery intercepts that moment and shows them personalized retention offers: pause their subscription for 1-3 months, downgrade to a cheaper plan, or accept a temporary discount. No code changes required — add a 5-line JavaScript widget to your cancel page.

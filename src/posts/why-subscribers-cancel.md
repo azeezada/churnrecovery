@@ -132,7 +132,7 @@ Done right, a cancel flow saves **20–35% of cancellations** without you liftin
 
 The reason this works is psychological: most people cancel impulsively, in a moment of frustration or guilt. When you slow down the moment and offer a real alternative, a significant percentage of them take it.
 
-ChurnRecovery builds this exact flow for newsletters, memberships, and coaching retainers — and it's free to start.
+ChurnRecovery builds this exact flow for newsletters, memberships, and coaching retainers — $20/month after a 30-day free trial.
 
 **See how it works** → [Watch the demo at /demo](/demo)
 

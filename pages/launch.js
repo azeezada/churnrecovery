@@ -50,7 +50,7 @@ const testimonials = [
 ]
 
 export default function LaunchPage() {
-  const title = 'ChurnRecovery — Free Churn Recovery for Subscription Businesses | Product Hunt Launch'
+  const title = 'ChurnRecovery — Affordable Churn Recovery for Subscription Businesses | Product Hunt Launch'
   const description = 'Stop losing subscribers. Cancel flows, dunning emails, and exit surveys — starting at $20/month. The $825/mo alternative for a fraction of the cost.'
 
   return (
@@ -64,7 +64,7 @@ export default function LaunchPage() {
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://churnrecovery.com/screenshots/homepage-hero.png" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="ChurnRecovery — Free churn recovery for subscription businesses" />
+        <meta name="twitter:title" content="ChurnRecovery — Affordable churn recovery for subscription businesses" />
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content="https://churnrecovery.com/screenshots/homepage-hero.png" />
         <link rel="canonical" href="https://churnrecovery.com/launch" />

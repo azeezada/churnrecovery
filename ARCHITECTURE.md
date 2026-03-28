@@ -1,7 +1,7 @@
 # ChurnRecovery — Architecture & Project Plan
 
 ## Overview
-ChurnRecovery is a free churn recovery platform for SaaS companies, competing with Churnkey ($250-825/mo). Our wedge: completely free, developer-first, open-source components.
+ChurnRecovery is an affordable churn recovery platform for SaaS companies, competing with Churnkey ($250-825/mo). Our wedge: 10-40x cheaper than alternatives, developer-first, open-source components.
 
 ## Tech Stack
 - **Frontend:** Next.js 14 (static export + API routes via Workers)

@@ -25,7 +25,7 @@ Reference: Full launch kit is at `docs/product-hunt-launch.md`
   - Upload at minimum: 1 hero screenshot (product dashboard) + 1 thumbnail logo
 
 - [ ] **Add PH upcoming link to Twitter/X bio (DAWOOD ACTION)**
-  - Bio update: "Building @ChurnRecovery — free churn recovery for subscription businesses 🚀 Launching on Product Hunt April 7 👇 [upcoming link]"
+  - Bio update: "Building @ChurnRecovery — affordable churn recovery for subscription businesses ($20/mo) 🚀 Launching on Product Hunt April 7 👇 [upcoming link]"
 
 - [ ] **Email your list — Week 1 warm-up (DAWOOD ACTION)**
   - Subject: `We're launching on Product Hunt in 7 days 🚀`
@@ -254,7 +254,7 @@ Reference: Full launch kit is at `docs/product-hunt-launch.md`
 | March 31 | Twitter | "Launching on PH in 7 days — here's the upcoming page" |
 | March 31 | IH | Short update post + PH upcoming link |
 | April 1 | Twitter | "Working on our PH gallery assets today — here's a sneak peek of the cancel flow GIF" |
-| April 2 | Twitter | "PH launch confirmed for April 7th. Come support free churn recovery for bootstrappers" |
+| April 2 | Twitter | "PH launch confirmed for April 7th. Come support affordable churn recovery for bootstrappers — $20/month" |
 | April 3 | IH | Comment on existing IH post with PH update |
 | April 4 | Twitter | "3 days out. Here's what we built and why it's free" (short thread) |
 | April 5 | Twitter | "Tomorrow is the day 🚀 — see you at midnight PST" |
@@ -284,7 +284,7 @@ Reference: Full launch kit is at `docs/product-hunt-launch.md`
 
 ### Template D — Cold outreach to relevant PH community members
 
-> "Hi [name] — I've followed your work on [thing they built]. We're a small team launching free churn recovery on Product Hunt this Tuesday (April 7th). Given you've built subscription products, I think you'd appreciate what we're doing. Would love your support! [PH upcoming link]"
+> "Hi [name] — I've followed your work on [thing they built]. We're a small team launching affordable churn recovery ($20/month) on Product Hunt this Tuesday (April 7th). Given you've built subscription products, I think you'd appreciate what we're doing. Would love your support! [PH upcoming link]"
 
 ---
 

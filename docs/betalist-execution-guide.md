@@ -94,7 +94,7 @@ How we solve it:
 Why free: The segment under $5k/month churn volume is ignored by existing tools. We're building for bootstrapped founders who can't justify expensive monthly SaaS fees but still need professional churn recovery.
 
 Early access includes:
-• Free forever core features
+• All features included ($20/month after trial)
 • Priority support during beta
 • Input on feature roadmap
 • First access to premium features when launched
@@ -200,7 +200,7 @@ BetaList visitors are early adopter developers and founders. They're skeptical b
    - This page converts better because it's personalized to the channel
    - Add a note: "Skip the waitlist — BetaList visitors get immediate beta access"
 3. **Show subscriber count** on homepage ("Join 300+ founders") — social proof matters
-4. **Make pricing crystal clear** — "Free forever" in large text, not buried in FAQ
+4. **Make pricing crystal clear** — "$20/month with 30-day free trial" in large text, not buried in FAQ
 
 ### The BetaList-Specific Landing Page
 
@@ -211,7 +211,7 @@ HEADLINE:
 "You found ChurnRecovery on BetaList — here's your early access"
 
 SUBHEAD:
-"The free alternative to Churnkey. Stop losing subscribers to failed payments and cancellations — for $0/month."
+"The affordable alternative to Churnkey. Stop losing subscribers to failed payments and cancellations — $20/month with 30-day free trial."
 
 [Signup form — email only, single field]
 

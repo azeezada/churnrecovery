@@ -82,7 +82,7 @@
 - Conditional offers based on cancel reason
 
 ### Pricing
-- **Free forever plan** (no credit card)
+- **$20/month** with 30-day free trial (no credit card to start)
 - Paid plans not publicly disclosed
 - Claims 20% retention rate, 7x ROI
 

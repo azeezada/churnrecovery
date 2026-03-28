@@ -430,7 +430,7 @@
 ### New /for/ Landing Pages
 - `/for/stripe` — Most important page. Audience: any business using Stripe directly. Accent: #635BFF (Stripe purple). Key message: "Stripe processes payments. We save them." Targets keywords: "stripe churn recovery", "stripe cancel flow". Full hero + pain points + math section + how it works + use case grid + pricing + 8 FAQs. Tag: `stripe-direct`
 - `/for/squarespace` — Audience: Squarespace subscription/membership sellers using Stripe. Accent: #000000 (Squarespace black/white). Key message: "Squarespace doesn't give you a cancel flow. We add one in 10 minutes." Tag: `squarespace-seller`
-- `/for/chargebee` — Audience: Small businesses on Chargebee priced out of Chargebee Retain ($500+/mo). Accent: #FF6B35 (Chargebee orange). Key message: "Get Chargebee Retain features for $0/month." Includes side-by-side comparison table. Tag: `chargebee-user`
+- `/for/chargebee` — Audience: Small businesses on Chargebee priced out of Chargebee Retain ($500+/mo). Accent: #FF6B35 (Chargebee orange). Key message: "Get Chargebee Retain features for $20/month." Includes side-by-side comparison table. Tag: `chargebee-user`
 - `/for/lemon-squeezy` — Honest MoR limitation page. Accent: #FFD234 (Lemon Squeezy yellow). Three paths: use own Stripe plan, migrate subscriptions to Stripe, or join waitlist for future native integration. Tag: `lemon-squeezy-seller`
 
 ### New Blog Posts

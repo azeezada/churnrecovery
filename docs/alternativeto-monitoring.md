@@ -141,7 +141,7 @@ Thanks! Happy to answer any questions about how it works or help you evaluate if
 6. **Add a note** (optional but recommended): 
    ```
    Free, open-source alternative. Cancel flows + dunning sequences + exit surveys. 
-   No monthly fees — free forever core product.
+   $20/month with 30-day free trial. All features included.
    ```
 7. Submit
 

@@ -1,6 +1,6 @@
 # ChurnRecovery
 
-**Free churn recovery for subscription businesses.** Cancel flow interception, smart save offers, failed payment recovery, and analytics — all at $0/month.
+**Affordable churn recovery for subscription businesses.** Cancel flow interception, smart save offers, failed payment recovery, and analytics — $20/month with a 30-day free trial.
 
 [Website](https://churnrecovery.com) · [Live Demo](https://churnrecovery.com/demo) · [Docs](https://churnrecovery.com/docs)
 

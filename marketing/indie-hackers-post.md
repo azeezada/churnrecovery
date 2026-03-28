@@ -40,7 +40,7 @@ So I built the alternative myself. **ChurnRecovery** — everything Churnkey doe
 | Open source | ✅ MIT | ❌ Proprietary |
 | Self-hosted option | ✅ | ❌ |
 
-## Why Free Forever?
+## Why $20/month?
 
 **Hot take:** Churn recovery tools should be a commodity by now. 
 

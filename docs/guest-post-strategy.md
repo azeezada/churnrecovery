@@ -119,7 +119,7 @@
 
 Hi [Name],
 
-Quick pitch: I'm building ChurnRecovery, a free churn recovery tool for small SaaS founders and newsletter creators. While analyzing cancellation patterns, I found that most businesses lose 20–30% of potential revenue not to poor product-market fit, but to bad cancel flows.
+Quick pitch: I'm building ChurnRecovery, an affordable churn recovery tool for small SaaS founders and newsletter creators ($20/month with 30-day free trial). While analyzing cancellation patterns, I found that most businesses lose 20–30% of potential revenue not to poor product-market fit, but to bad cancel flows.
 
 I'd love to write "[Article Title]" for [Publication] — a data-driven piece on what actually happens in the 30 seconds before someone cancels, and what small changes move the needle.
 
@@ -138,7 +138,7 @@ founder, churnrecovery.com
 
 Hey [Name],
 
-I'm a bootstrapped founder building ChurnRecovery — a free churn recovery tool for newsletter creators and small SaaS products. No VC, no marketing budget, just SEO, community, and genuine product work.
+I'm a bootstrapped founder building ChurnRecovery — an affordable churn recovery tool for newsletter creators and small SaaS products ($20/month). No VC, no marketing budget, just SEO, community, and genuine product work.
 
 I'd love to write a piece for [Publication] about the specific tactics I'm using to grow without spending money: directory submissions, Reddit, Indie Hackers, and free content that actually helps our audience.
 

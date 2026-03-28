@@ -111,7 +111,7 @@ I built this because I couldn't afford Churnkey when I was doing $1,800/month. A
 
 I built ChurnRecovery on Cloudflare Workers — which costs me almost nothing to run. That means I can give the core product away free while I prove it works.
 
-No credit card. No trial period. No "free forever but the useful stuff is paid." Just free.
+No credit card to start. 30-day free trial. Then $20/month — all features included. No gotchas.
 
 ---
 

@@ -124,12 +124,12 @@ Every page and blog post should follow this structure:
   "applicationCategory": "BusinessApplication",
   "operatingSystem": "Web",
   "url": "https://churnrecovery.com",
-  "description": "Free churn recovery platform for SaaS companies. Cancel flow interception, smart offers, analytics, and win-back automation.",
+  "description": "Affordable churn recovery platform for SaaS companies — $20/month. Cancel flow interception, smart offers, analytics, and win-back automation.",
   "offers": {
     "@type": "Offer",
-    "price": "0",
+    "price": "20",
     "priceCurrency": "USD",
-    "description": "Free forever plan with core features"
+    "description": "$20/month plan with all features included, 30-day free trial"
   },
   "aggregateRating": {
     "@type": "AggregateRating",
@@ -201,7 +201,7 @@ Update `_app.js` Organization schema to include:
   "name": "ChurnRecovery",
   "url": "https://churnrecovery.com",
   "logo": "https://churnrecovery.com/logo.png",
-  "description": "Free churn recovery platform for SaaS companies.",
+  "description": "Affordable churn recovery platform for SaaS companies — $20/month with 30-day free trial.",
   "foundingDate": "2025",
   "sameAs": [
     "https://twitter.com/churnrecovery",

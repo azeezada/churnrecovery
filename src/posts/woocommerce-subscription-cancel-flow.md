@@ -37,7 +37,7 @@ WooCommerce Subscriptions has no native cancel flow. You either build one yourse
 This setup requires:
 - **WooCommerce** with **WooCommerce Subscriptions** installed
 - **Stripe** as your payment gateway (via the WooCommerce Stripe plugin)
-- A **ChurnRecovery account** (free to start, [see plans](/for/wordpress))
+- A **ChurnRecovery account** ($20/month with 30-day free trial, [see plans](/for/wordpress))
 
 If you're using PayPal, Braintree, or another processor instead of Stripe, the ChurnRecovery Stripe integration won't apply directly — contact us and we'll walk through your options.
 

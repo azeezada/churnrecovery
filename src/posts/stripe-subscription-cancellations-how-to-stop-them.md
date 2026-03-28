@@ -139,4 +139,4 @@ No signup required for the demo. You can see the exact experience your subscribe
 
 ---
 
-*ChurnRecovery is free to start during beta. No credit card required. Connect your Stripe account and have a cancel flow live in 10 minutes.*
+*ChurnRecovery is $20/month after a 30-day free trial. No credit card required to start. Connect your Stripe account and have a cancel flow live in 10 minutes.*

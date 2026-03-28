@@ -185,7 +185,7 @@ function getDowngradeOffer(currentPlan) {
     },
     starter: {
       to: 'free',
-      savings: 'Free forever',
+      savings: '$20/month',
       keepFeatures: ['Basic cancel flow', 'Data export'],
       loseFeatures: ['Dunning', 'Analytics', 'Custom branding'],
     },
@@ -305,7 +305,7 @@ function routeCancelToCS(customer) {
 
 For customers paying $500+/month, a 15-minute conversation can save $6,000+/year. The ROI is obvious. Plus, even if you can't save the customer, the conversation provides invaluable qualitative data.
 
-Important: the human must be empowered to make offers (discounts, free months, feature requests). A customer success rep who has to "check with their manager" loses the moment.
+Important: the human must have authority to make offers (discounts, free months, feature requests). A customer success rep who has to "check with their manager" loses the moment.
 
 ### Save Rate: 30-50% (for high-value customers)
 

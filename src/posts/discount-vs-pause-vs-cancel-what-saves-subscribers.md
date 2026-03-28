@@ -151,4 +151,4 @@ The good news: you don't have to choose one strategy and stick with it forever. 
 
 ---
 
-*ChurnRecovery works with any subscription business using Stripe — [Kajabi](/for/kajabi), [Ghost](/for/ghost), [ConvertKit](/for/convertkit), [Memberful](/for/memberful), WordPress/WooCommerce, and more. Free to start.*
+*ChurnRecovery works with any subscription business using Stripe — [Kajabi](/for/kajabi), [Ghost](/for/ghost), [ConvertKit](/for/convertkit), [Memberful](/for/memberful), WordPress/WooCommerce, and more. $20/month after a 30-day free trial.*

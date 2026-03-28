@@ -6,10 +6,10 @@
 ## Standard Copy — Keep This Open While Submitting
 
 **Product Name:** ChurnRecovery  
-**Tagline:** Free churn recovery for SaaS — beats Churnkey by 100%  
+**Tagline:** Affordable churn recovery for SaaS — $20/month vs Churnkey's $250+  
 **Website:** https://churnrecovery.com  
 **GitHub:** https://github.com/dawoodazeeza/churnrecovery  
-**Pricing:** Free Forever  
+**Pricing:** $20/month (30-day free trial)
 **Category:** SaaS Tools / Customer Retention / Billing & Payments  
 **Keywords:** churn recovery, churn prevention, SaaS tools, billing, customer retention, subscription management, payment recovery, cancel flows, dunning, Churnkey alternative
 
@@ -17,14 +17,14 @@
 
 ### Short Description (copy-paste, under 150 chars)
 ```
-Free churn recovery for SaaS. Smart cancel flows, dunning, analytics — everything Churnkey does at $0/month.
+Affordable churn recovery for SaaS. Smart cancel flows, dunning, analytics — everything Churnkey does for $20/month.
 ```
 
 ### Medium Description (copy-paste, ~200 words)
 ```
 ChurnRecovery helps SaaS companies recover failed payments and reduce voluntary cancellations without monthly fees. Smart cancel flows show the right offer at cancellation (pause, discount, plan change). Automated dunning sequences recover failed payments. Exit surveys reveal exactly why customers are leaving.
 
-Everything Churnkey does — but free, open source, and built for bootstrapped founders.
+Everything Churnkey does — but $20/month (with 30-day free trial), open source, and built for bootstrapped founders.
 
 Key features:
 • Smart cancel flows with customizable offers
@@ -34,16 +34,16 @@ Key features:
 • Exit surveys and cancellation reason tracking
 • Self-hosted option available
 
-Churnkey charges $250–$825/month. We charge $0. Setup takes 15 minutes — one script tag.
+Churnkey charges $250–$825/month. We charge $20/month. Setup takes 15 minutes — one script tag.
 
 Built for: newsletter creators, coaches, online course sellers, subscription businesses, bootstrapped SaaS founders.
 
-Free forever. MIT licensed. No minimum MRR requirement.
+$20/month with 30-day free trial. MIT licensed. No minimum MRR requirement.
 ```
 
 ### Long Description (copy-paste, ~400 words)
 ```
-ChurnRecovery is a free, open-source churn recovery platform for SaaS companies. Recover failed payments, reduce voluntary cancellations with smart cancel flows, and keep your MRR growing — without paying $250–$825/month like Churnkey charges.
+ChurnRecovery is an affordable, open-source churn recovery platform for SaaS companies — $20/month with a 30-day free trial. Recover failed payments, reduce voluntary cancellations with smart cancel flows, and keep your MRR growing — without paying $250–$825/month like Churnkey charges.
 
 THE PROBLEM WITH EXISTING TOOLS
 Churnkey and similar platforms price their tools at $250–$825/month minimum — pricing that makes sense for large SaaS companies but is prohibitive for bootstrapped founders, newsletter creators, online course sellers, and subscription businesses under $15k MRR. For a $5k MRR business, $250/month is 5% of gross revenue just for a single retention tool.
@@ -55,8 +55,8 @@ WHAT CHURNRECOVERY DOES
 • Churn analytics: Real-time dashboard showing recovery rates, cancellation trends, cohort retention, and revenue impact.
 • One-line integration: Works with Stripe, Paddle, Lemon Squeezy, Chargebee, and more. One script tag, 15-minute setup, no developer required.
 
-WHY FREE?
-The tech behind churn recovery isn't revolutionary — it's cancel flow UI, email APIs, and webhook handling. What tools like Churnkey charge $825/month for should cost maybe $25. ChurnRecovery is built on the open source model: free core product, premium services and advanced analytics for businesses that need them. Even if the business model takes time, the tool existing saves the community millions in unnecessary SaaS fees.
+WHY $20/MONTH?
+The tech behind churn recovery isn't revolutionary — it's cancel flow UI, email APIs, and webhook handling. What tools like Churnkey charge $825/month for should cost maybe $25. ChurnRecovery is built on that principle: $20/month with a 30-day free trial, all features included. Simple, sustainable pricing that saves the community millions in unnecessary SaaS fees.
 
 WHO IT'S FOR
 • Newsletter operators using Stripe or Paddle
@@ -69,7 +69,7 @@ Stack: Next.js 14, TypeScript, Node.js, PostgreSQL, Resend
 License: MIT (self-hostable)
 GitHub: github.com/dawoodazeeza/churnrecovery
 
-Free forever. No catch. No per-recovery fees. No minimum MRR.
+$20/month. All features included. No per-recovery fees. No minimum MRR. 30-day free trial.
 ```
 
 ---
@@ -93,7 +93,7 @@ Free forever. No catch. No per-recovery fees. No minimum MRR.
 - **How:** Search "Churnkey" → click "Suggest an alternative" → ChurnRecovery
 - **Copy for submission:**
 ```
-ChurnRecovery - Free, open-source churn recovery for SaaS. Smart cancel flows, automated dunning, and exit surveys — everything Churnkey does at $0/month. One-line integration with Stripe, Paddle, and Lemon Squeezy. MIT licensed.
+ChurnRecovery - Affordable, open-source churn recovery for SaaS. Smart cancel flows, automated dunning, and exit surveys — everything Churnkey does for $20/month. One-line integration with Stripe, Paddle, and Lemon Squeezy. MIT licensed.
 ```
 - **Category:** Customer Retention / SaaS Tools
 - **Time estimate:** 5 minutes
@@ -107,7 +107,7 @@ ChurnRecovery - Free, open-source churn recovery for SaaS. Smart cancel flows, a
 - **How:** Submit startup form → review takes 1–3 days
 - **Tagline:**
 ```
-Early access to the free Churnkey alternative — churn recovery without monthly fees.
+Early access to the affordable Churnkey alternative — churn recovery for $20/month with 30-day free trial.
 ```
 - **Description:**
 ```
@@ -125,10 +125,10 @@ ChurnRecovery helps SaaS founders recover failed payments and reduce cancellatio
 - **How:** Add software listing form
 - **Copy:**
 ```
-ChurnRecovery is a free, open-source alternative to Churnkey for SaaS churn recovery. Recover failed payments, reduce voluntary cancellations with smart cancel flows, and keep your MRR growing — without monthly fees. One-line integration with Stripe, Paddle, Lemon Squeezy, and Chargebee.
+ChurnRecovery is an affordable, open-source alternative to Churnkey for SaaS churn recovery. Recover failed payments, reduce voluntary cancellations with smart cancel flows, and keep your MRR growing — $20/month with 30-day free trial. One-line integration with Stripe, Paddle, Lemon Squeezy, and Chargebee.
 ```
 - **Category:** Customer Success & Retention
-- **Pricing:** Free
+- **Pricing:** $20/month (30-day free trial)
 - **Time estimate:** 15 minutes
 - **Why:** SaaSHub ranks well for SaaS comparison searches
 
@@ -140,7 +140,7 @@ ChurnRecovery is a free, open-source alternative to Churnkey for SaaS churn reco
 - **How:** Add Organization → Company
 - **Fields:**
   - Organization name: ChurnRecovery
-  - Short description: `Free, open-source churn recovery for SaaS — the Churnkey alternative at $0/month.`
+  - Short description: `Affordable, open-source churn recovery for SaaS — the Churnkey alternative at $20/month.`
   - Founded: 2026
   - Company type: Open Source
   - Industry: SaaS, Developer Tools, Customer Success
@@ -159,7 +159,7 @@ ChurnRecovery is a free, open-source alternative to Churnkey for SaaS churn reco
   - Find a hunter with 500+ followers to post it
   - Prepare: logo (240×240), gallery (1270×760), video demo, tagline
 - **Target launch date:** April 1st (per roadmap)
-- **Tagline:** `Free alternative to Churnkey — $0/month churn recovery for SaaS`
+- **Tagline:** `Affordable alternative to Churnkey — $20/month churn recovery for SaaS`
 - **Time estimate:** 30 minutes prep now, launch day coordination later
 - **Why:** Product Hunt can drive 1,000+ signups in 24 hours if it trends
 
@@ -195,7 +195,7 @@ ChurnRecovery is a free, open-source alternative to Churnkey for SaaS churn reco
 - **How:** Submit product form
 - **Tagline:**
 ```
-Free churn recovery for SaaS — everything Churnkey does at $0/month
+Affordable churn recovery for SaaS — everything Churnkey does for $20/month
 ```
 - **Time estimate:** 10 minutes
 - **Why:** Good early traction, curated community of founders

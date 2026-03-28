@@ -7,7 +7,7 @@ import SignUpCTA from '../../components/SignUpCTA'
 const chapters = [
   {
     num: '01',
-    title: 'Understanding Why Subscribers Cancel',
+    title: 'Why Subscribers Actually Cancel',
     desc: 'The psychology behind churn — value gaps, life friction, forgotten engagement, and how to diagnose which problem you actually have.',
   },
   {
@@ -164,7 +164,7 @@ export default function ChurnRecoveryPlaybook() {
                   {[
                     { v: '8 Chapters', l: 'of actionable content' },
                     { v: '3,000+', l: 'words of tactics' },
-                    { v: '100% Free', l: 'no credit card' },
+                    { v: '30-day free trial', l: 'then $20/month' },
                   ].map(s => (
                     <div key={s.v}>
                       <div className="font-sans font-bold text-[1.05rem] text-brand-white">

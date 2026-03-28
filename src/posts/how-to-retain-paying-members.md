@@ -163,4 +163,4 @@ ChurnRecovery works with any membership platform that uses Stripe — including 
 
 ---
 
-*ChurnRecovery is free churn recovery software for membership sites and subscription businesses. No developer needed.*
+*ChurnRecovery is affordable churn recovery software for membership sites and subscription businesses — $20/month after a 30-day free trial. No developer needed.*

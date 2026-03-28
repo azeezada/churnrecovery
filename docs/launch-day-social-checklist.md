@@ -33,7 +33,7 @@ Everything you need to reduce churn:
 • Exit surveys
 • Analytics
 
-$0/month. No catch.
+$20/month. 30-day free trial. No catch.
 
 churnrecovery.com
 ```

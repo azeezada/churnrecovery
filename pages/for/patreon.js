@@ -313,31 +313,22 @@ export default function PatreonLandingPage() {
               Priced for Independent Creators
             </h2>
             <p className="font-serif text-base text-brand-gray leading-[1.7] m-0 mb-8">
-              Free while you build your direct subscription. Scales as your revenue grows.
+              One simple price. 30-day free trial to get started — no credit card required.
             </p>
 
-            <div className="grid grid-cols-2 gap-3 mb-7">
-              {[
-                { tier: 'Starter', price: '$0/month', range: 'Under $1k MRR', highlight: true },
-                { tier: 'Growth', price: '$29/month', range: 'Up to $5k MRR' },
-                { tier: 'Pro', price: '$79/month', range: 'Up to $20k MRR' },
-                { tier: 'Enterprise', price: 'Custom', range: 'Above $20k MRR' },
-              ].map(({ tier, price, range, highlight }) => (
-                <div key={tier} className={`rounded-[10px] p-[18px] relative ${highlight ? 'bg-patreon-bg border border-patreon' : 'bg-brand-bg border border-brand-border'}`}>
-                  {highlight && (
-                    <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-patreon text-brand-white font-sans text-[0.7rem] font-bold py-[3px] px-2.5 rounded-full">
-                      START HERE FREE
-                    </div>
-                  )}
-                  <div className="font-sans font-bold text-brand-text text-[0.9rem]">{tier}</div>
-                  <div className={`font-sans font-extrabold text-[1.4rem] my-1 ${highlight ? 'text-patreon' : 'text-brand-text'}`}>{price}</div>
-                  <div className="font-serif text-[0.78rem] text-brand-gray">{range}</div>
+            <div className="max-w-[380px] mx-auto mb-7">
+              <div className="rounded-[10px] p-[18px] relative bg-patreon-bg border border-patreon">
+                <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-patreon text-brand-white font-sans text-[0.7rem] font-bold py-[3px] px-2.5 rounded-full">
+                  SIMPLE PRICING
                 </div>
-              ))}
+                <div className="font-sans font-bold text-brand-text text-[0.9rem]">All Features</div>
+                <div className="font-sans font-extrabold text-[1.4rem] my-1 text-patreon">$20/month</div>
+                <div className="font-serif text-[0.78rem] text-brand-gray">30-day free trial · No credit card required</div>
+              </div>
             </div>
 
             <div className="bg-brand-green-light border border-[#C6E6D4] rounded-[10px] py-3.5 px-5 font-sans text-[0.88rem] text-brand-green mb-6">
-              Patreon takes 8–12% of your revenue forever. ChurnRecovery charges a flat fee — and starts free. 😊
+              Patreon takes 8–12% of your revenue forever. ChurnRecovery is just $20/month with a 30-day free trial.
             </div>
           </div>
         </section>
@@ -438,7 +429,7 @@ export default function PatreonLandingPage() {
               <br /><span className="text-[#FCA5A5]">Keep More of What You Earn.</span>
             </h2>
             <p className="font-serif text-base text-white/70 m-0 mb-9 leading-[1.7]">
-              Sign up for free. Free for content creators ready to build beyond Patreon.
+              Start your free trial. $20/month after 30 days — built for content creators ready to own their subscriber relationships.
             </p>
 
             <div className="max-w-[480px] mx-auto">
@@ -446,7 +437,7 @@ export default function PatreonLandingPage() {
             </div>
 
             <div className="flex gap-6 justify-center mt-6 flex-wrap">
-              <span className="font-sans text-[0.78rem] text-white/45">Free during beta</span>
+              <span className="font-sans text-[0.78rem] text-white/45">30-day free trial</span>
               <span className="font-sans text-[0.78rem] text-white/45">Cancel anytime</span>
               <span className="font-sans text-[0.78rem] text-white/45">No spam, ever</span>
             </div>

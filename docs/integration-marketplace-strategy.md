@@ -77,7 +77,7 @@ Our audience already uses Stripe. They're looking at Stripe's ecosystem first. A
 
 ### ChurnRecovery Copy for Stripe Listing
 
-**Tagline:** Stop losing subscribers at the cancel button — free churn recovery for Stripe users
+**Tagline:** Stop losing subscribers at the cancel button — affordable churn recovery for Stripe users ($20/month)
 
 **Description:**
 > ChurnRecovery adds a smart cancel flow to your Stripe subscriptions in minutes. When a customer tries to cancel, we show them personalized retention offers — a pause, a discount, or a plan downgrade — instead of sending them straight to the exit. Failed payments are automatically retried with recovery emails. No code required. No monthly fees.
@@ -116,7 +116,7 @@ Paddle's integration partner directory lists tools that work with Paddle's billi
 5. [ ] Get listed in the Paddle Ecosystem directory
 
 **Copy for Paddle:**
-> ChurnRecovery helps Paddle merchants recover churning subscribers before they cancel. Add a smart retention flow to your subscription cancellation — offer pauses, discounts, and alternatives automatically. Free forever for small businesses.
+> ChurnRecovery helps Paddle merchants recover churning subscribers before they cancel. Add a smart retention flow to your subscription cancellation — offer pauses, discounts, and alternatives automatically. $20/month — affordable for any size.
 
 **Timeline:** After Stripe Partner listing is approved (estimated +30 days)
 
@@ -244,11 +244,11 @@ Make.com is a workflow automation platform with 1,000+ integrations. More techni
 ## Copy Bank: Marketplace-Ready Descriptions
 
 **Short (50 words):**
-> ChurnRecovery adds smart cancel flows to your subscription business. When subscribers try to cancel, show them personalized retention offers — pause, downgrade, discount. Recover churning subscribers automatically. Free forever. Built for small businesses.
+> ChurnRecovery adds smart cancel flows to your subscription business. When subscribers try to cancel, show them personalized retention offers — pause, downgrade, discount. Recover churning subscribers automatically. $20/month with 30-day free trial. Built for small businesses.
 
 **Medium (100 words):**
 > ChurnRecovery helps subscription businesses and newsletter creators recover subscribers at the moment they decide to cancel. Add a no-code cancel flow to your Stripe or Paddle account: when someone clicks "cancel," they see targeted retention offers — a pause, a plan switch, or a discount — instead of an instant goodbye. Failed payments are handled with automated recovery emails. 
 >
-> Most churn recovery tools start at $250/month. ChurnRecovery is free. No hidden costs, no revenue share. Setup takes 5 minutes.
+> Most churn recovery tools start at $250/month. ChurnRecovery is $20/month with a 30-day free trial. No hidden costs, no revenue share. Setup takes 5 minutes.
 
 **Keywords:** churn recovery, cancel flow, subscription retention, failed payment recovery, churn tool, Stripe churn, newsletter churn

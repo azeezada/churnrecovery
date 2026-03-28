@@ -18,7 +18,7 @@ export default function WixLandingPage() {
     <>
       <Head>
         <title>Stop Losing Wix Subscribers at the Cancel Screen | ChurnRecovery</title>
-        <meta name="description" content="Wix doesn't show you who's about to cancel — and there's no native cancel flow. ChurnRecovery connects to your Stripe account and catches cancellations before they're final. Free to start." />
+        <meta name="description" content="Wix doesn't show you who's about to cancel — and there's no native cancel flow. ChurnRecovery connects to your Stripe account and catches cancellations before they're final. $20/month with 30-day free trial." />
         <link rel="canonical" href="https://churnrecovery.com/for/wix" />
         <meta property="og:title" content="Stop Losing Wix Subscribers at the Cancel Screen | ChurnRecovery" />
         <meta property="og:description" content="Wix has no built-in cancel flow or churn recovery. ChurnRecovery plugs into Stripe — the payment processor behind your Wix subscriptions — and intercepts cancellations automatically." />
@@ -82,7 +82,7 @@ export default function WixLandingPage() {
                 Wix Lets Your Subscribers Walk Out.<br />No Warning, No Second Chance.
               </h2>
               <p className="font-serif text-[1rem] text-[#666666] max-w-[540px] mx-auto leading-[1.7]">
-                Wix is great for building websites. But when it comes to keeping subscribers, it&apos;s completely silent. You find out about cancellations in a Stripe email — by then, it&apos;s already over.
+                Wix is great for building websites. But it does nothing to keep subscribers &mdash; it&apos;s completely silent. You find out about cancellations in a Stripe email, and by then, it&apos;s already over.
               </p>
             </div>
 
@@ -210,8 +210,8 @@ export default function WixLandingPage() {
               />
               <BenefitCard
                 icon="🆓"
-                title="Free to Start"
-                description="No credit card, no trial period, no setup fees. Start free and only pay as your subscription business grows."
+                title="30-Day Free Trial"
+                description="$20/month after a 30-day free trial — no credit card to start, no setup fees. All features included."
                 accentColor={ACCENT}
               />
               <BenefitCard
@@ -316,7 +316,7 @@ export default function WixLandingPage() {
               <span className="text-[#33AAFF]">Will You Be Ready?</span>
             </h2>
             <p className="font-serif text-[1rem] text-[rgba(255,255,255,0.7)] mb-[36px] leading-[1.7]">
-              Sign up for free. Protect your Wix subscription revenue with automated churn recovery. Free to start — no Wix approval needed.
+              Start your 30-day free trial. Protect your Wix subscription revenue with automated churn recovery. $20/month after trial — no Wix approval needed.
             </p>
 
             <div className="max-w-[480px] mx-auto">
