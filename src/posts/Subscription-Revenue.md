@@ -65,7 +65,7 @@ Once you understand the reason, see if there is a mitigating step. You can take 
 * **"I had technical problems"** $\rightarrow$ Book the user time with a support team to get this fixed.
 * **"I no longer need X feature"** $\rightarrow$ Down-sell them to a cheaper plan that only has what they need.
 
-> The *NY Times* runs this version of the cancellation flow. Needless to say, make sure you're using this data in your product roadmaps to fix anything fixable.
+> The *NY Times* runs this version of the cancellation flow. Make sure you're using this data in your product roadmaps to fix anything fixable.
 
 ---
 

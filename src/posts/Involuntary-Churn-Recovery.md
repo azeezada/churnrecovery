@@ -357,7 +357,7 @@ Or, you can use [ChurnRecovery](/) — a $20/month open-source platform that han
 
 ---
 
-## Key Takeaways
+## The 3 Numbers That Matter
 
 1. **Involuntary churn is 20-40% of total churn** — and it's the most fixable.
 2. **Smart retry timing matters more than retry count.** Time of day, day of week, and payday alignment all affect recovery rates.

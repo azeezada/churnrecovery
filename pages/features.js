@@ -36,11 +36,11 @@ const features = [
     icon: '📊',
     colorClass: 'text-brand-blue',
     colorLightBg: 'bg-brand-blue-light',
-    painStatement: 'You can\'t fix what you can\'t measure. Without churn analytics, you\'re guessing why subscribers leave — and guessing wrong costs thousands.',
+    painStatement: 'You can\'t fix what you can\'t measure. Without churn analytics, you\'re guessing why subscribers leave — and a $10k MRR business guessing wrong loses $6,000–$12,000/year.',
     items: [
       {
         title: 'Save Rate Dashboard',
-        description: 'Track your save rate in real time. See what percentage of customers who see the cancel flow end up staying. Drill down by plan, country, cohort, and cancel reason.',
+        description: 'Track your save rate in real time — typical users see 20–40% of cancel attempts saved. Drill down by plan, country, cohort, and cancel reason to find what\'s working.',
         details: ['Real-time updates', 'Historical trends', 'Segment filters', 'Export to CSV'],
       },
       {
@@ -89,7 +89,7 @@ const features = [
     icon: '🔗',
     colorClass: 'text-brand-purple',
     colorLightBg: 'bg-brand-purple-light',
-    painStatement: 'Complex integrations that take weeks to set up mean weeks of lost revenue. ChurnRecovery connects in minutes, not months.',
+    painStatement: 'Complex integrations that take weeks to set up mean weeks of lost revenue. ChurnRecovery connects in under 30 minutes — most Stripe users are live in 5.',
     items: [
       {
         title: 'One-Line JavaScript SDK',
@@ -98,7 +98,7 @@ const features = [
       },
       {
         title: 'REST API',
-        description: 'Full REST API for server-side integrations. Trigger cancel flows, retrieve analytics, manage customers, and configure offers — all via clean, versioned API endpoints.',
+        description: 'Full REST API with 15+ endpoints for server-side integrations. Trigger cancel flows, retrieve analytics, manage customers, and configure offers — all via clean, versioned API endpoints.',
         details: ['API key auth', 'Versioned endpoints', 'Idempotent operations', 'Rate limit: 1000 req/min'],
       },
       {
@@ -108,7 +108,7 @@ const features = [
       },
       {
         title: 'Webhooks',
-        description: 'Get notified in real time when customers are saved, when they cancel, when offers are accepted. Send data to your CRM, Slack, or any downstream system.',
+        description: 'Get notified in under 500ms when customers are saved, when they cancel, when offers are accepted. Send data to your CRM, Slack, or any downstream system.',
         details: ['Cancel events', 'Save events', 'Offer acceptance events', 'Retry with exponential backoff'],
       },
     ],
@@ -126,7 +126,7 @@ function Nav() {
         <Link href="/docs" className="text-brand-gray no-underline text-[0.9rem] font-sans">Docs</Link>
         <Link href="/demo" className="text-brand-gray no-underline text-[0.9rem] font-sans">Demo</Link>
         <Link href="/blog" className="text-brand-gray no-underline text-[0.9rem] font-sans">Blog</Link>
-        <a href="/app/sign-up" className="bg-brand-accent text-brand-white py-2 px-[18px] rounded-md no-underline text-[0.85rem] font-semibold font-sans">Start Free Trial</a>
+        <a href="/app/sign-up" className="bg-brand-accent text-brand-white py-2 px-[18px] rounded-md no-underline text-[0.85rem] font-semibold font-sans">Start Free Trial →</a>
       </div>
     </nav>
   )
@@ -296,7 +296,7 @@ export default function FeaturesPage() {
           </p>
           <div className="flex gap-3 justify-center flex-wrap">
             <a href="/app/sign-up" className="bg-brand-accent text-brand-white px-7 py-[13px] rounded-lg font-sans font-bold text-[0.95rem] no-underline">
-              Start Free Trial
+              Start Free Trial →
             </a>
             <Link href="/demo" className="bg-brand-bg text-brand-text px-7 py-[13px] rounded-lg font-sans font-semibold text-[0.95rem] no-underline border border-brand-border">
               Try the Demo →

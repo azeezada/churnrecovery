@@ -392,7 +392,7 @@ export default function CircleLandingPage() {
                   Online Community Churn: Why Members Leave
                 </div>
                 <div className="font-serif text-[0.82rem] text-brand-gray leading-[1.5]">
-                  Deep dive into community-specific churn patterns
+                  Community-specific churn patterns and how to fix them
                 </div>
               </a>
               <a

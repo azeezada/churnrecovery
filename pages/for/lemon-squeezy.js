@@ -129,7 +129,7 @@ export default function LemonSqueezyLandingPage() {
                 Lemon Squeezy vs. Direct Stripe:<br />What Actually Changes
               </h2>
               <p className="font-serif text-base text-[#666666] max-w-[580px] mx-auto leading-[1.7]">
-                Lemon Squeezy is great for tax compliance and quick product launches. But as a merchant of record, they&apos;re between you and your subscribers. That has real consequences when it comes to churn recovery.
+                Lemon Squeezy is great for tax compliance and quick product launches. But as a merchant of record, they&apos;re between you and your subscribers. That has real consequences for churn recovery.
               </p>
             </div>
 

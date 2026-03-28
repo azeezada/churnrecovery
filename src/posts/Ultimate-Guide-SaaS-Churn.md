@@ -272,7 +272,7 @@ The key insight: you don't need to spend $250+/month on churn recovery tooling. 
 
 ---
 
-## Key Takeaways
+## 6 Things Worth Remembering
 
 1. **Measure before you optimize.** Track voluntary and involuntary churn separately.
 2. **Start with payment recovery.** It's the highest ROI with the lowest effort.

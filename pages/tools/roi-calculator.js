@@ -118,7 +118,7 @@ export default function ROICalculatorPage() {
           <div className="flex gap-6 items-center">
             <Link href="/tools/churn-calculator" className="text-brand-gray no-underline text-[0.9rem]">Churn Calculator</Link>
             <Link href="/demo" className="text-brand-gray no-underline text-[0.9rem]">Demo</Link>
-            <a href="/app/sign-up" className="bg-brand-accent text-brand-white px-[18px] py-2 rounded-[6px] no-underline text-[0.85rem] font-semibold">Start Free Trial</a>
+            <a href="/app/sign-up" className="bg-brand-accent text-brand-white px-[18px] py-2 rounded-[6px] no-underline text-[0.85rem] font-semibold">Start Free Trial →</a>
           </div>
         </nav>
 

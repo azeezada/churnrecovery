@@ -74,7 +74,7 @@ Beehiiv launched as a more powerful alternative to Substack with better analytic
 - Good referral mechanics keep readers engaged and referring others
 
 **Where Beehiiv falls short:**
-Beehiiv is in the same position as Ghost and Substack when it comes to the cancel moment itself: there's no native cancel flow interception. A subscriber who decides to cancel just cancels. The platform captures the event, but there's no pause offer, no discount prompt, no exit survey built into the flow.
+Beehiiv is in the same position as Ghost and Substack at the cancel moment: there's no native cancel flow interception. A subscriber who decides to cancel just cancels. The platform captures the event, but there's no pause offer, no discount prompt, no exit survey built into the flow.
 
 Beehiiv's strengths are upstream (getting subscribers and keeping them engaged before they think about leaving) rather than downstream (saving subscribers who are already at the cancellation screen).
 

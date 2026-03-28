@@ -112,7 +112,7 @@ export default function ChurnRateCalculatorPage() {
           <div className="flex gap-6 items-center">
             <Link href="/demo" className="text-[#666] no-underline text-[0.9rem]">Demo</Link>
             <Link href="/blog" className="text-[#666] no-underline text-[0.9rem]">Blog</Link>
-            <a href="/app/sign-up" className="bg-[#D97757] text-white px-[18px] py-2 rounded-[6px] no-underline text-[0.85rem] font-semibold">Start Free Trial</a>
+            <a href="/app/sign-up" className="bg-[#D97757] text-white px-[18px] py-2 rounded-[6px] no-underline text-[0.85rem] font-semibold">Start Free Trial →</a>
           </div>
         </nav>
 

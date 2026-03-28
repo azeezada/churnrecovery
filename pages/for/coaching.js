@@ -227,7 +227,7 @@ export default function CoachingLandingPage() {
                 number="2"
                 icon="⚡"
                 title="We Catch Cancellations Instantly"
-                description="The moment a client initiates a cancellation, ChurnRecovery fires before it&apos;s final. We intercept the Stripe event and trigger your custom recovery flow — leveraging the trust your client already has in you."
+                description="The moment a client initiates a cancellation, ChurnRecovery fires before it&apos;s final. We intercept the Stripe event and trigger your custom recovery flow — using the trust your client already has in you."
               />
               <HowStep
                 number="3"

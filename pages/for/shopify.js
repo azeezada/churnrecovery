@@ -172,7 +172,7 @@ export default function ShopifyLandingPage() {
                 Your Shopify Subscription App Has<br />No Real Retention Flow
               </h2>
               <p className="font-serif text-base text-[#666666] max-w-[560px] mx-auto leading-[1.7]">
-                ReCharge, Bold, Skio &mdash; they&apos;re great at billing. But when it comes to keeping subscribers? The cancel button does exactly what it says. No pause, no offer, no data.
+                ReCharge, Bold, Skio &mdash; they&apos;re great at billing. But they do nothing to keep subscribers. The cancel button does exactly what it says. No pause, no offer, no data.
               </p>
             </div>
 

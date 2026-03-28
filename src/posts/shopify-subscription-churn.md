@@ -9,7 +9,7 @@ readingTime: "5 min read"
 
 Shopify is one of the best platforms ever built for selling products.
 
-But "selling" and "keeping customers" are two very different things — and when it comes to subscriptions, Shopify has a serious gap.
+But "selling" and "keeping customers" are two very different things — and for subscriptions, Shopify has a serious gap.
 
 If you're running a subscription box, a replenishment service, or a members-only store on Shopify, you've probably noticed: when a customer decides to cancel, they just... cancel. No questions asked. No offer. No second chance.
 

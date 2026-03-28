@@ -54,7 +54,7 @@ export default function ChurnCalculatorPage() {
           <div className="nav-links flex gap-6 items-center">
             <Link href="/demo" className="text-brand-gray no-underline text-[0.9rem]">Demo</Link>
             <Link href="/blog" className="text-brand-gray no-underline text-[0.9rem]">Blog</Link>
-            <a href="/app/sign-up" className="bg-brand-accent text-brand-white px-[18px] py-2 rounded-[6px] no-underline text-[0.85rem] font-semibold">Start Free Trial</a>
+            <a href="/app/sign-up" className="bg-brand-accent text-brand-white px-[18px] py-2 rounded-[6px] no-underline text-[0.85rem] font-semibold">Start Free Trial →</a>
           </div>
         </nav>
 
@@ -80,7 +80,7 @@ export default function ChurnCalculatorPage() {
         <section className="bg-brand-white border-t border-b border-brand-border py-[72px] px-6">
           <div className="max-w-[760px] mx-auto">
             <h2 className="font-sans text-[clamp(1.3rem,3vw,1.8rem)] font-bold text-brand-text tracking-[-0.03em] mb-12 text-center">
-              Understanding your churn numbers
+              What your churn numbers actually mean
             </h2>
             <div className="grid grid-cols-[repeat(auto-fill,minmax(220px,1fr))] gap-6">
               {[

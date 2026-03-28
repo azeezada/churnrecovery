@@ -5,7 +5,7 @@ const values = [
   {
     icon: '🔓',
     title: 'Radically open',
-    body: 'ChurnRecovery is open source. The code that runs your cancel flows is code you can read, fork, and run yourself. No black boxes, no vendor lock-in.',
+    body: 'ChurnRecovery is open source under the MIT license. The code that runs your cancel flows is code you can read, fork, and run yourself. No black boxes, no vendor lock-in.',
   },
   {
     icon: '⚖️',
@@ -20,7 +20,7 @@ const values = [
   {
     icon: '📊',
     title: 'Data you own',
-    body: 'Every cancel reason, every offer acceptance, every recovered subscription — your data lives where you control it. Export anytime, connect to any analytics stack.',
+    body: 'Every cancel reason, every offer acceptance, every recovered subscription — your data lives where you control it. Full CSV export, REST API access, and webhook delivery in under 500ms to any analytics stack.',
   },
 ]
 
@@ -266,7 +266,7 @@ export default function AboutPage() {
             Join us in fixing churn
           </h2>
           <p className="text-[16px] text-[rgba(255,255,255,0.85)] mb-[32px] max-w-[480px] mx-auto font-[Merriweather,serif] leading-[1.7]">
-            Start recovering customers today. Help us shape the product. Keep your feedback loop short with the people building it.
+            30-day free trial, then $20/month. Help us shape the product. Keep your feedback loop short with the people building it.
           </p>
           <div className="flex gap-[12px] justify-center flex-wrap">
             <Link href="/app/sign-up" className="bg-[#FFFFFF] text-[#D97757] px-[32px] py-[14px] rounded-[8px] font-bold no-underline text-[16px]">
