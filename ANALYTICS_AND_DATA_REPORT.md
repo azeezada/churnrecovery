@@ -38,7 +38,7 @@ npx wrangler d1 execute churnrecovery-db --command "SELECT source, COUNT(*) as c
 
 After research, **Cloudflare Web Analytics** is the perfect choice for pre-launch ChurnRecovery:
 
-- **Free forever** (not a trial)
+- **Free forever** (Cloudflare Web Analytics — not a trial)
 - **Privacy-first** (no cookies, GDPR compliant)
 - **Zero performance impact** (runs on Cloudflare's edge)
 - **Perfect metrics for pre-launch**: page views, unique visitors, referrers, top pages, countries, devices

@@ -45,6 +45,22 @@ export default function ComparePage({ competitor }) {
         <meta property="og:url" content={`https://churnrecovery.com/compare/${competitor.slug}`} />
         <meta property="og:type" content="article" />
         <link rel="canonical" href={`https://churnrecovery.com/compare/${competitor.slug}`} />
+
+        {/* BreadcrumbList schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'BreadcrumbList',
+              itemListElement: [
+                { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://churnrecovery.com' },
+                { '@type': 'ListItem', position: 2, name: 'Compare', item: 'https://churnrecovery.com/compare' },
+                { '@type': 'ListItem', position: 3, name: `ChurnRecovery vs ${competitor.name}`, item: `https://churnrecovery.com/compare/${competitor.slug}` },
+              ],
+            }),
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

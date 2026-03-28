@@ -8,3 +8,5 @@ package-lock.json
 .env.local
 playwright-report/
 test-results/
+.ga-service-account.json
+basic-fact-*.json

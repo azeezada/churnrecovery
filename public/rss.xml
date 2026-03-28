@@ -5,7 +5,7 @@
     <link>https://churnrecovery.com/blog</link>
     <description>Insights on churn recovery, payment failures, and SaaS retention</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 25 Mar 2026 05:00:29 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 28 Mar 2026 06:39:45 GMT</lastBuildDate>
     <atom:link href="https://churnrecovery.com/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title><![CDATA[Payment Failure Recovery: A Technical Playbook]]></title>
@@ -97,13 +97,13 @@
       <category>retention</category>
     </item>
     <item>
-      <title><![CDATA[Why ChurnRecovery Is Free (And How We Plan to Stay That Way)]]></title>
+      <title><![CDATA[Why ChurnRecovery Costs $20/Month (And Why That's the Right Price)]]></title>
       <link>https://churnrecovery.com/posts/Why-Churn-Recovery-Is-Free</link>
       <guid isPermaLink="true">https://churnrecovery.com/posts/Why-Churn-Recovery-Is-Free</guid>
-      <description><![CDATA[The business model behind giving away churn recovery tooling for free. No, it's not a bait-and-switch. Here's exactly how it works.]]></description>
+      <description><![CDATA[Churn recovery tools cost $250–$825/month. We charge $20. Here's exactly why we picked that number — and why it's the right price for subscription businesses of every size.]]></description>
       <pubDate>Thu, 12 Mar 2026 00:00:00 GMT</pubDate>
       <category>churnrecovery</category>
-      <category>open-source</category>
+      <category>pricing</category>
       <category>business-model</category>
     </item>
     <item>
@@ -392,7 +392,7 @@
       <title><![CDATA[ChurnRecovery vs Churnkey: The Complete Comparison Guide (2026)]]></title>
       <link>https://churnrecovery.com/posts/ChurnRecovery-vs-Churnkey-Complete-Comparison</link>
       <guid isPermaLink="true">https://churnrecovery.com/posts/ChurnRecovery-vs-Churnkey-Complete-Comparison</guid>
-      <description><![CDATA[Side-by-side comparison of ChurnRecovery vs Churnkey: features, pricing, and why 10,000+ SaaS founders are switching to the free alternative that saves $3,000-$9,900 per year.]]></description>
+      <description><![CDATA[Side-by-side comparison of ChurnRecovery vs Churnkey: features, pricing, and why SaaS founders are switching to the $20/month alternative that saves $2,760-$9,660 per year.]]></description>
       <pubDate>Fri, 13 Feb 2026 00:00:00 GMT</pubDate>
       <category>churnkey cost</category>
       <category>churn recovery</category>
@@ -401,10 +401,10 @@
       <category>pricing</category>
     </item>
     <item>
-      <title><![CDATA[Why Churnkey Costs $250/Month and We're Free]]></title>
+      <title><![CDATA[Why Churnkey Costs $250/Month and We Cost $20]]></title>
       <link>https://churnrecovery.com/posts/why-churnkey-costs-250-month-and-we-are-free</link>
       <guid isPermaLink="true">https://churnrecovery.com/posts/why-churnkey-costs-250-month-and-we-are-free</guid>
-      <description><![CDATA[Churnkey starts at $250/month — and goes up to $825. We charge nothing. Here's the honest reason why, and what that actually means for your subscription business.]]></description>
+      <description><![CDATA[Churnkey starts at $250/month — and goes up to $825. We charge $20/month flat. Here's the honest reason why, and what that actually means for your subscription business.]]></description>
       <pubDate>Fri, 13 Feb 2026 00:00:00 GMT</pubDate>
       <category>pricing</category>
       <category>churnkey</category>
@@ -473,7 +473,7 @@
       <category>metrics</category>
     </item>
     <item>
-      <title><![CDATA[Newsletter Creator Case Study: How to Save $3,600/Year on Churn Tools]]></title>
+      <title><![CDATA[Newsletter Creator Case Study: How to Save $2,760/Year on Churn Tools]]></title>
       <link>https://churnrecovery.com/posts/newsletter-creator-case-study-saved-3600-year</link>
       <guid isPermaLink="true">https://churnrecovery.com/posts/newsletter-creator-case-study-saved-3600-year</guid>
       <description><![CDATA[]]></description>
@@ -486,15 +486,15 @@
       <category>newsletter creator</category>
     </item>
     <item>
-      <title><![CDATA[Free Alternatives to Churnkey, ProfitWell, and Baremetrics]]></title>
+      <title><![CDATA[Affordable Alternatives to Churnkey, ProfitWell, and Baremetrics]]></title>
       <link>https://churnrecovery.com/posts/free-alternatives-churnkey-profitwell-baremetrics</link>
       <guid isPermaLink="true">https://churnrecovery.com/posts/free-alternatives-churnkey-profitwell-baremetrics</guid>
-      <description><![CDATA[Churnkey, ProfitWell, and Baremetrics charge hundreds of dollars every month. Here's what to use instead — for free.]]></description>
+      <description><![CDATA[Churnkey, ProfitWell, and Baremetrics charge hundreds of dollars every month. Here's what to use instead — without breaking your budget.]]></description>
       <pubDate>Wed, 04 Feb 2026 00:00:00 GMT</pubDate>
       <category>churnkey alternative</category>
       <category>profitwell alternative</category>
       <category>baremetrics alternative</category>
-      <category>free SaaS tools</category>
+      <category>affordable SaaS tools</category>
       <category>churn recovery</category>
     </item>
     <item>

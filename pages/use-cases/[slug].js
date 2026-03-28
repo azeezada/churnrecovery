@@ -31,6 +31,22 @@ export default function UseCaseDetailPage({ useCase, others }) {
         <meta property="og:url" content={`https://churnrecovery.com/use-cases/${useCase.slug}`} />
         <meta property="og:image" content="https://churnrecovery.com/og/use-cases.svg" />
         <meta name="twitter:card" content="summary_large_image" />
+
+        {/* BreadcrumbList schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'BreadcrumbList',
+              itemListElement: [
+                { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://churnrecovery.com' },
+                { '@type': 'ListItem', position: 2, name: 'Use Cases', item: 'https://churnrecovery.com/use-cases' },
+                { '@type': 'ListItem', position: 3, name: useCase.title, item: `https://churnrecovery.com/use-cases/${useCase.slug}` },
+              ],
+            }),
+          }}
+        />
       </Head>
       <Header />
       <main className="bg-brand-bg min-h-screen">

@@ -45,6 +45,22 @@ export default function Post({ post, readingTime }) {
         ))}
         <link rel="canonical" href={postUrl} />
         <link rel="alternate" type="application/rss+xml" title="ChurnRecovery Blog" href="/rss.xml" />
+
+        {/* BreadcrumbList schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'BreadcrumbList',
+              itemListElement: [
+                { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
+                { '@type': 'ListItem', position: 2, name: 'Blog', item: `${siteUrl}/blog` },
+                { '@type': 'ListItem', position: 3, name: meta.title, item: postUrl },
+              ],
+            }),
+          }}
+        />
         <style>{`
           .article-prose h1, .article-prose h2, .article-prose h3, .article-prose h4 {
             font-family: "Instrument Sans", sans-serif;
