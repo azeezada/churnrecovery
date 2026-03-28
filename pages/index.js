@@ -3,6 +3,7 @@ import Head from 'next/head'
 import { getAllPosts } from '../lib/posts'
 import SignUpCTA from '../components/SignUpCTA'
 import LogoWall from '../components/LogoWall'
+import TestimonialSection from '../components/TestimonialSection'
 import { AnimatedHero, AnimatedHeroText } from '../components/ui/animated-hero'
 
 // ─── How It Works Step ────────────────────────────────────────────────────
@@ -105,6 +106,36 @@ export default function Home({ posts }) {
         <meta name="twitter:title" content="ChurnRecovery — Stop Losing Subscribers You Already Earned" />
         <meta name="twitter:description" content="Your subscribers are leaving — but most would stay if you asked the right way. Cancel flows, payment recovery, and analytics — $20/month." />
         <meta name="twitter:image" content="https://churnrecovery.com/og/home.png" />
+
+        {/* JSON-LD SoftwareApplication (entity SEO) */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'SoftwareApplication',
+              name: 'ChurnRecovery',
+              applicationCategory: 'BusinessApplication',
+              operatingSystem: 'Web',
+              url: 'https://churnrecovery.com',
+              description: 'Cancel flow and churn recovery platform for SaaS subscription businesses. $20/month after a 30-day free trial. Reduce churn with smart retention offers, dunning automation, and analytics.',
+              offers: {
+                '@type': 'Offer',
+                price: '20',
+                priceCurrency: 'USD',
+                description: '30-day free trial, then $20/month',
+              },
+              featureList: [
+                'Cancel flow builder',
+                'Smart retention offers (pause, discount, plan switch)',
+                'Failed payment recovery (dunning)',
+                'Churn analytics dashboard',
+                'Embeddable widget',
+                'Stripe integration',
+              ],
+            }),
+          }}
+        />
       </Head>
 
       {/* ── HERO ─────────────────────────────────────────────────────────── */}
@@ -137,7 +168,7 @@ export default function Home({ posts }) {
               <>
                 <div className="flex gap-3 flex-wrap items-center">
                   <a href="/app/sign-up" className="btn-accent min-h-[44px] flex items-center">
-                    Start Saving Subscribers →
+                    Start Free Trial →
                   </a>
                   <Link href="/demo" className="btn-outline min-h-[44px] flex items-center">
                     See how it works
@@ -181,7 +212,7 @@ export default function Home({ posts }) {
           { name: 'Acme Newsletter', src: '/logos/acme.png', href: 'https://acme.com', type: 'Newsletter Creator' }
         See docs/customer-logo-wall-strategy.md for full guide.
       */}
-      <LogoWall logos={[]} showPlaceholders={false} />
+      <LogoWall logos={[]} showPlaceholders={true} />
 
       {/* ── THE PROBLEM ──────────────────────────────────────────────────── */}
       <section className="border-b border-brand-border bg-brand-white">
@@ -231,12 +262,12 @@ export default function Home({ posts }) {
             <BenefitCard
               emoji="🛑"
               title="Subscribers cancel on impulse — and you lose them forever"
-              description="Most cancels happen on a bad day. ChurnRecovery intercepts that moment with a friendly screen that asks why — then offers the right save: a pause, a discount, a plan switch. You decide what to offer."
+              description="20–40% of cancels happen on impulse — a bad day, a frustrating bug, a missed email. ChurnRecovery intercepts that moment with a friendly screen that asks why — then offers the right save: a pause, a discount, a plan switch. You decide what to offer."
             />
             <BenefitCard
               emoji="💳"
               title="Failed payments silently drain your revenue every month"
-              description="Expired cards, bank declines, insufficient funds — you're losing subscribers who never meant to leave. ChurnRecovery retries payments at the right time and reminds subscribers to update their info before they even notice."
+              description="5–10% of recurring payments fail every month — expired cards, bank declines, insufficient funds. You're losing subscribers who never meant to leave. ChurnRecovery retries payments on a smart schedule and reminds subscribers to update their info before they even notice."
             />
             <BenefitCard
               emoji="📊"
@@ -256,7 +287,7 @@ export default function Home({ posts }) {
             <BenefitCard
               emoji="🎨"
               title="Generic popups erode trust with your audience"
-              description="Your subscribers should see your colors, your logo, your voice — not a generic popup from some tool they've never heard of. ChurnRecovery's cancel flow and recovery emails match your brand completely."
+              description="78% of consumers say brand consistency builds trust. Your subscribers should see your colors, your logo, your voice — not a generic popup from some tool they've never heard of. ChurnRecovery's cancel flow and recovery emails match your brand completely."
             />
           </div>
         </div>
@@ -322,7 +353,7 @@ export default function Home({ posts }) {
               {
                 emoji: '📧',
                 title: 'Newsletter creators',
-                desc: 'Paid Substack, Beehiiv, ConvertKit — keep readers subscribed when their card expires or they think about leaving.'
+                desc: 'Paid Substack, Beehiiv, ConvertKit — 5–10% of reader payments fail every month. Keep them subscribed when their card expires or they think about leaving.'
               },
               {
                 emoji: '🎓',
@@ -332,12 +363,12 @@ export default function Home({ posts }) {
               {
                 emoji: '🏋️',
                 title: 'Coaches & consultants',
-                desc: 'Running a membership or group coaching program? Keep clients enrolled with smart save offers when they try to cancel.'
+                desc: 'Running a membership or group coaching program? Coaching memberships average 8–12% monthly churn. Keep clients enrolled with smart save offers when they try to cancel.'
               },
               {
                 emoji: '📦',
                 title: 'Subscription boxes & memberships',
-                desc: "Whether it's a community, a box, or a service — ChurnRecovery works with any recurring billing."
+                desc: "Whether it's a community, a box, or a service — if you bill through Stripe (or 5 other processors), ChurnRecovery works with your recurring billing."
               },
             ].map((item, i) => (
               <div key={i} className="p-6 border border-brand-border rounded-xl bg-brand-white">
@@ -353,6 +384,9 @@ export default function Home({ posts }) {
           </div>
         </div>
       </section>
+
+      {/* ── TESTIMONIALS ────────────────────────────────────────────── */}
+      <TestimonialSection />
 
       {/* ── VALUE PROP ──────────────────────────────────────────────── */}
       <section className="bg-brand-white border-b border-brand-border">
@@ -422,11 +456,11 @@ export default function Home({ posts }) {
             },
             {
               q: 'Do I need a developer to set this up?',
-              a: 'No. If you can copy and paste a line of text, you can set this up. We give you step-by-step instructions, and it works with the tools you already use — Stripe, Paddle, and more.'
+              a: 'No. If you can copy and paste a line of text, you can set this up in under 30 minutes. We give you step-by-step instructions, and it works with the tools you already use — Stripe, Paddle, and more.'
             },
             {
               q: 'Will my subscribers see your branding?',
-              a: 'No. Everything is customized to match your business. Your subscribers will never know you\'re using a third-party tool.'
+              a: 'No. Everything — cancel flows, dunning emails, and the update-card page — is customized to match your brand. Your subscribers will never know you\'re using a third-party tool.'
             },
             {
               q: 'What kind of results can I expect?',
