@@ -4,7 +4,6 @@ out
 dist
 .env.local
 *.log
-package-lock.json
 .env.local
 playwright-report/
 test-results/
