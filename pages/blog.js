@@ -83,7 +83,7 @@ export default function Blog({ posts: allPosts, tags }) {
 
   const currentTag = activeTag
   const title = currentTag
-    ? `#${currentTag} — ChurnRecovery Blog`
+    ? `${currentTag} — ChurnRecovery Blog`
     : 'Blog — ChurnRecovery'
   const description = 'Insights on churn recovery, subscription retention, payment failure management, and SaaS growth strategies.'
 
@@ -109,10 +109,6 @@ export default function Blog({ posts: allPosts, tags }) {
             <div className="flex gap-5 items-center">
               <Link href="/blog" className="font-sans text-[0.9rem] text-brand-accent no-underline font-semibold">Blog</Link>
               <Link href="/" className="font-sans text-[0.9rem] text-brand-gray no-underline">Home</Link>
-              <Link href="/rss.xml" className="font-sans text-[0.85rem] text-brand-gray no-underline flex items-center gap-1">
-                <span>RSS</span>
-                <span className="text-[0.8em]">🔗</span>
-              </Link>
             </div>
           </div>
         </nav>
@@ -122,7 +118,7 @@ export default function Blog({ posts: allPosts, tags }) {
           <div className="max-w-[1100px] mx-auto pt-16 px-6 pb-10">
             <span className="font-sans text-[0.75rem] font-bold text-brand-accent tracking-[0.08em] uppercase block mb-3">The ChurnRecovery Blog</span>
             <h1 className="font-sans text-[clamp(2rem,4vw,3rem)] font-bold text-brand-text tracking-[-0.03em] mb-4 leading-[1.1]">
-              {currentTag ? `Posts tagged #${currentTag}` : 'Insights on churn recovery'}
+              {currentTag ? `${currentTag} posts` : 'Insights on churn recovery'}
             </h1>
             <p className="font-serif text-[1.05rem] text-brand-gray mb-9 max-w-[560px] leading-[1.65]">
               Practical guides on reducing churn, recovering failed payments, and building
@@ -140,7 +136,7 @@ export default function Blog({ posts: allPosts, tags }) {
                 {tags.map(tag => (
                   <TagPill
                     key={tag}
-                    tag={`#${tag}`}
+                    tag={tag}
                     active={currentTag === tag}
                     onClick={() => router.push(`/blog?tag=${tag}`, undefined, { shallow: true })}
                   />
@@ -155,7 +151,7 @@ export default function Blog({ posts: allPosts, tags }) {
           <div className="max-w-[1100px] mx-auto px-6 pb-20">
             {posts.length === 0 ? (
               <div className="text-center py-20 px-6 text-brand-gray font-sans">
-                No posts found{currentTag ? ` for #${currentTag}` : ''}.
+                No posts found{currentTag ? ` for ${currentTag}` : ''}.
               </div>
             ) : (
               <>
