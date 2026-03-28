@@ -16,6 +16,8 @@ jobs:
       - name: Install dependencies
         run: npm install --no-audit --no-fund
       - name: Build and export
+        env:
+          NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: ${{ secrets.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY }}
         run: npm run build
       - name: Install Playwright
         run: npx playwright install chromium
