@@ -1,6 +1,8 @@
 // @ts-check
 const { test, expect } = require('@playwright/test');
 
+test.skip(!!process.env.CI, 'Clerk not configured in CI');
+
 /**
  * Clerk Widget Rendering Tests
  *

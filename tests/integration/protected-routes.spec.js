@@ -2,6 +2,8 @@
 const { test, expect } = require('@playwright/test');
 const { mockSignedIn, mockSignedOut } = require('../helpers/mock-auth');
 
+test.skip(!!process.env.CI, 'Clerk not configured in CI');
+
 /**
  * Protected routes test suite.
  * Verifies that /app/* pages:
