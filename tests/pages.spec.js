@@ -23,6 +23,9 @@ const pages = {
   app: [
     ['/app/sign-in', 'Sign In'],
     ['/app/sign-up', 'Sign Up'],
+  ],
+  // Protected app pages require auth — skip in CI where Clerk redirects to sign-in
+  ...(process.env.CI ? {} : { appProtected: [
     ['/app/dashboard', 'Dashboard'],
     ['/app/analytics', 'Analytics'],
     ['/app/cancel-flow', 'Cancel Flow'],
@@ -31,7 +34,7 @@ const pages = {
     ['/app/onboarding', 'Onboarding'],
     ['/app/projects', 'Projects'],
     ['/app/settings', 'Settings'],
-  ],
+  ]}),
   blog: [
     ['/posts/B2B-SaaS-Churn-Benchmarks-2025', 'B2B SaaS Churn Benchmarks'],
     ['/posts/Cancel-Flow-Examples', 'Cancel Flow Examples'],
