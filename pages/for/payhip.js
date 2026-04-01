@@ -7,11 +7,43 @@ import HowStep from '../../components/for/HowStep'
 import BenefitCard from '../../components/for/BenefitCard'
 import FAQItem from '../../components/for/FAQItem'
 import SignUpCTA from '../../components/SignUpCTA'
+import { buildFAQSchema } from '../../lib/faq-schema'
 
 const ACCENT = '#10b981'
 const ACCENT_LIGHT = '#6ee7b7'
 const ACCENT_BG = 'rgba(16,185,129,0.08)'
 const ACCENT_DARK_BG = 'rgba(16,185,129,0.15)'
+
+const faqs = [
+  {
+    q: 'Does ChurnRecovery work with Payhip?',
+    a: "Yes — for Payhip sellers who use Stripe as their payment method. Payhip lets you connect your own Stripe account for checkout. ChurnRecovery connects to that same Stripe account and intercepts cancellations and failed payment events.",
+  },
+  {
+    q: 'Do I need to change how I use Payhip?',
+    a: "No. You don't change a single setting in Payhip. ChurnRecovery works at the Stripe layer — completely invisible to Payhip. Your subscribers see your branded recovery flow, but everything continues normally in Payhip afterward.",
+  },
+  {
+    q: "What if I use PayPal through Payhip?",
+    a: "PayPal subscriptions aren't supported yet — ChurnRecovery currently works with Stripe only. If you're using Payhip with Stripe for subscriptions, you're fully supported.",
+  },
+  {
+    q: 'Does this work for courses, memberships, and digital downloads?',
+    a: "ChurnRecovery specifically helps with subscription-based Payhip products — recurring memberships, course subscriptions, ongoing digital access. One-time product sales don't have a recurring cancel event to intercept.",
+  },
+  {
+    q: 'Can I customize the messages subscribers see?',
+    a: "Yes, completely. The dunning emails and cancel flow messages are fully editable. We provide templates built for digital product sellers, but you can change every word to match your brand and voice.",
+  },
+  {
+    q: 'How do branded dunning emails work?',
+    a: "Instead of Stripe's generic 'Your payment failed' email, ChurnRecovery sends a branded email from your address: 'Hey, it looks like there was a hiccup with your subscription payment.' It's friendly, personal, and dramatically more effective than Stripe's default.",
+  },
+  {
+    q: 'What if a subscriber still cancels after seeing my offer?',
+    a: "They leave — and you get their exit reason from the survey. 20–35% of cancel attempts are saved by a well-timed offer. The rest give you valuable feedback. Both are better than the current situation where they just disappear silently.",
+  },
+]
 
 export default function PayhipLandingPage() {
   return (
@@ -27,6 +59,7 @@ export default function PayhipLandingPage() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Keep More Payhip Subscribers. Add a Cancel Recovery Flow." />
         <meta name="twitter:description" content="130k+ Payhip sellers have no cancel recovery. ChurnRecovery adds one — branded dunning emails, pause offers, and exit surveys. $20/month, 30-day free trial." />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(buildFAQSchema(faqs)) }} />
       </Head>
 
       <Header />
@@ -303,43 +336,7 @@ export default function PayhipLandingPage() {
               </h2>
             </div>
 
-            {[
-              {
-                q: 'Does ChurnRecovery work with Payhip?',
-                a: "Yes — for Payhip sellers who use Stripe as their payment method. Payhip lets you connect your own Stripe account for checkout. ChurnRecovery connects to that same Stripe account and intercepts cancellations and failed payment events.",
-              },
-              {
-                q: 'Do I need to change how I use Payhip?',
-                a: "No. You don't change a single setting in Payhip. ChurnRecovery works at the Stripe layer — completely invisible to Payhip. Your subscribers see your branded recovery flow, but everything continues normally in Payhip afterward.",
-              },
-              {
-                q: "What if I use PayPal through Payhip?",
-                a: "PayPal subscriptions aren't supported yet — ChurnRecovery currently works with Stripe only. If you're using Payhip with Stripe for subscriptions, you're fully supported.",
-              },
-              {
-                q: 'Does this work for courses, memberships, and digital downloads?',
-                a: "ChurnRecovery specifically helps with subscription-based Payhip products — recurring memberships, course subscriptions, ongoing digital access. One-time product sales don't have a recurring cancel event to intercept.",
-              },
-              {
-                q: 'Can I customize the messages subscribers see?',
-                a: "Yes, completely. The dunning emails and cancel flow messages are fully editable. We provide templates built for digital product sellers, but you can change every word to match your brand and voice.",
-              },
-              {
-                q: 'How do branded dunning emails work?',
-                a: "Instead of Stripe's generic 'Your payment failed' email, ChurnRecovery sends a branded email from your address: 'Hey, it looks like there was a hiccup with your subscription payment.' It's friendly, personal, and dramatically more effective than Stripe's default.",
-              },
-              {
-                q: 'What if a subscriber still cancels after seeing my offer?',
-                a: "They leave — and you get their exit reason from the survey. 20–35% of cancel attempts are saved by a well-timed offer. The rest give you valuable feedback. Both are better than the current situation where they just disappear silently.",
-              },
-            ].map(faq => (
-              <FAQItem
-                key={faq.q}
-                q={faq.q}
-                a={faq.a}
-                theme={{ accent: ACCENT }}
-              />
-            ))}
+            {faqs.map(faq => <FAQItem key={faq.q} q={faq.q} a={faq.a} theme={{ accent: ACCENT }} />)}
           </div>
         </section>
 

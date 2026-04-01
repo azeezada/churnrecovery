@@ -7,11 +7,43 @@ import HowStep from '../../components/for/HowStep'
 import BenefitCard from '../../components/for/BenefitCard'
 import FAQItem from '../../components/for/FAQItem'
 import SignUpCTA from '../../components/SignUpCTA'
+import { buildFAQSchema } from '../../lib/faq-schema'
 
 const ACCENT = '#ec4899'
 const ACCENT_LIGHT = '#f9a8d4'
 const ACCENT_BG = 'rgba(236,72,153,0.08)'
 const ACCENT_DARK_BG = 'rgba(236,72,153,0.15)'
+
+const faqs = [
+  {
+    q: 'Does ChurnRecovery work with Stan Store?',
+    a: "Yes — specifically for creators on the Creator Pro plan who have their own Stripe account connected. ChurnRecovery connects to that Stripe account and intercepts cancellation events before they're finalized.",
+  },
+  {
+    q: "Does this work with Stan's Creator Pro plan?",
+    a: "Yes. Creator Pro connects your own Stripe account with no Stan transaction fee. ChurnRecovery plugs into that same Stripe connection. If you're on the free Stan plan with Stan's built-in payments, you'd need to upgrade to Creator Pro first.",
+  },
+  {
+    q: 'Do my subscribers have to do anything different?',
+    a: "No. From their side, they just see your branded recovery message when they try to cancel. It feels like a personal message from you — not a third-party app. Everything is seamless.",
+  },
+  {
+    q: 'Can I customize what my subscribers see?',
+    a: "Yes, completely. Write your own message, choose your offer (pause, discount, personal check-in), and set the timing. We provide templates built for creator businesses, but every word is editable.",
+  },
+  {
+    q: 'How is this different from Stan Store just having a cancel flow?',
+    a: "Stan doesn't have a cancel flow — that's exactly the problem. ChurnRecovery adds one. And because we work at the Stripe level, it works for any Stan Store regardless of how they've built their site.",
+  },
+  {
+    q: 'What if I sell courses and coaching on Stan, not subscriptions?',
+    a: "ChurnRecovery specifically helps with subscription-based Stan products — monthly memberships, recurring coaching programs, content subscription tiers. One-time purchases don't have a recurring cancel event to intercept.",
+  },
+  {
+    q: "What if someone still cancels after seeing my offer?",
+    a: "They leave — but you still got their exit reason, and you made the attempt. 20–35% of the time the offer works. The rest of the time, you learn something valuable. That's a win either way.",
+  },
+]
 
 export default function StanStoreLandingPage() {
   return (
@@ -27,6 +59,7 @@ export default function StanStoreLandingPage() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Stan Store Subscribers Canceling? Here's How to Stop It." />
         <meta name="twitter:description" content="80k+ creators use Stan Store. Most of them have no cancel recovery. ChurnRecovery adds one automatically — pause offers, discounts, exit surveys." />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(buildFAQSchema(faqs)) }} />
       </Head>
 
       <Header />
@@ -284,43 +317,7 @@ export default function StanStoreLandingPage() {
               </h2>
             </div>
 
-            {[
-              {
-                q: 'Does ChurnRecovery work with Stan Store?',
-                a: "Yes — specifically for creators on the Creator Pro plan who have their own Stripe account connected. ChurnRecovery connects to that Stripe account and intercepts cancellation events before they're finalized.",
-              },
-              {
-                q: "Does this work with Stan's Creator Pro plan?",
-                a: "Yes. Creator Pro connects your own Stripe account with no Stan transaction fee. ChurnRecovery plugs into that same Stripe connection. If you're on the free Stan plan with Stan's built-in payments, you'd need to upgrade to Creator Pro first.",
-              },
-              {
-                q: 'Do my subscribers have to do anything different?',
-                a: "No. From their side, they just see your branded recovery message when they try to cancel. It feels like a personal message from you — not a third-party app. Everything is seamless.",
-              },
-              {
-                q: 'Can I customize what my subscribers see?',
-                a: "Yes, completely. Write your own message, choose your offer (pause, discount, personal check-in), and set the timing. We provide templates built for creator businesses, but every word is editable.",
-              },
-              {
-                q: 'How is this different from Stan Store just having a cancel flow?',
-                a: "Stan doesn't have a cancel flow — that's exactly the problem. ChurnRecovery adds one. And because we work at the Stripe level, it works for any Stan Store regardless of how they've built their site.",
-              },
-              {
-                q: 'What if I sell courses and coaching on Stan, not subscriptions?',
-                a: "ChurnRecovery specifically helps with subscription-based Stan products — monthly memberships, recurring coaching programs, content subscription tiers. One-time purchases don't have a recurring cancel event to intercept.",
-              },
-              {
-                q: "What if someone still cancels after seeing my offer?",
-                a: "They leave — but you still got their exit reason, and you made the attempt. 20–35% of the time the offer works. The rest of the time, you learn something valuable. That's a win either way.",
-              },
-            ].map(faq => (
-              <FAQItem
-                key={faq.q}
-                q={faq.q}
-                a={faq.a}
-                theme={{ accent: ACCENT }}
-              />
-            ))}
+            {faqs.map(faq => <FAQItem key={faq.q} q={faq.q} a={faq.a} theme={{ accent: ACCENT }} />)}
           </div>
         </section>
 

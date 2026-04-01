@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import SignUpCTA from '../../components/SignUpCTA'
+import { buildFAQSchema } from '../../lib/faq-schema'
 
 function PainCard({ icon, title, stat, statLabel, description }) {
   return (
@@ -97,6 +98,37 @@ function FAQItem({ q, a }) {
   )
 }
 
+const faqs = [
+  {
+    q: 'Does ChurnRecovery work with Thinkific subscriptions?',
+    a: "Yes. Thinkific processes subscription payments through Stripe. ChurnRecovery connects to your Stripe account and listens for cancellation events — no Thinkific API or custom integration needed.",
+  },
+  {
+    q: 'Which Thinkific products work with this?',
+    a: "Any Thinkific product with recurring billing — subscription courses, membership access, course bundles with monthly payments. One-time course purchases don't have anything to cancel.",
+  },
+  {
+    q: 'Do I need a developer to set this up?',
+    a: "No developer needed. If you can log into Stripe and copy a webhook URL, you can set up ChurnRecovery. Our step-by-step guide walks you through the whole thing in about 10 minutes.",
+  },
+  {
+    q: 'Can I customize the message students see?',
+    a: "Yes — 100% customizable. Write it in your own voice. Choose what offer to show (discount, pause, personal message, or all three). Preview it before going live.",
+  },
+  {
+    q: 'What happens to students who still want to cancel?',
+    a: "They cancel. ChurnRecovery is not a dark pattern — students can always complete their cancellation. We just give you one chance to change their mind before they go.",
+  },
+  {
+    q: 'Will this slow down the cancellation process for students?',
+    a: "No. The recovery flow appears immediately and students can dismiss it instantly if they want. We respect their time — we just ask for 10 extra seconds.",
+  },
+  {
+    q: "What if my Thinkific school doesn't have subscriptions yet?",
+    a: "Then bookmark this for when you add them. ChurnRecovery only applies to recurring subscription products. One-time course purchases don't need churn recovery.",
+  },
+]
+
 export default function ThinkificLandingPage() {
   return (
     <>
@@ -111,6 +143,7 @@ export default function ThinkificLandingPage() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Churn Recovery for Thinkific Course Creators" />
         <meta name="twitter:description" content="Stop losing subscription students silently. ChurnRecovery works natively with Thinkific via Stripe." />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(buildFAQSchema(faqs)) }} />
       </Head>
 
       <Header />
@@ -322,38 +355,7 @@ export default function ThinkificLandingPage() {
               </h2>
             </div>
 
-            {[
-              {
-                q: 'Does ChurnRecovery work with Thinkific subscriptions?',
-                a: "Yes. Thinkific processes subscription payments through Stripe. ChurnRecovery connects to your Stripe account and listens for cancellation events — no Thinkific API or custom integration needed.",
-              },
-              {
-                q: 'Which Thinkific products work with this?',
-                a: "Any Thinkific product with recurring billing — subscription courses, membership access, course bundles with monthly payments. One-time course purchases don't have anything to cancel.",
-              },
-              {
-                q: 'Do I need a developer to set this up?',
-                a: "No developer needed. If you can log into Stripe and copy a webhook URL, you can set up ChurnRecovery. Our step-by-step guide walks you through the whole thing in about 10 minutes.",
-              },
-              {
-                q: 'Can I customize the message students see?',
-                a: "Yes — 100% customizable. Write it in your own voice. Choose what offer to show (discount, pause, personal message, or all three). Preview it before going live.",
-              },
-              {
-                q: 'What happens to students who still want to cancel?',
-                a: "They cancel. ChurnRecovery is not a dark pattern — students can always complete their cancellation. We just give you one chance to change their mind before they go.",
-              },
-              {
-                q: 'Will this slow down the cancellation process for students?',
-                a: "No. The recovery flow appears immediately and students can dismiss it instantly if they want. We respect their time — we just ask for 10 extra seconds.",
-              },
-              {
-                q: "What if my Thinkific school doesn't have subscriptions yet?",
-                a: "Then bookmark this for when you add them. ChurnRecovery only applies to recurring subscription products. One-time course purchases don't need churn recovery.",
-              },
-            ].map(faq => (
-              <FAQItem key={faq.q} q={faq.q} a={faq.a} />
-            ))}
+            {faqs.map(faq => <FAQItem key={faq.q} q={faq.q} a={faq.a} />)}
           </div>
         </section>
 

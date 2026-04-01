@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import SignUpCTA from '../../components/SignUpCTA'
+import { buildFAQSchema } from '../../lib/faq-schema'
 
 // ─── Pain card ──────────────────────────────────────────────────────────────
 function PainCard({ icon, title, stat, statLabel, description }) {
@@ -101,6 +102,33 @@ function FAQItem({ q, a }) {
   )
 }
 
+const faqs = [
+  {
+    q: 'Does this work with Teachable?',
+    a: "Teachable has its own payment system by default, but many advanced plan users integrate Stripe directly. ChurnRecovery works with Teachable's Stripe integration. We're also building native support for Teachable's payment system — start your free trial to get notified.",
+  },
+  {
+    q: 'Do I need a developer to set this up?',
+    a: "Not at all. The setup is copy-paste simple. If you can log into Stripe and click a few buttons, you can install ChurnRecovery. No code, no developer, no waiting.",
+  },
+  {
+    q: 'What if my students are on one-time course purchases, not subscriptions?',
+    a: "ChurnRecovery is built for subscription and membership products — recurring monthly or annual billing. If you sell one-time courses, it won't apply. But if you have a Teachable subscription plan, monthly coaching, or membership community, this is for you.",
+  },
+  {
+    q: 'What will my students see when they try to cancel?',
+    a: "A personalized message from you — not a generic popup. You set the tone: warm, direct, honest. Options typically include a pause, a discount, or a short survey. It feels like a personal note, not corporate retention software.",
+  },
+  {
+    q: "How do I know if it's working?",
+    a: "Your ChurnRecovery dashboard shows every recovery attempt, the outcome, and how much revenue was saved. You'll see your save rate, your top-performing offers, and the reasons students say they leave.",
+  },
+  {
+    q: "What if students still cancel after seeing the offer?",
+    a: "That's okay. You still learn why they left (if they filled out the survey), and you've given them a better experience than a cold, silent cancellation. Many will remember that and come back later.",
+  },
+]
+
 // ─── Main Page ───────────────────────────────────────────────────────────────
 export default function TeachableLandingPage() {
   return (
@@ -116,6 +144,7 @@ export default function TeachableLandingPage() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Recover Teachable Students Who Are About to Cancel" />
         <meta name="twitter:description" content="Stop losing recurring course revenue in silence. ChurnRecovery intercepts cancellations and gives your students a reason to stay." />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(buildFAQSchema(faqs)) }} />
       </Head>
 
       <Header />
@@ -351,32 +380,7 @@ export default function TeachableLandingPage() {
               </h2>
             </div>
 
-            {[
-              {
-                q: 'Does this work with Teachable?',
-                a: "Teachable has its own payment system by default, but many advanced plan users integrate Stripe directly. ChurnRecovery works with Teachable's Stripe integration. We're also building native support for Teachable's payment system — start your free trial to get notified.",
-              },
-              {
-                q: 'Do I need a developer to set this up?',
-                a: "Not at all. The setup is copy-paste simple. If you can log into Stripe and click a few buttons, you can install ChurnRecovery. No code, no developer, no waiting.",
-              },
-              {
-                q: 'What if my students are on one-time course purchases, not subscriptions?',
-                a: "ChurnRecovery is built for subscription and membership products — recurring monthly or annual billing. If you sell one-time courses, it won't apply. But if you have a Teachable subscription plan, monthly coaching, or membership community, this is for you.",
-              },
-              {
-                q: 'What will my students see when they try to cancel?',
-                a: "A personalized message from you — not a generic popup. You set the tone: warm, direct, honest. Options typically include a pause, a discount, or a short survey. It feels like a personal note, not corporate retention software.",
-              },
-              {
-                q: "How do I know if it's working?",
-                a: "Your ChurnRecovery dashboard shows every recovery attempt, the outcome, and how much revenue was saved. You'll see your save rate, your top-performing offers, and the reasons students say they leave.",
-              },
-              {
-                q: "What if students still cancel after seeing the offer?",
-                a: "That's okay. You still learn why they left (if they filled out the survey), and you've given them a better experience than a cold, silent cancellation. Many will remember that and come back later.",
-              },
-            ].map(faq => (
+            {faqs.map(faq => (
               <FAQItem key={faq.q} q={faq.q} a={faq.a} />
             ))}
           </div>

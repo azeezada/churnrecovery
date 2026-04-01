@@ -1,7 +1,7 @@
 ---
 title: "SaaS Pricing Psychology: Why Your Pricing Page Is Losing You Customers"
 date: "2026-03-01"
-excerpt: "The gap between what you charge and what customers perceive as fair is where churn is born. Here's the psychology behind SaaS pricing — and how to fix it before customers cancel."
+excerpt: "83% of SaaS cancellations cite pricing as a factor — but it's rarely about the number. Here's the pricing psychology that reduces churn, with tactics you can apply today."
 tags: ["pricing", "churn", "psychology", "saas"]
 author: "ChurnRecovery Team"
 readingTime: "8 min read"

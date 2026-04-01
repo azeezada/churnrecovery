@@ -14,30 +14,66 @@ export default function Post({ post, readingTime }) {
 
   // Structured data schemas for this post (defined in lib/post-schemas.js)
   const schemaObjects = postSchemas[post.slug] || []
+  const description = meta.description || meta.excerpt || meta.title
+
+  // Auto-generated BlogPosting schema from frontmatter
+  const blogPostingSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: meta.title,
+    description,
+    url: postUrl,
+    datePublished: meta.date || undefined,
+    dateModified: meta.updated || meta.date || undefined,
+    author: {
+      '@type': 'Organization',
+      name: 'ChurnRecovery',
+      url: 'https://churnrecovery.com',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'ChurnRecovery',
+      url: 'https://churnrecovery.com',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://churnrecovery.com/logo.png',
+      },
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': postUrl,
+    },
+    ...(meta.tags ? { keywords: meta.tags.join(', ') } : {}),
+  }
 
   return (
     <>
       <Head>
         <title>{meta.title} — ChurnRecovery Blog</title>
-        <meta name="description" content={meta.excerpt || meta.title} />
+        <meta name="description" content={description} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        {/* BlogPosting schema (auto-generated) */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingSchema) }}
+        />
         {schemaObjects.map((schema, i) => (
           <script
-            key={i}
+            key={`schema-${i}`}
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
           />
         ))}
         {/* OG Tags */}
         <meta property="og:title" content={meta.title} />
-        <meta property="og:description" content={meta.excerpt || ''} />
+        <meta property="og:description" content={description} />
         <meta property="og:type" content="article" />
         <meta property="og:url" content={postUrl} />
         <meta property="og:site_name" content="ChurnRecovery Blog" />
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={meta.title} />
-        <meta name="twitter:description" content={meta.excerpt || ''} />
+        <meta name="twitter:description" content={description} />
         {/* Article meta */}
         {meta.date && <meta property="article:published_time" content={meta.date} />}
         {meta.tags && meta.tags.map(tag => (

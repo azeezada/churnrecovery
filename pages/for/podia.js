@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import SignUpCTA from '../../components/SignUpCTA'
+import { buildFAQSchema } from '../../lib/faq-schema'
 
 function PainCard({ icon, title, stat, statLabel, description }) {
   return (
@@ -95,6 +96,37 @@ function FAQItem({ q, a }) {
   )
 }
 
+const faqs = [
+  {
+    q: 'Does ChurnRecovery work with Podia?',
+    a: "Yes. Podia uses Stripe to process all subscription and membership payments. ChurnRecovery connects to your Stripe account and intercepts cancellation webhooks — no Podia-specific integration or API needed.",
+  },
+  {
+    q: 'Do I need to change anything in my Podia store?',
+    a: "No changes to Podia required. You connect ChurnRecovery directly to your Stripe account (the same one Podia uses). Everything happens at the payment layer.",
+  },
+  {
+    q: 'Will my members see something that looks like a third-party popup?',
+    a: "No. The experience is fully branded. Your colors, your message, your offer. Members will think it came from you — because it did.",
+  },
+  {
+    q: 'What types of Podia products work with this?',
+    a: "Any Podia product with recurring billing — memberships, subscription bundles, recurring course access. One-time purchases don't apply since there's nothing to cancel.",
+  },
+  {
+    q: 'What if a member really wants to cancel?',
+    a: "Then they cancel. ChurnRecovery never traps anyone or makes canceling impossible. It just gives your member one moment to reconsider — and gives you a shot at keeping them.",
+  },
+  {
+    q: 'How much setup time does this actually take?',
+    a: "About 10 minutes. Connect Stripe (5 min), configure your recovery message (3 min), test it (2 min). We have a step-by-step guide. No developer needed.",
+  },
+  {
+    q: "What if it doesn't work for me?",
+    a: "Cancel anytime. No contracts, no lock-in. Start with a 30-day free trial — there's nothing to lose.",
+  },
+]
+
 export default function PodiaLandingPage() {
   return (
     <>
@@ -109,6 +141,7 @@ export default function PodiaLandingPage() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Churn Recovery for Podia Creators" />
         <meta name="twitter:description" content="Keep your Podia members from canceling. Intercept at the Stripe level before it's too late." />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(buildFAQSchema(faqs)) }} />
       </Head>
 
       <Header />
@@ -347,38 +380,7 @@ export default function PodiaLandingPage() {
               </h2>
             </div>
 
-            {[
-              {
-                q: 'Does ChurnRecovery work with Podia?',
-                a: "Yes. Podia uses Stripe to process all subscription and membership payments. ChurnRecovery connects to your Stripe account and intercepts cancellation webhooks — no Podia-specific integration or API needed.",
-              },
-              {
-                q: 'Do I need to change anything in my Podia store?',
-                a: "No changes to Podia required. You connect ChurnRecovery directly to your Stripe account (the same one Podia uses). Everything happens at the payment layer.",
-              },
-              {
-                q: 'Will my members see something that looks like a third-party popup?',
-                a: "No. The experience is fully branded. Your colors, your message, your offer. Members will think it came from you — because it did.",
-              },
-              {
-                q: 'What types of Podia products work with this?',
-                a: "Any Podia product with recurring billing — memberships, subscription bundles, recurring course access. One-time purchases don't apply since there's nothing to cancel.",
-              },
-              {
-                q: 'What if a member really wants to cancel?',
-                a: "Then they cancel. ChurnRecovery never traps anyone or makes canceling impossible. It just gives your member one moment to reconsider — and gives you a shot at keeping them.",
-              },
-              {
-                q: 'How much setup time does this actually take?',
-                a: "About 10 minutes. Connect Stripe (5 min), configure your recovery message (3 min), test it (2 min). We have a step-by-step guide. No developer needed.",
-              },
-              {
-                q: "What if it doesn't work for me?",
-                a: "Cancel anytime. No contracts, no lock-in. Start with a 30-day free trial — there's nothing to lose.",
-              },
-            ].map(faq => (
-              <FAQItem key={faq.q} q={faq.q} a={faq.a} />
-            ))}
+            {faqs.map(faq => <FAQItem key={faq.q} q={faq.q} a={faq.a} />)}
           </div>
         </section>
 

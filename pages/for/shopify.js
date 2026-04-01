@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import SignUpCTA from '../../components/SignUpCTA'
+import { buildFAQSchema } from '../../lib/faq-schema'
 
 // ─── Pain card ──────────────────────────────────────────────────────────────
 function PainCard({ icon, title, stat, statLabel, description }) {
@@ -101,6 +102,37 @@ function FAQItem({ q, a }) {
   )
 }
 
+const faqs = [
+  {
+    q: 'Does this work with ReCharge?',
+    a: "Yes. ReCharge processes subscription payments through Stripe. ChurnRecovery connects to your Stripe account and intercepts cancellation events from ReCharge subscriptions. No ReCharge API access or configuration needed.",
+  },
+  {
+    q: 'Does this work with Bold Subscriptions?',
+    a: "Yes. Bold Subscriptions also uses Stripe for payment processing. ChurnRecovery operates at the Stripe level, so it works with Bold the same way it works with any Stripe-based subscription app.",
+  },
+  {
+    q: 'Do I need to modify my Shopify store?',
+    a: "If your subscription app uses Stripe (most do): No modifications needed at all. Just connect your Stripe account. If you use a different payment processor, you'll paste a small JavaScript snippet into your Shopify theme — takes 2 minutes, no coding knowledge required.",
+  },
+  {
+    q: 'Can I offer skip-a-month as a retention option?',
+    a: "Yes — and we highly recommend it. Skip-a-month is the single most effective retention tool for subscription businesses. Subscribers who 'have too much product' aren't unhappy — they just need a break. Skipping keeps them subscribed.",
+  },
+  {
+    q: 'What about failed payment recovery?',
+    a: "ChurnRecovery includes automated dunning for failed payments. When a subscriber's card declines, we send a sequence of recovery emails prompting them to update their payment method — before the subscription lapses.",
+  },
+  {
+    q: 'Will this conflict with my existing Shopify apps?',
+    a: "No. ChurnRecovery operates at the payment (Stripe) layer, not inside your Shopify admin. It doesn't install as a Shopify app and doesn't interact with your other apps. It's completely independent.",
+  },
+  {
+    q: 'How much does it cost?',
+    a: "$20/month flat after a 30-day free trial. No credit card required to start. No per-subscriber fees, no percentage of recovered revenue. If it doesn't save you more than $20/month, cancel anytime.",
+  },
+]
+
 // ─── Main Page ───────────────────────────────────────────────────────────────
 export default function ShopifyLandingPage() {
   return (
@@ -116,6 +148,7 @@ export default function ShopifyLandingPage() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Churn Recovery for Shopify Subscriptions" />
         <meta name="twitter:description" content="Shopify subscription apps lose 8-12% of subscribers monthly. ChurnRecovery adds cancel flows at the Stripe level. $20/month flat." />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(buildFAQSchema(faqs)) }} />
       </Head>
 
       <Header />
@@ -353,38 +386,7 @@ export default function ShopifyLandingPage() {
               </h2>
             </div>
 
-            {[
-              {
-                q: 'Does this work with ReCharge?',
-                a: "Yes. ReCharge processes subscription payments through Stripe. ChurnRecovery connects to your Stripe account and intercepts cancellation events from ReCharge subscriptions. No ReCharge API access or configuration needed.",
-              },
-              {
-                q: 'Does this work with Bold Subscriptions?',
-                a: "Yes. Bold Subscriptions also uses Stripe for payment processing. ChurnRecovery operates at the Stripe level, so it works with Bold the same way it works with any Stripe-based subscription app.",
-              },
-              {
-                q: 'Do I need to modify my Shopify store?',
-                a: "If your subscription app uses Stripe (most do): No modifications needed at all. Just connect your Stripe account. If you use a different payment processor, you'll paste a small JavaScript snippet into your Shopify theme — takes 2 minutes, no coding knowledge required.",
-              },
-              {
-                q: 'Can I offer skip-a-month as a retention option?',
-                a: "Yes — and we highly recommend it. Skip-a-month is the single most effective retention tool for subscription businesses. Subscribers who 'have too much product' aren't unhappy — they just need a break. Skipping keeps them subscribed.",
-              },
-              {
-                q: 'What about failed payment recovery?',
-                a: "ChurnRecovery includes automated dunning for failed payments. When a subscriber's card declines, we send a sequence of recovery emails prompting them to update their payment method — before the subscription lapses.",
-              },
-              {
-                q: 'Will this conflict with my existing Shopify apps?',
-                a: "No. ChurnRecovery operates at the payment (Stripe) layer, not inside your Shopify admin. It doesn't install as a Shopify app and doesn't interact with your other apps. It's completely independent.",
-              },
-              {
-                q: 'How much does it cost?',
-                a: "$20/month flat after a 30-day free trial. No credit card required to start. No per-subscriber fees, no percentage of recovered revenue. If it doesn't save you more than $20/month, cancel anytime.",
-              },
-            ].map(faq => (
-              <FAQItem key={faq.q} q={faq.q} a={faq.a} />
-            ))}
+            {faqs.map(faq => <FAQItem key={faq.q} q={faq.q} a={faq.a} />)}
           </div>
         </section>
 

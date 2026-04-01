@@ -88,7 +88,10 @@ export default function MyApp({ Component, pageProps }) {
               url: 'https://churnrecovery.com',
               logo: 'https://churnrecovery.com/logo.png',
               description: 'Affordable churn recovery platform for SaaS companies — $20/month. Cancel flow interception, smart offers, analytics, and win-back automation.',
-              sameAs: [],
+              sameAs: [
+                'https://github.com/churnrecovery',
+                'https://x.com/churnrecovery',
+              ],
               knowsAbout: [
                 'churn recovery',
                 'cancel flow',

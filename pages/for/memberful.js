@@ -7,11 +7,43 @@ import HowStep from '../../components/for/HowStep'
 import BenefitCard from '../../components/for/BenefitCard'
 import FAQItem from '../../components/for/FAQItem'
 import SignUpCTA from '../../components/SignUpCTA'
+import { buildFAQSchema } from '../../lib/faq-schema'
 
 const ACCENT = '#6366f1'
 const ACCENT_LIGHT = '#818cf8'
 const ACCENT_BG = 'rgba(99,102,241,0.08)'
 const ACCENT_DARK_BG = 'rgba(99,102,241,0.15)'
+
+const faqs = [
+  {
+    q: 'Does ChurnRecovery work with Memberful?',
+    a: "Yes. Memberful requires creators to connect their own Stripe account — all payments flow through Stripe. ChurnRecovery connects to that same Stripe account and listens for cancellation events. No Memberful API needed.",
+  },
+  {
+    q: "Does this work alongside Memberful's cancellation survey?",
+    a: "Yes — they complement each other. Memberful's survey captures feedback after a cancel. ChurnRecovery intercepts before the cancel is final, giving you a chance to offer a pause or discount first. Both can run together.",
+  },
+  {
+    q: 'Do I need to change anything in Memberful?',
+    a: "No. You don't change a single setting in Memberful. ChurnRecovery works at the Stripe layer, completely outside Memberful's ecosystem. It's invisible to Memberful.",
+  },
+  {
+    q: 'Will this work for my podcast membership?',
+    a: "Absolutely. ChurnRecovery is especially effective for podcast creators because listener churn is often seasonal — people cancel during show breaks or busy months. A pause offer recovers most of those temporary cancels.",
+  },
+  {
+    q: 'Can I customize the cancel flow message?',
+    a: "Yes, completely. Your message, your offer, your tone. We provide templates built for independent creators and publishers, but you can edit every word to match your voice.",
+  },
+  {
+    q: 'What happens when a payment fails?',
+    a: "Instead of Stripe's generic dunning emails, ChurnRecovery sends branded emails in your voice: 'Hey, looks like there was a hiccup with your membership payment.' Earlier, friendlier, and more effective.",
+  },
+  {
+    q: "What if a subscriber still cancels after seeing the offer?",
+    a: "That's fine. If they want to leave, they leave. You still capture their exit reason — which is more than you had before. And 20–35% of the time, the offer works.",
+  },
+]
 
 export default function MemberfulLandingPage() {
   return (
@@ -27,6 +59,7 @@ export default function MemberfulLandingPage() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Your Memberful Subscribers Are Canceling Silently. Catch Them." />
         <meta name="twitter:description" content="Memberful runs on your Stripe. ChurnRecovery plugs into Stripe and catches cancellations with a branded recovery flow — pause offers, discounts, and more." />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(buildFAQSchema(faqs)) }} />
       </Head>
 
       <Header />
@@ -279,36 +312,7 @@ export default function MemberfulLandingPage() {
               </h2>
             </div>
 
-            {[
-              {
-                q: 'Does ChurnRecovery work with Memberful?',
-                a: "Yes. Memberful requires creators to connect their own Stripe account — all payments flow through Stripe. ChurnRecovery connects to that same Stripe account and listens for cancellation events. No Memberful API needed.",
-              },
-              {
-                q: "Does this work alongside Memberful's cancellation survey?",
-                a: "Yes — they complement each other. Memberful's survey captures feedback after a cancel. ChurnRecovery intercepts before the cancel is final, giving you a chance to offer a pause or discount first. Both can run together.",
-              },
-              {
-                q: 'Do I need to change anything in Memberful?',
-                a: "No. You don't change a single setting in Memberful. ChurnRecovery works at the Stripe layer, completely outside Memberful's ecosystem. It's invisible to Memberful.",
-              },
-              {
-                q: 'Will this work for my podcast membership?',
-                a: "Absolutely. ChurnRecovery is especially effective for podcast creators because listener churn is often seasonal — people cancel during show breaks or busy months. A pause offer recovers most of those temporary cancels.",
-              },
-              {
-                q: 'Can I customize the cancel flow message?',
-                a: "Yes, completely. Your message, your offer, your tone. We provide templates built for independent creators and publishers, but you can edit every word to match your voice.",
-              },
-              {
-                q: 'What happens when a payment fails?',
-                a: "Instead of Stripe's generic dunning emails, ChurnRecovery sends branded emails in your voice: 'Hey, looks like there was a hiccup with your membership payment.' Earlier, friendlier, and more effective.",
-              },
-              {
-                q: "What if a subscriber still cancels after seeing the offer?",
-                a: "That's fine. If they want to leave, they leave. You still capture their exit reason — which is more than you had before. And 20–35% of the time, the offer works.",
-              },
-            ].map(faq => (
+            {faqs.map(faq => (
               <FAQItem
                 key={faq.q}
                 q={faq.q}

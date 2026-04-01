@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import SignUpCTA from '../../components/SignUpCTA'
+import { buildFAQSchema } from '../../lib/faq-schema'
 
 function PainCard({ icon, title, stat, statLabel, description }) {
   return (
@@ -97,6 +98,37 @@ function FAQItem({ q, a }) {
   )
 }
 
+const faqs = [
+  {
+    q: 'Does ChurnRecovery work directly with Patreon?',
+    a: "Important note: Patreon uses its own proprietary payment system — not Stripe. ChurnRecovery works at the Stripe level, so it cannot directly intercept cancellations that happen inside Patreon's platform. ChurnRecovery works for Patreon creators who also run a direct Stripe subscription (on their own website or alongside Patreon).",
+  },
+  {
+    q: 'What if I only have Patreon right now?',
+    a: "Then ChurnRecovery isn't the right fit for you yet — and we'd rather be honest about that than sign you up for something that doesn't work. When you're ready to launch a direct subscription alongside Patreon, come back and we'll be here.",
+  },
+  {
+    q: "Why would I run a subscription outside of Patreon?",
+    a: "Control and revenue. On Patreon, you pay 8–12% in fees and have zero control over the cancel flow, the subscriber relationship, or what happens if Patreon changes its terms. A direct Stripe subscription lets you keep 97% of revenue, own your subscriber list, and control every touchpoint — including what happens when someone tries to cancel.",
+  },
+  {
+    q: 'Can I run both Patreon and a direct subscription simultaneously?',
+    a: "Yes — and many creators do. You can offer exclusive perks on your direct subscription (earlier access, lower price, more intimate community) while keeping Patreon for discoverability. Over time, your most loyal fans migrate where you make more and control more.",
+  },
+  {
+    q: "Isn't migrating off Patreon risky?",
+    a: "It can feel risky, but not moving is also a risk — you're building on a platform you don't control. The smart approach is gradual: start a direct subscription, run both in parallel, invite your top patrons, and migrate slowly. No cliff jumps required.",
+  },
+  {
+    q: 'What does the migration actually look like?',
+    a: "Typically: (1) Set up a Stripe subscription on your website. (2) Add ChurnRecovery to protect new direct subscribers from day one. (3) Offer existing Patreon patrons an exclusive deal to join your direct subscription. (4) Over 6–12 months, your direct revenue grows while Patreon becomes optional.",
+  },
+  {
+    q: 'Will Patreon penalize me for having a direct subscription?',
+    a: "No. Patreon's terms allow creators to have subscriptions on other platforms simultaneously. Many top creators run both. What matters is delivering value to your supporters wherever they are.",
+  },
+]
+
 export default function PatreonLandingPage() {
   return (
     <>
@@ -111,6 +143,7 @@ export default function PatreonLandingPage() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Reduce Patron Cancellations with a Smarter Cancel Flow" />
         <meta name="twitter:description" content="ChurnRecovery for content creators — reduce cancellations on your own Stripe subscriptions." />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(buildFAQSchema(faqs)) }} />
       </Head>
 
       <Header />
@@ -342,36 +375,7 @@ export default function PatreonLandingPage() {
               </h2>
             </div>
 
-            {[
-              {
-                q: 'Does ChurnRecovery work directly with Patreon?',
-                a: "Important note: Patreon uses its own proprietary payment system — not Stripe. ChurnRecovery works at the Stripe level, so it cannot directly intercept cancellations that happen inside Patreon's platform. ChurnRecovery works for Patreon creators who also run a direct Stripe subscription (on their own website or alongside Patreon).",
-              },
-              {
-                q: 'What if I only have Patreon right now?',
-                a: "Then ChurnRecovery isn't the right fit for you yet — and we'd rather be honest about that than sign you up for something that doesn't work. When you're ready to launch a direct subscription alongside Patreon, come back and we'll be here.",
-              },
-              {
-                q: "Why would I run a subscription outside of Patreon?",
-                a: "Control and revenue. On Patreon, you pay 8–12% in fees and have zero control over the cancel flow, the subscriber relationship, or what happens if Patreon changes its terms. A direct Stripe subscription lets you keep 97% of revenue, own your subscriber list, and control every touchpoint — including what happens when someone tries to cancel.",
-              },
-              {
-                q: 'Can I run both Patreon and a direct subscription simultaneously?',
-                a: "Yes — and many creators do. You can offer exclusive perks on your direct subscription (earlier access, lower price, more intimate community) while keeping Patreon for discoverability. Over time, your most loyal fans migrate where you make more and control more.",
-              },
-              {
-                q: "Isn't migrating off Patreon risky?",
-                a: "It can feel risky, but not moving is also a risk — you're building on a platform you don't control. The smart approach is gradual: start a direct subscription, run both in parallel, invite your top patrons, and migrate slowly. No cliff jumps required.",
-              },
-              {
-                q: 'What does the migration actually look like?',
-                a: "Typically: (1) Set up a Stripe subscription on your website. (2) Add ChurnRecovery to protect new direct subscribers from day one. (3) Offer existing Patreon patrons an exclusive deal to join your direct subscription. (4) Over 6–12 months, your direct revenue grows while Patreon becomes optional.",
-              },
-              {
-                q: 'Will Patreon penalize me for having a direct subscription?',
-                a: "No. Patreon's terms allow creators to have subscriptions on other platforms simultaneously. Many top creators run both. What matters is delivering value to your supporters wherever they are.",
-              },
-            ].map(faq => (
+            {faqs.map(faq => (
               <FAQItem key={faq.q} q={faq.q} a={faq.a} />
             ))}
           </div>

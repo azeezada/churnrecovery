@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import SignUpCTA from '../../components/SignUpCTA'
+import { buildFAQSchema } from '../../lib/faq-schema'
 
 // ─── Pain card ──────────────────────────────────────────────────────────────
 function PainCard({ icon, title, stat, statLabel, description }) {
@@ -101,6 +102,37 @@ function FAQItem({ q, a }) {
   )
 }
 
+const faqs = [
+  {
+    q: 'Does this work with WooCommerce Subscriptions?',
+    a: "Yes. WooCommerce Subscriptions processes recurring payments through Stripe (or PayPal). ChurnRecovery connects to your Stripe account directly and listens for cancellation events via webhooks. No WooCommerce API access needed — it works entirely at the Stripe level.",
+  },
+  {
+    q: 'Do I need to install a WordPress plugin?',
+    a: "No — and that's intentional. ChurnRecovery operates at the Stripe webhook level, completely outside your WordPress environment. There's nothing to install on your server, no plugin conflicts to manage, and no WordPress updates that can break it.",
+  },
+  {
+    q: 'Will this conflict with my other WooCommerce plugins?',
+    a: "It can't conflict with your plugins because it doesn't run inside WordPress at all. ChurnRecovery is a separate web service that connects to Stripe independently. Your WordPress stack never knows it exists.",
+  },
+  {
+    q: 'Does it work with PayPal as well as Stripe?',
+    a: "Currently, ChurnRecovery works with Stripe. If your WooCommerce Subscriptions store uses the WooCommerce Payments gateway or the Stripe for WooCommerce plugin, you're fully supported. PayPal support is on our roadmap.",
+  },
+  {
+    q: 'My store has a lot of plugins — will setup be complicated?',
+    a: "Not at all. Setup takes about 5–10 minutes regardless of how many plugins your store has. You connect your Stripe account, configure your cancel flow message and offer, and you're live. No server access, no FTP, no developer required.",
+  },
+  {
+    q: 'Can I customize what subscribers see when they try to cancel?',
+    a: "Completely. Your message, your offer, your tone. We provide templates designed for subscription store owners, but you can edit every word. Your subscribers will feel like they're hearing from you — not a generic software product.",
+  },
+  {
+    q: "What happens if a subscriber still cancels after seeing the offer?",
+    a: "That's fine. If they want to leave, they leave. You still receive their exit survey response — which is more than you had before. And you've made the attempt, which 20–35% of at-risk subscribers respond to positively.",
+  },
+]
+
 // ─── Main Page ───────────────────────────────────────────────────────────────
 export default function WooCommerceLandingPage() {
   return (
@@ -116,6 +148,7 @@ export default function WooCommerceLandingPage() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Stop Losing WooCommerce Subscribers at the Cancel Screen" />
         <meta name="twitter:description" content="Most WooCommerce store owners don't realize they can intercept cancellations. ChurnRecovery plugs directly into Stripe — no WordPress plugin, no code." />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(buildFAQSchema(faqs)) }} />
       </Head>
 
       <Header />
@@ -345,38 +378,7 @@ export default function WooCommerceLandingPage() {
               </h2>
             </div>
 
-            {[
-              {
-                q: 'Does this work with WooCommerce Subscriptions?',
-                a: "Yes. WooCommerce Subscriptions processes recurring payments through Stripe (or PayPal). ChurnRecovery connects to your Stripe account directly and listens for cancellation events via webhooks. No WooCommerce API access needed — it works entirely at the Stripe level.",
-              },
-              {
-                q: 'Do I need to install a WordPress plugin?',
-                a: "No — and that's intentional. ChurnRecovery operates at the Stripe webhook level, completely outside your WordPress environment. There's nothing to install on your server, no plugin conflicts to manage, and no WordPress updates that can break it.",
-              },
-              {
-                q: 'Will this conflict with my other WooCommerce plugins?',
-                a: "It can't conflict with your plugins because it doesn't run inside WordPress at all. ChurnRecovery is a separate web service that connects to Stripe independently. Your WordPress stack never knows it exists.",
-              },
-              {
-                q: 'Does it work with PayPal as well as Stripe?',
-                a: "Currently, ChurnRecovery works with Stripe. If your WooCommerce Subscriptions store uses the WooCommerce Payments gateway or the Stripe for WooCommerce plugin, you're fully supported. PayPal support is on our roadmap.",
-              },
-              {
-                q: 'My store has a lot of plugins — will setup be complicated?',
-                a: "Not at all. Setup takes about 5–10 minutes regardless of how many plugins your store has. You connect your Stripe account, configure your cancel flow message and offer, and you're live. No server access, no FTP, no developer required.",
-              },
-              {
-                q: 'Can I customize what subscribers see when they try to cancel?',
-                a: "Completely. Your message, your offer, your tone. We provide templates designed for subscription store owners, but you can edit every word. Your subscribers will feel like they're hearing from you — not a generic software product.",
-              },
-              {
-                q: "What happens if a subscriber still cancels after seeing the offer?",
-                a: "That's fine. If they want to leave, they leave. You still receive their exit survey response — which is more than you had before. And you've made the attempt, which 20–35% of at-risk subscribers respond to positively.",
-              },
-            ].map(faq => (
-              <FAQItem key={faq.q} q={faq.q} a={faq.a} />
-            ))}
+            {faqs.map(faq => <FAQItem key={faq.q} q={faq.q} a={faq.a} />)}
           </div>
         </section>
 

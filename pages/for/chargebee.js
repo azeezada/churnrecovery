@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import SignUpCTA from '../../components/SignUpCTA'
+import { buildFAQSchema } from '../../lib/faq-schema'
 
 function PainCard({ icon, title, stat, statLabel, description }) {
   return (
@@ -62,6 +63,14 @@ function FAQItem({ q, a }) {
   )
 }
 
+const faqs = [
+  { q: 'Does ChurnRecovery work alongside Chargebee?', a: "Yes, completely. ChurnRecovery connects to your Stripe account, which is the same payment processor Chargebee uses. Both tools can be connected to the same Stripe account simultaneously — Chargebee handles billing management, ChurnRecovery handles cancellation recovery. They don't interfere with each other." },
+  { q: "Will this break anything in Chargebee?", a: "No. ChurnRecovery listens to Stripe webhook events but doesn't modify your subscriptions unless a subscriber accepts an offer (like a pause or discount). Even then, the change happens through Stripe's API, which Chargebee syncs with. Your Chargebee dashboard stays accurate." },
+  { q: 'How much does ChurnRecovery cost?', a: "$20/month after a 30-day free trial. No credit card required to start. All features included — cancel flows, pause offers, exit surveys, and analytics. No per-subscriber fees, no enterprise contracts." },
+  { q: "What's the difference between ChurnRecovery and Chargebee Retain?", a: "Functionally, they're very similar — both add a cancel flow, pause offers, and exit surveys to your subscriptions. The difference is price and accessibility. Chargebee Retain starts at $500/month and requires an enterprise sales process. ChurnRecovery is $20/month with a 30-day free trial and takes 10 minutes to set up." },
+  { q: 'What if I want to move away from Chargebee entirely?', a: "That's a bigger conversation, but ChurnRecovery actually works better with direct Stripe billing (without a billing platform layer). If you're considering migrating from Chargebee to Stripe directly, we can work with you on that transition. Either way, ChurnRecovery will work with your setup." },
+]
+
 export default function ChargbeeLandingPage() {
   return (
     <>
@@ -76,6 +85,7 @@ export default function ChargbeeLandingPage() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Get Chargebee Retain Features for $20/Month | ChurnRecovery" />
         <meta name="twitter:description" content="Skip the $500/mo Chargebee Retain contract. ChurnRecovery adds cancel flows, pause offers, and churn analytics to your Stripe subscriptions for $20/month." />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(buildFAQSchema(faqs)) }} />
       </Head>
 
       <Header />
@@ -245,13 +255,7 @@ export default function ChargbeeLandingPage() {
               </h2>
             </div>
 
-            {[
-              { q: 'Does ChurnRecovery work alongside Chargebee?', a: "Yes, completely. ChurnRecovery connects to your Stripe account, which is the same payment processor Chargebee uses. Both tools can be connected to the same Stripe account simultaneously — Chargebee handles billing management, ChurnRecovery handles cancellation recovery. They don't interfere with each other." },
-              { q: "Will this break anything in Chargebee?", a: "No. ChurnRecovery listens to Stripe webhook events but doesn't modify your subscriptions unless a subscriber accepts an offer (like a pause or discount). Even then, the change happens through Stripe's API, which Chargebee syncs with. Your Chargebee dashboard stays accurate." },
-              { q: 'How much does ChurnRecovery cost?', a: "$20/month after a 30-day free trial. No credit card required to start. All features included — cancel flows, pause offers, exit surveys, and analytics. No per-subscriber fees, no enterprise contracts." },
-              { q: "What's the difference between ChurnRecovery and Chargebee Retain?", a: "Functionally, they're very similar — both add a cancel flow, pause offers, and exit surveys to your subscriptions. The difference is price and accessibility. Chargebee Retain starts at $500/month and requires an enterprise sales process. ChurnRecovery is $20/month with a 30-day free trial and takes 10 minutes to set up." },
-              { q: 'What if I want to move away from Chargebee entirely?', a: "That's a bigger conversation, but ChurnRecovery actually works better with direct Stripe billing (without a billing platform layer). If you're considering migrating from Chargebee to Stripe directly, we can work with you on that transition. Either way, ChurnRecovery will work with your setup." },
-            ].map(faq => <FAQItem key={faq.q} q={faq.q} a={faq.a} />)}
+            {faqs.map(faq => <FAQItem key={faq.q} q={faq.q} a={faq.a} />)}
           </div>
         </section>
 

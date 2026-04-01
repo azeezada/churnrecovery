@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import SignUpCTA from '../../components/SignUpCTA'
+import { buildFAQSchema } from '../../lib/faq-schema'
 
 // ─── Pain card ──────────────────────────────────────────────────────────────
 function PainCard({ icon, title, stat, statLabel, description }) {
@@ -101,6 +102,37 @@ function FAQItem({ q, a }) {
   )
 }
 
+const faqs = [
+  {
+    q: 'Does ChurnRecovery work with Mighty Networks?',
+    a: "Yes. Mighty Networks processes all paid membership payments through Stripe. ChurnRecovery connects to your Stripe account directly and listens for cancellation events. No Mighty Networks API access is needed — it works entirely at the Stripe payment level.",
+  },
+  {
+    q: 'Do I need Mighty Networks\' permission to use this?',
+    a: "No. Your Stripe account is yours, and ChurnRecovery connects to Stripe — not to Mighty Networks. You don't need any approval from Mighty Networks. Think of it like adding analytics to your Stripe account — it's your payment data, your choice.",
+  },
+  {
+    q: 'What about free community members?',
+    a: "ChurnRecovery only applies to paid subscriptions processed through Stripe. If someone is in your free tier and leaves, there's no Stripe event to intercept. This tool is designed for protecting your paid membership revenue.",
+  },
+  {
+    q: 'How long does setup take?',
+    a: "Under 10 minutes. You connect your Stripe account with one click, then configure your cancel flow (pause offer, discount amount, exit survey questions). We provide templates specifically designed for community hosts, so you don't start from scratch.",
+  },
+  {
+    q: 'Will members see the cancel flow inside Mighty Networks?',
+    a: "The cancel flow appears as an overlay or redirect when the cancellation event is triggered through Stripe. It's branded with your community name and your message — members feel like it's coming from you, not a third-party tool.",
+  },
+  {
+    q: 'What if a member still wants to cancel after seeing the offer?',
+    a: "They cancel. We never trap anyone. If they decline your pause or discount offer, their cancellation goes through as normal. But you still get their exit survey response — which is actionable data you never had before. And you've made the attempt, which 20–35% of people respond to positively.",
+  },
+  {
+    q: 'Is $20/month really all it costs?',
+    a: "Yes. $20/month flat after your 30-day free trial. No per-member fees, no tiers, no hidden costs. Cancel anytime. We keep it simple because your focus should be on your community, not on figuring out your churn recovery bill.",
+  },
+]
+
 // ─── Main Page ───────────────────────────────────────────────────────────────
 export default function MightyNetworksLandingPage() {
   return (
@@ -116,6 +148,7 @@ export default function MightyNetworksLandingPage() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Churn Recovery for Mighty Networks — Stop Losing Community Members" />
         <meta name="twitter:description" content="Members click 'Leave Community' and they're gone instantly. ChurnRecovery intercepts at Stripe before it finalizes. $20/month flat." />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(buildFAQSchema(faqs)) }} />
       </Head>
 
       <Header />
@@ -356,38 +389,7 @@ export default function MightyNetworksLandingPage() {
               </h2>
             </div>
 
-            {[
-              {
-                q: 'Does ChurnRecovery work with Mighty Networks?',
-                a: "Yes. Mighty Networks processes all paid membership payments through Stripe. ChurnRecovery connects to your Stripe account directly and listens for cancellation events. No Mighty Networks API access is needed — it works entirely at the Stripe payment level.",
-              },
-              {
-                q: 'Do I need Mighty Networks\' permission to use this?',
-                a: "No. Your Stripe account is yours, and ChurnRecovery connects to Stripe — not to Mighty Networks. You don't need any approval from Mighty Networks. Think of it like adding analytics to your Stripe account — it's your payment data, your choice.",
-              },
-              {
-                q: 'What about free community members?',
-                a: "ChurnRecovery only applies to paid subscriptions processed through Stripe. If someone is in your free tier and leaves, there's no Stripe event to intercept. This tool is designed for protecting your paid membership revenue.",
-              },
-              {
-                q: 'How long does setup take?',
-                a: "Under 10 minutes. You connect your Stripe account with one click, then configure your cancel flow (pause offer, discount amount, exit survey questions). We provide templates specifically designed for community hosts, so you don't start from scratch.",
-              },
-              {
-                q: 'Will members see the cancel flow inside Mighty Networks?',
-                a: "The cancel flow appears as an overlay or redirect when the cancellation event is triggered through Stripe. It's branded with your community name and your message — members feel like it's coming from you, not a third-party tool.",
-              },
-              {
-                q: 'What if a member still wants to cancel after seeing the offer?',
-                a: "They cancel. We never trap anyone. If they decline your pause or discount offer, their cancellation goes through as normal. But you still get their exit survey response — which is actionable data you never had before. And you've made the attempt, which 20–35% of people respond to positively.",
-              },
-              {
-                q: 'Is $20/month really all it costs?',
-                a: "Yes. $20/month flat after your 30-day free trial. No per-member fees, no tiers, no hidden costs. Cancel anytime. We keep it simple because your focus should be on your community, not on figuring out your churn recovery bill.",
-              },
-            ].map(faq => (
-              <FAQItem key={faq.q} q={faq.q} a={faq.a} />
-            ))}
+            {faqs.map(faq => <FAQItem key={faq.q} q={faq.q} a={faq.a} />)}
           </div>
         </section>
 

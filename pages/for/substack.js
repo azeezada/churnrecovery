@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import SignUpCTA from '../../components/SignUpCTA'
+import { buildFAQSchema } from '../../lib/faq-schema'
 
 // ─── Pain card ──────────────────────────────────────────────────────────────
 function PainCard({ icon, title, stat, statLabel, description }) {
@@ -101,6 +102,37 @@ function FAQItem({ q, a }) {
   )
 }
 
+const faqs = [
+  {
+    q: 'Does this work with Substack?',
+    a: "Yes. Substack processes payments through Stripe. ChurnRecovery connects to your Stripe account and listens for cancellation webhooks — no Substack API access needed.",
+  },
+  {
+    q: 'Do I need a developer to set this up?',
+    a: "Nope. If you can copy-paste a URL, you can install ChurnRecovery. The whole setup takes about 10 minutes, and we have step-by-step guides.",
+  },
+  {
+    q: 'Will my subscribers see a corporate-looking cancel flow?',
+    a: "No. Your messages are fully customizable. Your voice, your brand, your tone. It'll feel like a personal note from you, not a popup from some software company.",
+  },
+  {
+    q: 'What if I only have a few hundred paid subscribers?',
+    a: "That's exactly who this is built for. Even recovering 1–2 subscribers per month at $5–$10 each adds up. And with a 30-day free trial, there's zero risk.",
+  },
+  {
+    q: 'How is this different from what Substack offers?',
+    a: "Substack has no cancel flow. When someone clicks cancel, they're gone. ChurnRecovery adds that missing layer — the moment between 'I'm thinking about canceling' and 'I'm gone.'",
+  },
+  {
+    q: 'Does ChurnRecovery store my subscribers\' data?',
+    a: "We receive webhook events from Stripe — subscriber IDs and subscription status. We don't store payment info or email addresses beyond what's needed to trigger your recovery flow.",
+  },
+  {
+    q: "What if it doesn't work for me?",
+    a: "Cancel anytime. No contracts. Start with a 30-day free trial — you have nothing to lose.",
+  },
+]
+
 // ─── Main Page ───────────────────────────────────────────────────────────────
 export default function SubstackLandingPage() {
   return (
@@ -116,6 +148,7 @@ export default function SubstackLandingPage() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Churn Recovery for Substack Creators" />
         <meta name="twitter:description" content="Stop losing paid subscribers silently. ChurnRecovery catches cancellations in real-time." />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(buildFAQSchema(faqs)) }} />
       </Head>
 
       <Header />
@@ -332,36 +365,7 @@ export default function SubstackLandingPage() {
               </h2>
             </div>
 
-            {[
-              {
-                q: 'Does this work with Substack?',
-                a: "Yes. Substack processes payments through Stripe. ChurnRecovery connects to your Stripe account and listens for cancellation webhooks — no Substack API access needed.",
-              },
-              {
-                q: 'Do I need a developer to set this up?',
-                a: "Nope. If you can copy-paste a URL, you can install ChurnRecovery. The whole setup takes about 10 minutes, and we have step-by-step guides.",
-              },
-              {
-                q: 'Will my subscribers see a corporate-looking cancel flow?',
-                a: "No. Your messages are fully customizable. Your voice, your brand, your tone. It'll feel like a personal note from you, not a popup from some software company.",
-              },
-              {
-                q: 'What if I only have a few hundred paid subscribers?',
-                a: "That's exactly who this is built for. Even recovering 1–2 subscribers per month at $5–$10 each adds up. And with a 30-day free trial, there's zero risk.",
-              },
-              {
-                q: 'How is this different from what Substack offers?',
-                a: "Substack has no cancel flow. When someone clicks cancel, they're gone. ChurnRecovery adds that missing layer — the moment between 'I'm thinking about canceling' and 'I'm gone.'",
-              },
-              {
-                q: 'Does ChurnRecovery store my subscribers\' data?',
-                a: "We receive webhook events from Stripe — subscriber IDs and subscription status. We don't store payment info or email addresses beyond what's needed to trigger your recovery flow.",
-              },
-              {
-                q: "What if it doesn't work for me?",
-                a: "Cancel anytime. No contracts. Start with a 30-day free trial — you have nothing to lose.",
-              },
-            ].map(faq => (
+            {faqs.map(faq => (
               <FAQItem key={faq.q} q={faq.q} a={faq.a} />
             ))}
           </div>

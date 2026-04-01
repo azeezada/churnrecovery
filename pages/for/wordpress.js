@@ -7,11 +7,43 @@ import HowStep from '../../components/for/HowStep'
 import BenefitCard from '../../components/for/BenefitCard'
 import FAQItem from '../../components/for/FAQItem'
 import SignUpCTA from '../../components/SignUpCTA'
+import { buildFAQSchema } from '../../lib/faq-schema'
 
 const ACCENT = '#3858E9'
 const ACCENT_LIGHT = '#6B8BFF'
 const ACCENT_DARK_BG = 'rgba(56,88,233,0.15)'
 const ACCENT_BG = 'rgba(56,88,233,0.08)'
+
+const faqs = [
+  {
+    q: 'Does this work with WooCommerce Subscriptions?',
+    a: "Yes, as long as you're using the Stripe gateway for WooCommerce. When a member cancels in WooCommerce, that event passes through Stripe. ChurnRecovery listens for it and intercepts it before the cancellation is finalized.",
+  },
+  {
+    q: 'Does this work with MemberPress?',
+    a: "Yes. MemberPress with the Stripe gateway is fully supported. The integration is identical — ChurnRecovery connects to your Stripe account and listens for cancellation events regardless of which WordPress plugin initiated them.",
+  },
+  {
+    q: 'Does this work with Paid Memberships Pro?',
+    a: "Yes. Paid Memberships Pro with Stripe works the same way. If your recurring payments run through Stripe, ChurnRecovery can intercept and recover those cancellations.",
+  },
+  {
+    q: 'Do I need to install a WordPress plugin?',
+    a: "No. ChurnRecovery doesn't require any WordPress plugin. It works at the Stripe level, which is completely separate from your WordPress installation. You don't need to touch your theme, your plugins, or your hosting.",
+  },
+  {
+    q: 'What if my members manage their subscriptions through their WooCommerce account?',
+    a: "When a member cancels through their WooCommerce account dashboard, WooCommerce sends the cancellation to Stripe. ChurnRecovery catches the Stripe event and triggers the recovery flow at that point — regardless of where in your WordPress site the cancellation was initiated.",
+  },
+  {
+    q: 'Will this interfere with my existing WooCommerce or WordPress setup?',
+    a: "No. ChurnRecovery only interacts with your Stripe account. It doesn't modify any WordPress files, WooCommerce settings, or membership plugin configurations. Your WordPress site continues to work exactly as it does today.",
+  },
+  {
+    q: "My WordPress site is custom-built. Will it still work?",
+    a: "If your custom WordPress site routes subscription payments through Stripe, yes — ChurnRecovery will work. The integration is at the Stripe level, not the WordPress level. If you're unsure, reach out and we'll confirm your setup is supported.",
+  },
+]
 
 export default function WordPressLandingPage() {
   return (
@@ -27,6 +59,7 @@ export default function WordPressLandingPage() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Stop Losing WooCommerce & WordPress Members Silently" />
         <meta name="twitter:description" content="WordPress memberships cancel silently. ChurnRecovery works with WooCommerce, MemberPress, and Paid Memberships Pro to catch cancellations and offer pauses, discounts, and exit surveys." />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(buildFAQSchema(faqs)) }} />
       </Head>
 
       <Header />
@@ -236,38 +269,7 @@ export default function WordPressLandingPage() {
               </h2>
             </div>
 
-            {[
-              {
-                q: 'Does this work with WooCommerce Subscriptions?',
-                a: "Yes, as long as you're using the Stripe gateway for WooCommerce. When a member cancels in WooCommerce, that event passes through Stripe. ChurnRecovery listens for it and intercepts it before the cancellation is finalized.",
-              },
-              {
-                q: 'Does this work with MemberPress?',
-                a: "Yes. MemberPress with the Stripe gateway is fully supported. The integration is identical — ChurnRecovery connects to your Stripe account and listens for cancellation events regardless of which WordPress plugin initiated them.",
-              },
-              {
-                q: 'Does this work with Paid Memberships Pro?',
-                a: "Yes. Paid Memberships Pro with Stripe works the same way. If your recurring payments run through Stripe, ChurnRecovery can intercept and recover those cancellations.",
-              },
-              {
-                q: 'Do I need to install a WordPress plugin?',
-                a: "No. ChurnRecovery doesn't require any WordPress plugin. It works at the Stripe level, which is completely separate from your WordPress installation. You don't need to touch your theme, your plugins, or your hosting.",
-              },
-              {
-                q: 'What if my members manage their subscriptions through their WooCommerce account?',
-                a: "When a member cancels through their WooCommerce account dashboard, WooCommerce sends the cancellation to Stripe. ChurnRecovery catches the Stripe event and triggers the recovery flow at that point — regardless of where in your WordPress site the cancellation was initiated.",
-              },
-              {
-                q: 'Will this interfere with my existing WooCommerce or WordPress setup?',
-                a: "No. ChurnRecovery only interacts with your Stripe account. It doesn't modify any WordPress files, WooCommerce settings, or membership plugin configurations. Your WordPress site continues to work exactly as it does today.",
-              },
-              {
-                q: "My WordPress site is custom-built. Will it still work?",
-                a: "If your custom WordPress site routes subscription payments through Stripe, yes — ChurnRecovery will work. The integration is at the Stripe level, not the WordPress level. If you're unsure, reach out and we'll confirm your setup is supported.",
-              },
-            ].map(faq => (
-              <FAQItem key={faq.q} q={faq.q} a={faq.a} accentColor={ACCENT} />
-            ))}
+            {faqs.map(faq => <FAQItem key={faq.q} q={faq.q} a={faq.a} accentColor={ACCENT} />)}
           </div>
         </section>
 

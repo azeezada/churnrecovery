@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import SignUpCTA from '../../components/SignUpCTA'
+import { buildFAQSchema } from '../../lib/faq-schema'
 
 // ─── Pain card ──────────────────────────────────────────────────────────────
 function PainCard({ icon, title, stat, statLabel, description }) {
@@ -101,6 +102,37 @@ function FAQItem({ q, a }) {
   )
 }
 
+const faqs = [
+  {
+    q: 'Does this work with Shopify subscriptions?',
+    a: "Yes. If your Shopify subscription app processes payments through Stripe — which includes ReCharge, Bold Subscriptions, Shopify Subscriptions, and most others — ChurnRecovery connects at the Stripe level and intercepts cancellations automatically. No Shopify app installation needed.",
+  },
+  {
+    q: 'What about failed payment recovery?',
+    a: "ChurnRecovery helps with voluntary cancellations — when a subscriber actively chooses to cancel. For failed payments (involuntary churn), Stripe's built-in Smart Retries handle automatic retries, and ChurnRecovery's dashboard helps you monitor recovery rates across both types.",
+  },
+  {
+    q: 'Can I offer a skip instead of a discount?',
+    a: "Absolutely. For subscription boxes, the skip-a-month offer is often more effective than a discount — it keeps the subscriber in your pipeline without cutting into already-thin margins. You can configure which offers appear and in what order.",
+  },
+  {
+    q: 'Do I need a developer to set this up?',
+    a: "No. Setup takes about 5–10 minutes and requires no code. You connect your Stripe account, customize your cancel flow message and offers, and you\u0027re live. We have step-by-step guides with screenshots for every common subscription platform.",
+  },
+  {
+    q: 'What if my subscription box is lower-priced?',
+    a: "Even at $25–$35/month price points, recovering 2–3 subscribers per month more than covers the $20/month ChurnRecovery fee. And the exit survey data you collect is valuable regardless of price point — it tells you which boxes or themes are driving cancellations.",
+  },
+  {
+    q: 'Can I customize the cancel flow for my brand?',
+    a: "Completely. Your message, your tone, your offer. Subscription box customers respond best to copy that feels personal and specific to your box — we give you full control over every word, plus templates designed for physical subscription businesses.",
+  },
+  {
+    q: "What if they still cancel after seeing the offer?",
+    a: "That\u0027s fine — if they want to leave, they leave. But you still capture their exit survey response, which is real product feedback you can act on. And 20–35% of subscribers who see a recovery offer choose to stay or pause, which is revenue you would have lost with no cancel flow at all.",
+  },
+]
+
 // ─── Main Page ───────────────────────────────────────────────────────────────
 export default function SubscriptionBoxesLandingPage() {
   return (
@@ -116,6 +148,7 @@ export default function SubscriptionBoxesLandingPage() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Stop Losing Subscription Box Customers Before They Cancel" />
         <meta name="twitter:description" content="Thin margins mean you can't afford silent churn. ChurnRecovery plugs into Stripe and Shopify to intercept cancellations — no code, no waiting." />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(buildFAQSchema(faqs)) }} />
       </Head>
 
       <Header />
@@ -345,38 +378,7 @@ export default function SubscriptionBoxesLandingPage() {
               </h2>
             </div>
 
-            {[
-              {
-                q: 'Does this work with Shopify subscriptions?',
-                a: "Yes. If your Shopify subscription app processes payments through Stripe — which includes ReCharge, Bold Subscriptions, Shopify Subscriptions, and most others — ChurnRecovery connects at the Stripe level and intercepts cancellations automatically. No Shopify app installation needed.",
-              },
-              {
-                q: 'What about failed payment recovery?',
-                a: "ChurnRecovery helps with voluntary cancellations — when a subscriber actively chooses to cancel. For failed payments (involuntary churn), Stripe's built-in Smart Retries handle automatic retries, and ChurnRecovery's dashboard helps you monitor recovery rates across both types.",
-              },
-              {
-                q: 'Can I offer a skip instead of a discount?',
-                a: "Absolutely. For subscription boxes, the skip-a-month offer is often more effective than a discount — it keeps the subscriber in your pipeline without cutting into already-thin margins. You can configure which offers appear and in what order.",
-              },
-              {
-                q: 'Do I need a developer to set this up?',
-                a: "No. Setup takes about 5–10 minutes and requires no code. You connect your Stripe account, customize your cancel flow message and offers, and you&apos;re live. We have step-by-step guides with screenshots for every common subscription platform.",
-              },
-              {
-                q: 'What if my subscription box is lower-priced?',
-                a: "Even at $25–$35/month price points, recovering 2–3 subscribers per month more than covers the $20/month ChurnRecovery fee. And the exit survey data you collect is valuable regardless of price point — it tells you which boxes or themes are driving cancellations.",
-              },
-              {
-                q: 'Can I customize the cancel flow for my brand?',
-                a: "Completely. Your message, your tone, your offer. Subscription box customers respond best to copy that feels personal and specific to your box — we give you full control over every word, plus templates designed for physical subscription businesses.",
-              },
-              {
-                q: "What if they still cancel after seeing the offer?",
-                a: "That&apos;s fine — if they want to leave, they leave. But you still capture their exit survey response, which is real product feedback you can act on. And 20–35% of subscribers who see a recovery offer choose to stay or pause, which is revenue you would have lost with no cancel flow at all.",
-              },
-            ].map(faq => (
-              <FAQItem key={faq.q} q={faq.q} a={faq.a} />
-            ))}
+            {faqs.map(faq => <FAQItem key={faq.q} q={faq.q} a={faq.a} />)}
           </div>
         </section>
 

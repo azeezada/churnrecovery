@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import SignUpCTA from '../../components/SignUpCTA'
+import { buildFAQSchema } from '../../lib/faq-schema'
 
 // ─── Pain card ──────────────────────────────────────────────────────────────
 function PainCard({ icon, title, stat, statLabel, description }) {
@@ -101,6 +102,37 @@ function FAQItem({ q, a }) {
   )
 }
 
+const faqs = [
+  {
+    q: 'Does this work with Circle?',
+    a: "Yes. Circle processes membership payments through Stripe. ChurnRecovery connects to your Stripe account directly and intercepts cancellation events before they finalize. No Circle API access or approval needed — it works entirely at the Stripe level.",
+  },
+  {
+    q: 'Does this work with Skool?',
+    a: "Yes. Skool uses Stripe for paid community memberships. ChurnRecovery connects to Stripe and catches cancellations in real time — completely outside Skool's ecosystem. No Skool plugin or developer required.",
+  },
+  {
+    q: 'What about Discord-based communities?',
+    a: "If your Discord community charges memberships through Stripe — whether directly or via a tool like Memberful, Whop, or a custom checkout — ChurnRecovery can intercept those cancellations. The key is that billing flows through Stripe.",
+  },
+  {
+    q: 'Do I need to change my community platform to use this?',
+    a: "Not at all. ChurnRecovery works through Stripe, not through your community platform. You keep Circle, Skool, Mighty Networks, or whatever you\u0027re using. All you do is connect your Stripe account to ChurnRecovery — that\u0027s it.",
+  },
+  {
+    q: 'Does it work with Mighty Networks?',
+    a: "Yes. Mighty Networks uses Stripe for paid plan billing. ChurnRecovery plugs into Stripe directly, so it catches cancellations on Mighty Networks memberships the same way it does for any other Stripe-powered community platform.",
+  },
+  {
+    q: 'Can I customize what members see when they try to cancel?',
+    a: "Completely. Your message, your offer, your tone. You can offer a pause, a discount, a free month, or just ask a single exit survey question. We provide templates designed for community operators, but every word is editable. Your members will feel like they\u0027re hearing from you directly.",
+  },
+  {
+    q: "What if a member still cancels after seeing the offer?",
+    a: "That\u0027s fine. If they want to leave, they leave. You still capture their exit survey response — which tells you why your community isn\u0027t retaining them. And 20–35% of members who see an offer do stay, so the attempt is always worth making.",
+  },
+]
+
 // ─── Main Page ───────────────────────────────────────────────────────────────
 export default function CommunitiesLandingPage() {
   return (
@@ -116,6 +148,7 @@ export default function CommunitiesLandingPage() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Stop Losing Community Members at the Cancel Screen" />
         <meta name="twitter:description" content="Circle, Skool, and Mighty Networks have no churn tools. ChurnRecovery plugs directly into Stripe — no code, no platform approval needed." />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(buildFAQSchema(faqs)) }} />
       </Head>
 
       <Header />
@@ -345,38 +378,7 @@ export default function CommunitiesLandingPage() {
               </h2>
             </div>
 
-            {[
-              {
-                q: 'Does this work with Circle?',
-                a: "Yes. Circle processes membership payments through Stripe. ChurnRecovery connects to your Stripe account directly and intercepts cancellation events before they finalize. No Circle API access or approval needed — it works entirely at the Stripe level.",
-              },
-              {
-                q: 'Does this work with Skool?',
-                a: "Yes. Skool uses Stripe for paid community memberships. ChurnRecovery connects to Stripe and catches cancellations in real time — completely outside Skool's ecosystem. No Skool plugin or developer required.",
-              },
-              {
-                q: 'What about Discord-based communities?',
-                a: "If your Discord community charges memberships through Stripe — whether directly or via a tool like Memberful, Whop, or a custom checkout — ChurnRecovery can intercept those cancellations. The key is that billing flows through Stripe.",
-              },
-              {
-                q: 'Do I need to change my community platform to use this?',
-                a: "Not at all. ChurnRecovery works through Stripe, not through your community platform. You keep Circle, Skool, Mighty Networks, or whatever you&apos;re using. All you do is connect your Stripe account to ChurnRecovery — that&apos;s it.",
-              },
-              {
-                q: 'Does it work with Mighty Networks?',
-                a: "Yes. Mighty Networks uses Stripe for paid plan billing. ChurnRecovery plugs into Stripe directly, so it catches cancellations on Mighty Networks memberships the same way it does for any other Stripe-powered community platform.",
-              },
-              {
-                q: 'Can I customize what members see when they try to cancel?',
-                a: "Completely. Your message, your offer, your tone. You can offer a pause, a discount, a free month, or just ask a single exit survey question. We provide templates designed for community operators, but every word is editable. Your members will feel like they&apos;re hearing from you directly.",
-              },
-              {
-                q: "What if a member still cancels after seeing the offer?",
-                a: "That&apos;s fine. If they want to leave, they leave. You still capture their exit survey response — which tells you why your community isn&apos;t retaining them. And 20–35% of members who see an offer do stay, so the attempt is always worth making.",
-              },
-            ].map(faq => (
-              <FAQItem key={faq.q} q={faq.q} a={faq.a} />
-            ))}
+            {faqs.map(faq => <FAQItem key={faq.q} q={faq.q} a={faq.a} />)}
           </div>
         </section>
 

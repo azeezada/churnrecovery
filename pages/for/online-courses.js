@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import SignUpCTA from '../../components/SignUpCTA'
+import { buildFAQSchema } from '../../lib/faq-schema'
 
 // ─── Pain card ──────────────────────────────────────────────────────────────
 function PainCard({ icon, title, stat, statLabel, description }) {
@@ -101,6 +102,37 @@ function FAQItem({ q, a }) {
   )
 }
 
+const faqs = [
+  {
+    q: 'Does this work with Teachable, Kajabi, and Thinkific?',
+    a: "Yes. All three platforms process subscription payments through Stripe. ChurnRecovery connects to your Stripe account directly and listens for cancellation events — no course platform API access needed, and no approval required.",
+  },
+  {
+    q: 'Will my course platform block this?',
+    a: "No. ChurnRecovery operates at the Stripe level, completely outside your course platform. Your platform has no visibility into or control over Stripe webhook events. It\u0027s like installing a smoke alarm in a rented building — the landlord doesn\u0027t need to approve it.",
+  },
+  {
+    q: 'My students pay a one-time fee, not monthly. Does this apply to me?',
+    a: "ChurnRecovery works specifically with recurring subscription plans. If you sell one-time courses, there\u0027s nothing to cancel. But if you offer a monthly membership, a learning community, or an ongoing subscription tier, this is exactly what you need.",
+  },
+  {
+    q: 'Does completion rate really affect churn that much?',
+    a: "Significantly. Students who haven\u0027t started or who stall early are the most likely to cancel. A cancel flow lets you step in at that exact moment — with a pause offer that buys them time, or a discount that resets their commitment.",
+  },
+  {
+    q: 'Can I customize the cancel flow message for my course audience?',
+    a: "Completely. Your message, your offer, your tone. We provide templates designed for course creators and educators, but you can edit every word. Your students will feel like they\u0027re hearing from you — not a software company.",
+  },
+  {
+    q: 'What if my course is priced below $50/month?',
+    a: "Even at lower price points, recovering 1–2 students per month adds up fast — especially with seasonal enrollment where each cohort is harder to replace. Volume matters, and a cancel flow works at every price point.",
+  },
+  {
+    q: "What happens if a student still cancels after seeing the offer?",
+    a: "That\u0027s fine. If they want to leave, they leave. You still get their exit survey response — which is more than you had before. And you\u0027ve made the attempt, which 20–35% of students respond to positively.",
+  },
+]
+
 // ─── Main Page ───────────────────────────────────────────────────────────────
 export default function OnlineCoursesLandingPage() {
   return (
@@ -116,6 +148,7 @@ export default function OnlineCoursesLandingPage() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Churn Recovery for Online Courses | ChurnRecovery" />
         <meta name="twitter:description" content="Your course platform has no cancel flow. ChurnRecovery plugs directly into Stripe — and intercepts cancellations with a pause offer, discount, or exit survey." />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(buildFAQSchema(faqs)) }} />
       </Head>
 
       <Header />
@@ -345,38 +378,7 @@ export default function OnlineCoursesLandingPage() {
               </h2>
             </div>
 
-            {[
-              {
-                q: 'Does this work with Teachable, Kajabi, and Thinkific?',
-                a: "Yes. All three platforms process subscription payments through Stripe. ChurnRecovery connects to your Stripe account directly and listens for cancellation events — no course platform API access needed, and no approval required.",
-              },
-              {
-                q: 'Will my course platform block this?',
-                a: "No. ChurnRecovery operates at the Stripe level, completely outside your course platform. Your platform has no visibility into or control over Stripe webhook events. It&apos;s like installing a smoke alarm in a rented building — the landlord doesn&apos;t need to approve it.",
-              },
-              {
-                q: 'My students pay a one-time fee, not monthly. Does this apply to me?',
-                a: "ChurnRecovery works specifically with recurring subscription plans. If you sell one-time courses, there&apos;s nothing to cancel. But if you offer a monthly membership, a learning community, or an ongoing subscription tier, this is exactly what you need.",
-              },
-              {
-                q: 'Does completion rate really affect churn that much?',
-                a: "Significantly. Students who haven&apos;t started or who stall early are the most likely to cancel. A cancel flow lets you step in at that exact moment — with a pause offer that buys them time, or a discount that resets their commitment.",
-              },
-              {
-                q: 'Can I customize the cancel flow message for my course audience?',
-                a: "Completely. Your message, your offer, your tone. We provide templates designed for course creators and educators, but you can edit every word. Your students will feel like they&apos;re hearing from you — not a software company.",
-              },
-              {
-                q: 'What if my course is priced below $50/month?',
-                a: "Even at lower price points, recovering 1–2 students per month adds up fast — especially with seasonal enrollment where each cohort is harder to replace. Volume matters, and a cancel flow works at every price point.",
-              },
-              {
-                q: "What happens if a student still cancels after seeing the offer?",
-                a: "That&apos;s fine. If they want to leave, they leave. You still get their exit survey response — which is more than you had before. And you&apos;ve made the attempt, which 20–35% of students respond to positively.",
-              },
-            ].map(faq => (
-              <FAQItem key={faq.q} q={faq.q} a={faq.a} />
-            ))}
+            {faqs.map(faq => <FAQItem key={faq.q} q={faq.q} a={faq.a} />)}
           </div>
         </section>
 

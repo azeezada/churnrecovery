@@ -1,7 +1,7 @@
 ---
 title: "5 SaaS Dashboard Screenshots That Convert (And What Makes Them Work)"
 date: "2026-03-03"
-excerpt: "Most SaaS screenshots are wallpaper. Here's what separates screenshots that actually drive signups from screenshots that just take up space on your landing page."
+excerpt: "5 real SaaS dashboard screenshots that increased conversion rates, with the exact design patterns that make them work. Copy these for your landing page."
 tags: ["SaaS marketing", "product screenshots", "conversion", "landing page", "SaaS design"]
 author: "ChurnRecovery Team"
 readingTime: "5 min read"

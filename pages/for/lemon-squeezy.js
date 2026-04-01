@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import SignUpCTA from '../../components/SignUpCTA'
+import { buildFAQSchema } from '../../lib/faq-schema'
 
 function PainCard({ icon, title, stat, statLabel, description }) {
   return (
@@ -62,6 +63,14 @@ function FAQItem({ q, a }) {
   )
 }
 
+const faqs = [
+  { q: 'Can ChurnRecovery work with Lemon Squeezy right now?', a: "Not on standard Lemon Squeezy MoR (merchant of record) plans — because the Stripe connection belongs to Lemon Squeezy, not you. However, if your plan lets you use your own Stripe account, ChurnRecovery works. We're also working on a native Lemon Squeezy integration for the future." },
+  { q: "Why is Lemon Squeezy's MoR setup a problem for cancel flows?", a: "As the merchant of record, Lemon Squeezy handles the Stripe payment infrastructure on your behalf. That means you can't install webhooks or intercept cancellation events — those go to Lemon Squeezy's servers, not yours. It's the tradeoff for their tax compliance features." },
+  { q: 'Is it hard to migrate subscriptions from Lemon Squeezy to Stripe?', a: "It depends on your subscriber count. For small subscriber bases (under 200), many creators handle the migration manually or with a simple export/import. We have guides for this migration in our docs. The bigger the subscriber base, the more careful the migration needs to be." },
+  { q: 'Will I lose subscribers if I migrate to direct Stripe?', a: "A thoughtful migration won't cause cancellations. The key is to communicate with subscribers, give them time to re-subscribe through your new Stripe-powered flow, and offer a seamless transition. Many creators do this without losing a single subscriber." },
+  { q: 'Can I keep using Lemon Squeezy for one-time products?', a: "Absolutely. Many creators use Lemon Squeezy for digital downloads and one-time purchases (where their tax handling is genuinely useful), while using direct Stripe for subscriptions. You don't have to go all-or-nothing." },
+]
+
 export default function LemonSqueezyLandingPage() {
   return (
     <>
@@ -76,6 +85,7 @@ export default function LemonSqueezyLandingPage() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Using Lemon Squeezy? Here's the Honest Truth About Churn Recovery" />
         <meta name="twitter:description" content="We won't pretend to work with Lemon Squeezy's MoR setup. But if you use your own Stripe, or want to switch — ChurnRecovery is your churn recovery layer." />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(buildFAQSchema(faqs)) }} />
       </Head>
 
       <Header />
@@ -187,13 +197,7 @@ export default function LemonSqueezyLandingPage() {
               </h2>
             </div>
 
-            {[
-              { q: 'Can ChurnRecovery work with Lemon Squeezy right now?', a: "Not on standard Lemon Squeezy MoR (merchant of record) plans — because the Stripe connection belongs to Lemon Squeezy, not you. However, if your plan lets you use your own Stripe account, ChurnRecovery works. We're also working on a native Lemon Squeezy integration for the future." },
-              { q: "Why is Lemon Squeezy's MoR setup a problem for cancel flows?", a: "As the merchant of record, Lemon Squeezy handles the Stripe payment infrastructure on your behalf. That means you can't install webhooks or intercept cancellation events — those go to Lemon Squeezy's servers, not yours. It's the tradeoff for their tax compliance features." },
-              { q: 'Is it hard to migrate subscriptions from Lemon Squeezy to Stripe?', a: "It depends on your subscriber count. For small subscriber bases (under 200), many creators handle the migration manually or with a simple export/import. We have guides for this migration in our docs. The bigger the subscriber base, the more careful the migration needs to be." },
-              { q: 'Will I lose subscribers if I migrate to direct Stripe?', a: "A thoughtful migration won't cause cancellations. The key is to communicate with subscribers, give them time to re-subscribe through your new Stripe-powered flow, and offer a seamless transition. Many creators do this without losing a single subscriber." },
-              { q: 'Can I keep using Lemon Squeezy for one-time products?', a: "Absolutely. Many creators use Lemon Squeezy for digital downloads and one-time purchases (where their tax handling is genuinely useful), while using direct Stripe for subscriptions. You don't have to go all-or-nothing." },
-            ].map(faq => <FAQItem key={faq.q} q={faq.q} a={faq.a} />)}
+            {faqs.map(faq => <FAQItem key={faq.q} q={faq.q} a={faq.a} />)}
           </div>
         </section>
 

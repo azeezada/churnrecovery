@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import SignUpCTA from '../../components/SignUpCTA'
+import { buildFAQSchema } from '../../lib/faq-schema'
 
 // ─── Pain card ──────────────────────────────────────────────────────────────
 function PainCard({ icon, title, stat, statLabel, description }) {
@@ -101,6 +102,37 @@ function FAQItem({ q, a }) {
   )
 }
 
+const faqs = [
+  {
+    q: 'Which membership platforms does ChurnRecovery support?',
+    a: "Any membership platform that processes recurring payments through Stripe. This includes WordPress plugins (MemberPress, Restrict Content Pro, Paid Memberships Pro), Circle communities, Mighty Networks, and most other membership tools that rely on Stripe for billing.",
+  },
+  {
+    q: 'Does my platform need to approve this integration?',
+    a: "No. ChurnRecovery connects directly to your Stripe account — not to your membership platform. Your platform has no visibility into or control over how you configure Stripe webhooks. No approval needed, no app store, no waiting.",
+  },
+  {
+    q: 'My members disengage before they cancel. Can this help?',
+    a: "ChurnRecovery catches members at the cancellation moment — the best last chance to retain them. While it doesn't trigger on disengagement signals (like login frequency), the exit survey it presents helps you understand engagement gaps so you can address them in your content and community strategy.",
+  },
+  {
+    q: 'What is a pause offer, and why does it matter for membership sites?',
+    a: "A pause offer lets a member temporarily suspend their membership instead of cancelling. For membership sites, this is especially powerful — members often leave during busy life periods, not because they dislike the community. A pause means they come back. A cancellation usually means they don't.",
+  },
+  {
+    q: 'Can I customize the cancel flow for my community?',
+    a: "Completely. Your message, your offer, your tone. We provide templates designed for community-based memberships, but you can edit every word. Your members will feel like they're hearing from you directly — not a generic software prompt.",
+  },
+  {
+    q: 'Does this work if I run multiple membership tiers?',
+    a: "Yes. ChurnRecovery works at the Stripe subscription level. If you have multiple tiers (monthly, annual, founding member), each cancellation event is caught and can trigger a tailored recovery flow based on the subscription details.",
+  },
+  {
+    q: "What if someone still cancels after seeing the offer?",
+    a: "That's fine. If they want to leave, they leave — and you still get their exit survey response, which is more than you had before. On average, 20–35% of at-risk members respond positively to recovery offers. The other 65–80% leave, but now you know why.",
+  },
+]
+
 // ─── Main Page ───────────────────────────────────────────────────────────────
 export default function MembershipSitesLandingPage() {
   return (
@@ -116,6 +148,7 @@ export default function MembershipSitesLandingPage() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Churn Recovery for Membership Sites | ChurnRecovery" />
         <meta name="twitter:description" content="Your membership site is losing members silently. ChurnRecovery plugs into Stripe to intercept cancellations — no platform approval needed." />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(buildFAQSchema(faqs)) }} />
       </Head>
 
       <Header />
@@ -345,38 +378,7 @@ export default function MembershipSitesLandingPage() {
               </h2>
             </div>
 
-            {[
-              {
-                q: 'Which membership platforms does ChurnRecovery support?',
-                a: "Any membership platform that processes recurring payments through Stripe. This includes WordPress plugins (MemberPress, Restrict Content Pro, Paid Memberships Pro), Circle communities, Mighty Networks, and most other membership tools that rely on Stripe for billing.",
-              },
-              {
-                q: 'Does my platform need to approve this integration?',
-                a: "No. ChurnRecovery connects directly to your Stripe account — not to your membership platform. Your platform has no visibility into or control over how you configure Stripe webhooks. No approval needed, no app store, no waiting.",
-              },
-              {
-                q: 'My members disengage before they cancel. Can this help?',
-                a: "ChurnRecovery catches members at the cancellation moment — the best last chance to retain them. While it doesn't trigger on disengagement signals (like login frequency), the exit survey it presents helps you understand engagement gaps so you can address them in your content and community strategy.",
-              },
-              {
-                q: 'What is a pause offer, and why does it matter for membership sites?',
-                a: "A pause offer lets a member temporarily suspend their membership instead of cancelling. For membership sites, this is especially powerful — members often leave during busy life periods, not because they dislike the community. A pause means they come back. A cancellation usually means they don't.",
-              },
-              {
-                q: 'Can I customize the cancel flow for my community?',
-                a: "Completely. Your message, your offer, your tone. We provide templates designed for community-based memberships, but you can edit every word. Your members will feel like they're hearing from you directly — not a generic software prompt.",
-              },
-              {
-                q: 'Does this work if I run multiple membership tiers?',
-                a: "Yes. ChurnRecovery works at the Stripe subscription level. If you have multiple tiers (monthly, annual, founding member), each cancellation event is caught and can trigger a tailored recovery flow based on the subscription details.",
-              },
-              {
-                q: "What if someone still cancels after seeing the offer?",
-                a: "That's fine. If they want to leave, they leave — and you still get their exit survey response, which is more than you had before. On average, 20–35% of at-risk members respond positively to recovery offers. The other 65–80% leave, but now you know why.",
-              },
-            ].map(faq => (
-              <FAQItem key={faq.q} q={faq.q} a={faq.a} />
-            ))}
+            {faqs.map(faq => <FAQItem key={faq.q} q={faq.q} a={faq.a} />)}
           </div>
         </section>
 

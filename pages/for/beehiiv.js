@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import SignUpCTA from '../../components/SignUpCTA'
+import { buildFAQSchema } from '../../lib/faq-schema'
 
 function PainCard({ icon, title, stat, statLabel, description }) {
   return (
@@ -95,6 +96,37 @@ function FAQItem({ q, a }) {
   )
 }
 
+const faqs = [
+  {
+    q: 'Does this work with Beehiiv?',
+    a: "Yes. Beehiiv Scale uses Stripe to process paid subscriptions. ChurnRecovery connects to your Stripe account and listens for cancellation events — no special Beehiiv integration needed. As long as your paid newsletter runs through Stripe, it works.",
+  },
+  {
+    q: 'Do I need to know how to code?',
+    a: "Not at all. If you can copy-paste a webhook URL, you can set up ChurnRecovery. The whole process takes about 10 minutes, and we have step-by-step guides with screenshots.",
+  },
+  {
+    q: "Will subscribers know it's a third-party tool?",
+    a: "You control the messages. They'll see your words, your tone, your offer — not a generic SaaS popup. We're invisible infrastructure. Your subscribers just feel like you care about them.",
+  },
+  {
+    q: "What if I'm on the free Beehiiv plan?",
+    a: "Free Beehiiv newsletters don't have paid subscribers, so ChurnRecovery wouldn't apply. This is specifically for Beehiiv Scale creators who have paying subscribers processed through Stripe.",
+  },
+  {
+    q: 'How is this different from what Beehiiv offers?',
+    a: "Beehiiv doesn't have a cancellation flow for premium subscribers. When someone cancels, they just cancel. ChurnRecovery adds the missing layer — a moment between 'I'm thinking about canceling' and 'I'm gone.'",
+  },
+  {
+    q: "What's the save rate?",
+    a: "It depends on your newsletter and offers, but typical save rates are 20–35% of at-risk subscribers. On a $5,000/month newsletter, that can mean $1,000–$1,750/month recovered that you would have lost.",
+  },
+  {
+    q: 'What if I want to cancel ChurnRecovery?',
+    a: "Cancel any time. No contracts. Start with a 30-day free trial — you risk nothing by trying.",
+  },
+]
+
 export default function BeehiivLandingPage() {
   return (
     <>
@@ -109,6 +141,7 @@ export default function BeehiivLandingPage() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Stop Losing Beehiiv Premium Subscribers" />
         <meta name="twitter:description" content="Stop losing paid Beehiiv subscribers silently. ChurnRecovery catches cancellations in real-time." />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(buildFAQSchema(faqs)) }} />
       </Head>
 
       <Header />
@@ -330,36 +363,7 @@ export default function BeehiivLandingPage() {
               </h2>
             </div>
 
-            {[
-              {
-                q: 'Does this work with Beehiiv?',
-                a: "Yes. Beehiiv Scale uses Stripe to process paid subscriptions. ChurnRecovery connects to your Stripe account and listens for cancellation events — no special Beehiiv integration needed. As long as your paid newsletter runs through Stripe, it works.",
-              },
-              {
-                q: 'Do I need to know how to code?',
-                a: "Not at all. If you can copy-paste a webhook URL, you can set up ChurnRecovery. The whole process takes about 10 minutes, and we have step-by-step guides with screenshots.",
-              },
-              {
-                q: "Will subscribers know it's a third-party tool?",
-                a: "You control the messages. They'll see your words, your tone, your offer — not a generic SaaS popup. We're invisible infrastructure. Your subscribers just feel like you care about them.",
-              },
-              {
-                q: "What if I'm on the free Beehiiv plan?",
-                a: "Free Beehiiv newsletters don't have paid subscribers, so ChurnRecovery wouldn't apply. This is specifically for Beehiiv Scale creators who have paying subscribers processed through Stripe.",
-              },
-              {
-                q: 'How is this different from what Beehiiv offers?',
-                a: "Beehiiv doesn't have a cancellation flow for premium subscribers. When someone cancels, they just cancel. ChurnRecovery adds the missing layer — a moment between 'I'm thinking about canceling' and 'I'm gone.'",
-              },
-              {
-                q: "What's the save rate?",
-                a: "It depends on your newsletter and offers, but typical save rates are 20–35% of at-risk subscribers. On a $5,000/month newsletter, that can mean $1,000–$1,750/month recovered that you would have lost.",
-              },
-              {
-                q: 'What if I want to cancel ChurnRecovery?',
-                a: "Cancel any time. No contracts. Start with a 30-day free trial — you risk nothing by trying.",
-              },
-            ].map(faq => (
+            {faqs.map(faq => (
               <FAQItem key={faq.q} q={faq.q} a={faq.a} />
             ))}
           </div>

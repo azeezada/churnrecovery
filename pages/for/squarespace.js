@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import SignUpCTA from '../../components/SignUpCTA'
+import { buildFAQSchema } from '../../lib/faq-schema'
 
 function PainCard({ icon, title, stat, statLabel, description }) {
   return (
@@ -62,6 +63,15 @@ function FAQItem({ q, a }) {
   )
 }
 
+const faqs = [
+  { q: 'Does ChurnRecovery work with all Squarespace subscriptions?', a: "It works with Squarespace subscriptions that process payments through Stripe. Most Squarespace membership sites and recurring digital products use Stripe. If you're unsure, check your Squarespace payment settings — if Stripe is listed, you're set." },
+  { q: 'Does Squarespace need to approve this?', a: "No. ChurnRecovery works at the Stripe level, completely outside of Squarespace. Squarespace has no visibility into Stripe webhook events. You don't need Squarespace's permission or any app installation." },
+  { q: 'Will this interfere with my Squarespace site?', a: "Not at all. ChurnRecovery doesn't touch your Squarespace site, theme, or settings. Your site looks and functions exactly the same. We add a layer at the payment processor level — invisible to your site, visible to your subscribers when they try to cancel." },
+  { q: 'How quickly can I set this up?', a: "Most Squarespace sellers are set up in under 10 minutes. You connect your Stripe account, choose your recovery offer (pause, discount, or survey), and you're live. No code, no design work, no developer." },
+  { q: "What if someone wants to cancel even after seeing my offer?", a: "They can still cancel. ChurnRecovery doesn't block cancellations — it intercepts them with an offer first. If the subscriber declines, they complete the cancellation normally. You still get the exit survey data, which is valuable on its own." },
+  { q: 'Does this work with Squarespace Scheduling (Acuity)?', a: "ChurnRecovery works with any Squarespace product that uses Stripe for recurring billing — membership sites, digital subscriptions, and recurring service plans connected to Stripe. Squarespace Scheduling appointments (one-time bookings) aren't subscription-based, so those wouldn't apply." },
+]
+
 export default function SquarespaceLandingPage() {
   return (
     <>
@@ -76,6 +86,7 @@ export default function SquarespaceLandingPage() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Squarespace Doesn't Have a Cancel Flow. We Add One in 10 Minutes." />
         <meta name="twitter:description" content="Stop losing Squarespace subscribers silently. ChurnRecovery adds a pause offer, discount, or exit survey before they go." />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(buildFAQSchema(faqs)) }} />
       </Head>
 
       <Header />
@@ -209,14 +220,7 @@ export default function SquarespaceLandingPage() {
               </h2>
             </div>
 
-            {[
-              { q: 'Does ChurnRecovery work with all Squarespace subscriptions?', a: "It works with Squarespace subscriptions that process payments through Stripe. Most Squarespace membership sites and recurring digital products use Stripe. If you're unsure, check your Squarespace payment settings — if Stripe is listed, you're set." },
-              { q: 'Does Squarespace need to approve this?', a: "No. ChurnRecovery works at the Stripe level, completely outside of Squarespace. Squarespace has no visibility into Stripe webhook events. You don't need Squarespace's permission or any app installation." },
-              { q: 'Will this interfere with my Squarespace site?', a: "Not at all. ChurnRecovery doesn't touch your Squarespace site, theme, or settings. Your site looks and functions exactly the same. We add a layer at the payment processor level — invisible to your site, visible to your subscribers when they try to cancel." },
-              { q: 'How quickly can I set this up?', a: "Most Squarespace sellers are set up in under 10 minutes. You connect your Stripe account, choose your recovery offer (pause, discount, or survey), and you're live. No code, no design work, no developer." },
-              { q: "What if someone wants to cancel even after seeing my offer?", a: "They can still cancel. ChurnRecovery doesn't block cancellations — it intercepts them with an offer first. If the subscriber declines, they complete the cancellation normally. You still get the exit survey data, which is valuable on its own." },
-              { q: 'Does this work with Squarespace Scheduling (Acuity)?', a: "ChurnRecovery works with any Squarespace product that uses Stripe for recurring billing — membership sites, digital subscriptions, and recurring service plans connected to Stripe. Squarespace Scheduling appointments (one-time bookings) aren't subscription-based, so those wouldn't apply." },
-            ].map(faq => <FAQItem key={faq.q} q={faq.q} a={faq.a} />)}
+            {faqs.map(faq => <FAQItem key={faq.q} q={faq.q} a={faq.a} />)}
           </div>
         </section>
 

@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import SignUpCTA from '../../components/SignUpCTA'
+import { buildFAQSchema } from '../../lib/faq-schema'
 
 function PainCard({ icon, title, stat, statLabel, description }) {
   return (
@@ -95,6 +96,37 @@ function FAQItem({ q, a }) {
   )
 }
 
+const faqs = [
+  {
+    q: 'Does this work with Kit (ConvertKit)?',
+    a: "Yes. Kit Commerce processes paid subscriptions through Stripe. ChurnRecovery connects to Stripe directly and listens for cancellation webhooks — no special Kit API integration needed. If you sell paid newsletters or recurring products through Kit, it works.",
+  },
+  {
+    q: 'Does it matter that ConvertKit rebranded to Kit?',
+    a: "Not at all. Whether you call it Kit or ConvertKit, the underlying Stripe integration is the same. ChurnRecovery works with both old and new Kit accounts.",
+  },
+  {
+    q: 'Do I need a developer?',
+    a: "No. The setup is copy-paste: add a webhook URL from ChurnRecovery to your Stripe dashboard. Takes about 10 minutes with our step-by-step guide.",
+  },
+  {
+    q: "Will it look like a third-party tool to my subscribers?",
+    a: "No — unless you want it to. Your cancel flow messages are fully customizable. Subscribers see your words, your offer, your tone. ChurnRecovery is invisible infrastructure.",
+  },
+  {
+    q: 'What kinds of offers can I show at cancellation?',
+    a: "You can offer a pause (1–3 months), a discount (percentage off), a free month, or a personal note. You decide what to offer and when. We handle the delivery and tracking.",
+  },
+  {
+    q: "What's the typical save rate?",
+    a: "20–35% of at-risk subscribers accept an offer and stay. On a $3,000/month newsletter, that's $600–$1,050 per month saved that you would have lost.",
+  },
+  {
+    q: 'Can I cancel ChurnRecovery?',
+    a: "Yes, any time. No contracts. Just disconnect the webhook if you want to stop. Zero risk.",
+  },
+]
+
 export default function ConvertKitLandingPage() {
   return (
     <>
@@ -109,6 +141,7 @@ export default function ConvertKitLandingPage() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Keep Your Kit Paid Subscribers From Canceling" />
         <meta name="twitter:description" content="ChurnRecovery for Kit (ConvertKit) creators — catch cancellations and recover revenue automatically." />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(buildFAQSchema(faqs)) }} />
       </Head>
 
       <Header />
@@ -330,36 +363,7 @@ export default function ConvertKitLandingPage() {
               </h2>
             </div>
 
-            {[
-              {
-                q: 'Does this work with Kit (ConvertKit)?',
-                a: "Yes. Kit Commerce processes paid subscriptions through Stripe. ChurnRecovery connects to Stripe directly and listens for cancellation webhooks — no special Kit API integration needed. If you sell paid newsletters or recurring products through Kit, it works.",
-              },
-              {
-                q: 'Does it matter that ConvertKit rebranded to Kit?',
-                a: "Not at all. Whether you call it Kit or ConvertKit, the underlying Stripe integration is the same. ChurnRecovery works with both old and new Kit accounts.",
-              },
-              {
-                q: 'Do I need a developer?',
-                a: "No. The setup is copy-paste: add a webhook URL from ChurnRecovery to your Stripe dashboard. Takes about 10 minutes with our step-by-step guide.",
-              },
-              {
-                q: "Will it look like a third-party tool to my subscribers?",
-                a: "No — unless you want it to. Your cancel flow messages are fully customizable. Subscribers see your words, your offer, your tone. ChurnRecovery is invisible infrastructure.",
-              },
-              {
-                q: 'What kinds of offers can I show at cancellation?',
-                a: "You can offer a pause (1–3 months), a discount (percentage off), a free month, or a personal note. You decide what to offer and when. We handle the delivery and tracking.",
-              },
-              {
-                q: "What's the typical save rate?",
-                a: "20–35% of at-risk subscribers accept an offer and stay. On a $3,000/month newsletter, that's $600–$1,050 per month saved that you would have lost.",
-              },
-              {
-                q: 'Can I cancel ChurnRecovery?',
-                a: "Yes, any time. No contracts. Just disconnect the webhook if you want to stop. Zero risk.",
-              },
-            ].map(faq => (
+            {faqs.map(faq => (
               <FAQItem key={faq.q} q={faq.q} a={faq.a} />
             ))}
           </div>

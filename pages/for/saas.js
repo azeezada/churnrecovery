@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import SignUpCTA from '../../components/SignUpCTA'
+import { buildFAQSchema } from '../../lib/faq-schema'
 
 // ─── Pain card ──────────────────────────────────────────────────────────────
 function PainCard({ icon, title, stat, statLabel, description }) {
@@ -101,6 +102,37 @@ function FAQItem({ q, a }) {
   )
 }
 
+const faqs = [
+  {
+    q: 'Does this work with any billing system or only Stripe?',
+    a: "ChurnRecovery currently works with Stripe-based billing. If your SaaS uses Stripe — directly or through a platform that runs on Stripe under the hood — you're covered. Support for additional payment processors is on the roadmap.",
+  },
+  {
+    q: 'Does it work for B2B SaaS with annual contracts?',
+    a: "Yes, with some nuance. For annual subscribers, the cancel flow fires at renewal time or when they request early cancellation. For monthly B2B plans, it works the same as B2C — we intercept the cancellation event and trigger your flow before it finalizes.",
+  },
+  {
+    q: 'How does involuntary churn recovery work?',
+    a: "When a payment fails, ChurnRecovery triggers an automated dunning sequence — a series of emails and retry prompts designed to recover the subscription before it churns. Failed payments account for 20–40% of SaaS churn, and most of it is recoverable if you act fast.",
+  },
+  {
+    q: 'Will this conflict with my existing billing portal or cancellation flow?',
+    a: "No. ChurnRecovery operates at the Stripe webhook level, outside your application code. It doesn't replace your billing portal — it adds a recovery layer before the cancellation completes. Your existing infrastructure stays exactly as it is.",
+  },
+  {
+    q: 'Do I need to involve my engineering team?',
+    a: "Not at all. If you can connect a Stripe account and configure a webhook URL, you can set this up yourself in under 10 minutes. We have step-by-step guides with screenshots for every part of the process.",
+  },
+  {
+    q: 'Can I customize the cancel flow for different plan tiers?',
+    a: "Yes. You can create different flows for different subscription plans — offer a pause to monthly users, a discount to annual users, and an exit survey to churning trial users. Every flow is fully customizable.",
+  },
+  {
+    q: "What if a subscriber still cancels after seeing the offer?",
+    a: "That's fine. If they want to leave, they leave. You still capture their exit survey response — which is more actionable signal than silence. And you\u0027ve made the attempt, which 20–35% of at-risk subscribers respond to positively.",
+  },
+]
+
 // ─── Main Page ───────────────────────────────────────────────────────────────
 export default function SaaSLandingPage() {
   return (
@@ -116,6 +148,7 @@ export default function SaaSLandingPage() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Churn Recovery for SaaS — Stop Losing MRR at the Cancel Screen" />
         <meta name="twitter:description" content="5–7% monthly churn is the SaaS norm. ChurnRecovery connects to Stripe and intercepts cancellations before they're final — for any Stripe-based SaaS product." />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(buildFAQSchema(faqs)) }} />
       </Head>
 
       <Header />
@@ -347,38 +380,7 @@ export default function SaaSLandingPage() {
               </h2>
             </div>
 
-            {[
-              {
-                q: 'Does this work with any billing system or only Stripe?',
-                a: "ChurnRecovery currently works with Stripe-based billing. If your SaaS uses Stripe — directly or through a platform that runs on Stripe under the hood — you're covered. Support for additional payment processors is on the roadmap.",
-              },
-              {
-                q: 'Does it work for B2B SaaS with annual contracts?',
-                a: "Yes, with some nuance. For annual subscribers, the cancel flow fires at renewal time or when they request early cancellation. For monthly B2B plans, it works the same as B2C — we intercept the cancellation event and trigger your flow before it finalizes.",
-              },
-              {
-                q: 'How does involuntary churn recovery work?',
-                a: "When a payment fails, ChurnRecovery triggers an automated dunning sequence — a series of emails and retry prompts designed to recover the subscription before it churns. Failed payments account for 20–40% of SaaS churn, and most of it is recoverable if you act fast.",
-              },
-              {
-                q: 'Will this conflict with my existing billing portal or cancellation flow?',
-                a: "No. ChurnRecovery operates at the Stripe webhook level, outside your application code. It doesn't replace your billing portal — it adds a recovery layer before the cancellation completes. Your existing infrastructure stays exactly as it is.",
-              },
-              {
-                q: 'Do I need to involve my engineering team?',
-                a: "Not at all. If you can connect a Stripe account and configure a webhook URL, you can set this up yourself in under 10 minutes. We have step-by-step guides with screenshots for every part of the process.",
-              },
-              {
-                q: 'Can I customize the cancel flow for different plan tiers?',
-                a: "Yes. You can create different flows for different subscription plans — offer a pause to monthly users, a discount to annual users, and an exit survey to churning trial users. Every flow is fully customizable.",
-              },
-              {
-                q: "What if a subscriber still cancels after seeing the offer?",
-                a: "That's fine. If they want to leave, they leave. You still capture their exit survey response — which is more actionable signal than silence. And you&apos;ve made the attempt, which 20–35% of at-risk subscribers respond to positively.",
-              },
-            ].map(faq => (
-              <FAQItem key={faq.q} q={faq.q} a={faq.a} />
-            ))}
+            {faqs.map(faq => <FAQItem key={faq.q} q={faq.q} a={faq.a} />)}
           </div>
         </section>
 

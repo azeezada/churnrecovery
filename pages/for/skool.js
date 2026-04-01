@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import SignUpCTA from '../../components/SignUpCTA'
+import { buildFAQSchema } from '../../lib/faq-schema'
 
 // ─── Pain card ──────────────────────────────────────────────────────────────
 function PainCard({ icon, title, stat, statLabel, description }) {
@@ -101,6 +102,37 @@ function FAQItem({ q, a }) {
   )
 }
 
+const faqs = [
+  {
+    q: 'Does this actually work with Skool?',
+    a: "Yes. Skool processes all payments through Stripe. ChurnRecovery connects to your Stripe account and intercepts cancellation events in real-time. No Skool API access is needed — everything happens at the Stripe payment layer.",
+  },
+  {
+    q: 'Will Skool block or restrict this?',
+    a: "No. ChurnRecovery doesn't interact with Skool's platform at all. It connects to your Stripe account, which you own and control independently. Skool has no visibility into or control over your Stripe integrations.",
+  },
+  {
+    q: 'Can I customize the cancel flow?',
+    a: "Yes, fully. You control the messaging, the offers (pause, discount, free month), and the exit survey questions. We provide templates optimized for communities, but you can edit every word to match your brand voice.",
+  },
+  {
+    q: 'What happens to the Skool community access if someone pauses?',
+    a: "When a member accepts a pause, ChurnRecovery pauses the Stripe subscription. Their Skool access will reflect whatever Stripe reports. When the pause ends and billing resumes, access continues automatically.",
+  },
+  {
+    q: 'How quickly can I set this up?',
+    a: "Under 10 minutes. Connect Stripe, configure your cancel flow (we have templates), and you're live. No code, no developer, no Skool admin changes needed.",
+  },
+  {
+    q: 'What if I have both free and paid Skool members?',
+    a: "ChurnRecovery only triggers on paid subscription cancellations through Stripe. Free members can come and go without any intervention. The tool is designed exclusively for protecting paid recurring revenue.",
+  },
+  {
+    q: 'Is there a per-member fee?',
+    a: "No. $20/month flat, regardless of how many members you have or how many cancellations you intercept. No hidden fees, no percentage of recovered revenue. Start with a 30-day free trial — no credit card required.",
+  },
+]
+
 // ─── Main Page ───────────────────────────────────────────────────────────────
 export default function SkoolLandingPage() {
   return (
@@ -116,6 +148,7 @@ export default function SkoolLandingPage() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Churn Recovery for Skool Communities" />
         <meta name="twitter:description" content="Skool has no cancel flow. Members leave without explanation. ChurnRecovery fixes that via Stripe — $20/month flat." />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(buildFAQSchema(faqs)) }} />
       </Head>
 
       <Header />
@@ -353,38 +386,7 @@ export default function SkoolLandingPage() {
               </h2>
             </div>
 
-            {[
-              {
-                q: 'Does this actually work with Skool?',
-                a: "Yes. Skool processes all payments through Stripe. ChurnRecovery connects to your Stripe account and intercepts cancellation events in real-time. No Skool API access is needed — everything happens at the Stripe payment layer.",
-              },
-              {
-                q: 'Will Skool block or restrict this?',
-                a: "No. ChurnRecovery doesn't interact with Skool's platform at all. It connects to your Stripe account, which you own and control independently. Skool has no visibility into or control over your Stripe integrations.",
-              },
-              {
-                q: 'Can I customize the cancel flow?',
-                a: "Yes, fully. You control the messaging, the offers (pause, discount, free month), and the exit survey questions. We provide templates optimized for communities, but you can edit every word to match your brand voice.",
-              },
-              {
-                q: 'What happens to the Skool community access if someone pauses?',
-                a: "When a member accepts a pause, ChurnRecovery pauses the Stripe subscription. Their Skool access will reflect whatever Stripe reports. When the pause ends and billing resumes, access continues automatically.",
-              },
-              {
-                q: 'How quickly can I set this up?',
-                a: "Under 10 minutes. Connect Stripe, configure your cancel flow (we have templates), and you're live. No code, no developer, no Skool admin changes needed.",
-              },
-              {
-                q: 'What if I have both free and paid Skool members?',
-                a: "ChurnRecovery only triggers on paid subscription cancellations through Stripe. Free members can come and go without any intervention. The tool is designed exclusively for protecting paid recurring revenue.",
-              },
-              {
-                q: 'Is there a per-member fee?',
-                a: "No. $20/month flat, regardless of how many members you have or how many cancellations you intercept. No hidden fees, no percentage of recovered revenue. Start with a 30-day free trial — no credit card required.",
-              },
-            ].map(faq => (
-              <FAQItem key={faq.q} q={faq.q} a={faq.a} />
-            ))}
+            {faqs.map(faq => <FAQItem key={faq.q} q={faq.q} a={faq.a} />)}
           </div>
         </section>
 

@@ -7,11 +7,39 @@ import HowStep from '../../components/for/HowStep'
 import BenefitCard from '../../components/for/BenefitCard'
 import FAQItem from '../../components/for/FAQItem'
 import SignUpCTA from '../../components/SignUpCTA'
+import { buildFAQSchema } from '../../lib/faq-schema'
 
 const ACCENT = '#0099FF'
 const ACCENT_LIGHT = '#33AAFF'
 const ACCENT_DARK_BG = 'rgba(0,153,255,0.15)'
 const ACCENT_BG = 'rgba(0,153,255,0.08)'
+
+const faqs = [
+  {
+    q: 'Does this work with Wix Payments?',
+    a: "Yes. Wix Payments processes subscription payments through Stripe. ChurnRecovery connects to your underlying Stripe account and listens for cancellation events — completely outside Wix's system.",
+  },
+  {
+    q: "What if I don't know my Stripe account details?",
+    a: "If you use Wix Payments, you have a Stripe account — Wix creates one for you when you set up payments. You can find your Stripe login by going to your Wix dashboard \u2192 Payments \u2192 Wix Payments \u2192 Settings. From there, you can access Stripe directly.",
+  },
+  {
+    q: 'Do I need a Wix developer or Wix Velo to set this up?',
+    a: "Not at all. ChurnRecovery works at the Stripe level, completely separate from Wix. If you can click a button and copy a link, you can set this up in about 10 minutes — no code required.",
+  },
+  {
+    q: 'Will this interfere with my Wix website?',
+    a: "No. ChurnRecovery only interacts with your Stripe account. It doesn't touch your Wix site, your pages, your checkout flow, or any Wix settings. Your Wix site works exactly as it does today.",
+  },
+  {
+    q: 'What types of Wix subscriptions does this work for?',
+    a: "Any Wix subscription that runs through Stripe — including service plans, membership programs, digital content subscriptions, and any recurring billing you've set up through Wix Payments.",
+  },
+  {
+    q: 'What if a subscriber cancels through Wix directly?',
+    a: "When a subscriber cancels via Wix, Wix sends a cancellation event to Stripe. ChurnRecovery intercepts that Stripe event before the cancellation is finalized and shows your recovery flow. This happens regardless of where in Wix they initiated the cancel.",
+  },
+]
 
 export default function WixLandingPage() {
   return (
@@ -27,6 +55,7 @@ export default function WixLandingPage() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Stop Losing Wix Subscribers at the Cancel Screen" />
         <meta name="twitter:description" content="Wix Payments has no cancel flow. ChurnRecovery connects to Stripe and catches cancellations with pause offers, discounts, and exit surveys — automatically." />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(buildFAQSchema(faqs)) }} />
       </Head>
 
       <Header />
@@ -233,34 +262,7 @@ export default function WixLandingPage() {
               </h2>
             </div>
 
-            {[
-              {
-                q: 'Does this work with Wix Payments?',
-                a: "Yes. Wix Payments processes subscription payments through Stripe. ChurnRecovery connects to your underlying Stripe account and listens for cancellation events — completely outside Wix's system.",
-              },
-              {
-                q: "What if I don't know my Stripe account details?",
-                a: "If you use Wix Payments, you have a Stripe account — Wix creates one for you when you set up payments. You can find your Stripe login by going to your Wix dashboard → Payments → Wix Payments → Settings. From there, you can access Stripe directly.",
-              },
-              {
-                q: 'Do I need a Wix developer or Wix Velo to set this up?',
-                a: "Not at all. ChurnRecovery works at the Stripe level, completely separate from Wix. If you can click a button and copy a link, you can set this up in about 10 minutes — no code required.",
-              },
-              {
-                q: 'Will this interfere with my Wix website?',
-                a: "No. ChurnRecovery only interacts with your Stripe account. It doesn't touch your Wix site, your pages, your checkout flow, or any Wix settings. Your Wix site works exactly as it does today.",
-              },
-              {
-                q: 'What types of Wix subscriptions does this work for?',
-                a: "Any Wix subscription that runs through Stripe — including service plans, membership programs, digital content subscriptions, and any recurring billing you've set up through Wix Payments.",
-              },
-              {
-                q: 'What if a subscriber cancels through Wix directly?',
-                a: "When a subscriber cancels via Wix, Wix sends a cancellation event to Stripe. ChurnRecovery intercepts that Stripe event before the cancellation is finalized and shows your recovery flow. This happens regardless of where in Wix they initiated the cancel.",
-              },
-            ].map(faq => (
-              <FAQItem key={faq.q} q={faq.q} a={faq.a} accentColor={ACCENT} />
-            ))}
+            {faqs.map(faq => <FAQItem key={faq.q} q={faq.q} a={faq.a} accentColor={ACCENT} />)}
           </div>
         </section>
 

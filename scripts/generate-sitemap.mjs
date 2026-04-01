@@ -17,12 +17,6 @@ const staticPages = [
   { path: '/templates', priority: '0.8', changefreq: 'monthly' },
   { path: '/tools/churn-calculator', priority: '0.7', changefreq: 'monthly' },
   { path: '/resources/churn-recovery-playbook', priority: '0.8', changefreq: 'monthly' },
-  { path: '/styles', priority: '0.3', changefreq: 'monthly' },
-  { path: '/styles/developer', priority: '0.3', changefreq: 'monthly' },
-  { path: '/styles/warm-saas', priority: '0.3', changefreq: 'monthly' },
-  { path: '/styles/data-forward', priority: '0.3', changefreq: 'monthly' },
-  { path: '/app/sign-in', priority: '0.5', changefreq: 'monthly' },
-  { path: '/app/sign-up', priority: '0.5', changefreq: 'monthly' },
   { path: '/use-cases', priority: '0.9', changefreq: 'monthly' },
   { path: '/changelog', priority: '0.7', changefreq: 'weekly' },
   { path: '/launch', priority: '0.9', changefreq: 'monthly' },
@@ -53,6 +47,9 @@ const forPageSlugs = [
   'beehiiv', 'memberful', 'stan-store', 'payhip', 'podia',
   'thinkific', 'circle', 'patreon', 'wix', 'wordpress',
   'stripe', 'squarespace', 'lemon-squeezy', 'chargebee',
+  'shopify', 'woocommerce', 'mighty-networks', 'skool', 'saas',
+  'newsletters', 'online-courses', 'membership-sites', 'communities',
+  'subscription-boxes', 'coaching',
 ]
 const forPages = forPageSlugs.map(slug => ({
   path: `/for/${slug}`,

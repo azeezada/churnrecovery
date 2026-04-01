@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import SignUpCTA from '../../components/SignUpCTA'
+import { buildFAQSchema } from '../../lib/faq-schema'
 
 // ─── Pain card ──────────────────────────────────────────────────────────────
 function PainCard({ icon, title, stat, statLabel, description }) {
@@ -101,6 +102,37 @@ function FAQItem({ q, a }) {
   )
 }
 
+const faqs = [
+  {
+    q: 'Does this work with Substack?',
+    a: "Yes. Substack processes paid subscriptions through Stripe. ChurnRecovery connects to your Stripe account directly and listens for cancellation events. No Substack API access, no Substack approval — it works entirely at the Stripe level.",
+  },
+  {
+    q: 'Does this work with beehiiv?',
+    a: "Yes. beehiiv's paid subscription feature uses Stripe for payment processing. Connect your Stripe account to ChurnRecovery and it will intercept cancellations from beehiiv paid subscribers automatically.",
+  },
+  {
+    q: 'Does this work with Ghost?',
+    a: "Yes. Ghost memberships and paid subscriptions run on Stripe. ChurnRecovery connects directly to Stripe — so it works with Ghost whether you\u0027re on Ghost.org or self-hosted.",
+  },
+  {
+    q: 'Does this work with ConvertKit (Kit)?',
+    a: "Yes. ConvertKit's paid newsletter and community features use Stripe for billing. ChurnRecovery hooks into Stripe and catches cancellation events regardless of which platform initiated the subscription.",
+  },
+  {
+    q: 'Will my subscribers see third-party branding?',
+    a: "No. Your cancel flow is fully branded with your newsletter name, your message, and your tone. Subscribers see a message from you — not from ChurnRecovery. We stay invisible.",
+  },
+  {
+    q: 'Do I need developer help to set this up?',
+    a: "Not at all. If you can copy-paste a URL and click a few buttons, you can set this up in under 10 minutes. We have step-by-step guides with screenshots for Substack, beehiiv, Ghost, and ConvertKit.",
+  },
+  {
+    q: "What if a subscriber still cancels after seeing the offer?",
+    a: "That\u0027s fine. If they want to leave, they leave. You still capture their exit survey response — which is more than you had before. And 20–35% of people who see a well-crafted offer will reconsider.",
+  },
+]
+
 // ─── Main Page ───────────────────────────────────────────────────────────────
 export default function NewslettersLandingPage() {
   return (
@@ -116,6 +148,7 @@ export default function NewslettersLandingPage() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Churn Recovery for Paid Newsletters | ChurnRecovery" />
         <meta name="twitter:description" content="Newsletter platforms give you zero churn tools. ChurnRecovery plugs directly into Stripe — works with Substack, beehiiv, Ghost, and ConvertKit." />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(buildFAQSchema(faqs)) }} />
       </Head>
 
       <Header />
@@ -345,38 +378,7 @@ export default function NewslettersLandingPage() {
               </h2>
             </div>
 
-            {[
-              {
-                q: 'Does this work with Substack?',
-                a: "Yes. Substack processes paid subscriptions through Stripe. ChurnRecovery connects to your Stripe account directly and listens for cancellation events. No Substack API access, no Substack approval — it works entirely at the Stripe level.",
-              },
-              {
-                q: 'Does this work with beehiiv?',
-                a: "Yes. beehiiv's paid subscription feature uses Stripe for payment processing. Connect your Stripe account to ChurnRecovery and it will intercept cancellations from beehiiv paid subscribers automatically.",
-              },
-              {
-                q: 'Does this work with Ghost?',
-                a: "Yes. Ghost memberships and paid subscriptions run on Stripe. ChurnRecovery connects directly to Stripe — so it works with Ghost whether you&apos;re on Ghost.org or self-hosted.",
-              },
-              {
-                q: 'Does this work with ConvertKit (Kit)?',
-                a: "Yes. ConvertKit's paid newsletter and community features use Stripe for billing. ChurnRecovery hooks into Stripe and catches cancellation events regardless of which platform initiated the subscription.",
-              },
-              {
-                q: 'Will my subscribers see third-party branding?',
-                a: "No. Your cancel flow is fully branded with your newsletter name, your message, and your tone. Subscribers see a message from you — not from ChurnRecovery. We stay invisible.",
-              },
-              {
-                q: 'Do I need developer help to set this up?',
-                a: "Not at all. If you can copy-paste a URL and click a few buttons, you can set this up in under 10 minutes. We have step-by-step guides with screenshots for Substack, beehiiv, Ghost, and ConvertKit.",
-              },
-              {
-                q: "What if a subscriber still cancels after seeing the offer?",
-                a: "That&apos;s fine. If they want to leave, they leave. You still capture their exit survey response — which is more than you had before. And 20–35% of people who see a well-crafted offer will reconsider.",
-              },
-            ].map(faq => (
-              <FAQItem key={faq.q} q={faq.q} a={faq.a} />
-            ))}
+            {faqs.map(faq => <FAQItem key={faq.q} q={faq.q} a={faq.a} />)}
           </div>
         </section>
 

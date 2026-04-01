@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import SignUpCTA from '../../components/SignUpCTA'
+import { buildFAQSchema } from '../../lib/faq-schema'
 
 function PainCard({ icon, title, stat, statLabel, description }) {
   return (
@@ -95,6 +96,37 @@ function FAQItem({ q, a }) {
   )
 }
 
+const faqs = [
+  {
+    q: 'Does ChurnRecovery work with Circle paid memberships?',
+    a: "Yes. Circle processes paid memberships through Stripe. ChurnRecovery connects to your Stripe account and intercepts cancellation webhooks — no Circle API or special Circle integration needed.",
+  },
+  {
+    q: 'What if Circle adds its own cancel flow someday?',
+    a: "Great news for everyone. Until then, ChurnRecovery fills that gap. And even if Circle adds a basic exit survey, ChurnRecovery gives you custom recovery flows, pause options, discount automation, and recovery analytics — beyond what any platform would build natively.",
+  },
+  {
+    q: 'Does the pause option actually work for communities?',
+    a: "Yes — and it works especially well for communities. Unlike a course (where you finish and leave), a community member who pauses still identifies as a member. They return when life settles. A 30-day pause converts 20–35% of at-risk members who would otherwise have canceled permanently.",
+  },
+  {
+    q: 'Will this feel pushy or manipulative to my members?',
+    a: "No. The pause offer is genuine — members can take a real break and return. They can also still cancel if they want. We believe in transparent, honest retention. No dark patterns.",
+  },
+  {
+    q: 'What if my Circle community uses a different payment processor?',
+    a: "Circle paid memberships use Stripe. If you're using Circle's paid membership feature, you're already on Stripe — and ChurnRecovery works natively.",
+  },
+  {
+    q: 'How is this different from just emailing members after they cancel?',
+    a: "Night and day. Post-cancel email win-back rates are typically 2–5%. Intercept at the cancel moment before it's final and you're looking at 20–35% retention. The timing is everything.",
+  },
+  {
+    q: "What if I'm just getting started with paid memberships?",
+    a: "Perfect time to set this up. It takes 10 minutes and you get a 30-day free trial. You'll have retention working from your very first paid member.",
+  },
+]
+
 export default function CircleLandingPage() {
   return (
     <>
@@ -109,6 +141,7 @@ export default function CircleLandingPage() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Churn Recovery for Circle Community Builders" />
         <meta name="twitter:description" content="Rescue Circle members before they cancel. A 30-day pause is better than losing them forever." />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(buildFAQSchema(faqs)) }} />
       </Head>
 
       <Header />
@@ -341,36 +374,7 @@ export default function CircleLandingPage() {
               </h2>
             </div>
 
-            {[
-              {
-                q: 'Does ChurnRecovery work with Circle paid memberships?',
-                a: "Yes. Circle processes paid memberships through Stripe. ChurnRecovery connects to your Stripe account and intercepts cancellation webhooks — no Circle API or special Circle integration needed.",
-              },
-              {
-                q: 'What if Circle adds its own cancel flow someday?',
-                a: "Great news for everyone. Until then, ChurnRecovery fills that gap. And even if Circle adds a basic exit survey, ChurnRecovery gives you custom recovery flows, pause options, discount automation, and recovery analytics — beyond what any platform would build natively.",
-              },
-              {
-                q: 'Does the pause option actually work for communities?',
-                a: "Yes — and it works especially well for communities. Unlike a course (where you finish and leave), a community member who pauses still identifies as a member. They return when life settles. A 30-day pause converts 20–35% of at-risk members who would otherwise have canceled permanently.",
-              },
-              {
-                q: 'Will this feel pushy or manipulative to my members?',
-                a: "No. The pause offer is genuine — members can take a real break and return. They can also still cancel if they want. We believe in transparent, honest retention. No dark patterns.",
-              },
-              {
-                q: 'What if my Circle community uses a different payment processor?',
-                a: "Circle paid memberships use Stripe. If you're using Circle's paid membership feature, you're already on Stripe — and ChurnRecovery works natively.",
-              },
-              {
-                q: 'How is this different from just emailing members after they cancel?',
-                a: "Night and day. Post-cancel email win-back rates are typically 2–5%. Intercept at the cancel moment before it's final and you're looking at 20–35% retention. The timing is everything.",
-              },
-              {
-                q: "What if I'm just getting started with paid memberships?",
-                a: "Perfect time to set this up. It takes 10 minutes and you get a 30-day free trial. You'll have retention working from your very first paid member.",
-              },
-            ].map(faq => (
+            {faqs.map(faq => (
               <FAQItem key={faq.q} q={faq.q} a={faq.a} />
             ))}
           </div>

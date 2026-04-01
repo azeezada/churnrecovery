@@ -1,8 +1,19 @@
 User-agent: *
 Allow: /
+Disallow: /app/
+Disallow: /styles/
+
+# AI crawlers — allow for citation and discovery
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
 
 Sitemap: https://churnrecovery.com/sitemap.xml
-
-# Block style exploration pages from indexing
-User-agent: *
-Disallow: /styles/

@@ -1,6 +1,6 @@
 ---
 title: "Discount vs. Pause vs. Cancel: What Actually Saves Subscribers?"
-description: "When a subscriber tries to cancel, you have three tools: offer a discount, offer a pause, or let them go. Here's the data on which works best — and when."
+description: "Discounts save 25–40% of cancellations. Pauses save fewer — but paused subscribers return at 60–70% vs 15–20%. Here's the data on when to use each."
 date: "2026-02-17"
 tags: ["cancel flow", "churn", "subscription", "retention", "discount", "pause"]
 author: "ChurnRecovery Team"

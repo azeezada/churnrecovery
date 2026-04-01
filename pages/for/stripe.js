@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import SignUpCTA from '../../components/SignUpCTA'
+import { buildFAQSchema } from '../../lib/faq-schema'
 
 function PainCard({ icon, title, stat, statLabel, description }) {
   return (
@@ -62,6 +63,17 @@ function FAQItem({ q, a }) {
   )
 }
 
+const faqs = [
+  { q: 'Does Stripe have a built-in cancel flow?', a: "No. Stripe's Customer Portal allows subscribers to cancel their subscription in a few clicks, but there's no mechanism to show them an offer, ask why they're leaving, or give them a pause option. The cancellation is processed immediately. ChurnRecovery adds that missing layer." },
+  { q: 'How does ChurnRecovery connect to Stripe?', a: "ChurnRecovery uses Stripe's official webhook API to listen for subscription cancellation events. When we detect one, we trigger your cancel flow before the cancellation is finalized. The integration uses official Stripe OAuth — the same mechanism used by thousands of Stripe-compatible apps. Your Stripe credentials are never stored on our servers." },
+  { q: 'Will this break my existing Stripe setup?', a: "No. ChurnRecovery is additive — it adds a layer on top of your existing Stripe configuration without changing anything. Your billing, invoicing, and subscription management all work exactly as before. The only change is that subscribers see your cancel flow when they try to cancel." },
+  { q: 'What if I use Stripe with a platform like Kajabi, Ghost, or Teachable?', a: "ChurnRecovery works with Stripe regardless of what platform sits on top. If your subscriptions process through Stripe — whether directly or through a platform that uses Stripe — we can integrate with them. See our dedicated pages for Kajabi, Ghost, Teachable, and other platforms." },
+  { q: "Can I customize the cancel flow message and offers?", a: "Completely. Your cancel flow can have your brand name, your voice, and your exact offer. You choose whether to show a pause option, a discount, a survey, or a combination. We provide templates, but you can edit every word. Your subscribers will feel like they're hearing from you." },
+  { q: 'What happens if a subscriber declines my offer?', a: "They complete the cancellation normally. ChurnRecovery doesn't block cancellations — it gives you a chance to save the subscription first. If they still want to leave, they leave. But you get their exit survey response, which tells you why — and that's data Stripe never gives you." },
+  { q: 'How much does ChurnRecovery cost?', a: "$20/month with a 30-day free trial. No credit card required to start. No per-subscriber fees, no per-recovery fees. All features included. Cancel anytime." },
+  { q: "Does this work for B2B Stripe subscriptions?", a: "Yes. ChurnRecovery works for any Stripe subscription — B2B, B2C, monthly, annual, or usage-based. The cancel flow experience can be customized for your audience: a B2B tool might offer a call with your team instead of a discount, while a B2C product might lead with a pause offer." },
+]
+
 export default function StripeLandingPage() {
   return (
     <>
@@ -76,8 +88,8 @@ export default function StripeLandingPage() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Stripe Cancel Flow & Churn Recovery | ChurnRecovery" />
         <meta name="twitter:description" content="Add a cancel flow to your Stripe subscriptions in 10 minutes. Pause offers, discounts, exit surveys. 20–35% of churning subscribers can be saved. $20/month flat, 30-day free trial." />
-        {/* SEO: target stripe churn recovery and stripe cancel flow */}
         <meta name="keywords" content="stripe churn recovery, stripe cancel flow, stripe subscription cancellations, churn recovery stripe, cancel flow stripe" />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(buildFAQSchema(faqs)) }} />
       </Head>
 
       <Header />
@@ -298,16 +310,7 @@ export default function StripeLandingPage() {
               </h2>
             </div>
 
-            {[
-              { q: 'Does Stripe have a built-in cancel flow?', a: "No. Stripe's Customer Portal allows subscribers to cancel their subscription in a few clicks, but there's no mechanism to show them an offer, ask why they're leaving, or give them a pause option. The cancellation is processed immediately. ChurnRecovery adds that missing layer." },
-              { q: 'How does ChurnRecovery connect to Stripe?', a: "ChurnRecovery uses Stripe's official webhook API to listen for subscription cancellation events. When we detect one, we trigger your cancel flow before the cancellation is finalized. The integration uses official Stripe OAuth — the same mechanism used by thousands of Stripe-compatible apps. Your Stripe credentials are never stored on our servers." },
-              { q: 'Will this break my existing Stripe setup?', a: "No. ChurnRecovery is additive — it adds a layer on top of your existing Stripe configuration without changing anything. Your billing, invoicing, and subscription management all work exactly as before. The only change is that subscribers see your cancel flow when they try to cancel." },
-              { q: 'What if I use Stripe with a platform like Kajabi, Ghost, or Teachable?', a: "ChurnRecovery works with Stripe regardless of what platform sits on top. If your subscriptions process through Stripe — whether directly or through a platform that uses Stripe — we can integrate with them. See our dedicated pages for Kajabi, Ghost, Teachable, and other platforms." },
-              { q: "Can I customize the cancel flow message and offers?", a: "Completely. Your cancel flow can have your brand name, your voice, and your exact offer. You choose whether to show a pause option, a discount, a survey, or a combination. We provide templates, but you can edit every word. Your subscribers will feel like they're hearing from you." },
-              { q: 'What happens if a subscriber declines my offer?', a: "They complete the cancellation normally. ChurnRecovery doesn't block cancellations — it gives you a chance to save the subscription first. If they still want to leave, they leave. But you get their exit survey response, which tells you why — and that's data Stripe never gives you." },
-              { q: 'How much does ChurnRecovery cost?', a: "$20/month with a 30-day free trial. No credit card required to start. No per-subscriber fees, no per-recovery fees. All features included. Cancel anytime." },
-              { q: "Does this work for B2B Stripe subscriptions?", a: "Yes. ChurnRecovery works for any Stripe subscription — B2B, B2C, monthly, annual, or usage-based. The cancel flow experience can be customized for your audience: a B2B tool might offer a call with your team instead of a discount, while a B2C product might lead with a pause offer." },
-            ].map(faq => <FAQItem key={faq.q} q={faq.q} a={faq.a} />)}
+            {faqs.map(faq => <FAQItem key={faq.q} q={faq.q} a={faq.a} />)}
           </div>
         </section>
 

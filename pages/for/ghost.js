@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import SignUpCTA from '../../components/SignUpCTA'
+import { buildFAQSchema } from '../../lib/faq-schema'
 
 // ─── Pain card ──────────────────────────────────────────────────────────────
 function PainCard({ icon, title, stat, statLabel, description }) {
@@ -101,6 +102,33 @@ function FAQItem({ q, a }) {
   )
 }
 
+const faqs = [
+  {
+    q: 'Does Ghost use Stripe?',
+    a: "Yes — Ghost uses Stripe natively for all paid memberships and subscriptions. This isn't an integration or a workaround. It's Ghost's official payment system, which means ChurnRecovery connects directly to the same Stripe account your Ghost publication already uses.",
+  },
+  {
+    q: 'Is this easy to set up?',
+    a: "Very. Connect your Stripe account (one OAuth click), customize your cancel message, and you're live. The whole setup takes about 5 minutes. No code, no Ghost admin changes needed, no developer required.",
+  },
+  {
+    q: "Will this interfere with Ghost's membership experience?",
+    a: "No. ChurnRecovery operates at the Stripe webhook level, not inside the Ghost admin UI. Your Ghost site runs exactly as it did before — ChurnRecovery just adds a recovery layer that activates when a cancellation event fires.",
+  },
+  {
+    q: 'What types of Ghost publications does this work for?',
+    a: "Any Ghost publication with paid memberships or subscriptions — independent newsletters, journalism sites, niche media, creator publications. If you have recurring revenue through Ghost, ChurnRecovery protects it.",
+  },
+  {
+    q: 'What if my readers cancel because of financial hardship?',
+    a: "That's exactly what the pause option and 'pay what you can' discount are for. Instead of a permanent cancellation, you can offer a 1-month pause or a reduced rate for 2 months. Many financially-stressed readers will take that option gratefully.",
+  },
+  {
+    q: 'How much does it cost?',
+    a: "$20/month after a 30-day free trial. No credit card required to start. All features included — no per-subscriber fees. Compare that to Churnkey at $250+/month.",
+  },
+]
+
 // ─── Main Page ───────────────────────────────────────────────────────────────
 export default function GhostLandingPage() {
   return (
@@ -116,6 +144,7 @@ export default function GhostLandingPage() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Keep Your Ghost Members From Canceling Their Subscriptions" />
         <meta name="twitter:description" content="Ghost + Stripe + ChurnRecovery. Stop the silent exits. Give your readers a reason to stay." />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(buildFAQSchema(faqs)) }} />
       </Head>
 
       <Header />
@@ -345,32 +374,7 @@ export default function GhostLandingPage() {
               </h2>
             </div>
 
-            {[
-              {
-                q: 'Does Ghost use Stripe?',
-                a: "Yes — Ghost uses Stripe natively for all paid memberships and subscriptions. This isn't an integration or a workaround. It's Ghost's official payment system, which means ChurnRecovery connects directly to the same Stripe account your Ghost publication already uses.",
-              },
-              {
-                q: 'Is this easy to set up?',
-                a: "Very. Connect your Stripe account (one OAuth click), customize your cancel message, and you're live. The whole setup takes about 5 minutes. No code, no Ghost admin changes needed, no developer required.",
-              },
-              {
-                q: "Will this interfere with Ghost's membership experience?",
-                a: "No. ChurnRecovery operates at the Stripe webhook level, not inside the Ghost admin UI. Your Ghost site runs exactly as it did before — ChurnRecovery just adds a recovery layer that activates when a cancellation event fires.",
-              },
-              {
-                q: 'What types of Ghost publications does this work for?',
-                a: "Any Ghost publication with paid memberships or subscriptions — independent newsletters, journalism sites, niche media, creator publications. If you have recurring revenue through Ghost, ChurnRecovery protects it.",
-              },
-              {
-                q: 'What if my readers cancel because of financial hardship?',
-                a: "That's exactly what the pause option and 'pay what you can' discount are for. Instead of a permanent cancellation, you can offer a 1-month pause or a reduced rate for 2 months. Many financially-stressed readers will take that option gratefully.",
-              },
-              {
-                q: 'How much does it cost?',
-                a: "$20/month after a 30-day free trial. No credit card required to start. All features included — no per-subscriber fees. Compare that to Churnkey at $250+/month.",
-              },
-            ].map(faq => (
+            {faqs.map(faq => (
               <FAQItem key={faq.q} q={faq.q} a={faq.a} />
             ))}
           </div>

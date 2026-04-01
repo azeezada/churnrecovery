@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import SignUpCTA from '../../components/SignUpCTA'
+import { buildFAQSchema } from '../../lib/faq-schema'
 
 // ─── Pain card ──────────────────────────────────────────────────────────────
 function PainCard({ icon, title, stat, statLabel, description }) {
@@ -101,6 +102,37 @@ function FAQItem({ q, a }) {
   )
 }
 
+const faqs = [
+  {
+    q: 'Does this work for both 1-on-1 and group coaching?',
+    a: "Yes. ChurnRecovery works with any recurring subscription processed through Stripe — whether you charge individual coaching clients or run a group program with monthly membership fees. The cancel flow triggers for any Stripe subscription cancellation.",
+  },
+  {
+    q: 'My clients have a personal relationship with me. Will a cancel flow feel impersonal?',
+    a: "Not at all — in fact, the opposite. You control every word in your cancel flow message. Write it in your own voice, reference your program by name, and make the offer feel like it\u0027s coming directly from you. Most coaches find their clients respond better to a cancel flow than they expect, precisely because the relationship is already strong.",
+  },
+  {
+    q: 'What coaching platforms does ChurnRecovery support?',
+    a: "Any platform that processes payments through Stripe. This includes Kajabi, Teachable, Thinkific, Podia, Circle, and any custom setup using Stripe Checkout or Stripe payment links. If Stripe is involved, ChurnRecovery works — no platform-specific integration needed.",
+  },
+  {
+    q: 'Do I need a developer to set this up?',
+    a: "No. If you can click a button and copy a URL, you can set this up in 5–10 minutes. We have step-by-step guides with screenshots. No code, no API configuration, no developer required.",
+  },
+  {
+    q: 'What if a client really does want to cancel — will the cancel flow just frustrate them?',
+    a: "If a client genuinely wants to leave, they leave — the cancel flow just adds one respectful moment before the decision is final. And you still capture their exit survey response. The 20–35% recovery rate means most clients who see the flow either didn\u0027t know about the pause option or were on the fence about price.",
+  },
+  {
+    q: 'Can I offer a pause for clients who just need a break?',
+    a: "Yes — pause offers are one of the most effective tools for coaching businesses. Coaching clients often cancel during a busy period, a vacation, or a life change — not because they\u0027re unhappy. A pause keeps the relationship intact and means they come back when they\u0027re ready, rather than going through the effort of re-enrolling.",
+  },
+  {
+    q: 'How does ChurnRecovery handle failed payments?',
+    a: "ChurnRecovery listens for Stripe events including failed payment signals. When a card declines, you can trigger automated recovery flows — including a notification to the client and a smooth path to update their payment method. Involuntary churn (failed payments) accounts for a significant portion of coaching client losses and is often entirely preventable.",
+  },
+]
+
 // ─── Main Page ───────────────────────────────────────────────────────────────
 export default function CoachingLandingPage() {
   return (
@@ -116,6 +148,7 @@ export default function CoachingLandingPage() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Churn Recovery for Coaching Businesses | ChurnRecovery" />
         <meta name="twitter:description" content="High-ticket coaching clients cancel silently. ChurnRecovery intercepts cancellations through Stripe and gives you one last chance to save the relationship." />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(buildFAQSchema(faqs)) }} />
       </Head>
 
       <Header />
@@ -345,38 +378,7 @@ export default function CoachingLandingPage() {
               </h2>
             </div>
 
-            {[
-              {
-                q: 'Does this work for both 1-on-1 and group coaching?',
-                a: "Yes. ChurnRecovery works with any recurring subscription processed through Stripe — whether you charge individual coaching clients or run a group program with monthly membership fees. The cancel flow triggers for any Stripe subscription cancellation.",
-              },
-              {
-                q: 'My clients have a personal relationship with me. Will a cancel flow feel impersonal?',
-                a: "Not at all — in fact, the opposite. You control every word in your cancel flow message. Write it in your own voice, reference your program by name, and make the offer feel like it&apos;s coming directly from you. Most coaches find their clients respond better to a cancel flow than they expect, precisely because the relationship is already strong.",
-              },
-              {
-                q: 'What coaching platforms does ChurnRecovery support?',
-                a: "Any platform that processes payments through Stripe. This includes Kajabi, Teachable, Thinkific, Podia, Circle, and any custom setup using Stripe Checkout or Stripe payment links. If Stripe is involved, ChurnRecovery works — no platform-specific integration needed.",
-              },
-              {
-                q: 'Do I need a developer to set this up?',
-                a: "No. If you can click a button and copy a URL, you can set this up in 5–10 minutes. We have step-by-step guides with screenshots. No code, no API configuration, no developer required.",
-              },
-              {
-                q: 'What if a client really does want to cancel — will the cancel flow just frustrate them?',
-                a: "If a client genuinely wants to leave, they leave — the cancel flow just adds one respectful moment before the decision is final. And you still capture their exit survey response. The 20–35% recovery rate means most clients who see the flow either didn&apos;t know about the pause option or were on the fence about price.",
-              },
-              {
-                q: 'Can I offer a pause for clients who just need a break?',
-                a: "Yes — pause offers are one of the most effective tools for coaching businesses. Coaching clients often cancel during a busy period, a vacation, or a life change — not because they&apos;re unhappy. A pause keeps the relationship intact and means they come back when they&apos;re ready, rather than going through the effort of re-enrolling.",
-              },
-              {
-                q: 'How does ChurnRecovery handle failed payments?',
-                a: "ChurnRecovery listens for Stripe events including failed payment signals. When a card declines, you can trigger automated recovery flows — including a notification to the client and a smooth path to update their payment method. Involuntary churn (failed payments) accounts for a significant portion of coaching client losses and is often entirely preventable.",
-              },
-            ].map(faq => (
-              <FAQItem key={faq.q} q={faq.q} a={faq.a} />
-            ))}
+            {faqs.map(faq => <FAQItem key={faq.q} q={faq.q} a={faq.a} />)}
           </div>
         </section>
 
